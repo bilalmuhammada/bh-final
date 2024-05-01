@@ -9,7 +9,7 @@
                     <div class="password-alert" style="display: none"></div>
                     <div class="loginarea">
                         <div class="changepassword">
-                            <h1>Forgot Password</h1>
+                            <h1>Forgot Password11</h1>
                         </div>
                         <form class="forgot-password-form">
                             <div class="alert-div" style="display: none">
