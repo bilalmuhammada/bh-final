@@ -1,0 +1,15 @@
+   .btn-pay{
+        padding:6px 20px;background:#0000FF;color:#fff;
+    }
+    .btn-skip{
+        padding:6px 20px;color:#fff;
+    }
+    .inner-input{
+        width:100%;outline:0;border:0;border-bottom:1px solid #b6b8b9;padding:10px 0;background:transparent;font-size:12px;
+    }
+    .span-label{
+        font-size:13px;position:relative;top:10px;
+    }
+    .top-btn{
+        font-size:12px;background: rgba(0, 0, 255, .3);border:none;padding:5px 78px;border-radius:20px;width:100%;font-weight:bold;
+    }

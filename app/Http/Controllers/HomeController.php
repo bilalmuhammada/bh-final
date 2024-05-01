@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Helpers\RecordHelper;
+use App\Models\Category;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
+class HomeController extends Controller
+{
+    public function index()
+    {
+        return view('home.index');
+    }
+
+    public function home(Request $request)
+    {
+        if ($request->country) {
+            Session::put('country', $request->country);
+        }
+
+        return view('home.home');
+    }
+    public function showAd()
+    {
+        return view('home.show-ad');
+    }
+    public function adDetail()
+    {
+        return view('home.ad-detail');
+    }
+    public function favourite()
+    {
+        $categories = Category::orderBy('name')->get();
+        $data = [
+            'categories' => $categories
+        ];
+        return view('home.innerPages.favourite')->with($data);
+    }
+
+}
