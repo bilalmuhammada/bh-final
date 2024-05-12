@@ -11,12 +11,10 @@
         <div class="col-md-12 desktop-view">
             <div class="row">
                 <div class="col-md-2" style="border: 0px solid red;text-align:right;">
-                    <img class="display-profile-img" src="{{session()->get('user')->image_url}}" alt="img" width="120" height="120"
-                         style="border-radius: 5%;border:0px solid red;">
-
-                         <h4 style="font-size:14px;"><b>Change Profile Image:</b></h4>
-                                        <input type="file" name="profile_image" id="profile_image" class="form-control-file" style="border:1px solid #999;border-radius:2px;">
-                                        <input type="hidden" name="image" class="base64-Image-name">
+                    <img id="profile-image" class="display-profile-img" src="{{session()->get('user')->image_url}}" alt="img" width="120" height="120" style="border-radius: 5%; border: 0px solid red;">
+<a href="#" id="change-photo-link" style="margin-right: 10px;">Change Photo</a>
+<input type="file" name="profile_image" id="profile_image" class="form-control-file" style="border: 1px solid #999; border-radius: 2px; display: none;">
+<input type="hidden" name="image" class="base64-Image-name">
                 </div>
                 <div class="col-md-5" style="padding:0px 40px;">
                     <div class="row">
@@ -332,6 +330,27 @@
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
+document.getElementById('change-photo-link').addEventListener('click', function() {
+    document.getElementById('profile_image').click();
+});
+
+document.getElementById('profile_image').addEventListener('change', function() {
+    var file = this.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+        var imgElement = document.getElementById('profile-image');
+        imgElement.src = e.target.result;
+        document.querySelector('.base64-Image-name').value = e.target.result;
+    };
+
+    reader.readAsDataURL(file);
+});
+
+
+
+
+
         var base65Image = '';
         // fetching user data
         $(document).ready(function () {
