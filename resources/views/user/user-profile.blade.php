@@ -13,16 +13,23 @@
                 <div class="col-md-2" style="border: 0px solid red;text-align:right;">
                     <img class="display-profile-img" src="{{session()->get('user')->image_url}}" alt="img" width="120" height="120"
                          style="border-radius: 5%;border:0px solid red;">
+
+                         <h4 style="font-size:14px;"><b>Change Profile Image:</b></h4>
+                                        <input type="file" name="profile_image" id="profile_image" class="form-control-file" style="border:1px solid #999;border-radius:2px;">
+                                        <input type="hidden" name="image" class="base64-Image-name">
                 </div>
                 <div class="col-md-5" style="padding:0px 40px;">
                     <div class="row">
                         <form class="profile-form" style="font-size:12px;">
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
-                                    <div class="col-md-4" style="margin-bottom:-9px;"><b>Name:</b></div>
-                                    <div class="col-md-8" style="margin-bottom:-9px;">
-                                    <p>{{session()->get('user')->name}}</p>
-                                        <!-- <input type="text" class="form-control" name="name" id="name" value="{{session()->get('user')->name}}" style="border: 0px solid rgb(153, 153, 153);"> -->
+                                    <div class="col-md-4" ><b>Name:</b></div>
+                                    @php
+                                    //  dd(session()->get('user'));
+                                    @endphp
+                                    <div class="col-md-8">
+                                    {{-- <p>{{session()->get('user')->name}}</p> --}}
+                                         <input type="text" class="form-control" name="name" id="name" value="{{session()->get('user')->name}}" style="border: 1px solid rgb(153, 153, 153);">
                                     </div>
                                     <!-- <div class="col-md-4"><b></b></div>
                                     <div class="col-md-8">
@@ -57,12 +64,28 @@
                             </div>
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
-                                    <div class="col-md-4">Nationality:</div>
+                                    <div class="col-md-4">Mobile:</div>
                                     <div class="col-md-8">
-                                        <input name="nationality" id="nationality" type="text" class="form-control" style="border: 1px solid #999;">
+                                        <input name="mobile" id="mobile" type="text" class="form-control" style="border: 1px solid #999;">
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-12" style="margin-top: 10px;">
+                                <div class="row">
+                                    <div class="col-md-4">Email:</div>
+                                    <div class="col-md-8">
+                                        <input name="email" id="email" type="text" class="form-control" style="border: 1px solid #999;">
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- <div class="col-md-12" style="margin-top: 10px;">
+                                <div class="row">
+                                    <div class="col-md-4">Nationality:</div>
+                                    <div class="col-md-8">
+                                       
+                                    </div>
+                                </div>
+                            </div> --}}
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
                                     <div class="col-md-4">Date of Birth:</div>
@@ -71,8 +94,50 @@
                                     </div>
                                 </div>
                             </div>
+                            @php
+                            $countries = \App\Helpers\RecordHelper::getCountries();
+                            $cities = \App\Helpers\RecordHelper::getCities(request()->country);
+                        @endphp
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
+                                    <div class="col-md-4">Location:</div>
+                                    <div class="col-md-4">
+                                        <div class="input-group mb-3" style=" 
+                                        border: 1px solid #A17A4E">
+                                            <select name="country" id="country"
+                                                        class="form-control country_dropdown login-user"
+                                                        style="width:100%;">
+                                                    @if ($cities->count() < 1)
+                                                        <option value="" selected>Select</option>
+                                                    @endif
+                                                    @foreach($countries as $country)
+                                                        <option
+                                                            {{ $country->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $country->image_url }}"
+                                                            value="{{ $country->id }}"
+                                                            style="font-size:8px !important;"> {{ $country->nice_name }}</option>
+                                                    @endforeach
+                                                </select>
+                                        </div>
+                                  </div>
+
+                                       <div class="col-md-4">
+                                        <div class="input-group mb-3" style="
+                                        border: 1px solid #A17A4E">
+                                            <select name="cities" id="cities"
+                                            class="form-control country_dropdown login-user"
+                                            style="width:100%;">
+                                        @if ($cities->count() < 1)
+                                            <option value="" selected>Select</option>
+                                        @endif
+                                        @foreach($cities as $city)
+                                            <option
+                                                {{ $city->id == request()->city ? 'selected' : '' }} data-flag-url="{{ $city->image_url }}"
+                                                value="{{ $city->id }}"
+                                                style="font-size:8px !important;"> {{ $city->name }}</option>
+                                        @endforeach
+                                    </select>
+                                       </div>
+                                    </div>
                                     {{-- <div class="col-md-12">
                                         <h4><b>Addresses</b></h4>
                                         <p>Manage your save addresses</p>
@@ -113,11 +178,11 @@
                             </div>
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
-                                    {{-- <div class="col-md-12 text-left">
+                                    <div class="col-md-12 text-left">
                                         <a class="btn add-list-button update-profile-btn update-profile-submit-btn"
                                                 style="padding: 8px;font-size:15px;border-radius:8px;">Update Profile
                                         </a>
-                                    </div> --}}
+                                    </div>
                                 </div>
                             </div>
                         </form>

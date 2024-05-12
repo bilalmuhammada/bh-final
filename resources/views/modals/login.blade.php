@@ -73,8 +73,8 @@
                                 <img src="{{asset('images/fb.png')}}" width="25" height="25"/>
                             </span>
                             <span>
-                                <img src="{{asset('images/twitter.png')}}"
-                                     width="25" height="25"/>
+                                <img src="{{ asset('images/socialicon/twitter.png')}}" alt="" width="30"
+                                height="30">
                             </span>
                             <span>
                                 <a href="{{ env('BASE_URL') . 'auth/google'}}">

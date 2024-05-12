@@ -65,7 +65,7 @@
                     <div class="row" style="margin-top:-10px;">
                     <div class="col-lg-6 col-md-6 col-12" style="border:0px solid red;">
                     <ul style="width:100%;text-align:justify;margin-left:50px;">
-                        @foreach($countries->take(8) as $country)
+                        @foreach($countries->take(10) as $country)
                             <li>
                                 <a href="{{ env('BASE_URL') . 'home?country=' . $country->id }}">{{ $country->nice_name }}</a>
                             </li>
@@ -76,7 +76,7 @@
                     <div class="col-lg-6 col-md-6 col-12" style="border:0px solid red;">
                     <!-- <h2>{{ $countries->firstWhere('id', request()->country ?? 99)->nice_name }}</h2> -->
                     <ul style="width:100%;text-align:justify;margin-left:50px;">
-                        @foreach($countries->skip(8)->take(12) as $country)
+                        @foreach($countries->skip(10)->take(12) as $country)
                             <li class="mx-auto">
                                 <a href="{{ env('BASE_URL') . 'home?country=' . $country->id }}">{{ $country->nice_name }}</a>
                             </li>

@@ -1,4 +1,139 @@
 @extends('listing-layout.master')
+<style>
+    .form-focus {
+     height: 58px;
+     position: relative;
+ }
+ 
+ .form-focus .focus-label {
+     font-size: 14px;
+     font-weight: 400;
+     pointer-events: none;
+     border-color: #0071DC;
+     position: absolute;
+     -webkit-transform: translate3d(0, 22px, 0) scale(1);
+     -ms-transform: translate3d(0, 22px, 0) scale(1);
+     -o-transform: translate3d(0, 22px, 0) scale(1);
+     transform: translate3d(0, 22px, 0) scale(1);
+     transform-origin: left top;
+     transition: 240ms;
+     left: 12px;
+     top: -3px;
+     z-index: 1;
+     color: #000;
+     margin-bottom: 0;
+ }
+ 
+ .form-focus.focused .focus-label {
+     opacity: 1;
+     top: -18px;
+     font-size: 12px;
+     z-index: 1;
+ }
+ 
+ .form-focus .form-control:focus~.focus-label,
+ .form-focus .form-control:-webkit-autofill~.focus-label {
+     opacity: 1;
+     font-weight: 400;
+     top: -18px;
+     font-size: 12px;
+     z-index: 1;
+ }
+ 
+ .form-focus .form-control {
+     height: 51px;
+     padding: 21px 12px 6px;
+     border: 1px solid #2d11e7;
+     /* box-shadow: 1px 1px 1px 1px #eee; */
+ }
+ 
+ .form-focus .form-control::-webkit-input-placeholder {
+     color: transparent;
+     transition: 240ms;
+ }
+ 
+ .form-focus .form-control:focus::-webkit-input-placeholder {
+     transition: none;
+ }
+ 
+ .form-focus.focused .form-control::-webkit-input-placeholder {
+     color: #8d13ff;
+ }
+ 
+ .form-focus.select-focus .focus-label {
+     opacity: 1;
+     font-weight: 300;
+     top: -20px;
+     font-size: 12px;
+     z-index: 1;
+ }
+ 
+ .form-focus .select2-container .select2-selection--single {
+     border: 1px solid #e3e3e3;
+     height: 50px;
+ }
+ 
+ .form-focus .select2-container--default .select2-selection--single .select2-selection__arrow {
+     height: 48px;
+     right: 7px;
+ }
+ 
+ .form-focus .select2-container--default .select2-selection--single .select2-selection__arrow b {
+     border-color: #ccc transparent transparent;
+     border-style: solid;
+     border-width: 6px 6px 0;
+     height: 0;
+     left: 50%;
+     margin-left: -10px;
+     margin-top: -2px;
+     position: absolute;
+     top: 50%;
+     width: 0;
+ }
+ 
+ .form-focus .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+     border-color: transparent transparent #ccc;
+     border-width: 0 6px 6px;
+ }
+ 
+ .form-focus .select2-container .select2-selection--single .select2-selection__rendered {
+     padding-right: 30px;
+     padding-left: 12px;
+     padding-top: 10px;
+ }
+ 
+ .form-focus .select2-container--default .select2-selection--single .select2-selection__rendered {
+     color: #676767;
+     font-size: 14px;
+     font-weight: normal;
+     line-height: 38px;
+ }
+ 
+ .form-focus .select2-container--default .select2-results__option--highlighted[aria-selected] {
+     background-color: #fc6075;
+ }
+ 
+ .packages {
+     margin: 20px 10px 60px 10px;
+ }
+ 
+ .packages .main-heading {
+     padding: 20px;
+ }
+ 
+ .packages .main-heading .ul {
+     /* padding: 10px; */
+     margin: 0px auto;
+ }
+ 
+ .packages:hover {
+     background-color: #0504aa;
+     color: white;
+     /* transform: scale(1.1); */
+ }
+ 
+ 
+ </style>
 @section('content')
     <div class="col-md-6 mx-auto">
         <h3 class="mx-auto text-center">You are almost there!</h3>
@@ -14,8 +149,11 @@
         <input type='hidden' class='form-control longitude' id='longitude' name='longitude'
                placeholder='Enter Longitude'>
         <div class="col-md-6 mx-auto" style="margin-top: 20px;">
-            <input type="text" class="form-controlz" name="title" value="{{ $listing->title }}" placeholder="Title"
+            <div class="form-group form-focus">
+            <input type="text" class="form-control floating" name="title" value="{{ $listing->title }}" placeholder=""
                    style="padding:22px;" required>
+                   <label class="focus-label">Title</label>
+                        </div>
             <div class="invalid-feedback">
                 Please provide a title.
             </div>
@@ -23,14 +161,17 @@
         <div class="col-md-6 mx-auto" style="margin-top: 20px;">
             <div class="row">
 
-                {{-- <div class="col-md-6">
-                    <input type="text" class="form-controlz" name="investment_amount" placeholder="Investment Amount"
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                    <input type="text" class="form-control floating" name="investment_amount" placeholder=""
                            style="padding:22px;" required>
+                           <label class="focus-label">Investment Amount</label>
+                        </div>
                     <div class="invalid-feedback">
                         Please provide a valid Investment Amount.
                     </div>
-                </div> --}}
-                <div class="col-md-12">
+                </div>
+                <div class="col-md-6">
                     <select class="form-controlz" name="open_to_invest" required>
                         <option selected disabled>Open to Invest</option>
                         <option value="Inside Country">Inside Country</option>
@@ -43,42 +184,54 @@
         <div class="col-md-6 mx-auto" style="margin-top: 20px;">
             <div class="row">
 
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <select class="form-controlz" name="open_for_partnership" required>
                         <option selected disabled>Open for partnership</option>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>
                 </div>
-                {{-- <div class="col-md-6">
-                    <input type="tel" class="form-controlz" name="phone" placeholder="Mobile" style="padding:22px;"
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                    <input type="text" class="form-control floating" name="phone" placeholder="" style="padding:22px;"
                            pattern="[0-9]{10}" title="Please enter a valid 10-digit Mobile number" required>
-                    <div class="invalid-feedback">
+                           <label class="focus-label">Mobile</label>
+                        </div>
+                    
+                           <div class="invalid-feedback">
                         Mobile number will show only request only !
                     </div>
-                </div> --}}
+                </div>
             </div>
         </div>
 
         <div class="col-md-6 mx-auto" style="margin-top: 20px;">
-            <textarea name="interested_business_types" class="form-controlz" maxlength="1000"
-                      placeholder="Interested Business Types" style="height: 120px;"
+            <div class="form-group form-focus">
+            <textarea name="interested_business_types" class="form-control floating" maxlength="1000"
+                      placeholder="" style="height: 120px;"
                       required></textarea>
-            <div class="invalid-feedback">
+                      <label class="focus-label">Interested Business Types</label>
+                    </div>
+           
+                      <div class="invalid-feedback">
                 Please provide a Interested Business Types.
             </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
-            <textarea name="description" class="form-controlz" placeholder="Description" style="height: 200px;"
+        <div class="col-md-6 mx-auto" style="margin-top: 80px;">
+            <div class="form-group form-focus">
+            <textarea name="description" class="form-control floating" placeholder="" style="height: 200px;"
                       required></textarea>
+                      <label class="focus-label">Description</label>
+                        </div>
             <div class="invalid-feedback">
                 Please provide a description.
             </div>
         </div>
 
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto" style="margin-top: 166px;">
             <div class="input--file">
                 <i class="fa fa-camera fa-1x"></i>
+                
                 <input type="file" multiple class="form-controlz form-control-file images" name="images[]"
                        placeholder="Upload Images">
                 <div class="invalid-feedback image-error">
@@ -120,6 +273,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
+
                     <select class="form-controlz city" name="city" placeholder="Select City" required>
                         <option selected disabled>Select city</option>
                     </select>
@@ -130,8 +284,11 @@
             </div>
         </div>
         <div class="col-md-6 mx-auto" style="margin-top: 20px;">
-            <input type="text" class="form-controlz location_name" name="location_name" placeholder="Location Type"
+            <div class="form-group form-focus">
+            <input type="text" class="form-control floating location_name" name="location_name" placeholder=""
                    style="padding:22px;" required>
+                   <label class="focus-label">Location Type</label>
+                        </div>
             <div class="invalid-feedback">
                 Please provide a location.
             </div>
@@ -148,4 +305,14 @@
 @section('page_scripts')
     <script type="text/javascript"> map_key = "{{env('GOOGLE_MAP_KEY')}}"; </script>
     <script type="text/javascript" src="{{ asset('js/listings_form.js') }}"></script>
+
+    <script>
+        $(document).ready(function () {
+       if ($('.floating').length > 0) {
+           $('.floating').on('focus blur', function (e) {
+               $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
+           }).trigger('blur');
+       }
+   });
+   </script>
 @endsection

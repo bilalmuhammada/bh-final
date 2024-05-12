@@ -36,7 +36,7 @@
                         <div class="mobile-country desktop-menu-right">
                             <div class="row">>
                             <div class="country" style="border:0px solid red;position:relative;left:-50px;">
-                                <select class="form-control city_dropdown" name="city_dropdown" id=""
+                                <select class="form-control city_dropdown" name="city_dropdown" id="" 
                                         style="width:120px;border:0px solid red !imporatnt;text-align:center;background-color:transparent !important;">
                                         <option value=""> &nbsp; All Cities</option>
                                     @foreach($cities as $city)
@@ -49,12 +49,17 @@
                                 <!----langs--->
                             <div class="country" style="border:0px solid green;position:relative;left:-90px;">
                             <div class="mobile-country desktop-menu-right">
+                                {{-- <label for="">Select</label> --}}
+                                
+                                    {{-- <span style="color: #000;">Select languages</span> --}}
+                              
                             <select class="form-control country_dropdown" name="country_dropdown" id=""
-                                    style="width:120px;">
+                                    style="width:120px;"  onchange="googleTranslate()">
+                                    {{-- <option value=""> &nbsp; Select languages</option> --}}
                             @foreach($countries as $country)
                                     <option
                                         {{ $country->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $country->image_url }}"
-                                        data-country-id="{{ $country->id }}"
+                                        {{-- data-country-id="{{ $country->id }}" --}}
                                         value="{{ $country->id }}">&nbsp;{{ $country->nice_name }}</option>
                                 @endforeach
                             </select>
@@ -62,12 +67,12 @@
                             </span>
                 </div>
 
-                <div id="google_translate_button" style="margin-top: -7%;
+                {{-- <div id="google_translate_button" style="margin-top: -7%;
                 margin-left: 38%;"></div>
                <script
                type="text/javascript"
                src="//translate.google.com/translate_a/element.js?cb=googleTranslateInit"
-               ></script>
+               ></script> --}}
                 <script type="text/javascript">
                     function googleTranslateInit() {
                     new google.translate.TranslateElement(
@@ -511,7 +516,7 @@
                             @foreach($countries as $country)
                                     <option data-flag-url="{{ $country->image_url }}"
                                             data-country-id="{{ $country->id }}"
-                                            value="{{ $country->id }}"> {{ $country->nice_name }}</option>
+                                            value="{{ $country->id }}"> {{ $country->nice_name }}22</option>
                                 @endforeach
                             </select>
                             </div>
@@ -857,3 +862,15 @@
     </div>
     <hr>
 </header>
+
+<script>
+    function googleTranslate() {
+        const selectElement = document.querySelector('.country_dropdown');
+    
+        const selectedOption = selectElement.options[selectElement.selectedIndex];
+        const languageCode = selectedOption.value; // Assuming the value is the language code
+        alert(languageCode);
+        // Redirect to Google Translate page with the selected language code
+        window.location.href = `https://translate.google.com/?sl=auto&tl=es`;
+    }
+</script>
