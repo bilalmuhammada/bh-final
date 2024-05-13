@@ -46,46 +46,66 @@
                 </div>
             @if ($my_ads->count() > 0)
                 <!------------------single row----------->
-                    <div class="col-md-12"
-                         style="border: 1px solid #E0E1E3;border-radius:6px;padding:;margin-top:10px;">
-                        <div class="row">
-                        @foreach($my_ads as $my_ad)
-                            <!-------->
-                                <div class="col-md-3" style="">
-                                    <div class="row">
-                                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}">
-                                            <div style="padding:5px;">
-                                                <div class="ad-show"
-                                                     style="border: 1px solid #E0E1E3;padding:10px;border-radius:5px;">
-                                                    <div class="img">
-                                                        <img src="{{ $my_ad->main_image_url  }}" alt="img" height="150"
-                                                             width="220" style="border-radius: 5px;">
-                                                    </div>
-                                                    <div>
-                                                        <h5>
-                                                            <a href="" style="font-size: 11px;font-weight:bold;color:#000;">
-                                                                {{ $my_ad->title ?? 'TITLE N/A' }}
-                                                            </a>
-                                                            <br/>
-                                                            <a href="" class="text-muted" style="font-size: 11px;">
-                                                                {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
-                                                            </a>
-                                                        </h5>
-                                                        <h4 style="font-size: 14px;font-weight:bold;">
-                                                            {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
-                                                            <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i
-                                                                    class="fa fa-trash delete-ad-btn" ad-id="{{ $my_ad->id }}"></i></span>
-                                                        </h4>
-                                                    </div>
-                                                </div>
+                <div class="col-md-12" style="border: 1px solid #E0E1E3;border-radius:6px;padding:;margin-top:10px;">
+                    @foreach($my_ads as $my_ad)
+                        <div class="row" style="    border: 1px solid;">
+                            <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                <input type="checkbox">
+                            </div>
+                            <div class="col-md-4">
+                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}">
+                                    <div style="padding:5px;">
+                                        <div class="ad-show" style="padding:10px;border-radius:5px;">
+                                            <div class="img">
+                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="150" width="220" style="border-radius: 5px;">
                                             </div>
-                                        </a>
+                                        </div>
                                     </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <span class="badge badge-success" style="margin-top: 12px">Live</span>
+
+                                <span class="badge badge-primary">Feature</span>
+
+                                <h3 style="margin-top: 12px">
+                                    <a href="" style="font-size: 22px;font-weight:bold;color:#000;">
+                                        {{ $my_ad->title ?? 'TITLE N/A' }}
+                                    </a>
+                                    <br/>
+                                    <h4 style="font-size: 14px;font-weight:bold;">
+                                        {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
+                                        {{-- <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i class="fa fa-trash delete-ad-btn" ad-id="{{ $my_ad->id }}"></i></span> --}}
+                                    </h4>
+                                    
+                                </h3>
+                                <a href="" class="text-muted" style="font-size: 11px;">
+                                    {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
+                                </a>
+                               <br> <span> Last Update: 15 May</span> <span style="margin-left:57px"> ads expire in 9 days</span> 
+                            </div>
+                            <div class="col-md-3 d-flex flex-column justify-content-end">
+                                <div style="margin-bottom: 14px">
+                                    <!-- Button with calendar icon -->
+                                    <button class="btn btn-secondary mr-2"><i class="fa fa-calendar"></i> </button>
+                                    
+                                    <!-- Button with edit icon -->
+                                    <button class="btn btn-primary mr-2"><i class="fa fa-edit"></i> </button>
+                                    
+                                    <!-- Button with trash icon for delete -->
+                                    <button class="btn btn-danger"><i class="fa fa-trash"></i> </button>
+                            
+                                        <i class="fa fa-exclamation-circle text-warning"></i> 1224 views
+                                    
                                 </div>
-                                <!-------->
-                            @endforeach
+                                <!-- This column is intentionally left empty -->
+                            </div>
                         </div>
-                    </div>
+                        <!-- Add margin bottom -->
+                        <div class="mb-3"></div>
+                    @endforeach
+                </div>
+                
                     <!----single row ended------>
             @else
                 <!------------------single row----------->
