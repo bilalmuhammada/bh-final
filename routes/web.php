@@ -55,6 +55,7 @@ Route::middleware('check_user_auth')->group(function () {
         Route::get('/select-subcategory/{category_id}', [ListingController::class, 'showSelectSubcategory']);
         Route::get('{category_id}/listing-title/{subcategory_id}', [ListingController::class, 'showListingTitleForm']);
         Route::get('/place-ad/{listing_id}', [ListingController::class, 'showPlaceAd']);
+        Route::get('/plane-ad/{listing_id}', [ListingController::class, 'showPlaneAd']);
         Route::get('terms-and-conditions/{listing_id}', [ListingController::class, 'showTermsAndConditions']);
     });
 

@@ -151,6 +151,7 @@ Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::prefix('/listing')->group(function () {
     Route::post('/save-listing-title', [ListingController::class, 'storeListingTitle']);
+    Route::post('/nextsubmit', [ListingController::class, 'SubmitPrice']);
     Route::post('/save-ad', [ListingController::class, 'storeAd']);
     Route::post('agree-to-terms/{listing_id}', [ListingController::class, 'agreeToTermsAndConditions']);
     Route::post('add-to-favourites/{listing_id}', [ListingController::class, 'addToFavourites']);

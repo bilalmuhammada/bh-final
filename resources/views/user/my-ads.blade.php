@@ -1,4 +1,10 @@
 @extends('layout.master')
+<style>
+        .custom-icon {
+        font-size: 24px !important; /* Adjust the size as needed */
+    }
+
+</style>
 @section('content')
     <div class="cont-w">
         <h3 style="font-weight: bold;">My Ads</h3>
@@ -46,19 +52,19 @@
                 </div>
             @if ($my_ads->count() > 0)
                 <!------------------single row----------->
-                <div class="col-md-12" style="border: 1px solid #E0E1E3;border-radius:6px;padding:;margin-top:10px;">
+                <div class="col-md-12" style="    border-radius:6px;padding:;margin-top:10px;">
                     @foreach($my_ads as $my_ad)
-                        <div class="row" style="    border: 1px solid;">
-                            <div class="col-md-1 d-flex justify-content-center align-items-center">
+                        <div class="row" style=" ">
+                            <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;">
                                 <input type="checkbox">
                             </div>
-                            <div class="col-md-4">
-                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}">
+                            <div class="col-md-4" style="max-width: 11pc">
+                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
                                     <div style="padding:5px;">
                                         <div class="ad-show" style="padding:10px;border-radius:5px;">
-                                            <div class="img">
-                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="150" width="220" style="border-radius: 5px;">
-                                            </div>
+                                            {{-- <div class="img"> --}}
+                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="120" width="120" style="border-radius: 5px;">
+                                            {{-- </div> --}}
                                         </div>
                                     </div>
                                 </a>
@@ -67,8 +73,13 @@
                                 <span class="badge badge-success" style="margin-top: 12px">Live</span>
 
                                 <span class="badge badge-primary">Feature</span>
-
-                                <h3 style="margin-top: 12px">
+                               
+                               <div style="margin-top: 9px;">
+                                <a href="" class="text-muted" style="font-size: 11px;">
+                                    {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
+                                </a>
+                                </div> 
+                                <h3 style="margin-top:3px">
                                     <a href="" style="font-size: 22px;font-weight:bold;color:#000;">
                                         {{ $my_ad->title ?? 'TITLE N/A' }}
                                     </a>
@@ -79,23 +90,21 @@
                                     </h4>
                                     
                                 </h3>
-                                <a href="" class="text-muted" style="font-size: 11px;">
-                                    {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
-                                </a>
-                               <br> <span> Last Update: 15 May</span> <span style="margin-left:57px"> ads expire in 9 days</span> 
+                               
+                               <span> Last Update: 15 May</span> <span style="margin-left:57px"> Expired: in 9 days</span> 
                             </div>
                             <div class="col-md-3 d-flex flex-column justify-content-end">
-                                <div style="margin-bottom: 14px">
+                                <div >
+                                    <i class="fa fa-exclamation-circle text-warning"></i> 1224 views
                                     <!-- Button with calendar icon -->
-                                    <button class="btn btn-secondary mr-2"><i class="fa fa-calendar"></i> </button>
+                                    <a class="btn"><i class="fa fa-calendar custom-icon"></i> </a>
                                     
                                     <!-- Button with edit icon -->
-                                    <button class="btn btn-primary mr-2"><i class="fa fa-edit"></i> </button>
+                                    <a class="btn " style="padding: 0px"><i class="fa fa-edit custom-icon"></i> </a>
                                     
                                     <!-- Button with trash icon for delete -->
-                                    <button class="btn btn-danger"><i class="fa fa-trash"></i> </button>
+                                    <a class="btn" style="padding: 0px"><i class="fa fa-trash custom-icon"></i> </a>
                             
-                                        <i class="fa fa-exclamation-circle text-warning"></i> 1224 views
                                     
                                 </div>
                                 <!-- This column is intentionally left empty -->
@@ -109,7 +118,7 @@
                     <!----single row ended------>
             @else
                 <!------------------single row----------->
-                    <div class="col-md-12 mx-auto"
+                    {{-- <div class="col-md-12 mx-auto"
                          style="border: 0px solid #E0E1E3;border-radius:6px;padding:15px 20px;margin-top:10px;">
                         <div class="row mx-auto">
                             <div class="mx-auto">
@@ -129,7 +138,7 @@
                                 </button>
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
                     <!----single row ended------>
                 @endif
             </div>
@@ -145,120 +154,74 @@
                 </div>
             @if ($my_ads->where('status', 'active')->count() > 0)
                 <!------------------single row----------->
-                    <div class="col-md-12"
-                         style="border: 1px solid #E0E1E3;border-radius:6px;padding:;margin-top:10px;">
-                        <div class="row">
+                <div class="col-md-12" style="    border-radius:6px;padding:;margin-top:10px;">
                         @foreach($my_ads->where('status', 'active') as $active_ad)
                             <!-------->
-                                <div class="col-md-3" style="">
-                                    <div class="row">
-                                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $active_ad->id }}">
-                                            <div style="padding:5px;">
-                                                <div class="ad-show"
-                                                     style="border: 1px solid #E0E1E3;padding:10px;border-radius:5px;">
-                                                    <div class="img">
-                                                        <img src="{{ $active_ad->main_image_url  }}" alt="img" height="150"
-                                                             width="220" style="border-radius: 5px;">
-                                                    </div>
-                                                    <div>
-                                                        <h5>
-                                                            <a href="" style="font-size: 11px;font-weight:bold;color:#000;">
-                                                                {{ $active_ad->title ?? 'TITLE N/A' }}
-                                                            </a>
-                                                            <br/>
-                                                            <a href="" class="text-muted" style="font-size: 11px;">
-                                                                {{ $active_ad->category_name . " / " . $active_ad->subcategory_name }}
-                                                            </a>
-                                                        </h5>
-                                                        <h4 style="font-size: 14px;font-weight:bold;">
-                                                            {{ \App\Helpers\SiteHelper::priceFormatter($active_ad->price) }}
-                                                            <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i
-                                                                    class="fa fa-trash delete-ad-btn" ad-id="{{ $active_ad->id }}"></i></span>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
+                            <div class="row" style=" ">
+                                <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;">
+                                    <input type="checkbox">
                                 </div>
-                                <!-------->
-                            @endforeach
-                        </div>
-                    </div>
-                    <!----single row ended------>
-            @else
-                <!------------------single row----------->
-                    <div class="col-md-12 mx-auto"
-                         style="border: 0px solid #E0E1E3;border-radius:6px;padding:15px 20px;margin-top:10px;">
-                        <div class="row mx-auto">
-                            <div class="mx-auto">
-                                <img src="{{ asset('images/no-ads-placeholder.svg')}}" height="120">
-                            </div>
-                        </div>
-                        <div style="text-align: center;font-weight:bold;">
-                            <h4>
-                                <b>You don't have any ads </b>
-                            </h4>
-                        </div>
-                        <div style="text-align: center;font-size:12px;" class="text-muted">
-                            <a href="{{env('BASE_URL') . 'listing/' . 'select-category'}}">
-                                <button class="btn"
-                                        style="background: #0000FF;color:white;;padding:7px 120px;font-size:14px;">
-                                    Post ad now
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                    <!----single row ended------>
-                @endif
-            </div>
-            <div id="draft" class="container tab-pane fade"><br>
-                @if ($my_ads->where('status', 'draft')->count() > 0)
-                    <!------------------single row----------->
-                        <div class="col-md-12"
-                             style="border: 1px solid #E0E1E3;border-radius:6px;padding:;margin-top:10px;">
-                            <div class="row">
-                            @foreach($my_ads->where('status', 'draft') as $draft_ad)
-                                <!-------->
-                                    <div class="col-md-3" style="">
-                                        <div class="row">
-                                            <a href="{{ env('BASE_URL') . 'ads/detail/' . $draft_ad->id }}">
-                                                <div style="padding:5px;">
-                                                    <div class="ad-show"
-                                                         style="border: 1px solid #E0E1E3;padding:10px;border-radius:5px;">
-                                                        <div class="img">
-                                                            <img src="{{ $draft_ad->main_image_url  }}" alt="img" height="150"
-                                                                 width="220" style="border-radius: 5px;">
-                                                        </div>
-                                                        <div>
-                                                            <h5>
-                                                                <a href="" style="font-size: 11px;font-weight:bold;color:#000;">
-                                                                    {{ $draft_ad->title ?? 'TITLE N/A' }}
-                                                                </a>
-                                                                <br/>
-                                                                <a href="" class="text-muted" style="font-size: 11px;">
-                                                                    {{ $draft_ad->category_name . " / " . $draft_ad->subcategory_name }}
-                                                                </a>
-                                                            </h5>
-                                                            <h4 style="font-size: 14px;font-weight:bold;">
-                                                                {{ \App\Helpers\SiteHelper::priceFormatter($draft_ad->price) }}
-                                                                <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i
-                                                                        class="fa fa-trash delete-ad-btn" ad-id="{{ $draft_ad->id }}"></i></span>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
+                                <div class="col-md-4" style="max-width: 11pc">
+                                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
+                                        <div style="padding:5px;">
+                                            <div class="ad-show" style="padding:10px;border-radius:5px;">
+                                                {{-- <div class="img"> --}}
+                                                    <img src="{{ $my_ad->main_image_url  }}" alt="img" height="120" width="120" style="border-radius: 5px;">
+                                                {{-- </div> --}}
+                                            </div>
                                         </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <span class="badge badge-success" style="margin-top: 12px">Live</span>
+    
+                                    <span class="badge badge-primary">Feature</span>
+                                   
+                                   <div style="margin-top: 9px;">
+                                    <a href="" class="text-muted" style="font-size: 11px;">
+                                        {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
+                                    </a>
+                                    </div> 
+                                    <h3 style="margin-top:3px">
+                                        <a href="" style="font-size: 22px;font-weight:bold;color:#000;">
+                                            {{ $my_ad->title ?? 'TITLE N/A' }}
+                                        </a>
+                                        <br/>
+                                        <h4 style="font-size: 14px;font-weight:bold;">
+                                            {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
+                                            {{-- <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i class="fa fa-trash delete-ad-btn" ad-id="{{ $my_ad->id }}"></i></span> --}}
+                                        </h4>
+                                        
+                                    </h3>
+                                   
+                                   <span> Last Update: 15 May</span> <span style="margin-left:57px"> Expired: in 9 days</span> 
+                                </div>
+                                <div class="col-md-3 d-flex flex-column justify-content-end">
+                                    <div >
+                                        <i class="fa fa-exclamation-circle text-warning"></i> 1224 views
+                                        <!-- Button with calendar icon -->
+                                        <a class="btn"><i class="fa fa-calendar custom-icon"></i> </a>
+                                        
+                                        <!-- Button with edit icon -->
+                                        <a class="btn " style="padding: 0px"><i class="fa fa-edit custom-icon"></i> </a>
+                                        
+                                        <!-- Button with trash icon for delete -->
+                                        <a class="btn" style="padding: 0px"><i class="fa fa-trash custom-icon"></i> </a>
+                                
+                                        
                                     </div>
-                                    <!-------->
+                                    <!-- This column is intentionally left empty -->
+                                </div>
+                            </div>
+                            <!-- Add margin bottom -->
+                            <div class="mb-3"></div>
                                 @endforeach
                             </div>
-                        </div>
+                      
                         <!----single row ended------>
                 @else
                 <!------------------single row----------->
-                    <div class="col-md-12 mx-auto"
+                    {{-- <div class="col-md-12 mx-auto"
                          style="border: 0px solid #E0E1E3;border-radius:6px;padding:15px 20px;margin-top:10px;">
                         <div class="row mx-auto">
                             <div class="mx-auto">
@@ -278,7 +241,7 @@
                                 </button>
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
                     <!----single row ended------>
                 @endif
             </div>
@@ -351,7 +314,7 @@
                     <!----single row ended------>
             @else
                 <!------------------single row----------->
-                    <div class="col-md-12 mx-auto"
+                    {{-- <div class="col-md-12 mx-auto"
                          style="border: 0px solid #E0E1E3;border-radius:6px;padding:15px 20px;margin-top:10px;">
                         <div class="row mx-auto">
                             <div class="mx-auto">
@@ -371,7 +334,7 @@
                                 </button>
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
                     <!----single row ended------>
                 @endif
             </div>
@@ -421,7 +384,7 @@
                     <!----single row ended------>
             @else
                 <!------------------single row----------->
-                    <div class="col-md-12 mx-auto"
+                    {{-- <div class="col-md-12 mx-auto"
                          style="border: 0px solid #E0E1E3;border-radius:6px;padding:15px 20px;margin-top:10px;">
                         <div class="row mx-auto">
                             <div class="mx-auto">
@@ -441,7 +404,7 @@
                                 </button>
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
                     <!----single row ended------>
                 @endif
             </div>
@@ -491,7 +454,7 @@
                     <!----single row ended------>
             @else
                 <!------------------single row----------->
-                    <div class="col-md-12 mx-auto"
+                    {{-- <div class="col-md-12 mx-auto"
                          style="border: 0px solid #E0E1E3;border-radius:6px;padding:15px 20px;margin-top:10px;">
                         <div class="row mx-auto">
                             <div class="mx-auto">
@@ -511,7 +474,7 @@
                                 </button>
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
                     <!----single row ended------>
                 @endif
             </div>

@@ -361,7 +361,7 @@
             <div class="map" id="map"></div>
         </div>
         <div class="col-md-6 mx-auto text-center btn-nexts" style="margin-top: 20px;">
-        <a class="btn place-ad-form-submit">Next</a>
+        <a class="btn place-ad-form-submit">Nextww</a>
         </div>
     </form>
 
@@ -371,6 +371,37 @@
     <script type="text/javascript" src="{{ asset('js/listings_form.js') }}"></script>
 
     <script>
+
+
+$(document).on('click', '.place-ad-form-submit', function (e) {
+            e.preventDefault();
+             var formData = new FormData($('.place-ad-form')[0]);
+// console.log(formData);
+            $.ajax({
+                url: api_url + 'listing/nextsubmit',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: "JSON",
+                success: function (response) {
+                console.log(response);
+                    if (response.status) {
+
+                        setTimeout(function () {
+                            window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
+                        }, 600);
+
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function (response) {
+                    showAlert("error", "Server Error");
+                }
+            });
+        });
+
         $(document).ready(function () {
        if ($('.floating').length > 0) {
            $('.floating').on('focus blur', function (e) {

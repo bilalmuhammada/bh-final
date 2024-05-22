@@ -15,7 +15,38 @@
     }
     $countries = \App\Helpers\RecordHelper::getCountries();
 @endphp
+<style>
+    .dropdown-menu{
+        width: 28pc !important;
+    }
+</style>
 <header>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateInit"></script>
+    {{-- <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script> --}}
+    <script type="text/javascript">
+          function googleTranslate() {
+            var dropdown = document.getElementById('countryDropdown');
+            var selectedCountryCode = dropdown.value;
+
+            var languageMapping = {
+                '1': 'en', // Example: Country ID 1 maps to English
+                '30': 'fr', // Example: Country ID 30 maps to French
+                '13': 'ar', // Example: Country ID 13 maps to Arabic
+                // Add your mappings here
+            };
+
+            var selectedLanguageCode = languageMapping[selectedCountryCode];
+
+            if (!selectedLanguageCode) {
+                console.error('No language mapping found for country code:', selectedCountryCode);
+                return;
+            }
+
+            var currentUrl = window.location.href;
+            var googleTranslateUrl = 'https://translate.google.com/translate?sl=auto&tl=' + selectedLanguageCode + '&u=' + encodeURIComponent(currentUrl);
+            window.location.href = googleTranslateUrl;
+        }
+    </script>
     <!-- topbar start -->
     <div class="topbar desktop-view">
         <div class="container-fluid" style="border:0px solid red;padding:0px 15px;">
@@ -53,35 +84,27 @@
                                 
                                     {{-- <span style="color: #000;">Select languages</span> --}}
                               
-                            <select class="form-control country_dropdown" name="country_dropdown" id=""
-                                    style="width:120px;"  onchange="googleTranslate()">
-                                    {{-- <option value=""> &nbsp; Select languages</option> --}}
-                            @foreach($countries as $country)
-                                    <option
-                                        {{ $country->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $country->image_url }}"
-                                        {{-- data-country-id="{{ $country->id }}" --}}
-                                        value="{{ $country->id }}">&nbsp;{{ $country->nice_name }}</option>
-                                @endforeach
-                            </select>
+                                    <select class="form-control country_dropdownq" name="country_dropdownq" id="countryDropdown" style="width:150px;" onchange="googleTranslate()">
+                                        @foreach($countries as $country)
+                                            <option
+                                                {{ $country->id == request()->country ? 'selected' : '' }}
+                                                value="{{ $country->id }}">
+                                                <span>
+                                                    <img src="{{ $country->image_url }}" alt="{{ $country->nice_name }} Flag" class="flag-icon">
+                                                    &nbsp;{{ $country->nice_name }}
+                                                </span>
+                                            </option>
+                                        @endforeach
+                                    </select>
                             </div>
                             </span>
                 </div>
 
                 {{-- <div id="google_translate_button" style="margin-top: -7%;
-                margin-left: 38%;"></div>
-               <script
-               type="text/javascript"
-               src="//translate.google.com/translate_a/element.js?cb=googleTranslateInit"
-               ></script> --}}
-                <script type="text/javascript">
-                    function googleTranslateInit() {
-                    new google.translate.TranslateElement(
-                        {pageLanguage: 'en', includedLanguages: "en,fr,ar,es,it,fa,de,hi,ru,cs,tr", layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
-                        'google_translate_button'
-                    );
-                    }
-                </script>
+                margin-left: 38%;"></div> --}}
+              
                 <!----langs end---->
+                <div id="google_translate_element" style="display: none;"></div>
             </div>
         </div>
         <!-- country bar mobile finish -->
@@ -102,7 +125,7 @@
                                         <span style="color: #000;">Notifications</span>
                                     </div>
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="notifications"
+                                <div class="dropdown-menu"  id="notifications" aria-labelledby="notifications"
                                      style="padding: 10px;width:auto;     border-radius: 12px;">
                                     @if (session()->has('user') && count($notifications) > 0)
                                         <!---------inner area----->
@@ -140,7 +163,7 @@
 
                                         </div>
                                     </div> --}}
-                                        <div style="      margin-top: 15px;   font-weight: 700;   min-width: 500px;" class="notification-heading"><h4 class="menu-title">Notifications (4)</h4><h6 style="font-size: 16px;" class="menu-title pull-right">Mark All as read</h6>
+                                        <div style="      margin-top: 15px;   font-weight: 700;   min-width: 500px;" class="notification-heading"><h4 class="menu-title">Notifications </h4><h6 style="font-size: 16px; margin-right: 66px" class="menu-title pull-right">Mark All as read</h6>
                                         </div>
                                         <hr style="    width: 80%;">
                                         <li class="divider"></li>
@@ -156,60 +179,78 @@
                                               </div>
                                            <div class="notification-item">
                                             <div class="row">
-                                                <div class="col-sm-3" style="    padding: unset;">
-                                                    <img style="width: 100%;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
+                                              
+                                                <div class="col-md-9" style="white-space: nowrap;display: ruby;">
+                                                    <h1 class="item-title" style="margin-bottom: 10px;">Show Phone Number Request</h1>
+                                                    <p style="margin-top: 5px;margin-left:30px ;margin-bottom: unset; color: black; font-size: 0.9em;">7 days ago </p>
+                                                </div>
 
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <h4 class="item-title">Show Phone Number Request</h4>
-                                            <p class="item-info">Marketing 101, Video Assignment</p>
-                                            <p style="margin-bottom: unset; color:black;">7 day ago  .....</p>
-                                                </div>
+                                               
                                             </div>
+                                            <div class="row">
+                                              
+                                            <div class="col-md-12" style="padding: unset;display: contents;">
+                                                <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; margin-left: 30px;">
+                                                    <img style="width: 100%; height: 100%; object-fit: cover;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
+                                                </div>
+                                                <p style="margin: 11px; font-weight: bold;">Khan</p>
+                                                <br>
+                                                
+                                            </div>
+                                            <div style=" color: white;
+                                                  margin-top: 10px;
+                                                  margin-left: 160px;">
+                                                <a class="btn btn-success btn-sm badge bg-success">Approve </a>
+                                                <a class="btn btn-danger btn-sm badge bg-danger" style="margin-left: 5px;">Reject </a>
+                                            </div>
+                                        </div>
                                            
 
                                           </div>
                                            
                                         </a>
-                                         <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#documentRequestModal">
+                                       
+                                        <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal">
                                             <div class="dropdown" style="float:right;">
                                                 <i style="color: black;" class="fa fa-ellipsis-h" data-toggle="dropdown"></i>
-                                                <div class="dropdown-menu" style="    left: -140px;
+                                                <div class="dropdown-menu" style="   left: -140px;;
                                                 ">
                                                   <a class="dropdown-item" href="#">Mark as Read</a>
                                                   <a class="dropdown-item" href="#">Remove Notifications</a>
                                                 </div>
                                               </div>
-                                            <div class="notification-item">
-                                                <div class="row">
-                                                    <div class="col-sm-3" style="    padding: unset;">
-                                                        <img style="width: 100%;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
-    
-                                                    </div>
-                                                    <div class="col-sm-9">
-                                            <h4 class="item-title">Show Ad document Request</h4>
-                                            <p class="item-info">Marketing 101, Video Assignment</p>
-                                            <p style="margin-bottom: unset; color:black;">7 day ago .....</p>
-                                          </div>
-                                        </div>
-                                        </div>
-                                        </a>
-                                         <a class="content" href="#">
-                                            <div class="dropdown" style="float:right;">
-                                                <i style="color: black;" class="fa fa-ellipsis-h" data-toggle="dropdown"></i>
-                                                <div class="dropdown-menu" style="   left: -140px;
-                                                ">
-                                                  <a class="dropdown-item" href="#">Mark as Read</a>
-                                                  <a class="dropdown-item" href="#">Remove Notifications</a>
+                                           <div class="notification-item">
+                                            <div class="row">
+                                              
+                                                <div class="col-md-9" style="white-space: nowrap;display: ruby;">
+                                                    <h1 class="item-title" style="margin-bottom: 10px;">Show Ad Document Request</h1>
+                                                    <p style="margin-top: 5px;margin-left:30px ;margin-bottom: unset; color: black; font-size: 0.9em;">7 days ago </p>
                                                 </div>
-                                              </div>
-                                          <div class="notification-item">
-                                            <h4 class="item-title">Evaluation Deadline 1 • day ago</h4>
-                                            <p class="item-info">Marketing 101, Video Assignment</p>
-                                            <p style="margin-bottom: unset; color:black;">7 day ago  .....</p>
+
+                                               
+                                            </div>
+                                            <div class="row">
+                                              
+                                            <div class="col-md-12" style="padding: unset;display: contents;">
+                                                <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; margin-left: 30px;">
+                                                    <img style="width: 100%; height: 100%; object-fit: cover;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
+                                                </div>
+                                                <p style="margin: 11px; font-weight: bold;">Rustum</p>
+                                                <br>
+                                                
+                                            </div>
+                                            <div style=" color: white;
+                                            margin-top: 10px;
+                                            margin-left: 145px;">
+                                                <a class="btn btn-success btn-sm badge bg-success">Approve </a>
+                                                <a class="btn btn-danger btn-sm badge bg-danger" style="margin-left: 5px;">Reject </a>
+                                            </div>
+                                        </div>
+                                           
+
                                           </div>
+                                           
                                         </a>
-                                   
                                        </div>
                                        <hr>
                                         <li class="divider"></li>
@@ -864,13 +905,13 @@
 </header>
 
 <script>
-    function googleTranslate() {
-        const selectElement = document.querySelector('.country_dropdown');
+    // function googleTranslate() {
+    //     const selectElement = document.querySelector('.country_dropdown');
     
-        const selectedOption = selectElement.options[selectElement.selectedIndex];
-        const languageCode = selectedOption.value; // Assuming the value is the language code
-        alert(languageCode);
-        // Redirect to Google Translate page with the selected language code
-        window.location.href = `https://translate.google.com/?sl=auto&tl=es`;
-    }
+    //     const selectedOption = selectElement.options[selectElement.selectedIndex];
+    //     const languageCode = selectedOption.value; // Assuming the value is the language code
+    //     alert(languageCode);
+    //     // Redirect to Google Translate page with the selected language code
+    //     window.location.href = `https://translate.google.com/?sl=auto&tl=es`;
+    // }
 </script>

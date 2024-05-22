@@ -67,6 +67,20 @@ class ListingController extends Controller
         ]);
     }
 
+
+
+    public function SubmitPrice(Request $request){
+        //  dd($request->all());
+        
+         return response()->json([
+            'status' => true,
+            'id' => Session::get('user')->id,
+            'message' => "Ad Title saved successfully",
+            'listing_id' => $request->listing_id,
+        ]);
+        // return view('subscription.plans');
+        
+    }
     public function showListingTitleForm($category_id, $subcategory_id)
     {
         $validation_arr = [
@@ -154,6 +168,11 @@ class ListingController extends Controller
         return view('listings.' . $view_name)->with($data);
     }
 
+    public function showPlaneAd(Request $request)
+    {
+        return view('subscription.plans');
+    }
+    
     public function storeAd(Request $request)
     {
         $Validator = Validator::make($request->all(), [
