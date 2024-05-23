@@ -21,32 +21,27 @@
     }
 </style>
 <header>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateInit"></script>
-    {{-- <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script> --}}
     <script type="text/javascript">
-          function googleTranslate() {
-            var dropdown = document.getElementById('countryDropdown');
-            var selectedCountryCode = dropdown.value;
-
-            var languageMapping = {
-                '1': 'en', // Example: Country ID 1 maps to English
-                '30': 'fr', // Example: Country ID 30 maps to French
-                '13': 'ar', // Example: Country ID 13 maps to Arabic
-                // Add your mappings here
-            };
-
-            var selectedLanguageCode = languageMapping[selectedCountryCode];
-
-            if (!selectedLanguageCode) {
-                console.error('No language mapping found for country code:', selectedCountryCode);
-                return;
-            }
-
-            var currentUrl = window.location.href;
-            var googleTranslateUrl = 'https://translate.google.com/translate?sl=auto&tl=' + selectedLanguageCode + '&u=' + encodeURIComponent(currentUrl);
-            window.location.href = googleTranslateUrl;
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
         }
     </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script type="text/javascript">
+        function translateLanguage() {
+            var dropdown = document.getElementById("languageDropdown");
+            var selectedLanguage = dropdown.options[dropdown.selectedIndex].value;
+            if (selectedLanguage) {
+                var googleTranslateCombo = document.querySelector('.goog-te-combo');
+                if (googleTranslateCombo) {
+                    googleTranslateCombo.value = selectedLanguage;
+                    googleTranslateCombo.dispatchEvent(new Event('change'));
+                }
+            }
+
+        }
+    </script>  
     <!-- topbar start -->
     <div class="topbar desktop-view">
         <div class="container-fluid" style="border:0px solid red;padding:0px 15px;">
@@ -84,17 +79,26 @@
                                 
                                     {{-- <span style="color: #000;">Select languages</span> --}}
                               
-                                    <select class="form-control country_dropdownq" name="country_dropdownq" id="countryDropdown" style="width:150px;" onchange="googleTranslate()">
+                                    {{-- <select class="form-control country_dropdownq  lang-select" name="country_dropdownq" id="countryDropdown" style="width:150px;" onchange="">
                                         @foreach($countries as $country)
                                             <option
                                                 {{ $country->id == request()->country ? 'selected' : '' }}
                                                 value="{{ $country->id }}">
                                                 <span>
-                                                    <img src="{{ $country->image_url }}" alt="{{ $country->nice_name }} Flag" class="flag-icon">
+                                                    <img src="{{ $country->image_url }}" data-lang="fr" alt="{{ $country->nice_name }} Flag" class="flag-icon">
                                                     &nbsp;{{ $country->nice_name }}
                                                 </span>
                                             </option>
                                         @endforeach
+                                    </select> --}}
+                                    <select id="languageDropdown" onchange="translateLanguage()">
+                                        <option value="">Select Language</option>
+                                        <option value="en">English</option>
+                                        <option value="es">Spanish</option>
+                                        <option value="fr">French</option>
+                                        <option value="de">German</option>
+                                        <option value="zh-CN">Chinese (Simplified)</option>
+                                        <option value="ja">Japanese</option>
                                     </select>
                             </div>
                             </span>
