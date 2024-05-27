@@ -121,6 +121,10 @@
             templateResult: formatCountry,
             minimumResultsForSearch: -1
         });
+        $(".country_dropdown1").select2({
+            templateSelection: formatCountry,
+            templateResult: formatCountry,
+        });
 
         function formatCity(city) {
             if (!city.id) {

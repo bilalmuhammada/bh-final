@@ -11,12 +11,14 @@ use App\Models\UserCardDetail;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
+
 use Illuminate\Support\Facades\Validator;
 use Stripe\Charge;
 use Stripe\Customer;
 use Stripe\Stripe;
 use Stripe\StripeClient;
+use Stripe\Checkout\Session;
+use Stripe\Exception\ApiErrorException;
 
 class PlanController extends Controller
 {
@@ -29,6 +31,37 @@ class PlanController extends Controller
         ]);
     }
 
+    public function session(Request $request)
+    {
+        // dd(config('stripe.sk'));
+        Stripe::setApiKey(config('services.stripe.secret'));
+
+        $session = Session::create([
+            'payment_method_types' => ['card'],
+            'line_items' => [[
+                'price_data' => [
+                    'currency' => 'usd',
+                    'product_data' => [
+                        'name' => 'T-shirt',
+                    ],
+                    'unit_amount' => 200,
+                ],
+                'quantity' => 1,
+            ]],
+            'mode' => 'payment',
+            'success_url' => route('checkout.success'),
+            'cancel_url' => route('checkout.cancel'),
+        ]);
+
+        return redirect($session->url);
+    
+        return redirect()->away($session->url);
+    }
+ 
+    public function success()
+    {
+        return "Thanks for you order You have just completed your payment. The seeler will reach out to you as soon as possible";
+    }
     public function showUserDetailForm(Request $request)
     {
         if (empty($request->plan_id)) {
@@ -46,7 +79,7 @@ class PlanController extends Controller
         ]);
     }
 
-    public function checkout(Request $request)
+    public function checkout1(Request $request)
     {
         $Validator = Validator::make($request->all(), [
             'plan' => 'required|exists:plans,id',

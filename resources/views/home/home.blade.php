@@ -47,7 +47,7 @@
                 <div class="row justify-content-md-center">
                     <div class="col-lg-12 col-xl-10 col-md-12">
                         <div class="col-lg-12 col-md-12" style="border:0px solid red;margin-top:-30px;">
-                            <h4 class="slider-heading">
+                            <h4 class="slider-heading" style="color: white">
                                 <b>The Best Marketplace to Buy & Sell Businesses Worldwide!</b>
                             </h4>
                             <form action="{{ env('BASE_URL') . 'listing/search' }}" method="get"

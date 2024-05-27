@@ -1,4 +1,19 @@
 @extends('layout.master')
+<style>
+    select{
+        text-transform: math-auto !important;
+    }
+    input:focus{
+        border: 1px solid blue !important;
+    }
+    #ui-datepicker-div{
+width: 225px !important;
+  }
+  .ui-state-default  {
+        border: 0px !important;
+    background-color: white !important; /* Change this to the desired color */
+  }
+</style>
 @section('content')
     <!-- form content start -->
     <div class="cont-w" style="margin-bottom:30px;">
@@ -16,12 +31,12 @@
                     <input type="file" name="profile_image" id="profile_image" class="form-control-file" style="border: 1px solid #999; border-radius: 2px; display: none;">
                     <input type="hidden" name="image" class="base64-Image-name">
                 </div>
-                <div class="col-md-5" style="padding:0px 40px;">
+                <div class="col-md-4"  style="margin-left: 42px;">
                     <div class="row">
                         <form class="profile-form" style="font-size:12px;">
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
-                                    <div class="col-md-4" ><b>Name:</b></div>
+                                    <div class="col-md-4" ><b> Full Name:</b></div>
                                     @php
                                     //  dd(session()->get('user'));
                                     @endphp
@@ -49,7 +64,7 @@
                             </div>
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
-                                    <div class="col-md-4">Gender:</div>
+                                    <div class="col-md-4"><b>Gender:</b></div>
                                     <div class="col-md-8">
                                         <select name="gender" id="gender" type="text" class="form-control"
                                                 style="border:1px solid #999;">
@@ -62,7 +77,7 @@
                             </div>
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
-                                    <div class="col-md-4">Mobile:</div>
+                                    <div class="col-md-4"><b>Mobile:</b></div>
                                     <div class="col-md-8">
                                         <input name="mobile" id="mobile" type="text" class="form-control" style="border: 1px solid #999;">
                                     </div>
@@ -70,7 +85,7 @@
                             </div>
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
-                                    <div class="col-md-4">Email:</div>
+                                    <div class="col-md-4"><b>Email:</b></div>
                                     <div class="col-md-8">
                                         <input name="email" id="email" type="text" class="form-control" style="border: 1px solid #999;">
                                     </div>
@@ -86,9 +101,9 @@
                             </div> --}}
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
-                                    <div class="col-md-4">Date of Birth:</div>
+                                    <div class="col-md-4"><b>Date of Birth:</b></div>
                                     <div class="col-md-8">
-                                        <input name="dob" id="dob" type="text" class="form-control" style="border: 1px solid #999;">
+                                        <input name="dob" id="datepicker" type="text" class="form-control" style="border: 1px solid #999;">
                                     </div>
                                 </div>
                             </div>
@@ -98,10 +113,10 @@
                         @endphp
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
-                                    <div class="col-md-4">Location:</div>
+                                    <div class="col-md-4"><b>Location:</b></div>
                                     <div class="col-md-4">
                                         <div class="input-group mb-3" style=" 
-                                        border: 1px solid #A17A4E">
+                                        border: 1px solid #999">
                                             <select name="country" id="country"
                                                         class="form-control country_dropdown login-user"
                                                         style="width:100%;">
@@ -120,7 +135,7 @@
 
                                        <div class="col-md-4">
                                         <div class="input-group mb-3" style="
-                                        border: 1px solid #A17A4E">
+                                        border: 1px solid #999">
                                             <select name="cities" id="cities"
                                             class="form-control country_dropdown login-user"
                                             style="width:100%;">
@@ -178,7 +193,7 @@
                                 <div class="row">
                                     <div class="col-md-12 text-left">
                                         <a class="btn add-list-button update-profile-btn update-profile-submit-btn"
-                                                style="padding: 8px;font-size:15px;border-radius:8px;">Update Profile
+                                                style="padding: 8px;font-size:15px;border-radius:8px;margin-left: 11pc">Update 
                                         </a>
                                     </div>
                                 </div>
@@ -186,8 +201,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-5"
-                     style="box-shadow: #eef0f1 0 0 20px;border: 1px solid #eef0f1;height:150px;padding:10px;">
+                <div class="col-md-5" style="box-shadow: #eef0f1 0 0 20px; margin-left: 53px; border: 1px solid #eef0f1;height:150px;padding:10px; ">
                     <div class="row">
                         <div class="col-md-4" style="border: 0px solid red;">
                             <div class="inner-content text-center" style="padding: 10px;">
@@ -329,7 +343,15 @@
     </div>
 @endsection
 @section('page_scripts')
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript">
+ 
+
+$('#datepicker').datepicker({
+dateFormat: 'dd-mm-yy'
+});
 document.getElementById('change-photo-link').addEventListener('click', function() {
     document.getElementById('profile_image').click();
 });

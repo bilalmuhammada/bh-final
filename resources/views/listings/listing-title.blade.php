@@ -4,12 +4,16 @@
     height: 58px;
     position: relative;
 }
+.floating:focus{
+        border: 1px solid blue !important;
+    box-shadow: 0 0 0 .2rem rgb(255 255 255 / 25%) !important; 
+    }
 
 .form-focus .focus-label {
     font-size: 14px;
     font-weight: 400;
     pointer-events: none;
-    border-color: #0071DC;
+    /* border-color: #0071DC; */
     position: absolute;
     -webkit-transform: translate3d(0, 22px, 0) scale(1);
     -ms-transform: translate3d(0, 22px, 0) scale(1);
@@ -43,8 +47,8 @@
 .form-focus .form-control {
     height: 51px;
     padding: 21px 12px 6px;
-border: 1px solid #2d11e7;
-    box-shadow: 1px 1px 1px 1px #eee;
+/* border: 1px solid #2d11e7;
+    box-shadow: 1px 1px 1px 1px #eee; */
 }
 
 .form-focus .form-control::-webkit-input-placeholder {
@@ -57,7 +61,7 @@ border: 1px solid #2d11e7;
 }
 
 .form-focus.focused .form-control::-webkit-input-placeholder {
-    color: #8d13ff;
+    /* color: blue; */
 }
 
 .form-focus.select-focus .focus-label {
@@ -126,11 +130,11 @@ border: 1px solid #2d11e7;
     margin: 0px auto;
 }
 
-.packages:hover {
+/* .packages:hover {
     background-color: #0504aa;
     color: white;
     /* transform: scale(1.1); */
-}
+} */
 
 
 </style>
@@ -195,13 +199,13 @@ border: 1px solid #2d11e7;
         });
 
    
-     $(document).ready(function () {
-    if ($('.floating').length > 0) {
-        $('.floating').on('focus blur', function (e) {
-            $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
-        }).trigger('blur');
-    }
-});
+//      $(document).ready(function () {
+//     if ($('.floating').length > 0) {
+//         $('.floating').on('focus blur', function (e) {
+//             $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
+//         }).trigger('blur');
+//     }
+// });
 
     </script>
 

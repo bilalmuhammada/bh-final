@@ -16,8 +16,8 @@
         <div class="col-md-12 desktop-view">
             <div class="row">
                 <div class="col-md-2" style="border: 0px solid red;text-align:right;">
-                    <img class="display-profile-img" src="{{session()->get('user')->image_url}}" alt="img" width="120" height="120"
-                         style="border-radius: 5%;border:0px solid red;">
+                    <img class="display-profile-img" accept src="{{session()->get('user')->image_url}}" alt="img" width="120" height="120"
+                         style="border-radius: 5%;border:0px solid red;"  >
                 </div>
                 <div class="col-md-5" style="padding:0px 40px;">
                     <div class="row">

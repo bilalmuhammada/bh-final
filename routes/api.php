@@ -160,5 +160,5 @@ Route::prefix('/listing')->group(function () {
 });
 
 Route::prefix('/subscription')->group(function() {
-    Route::post('/checkout', [\App\Http\Controllers\PlanController::class, 'checkout']);
+    // Route::post('/checkout', [\App\Http\Controllers\PlanController::class, 'checkout']);
 });

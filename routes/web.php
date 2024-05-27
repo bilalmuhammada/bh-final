@@ -57,13 +57,28 @@ Route::middleware('check_user_auth')->group(function () {
         Route::get('/place-ad/{listing_id}', [ListingController::class, 'showPlaceAd']);
         Route::get('/plane-ad/{listing_id}', [ListingController::class, 'showPlaneAd']);
         Route::get('terms-and-conditions/{listing_id}', [ListingController::class, 'showTermsAndConditions']);
+ 
+ 
+       
+ 
     });
 
-    Route::prefix('/subscription')->group(function() {
-        Route::get('/plans', [PlanController::class, 'showPlans']);
-        Route::get('/user-details', [PlanController::class, 'showUserDetailForm']);
-        Route::post('/checkout', [PlanController::class, 'checkout']);
-    });
+    Route::get('/checkout',  [PlanController::class,'showPlans'])->name('checkout');
+    Route::any('/session',  [PlanController::class,'session'])->name('session');
+    // Route::get('/success',  [PlanController::class,'success'])->name('success');
+    Route::get('checkout/success', function () {
+        return 'Payment successful!';
+    })->name('checkout.success');
+    
+    Route::get('checkout/cancel', function () {
+        return 'Payment canceled!';
+    })->name('checkout.cancel');
+    
+    // Route::prefix('/subscription')->group(function() {
+    //     Route::get('/plans', [PlanController::class, 'showPlans']);
+    //     Route::get('/user-details', [PlanController::class, 'showUserDetailForm']);
+    //     Route::get('/checkout', [PlanController::class, 'checkout']);
+    // });
 });
 
 Route::get('/about-us',function(){

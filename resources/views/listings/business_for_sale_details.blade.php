@@ -4,6 +4,10 @@
      height: 58px;
      position: relative;
  }
+ .floating:focus{
+        border: 1px solid blue !important;
+    box-shadow: 0 0 0 .2rem rgb(255 255 255 / 25%) !important; 
+    }
  
  .form-focus .focus-label {
      font-size: 14px;
@@ -131,6 +135,18 @@
      color: white;
      /* transform: scale(1.1); */
  }
+ .btn-show{
+  
+ 
+
+    text-align: center !important;
+   
+    padding: 1pc 3pc 1pc 3pc !important;
+    
+    color: white !important;
+    font-size: 14px !important;
+    border-radius: 11px !important;
+ }
  
  
  </style>
@@ -143,7 +159,7 @@
                 class="text-muted">{{ $listing->subcategory_name }}</span>
         </p>
     </div>
-    <form class="place-ad-form" enctype="multipart/form-data">
+    <form class="place-ad-form" enctype="multipart/form-data" >
         <input name="listing_id" type="hidden" value="{{$listing->id}}">
         <input type='hidden' class='form-controlz latitude' id='latitude' name='latitude' placeholder='Enter Latitude'>
         <input type='hidden' class='form-controlz longitude' id='longitude' name='longitude'
@@ -297,30 +313,48 @@
             <div class="input--file">
                 <i class="fa fa-camera fa-1x"></i>
                 <input type="file" multiple class="form-controlz form-control-file images" name="images[]"
-                       placeholder="Upload Images">
+                       placeholder="Upload Images" accept="image/*">
                 <div class="invalid-feedback image-error">
                     Please upload at least one image.
                 </div>
                 <span><b>Add Photos</b></span>
             </div>
         </div>
-        <div class="col-md-4 mx-auto" style="margin-top: 10px;margin-bottom: 10px;">
-            <div id="image-display-div" class="row "></div>
+        <div class="col-md-4 mx-auto" style="margin-top: 10px;margin-bottom: 10px; margin-left: 18pc !important;">
+            <div id="image-display-div" style="display: flex"></div>
         </div>
 
         <div class="col-md-6 mx-auto" style="margin-top: 20px;">
             <div class="input--file">
                 <i class="fa fa-camera fa-1x"></i>
                 <input type="file" multiple class="form-controlz form-control-file documents" name="documents[]"
-                       placeholder="Upload Documents">
+                       placeholder="Upload Documents" accept=".pdf,.doc" >
                 <div class="invalid-feedback image-error">
                     Invalid
                 </div>
                 <span><b>Add File</b></span>
             </div>
+
+
+            <div class="form-group" id="filehide">
+                <label style="    padding: 25px;
+                text-align: center;
+                font-size: 34px; font-weight: 700">Do you want to show or hide your Files?</label>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
+                    <label class="btn active  btn-show" style="margin-left: 6pc !important;background-color: #dadadb">
+                        <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show File
+                    </label>
+                    <label class="btn btn-show"  style="margin-right: 9pc !important; float: right;background-color: #525252">
+                        <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide File
+                    </label>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 mx-auto" style="margin-top: 20px;padding-bottom: 10px;">
-            <div id="document-display-div" class="row "></div>
+    
+
+
+        <div class="col-md-4 mx-auto" style="margin-top: 20px;padding-bottom: 10px;margin-left: 18pc !important;">
+            <div id="document-display-div" style="display: flex"></div>
         </div>
 
     
@@ -361,7 +395,7 @@
             <div class="map" id="map"></div>
         </div>
         <div class="col-md-6 mx-auto text-center btn-nexts" style="margin-top: 20px;">
-        <a class="btn place-ad-form-submit">Nextww</a>
+        <a class="btn place-ad-form-submit">Next</a>
         </div>
     </form>
 
@@ -371,6 +405,8 @@
     <script type="text/javascript" src="{{ asset('js/listings_form.js') }}"></script>
 
     <script>
+
+
 
 
 $(document).on('click', '.place-ad-form-submit', function (e) {
@@ -403,6 +439,18 @@ $(document).on('click', '.place-ad-form-submit', function (e) {
         });
 
         $(document).ready(function () {
+
+
+
+
+
+$('#filehide').hide();
+
+$(document).on('click', '.documents', function (e) {
+    $('#filehide').show();
+});
+
+
        if ($('.floating').length > 0) {
            $('.floating').on('focus blur', function (e) {
                $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));

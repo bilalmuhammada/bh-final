@@ -3380,7 +3380,7 @@
         font-size: 14px !important;
         color: #A17A4E !important;
         margin-bottom: 15px !important;
-        margin-left: 7%;
+        white-space: nowrap;
     }
     
     .ragisterarea .captcha {

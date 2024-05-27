@@ -19,6 +19,10 @@
     .dropdown-menu{
         width: 28pc !important;
     }
+    .img-flag{
+        margin-right: 10px !important;
+
+    }
 </style>
 <header>
     <script type="text/javascript">
@@ -30,13 +34,31 @@
 
     <script type="text/javascript">
         function translateLanguage() {
-            var dropdown = document.getElementById("languageDropdown");
+            var dropdown = document.getElementById("country_dropdown");
+
+         
             var selectedLanguage = dropdown.options[dropdown.selectedIndex].value;
-            if (selectedLanguage) {
+            //  alert(selectedLanguage);
+            var languageMapping = {
+                '1': 'en',  // Example: Country ID 1 maps to English
+                '30': 'fr', // Example: Country ID 30 maps to French
+                '13': 'ar', // Example: Country ID 13 maps to Arabic
+                // Add your mappings here
+            };
+
+            var selectedLanguageCode = languageMapping[selectedLanguage];
+
+
+
+            if (selectedLanguageCode) {
                 var googleTranslateCombo = document.querySelector('.goog-te-combo');
                 if (googleTranslateCombo) {
-                    googleTranslateCombo.value = selectedLanguage;
+                    googleTranslateCombo.value = selectedLanguageCode;
                     googleTranslateCombo.dispatchEvent(new Event('change'));
+                }
+                else{
+                    // alert('dd');
+                    // translateLanguage();
                 }
             }
 
@@ -49,11 +71,11 @@
                 <div class="col" style="border:0px solid red;margin:0px;">
                     <!-- <div class="col-lg-2 col-xl-2 col-md-2" style="border:2px solid red;"> -->
                     <!-- social icon desktop start -->
-                    <a class="navbar-brand"
+                    {{-- <a class="navbar-brand"
                        href="{{env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city}}">
                         <img src="{{asset('images/businesshub.png')}}" alt="businesshub" title="businesshub"
                              style="border:0px solid red;">
-                    </a>
+                    </a> --}}
                 </div>
                 <div class="col-lg-3 col-xl-3 col-md-3" style="border:0px solid red;">
                     <!-- <div class="col-md-4"> -->
@@ -78,20 +100,22 @@
                                 {{-- <label for="">Select</label> --}}
                                 
                                     {{-- <span style="color: #000;">Select languages</span> --}}
-                              
-                                    {{-- <select class="form-control country_dropdownq  lang-select" name="country_dropdownq" id="countryDropdown" style="width:150px;" onchange="">
+                                    @php
+                                    // dd($countries[0]->image_url);
+                                   @endphp
+                                    <select class="form-control country_dropdown1 " name="country_dropdown"  style="width:150px;" id="country_dropdown" onchange="translateLanguage()">>
                                         @foreach($countries as $country)
+                                       
                                             <option
-                                                {{ $country->id == request()->country ? 'selected' : '' }}
-                                                value="{{ $country->id }}">
-                                                <span>
-                                                    <img src="{{ $country->image_url }}" data-lang="fr" alt="{{ $country->nice_name }} Flag" class="flag-icon">
-                                                    &nbsp;{{ $country->nice_name }}
-                                                </span>
+                                            {{ $country->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $country->image_url }}"
+                                            value="{{ $country->id }}"
+                                            style="font-size:8px !important;">
+                                            {{ $country->nice_name }}
+                                               
                                             </option>
                                         @endforeach
-                                    </select> --}}
-                                    <select id="languageDropdown" onchange="translateLanguage()">
+                                    </select>
+                                    {{-- <select id="languageDropdown" onchange="translateLanguage()">
                                         <option value="">Select Language</option>
                                         <option value="en">English</option>
                                         <option value="es">Spanish</option>
@@ -99,7 +123,7 @@
                                         <option value="de">German</option>
                                         <option value="zh-CN">Chinese (Simplified)</option>
                                         <option value="ja">Japanese</option>
-                                    </select>
+                                    </select> --}}
                             </div>
                             </span>
                 </div>
@@ -126,7 +150,7 @@
                                    aria-expanded="false">
                                     <img src="{{ asset('images/my-notifications.svg')}}" width="17" height="17">
                                     <div>
-                                        <span style="color: #000;">Notifications</span>
+                                        <span style="color: #000;">Notification</span>
                                     </div>
                                 </a>
                                 <div class="dropdown-menu"  id="notifications" aria-labelledby="notifications"
@@ -140,18 +164,66 @@
                                         </div>
                                             <hr>
                                             @foreach($notifications as $notification)
-                                                <div class="row">
+                                                {{-- <div class="row">
                                                 <div class="col-lg-2 col-sm-4 col-4">
                                                     <img width="100" height="100"
                                                          src="https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg"
                                                          alt="img" style="width:40px;height:40px;border-radius:50px;"/>
                                                 </div>
                                                 <div class="col-lg-8 col-sm-7 col-7">
-                                                    <p style="font-size: 13px;">{{ $notification->message }}</p>
+                                                    <p style="font-size: 13px;">{{ $notification->message }}333</p>
                                                 </div>
+                                            </div> --}}
+                                            
+                                            <div class="notifications-wrapper">
+                                            <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal">
+                                                <div class="dropdown" style="float:right;">
+                                                    <i style="color: black;" class="fa fa-ellipsis-h" data-toggle="dropdown"></i>
+                                                    <div class="dropdown-menu" style="   left: -140px;;
+                                                    ">
+                                                      <a class="dropdown-item" href="#">Mark as Read</a>
+                                                      <a class="dropdown-item" href="#">Remove Notifications</a>
+                                                    </div>
+                                                  </div>
+                                               <div class="notification-item">
+                                                <div class="row">
+                                                  
+                                                    <div class="col-md-9" style="white-space: nowrap;display: ruby;">
+                                                        <h1 class="item-title" style="margin-bottom: 10px;">{{ $notification->message }}</h1>
+                                                        <p style="margin-top: 5px;margin-left:200px ;margin-bottom: unset; color: black; font-size: 0.9em;">7 days ago </p>
+                                                    </div>
+    
+                                                   
+                                                </div>
+                                                <div class="row">
+                                                  
+                                                <div class="col-md-12" style="padding: unset;display: contents;">
+                                                    <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; margin-left: 13px;">
+                                                        <img style="width: 100%; height: 100%; object-fit: cover;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
+                                                    </div>
+                                                    <p style="margin: 11px; font-weight: bold;">Khan</p>
+                                                    <br>
+                                                    
+                                                </div>
+                                                <div style=" color: white;
+                                                      margin-top: 10px;
+                                                      margin-left: 160px;">
+                                                    <a class="btn btn-success btn-sm badge bg-success">Approve </a>
+                                                    <a class="btn btn-danger btn-sm badge bg-danger" style="margin-left: 5px;">Reject </a>
+                                                </div>
+                                            </div>
+                                               
+    
+                                              </div>
+                                              <hr>
+                                               
+                                            </a>
                                             </div>
                                             
                                             @endforeach
+                                            <li class="divider"></li>
+                                        <div class="notification-footer" style="text-align: center;"><h4 class="menu-title" style="color: red;
+                                            margin: 12px;">   <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal">View all Notifications </a></h4></div>
                                         <!---------inner area---->
                                         @else
                                             {{-- <hr>
@@ -167,7 +239,7 @@
 
                                         </div>
                                     </div> --}}
-                                        <div style="      margin-top: 15px;   font-weight: 700;   min-width: 500px;" class="notification-heading"><h4 class="menu-title">Notifications </h4><h6 style="font-size: 16px; margin-right: 66px" class="menu-title pull-right">Mark All as read</h6>
+                                        <div style="      margin-top: 15px;   font-weight: 700;   min-width: 500px;" class="notification-heading"><h4 class="menu-title">Notification </h4><h6 style="font-size: 16px; margin-right: 66px" class="menu-title pull-right">Mark All as read</h6>
                                         </div>
                                         <hr style="    width: 80%;">
                                         <li class="divider"></li>
@@ -185,8 +257,8 @@
                                             <div class="row">
                                               
                                                 <div class="col-md-9" style="white-space: nowrap;display: ruby;">
-                                                    <h1 class="item-title" style="margin-bottom: 10px;">Show Phone Number Request</h1>
-                                                    <p style="margin-top: 5px;margin-left:30px ;margin-bottom: unset; color: black; font-size: 0.9em;">7 days ago </p>
+                                                    <h1 class="item-title" style="margin-bottom: 10px;">Mobile Request</h1>
+                                                    <p style="margin-top: 5px;margin-left:143px ;margin-bottom: unset; color: black; font-size: 0.9em;">7 days ago </p>
                                                 </div>
 
                                                
@@ -211,6 +283,7 @@
                                            
 
                                           </div>
+                                          <hr>
                                            
                                         </a>
                                        
@@ -227,8 +300,8 @@
                                             <div class="row">
                                               
                                                 <div class="col-md-9" style="white-space: nowrap;display: ruby;">
-                                                    <h1 class="item-title" style="margin-bottom: 10px;">Show Ad Document Request</h1>
-                                                    <p style="margin-top: 5px;margin-left:30px ;margin-bottom: unset; color: black; font-size: 0.9em;">7 days ago </p>
+                                                    <h1 class="item-title" style="margin-bottom: 10px;">File Request</h1>
+                                                    <p style="margin-top: 5px;margin-left:170px ;margin-bottom: unset; color: black; font-size: 0.9em;">7 days ago </p>
                                                 </div>
 
                                                
@@ -259,7 +332,7 @@
                                        <hr>
                                         <li class="divider"></li>
                                         <div class="notification-footer" style="text-align: center;"><h4 class="menu-title" style="color: red;
-                                            margin: 12px;">View all Notifications</h4></div>
+                                            margin: 12px;">   <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal">View all Notifications </a></h4></div>
                                       </ul>
                                         @endif
                                 </div>
@@ -459,11 +532,11 @@
                                               aria-expanded="false">
                                             {{session()->get('user')->name}}
                                         </span>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="max-width: 106px">
                                             <a class="dropdown-item link"
                                                href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">My Profile</a>
-                                            <a class="dropdown-item link"
-                                               href="{{ env('BASE_URL') . 'user/ads?country=' . request()->country . '&city=' . request()->city}}">My Ads</a>
+                                            {{-- <a class="dropdown-item link"
+                                               href="{{ env('BASE_URL') . 'user/ads?country=' . request()->country . '&city=' . request()->city}}">My Ads</a> --}}
 {{--                                            <a class="dropdown-item" href="{{ env('BASE_URL') . 'user/searches'}}">My Searches</a>--}}
                                             {{-- <a class="dropdown-item link"
                                                href="{{ env('BASE_URL') . 'user/change-password?country=' . request()->country . '&city=' . request()->city}}">Change Password</a> --}}

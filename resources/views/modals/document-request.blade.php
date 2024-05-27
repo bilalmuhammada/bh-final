@@ -39,11 +39,22 @@
 
                             </td>
                             <td>
-                                <a href="#" class="btn btn-primary btn-sm download-request-status-update"
-                                   status="approved" listing-user-approval-id="{{ $request->id }}"><i
+                                 {{-- <a class="btn btn-success btn-sm badge bg-success">Approve </a> --}}
+                                 <a href="#" class="btn btn-success btn-sm badge bg-success download-request-status-update" request-type="phone"
+                                 status="approved" listing-user-approval-id="{{ $request->id }}">
+                                 {{-- <i
+                                      class="fa fa-download me-1"></i> --}}
+                                      Approved</a>
+                              <a href="#" class="btn btn-danger btn-sm badge bg-success download-request-status-update" request-type="phone"
+                                 status="rejected" listing-user-approval-id="{{ $request->id }}">
+                                 {{-- <i class="fa fa-times-circle me-1"> </i> --}}
+                                 Reject
+                              </a>
+                                {{-- <a href="#" class="btn btn-primary btn-sm download-request-status-update"
+                                   status="approved" listing-user-approval-id="{{ $request->id }}">444<i
                                         class="fa fa-download me-1"></i>Approved</a>
                                 <a href="#" class="btn btn-danger btn-sm download-request-status-update"
-                                   status="rejected" listing-user-approval-id="{{ $request->id }}"><i class="fa fa-times-circle me-1"></i>Reject</a>
+                                   status="rejected" listing-user-approval-id="{{ $request->id }}"><i class="fa fa-times-circle me-1"></i>Reject</a> --}}
                             </td>
                         </tr>
                     @empty

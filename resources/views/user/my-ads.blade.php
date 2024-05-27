@@ -54,6 +54,7 @@
                 <!------------------single row----------->
                 <div class="col-md-12" style="    border-radius:6px;padding:;margin-top:10px;">
                     @foreach($my_ads as $my_ad)
+                    <form class="place-ad-form" enctype="multipart/form-data">
                         <div class="row" style=" ">
                             <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;">
                                 <input type="checkbox">
@@ -97,7 +98,7 @@
                                 <div >
                                     <i class="fa fa-exclamation-circle text-warning"></i> 1224 views
                                     <!-- Button with calendar icon -->
-                                    <a class="btn"><i class="fa fa-calendar custom-icon"></i> </a>
+                                    <a class="btn place-ad-form-submit" ><i class="fa fa-calendar custom-icon"></i> </a>
                                     
                                     <!-- Button with edit icon -->
                                     <a class="btn " style="padding: 0px"><i class="fa fa-edit custom-icon"></i> </a>
@@ -110,8 +111,10 @@
                                 <!-- This column is intentionally left empty -->
                             </div>
                         </div>
+                    </form>
                         <!-- Add margin bottom -->
                         <div class="mb-3"></div>
+                        <hr>
                     @endforeach
                 </div>
                 
@@ -194,7 +197,7 @@
                                         
                                     </h3>
                                    
-                                   <span> Last Update: 15 May</span> <span style="margin-left:57px"> Expired: in 9 days</span> 
+                                   <span> Last Update: 15 May</span> <span style="margin-left:57px"> Expires: in 9 days</span> 
                                 </div>
                                 <div class="col-md-3 d-flex flex-column justify-content-end">
                                     <div >
@@ -214,7 +217,8 @@
                                 </div>
                             </div>
                             <!-- Add margin bottom -->
-                            <div class="mb-3"></div>
+                            <div class="divider"> </div>
+                            <hr>
                                 @endforeach
                             </div>
                       
@@ -481,4 +485,38 @@
         </div>
     </div>
 
+@endsection
+
+@section('page_scripts')
+<script>
+$(document).on('click', '.place-ad-form-submit', function (e) {
+    e.preventDefault();
+     var formData = new FormData($('.place-ad-form')[0]);
+// console.log(formData);
+    $.ajax({
+        url: api_url + 'listing/nextsubmit',
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        dataType: "JSON",
+        success: function (response) {
+        console.log(response);
+            if (response.status) {
+
+                setTimeout(function () {
+                    window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
+                }, 600);
+
+            } else {
+                alert(response.message);
+            }
+        },
+        error: function (response) {
+            showAlert("error", "Server Error");
+        }
+    });
+});
+
+</script>
 @endsection

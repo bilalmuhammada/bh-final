@@ -39,6 +39,7 @@ class ListingController extends Controller
         ];
         return view('listings.select-category')->with($data);
     }
+   
 
     public function showSelectSubcategory($category_id)
     {

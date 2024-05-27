@@ -91,6 +91,7 @@
                                                     <option value="" selected>Select</option>
                                                 @endif
                                                 @foreach($countries as $country)
+                                               
                                                     <option
                                                         {{ $country->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $country->image_url }}"
                                                         value="{{ $country->id }}"

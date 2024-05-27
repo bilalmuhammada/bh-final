@@ -5,6 +5,10 @@
      position: relative;
  }
  
+ .floating:focus{
+        border: 1px solid blue !important;
+    box-shadow: 0 0 0 .2rem rgb(255 255 255 / 25%) !important; 
+    }
  .form-focus .focus-label {
      font-size: 14px;
      font-weight: 400;
@@ -132,7 +136,18 @@
      /* transform: scale(1.1); */
  }
  
+ .btn-show{
+  
  
+
+  text-align: center !important;
+ 
+  padding: 1pc 3pc 1pc 3pc !important;
+  
+  color: white !important;
+  font-size: 14px !important;
+  border-radius: 11px !important;
+}
  </style>
 @section('content')
     <div class="col-md-6 mx-auto">
@@ -193,13 +208,28 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <input type="text" class="form-control floating" name="phone" placeholder="" style="padding:22px;"
-                           pattern="[0-9]{10}" title="Please enter a valid 10-digit Mobile number" required>
+                    <input type="text" class="form-control floating mobile" name="phone" placeholder="" style="padding:22px;"
+                           pattern="[0-9]{10}" title="Please enter a valid 10-digit Mobile  number" required>
                            <label class="focus-label">Mobile</label>
                         </div>
                     
                            <div class="invalid-feedback">
                         Mobile number will show only request only !
+                    </div>
+
+                </div>
+                
+                <div class="form-group" id="filemoble">
+                    <label style="    padding: 25px;
+                    text-align: center;
+                    font-size: 34px; font-weight: 700">Do you want to show or hide your Phone Number?</label>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
+                        <label class="btn active  btn-show" style="margin-left: 6pc !important;background-color: #dadadb">
+                            <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show Phone
+                        </label>
+                        <label class="btn btn-show"  style="margin-right: 9pc !important; float: right;background-color: #525252">
+                            <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide Phone
+                        </label>
                     </div>
                 </div>
             </div>
@@ -254,6 +284,19 @@
                 </div>
                 <span><b>Add File</b></span>
             </div>
+            <div class="form-group" id="filehide">
+                <label style="    padding: 25px;
+                text-align: center;
+                font-size: 34px; font-weight: 700">Do you want to show or hide your Files?</label>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
+                    <label class="btn active  btn-show" style="margin-left: 6pc !important;background-color: #dadadb">
+                        <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show File
+                    </label>
+                    <label class="btn btn-show"  style="margin-right: 9pc !important; float: right;background-color: #525252">
+                        <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide File
+                    </label>
+                </div>
+            </div>
         </div>
         <div class="col-md-4 mx-auto" style="margin-top: 20px;margin-bottom: 10px;">
             <div id="document-display-div" class="row "></div>
@@ -307,7 +350,53 @@
     <script type="text/javascript" src="{{ asset('js/listings_form.js') }}"></script>
 
     <script>
+$(document).on('click', '.place-ad-form-submit', function (e) {
+            e.preventDefault();
+             var formData = new FormData($('.place-ad-form')[0]);
+// console.log(formData);
+            $.ajax({
+                url: api_url + 'listing/nextsubmit',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: "JSON",
+                success: function (response) {
+                console.log(response);
+                    if (response.status) {
+
+                        setTimeout(function () {
+                            window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
+                        }, 600);
+
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function (response) {
+                    showAlert("error", "Server Error");
+                }
+            });
+        });
+
+
+
+
         $(document).ready(function () {
+
+           
+            $('#filehide').hide();
+
+$(document).on('click', '.documents', function (e) {
+    $('#filehide').show();
+});
+           
+            $('#filemoble').hide();
+
+$(document).on('click', '.mobile', function (e) {
+    $('#filemoble').show();
+});
+
        if ($('.floating').length > 0) {
            $('.floating').on('focus blur', function (e) {
                $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));

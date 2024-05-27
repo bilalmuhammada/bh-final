@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b0fc6bf587cb3b7788ad358fe2784a85",
+    "content-hash": "804804f90c5b048ce36d0af0ae3896a6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3453,16 +3453,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v13.14.0",
+            "version": "v14.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "d569265e79dc82329dadea1b1088a0a29c7a8a76"
+                "reference": "7038876e791ed0cd7326d2497515a8e37734b3e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/d569265e79dc82329dadea1b1088a0a29c7a8a76",
-                "reference": "d569265e79dc82329dadea1b1088a0a29c7a8a76",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/7038876e791ed0cd7326d2497515a8e37734b3e8",
+                "reference": "7038876e791ed0cd7326d2497515a8e37734b3e8",
                 "shasum": ""
             },
             "require": {
@@ -3506,9 +3506,9 @@
             ],
             "support": {
                 "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v13.14.0"
+                "source": "https://github.com/stripe/stripe-php/tree/v14.8.0"
             },
-            "time": "2024-03-14T21:12:02+00:00"
+            "time": "2024-05-23T20:23:58+00:00"
         },
         {
             "name": "symfony/console",
@@ -8491,5 +8491,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
