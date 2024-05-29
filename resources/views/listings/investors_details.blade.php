@@ -222,12 +222,12 @@
                 <div class="form-group" id="filemoble">
                     <label style="    padding: 25px;
                     text-align: center;
-                    font-size: 34px; font-weight: 700">Do you want to show or hide your Phone Number?</label>
+                    font-size: 20px;">Do you want to show or hide your Phone Number?</label>
                     <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
                         <label class="btn active  btn-show" style="margin-left: 6pc !important;background-color: #dadadb">
                             <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show Phone
                         </label>
-                        <label class="btn btn-show"  style="margin-right: 9pc !important; float: right;background-color: #525252">
+                        <label class="btn btn-show"  style="margin-right: -10pc !important; float: right;background-color: #525252">
                             <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide Phone
                         </label>
                     </div>
@@ -287,7 +287,7 @@
             <div class="form-group" id="filehide">
                 <label style="    padding: 25px;
                 text-align: center;
-                font-size: 34px; font-weight: 700">Do you want to show or hide your Files?</label>
+                font-size: 25px; ">Do you want to show or hide your Files?</label>
                 <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
                     <label class="btn active  btn-show" style="margin-left: 6pc !important;background-color: #dadadb">
                         <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show File

@@ -28,7 +28,7 @@ width: 225px !important;
                 <div class="col-md-2" style="border: 0px solid red;text-align:right;">
                     <img id="profile-image" class="display-profile-img" src="{{session()->get('user')->image_url}}" alt="img" width="120" height="120" style="border-radius: 5%; border: 0px solid red;">
                     <a href="#" id="change-photo-link" style="margin-right: 10px;">Change Photo</a>
-                    <input type="file" name="profile_image" id="profile_image" class="form-control-file" style="border: 1px solid #999; border-radius: 2px; display: none;">
+                    <input type="file" name="profile_image" id="profile_image" class="form-control-file" accept="image/*" style="border: 1px solid #999; border-radius: 2px; display: none;">
                     <input type="hidden" name="image" class="base64-Image-name">
                 </div>
                 <div class="col-md-4"  style="margin-left: 42px;">

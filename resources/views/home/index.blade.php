@@ -526,6 +526,12 @@ $countries = \App\Helpers\RecordHelper::getCountries();
             templateResult: formatCountry,
            
         });
+        $(".currency_dropdown").select2({
+            templateSelection: formatCountry,
+            templateResult: formatCountry,
+           
+        });
+        
     });
 
     $(document).on('click', '.subcategory-name', function (e) {

@@ -157,7 +157,7 @@
         
             <div class="form-group form-focus">
                 <input type="text" class="form-control floating" name="title">
-                <label class="focus-label">e.g. Business for Sale</label>
+                <label class="focus-label">Business for Sale</label>
             </div>
         
         </div>

@@ -1,4 +1,6 @@
 @extends('layout.master')
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 @section('content')
     <style>
         .btnx {
@@ -39,7 +41,10 @@
             color: white;
         }
 
-
+        .swiper-button-next:after, .swiper-button-prev:after{
+            color: white !important;
+            font-size: 23px !important;
+        }
     </style>
     <!--------ad area --------->
     <section>
@@ -48,10 +53,19 @@
             <div id="demo" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{asset('images/hero_image_7.jpeg')}}" alt="Los Angeles" width="100%" height="257">
+                        <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:8px;">
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Los Angeles" width="100%" height="257" style="height:310px;border-radius:8px;">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{asset('images/hero_image_7.jpeg')}}" alt="Chicago" width="100%" height="257">
+                        <img src="{{asset('images/slider-images/image3.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:8px;">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{{asset('images/slider-images/image4.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:8px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{asset('images/slider-images/image5.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:8px;">
                     </div>
                 </div>
             </div>
@@ -64,7 +78,7 @@
         $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city) ? $cities_for_filter->where('id', request()->city)->first()->name : 'All';
     @endphp
     <section class="desktop-view">
-        <div class="container">
+        <div class="container" style=" max-width: 76pc;">
             <div class="col-lg-12 col-xl-12 col-12 col-md-12">
                 <form class="form"
                       style=" box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;border-radius: 10px;border: 1px solid rgb(194, 196, 199);padding:3px;">
@@ -98,7 +112,7 @@
                                    role="button" aria-expanded="false"
                                    aria-controls="multiCollapseExample4"
                                    style="color:#000;">
-                                    <div class="col-md-12"><span style="font-size: 14px;"><b>Price (AED)</b></span>
+                                    <div class="col-md-12"><span style="font-size: 14px;"><b>Price</b></span>
                                     </div>
                                     <div class="col-md-12"><span
                                             style="font-size: 11px;color:#000;">{{ $from || $to ? $from . '-' . $to : 'Select'}}</span>
@@ -186,7 +200,7 @@
                                     </div>
                                     <div class="col-md-7 mx-auto" style="margin-top: 20px;margin-bottom:20px;">
                                         <a class="btn form-control apply-price-filter-btn"
-                                           style="background: #0000FF;color:#fff;font-size:13px;">Apply Filters</a>
+                                           style="background: #0000FF;color:#fff;font-size:13px;">Apply </a>
                                     </div>
                                 </div>
                             </div>
@@ -216,7 +230,7 @@
                                     </div>
                                     <div class="col-md-7 mx-auto" style="margin-top: 20px;margin-bottom:20px;">
                                         <a class="btn form-control apply-keyword-filter-btn"
-                                           style="background: #0000FF;color:#fff;font-size:11px;">Apply Filters</a>
+                                           style="background: #0000FF;color:#fff;font-size:11px;">Apply </a>
                                     </div>
                                 </div>
                             </div>
@@ -287,110 +301,62 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-12">
                         @foreach($ads as $ad)
-                            <div class="row">
-                                <!-----content----->
-
-                                <div class="col-lg-4 col-md-4 col-12" style="margin-bottom:10px;">
-                                    <div style="position:absolute;border:0px solid red;width:100%;">
-                                        <div class="row">
-                                            <div>
-                                                <button
-                                                    style="font-size: 11px;background-color:#eee;color:#0000FF;font-weight:bold;padding:5px;border:0px;border-radius:5px;margin:5px 0px 0px 17px;">
-                                                    <i class="fa fa-check-circle"></i> Verified User
-                                                </button>
-                                            </div>
-                                            <div style="margin-left:100px;">
-                                    <span>
-                                    <a> <i class="fa fa-copy share-btn" ad-id="{{ $ad->id }}" title="Copy Ad link"
-                                           style="color:white;"></i></a>
-                                    <a> <i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}"
-                                           is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
-                                           style="color: white;"></i></a>
-                                    </span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:150px;">
-                                            <i class="fa fa-envelope" style="color:white;"></i><span class="text-white">1</span>
-                                        </div>
-                                    </div>
-                                    <a href="{{env('BASE_URL') . 'ads/detail/' . $ad->id}}">
-                                        <div class="img"
-                                             style="background-image:url({{ $ad->main_image_url }});height:180px;width:100%;border-radius:10px;">
-                                            <div class="row" style="display:none;">
-                                                <div class="col-md-12" style="display:none;">
-                                                    <div class="row">
-                                                        <div class="col-md-7 col-6" style="margin:5px;">
-                                                            <button
-                                                                style="font-size: 11px;background-color:#eee;color:#0000FF;font-weight:bold;padding:5px;border:0px;border-radius:5px;;">
-                                                                <i class="fa fa-check-circle"></i> Verified User
-                                                            </button>
-                                                        </div>
-                                                        <div class="col-md-4 col-4" style="margin:5px;">
-                                                            <span>
-                                                                <i class="fa fa-share" style="color:white;"></i>
-                                                                <i class="fa fa-heart-o" style="color: white;"></i>
-                                                           </span>
-                                                        </div>
-                                                        <div class="col-md-7 col-6"
-                                                             style="margin:5px;position:absolute;top:150px;">
-                                                            <i class="fa fa-envelope" style="color:white;"></i><span
-                                                                class="text-white">1</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-lg-8 col-md-8 col-12">
+                        <div class="row">
+                            <!-----content----->
+                            <div class="col-lg-4 col-md-4 col-12" style="margin-bottom:10px;">
+                                <div style="position:absolute;border:0px solid red;width:100%;">
                                     <div class="row">
-                                        <div class="col-lg-10 col-md-10  col-9">
-                                            <h5 style="font-size: 15px;font-weight:bold;">{{ $ad->title ?? 'Heading N/A' }}</h5>
-                                            <p style="font-size: 13px;">{{ $ad->category_name . '-' . $ad->subcategory_name }}</p>
-                                            <h3 style="font-weight: bold;font-size:14;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}</h3>
-                                            <div class="row">
-                                                <div>
-                                                    <button class="btn"
-                                                            style="font-size:11px;font-weight:bold;background:#eee;margin:2px;">
-                                                        <span>AGE</span><br/>Brand
-                                                        New
-                                                    </button> &nbsp;
-                                                </div>
-                                                <div>
-                                                    <button class="btn"
-                                                            style="font-size:11px;font-weight:bold;background:#eee;margin:2px;">
-                                                        <span>USAGE</span><br/>Never
-                                                        Used
-                                                    </button> &nbsp;
-                                                </div>
-                                                <div>
-                                                    <button class="btn"
-                                                            style="font-size:11px;font-weight:bold;background:#eee;margin:2px;">
-                                                        <span>CONDITION</span><br/>Flawless
-                                                    </button> &nbsp;
-                                                </div>
-                                            </div>
-                                            <div>&nbsp;</div>
-                                            <p style="font-size:11;"><i
-                                                    class="fa fa-map-marker"></i> {{ $ad->location_name }}</p>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 mb-30 col-3">
-                                            <button class="btn btn-warning"
-                                                    style="font-size:11px;color:white;font-weight:bold;">PREMIUM
-                                            </button>
+                                        <!-- Sharing and Favourite buttons -->
+                                        <div style="margin-top: 12px; margin-left: 199px;  z-index: 2;">
+                                            <span>
+                                                <a><i class="fa fa-share share-btn" ad-id="{{ $ad->id }}" title="Copy Ad link" style="font-size: 25px; margin-right: 8px;color:white;"></i></a>
+                                                <a><i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}" is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}" style="font-size: 25px; color: white;"></i></a>
+                                            </span>
                                         </div>
                                     </div>
+                                    <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:150px; z-index: 2;">
+                                        <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
+                                    </div>
                                 </div>
-                                <!-----content----->
-                                <hr style="width: 100%; height:3px; color:#eee;background:#eee;">
+                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $ad->id }}">
+                                    <div class="swiper-container" style="height:180px;width:16pc;">
+                                        <div class="swiper-wrapper">
+                                            <!-- Static image for now -->
+                                            <div class="swiper-slide" style="background-image:url({{ $ad->main_image_url }});"></div>
+                                        </div>
+                                        <!-- Add Pagination if needed -->
+                                        <div class="swiper-pagination"></div>
+                                        <!-- Add Navigation buttons if needed -->
+                                        <div class="swiper-button-next"></div>
+                                        {{-- <div class="swiper-button-prev"></div> --}}
+                                    </div>
+                                </a>
                             </div>
-                        @endforeach
+                            <div class="col-lg-8 col-md-8 col-12">
+                                <div class="row">
+                                    <div class="col-lg-9 col-md-9 col-9" style="margin-left: 23px">
+                                        <h5 style="font-size: 22px;font-weight:700;">{{ $ad->title ?? 'Heading N/A' }}</h5>
+                                        <p style="font-size: 13px;">{{ $ad->category_name }} <span style="font-size: 16px;">&#9679;</span> {{ $ad->subcategory_name }}</p>
+                                        <h3 style="font-weight: bold;font-size:23px;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price, request()->currency) }}</h3>
+                                        <div>&nbsp;</div>
+                                        <p style="margin-top: 12px;font-size: 20px; font-weight: 600"><i class="fa fa-map-marker"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span class="text-muted" style="margin-top: 12px;font-size: 20px;">24 May 2024</span></p>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 mb-30 col-3">
+                                        <button class="btn btn-primary" style="font-size:11px;color:white;font-weight:bold;">Featured</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-----content----->
+                            <hr style="width: 100%;background:#eee;">
+                        </div>
+                    @endforeach
+                    
                     </div>
                     <!--  add area -->
-                    <div class="col-lg-4 col-md-8 mb-30 col-12">
+                    {{-- <div class="col-lg-4 col-md-8 mb-30 col-12">
                         <img src="{{asset('images/hero_image_7.jpeg')}}" alt="Los Angeles" width="100%" height="200"
                              style="margin-bottom: 10px;">
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

@@ -149,12 +149,12 @@
                                 @foreach($category->sub_categories as $key=>$sub_category)
                                     @if($key >= 4)
                                         <div class="collapse hidden-div">
-                                            <a href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city}}">{{$sub_category->name}}</a>
+                                            <a href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city.'&currency=' . request()->currency}}">{{$sub_category->name}}</a>
                                             <br>
                                         </div>
                                     @else
                                     <span class="external">
-                                        <a href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city}}">{{$sub_category->name}}</a>
+                                        <a href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city.'&currency=' . request()->currency}}">{{$sub_category->name}}</a>
                                     </span>
                                         <br>
                                     @endif

@@ -41,6 +41,17 @@ class RecordHelper
 
         return $cities;
     }
+    public static function getCurrency()
+    {
+        
+        $currency = Country::orderBy('sequence')->get();
+        $uniqueCurrencyCodes = $currency->unique('currency');
+        $uniqueCurrencyCodesArray = $uniqueCurrencyCodes->pluck('currency')->toArray();
+        
+       
+
+        return $uniqueCurrencyCodesArray;
+    }
 
     public static function getSubCategories($category_id)
     {

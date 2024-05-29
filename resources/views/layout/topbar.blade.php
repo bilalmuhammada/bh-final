@@ -5,7 +5,7 @@
     $chats = [];
     $my_ads_for_topbar = [];
     $cities = \App\Helpers\RecordHelper::getCities(request()->country);
-
+    $currency = \App\Helpers\RecordHelper::getCurrency();
     if (session()->has('user')) {
         $notifications = \App\Helpers\RecordHelper::getNotifications();
         $my_searches = \App\Helpers\RecordHelper::getSearches()->take(2);
@@ -115,25 +115,38 @@
                                             </option>
                                         @endforeach
                                     </select>
-                                    {{-- <select id="languageDropdown" onchange="translateLanguage()">
-                                        <option value="">Select Language</option>
-                                        <option value="en">English</option>
-                                        <option value="es">Spanish</option>
-                                        <option value="fr">French</option>
-                                        <option value="de">German</option>
-                                        <option value="zh-CN">Chinese (Simplified)</option>
-                                        <option value="ja">Japanese</option>
-                                    </select> --}}
+                                   
                             </div>
                             </span>
                 </div>
+
+
+                
 
                 {{-- <div id="google_translate_button" style="margin-top: -7%;
                 margin-left: 38%;"></div> --}}
               
                 <!----langs end---->
                 <div id="google_translate_element" style="display: none;"></div>
+
+
+
+                <div class="col-md-2">
+                    <div class="country" style="border:0px solid red;position:relative;left:-144px;">
+                        <select class="form-control currency_dropdown" name="currency_dropdown" id="" 
+                                style="width:120px;border:0px solid red !imporatnt;text-align:center;background-color:transparent !important;">
+                                <option value=""> &nbsp; All Currency</option>
+                                @foreach($currency as $currencyn)
+                                <option data-currency-id="{{ $currencyn }}"
+                                        {{ $currencyn == request()->currencyn ? 'selected' : '' }} value="{{ $currencyn }}"
+                                        style="font-size:8px !important;"> &nbsp; {{ $currencyn }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
             </div>
+
+
         </div>
         <!-- country bar mobile finish -->
         </span>

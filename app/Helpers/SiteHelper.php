@@ -45,12 +45,12 @@ class SiteHelper
         }
     }
 
-    public static function priceFormatter($price)
+    public static function priceFormatter($price,$currency='')
     {
         if (empty($price) || $price < 1) {
-            return "AED " . 0;
+            return $currency .' '. 0;
         } else {
-            return "AED " . number_format($price);
+            return $currency .' '. number_format($price);
         }
     }
 

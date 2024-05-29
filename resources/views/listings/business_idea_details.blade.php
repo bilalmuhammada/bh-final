@@ -315,7 +315,7 @@
             <div class="form-group" id="filehide">
                 <label style="    padding: 25px;
                 text-align: center;
-                font-size: 34px; font-weight: 700">Do you want to show or hide your Files?</label>
+                font-size: 25px;">Do you want to show or hide your Files?</label>
                 <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
                     <label class="btn active  btn-show" style="margin-left: 6pc !important;background-color: #dadadb">
                         <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show File

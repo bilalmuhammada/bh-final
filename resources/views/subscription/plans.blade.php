@@ -181,13 +181,13 @@
                     <button class="btn apply-btn" style="    background-color: #e9e9e9;color: white">Apply</button>
                   </div>
                   <hr>
-                  <p>Subtotal: <span style="margin-left: 13pc;font-weight: 900">$ 2</span> </p>
+                  <p>Subtotal: <span style="margin-left: 13pc;font-weight: 900">$ 2.00</span> </p>
                   <p>VAT 5%: <span style="margin-left: 212px;font-weight: 900"> $ 2</span></p>
                   <hr>
-                  <p>Total: <span style="margin-left: 235px;font-weight: 900"> $ 2</span> </p>
+                  <p>Total: <span style="margin-left: 235px;font-weight: 900"> $ 2.00</span> </p>
                   
                   <input type='hidden' name="productname" value="Pro Plan">
-                  <button type="submit"  class="btn btn-danger btn-block "  id="checkout-live-button" style="margin-left: 88px;width: 11pc;"><b>Pay $ 2</b></button>
+                  <button type="submit"  class="btn btn-danger btn-block "  id="checkout-live-button" style="margin-left: 88px;width: 11pc;"><b>Pay $ 2.00</b></button>
                
                   {{-- <a href=""> --}}
                       {{-- <button class="btn bt-plan" type="submit" id="checkout-live-button"><i class="fa fa-money"></i> SELECT PLAN</button>

@@ -125,6 +125,10 @@
             templateSelection: formatCountry,
             templateResult: formatCountry,
         });
+        $(".currency_dropdown").select2({
+            templateSelection: formatCountry,
+            templateResult: formatCountry,
+        });
 
         function formatCity(city) {
             if (!city.id) {
@@ -152,6 +156,9 @@
 
     $(document).on('change', '.city_dropdown', function () {
         window.location.assign(base_url + 'home/?country=' + {{ request()->country }} + '&city=' + $(this).val());
+    });
+    $(document).on('change', '.currency_dropdown', function () {
+        window.location.assign(base_url + 'home/?country=' + {{ request()->country }} + '&currency=' + $(this).val());
     });
 
     $(document).on('change', '.country_dropdown', function () {
