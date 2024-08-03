@@ -266,7 +266,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
 <!-----hero section-------->
 <div class="hero-image mobile-view">
     <div class="hero-text">
-        <p>Welcome to World’s bilal comment#1 Only Businesses Marketplace!</p>
+        <p>Welcome to World’s bt#1 Only Businesses Marketplace!</p>
 
         <p class="text-center" style="font-size:14px;margin-top:10px;">Which country would you like to explore?</p>
     </div>
