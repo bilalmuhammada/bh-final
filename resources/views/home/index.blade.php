@@ -281,7 +281,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                     <div class="hero-text">
                         <p class="main">Welcome to the World's #1online business website!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">
-                        Explore our Countries!
+                        Explore our Countries! comment
                         </p>
                     </div>
                 </div>
