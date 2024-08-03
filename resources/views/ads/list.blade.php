@@ -43,7 +43,8 @@
 
         .swiper-button-next:after, .swiper-button-prev:after{
             color: white !important;
-            font-size: 23px !important;
+    font-size: 23px !important;
+    margin-right: 16pc !important;
         }
     </style>
     <!--------ad area --------->
@@ -299,7 +300,7 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 col-12">
                 <div class="row">
-                    <div class="col-lg-8 col-md-8 col-12">
+                    <div class="col-lg-12 col-md-12 col-12">
                         @foreach($ads as $ad)
                         <div class="row">
                             <!-----content----->
@@ -334,7 +335,7 @@
                             </div>
                             <div class="col-lg-8 col-md-8 col-12">
                                 <div class="row">
-                                    <div class="col-lg-9 col-md-9 col-9" style="margin-left: 23px">
+                                    <div class="col-lg-9 col-md-9 col-9" style="margin-left: -97px">
                                         <h5 style="font-size: 22px;font-weight:700;">{{ $ad->title ?? 'Heading N/A' }}</h5>
                                         <p style="font-size: 13px;">{{ $ad->category_name }} <span style="font-size: 16px;">&#9679;</span> {{ $ad->subcategory_name }}</p>
                                         <h3 style="font-weight: bold;font-size:23px;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price, request()->currency) }}</h3>

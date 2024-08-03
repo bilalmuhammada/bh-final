@@ -282,7 +282,7 @@
            <div class="col-md-6 mx-auto" style="margin-top: 20px;">
             <div class="form-group form-focus">
            <input type="text" class="form-control floating" name="phone" placeholder="" style="padding:22px;"
-                           pattern="[0-9]{10}" title="" required>
+           oninput="validatePhoneNumber(this)"  title="" required>
                     
                            <label class="focus-label">Mobile</label>
                         </div>
@@ -398,7 +398,17 @@
     <script type="text/javascript" src="{{ asset('js/listings_form.js') }}"></script>
 
     <script>
-
+  function validatePhoneNumber(input) {
+    // Remove any non-digit characters
+    input.value = input.value.replace(/\D/g, '');
+    
+    // Check if the input length is exactly 10 digits
+    if (input.value.length !== 10) {
+        input.setCustomValidity('Please enter a valid 10-digit number');
+    } else {
+        input.setCustomValidity('');
+    }
+  }
 
 $(document).on('click', '.place-ad-form-submit', function (e) {
             e.preventDefault();
@@ -456,3 +466,4 @@ $(document).on('click', '.documents', function (e) {
        }
    });
    </script>
+      @endsection

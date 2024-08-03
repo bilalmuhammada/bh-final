@@ -20,8 +20,11 @@
         width: 28pc !important;
     }
     .img-flag{
-        margin-right: 10px !important;
+        margin-right: 3px !important;
 
+    }
+    .select2-dropdown,.select2-dropdown--below{
+        width: 115px !important;
     }
 </style>
 <header>
@@ -95,7 +98,7 @@
                                 </select>
                             </div>
                                 <!----langs--->
-                            <div class="country" style="border:0px solid green;position:relative;left:-90px;">
+                            <div class="country" style="border:0px solid green;position:relative;left:-111px;">
                             <div class="mobile-country desktop-menu-right">
                                 {{-- <label for="">Select</label> --}}
                                 
@@ -132,14 +135,14 @@
 
 
                 <div class="col-md-2">
-                    <div class="country" style="border:0px solid red;position:relative;left:-144px;">
+                    <div class="country" style="border:0px solid red;position:relative;left:-184px;">
                         <select class="form-control currency_dropdown" name="currency_dropdown" id="" 
                                 style="width:120px;border:0px solid red !imporatnt;text-align:center;background-color:transparent !important;">
-                                <option value=""> &nbsp; All Currency</option>
+                                <option value=""> &nbsp;Currency</option>
                                 @foreach($currency as $currencyn)
-                                <option data-currency-id="{{ $currencyn }}"
-                                        {{ $currencyn == request()->currencyn ? 'selected' : '' }} value="{{ $currencyn }}"
-                                        style="font-size:8px !important;"> &nbsp; {{ $currencyn }}</option>
+                                <option data-currency-id="{{ $currencyn->currency }}"
+                                        {{$currencyn->currency == request()->currency ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" value="{{ $currencyn->currency }}"
+                                        style="font-size:8px !important;"> &nbsp; {{ $currencyn->currency }}</option>
                             @endforeach
                         </select>
                     </div>

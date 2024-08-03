@@ -208,7 +208,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <input type="text" class="form-control floating mobile" name="phone" placeholder="" style="padding:22px;"
+                    <input type="text" class="form-control floating mobile" name="phone" placeholder=""   oninput="validatePhoneNumber(this)" style="padding:22px;"
                            pattern="[0-9]{10}" title="Please enter a valid 10-digit Mobile  number" required>
                            <label class="focus-label">Mobile</label>
                         </div>
@@ -220,14 +220,14 @@
                 </div>
                 
                 <div class="form-group" id="filemoble">
-                    <label style="    padding: 25px;
+                    <label style="padding: 8px; margin-left: 123px;
                     text-align: center;
                     font-size: 20px;">Do you want to show or hide your Phone Number?</label>
                     <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
                         <label class="btn active  btn-show" style="margin-left: 6pc !important;background-color: #dadadb">
                             <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show Phone
                         </label>
-                        <label class="btn btn-show"  style="margin-right: -10pc !important; float: right;background-color: #525252">
+                        <label class="btn btn-show"  style=" float: right;background-color: #525252">
                             <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide Phone
                         </label>
                     </div>
@@ -258,49 +258,9 @@
             </div>
         </div>
 
-        <div class="col-md-6 mx-auto" style="margin-top: 166px;">
-            <div class="input--file">
-                <i class="fa fa-camera fa-1x"></i>
-                
-                <input type="file" multiple class="form-controlz form-control-file images" name="images[]"
-                       placeholder="Upload Images">
-                <div class="invalid-feedback image-error">
-                    Please upload at least one image.
-                </div>
-                <span><b>Add Photos</b></span>
-            </div>
-        </div>
-        <div class="col-md-4 mx-auto" style="margin-top: 20px;">
-            <div id="image-display-div" class="row "></div>
-        </div>
-
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
-            <div class="input--file">
-                <i class="fa fa-camera fa-1x"></i>
-                <input type="file" multiple class="form-controlz form-control-file documents" name="documents[]"
-                       placeholder="Upload Documents">
-                <div class="invalid-feedback image-error">
-                    Invalid
-                </div>
-                <span><b>Add File</b></span>
-            </div>
-            <div class="form-group" id="filehide">
-                <label style="    padding: 25px;
-                text-align: center;
-                font-size: 25px; ">Do you want to show or hide your Files?</label>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
-                    <label class="btn active  btn-show" style="margin-left: 6pc !important;background-color: #dadadb">
-                        <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show File
-                    </label>
-                    <label class="btn btn-show"  style="margin-right: 9pc !important; float: right;background-color: #525252">
-                        <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide File
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mx-auto" style="margin-top: 20px;margin-bottom: 10px;">
-            <div id="document-display-div" class="row "></div>
-        </div>
+      
+     
+        @include('listings.image&file');
  
         <div class="col-md-6 mx-auto">
             <div class="row">
@@ -350,6 +310,18 @@
     <script type="text/javascript" src="{{ asset('js/listings_form.js') }}"></script>
 
     <script>
+          function validatePhoneNumber(input) {
+    // Remove any non-digit characters
+    input.value = input.value.replace(/\D/g, '');
+    
+    // Check if the input length is exactly 10 digits
+    if (input.value.length !== 10) {
+        input.setCustomValidity('Please enter a valid 10-digit number');
+    } else {
+        input.setCustomValidity('');
+    }
+
+}
 $(document).on('click', '.place-ad-form-submit', function (e) {
             e.preventDefault();
              var formData = new FormData($('.place-ad-form')[0]);

@@ -33,7 +33,7 @@ class ListingController extends Controller
 {
     public function showSelectCategory()
     {
-        $categories = Category::orderBy('name')->get();
+        $categories = Category::orderBy('sequence')->get();
         $data = [
             'categories' => $categories
         ];

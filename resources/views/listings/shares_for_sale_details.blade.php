@@ -167,9 +167,9 @@
                placeholder='Enter Longitude'>
         <div class="col-md-6 mx-auto" style="margin-top: 20px;">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating"  name="title" value="{{ $listing->title }}" placeholder="Title"
+                <input type="text" class="form-control floating"  name="title" value="{{ $listing->title }}" placeholder=""
                    style="padding:22px;" required>
-                   <label class="focus-label">title</label>
+                   <label class="focus-label">Title</label>
                 </div>
 
             <div class="invalid-feedback">
@@ -239,7 +239,7 @@
             <div class="form-group form-focus">
                 <input type="text" class="form-control floating"  name="no_of_employees" placeholder="" style="padding:22px;"
                     title="" required>
-                    <label class="focus-label">"No of Employees</label>
+                    <label class="focus-label">No of Employees</label>
                 </div>
             <div class="invalid-feedback">
                 Please provide a valid No of Employees.
@@ -282,7 +282,7 @@
                 <div class="col-md-6">
                     <div class="form-group form-focus">
                         <input type="text" class="form-control floating" name="phone" placeholder="" style="padding:22px;"
-                   pattern="[0-9]{10}" title="Please enter a valid 10-digit Mobile number" required>
+                  oninput="validatePhoneNumber(this)"  title="Please enter a valid 10-digit Mobile number" required>
                    <label class="focus-label">Mobile</label>
                 </div>
             <div class="invalid-feedback">
@@ -294,7 +294,7 @@
 
         <div class="col-md-6 mx-auto" style="margin-top: 20px;">
             <div class="form-group form-focus">
-            <textarea name="products_and_services_offered" class="form-control floating" maxlength="100" placeholder=" style="height: 120px;"
+            <textarea name="products_and_services_offered" class="form-control floating" style="height: 150px;"
                       required></textarea>
                       <label class="focus-label">Products & Services Offered"</label>
                     </div>
@@ -302,7 +302,7 @@
                 Please provide a Products & Services Offered.
             </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto" style="margin-top: 100px;">
             <div class="form-group form-focus">
             <textarea name="description" class="form-control floating" placeholder="" style="height: 200px;"
                       required></textarea>
@@ -313,64 +313,10 @@
             </div>
         </div>
 
-        <div class="col-md-6 mx-auto" style="margin-top: 166px;">
-            <div class="input--file">
-                <i class="fa fa-camera fa-1x"></i>
-                <input type="file" multiple class="form-controlz form-control-file images" name="images[]"
-                       placeholder="Upload Images">
-                <div class="invalid-feedback image-error">
-                    Please upload at least one image.
-                </div>
-                <span><b>Add Photos</b></span>
-            </div>
-            
-<div class="form-group" id="filehide">
-    <label style="    padding: 25px;
-    text-align: center;
-    font-size: 34px; font-weight: 700">Do you want to show or hide your Files?</label>
-    <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
-        <label class="btn active  btn-show" style="margin-left: 6pc !important;background-color: #dadadb">
-            <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show File
-        </label>
-        <label class="btn btn-show"  style="margin-right: 9pc !important; float: right;background-color: #525252">
-            <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide File
-        </label>
-    </div>
-</div>
+        
 
-        </div>
-        <div class="col-md-4 mx-auto" style="margin-top: 20px;">
-            <div id="image-display-div" class="row "></div>
-        </div>
 
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
-            <div class="input--file">
-                <i class="fa fa-camera fa-1x"></i>
-                <input type="file" multiple class="form-controlz form-control-file documents" name="documents[]"
-                       placeholder="Upload Documents">
-                      
-                <div class="invalid-feedback image-error">
-                    Invalid
-                </div>
-                <span><b>Add File</b></span>
-                <div class="form-group" id="filehide">
-                    <label style="    padding: 25px;
-                    text-align: center;
-                    font-size: 25px;">Do you want to show or hide your Files?</label>
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
-                        <label class="btn active  btn-show" style="margin-left: 6pc !important;background-color: #dadadb">
-                            <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show File
-                        </label>
-                        <label class="btn btn-show"  style="margin-right: 9pc !important; float: right;background-color: #525252">
-                            <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide File
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mx-auto" style="margin-top: 20px;margin-bottom: 10px;">
-            <div id="document-display-div" class="row "></div>
-        </div>
+        @include('listings.image&file');
   
         <div class="col-md-6 mx-auto">
             <div class="row">
@@ -419,7 +365,18 @@
     <script type="text/javascript" src="{{ asset('js/listings_form.js') }}"></script>
 
     <script>
+ function validatePhoneNumber(input) {
+    // Remove any non-digit characters
+    input.value = input.value.replace(/\D/g, '');
+    
+    // Check if the input length is exactly 10 digits
+    if (input.value.length !== 10) {
+        input.setCustomValidity('Please enter a valid 10-digit number');
+    } else {
+        input.setCustomValidity('');
+    }
 
+}
 $(document).on('click', '.place-ad-form-submit', function (e) {
             e.preventDefault();
              var formData = new FormData($('.place-ad-form')[0]);

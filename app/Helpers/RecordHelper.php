@@ -45,12 +45,11 @@ class RecordHelper
     {
         
         $currency = Country::orderBy('sequence')->get();
-        $uniqueCurrencyCodes = $currency->unique('currency');
-        $uniqueCurrencyCodesArray = $uniqueCurrencyCodes->pluck('currency')->toArray();
+       
         
        
 
-        return $uniqueCurrencyCodesArray;
+        return $currency;
     }
 
     public static function getSubCategories($category_id)

@@ -232,7 +232,7 @@ function displayImages(base64Image, file_name) {
     const imageDisplay = document.getElementById('image-display-div');
 
     const imgHtml = `
-                        <div class="col-md-6">
+                        <div class="col-md-3" style="margin-bottom:22px !important">
                             <div class="image-gallery">
                               <div class="image-container">
                                 <img class="form-image img-thumbnail" src="${base64Image}" />
@@ -247,7 +247,7 @@ function displayImages(base64Image, file_name) {
 
 $(document).on('click', '.remove-img', function (e) {
     const fileName = $(this).attr("file-name");
-    const imageCol = $(this).parents('.col-md-6');
+    const imageCol = $(this).parents('.col-md-3');
 
     // Remove the corresponding file from the input field's files array
     const imagesInput = $('.images');
@@ -287,7 +287,7 @@ function displayDocs(base64Image, file_name) {
     const imageDisplay = document.getElementById('document-display-div');
 
     const imgHtml = `
-                        <div class="col-md-6">
+                        <div class="col-md-3" style="margin-bottom: 22px;">
                             <div class="image-gallery">
                               <div class="image-container">
                                 <img class="form-image img-thumbnail" src="${base64Image}" />
@@ -302,7 +302,7 @@ function displayDocs(base64Image, file_name) {
 
 $(document).on('click', '.remove-document', function (e) {
     const fileName = $(this).attr("file-name");
-    const imageCol = $(this).parents('.col-md-6');
+    const imageCol = $(this).parents('.col-md-3');
 
     // Remove the corresponding file from the input field's files array
     const imagesInput = $('.documents');

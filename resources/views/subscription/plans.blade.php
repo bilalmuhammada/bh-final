@@ -186,7 +186,7 @@
                   <hr>
                   <p>Total: <span style="margin-left: 235px;font-weight: 900"> $ 2.00</span> </p>
                   
-                  <input type='hidden' name="productname" value="Pro Plan">
+                  <input type='hidden' name="productname" value="Bussiness For Sale">
                   <button type="submit"  class="btn btn-danger btn-block "  id="checkout-live-button" style="margin-left: 88px;width: 11pc;"><b>Pay $ 2.00</b></button>
                
                   {{-- <a href=""> --}}

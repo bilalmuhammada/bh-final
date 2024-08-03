@@ -161,14 +161,16 @@
     </div>
     <form class="place-ad-form" enctype="multipart/form-data" >
         <input name="listing_id" type="hidden" value="{{$listing->id}}">
+        <input name="category_name" type="hidden" value="{{$listing->category_name}}">
+        <input name="subcategory_name" type="hidden" value="{{$listing->subcategory_name}}">
         <input type='hidden' class='form-controlz latitude' id='latitude' name='latitude' placeholder='Enter Latitude'>
         <input type='hidden' class='form-controlz longitude' id='longitude' name='longitude'
                placeholder='Enter Longitude'>
         <div class="col-md-6 mx-auto" style="margin-top: 20px;">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating"  name="title" value="{{ $listing->title }}" placeholder="Title"
+                <input type="text" class="form-control floating"  name="title" value="{{ $listing->title }}"
                    style="padding:22px;" required>
-                   <label class="focus-label">title</label>
+                   <label class="focus-label">Title</label>
                 </div>
             <div class="invalid-feedback">
                 Please provide a title.
@@ -279,7 +281,8 @@
             <div class="col-md-6">
                 <div class="form-group form-focus">
                     <input type="text" class="form-control floating"  name="phone" placeholder="" style="padding:22px;"
-                   pattern="[0-9]{10}" title="Please enter a valid 10-digit  number" required>
+                    {{-- pattern="\d{10}"  --}}
+                    title="Please enter a valid 10-digit  number"   oninput="validatePhoneNumber(this)" required>
                    <label class="focus-label">Mobile</label>
                 </div>
                    <div class="invalid-feedback">
@@ -290,7 +293,7 @@
     </div>
         <div class="col-md-6 mx-auto" style="margin-top: 20px;">
             <div class="form-group form-focus">
-            <textarea name="products_and_services_offered" class="form-controlz" maxlength="100" placeholder="" style="height: 120px;"
+            <textarea name="products_and_services_offered" class="form-control floating"  placeholder="" style="height: 150px;"
                       required></textarea>
                       <label class="focus-label">Products & Services Offered</label>
                     </div>
@@ -298,9 +301,9 @@
                 Please provide a Products & Services Offered.
             </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 80px;">
+        <div class="col-md-6 mx-auto" style="margin-top: 100px;">
             <div class="form-group form-focus">
-            <textarea name="description" class="form-controlz" placeholder="" style="height: 200px;"
+            <textarea name="description" class="form-control floating" placeholder="" style="height: 200px;"
                       required></textarea>
                       <label class="focus-label">Description</label>
                     </div>
@@ -309,53 +312,7 @@
             </div>
         </div>
 
-        <div class="col-md-6 mx-auto" style="margin-top:166px;">
-            <div class="input--file">
-                <i class="fa fa-camera fa-1x"></i>
-                <input type="file" multiple class="form-controlz form-control-file images" name="images[]"
-                       placeholder="Upload Images" accept="image/*">
-                <div class="invalid-feedback image-error">
-                    Please upload at least one image.
-                </div>
-                <span><b>Add Photos</b></span>
-            </div>
-        </div>
-        <div class="col-md-4 mx-auto" style="margin-top: 10px;margin-bottom: 10px; margin-left: 18pc !important;">
-            <div id="image-display-div" style="display: flex"></div>
-        </div>
-
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
-            <div class="input--file">
-                <i class="fa fa-camera fa-1x"></i>
-                <input type="file" multiple class="form-controlz form-control-file documents" name="documents[]"
-                       placeholder="Upload Documents" accept=".pdf,.doc" >
-                <div class="invalid-feedback image-error">
-                    Invalid
-                </div>
-                <span><b>Add File</b></span>
-            </div>
-
-
-            <div class="form-group" id="filehide">
-                <label style="    padding: 25px;
-                text-align: center;
-                font-size: 25px;">Do you want to show or hide your Files?</label>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
-                    <label class="btn active  btn-show" style="margin-left: 6pc !important;background-color: #dadadb">
-                        <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show File
-                    </label>
-                    <label class="btn btn-show"  style="margin-right: 9pc !important; float: right;background-color: #525252">
-                        <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide File
-                    </label>
-                </div>
-            </div>
-        </div>
-    
-
-
-        <div class="col-md-4 mx-auto" style="margin-top: 20px;padding-bottom: 10px;margin-left: 18pc !important;">
-            <div id="document-display-div" style="display: flex"></div>
-        </div>
+        @include('listings.image&file');
 
     
         <div class="col-md-6 mx-auto">
@@ -407,6 +364,19 @@
     <script>
 
 
+    
+    function validatePhoneNumber(input) {
+    // Remove any non-digit characters
+    input.value = input.value.replace(/\D/g, '');
+    
+    // Check if the input length is exactly 10 digits
+    if (input.value.length !== 10) {
+        input.setCustomValidity('Please enter a valid 10-digit number');
+    } else {
+        input.setCustomValidity('');
+    }
+
+}
 
 
 $(document).on('click', '.place-ad-form-submit', function (e) {

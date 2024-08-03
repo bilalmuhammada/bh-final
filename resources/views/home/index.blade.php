@@ -40,7 +40,7 @@
     .hero-text {
         text-align: center;
         position: absolute;
-        top: 30%;
+        top: 20%;
         left: 50%;
         transform: translate(-50%, -50%);
         color: #A17A4E;
@@ -266,7 +266,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
 <!-----hero section-------->
 <div class="hero-image mobile-view">
     <div class="hero-text">
-        <p>Welcome to World’s #1 Only Businesses Marketplace!</p>
+        <p>Welcome to World’s bilal comment#1 Only Businesses Marketplace!</p>
 
         <p class="text-center" style="font-size:14px;margin-top:10px;">Which country would you like to explore?</p>
     </div>

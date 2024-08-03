@@ -33,7 +33,7 @@ class PlanController extends Controller
 
     public function session(Request $request)
     {
-        // dd(config('stripe.sk'));
+    //    dd($request->all());
         Stripe::setApiKey(config('services.stripe.secret'));
 
         $session = Session::create([
@@ -42,7 +42,7 @@ class PlanController extends Controller
                 'price_data' => [
                     'currency' => 'usd',
                     'product_data' => [
-                        'name' => 'T-shirt',
+                        'name' => $request->productname,
                     ],
                     'unit_amount' => 200,
                 ],
