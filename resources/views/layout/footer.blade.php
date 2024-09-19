@@ -60,8 +60,8 @@
                        
                     </ul>
                 </div>
-                <div class="col-lg-4 col-md-12 col-12 desktop-view" style="border:0px solid red;">
-                <h2 style="text-align:center;">Countries</h2>
+                {{-- <div class="col-lg-4 col-md-12 col-12 desktop-view" style="border:0px solid red;"> --}}
+                {{-- <h2 style="text-align:center;">Countries</h2>
                     <div class="row" style="margin-top:-10px;">
                     <div class="col-lg-6 col-md-6 col-12" style="border:0px solid red;">
                     <ul style="width:100%;text-align:justify;margin-left:50px;">
@@ -72,8 +72,8 @@
                         @endforeach
 
                     </ul>
-                    </div> 
-                    <div class="col-lg-6 col-md-6 col-12" style="border:0px solid red;">
+                    </div>  --}}
+                    {{-- <div class="col-lg-6 col-md-6 col-12" style="border:0px solid red;">
                     <!-- <h2>{{ $countries->firstWhere('id', request()->country ?? 99)->nice_name }}</h2> -->
                     <ul style="width:100%;text-align:justify;margin-left:50px;">
                         @foreach($countries->skip(10)->take(12) as $country)
@@ -83,11 +83,11 @@
                         @endforeach
 
                     </ul>
-                    </div> 
-                    </div>
+                    </div>  --}}
+                    {{-- </div>
                    
-                </div>
-                <div class="col-lg-2 col-md-6 col-12 mobile-view">
+                </div> --}}
+                {{-- <div class="col-lg-2 col-md-6 col-12 mobile-view">
                     <h2>Countries</h2>
                     <ul>
                         @foreach($countries->take(8) as $country)
@@ -96,8 +96,8 @@
                             </li>
                         @endforeach
                     </ul>
-                </div>
-                <div class="col-lg-2 col-md-6 col-12 mobile-view">
+                </div> --}}
+                {{-- <div class="col-lg-2 col-md-6 col-12 mobile-view">
                     <!-- <h2>Countries</h2> -->
                     
                     <ul>
@@ -108,7 +108,7 @@
                             </li>
                         @endforeach
                     </ul>
-                </div>
+                </div> --}}
                 <div class="col-lg-2 col-md-6 col-12 desktop-view">
                     <h2 style="text-align:center;border:0px solid red;">Socials</h2>
                     <ul style="text-align:center;border:0px solid red;">
