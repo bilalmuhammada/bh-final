@@ -606,7 +606,7 @@
                         <span style="padding:13px 15px;text-align:center;font-size:16px !important;">
                             <a class="add-list-button add-listing-btn"
                                style="padding: 11px 20px;border-radius: 6px;">+ Place Your Ad</a>
-                            </span>     
+                        </span>     
             </div>
 
            

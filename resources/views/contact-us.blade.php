@@ -15,6 +15,20 @@
     background-color:  blue !important;  
     color: white;
 }
+
+.form-control {
+    font-size: 18px !important;
+}
+select {
+    -webkit-appearance: none; /* For Chrome, Safari, Edge */
+    -moz-appearance: none;    /* For Firefox */
+    appearance: none;         /* Standard property */
+    
+    /* Optional: Remove any border and padding */
+    border: none;
+    background: transparent;
+    padding: 10px; /* Adjust the padding as needed */
+}
 </style>
 @section('content')
 
@@ -29,7 +43,7 @@
                                 <a href="{{ env('BASE_URL') }}">
                                     <img src="{{asset('images/businesshub-slogan.png')}}" alt="" width="250px" alt="logo">
                                 </a>
-                                <h3>Contact Us</h3>
+                                <h3 style="margin-top: 20px;">Contact Us</h3>
                                 <p>Share your mind with us!</p>
                             </div>
                             {{-- <form>
