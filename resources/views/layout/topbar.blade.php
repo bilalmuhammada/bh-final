@@ -17,15 +17,54 @@
 @endphp
 <style>
     .dropdown-menu{
-        width: 28pc !important;
+        width: 14pc !important;
     }
     .img-flag{
         margin-right: 3px !important;
 
     }
     .select2-dropdown,.select2-dropdown--below{
-        width: 115px !important;
+        width: 130px !important;
     }
+
+    /* start */
+.select2-search__field{
+    border-color: #997045 !important;
+        }
+        .select2-search__field:hover{
+    border-color: blue !important;
+        }
+        .select2-results__option {
+            margin-right: 0px !important;
+            /* padding: 4px !important; */
+            font-size: 14px;
+            font-weight: bold;
+
+        }
+        .select2-container--default .select2-results>.select2-results__options{
+            max-height: 171px !important;
+        }
+        .dropdown-menu {
+    max-height: 27rem; /* Adjust as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+    .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+        background-color: #fff !important;
+        color: blue !important;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .select2-container--default .select2-results__option--selected {
+        background-color: #fff !important;
+    }
+    .select2-results__options{
+        padding: 7px !important;
+    }
+    .select2-dropdown{
+        background-color: #fff;
+        color: #000 !important;
+    }
+    /* end */
 </style>
 <header>
     <script type="text/javascript">
@@ -71,7 +110,7 @@
     <div class="topbar desktop-view">
         <div class="container-fluid" style="border:0px solid red;padding:0px 15px;">
             <div class="row">
-                <div class="col" style="border:0px solid red;margin:0px;">
+                <div class="col" style="border:0px solid red;">
                     <!-- <div class="col-lg-2 col-xl-2 col-md-2" style="border:2px solid red;"> -->
                     <!-- social icon desktop start -->
                     {{-- <a class="navbar-brand"
@@ -80,33 +119,18 @@
                              style="border:0px solid red;">
                     </a> --}}
                 </div>
-                <div class="col-lg-3 col-xl-3 col-md-3" style="border:0px solid red;">
+                <div class="col-lg-4 col-xl-4 col-md-4" style="border:0px solid red;margin-right:-0.9rem;">
                     <!-- <div class="col-md-4"> -->
                     <span style="position:relative;top:20px;border:0px solid red;background-color:inherit !important;">
                     <!-- country bar mobile start -->
                         <div class="mobile-country desktop-menu-right">
-                            <div class="row">>
-                            <div class="country" style="border:0px solid red;position:relative;left:-50px;">
-                                <select class="form-control city_dropdown" name="city_dropdown" id="" 
-                                        style="width:120px;border:0px solid red !imporatnt;text-align:center;background-color:transparent !important;">
-                                        <option value=""> &nbsp; All Cities</option>
-                                    @foreach($cities as $city)
-                                        <option data-city-id="{{ $city->id }}"
-                                                {{ $city->id == request()->city ? 'selected' : '' }} value="{{ $city->id }}"
-                                                style="font-size:8px !important;"> &nbsp; {{ $city->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                            <div class="row">
+                           
                                 <!----langs--->
-                            <div class="country" style="border:0px solid green;position:relative;left:-111px;">
+                            {{-- <div class="country" style="border:0px solid green;position:relative;left:-111px;"> --}}
                             <div class="mobile-country desktop-menu-right">
-                                {{-- <label for="">Select</label> --}}
-                                
-                                    {{-- <span style="color: #000;">Select languages</span> --}}
-                                    @php
-                                    // dd($countries[0]->image_url);
-                                   @endphp
-                                    <select class="form-control country_dropdown1 " name="country_dropdown"  style="width:150px;" id="country_dropdown" onchange="translateLanguage()">>
+                               
+                                    <select class="form-control country_dropdown1 " name="country_dropdown"  style="width:130px;" id="country_dropdown" onchange="translateLanguage()">>
                                         @foreach($countries as $country)
                                        
                                             <option
@@ -120,33 +144,64 @@
                                     </select>
                                    
                             </div>
-                            </span>
-                </div>
+                    
 
 
-                
+
+                {{-- </div> --}}
+
+
+                {{-- <div class="country" style="border:0px solid red;position:relative;left:-50px;"> --}}
+                    <select class="form-control city_dropdown" name="city_dropdown" id="" 
+                            style="width:110px;border:0px solid red !imporatnt;text-align:center;background-color:transparent !important;">
+                            <option value=""> &nbsp; All Cities</option>
+                        @foreach($cities as $city)
+                            <option data-city-id="{{ $city->id }}"
+                                    {{ $city->id == request()->city ? 'selected' : '' }} value="{{ $city->id }}"
+                                    style="font-size:8px !important;"> &nbsp; {{ $city->name }}</option>
+                        @endforeach
+                    </select>
+                {{-- </div> --}}
 
                 {{-- <div id="google_translate_button" style="margin-top: -7%;
                 margin-left: 38%;"></div> --}}
               
                 <!----langs end---->
+
+                <div class="mobile-country desktop-menu-right">
+                               
+                    <select class="form-control language_dropdown " name="language_dropdown"  style="width:130px;" id="language_dropdown" onchange="translateLanguage()">>
+                        <option selected value="">Language</option>
+                        
+                        @foreach($countries as $country)
+                       
+                            <option
+                            {{-- {{ $country->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $country->image_url }}" --}}
+                            value="{{ $country->id }}"
+                            style="font-size:8px !important;">
+                            {{ $country->nice_name }}
+                               
+                            </option>
+                        @endforeach
+                    </select>
+                   
+            </div>
                 <div id="google_translate_element" style="display: none;"></div>
 
 
 
-                <div class="col-md-2">
-                    <div class="country" style="border:0px solid red;position:relative;left:-184px;">
+                
+                    {{-- <div class="country" style="border:0px solid red;position:relative;left:-184px;"> --}}
                         <select class="form-control currency_dropdown" name="currency_dropdown" id="" 
-                                style="width:120px;border:0px solid red !imporatnt;text-align:center;background-color:transparent !important;">
+                                style="width:110px;border:0px solid red !imporatnt;text-align:center;background-color:transparent !important;">
                                 <option value=""> &nbsp;Currency</option>
                                 @foreach($currency as $currencyn)
                                 <option data-currency-id="{{ $currencyn->currency }}"
                                         {{$currencyn->currency == request()->currency ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" value="{{ $currencyn->currency }}"
-                                        style="font-size:8px !important;"> &nbsp; {{ $currencyn->currency }}</option>
+                                        style="font-size:8px !important;">{{ $currencyn->currency }}</option>
                             @endforeach
                         </select>
-                    </div>
-                </div>
+             
             </div>
 
 
@@ -158,15 +213,15 @@
     <!-----icons---bar---->
     <div class="col-md-7 col-xl-7 col-md-9" style="border:0px solid red;">
         <div class="social-icon float-right text-dark">
-            <div class="row align-middle" style="font-size: 11px;color:black;border:0px solid red;">
-                <span style="padding:5px 10px;text-align:center;">
+            <div class="row align-middle" style="font-size: 11px;color:black;margin-right: 0.9rem;border:0px solid red;">
+                @if (session()->has('user'))  <span style="padding:13px 15px 0px 15px;text-align:center;"> 
                                 <a type="button" id="notifications"
                                    data-toggle="dropdown"
                                    aria-haspopup="true"
                                    aria-expanded="false">
-                                    <img src="{{ asset('images/my-notifications.svg')}}" width="17" height="17">
+                                    {{-- <img src="{{ asset('images/my-notifications.svg')}}" width="17" height="17"> --}}
                                     <div>
-                                        <span style="color: #000;">Notification</span>
+                                        <span style="color: #000;font-size:16px;">Notification</span>
                                     </div>
                                 </a>
                                 <div class="dropdown-menu"  id="notifications" aria-labelledby="notifications"
@@ -180,16 +235,7 @@
                                         </div>
                                             <hr>
                                             @foreach($notifications as $notification)
-                                                {{-- <div class="row">
-                                                <div class="col-lg-2 col-sm-4 col-4">
-                                                    <img width="100" height="100"
-                                                         src="https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg"
-                                                         alt="img" style="width:40px;height:40px;border-radius:50px;"/>
-                                                </div>
-                                                <div class="col-lg-8 col-sm-7 col-7">
-                                                    <p style="font-size: 13px;">{{ $notification->message }}333</p>
-                                                </div>
-                                            </div> --}}
+                                               
                                             
                                             <div class="notifications-wrapper">
                                             <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal">
@@ -242,19 +288,7 @@
                                             margin: 12px;">   <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal">View all Notifications </a></h4></div>
                                         <!---------inner area---->
                                         @else
-                                            {{-- <hr>
-                                            <div class="row">
-                                        <div class="col-lg-12 col-sm-12 col-12 checkout">
-                                            <p style="font-size: 11px;">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal">Show Phone Number Request</a>
-                                            </p>
-                                            <div class="dropdown-divider"></div>
-                                            <p style="font-size: 11px;">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#documentRequestModal">Show Ad document Request</a>
-                                            </p>
-
-                                        </div>
-                                    </div> --}}
+                                          
                                         <div style="      margin-top: 15px;   font-weight: 700;   min-width: 500px;" class="notification-heading"><h4 class="menu-title">Notification </h4><h6 style="font-size: 16px; margin-right: 66px" class="menu-title pull-right">Mark All as read</h6>
                                         </div>
                                         <hr style="    width: 80%;">
@@ -339,9 +373,7 @@
                                                 <a class="btn btn-danger btn-sm badge bg-danger" style="margin-left: 5px;">Reject </a>
                                             </div>
                                         </div>
-                                           
-
-                                          </div>
+                                           </div>
                                            
                                         </a>
                                        </div>
@@ -353,13 +385,14 @@
                                         @endif
                                 </div>
                             </span>
+                            
 
-                <span style="padding:5px 10px;text-align:center;">
+                <span style="padding:13px 15px 0px 15px;text-align:center;">
                                 <a type="button" id="searches" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">
-                                    <img src="{{ asset('images/my-searches-selected.svg')}}" width="17" height="17">
+                                    {{-- <img src="{{ asset('images/my-searches-selected.svg')}}" width="17" height="17"> --}}
                                     <div>
-                                        <span style="color: #000;">My Searches</span>
+                                        <span style="color: #000;font-size: 16px; ">My Searches</span>
                                     </div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="searches"
@@ -391,11 +424,12 @@
                                     @endif
                                 </div>
                             </span>
-                <span style="padding:5px 10px;text-align:center;">
+                        
+                <span style="padding:13px 15px 0px 15px;text-align:center;">
                                 <a type="button" id="favorite" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">
-                                    <img src="{{ asset('images/my-favorites.svg')}}" width="17" height="17">
-                                    <div><span style="color: #000;">Favorites</span></div>
+                                    {{-- <img src="{{ asset('images/my-favorites.svg')}}" width="17" height="17"> --}}
+                                    <div><span style="color: #000; font-size: 16px; ">Favorites</span></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="favorite"
                                      style="padding: 10px;width:250px;">
@@ -409,9 +443,9 @@
                                             <hr>
                                             <div class="row">
                                                 <div class="col-lg-2 col-sm-4 col-4">
-                                                    <img width="100" height="100"
+                                                    {{-- <img width="100" height="100"
                                                          src="https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg"
-                                                         alt="img" style="width:40px;height:40px;border-radius:50px;"/>
+                                                         alt="img" style="width:40px;height:40px;border-radius:50px;"/> --}}
                                                 </div>
                                                 <div class="col-lg-8 col-sm-7 col-7">
                                                     <a class="link"
@@ -432,13 +466,13 @@
                                     @endif
                                 </div>
                             </span>
-                <span style="padding:5px 10px;text-align:center;">
+                           <span style="padding:13px 15px 0px 15px;text-align:center;">
                                 <a type="button" id="chat"
                                    data-toggle="dropdown"
                                    aria-haspopup="true"
                                    aria-expanded="false">
-                                    <img src="{{ asset('images/my-chats.svg')}}" width="17" height="17">
-                                    <div><span style="color: #000;">Chat</span></div>
+                                    {{-- <img src="{{ asset('images/my-chats.svg')}}" width="17" height="17"> --}}
+                                    <div><span style="color: #000;font-size: 16px;">Chat</span></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="chat" style="padding: 10px;width:auto;">
                                     @if (session()->has('user') && count($chats) > 0)
@@ -484,13 +518,15 @@
                                         @endif
                                 </div>
                             </span>
-                <span style="padding:5px 15px;text-align:center;">
+                            
+                <span style="padding:13px 15px 0px 15px;text-align:center;">
+
                                 <a type="button" id="ads"
                                    data-toggle="dropdown"
                                    aria-haspopup="true"
                                    aria-expanded="false">
-                                    <i class="fa fa-user" width="19" style="color: #999;"></i>
-                                    <div><span style="color: #000;">My Ads</span></div>
+                                    {{-- <i class="fa fa-user" width="19" style="color: #999;"></i> --}}
+                                    <div><span style="color: #000; font-size: 16px;">My Ads</span></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="ads" style="padding: 10px;width:auto;">
                                     @if (session()->has('user') && count($my_ads_for_topbar) > 0)
@@ -535,6 +571,7 @@
                                     @endif
                                 </div>
                             </span>
+                            @endif
                 @if (session()->has('user'))
                     <span style="padding:10px 15px;text-align:center;font-size:16px !important;">
                                 <a class="link"
@@ -553,26 +590,26 @@
                                                href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">My Profile</a>
                                             {{-- <a class="dropdown-item link"
                                                href="{{ env('BASE_URL') . 'user/ads?country=' . request()->country . '&city=' . request()->city}}">My Ads</a> --}}
-{{--                                            <a class="dropdown-item" href="{{ env('BASE_URL') . 'user/searches'}}">My Searches</a>--}}
-                                            {{-- <a class="dropdown-item link"
-                                               href="{{ env('BASE_URL') . 'user/change-password?country=' . request()->country . '&city=' . request()->city}}">Change Password</a> --}}
+
                                             <a class="dropdown-item logout-btn">Sign out</a>
                                         </div>
                                     </span>
                             @endif
                         @if (!session()->has('user'))
-                            <span style="padding:16px 15px;text-align:center;font-size:16px !important;">
+                            <span style="padding:13px 15px;text-align:center;font-size:16px !important;">
                             <a class="login-btn">Login</a>
                            </span>
-                            <span style="padding:16px 15px;text-align:center;font-size:16px !important;">
+                            <span style="padding:13px 15px;text-align:center;font-size:16px !important;">
                                     <a class="register-btn">Register</a>
                            </span>
                         @endif
-                           <span style="padding:16px 15px;text-align:center;font-size:16px !important;">
-                           <a class="add-list-button add-listing-btn"
-                              style="padding: 11px 20px;border-radius: 6px;">+ Place Your Ad</a>
-                           </span>
+                        <span style="padding:13px 15px;text-align:center;font-size:16px !important;">
+                            <a class="add-list-button add-listing-btn"
+                               style="padding: 11px 20px;border-radius: 6px;">+ Place Your Ad</a>
+                            </span>     
             </div>
+
+           
         </div>
     </div>
     <!-----icons---bar---->
@@ -660,282 +697,7 @@
             </div>
             <!-- country bar mobile finish -->
             </span>
-            <div class="lang-mobile" style="display:none;">
-                    <span class="lang">
-                        <select class="form-select form-select-sm change-lang" aria-label=".form-select-sm example">
-                            <option value="langauges">Location</option>
-                            <option value="Afrikaans">af</option>
-                            <option value="Albanian">sq</option>
-                            <option value="Amharic">am</option>
-                            <option value="Arabic">ar</option>
-                            <option value="Armenian">hy</option>
-                            <option value="Assamese">as</option>
-                            <option value="Aymara">ay</option>
-                            <option value="Azerbaijani">az</option>
-                            <option value="Bambara">bm</option>
-                            <option value="Basque">eu</option>
-                            <option value="Belarusian">be</option>
-                            <option value="Bengali">bn</option>
-                            <option value="Bhojpuri">bho</option>
-                            <option value="Bosnian">bs</option>
-                            <option value="Bulgarian">bg</option>
-                            <option value="Burmese">my</option>
-                            <option value="Catalan">ca</option>
-                            <option value="Cebuano">ceb</option>
-                            <option value="Chichewa">ny</option>
-                            <option value="Chinese (Simplified)">zh-CN</option>
-                            <option value="Chinese (Traditional)">zh-TW</option>
-                            <option value="Corsican">co</option>
-                            <option value="Croatian">hr</option>
-                            <option value="Czech">cs</option>
-                            <option value="Danish">da</option>
-                            <option value="Dhivehi">dv</option>
-                            <option value="Dogri">doi</option>
-                            <option value="Dutch">nl</option>
-                            <option value="Esperanto">eo</option>
-                            <option value="Estonian">et</option>
-                            <option value="Ewe">ee</option>
-                            <option value="Filipino">tl</option>
-                            <option value="Finnish">fi</option>
-                            <option value="French">fr</option>
-                            <option value="Frisian">fy</option>
-                            <option value="Galician">gl</option>
-                            <option value="Georgian">ka</option>
-                            <option value="German">de</option>
-                            <option value="Greek">el</option>
-                            <option value="Guarani">gn</option>
-                            <option value="Gujarati">gu</option>
-                            <option value="Haitian Creole">ht</option>
-                            <option value="Hausa">ha</option>
-                            <option value="Hawaiian">haw</option>
-                            <option value="Hebrew">iw</option>
-                            <option value="Hindi">hi</option>
-                            <option value="Hmong">hmn</option>
-                            <option value="Hungarian">hu</option>
-                            <option value="Icelandic">is</option>
-                            <option value="Igbo">ig</option>
-                            <option value="Ilocano">ilo</option>
-                            <option value="Indonesian">id</option>
-                            <option value="Irish Gaelic">ga</option>
-                            <option value="Italian">it</option>
-                            <option value="Japanese">ja</option>
-                            <option value="Javanese">jw</option>
-                            <option value="Kannada">kn</option>
-                            <option value="Kazakh">kk</option>
-                            <option value="Khmer">km</option>
-                            <option value="Kinyarwanda">rw</option>
-                            <option value="Konkani">gom</option>
-                            <option value="Korean">ko</option>
-                            <option value="Krio">kri</option>
-                            <option value="Kurdish (Kurmanji)">ku</option>
-                            <option value="Kurdish (Sorani)">ckb</option>
-                            <option value="Kyrgyz">ky</option>
-                            <option value="Lao">lo</option>
-                            <option value="Latin">la</option>
-                            <option value="Latvian">lv</option>
-                            <option value="Lingala">ln</option>
-                            <option value="Lithuanian">lt</option>
-                            <option value="Luganda">lg</option>
-                            <option value="Luxembourgish">lb</option>
-                            <option value="Macedonian">mk</option>
-                            <option value="Maithili">mai</option>
-                            <option value="Malagasy">mg</option>
-                            <option value="Malay">ms</option>
-                            <option value="Malayalam">ml</option>
-                            <option value="Maltese">mt</option>
-                            <option value="Maori">mi</option>
-                            <option value="Marathi">mr</option>
-                            <option value="Meiteilon (Manipuri)">mni-Mtei</option>
-                            <option value="Mizo">lus</option>
-                            <option value="Mongolian">mn</option>
-                            <option value="Nepali">ne</option>
-                            <option value="Norwegian">no</option>
-                            <option value="Odia (Oriya)">or</option>
-                            <option value="Oromo">om</option>
-                            <option value="Pashto">ps</option>
-                            <option value="Persian">fa</option>
-                            <option value="Polish">pl</option>
-                            <option value="Portuguese">pt</option>
-                            <option value="Punjabi">pa</option>
-                            <option value="Quechua">qu</option>
-                            <option value="Romanian">ro</option>
-                            <option value="Russian">ru</option>
-                            <option value="Samoan">sm</option>
-                            <option value="Sanskrit">sa</option>
-                            <option value="Scots Gaelic">gd</option>
-                            <option value="Sepedi">nso</option>
-                            <option value="Serbian">sr</option>
-                            <option value="Sesotho">st</option>
-                            <option value="Shona">sn</option>
-                            <option value="Sindhi">sd</option>
-                            <option value="Sinhala">si</option>
-                            <option value="Slovak">sk</option>
-                            <option value="Slovenian">sl</option>
-                            <option value="Somali">so</option>
-                            <option value="Spanish">es</option>
-                            <option value="Sundanese">su</option>
-                            <option value="Swahili">sw</option>
-                            <option value="Swedish">sv</option>
-                            <option value="Tajik">tg</option>
-                            <option value="Tamil">ta</option>
-                            <option value="Tatar">tt</option>
-                            <option value="Telugu">te</option>
-                            <option value="Thai">th</option>
-                            <option value="Tigrinya">ti</option>
-                            <option value="Tsonga">ts</option>
-                            <option value="Turkish">tr</option>
-                            <option value="Turkmen">tk</option>
-                            <option value="Twi">ak</option>
-                            <option value="Ukrainian">uk</option>
-                            <option value="Urdu">ur</option>
-                            <option value="Uyghur">ug</option>
-                            <option value="Uzbek">uz</option>
-                            <option value="Vietnamese">vi</option>
-                            <option value="Welsh">cy</option>
-                            <option value="Xhosa">xh</option>
-                            <option value="Yiddish">yi</option>
-                            <option value="Yoruba">yo</option>
-                            <option value="Zulu">zu</option>
-                        </select>
-                    </span>
-                <span class="lang" style="display:none;">
-                        <select class="form-select form-select-sm change-lang" aria-label=".form-select-sm example">
-                           <option value="langauges">langauge</option>
-                            <option value="Afrikaans">af</option>
-                            <option value="Albanian">sq</option>
-                            <option value="Amharic">am</option>
-                            <option value="Arabic">ar</option>
-                            <option value="Armenian">hy</option>
-                            <option value="Assamese">as</option>
-                            <option value="Aymara">ay</option>
-                            <option value="Azerbaijani">az</option>
-                            <option value="Bambara">bm</option>
-                            <option value="Basque">eu</option>
-                            <option value="Belarusian">be</option>
-                            <option value="Bengali">bn</option>
-                            <option value="Bhojpuri">bho</option>
-                            <option value="Bosnian">bs</option>
-                            <option value="Bulgarian">bg</option>
-                            <option value="Burmese">my</option>
-                            <option value="Catalan">ca</option>
-                            <option value="Cebuano">ceb</option>
-                            <option value="Chichewa">ny</option>
-                            <option value="Chinese (Simplified)">zh-CN</option>
-                            <option value="Chinese (Traditional)">zh-TW</option>
-                            <option value="Corsican">co</option>
-                            <option value="Croatian">hr</option>
-                            <option value="Czech">cs</option>
-                            <option value="Danish">da</option>
-                            <option value="Dhivehi">dv</option>
-                            <option value="Dogri">doi</option>
-                            <option value="Dutch">nl</option>
-                            <option value="Esperanto">eo</option>
-                            <option value="Estonian">et</option>
-                            <option value="Ewe">ee</option>
-                            <option value="Filipino">tl</option>
-                            <option value="Finnish">fi</option>
-                            <option value="French">fr</option>
-                            <option value="Frisian">fy</option>
-                            <option value="Galician">gl</option>
-                            <option value="Georgian">ka</option>
-                            <option value="German">de</option>
-                            <option value="Greek">el</option>
-                            <option value="Guarani">gn</option>
-                            <option value="Gujarati">gu</option>
-                            <option value="Haitian Creole">ht</option>
-                            <option value="Hausa">ha</option>
-                            <option value="Hawaiian">haw</option>
-                            <option value="Hebrew">iw</option>
-                            <option value="Hindi">hi</option>
-                            <option value="Hmong">hmn</option>
-                            <option value="Hungarian">hu</option>
-                            <option value="Icelandic">is</option>
-                            <option value="Igbo">ig</option>
-                            <option value="Ilocano">ilo</option>
-                            <option value="Indonesian">id</option>
-                            <option value="Irish Gaelic">ga</option>
-                            <option value="Italian">it</option>
-                            <option value="Japanese">ja</option>
-                            <option value="Javanese">jw</option>
-                            <option value="Kannada">kn</option>
-                            <option value="Kazakh">kk</option>
-                            <option value="Khmer">km</option>
-                            <option value="Kinyarwanda">rw</option>
-                            <option value="Konkani">gom</option>
-                            <option value="Korean">ko</option>
-                            <option value="Krio">kri</option>
-                            <option value="Kurdish (Kurmanji)">ku</option>
-                            <option value="Kurdish (Sorani)">ckb</option>
-                            <option value="Kyrgyz">ky</option>
-                            <option value="Lao">lo</option>
-                            <option value="Latin">la</option>
-                            <option value="Latvian">lv</option>
-                            <option value="Lingala">ln</option>
-                            <option value="Lithuanian">lt</option>
-                            <option value="Luganda">lg</option>
-                            <option value="Luxembourgish">lb</option>
-                            <option value="Macedonian">mk</option>
-                            <option value="Maithili">mai</option>
-                            <option value="Malagasy">mg</option>
-                            <option value="Malay">ms</option>
-                            <option value="Malayalam">ml</option>
-                            <option value="Maltese">mt</option>
-                            <option value="Maori">mi</option>
-                            <option value="Marathi">mr</option>
-                            <option value="Meiteilon (Manipuri)">mni-Mtei</option>
-                            <option value="Mizo">lus</option>
-                            <option value="Mongolian">mn</option>
-                            <option value="Nepali">ne</option>
-                            <option value="Norwegian">no</option>
-                            <option value="Odia (Oriya)">or</option>
-                            <option value="Oromo">om</option>
-                            <option value="Pashto">ps</option>
-                            <option value="Persian">fa</option>
-                            <option value="Polish">pl</option>
-                            <option value="Portuguese">pt</option>
-                            <option value="Punjabi">pa</option>
-                            <option value="Quechua">qu</option>
-                            <option value="Romanian">ro</option>
-                            <option value="Russian">ru</option>
-                            <option value="Samoan">sm</option>
-                            <option value="Sanskrit">sa</option>
-                            <option value="Scots Gaelic">gd</option>
-                            <option value="Sepedi">nso</option>
-                            <option value="Serbian">sr</option>
-                            <option value="Sesotho">st</option>
-                            <option value="Shona">sn</option>
-                            <option value="Sindhi">sd</option>
-                            <option value="Sinhala">si</option>
-                            <option value="Slovak">sk</option>
-                            <option value="Slovenian">sl</option>
-                            <option value="Somali">so</option>
-                            <option value="Spanish">es</option>
-                            <option value="Sundanese">su</option>
-                            <option value="Swahili">sw</option>
-                            <option value="Swedish">sv</option>
-                            <option value="Tajik">tg</option>
-                            <option value="Tamil">ta</option>
-                            <option value="Tatar">tt</option>
-                            <option value="Telugu">te</option>
-                            <option value="Thai">th</option>
-                            <option value="Tigrinya">ti</option>
-                            <option value="Tsonga">ts</option>
-                            <option value="Turkish">tr</option>
-                            <option value="Turkmen">tk</option>
-                            <option value="Twi">ak</option>
-                            <option value="Ukrainian">uk</option>
-                            <option value="Urdu">ur</option>
-                            <option value="Uyghur">ug</option>
-                            <option value="Uzbek">uz</option>
-                            <option value="Vietnamese">vi</option>
-                            <option value="Welsh">cy</option>
-                            <option value="Xhosa">xh</option>
-                            <option value="Yiddish">yi</option>
-                            <option value="Yoruba">yo</option>
-                            <option value="Zulu">zu</option>
-                        </select>
-                    </span>
-            </div>
+          
             <!-- languages bar mobile finish -->
     </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -963,7 +725,7 @@
     <nav class="navbar navbar-expand-lg navbar-light"
          style="border:0px solid green;padding:0px !important;height:20px;">
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContentx" style="border:0px solid green;">
+        <div class="collapse navbar-collapse" id="navbarSupportedContentx" style="margin-left: 0.3rem;border:0px solid green;">
             <div class="container" style="margin:0px auto;border:0px solid green;">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <ul class="navbar-nav"
@@ -997,14 +759,3 @@
     <hr>
 </header>
 
-<script>
-    // function googleTranslate() {
-    //     const selectElement = document.querySelector('.country_dropdown');
-    
-    //     const selectedOption = selectElement.options[selectElement.selectedIndex];
-    //     const languageCode = selectedOption.value; // Assuming the value is the language code
-    //     alert(languageCode);
-    //     // Redirect to Google Translate page with the selected language code
-    //     window.location.href = `https://translate.google.com/?sl=auto&tl=es`;
-    // }
-</script>

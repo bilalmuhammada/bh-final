@@ -5,7 +5,13 @@
 <!--end::Head-->
 <!--begin::Body-->
 <body style="overflow-x: hidden;">
-@include("layout.topbar")
+
+    @php
+    //  dd(request()->path() !="terms-of-use");
+    @endphp
+    @if(request()->path() !== "about-us" && request()->path() !== "privacy-policy" && request()->path() !== "terms-of-use" && request()->path() !== "contact-us")
+    @include("layout.topbar")
+@endif
 @yield('content')
 <!-- modals start -->
 @include('modals.login')
@@ -121,6 +127,16 @@
             templateResult: formatCountry,
             minimumResultsForSearch: -1
         });
+        $(".language_dropdown").select2({
+            templateSelection: formatCountry,
+            templateResult: formatCountry,
+            minimumResultsForSearch: -1
+        });
+        $(".subcategory-select").select2({
+            //  dropdownParent: $(this).parent()
+            minimumResultsForSearch: -1
+        });
+        
         $(".country_dropdown1").select2({
             templateSelection: formatCountry,
             templateResult: formatCountry,

@@ -46,7 +46,7 @@
             <div class="container" >
                 <div class="row justify-content-md-center">
                     <div class="col-lg-12 col-xl-10 col-md-12">
-                        <div class="col-lg-12 col-md-12" style="border:0px solid red;margin-top:-30px;">
+                        <div class="col-lg-12 col-md-12" style="border:0px solid red;margin-top:-53px;">
                             <h4 class="slider-heading" style="color: white">
                                 <b>The Best Marketplace to Buy & Sell Businesses Worldwide!</b>
                             </h4>
@@ -136,15 +136,15 @@
     <!-- Categories area start -->
     <section class="list">
         <div class="container">
-            <div class="col-md-12 m-10">
+            <div class="col-md-12 m-10" style="min-width: 92rem;">
                 <h3>
-                    <b>Popular Categories</b>
+                    <b style="margin-left: -0.7rem;">Popular Categories</b>
                 </h3>
-                <div class="row">
+                <div class="row" style="margin-left: -29px !important;">
                     @foreach($categories as $category)
                         <div class="col-md-3 cat mb-5">
                             <div class="subcategory-list">
-                                <b><img src="{{ $category->image_url  }}" alt="" width="30" style="margin-left:-35px;"> {{$category->name}}</b>
+                                <img src="{{ $category->image_url  }}" alt="" width="25"  style="margin-top: -11px;">  <b > {{$category->name}}</b>
                                 <br>
                                 @foreach($category->sub_categories as $key=>$sub_category)
                                     @if($key >= 4)

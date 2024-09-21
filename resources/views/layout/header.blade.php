@@ -60,20 +60,15 @@
         /* width: auto; */
         width: 17px;
         height: 12px;
+        margin-bottom: 2px;
     }
 
     .select2-selection__rendered {
-        font-size: 12px !important;
+        font-size: 16px !important;
         outline: none !important;
         border: none !important;
     }
 
-    .select2-results__option {
-        font-size: 11px !important;
-        margin-left:10px;
-        /* text-align: justify; */
-        /* background-color:rgba(0, 0, 255, .3) !important; */
-    }
 
     .select2-results__options li {
         background: none !important;

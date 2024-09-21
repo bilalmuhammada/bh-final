@@ -26,12 +26,12 @@
                         <div class="logo" style="text-align:center;">
                     <img src="{{asset('images/businesshub-slogan.png')}}" alt="" width="250px" alt="logo">
                     </div>
-                        <h4 style="text-align:center;">
-                            <b>About businesshub Platform</b>
-                            <Br/>
+                        {{-- <h4 style="text-align:center;"> --}}
+                            {{-- <b>About Platform</b> --}}
+                            {{-- <Br/> --}}
                             <!-- <span>For Business Brokers and Business Deals</span> -->
-                        </h4>
-                        <p style="text-align:justify;">
+                        {{-- </h4> --}}
+                        <p style="text-align:justify; margin-top: 38px;">
                         BusinessHub is the number 1 worldwide only businesses focused online marketplace to Buy & Sell Businesses and Company Shares, Connect with Investors & Business Idea Owners, Discover Franchisee Opportunities & Franchise your Business Brand, Trade in Export & Import Business, Find Machinery & Supplies for your Business Growth and more…
                     </p>
                     <p style="text-align:justify;">
@@ -41,7 +41,7 @@
                 <!-- about us text finish -->
             </div>
             {{--<h4 class="terms-h text-center pb-3">MANAGED BUSINESS SOLUTIONS</h4>--}}
-            <div class="row mx-auto">
+            {{-- <div class="row mx-auto">
                 <!-- what is businesshub? area start -->
                 <div class="col-sm-10 mx-auto">
                     <div class="row"  style="border:0px solid red;">
@@ -89,7 +89,7 @@
                     <div class="what-text-area">Apart from being a worldwide online portal, we are currently focusing exclusively on emerging markets like Asia - Pacific, Middle East, ANZ Markets, Singapore.</div>
                 </div>
                 <!-- reach area finish -->
-            </div>
+            </div> --}}
             <div class="row">
                 <!-- reach area start -->
                 <div class="col-sm-12" style="display:none;">

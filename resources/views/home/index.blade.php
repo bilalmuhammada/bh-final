@@ -183,7 +183,39 @@ a{
         /* width: auto; */
         width:17px;
         height: 12px;
+        margin-bottom: 7px;
     }
+/* start */
+.select2-search__field{
+    border-color: #997045 !important;
+        }
+        .select2-search__field:hover{
+    border-color: blue !important;
+        }
+        .select2-results__option {
+            padding: 0px !important;
+        }
+.spanz{
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+        background-color: #fff !important;
+        color: blue !important;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .select2-container--default .select2-results__option--selected {
+        background-color: #fff !important;
+    }
+    .select2-results__options{
+        padding: 7px !important;
+    }
+    .select2-dropdown{
+        background-color: #fff;
+        color: #000 !important;
+    }
+    /* end */
     .select2-selection__rendered{
         font-size:12px !important;
         outline:none !important;
@@ -202,10 +234,7 @@ a{
         width:40px;
        height:25px;
     }
-    .spanz{
-        /* padding:5px; */
-        /* background:red; */
-    }
+    
     /* //scrollbar */
     ::-webkit-scrollbar {
   width: 12px !important;               /* width of the entire scrollbar */
@@ -216,7 +245,7 @@ a{
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #999 !important;    /* color of the scroll thumb */
+  background-color: #997045 !important;    /* color of the scroll thumb */
   border-radius: 20px !important;       /* roundness of the scroll thumb */
   border: 0px solid orange !important;  /* creates padding around scroll thumb */
 }
@@ -238,9 +267,9 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                     <span style="">
                          <!-- country bar mobile start -->
                 <div class="mobile-country desktop-menu-right" style="margin-top:10px !important;">
-                <select class="form-control country_dropdown" name="country_dropdown" id="" style="width:120px;">
+                <select class="form-control country_dropdown" name="country_dropdown" id="" style="width:140px;">
                 @foreach($countries as $country)
-                    <option data-flag-url="{{ $country->image_url }}" data-country-id="{{ $country->id }}" value="{{ $country->id }}">&nbsp; &nbsp; {{ $country->nice_name }}</option>
+                    <option data-flag-url="{{ $country->image_url }}" data-country-id="{{ $country->id }}" value="{{ $country->id }}">&nbsp;{{ $country->nice_name }}</option>
                 @endforeach
                </select>
                         </div>
@@ -519,7 +548,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
         $(".country_dropdown").select2({
             templateSelection: formatCountry,
             templateResult: formatCountry,
-            minimumResultsForSearch: -1
+            // minimumResultsForSearch: -1
         });
         $(".country_dropdown1").select2({
             templateSelection: formatCountry,
@@ -527,6 +556,11 @@ $countries = \App\Helpers\RecordHelper::getCountries();
            
         });
         $(".currency_dropdown").select2({
+            templateSelection: formatCountry,
+            templateResult: formatCountry,
+           
+        });
+        $(".langauge_dropdown").select2({
             templateSelection: formatCountry,
             templateResult: formatCountry,
            
