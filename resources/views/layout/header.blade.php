@@ -86,7 +86,7 @@
 
     /* //scrollbar */
 ::-webkit-scrollbar {
-  width: 12px !important;               /* width of the entire scrollbar */
+  width: 6px !important;               /* width of the entire scrollbar */
 }
 
 ::-webkit-scrollbar-track {
@@ -94,7 +94,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #999 !important;    /* color of the scroll thumb */
+  background-color: #A17A4E !important;    /* color of the scroll thumb */
   border-radius: 20px !important;       /* roundness of the scroll thumb */
   border: 0px solid orange !important;  /* creates padding around scroll thumb */
 }

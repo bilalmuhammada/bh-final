@@ -45,8 +45,10 @@
             max-height: 171px !important;
         }
         .dropdown-menu {
-    max-height: 27rem; /* Adjust as needed */
+    max-height: 20rem; /* Adjust as needed */
     overflow-y: auto; /* Enable vertical scrolling */
+ border: 0px solid rgba(0, 0, 0, 0.15) !important;
+ left: 7px !important;
 }
     .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
         background-color: #fff !important;

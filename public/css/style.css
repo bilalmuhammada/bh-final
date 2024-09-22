@@ -778,8 +778,8 @@
     }
     
     form {
-        width: 68rem;
-        margin-left: -66px;
+        width: 56rem;
+        margin-left: -36px;
         margin-top: 20px;
     }
     
@@ -2390,7 +2390,7 @@
     }
     
     .padtb50 {
-        padding: 130px 0;
+        padding: 50px 0;
     }
     
     .bt-plan {

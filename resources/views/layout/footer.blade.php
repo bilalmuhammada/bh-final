@@ -129,11 +129,11 @@
                                 <img src="{{ asset('images/socialicon/fb.png')}}" alt="" width="30" height="30">
                             </a>
                         </li>
-                        <li style="margin-bottom:5px;">
+                        {{-- <li style="margin-bottom:5px;">
                             <a href="# " target="_blank ">
                                 <img src="{{ asset('images/socialicon/youtube.png')}}" alt="" width="30" height="30">
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-6 col-12 mobile-view">
@@ -153,11 +153,11 @@
                         <a href="# " target="_blank ">
                             <img src="{{ asset('images/instagram-1-svgrepo-com.svg')}}" alt="" width="30" height="30">
                         </a>
-                        <li>
+                        {{-- <li>
                             <a href="# " target="_blank ">
                                 <img src="{{ asset('images/youtube-svgrepo-com.svg')}}" alt="" width="30" height="30">
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
                 <!-- <div class="col-lg-2 col-md-6 col-12 ">
@@ -187,7 +187,7 @@
                 </div> -->
             </div>
         </div>
-    </div>#ffffff
+    </div>
     <!-----reserve section----->
     <div class="container">
         <div class="col-lg-12 col-md-12 mb-12 col-12">

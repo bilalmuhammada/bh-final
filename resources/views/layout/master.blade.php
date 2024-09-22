@@ -5,9 +5,9 @@
 <!--end::Head-->
 <!--begin::Body-->
 <body style="overflow-x: hidden;">
-    @if(request()->path() !== "about-us" && request()->path() !== "privacy-policy" && request()->path() !== "terms-of-use" && request()->path() !== "contact-us")
+    @if(!in_array(request()->path(), ["about-us", "privacy-policy", "terms-of-use", "contact-us"]))
     @include("layout.topbar")
-    @else
+@else
     @include("layout.new-topbar")
 @endif
 @yield('content')

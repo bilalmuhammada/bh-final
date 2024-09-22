@@ -34,10 +34,10 @@ select {
 
 
         <!-----contact form start------>
-        <section class="padtb50">
+        <section>
             <div class="container">
                 <div class="row justify-content-md-center mb-20px">
-                    <div class="col-md-8 col-lg-8 col-xl-8 about-us-text-area" style="margin-top:-30px;">
+                    <div class="col-md-8 col-lg-8 col-xl-8 about-us-text-area" style="margin-top:54px;">
                         <div class="ragisterarea" style="margin-top:-30px;">
                             <div class="login-header text-center">
                                 <a href="{{ env('BASE_URL') }}">
@@ -211,7 +211,7 @@ select {
                                     </div>
                                 </div>
                                 <div class="col-md-2" style="text-align: center;
-                                margin-top: 75px; margin-left: 28rem;">
+                                margin-top: 75px; margin-left: 24rem;">
                                     <button class="btn-block btn-lg t-btn contact-us" type="submit">Submit</button>
                                 </div>
                             </div>
@@ -221,11 +221,11 @@ select {
                 </div>
             </div>
         </section>
-        <section class="" style="margin-top: -30px;">
+        {{-- <section class="" style="margin-top: -30px;">
             <div class="container-fluid" style="border:0px solid red;background-image:url('images/footer.png');height:180px;width:100%;content:'';  background-repeat: repeat-x;">
                 
             </div>
-        </section>
+        </section> --}}
         <!-----contact form end------>
 
 @endsection
