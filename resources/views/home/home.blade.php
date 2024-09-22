@@ -140,9 +140,9 @@
                 <h3>
                     <b style="margin-left: -0.7rem;">Popular Categories</b>
                 </h3>
-                <div class="row" style="margin-left: -29px !important;">
+                <div class="row" style="margin-left: -28px !important;">
                     @foreach($categories as $category)
-                        <div class="col-md-3 cat mb-5">
+                        <div class="col-md-3 cat mb-2">
                             <div class="subcategory-list">
                                 <img src="{{ $category->image_url  }}" alt="" width="25"  style="margin-top: -11px;">  <b > {{$category->name}}</b>
                                 <br>

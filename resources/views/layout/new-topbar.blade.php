@@ -6,6 +6,7 @@
     </style>
     <div class="container">
         <!-- topbar start -->
+        @if(request()->path()!=="contact-us")
         <div class="topbar desktop-view">
             <div class="cont-w">
                 <div class="row">
@@ -29,6 +30,8 @@
                 </div>   
                 </div>
             </div>
+
+            @endif
         </div>
       
      

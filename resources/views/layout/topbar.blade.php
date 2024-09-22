@@ -121,7 +121,7 @@
                              style="border:0px solid red;">
                     </a> --}}
                 </div>
-                <div class="col-lg-4 col-xl-4 col-md-4" style="border:0px solid red;margin-right:-0.9rem;">
+                <div class="col-lg-4 col-xl-4 col-md-4" style="border:0px solid red;margin-right:-1.4rem;">
                     <!-- <div class="col-md-4"> -->
                     <span style="position:relative;top:20px;border:0px solid red;background-color:inherit !important;">
                     <!-- country bar mobile start -->
@@ -215,7 +215,7 @@
     <!-----icons---bar---->
     <div class="col-md-7 col-xl-7 col-md-9" style="border:0px solid red;">
         <div class="social-icon float-right text-dark">
-            <div class="row align-middle" style="font-size: 11px;color:black;margin-right: 0.9rem;border:0px solid red;">
+            <div class="row align-middle" style="font-size: 11px;color:black;margin-right: 1.5rem;border:0px solid red;">
                 @if (session()->has('user'))  <span style="padding:13px 15px 0px 15px;text-align:center;"> 
                                 <a type="button" id="notifications"
                                    data-toggle="dropdown"
