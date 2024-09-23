@@ -188,10 +188,6 @@
             </div>
         </div>
     </section>
-    
-    
-
-
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 12px 0px 0px -81px;">
@@ -228,225 +224,116 @@
             </div>
         </div>
     </section>
+    
+    
+    <!------featured section end--------->
+    <!------Verified Ads section Start--------->
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 12px 0px 0px -81px;">
-                <h3 style="margin-left: 11px;"><b>Popular in Share for Sale</b></h3>
-                <div class="row slider" style="    margin-left: -22px;">
-                    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
-    
-                    @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
-                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 184px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
-                            <div class="listing">
-                                <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                <div class="heart-icon" style="position: absolute; top: 16px; right: 14.7rem;">
-                                    <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
+            <div class="col-lg-12 col-md-12 mb-30 col-12 m-10">
+                <h3><b>Popular in Bussiness for Rent</b></h3>
+                <div class="row">
+                    @foreach($ads->where("is_verified", true) as $verified_ad)
+                        <div class="col-lg-2 col-md-3 col-6 m-15">
+                            <a href="{{ env('BASE_URL') . 'ads/detail/' . $verified_ad->id . '?country=' . request()->country . '&city=' . request()->city }}">
+                                <div class="listing">
+                                    <img src="{{ $verified_ad->main_image_url }}" alt="{{ $verified_ad->name }}"
+                                         title="{{ $verified_ad->name }}" width="216" height="152">
+                                    <div class="detail">
+                                        <h6><b>{{ \App\Helpers\SiteHelper::priceFormatter($verified_ad->price) }}</b></h6>
+                                        <span style="color:#000;">{{ $verified_ad->name }}</span><br>
+                                        <span style="color:#999;">{{ $verified_ad->created_at_time_diff }}</span>
+                                    </div>
                                 </div>
-                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                    <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
-                                </div>
-                                <div class="detail" style="padding-top: 10px;">
-                                    <span style="color:#000; display: block; margin-bottom: 10px;">2 Beds . 2 Baths {{$key}}</span>
-                                    <span style="color:#999; display: block; margin-bottom: 10px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: 10px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
-                                </div>
-                                
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                        <!---------->
                     @endforeach
                 </div>
-    
-                <!-- Custom Arrows -->
-                {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
-                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
             </div>
         </div>
     </section>
+    <!------verified ads section end--------->
+    <!------Premium Ads section Start--------->
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 12px 0px 0px -81px;">
-                <h3 style="margin-left: 11px;"><b>Popular in Business ideas</b></h3>
-                <div class="row slider" style="    margin-left: -22px;">
-                    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
-    
-                    @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
-                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 184px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
-                            <div class="listing">
-                                <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                <div class="heart-icon" style="position: absolute; top: 16px; right: 14.7rem;">
-                                    <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
+            <div class="col-lg-12 col-md-12 mb-30 col-12 m-10">
+                <h3><b>Popular in Shares for Sale</b></h3>
+                <div class="row">
+                    @foreach($ads->where("is_premium", true) as $premium_ad)
+                        <div class="col-lg-2 col-md-3 col-6 m-15">
+                            <a href="{{ env('BASE_URL') . 'ads/detail/' . $premium_ad->id . '?country=' . request()->country . '&city=' . request()->city }}">
+                                <div class="listing">
+                                    <img src="{{ $premium_ad->main_image_url }}" alt="{{ $premium_ad->name }}"
+                                         title="{{ $premium_ad->name }}" width="216" height="152">
+                                    <div class="detail">
+                                        <h6><b>{{ \App\Helpers\SiteHelper::priceFormatter($premium_ad->price) }}</b></h6>
+                                        <span style="color:#000;">{{ $premium_ad->name }}</span><br>
+                                        <span style="color:#999;">{{ $premium_ad->created_at_time_diff }}</span>
+                                    </div>
                                 </div>
-                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                    <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
-                                </div>
-                                <div class="detail" style="padding-top: 10px;">
-                                    <span style="color:#000; display: block; margin-bottom: 10px;">2 Beds . 2 Baths {{$key}}</span>
-                                    <span style="color:#999; display: block; margin-bottom: 10px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: 10px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
-                                </div>
-                                
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                        <!---------->
                     @endforeach
                 </div>
-    
-                <!-- Custom Arrows -->
-                {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
-                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
             </div>
         </div>
     </section>
+    <!------Premium Ads section end--------->
+    <!------Popular Ads section Start--------->
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 12px 0px 0px -81px;">
-                <h3 style="margin-left: 11px;"><b>Popular in Investors Required</b></h3>
-                <div class="row slider" style="    margin-left: -22px;">
-                    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
-    
-                    @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
-                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 184px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
-                            <div class="listing">
-                                <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                <div class="heart-icon" style="position: absolute; top: 16px; right: 14.7rem;">
-                                    <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
+            <div class="col-lg-12 col-md-12 mb-30 col-12 m-10">
+                <h3><b>Popular in Bussiness Ideas</b></h3>
+                <div class="row">
+                    @foreach($ads->where("is_popular", true) as $popular_ad)
+                        <div class="col-lg-2 col-md-3 col-6 m-15">
+                            <a href="{{ env('BASE_URL') . 'ads/detail/' . $popular_ad->id . '?country=' . request()->country . '&city=' . request()->city }}">
+                                <div class="listing">
+                                    <img src="{{ $popular_ad->main_image_url }}" alt="{{ $popular_ad->name }}"
+                                         title="{{ $popular_ad->name }}" width="216" height="152">
+                                    <div class="detail">
+                                        <h6><b>{{ \App\Helpers\SiteHelper::priceFormatter($popular_ad->price) }}</b></h6>
+                                        <span style="color:#000;">{{ $popular_ad->name }}</span><br>
+                                        <span style="color:#999;">{{ $popular_ad->created_at_time_diff }}</span>
+                                    </div>
                                 </div>
-                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                    <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
-                                </div>
-                                <div class="detail" style="padding-top: 10px;">
-                                    <span style="color:#000; display: block; margin-bottom: 10px;">2 Beds . 2 Baths {{$key}}</span>
-                                    <span style="color:#999; display: block; margin-bottom: 10px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: 10px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
-                                </div>
-                                
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                        <!---------->
                     @endforeach
                 </div>
-    
-                <!-- Custom Arrows -->
-                {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
-                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
             </div>
         </div>
     </section>
+
+    <!------Popular  Ads section end--------->
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 12px 0px 0px -81px;">
-                <h3 style="margin-left: 11px;"><b>Popular in Franchise Opportunities</b></h3>
-                <div class="row slider" style="    margin-left: -22px;">
-                    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
-    
-                    @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
-                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 184px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
-                            <div class="listing">
-                                <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                <div class="heart-icon" style="position: absolute; top: 16px; right: 14.7rem;">
-                                    <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
+            <div class="col-lg-12 col-md-12 mb-30 col-12 m-10">
+                <h3><b>Popular in Investors Required</b></h3>
+                <div class="row">
+                    @foreach($ads->where("is_popular", true) as $popular_ad)
+                        <div class="col-lg-2 col-md-3 col-6 m-15">
+                            <a href="{{ env('BASE_URL') . 'ads/detail/' . $popular_ad->id . '?country=' . request()->country . '&city=' . request()->city }}">
+                                <div class="listing">
+                                    <img src="{{ $popular_ad->main_image_url }}" alt="{{ $popular_ad->name }}"
+                                         title="{{ $popular_ad->name }}" width="216" height="152">
+                                    <div class="detail">
+                                        <h6><b>{{ \App\Helpers\SiteHelper::priceFormatter($popular_ad->price) }}</b></h6>
+                                        <span style="color:#000;">{{ $popular_ad->name }}</span><br>
+                                        <span style="color:#999;">{{ $popular_ad->created_at_time_diff }}</span>
+                                    </div>
                                 </div>
-                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                    <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
-                                </div>
-                                <div class="detail" style="padding-top: 10px;">
-                                    <span style="color:#000; display: block; margin-bottom: 10px;">2 Beds . 2 Baths {{$key}}</span>
-                                    <span style="color:#999; display: block; margin-bottom: 10px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: 10px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
-                                </div>
-                                
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                        <!---------->
                     @endforeach
                 </div>
-    
-                <!-- Custom Arrows -->
-                {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
-                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
             </div>
         </div>
     </section>
-    <section>
-        <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 12px 0px 0px -81px;">
-                <h3 style="margin-left: 11px;"><b>Popular in Machinery & Supplies</b></h3>
-                <div class="row slider" style="    margin-left: -22px;">
-                    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
-    
-                    @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
-                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 184px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
-                            <div class="listing">
-                                <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                <div class="heart-icon" style="position: absolute; top: 16px; right: 14.7rem;">
-                                    <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
-                                </div>
-                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                    <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
-                                </div>
-                                <div class="detail" style="padding-top: 10px;">
-                                    <span style="color:#000; display: block; margin-bottom: 10px;">2 Beds . 2 Baths {{$key}}</span>
-                                    <span style="color:#999; display: block; margin-bottom: 10px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: 10px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
-                                </div>
-                                
-                            </div>
-                        </a>
-                    </div>
-                    @endforeach
-                </div>
-    
-                <!-- Custom Arrows -->
-                {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
-                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 12px 0px 0px -81px;">
-                <h3 style="margin-left: 11px;"><b>Popular in Export & Import</b></h3>
-                <div class="row slider" style="    margin-left: -22px;">
-                    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
-    
-                    @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
-                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 184px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
-                            <div class="listing">
-                                <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                <div class="heart-icon" style="position: absolute; top: 16px; right: 14.7rem;">
-                                    <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
-                                </div>
-                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                    <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
-                                </div>
-                                <div class="detail" style="padding-top: 10px;">
-                                    <span style="color:#000; display: block; margin-bottom: 10px;">2 Beds . 2 Baths {{$key}}</span>
-                                    <span style="color:#999; display: block; margin-bottom: 10px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: 10px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
-                                </div>
-                                
-                            </div>
-                        </a>
-                    </div>
-                    @endforeach
-                </div>
-    
-                <!-- Custom Arrows -->
-                {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
-                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
-            </div>
-        </div>
-    </section>
-    
-    
-    
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
