@@ -1,5 +1,24 @@
 @extends('layout.master')
 @section('content')
+
+<style>
+    .slick-prev, .slick-next{
+        top: 32% !important;
+
+    }
+    .slider:before {
+        background-color: transparent !important;
+    }
+    .slick-prev{
+        left: 45px;
+    }
+    .slick-next{
+        right: 12px;
+    }
+.slick-slide img{
+    width: 91% !important;
+}
+</style>
     @php
         $categories = \App\Helpers\RecordHelper::getCategories();
         $catgories_for_search = $categories->random()->take(6)->get();
@@ -142,7 +161,7 @@
                 </h3>
                 <div class="row" style="margin-left: -28px !important;">
                     @foreach($categories as $category)
-                        <div class="col-md-3 cat mb-2">
+                        <div class="col-md-3 cat mb-4">
                             <div class="subcategory-list">
                                 <img src="{{ $category->image_url  }}" alt="" width="25"  style="margin-top: -11px;">  <b > {{$category->name}}</b>
                                 <br>
@@ -169,40 +188,50 @@
             </div>
         </div>
     </section>
-    <!-- Categories area end -->
-    <!------featured section Start--------->
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 m-10">
-                <h3><b>Featured Ad</b></h3>
-                <div class="row">
-                    @php $ads = \App\Helpers\RecordHelper::getAds() @endphp
-                    @foreach($ads->where("is_featured", true) as $featured_ad)
-                    <div class="col-lg-2 col-md-3 col-6 m-15">
+                <h3 style="margin-left: -13px;"><b>Popular in Business for Sale</b></h3>
+                <div class="row slider" style="    margin-left: -22px;">
+                    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+    
+                    @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
+                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 184px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                             <div class="listing">
-                                <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}"
-                                     title="{{ $featured_ad->name }}" width="216" height="152">
-                                <div class="detail">
-                                    <h6><b>{{ \App\Helpers\SiteHelper::priceFormatter($featured_ad->price) }}</b></h6>
-                                    <span style="color:#000;">{{ $featured_ad->name }}</span><br>
-                                    <span style="color:#999;">{{ $featured_ad->created_at_time_diff }}</span>
+                                <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
+                                <div class="heart-icon" style="position: absolute; top: 16px; right: 14.7rem;">
+                                    <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
                                 </div>
+                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
+                                    <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
+                                </div>
+                                <div class="detail" style="padding-top: 20px;">
+                                    <span style="color:#000; display: block; margin-bottom: 10px;">2 Beds . 2 Baths {{$key}}</span>
+                                    <span style="color:#999; display: block; margin-bottom: 10px;">Al Quoz 4, Al Quoz</span>
+                                    <h5 style="margin-bottom: 10px;"><b style="color: red;"> AED 73,988</b></h5>
+                                </div>
+                                
                             </div>
                         </a>
                     </div>
-                    <!---------->
                     @endforeach
                 </div>
+    
+                <!-- Custom Arrows -->
+                {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
+                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
             </div>
         </div>
     </section>
+    
+    
     <!------featured section end--------->
     <!------Verified Ads section Start--------->
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 m-10">
-                <h3><b>Verified Ads</b></h3>
+                <h3><b>Popular in Bussiness for Rent</b></h3>
                 <div class="row">
                     @foreach($ads->where("is_verified", true) as $verified_ad)
                         <div class="col-lg-2 col-md-3 col-6 m-15">
@@ -229,7 +258,7 @@
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 m-10">
-                <h3><b>Premium Ads</b></h3>
+                <h3><b>Popular in Shares for Sale</b></h3>
                 <div class="row">
                     @foreach($ads->where("is_premium", true) as $premium_ad)
                         <div class="col-lg-2 col-md-3 col-6 m-15">
@@ -256,7 +285,7 @@
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 m-10">
-                <h3><b>Popular Ads</b></h3>
+                <h3><b>Popular in Bussiness Ideas</b></h3>
                 <div class="row">
                     @foreach($ads->where("is_popular", true) as $popular_ad)
                         <div class="col-lg-2 col-md-3 col-6 m-15">
@@ -278,10 +307,72 @@
             </div>
         </div>
     </section>
+
     <!------Popular  Ads section end--------->
+    <section>
+        <div class="container">
+            <div class="col-lg-12 col-md-12 mb-30 col-12 m-10">
+                <h3><b>Popular in Investors Required</b></h3>
+                <div class="row">
+                    @foreach($ads->where("is_popular", true) as $popular_ad)
+                        <div class="col-lg-2 col-md-3 col-6 m-15">
+                            <a href="{{ env('BASE_URL') . 'ads/detail/' . $popular_ad->id . '?country=' . request()->country . '&city=' . request()->city }}">
+                                <div class="listing">
+                                    <img src="{{ $popular_ad->main_image_url }}" alt="{{ $popular_ad->name }}"
+                                         title="{{ $popular_ad->name }}" width="216" height="152">
+                                    <div class="detail">
+                                        <h6><b>{{ \App\Helpers\SiteHelper::priceFormatter($popular_ad->price) }}</b></h6>
+                                        <span style="color:#000;">{{ $popular_ad->name }}</span><br>
+                                        <span style="color:#999;">{{ $popular_ad->created_at_time_diff }}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!---------->
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
+    $(document).ready(function(){
+    $('.slider').slick({
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        arrows: true,
+        prevArrow: '<button type="button" class="slick-prev" style="border: none;"><i class="fa fa-chevron-left" aria-hidden="true" style="color: black;"></i></button>',
+        nextArrow: '<button type="button" class="slick-next" style="border: none;"><i class="fa fa-chevron-right" aria-hidden="true" style="color: black;"></i></button>',
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+});
+
 
         $(document).on('click', '.category-search', function (e) {
             e.preventDefault();

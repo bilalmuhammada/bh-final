@@ -7,7 +7,7 @@
     
     
     .fa-heart {
-        color: red !important;
+        color: white !important;
     }
     
     .btn-next a.btn {
@@ -387,9 +387,9 @@
     
     .listing:hover {
         /* width: 230px; */
-        border: 1px solid #eee;
+        border: 1px solid #fff;
         /* padding: 5px; */
-        box-shadow: 3px 5px 5px 5px #eee;
+        box-shadow: 3px 5px 5px 5px #ffffff;
     }
     
     .sick-area {
@@ -423,7 +423,7 @@
     }
     
     .m-10 {
-        margin: 24px 0px 0px -49px;
+        margin: 40px 0px 0px -49px;
     }
     
     .mb-30 {
