@@ -7,7 +7,7 @@
                 <div class="row ">
                    
                     
-                    <div class="col-md-12 col-lg-12 col-xl-12">
+                    <div class="col-md-8 col-lg-8 col-xl-8" style="margin-left: 11rem;">
                         <div class="logo" style="text-align:center;">
                     <img src="{{asset('images/businesshub-slogan.png')}}" alt="" width="250px" alt="logo">
                     </div>

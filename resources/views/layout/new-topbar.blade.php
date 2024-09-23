@@ -6,7 +6,7 @@
     </style>
     <div class="container">
         <!-- topbar start -->
-        @if(request()->path()!=="contact-us")
+        @if(request()->path()!=="contact-us" && request()->path()!=="about-us")
         <div class="topbar desktop-view">
             <div class="cont-w">
                 <div class="row">
