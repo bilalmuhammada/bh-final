@@ -188,10 +188,6 @@
             </div>
         </div>
     </section>
-    
-    
-
-
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 12px 0px 0px -81px;">

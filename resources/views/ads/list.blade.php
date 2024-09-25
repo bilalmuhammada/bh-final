@@ -14,6 +14,9 @@
             border: 1px solid rgb(224, 225, 227);
         }
 
+        .dropdown-toggle::after{
+            display: none;
+        }
         .btnx:hover {
             background-color: rgb(0, 0, 255, .3);
         }
@@ -41,6 +44,9 @@
             color: white;
         }
 
+        .btn1:hover{
+    border-color: blue !important;
+        }
         .swiper-button-next:after, .swiper-button-prev:after{
             color: white !important;
     font-size: 23px !important;
@@ -79,64 +85,102 @@
         $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city) ? $cities_for_filter->where('id', request()->city)->first()->name : 'All';
     @endphp
     <section class="desktop-view">
-        <div class="container" style=" max-width: 76pc;">
-            <div class="col-lg-12 col-xl-12 col-12 col-md-12">
+        <div class="container" style=" max-width: 80rem;">
+            {{-- <div class="col-lg-12 col-xl-12 col-12 col-md-12"> --}}
                 <form class="form"
-                      style=" box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;border-radius: 10px;border: 1px solid rgb(194, 196, 199);padding:3px;">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col" style="border-right:2px solid #eee;" id="cityArea">
-                                <a data-toggle="collapse" href="#multiCollapseExample1"
-                                   role="button" aria-expanded="false"
-                                   aria-controls="multiCollapseExample1"
-                                   style="color:#000;">
-                                    <div class="col-md-12"><span style="font-size: 14px;"><b>City</b></span></div>
-                                    <div class="col-md-12"><span
-                                            style="font-size: 11px;color:#000;">{{ $selected_city_name }}</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col" style="border-right:2px solid #eee;" id="catArea">
-                                <a data-toggle="collapse" href="#multiCollapseExample2"
-                                   role="button" aria-expanded="false"
-                                   aria-controls="multiCollapseExample2"
-                                   style="color:#000;">
-                                    <div class="col-md-12"><span style="font-size: 14px;"><b>Category</b></span></div>
-                                    <div class="col-md-12"><input class="category-input"
-                                                                  value="{{ $subcategory_name }}" type="text" readonly
-                                                                  style="font-size: 11px;color:#000;border:0px;"
-                                                                  placeholder="Select Category"></div>
-                                </a>
-                            </div>
-                            <div class="col" style="border-right:2px solid #eee;" id="priceArea">
-                                <a data-toggle="collapse" href="#multiCollapseExample4"
-                                   role="button" aria-expanded="false"
-                                   aria-controls="multiCollapseExample4"
-                                   style="color:#000;">
-                                    <div class="col-md-12"><span style="font-size: 14px;"><b>Price</b></span>
-                                    </div>
-                                    <div class="col-md-12"><span
-                                            style="font-size: 11px;color:#000;">{{ $from || $to ? $from . '-' . $to : 'Select'}}</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col" id="filtersArea">
-                                <a data-toggle="collapse" href="#multiCollapseExample5"
-                                   role="button" aria-expanded="false"
-                                   aria-controls="multiCollapseExample5"
-                                   style="color:#000;">
-                                    <div class="col-md-12"><span style="font-size: 14px;"><b>Filters</b></span></div>
-                                    <div class="col-md-12"><span
-                                            style="font-size: 11px;color:#000;">{{ $keyword ? $keyword : 'Keywords'}}</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- <div class="col-md-2">
-                            1
-                            </div> -->
-                        </div>
-                </form>
+      style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;border-radius: 10px;border: 1px solid rgb(194, 196, 199);">
+    <div class="row" style="display: flex; flex-wrap: nowrap;">
+        <div class="col-md-3" style="border-right:2px solid #eee;" id="cityArea">
+            <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
+               aria-controls="multiCollapseExample1" style="color:#000;">
+                <div class="col-md-12"><span style="font-size: 14px;"><b>City</b></span></div>
+                <div class="col-md-12" style="margin-top: 5px;" ><span style="font-size: 11px;color:#000;">{{ $selected_city_name }}</span></div>
+            </a>
+        </div>
+
+
+        <div class="col-md-8" style="border-right: 2px solid #eee;">
+            <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;">Keyword</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="keyword" style="margin-top: -14px;" placeholder="Search anything in.....">
+                <span style="margin-top: -12px;font-weight: bolder; color: goldenrod;" id="searchIcon">
+                    <i class="fa fa-search"></i> <!-- Bootstrap Icons -->
+                </span>
             </div>
+        </div>
+    
+
+        {{-- <div class="col-md-3" style="border-right:2px solid #eee;" id="catArea">
+            <a data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false"
+               aria-controls="multiCollapseExample2" style="color:#000;">
+                <div class="col-md-12"><span style="font-size: 14px;"><b>Category</b></span></div>
+                <div class="col-md-12"><input class="category-input"
+                                              value="{{ $subcategory_name }}" type="text" readonly
+                                              style="font-size: 11px;color:#000;border:0px; margin-top: 6px;"
+                                              placeholder="Select Category"></div>
+            </a>
+        </div> --}}
+
+       
+
+        <div class="col-md-6" style="border-right: 2px solid #eee;">
+            <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px;">Neighborhood</label>
+            <div class="input-group">
+                <input type="text" class="form-control" style="margin-top: -12px;" id="neighborhood" placeholder="Enter location">
+                <span class="" id="locationIcon">
+                    <i class="fa fa-map-marker" style="margin-top: -5px; color:red;"></i> <!-- Bootstrap Icons location marker -->
+                </span>
+            </div>
+        </div>
+
+        
+
+        <div class="col-md-3" style="border-right:2px solid #eee;" id="priceArea1">
+            <a data-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false"
+               aria-controls="multiCollapseExample4" style="color:#000;">
+                <div class="col-md-12"><span style="font-size: 14px;margin-left: 10px;"><b>Price</b></span></div>
+             
+                {{-- <div class="col-md-12"><span style="font-size: 11px;color:#000;">{{ $from || $to ? $from . '-' . $to : 'Select'}}</span></div> --}}
+            </a>
+            <div class="col-md-12" style="display: flex;">
+                <input type="text" class="form-control" style="border-right: 1px solid #eee; " name="min_price" id="min_price" placeholder="Min" min="0">
+                {{-- <div style="border-left: 1px solid #ccc; height: 100%; margin: 0 10px;"></div> --}}
+    
+                <input type="text" class="form-control" name="max_price" id="max_price" placeholder="Max" min="0">
+            </div>
+        </div>
+
+        <div class="col-md-3" id="filtersAreaw1">
+            <a data-toggle="collapse1" href="#multiCollapseExample51" role="buttonw" aria-expanded="false"
+               aria-controls="multiCollapseExample51" style="color:#000;">
+                <div class="col-md-12"><span style="font-size: 14px;margin-left: -2px;"><b>Filter</b></span></div>
+                <div class="dropdown" style="margin-left: 1rem; display: flex;">
+                    {{-- &nbsp;&nbsp; --}}
+                   <button class="btn dropdown-toggle" style="border: 5px;margin-left: -15px;" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Default
+                   </button>
+                   <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                       <li><a class="dropdown-item" href="?sort=newest">Newest to Oldest</a></li>
+                       <li><a class="dropdown-item" href="?sort=oldest">Oldest to Newest</a></li>
+                       <li><a class="dropdown-item" href="?sort=price_highest">Price Highest to Lowest</a></li>
+                       <li><a class="dropdown-item" href="?sort=price_lowest">Price Lowest to Highest</a></li>
+                       <li><a class="dropdown-item" href="?sort=distance_nearest">Distance Nearest First</a></li>
+                   </ul>
+               </div>
+            </a>
+        </div>
+        {{-- <div class="col"> --}}
+        
+          
+        {{-- </div> --}}
+    </div>
+    <button class="btn"  style="white-space: nowrap;margin-left:42.6rem;  color: red; border: 1px solid goldenrod ;border-radius: 5px;" type="button"  aria-expanded="false">
+        Search
+    </button>
+   
+</form>
+
+            {{-- </div> --}}
             <!----------->
             <div class="row">
                 <div class="col">
@@ -178,13 +222,13 @@
                             <div class="col-md-12 mx-auto">
                                 <div class="row ">
                                     <div class="col-md-6">
-                                        <label for="" style="font-size: 13px;">From</label><br/>
+                                        <label for="" style="font-size: 13px;">Min</label><br/>
                                         <input type="number" placeholder="0" value="{{ $from }}" id="from"
                                                style="width: 140px;border:1px solid #eee;padding:25px !important;"
                                                class="form-control">
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="" style="font-size: 13px;">Upto</label><br/>
+                                        <label for="" style="font-size: 13px;">Max</label><br/>
                                         <input type="number" placeholder="Any" value="{{ $to }}" id="to"
                                                style="width: 140px;border:1px solid #eee;padding:25px !important;"
                                                class="form-control">
@@ -235,11 +279,12 @@
                                     </div>
                                 </div>
                             </div>
+                          
                             <!----buttons----->
                         </div>
                     </div>
                 </div>
-
+                
 
             </div>
             <!----------->
@@ -250,9 +295,26 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 m-10">
                 <div class="row">
-                    <div class="col-lg-9 col-md-9">
-                        <h3><b> {{ $subcategory_name }} <span class="text-muted">•{{ $ads->count() }} Ads</span></b>
+                    <div class="col-lg-9 col-md-9" style="display: flex;">
+                        <h3 style="white-space: nowrap;"><b> {{ $subcategory_name }} <span class="text-muted">•{{ $ads->count() }} Ads</span></b>
                         </h3>
+                        <button class="btn"  style="border: 1px solid goldenrod ;white-space: nowrap; height: 36px; border-radius: 5px;margin-left: 43rem; color: red;" type="button"  aria-expanded="false">
+                            Clear Search
+                        </button>
+                        {{-- <div class="dropdown" style="margin-left: 1rem; display: flex;"> --}}
+                             {{-- &nbsp;&nbsp; --}}
+                            {{-- <button class="btn dropdown-toggle" style="border: 1px solid goldenrod ; height: 36px;border-radius: 5px;" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Sort: Default
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                                <li><a class="dropdown-item" href="?sort=newest">Newest to Oldest</a></li>
+                                <li><a class="dropdown-item" href="?sort=oldest">Oldest to Newest</a></li>
+                                <li><a class="dropdown-item" href="?sort=price_highest">Price Highest to Lowest</a></li>
+                                <li><a class="dropdown-item" href="?sort=price_lowest">Price Lowest to Highest</a></li>
+                                <li><a class="dropdown-item" href="?sort=distance_nearest">Distance Nearest First</a></li>
+                            </ul>
+                        </div> --}}
+
                     </div>
                     {{--                    <div class="col-lg-3 col-md-3" style="border:0px solid red;">--}}
                     {{--                        <div class="row">--}}
@@ -277,25 +339,7 @@
         </div>
         </div>
     </section>
-    <section>
-        <div class="container">
-            {{--            <div class="col-lg-12 col-md-12 mb-30 col-12 m-10">--}}
-            {{--                <div class="row">--}}
-            {{--                    <div class="cat_btn" style="margin:7px 5px;">--}}
-            {{--                        <button class="btn" style="border: 2px solid #eee;border-radius:50px;font-size:12px;"><a href=""--}}
-            {{--                                                                                                                 style="color:#0000FF;">Business--}}
-            {{--                                for sale <span style="color:#000;"><b>(122)</b></span> </a></button>--}}
-            {{--                    </div>--}}
-            {{--                    <div class="cat_btn" style="margin:7px 5px;">--}}
-            {{--                        <button class="btn" style="border: 2px solid #eee;border-radius:50px;font-size:12px;"><a href=""--}}
-            {{--                                                                                                                 style="color:#0000FF;">Business--}}
-            {{--                                Services <span style="color:#000;"><b>(122)</b></span> </a></button>--}}
-            {{--                    </div>--}}
-            {{--                </div>--}}
-            {{--            </div>--}}
-        </div>
-        </div>
-    </section>
+   
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 col-12">
@@ -308,10 +352,10 @@
                                 <div style="position:absolute;border:0px solid red;width:100%;">
                                     <div class="row">
                                         <!-- Sharing and Favourite buttons -->
-                                        <div style="margin-top: 12px; margin-left: 199px;  z-index: 2;">
+                                        <div style="margin-top: 12px; margin-left: 232px;  z-index: 2;">
                                             <span>
-                                                <a><i class="fa fa-share share-btn" ad-id="{{ $ad->id }}" title="Copy Ad link" style="font-size: 25px; margin-right: 8px;color:white;"></i></a>
-                                                <a><i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}" is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}" style="font-size: 25px; color: white;"></i></a>
+                                                <a><i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}" is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}" style="font-size: 25px;margin-right: 7px; margin-left: 2px; color: white;"></i></a>
+                                                {{-- <a><i class="fa fa-share share-btn" ad-id="{{ $ad->id }}" title="Copy Ad link" style="font-size: 25px; margin-right: 41px;color:white;"></i></a>   --}}
                                             </span>
                                         </div>
                                     </div>
@@ -338,17 +382,23 @@
                                     <div class="col-lg-9 col-md-9 col-9" style="margin-left: -97px">
                                         <h5 style="font-size: 22px;font-weight:700;">{{ $ad->title ?? 'Heading N/A' }}</h5>
                                         <p style="font-size: 13px;">{{ $ad->category_name }} <span style="font-size: 16px;">&#9679;</span> {{ $ad->subcategory_name }}</p>
-                                        <h3 style="font-weight: bold;font-size:23px;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price, request()->currency) }}</h3>
-                                        <div>&nbsp;</div>
-                                        <p style="margin-top: 12px;font-size: 20px; font-weight: 600"><i class="fa fa-map-marker"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span class="text-muted" style="margin-top: 12px;font-size: 20px;">24 May 2024</span></p>
+                                        <h3 style="font-weight: bold;font-size:23px;">AED {{ \App\Helpers\SiteHelper::priceFormatter($ad->price, request()->currency) }}</h3>
+                                    
+                                        <p style="margin-top: 55px;font-size: 16px;"><i class="fa fa-map-marker" style="color: red;font-size:21px;"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span  style="margin-top: 12px;font-size: 16px;">24 May 2024</span></p>
+                                        
+                                        <!-- Buttons for Call and Chat -->
+                                       
                                     </div>
+                                    
                                     <div class="col-lg-2 col-md-2 mb-30 col-3">
-                                        <button class="btn btn-primary" style="font-size:11px;color:white;font-weight:bold;">Featured</button>
+                                       
+                                        
+                                        <button class="btn btn-primary" style="font-size:11px;color:white; font-weight:bold;">Featured</button>
                                     </div>
                                 </div>
                             </div>
                             <!-----content----->
-                            <hr style="width: 100%;background:#eee;">
+                            <hr style="width: 81.5%;margin-top: -9px;margin-left: 12px;background:#eee;">
                         </div>
                     @endforeach
                     

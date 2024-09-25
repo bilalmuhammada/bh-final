@@ -778,8 +778,9 @@
     }
     
     form {
-        width: 56rem;
-        margin-left: -36px;
+        display: flex;
+        width: 75rem;
+        margin-left: -25px;
         margin-top: 20px;
     }
     
