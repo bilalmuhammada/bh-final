@@ -64,12 +64,12 @@ class User extends Authenticatable
     public function getImageUrlAttribute()
     {
         $attachment = $this->attachment;
-        if ($attachment) {
-            $profile_image = $attachment;
-            if (!empty($profile_image)) {
-                return asset('uploads/users/profile-images/' . $profile_image->name);
-            }
-        }
+        // if ($attachment) {
+        //     $profile_image = $attachment;
+        //     if (!empty($profile_image)) {
+        //         return asset('uploads/users/profile-images/' . $profile_image->name);
+        //     }
+        // }
         return asset('images/default/profile.jpg');
     }
 

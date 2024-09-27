@@ -1,5 +1,19 @@
 @extends('layout.master')
+
+
 @section('content')
+<style>
+    .slick-slide{
+        margin: 0px 7px !important;
+        width: 184px !important;
+    }
+    .slick-slide img {
+    width: 80% !important;
+}
+.slick-prev, .slick-next {
+    top: 32% !important
+}
+</style>
 {{--        @dd($ad->toArray())--}}
     <!--------ad area --------->
     <section>
@@ -30,17 +44,17 @@
         </div>
 
     </section>
-    <!-- <section>
+ {{-- <section>
         <div class="cont-w" style="margin-bottom: 7px;">
-            {{--ad area --}}
+    ad area 
         <img src="{{ $ad->main_image_url }}" alt="Los Angeles" width="100%" height="257">
         </div>
-    </section> -->
+    </section>  --}}
 
     <section>
         <div class="cont-w desktop-view" style="border-bottom:2px solid #eee;">
-            <div class="col-lg-12 col-md-12 mb-20 col-12 mt-10" style="">
-                <div class="row">
+            <div class="col-lg-12 col-md-12 col-12" style="">
+                <div class="row" style="margin-top: 7px;">
                     <div class="cat_btn" style="margin:3px 5px;">
                         <a href="{{ env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city }}"
                            style="color:#0000FF;font-size:12px;">Home</a>
@@ -71,7 +85,7 @@
                             <div
                                 style="font-weight:bold;font-size:25px;text-align:right;border:0px solid red;width:100%;">
                                 <a href=""
-                                   style="color: #0000FF;font-weight:bold;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
+                                   style="color: red;font-weight:bold;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
                                 </a></div>
                         </div>
                     </div>
@@ -87,7 +101,7 @@
                         </div>
                         <div class="row">
                             <span class="text-muted"
-                                  style="font-size: 12px;">Posted {{ $ad->created_at_time_diff }}</span>
+                                  style="font-size: 12px; margin-left: 7px;">Posted {{ $ad->created_at_time_diff }}</span>
                         </div>
                     </div>
                     <div class="col" style="text-align:right;">
@@ -95,7 +109,7 @@
                             <div
                                 style="font-weight:bold;font-size:25px;text-align:right;border:0px solid red;width:100%;">
                                 <a href=""
-                                   style="color: #0000FF;font-weight:bold;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
+                                   style="color: red;font-weight:bold;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
                                 </a></div>
                         </div>
                     </div>
@@ -158,19 +172,19 @@
                         <div class="row">
                             <!-----content----->
                             <div class="col-lg-12 col-md-12 col-12"
-                                 style="margin-bottom:10px;width:800px;border:0px solid green;position:relative;top:55px;z-index:1000;">
+                                 style="margin-bottom:-30px;width:800px;border:0px solid green;position:relative;top:11px;z-index:1000;">
                                 <span style="font-size: 13px;float:right;position:relative;right:30px;cursor:pointer;">
                                     <i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}"
                                        is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
-                                       style="background:#fff;padding:10px 13px;border-radius:2px;"> Favourite</i>&nbsp;
+                                       style="padding:10px 13px;font-size:19px; border-radius:2px;"> </i>&nbsp;
                                     <i class="fa fa-share share-btn" ad-id="{{ $ad->id }}" title="Copy Ad link"
-                                       style="background:#fff;padding:10px 10px;border-radius:2px;"> Share</i>
+                                       style="font-size:19px;border-radius:2px;"></i>
                                 </span>
                             </div>
                             <div class="col-lg-12 col-md-12 col-12">
                                 <div class="column small-11 small-centered">
                                     <div class="cSlider cSlider--single" style="background-color:#eee;">
-                                        @foreach($ad->images as $image)
+                                        @foreach($ad->attachments as $image)
                                             <div class="cSlider__item">
                                                 <!-- <h2> -->
                                                 <img src="{{ $image->listing_image_url }}" alt="Listing Image"
@@ -178,11 +192,15 @@
                                                      style="height:272px;">
                                                 <!-- </h2> -->
                                             </div>
+                                           
                                         @endforeach
+                                        <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:15rem; z-index: 2;">
+                                            <i class="fa fa-image" style="color:black;"></i><span class="text-black" style="margin-left:9px">{{ $ad->images->count() }}</span>
+                                        </div>
                                     </div>
                                     <div class="cSlider cSlider--nav">
-                                        @foreach($ad->images as $image)
-                                            <div class="cSlider__item" style="margin-top:15px;">
+                                        @foreach($ad->attachments as $image)
+                                            <div class="cSlider__item" style="margin-top:18px !important;">
                                                 <img src="{{ $image->listing_image_url }}" alt="Listing Image"
                                                      width="100%" height="300"
                                                      style="height:60px;border:2px solid #0000FF;border-radius:6px;">
@@ -191,18 +209,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;width:800px;">
-                                <span style="font-size: 13px;float:right;position:relative;right:70px;">( {{ $ad->images->count() }} Photos )</span>
-                            </div>
-                            <!-----content----->
-                            <!-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> -->
-                            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-6">
+                           
+                            <div class="col-lg-12 col-md-12 col-12" style="border-top: 1px solid #eee;border-bottom: 1px solid #eee;margin-top: 35px;margin-bottom: 10px;">
+                                <div class="row" style="margin-top:13px;">
+                                    <div class="col-lg-6 col-md-6 col-6" >
                                         <p style="font-size: 14px;"><b>Business Type:</b>
                                             <span>{{ $ad->details->business_type ?? '....' }}</span></p>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-6">
+                                    <div class="col-lg-6 col-md-6 col-6" >
                                         <p style="font-size: 14px;"><b>Trade License:</b>
                                             <span>{{ $ad->details->trade_licence_type ?? '....' }}</span></p>
                                     </div>
@@ -245,17 +259,17 @@
 
                             </div>
                             <!---------->
-                            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
+                            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;border-bottom: 1px solid #eee;">
                                 <h4><b>Products & Services Offered</b></h4>
-                                <p style="font-size: 14px;">{{ $ad->details->products_and_services_offered ?? '....' }}</p>
+                                <p style="font-size: 14px; margin-bottom: 7px;">{{ $ad->details->products_and_services_offered ?? '....' }} this is one line</p>
                             </div>
 
-                            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
+                            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;border-bottom: 1px solid #eee;">
                                 <h4><b>Description</b></h4>
-                                <p style="font-size: 14px;">{{ $ad->description }}</p>
+                                <p style="font-size: 14px;margin-bottom: 7px;">{{ $ad->description }} this is description</p>
 
                             </div>
-                            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
+                            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;border-bottom: 1px solid #eee;">
                                 {{--<h4><b>Files({{ $ad->documents->count() ?? 0 }})</b></h4>--}}
                                 <h4><b>Files</b></h4>
                                 <p style="font-size: 14px;">
@@ -276,26 +290,26 @@
                             </p>
                         </div>
                         <!-----add----->
-                        <hr style="width: 100%; height:3px; color:#eee;background:#eee;">
-                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
+                        {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
+                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;border-bottom: 1px solid #eee;">
                             <h4><b>Location</b></h4>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 co-12">
                                     <div style="border-radius:5px;">
                                         <h6 style="text-align: left;font-size:13px;font-weight:bold;">
-                                            <span><i class="fa fa-map-marker"></i> {{ $ad->location_name }}</span>
+                                            <span><i class="fa fa-map-marker"></i> {{ $ad->location_name }} This is location</span>
                                         </h6>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 co-12" style="padding:10px;">
                                     <div style="border-radius:5px;">
-                                        <div style="width:370px; height:150px; border:0;" id="map"></div>
+                                        <div style="width:370px; height:66px; border:0;" id="map"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <hr style="width: 100%; height:3px; color:#eee;background:#eee;">
-                        <div style="font-weight: bold;font-size:16px;">
+                        {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
+                        <div style="font-weight: bold;font-size:20px;margin-top: 18px;">
                             Is there an issue?
 
                             @php $report_text = "Report this ad"; $report_class = "report-ad-btn"; @endphp
@@ -308,72 +322,88 @@
                                 {{ $report_text }}
                             </a>
                         </div>
-                        <hr style="width: 100%; height:3px; color:#eee;background:#eee;">
+                        {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
                         <!---------------------->
                     </div>
                 </div>
                 <!--  desktop view -->
-                <div class="col-lg-4 col-md-4 col-12 desktop-view" style="border:0px solid red;">
+                <div class="col-lg-4 col-md-4 col-12 desktop-view">
                     <div class="row">
                         <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
-                        <div class="col-lg-12 col-md-12 col-12" style="border:0px solid red;margin-right:-0px;">
-                            <div class="inner"
-                                 style="border: 2px solid #eee;border-radius:5px;margin:0px 0px 0px 0px;padding:15px 0 0 15px;">
-                                <p class="text-muted" style="font-size: 13px;padding-left:12px;">Posted by</p>
-                                <div class="row" style="padding-left:15px;padding-bottom:10px;">
-                                    <div class="col-6"><b> {{ $ad->created_by_user->name; }}</b></div>
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <div class="inner" style="border: 1px solid #eee; border-radius: 5px; padding: 15px;">
+                                <p class="text-muted" style="font-size: 13px;">Posted by</p>
+                                <div class="profile-image-container" style="display: flex; align-items: center; margin-left: 8rem;font-size: 26px;">
+                                          
+                                    <b>{{ $ad->created_by_user->name }}</b>
+                                    {{-- <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="40" height="40" style="border-radius: 50%; margin-right: 10px;"> --}}
+                                </div>
+                                <div class="row" style="padding-bottom: 10px; align-items: center;">
+                                   
                                     <div class="col-6">
-                                    <span
-                                    style="font-size: 11px;padding:5px;border-radius:7px;color:white;margin-left:12px;"
-                                    class="bg-success"><i class="fa fa-check-circle"></i> VERIFIED USER</span>
+                                        
+                                       
+                                            <div class="profile-image-container" style="display: flex; align-items: center;margin-left: 7.5rem;margin-top: 9px;">
+                                              
+                                                {{-- <b>{{ $ad->created_by_user->name }}</b> --}}
+                                                <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="150" height="130" style="border-radius: 30%;">
+                                            </div>
+                                        
                                     </div>
-                                    </div>
-                                    @if (session()->has('user'))
-                                    <div class="col-12" style="padding-bottom:10px;">
-                                    <img src="{{$ad->created_by_user->image_url}}" alt="img" width="100" height="100"
-                                         style="border-radius: 2%;">
-                                    </div>
-                                    @endif
-                                {{--<p class="text-muted" style="font-size: 15px;padding-left:12px;"><b>Joined
-                                        on {{ $ad->created_by_user->created_at_formatted }}</b></p>
-                                <p class="text-muted" style="font-size: 15px;padding-left:12px;">
-                                    <b>{{ $ad->created_by_user->active_ads_count }} items live</b></p>--}}
-                                <p class="text-muted btn-next" style="padding-left:12px;">
-
+                                    {{-- <div class="col-6">
+                                        <span class="verified-badge bg-success">
+                                            <i class="fa fa-check-circle"></i> VERIFIED USER
+                                        </span>
+                                    </div> --}}
+                                </div>
+                                
+                
+                                @if (session()->has('user'))
+                                <div class="profile-image-container" style="text-align: center; margin-bottom: 10px;">
+                                    <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="80" height="80" style="border-radius: 50%;">
+                                </div>
+                                @endif
+                
+                                <div class="action-buttons" style="text-align: center;margin-top: 13px;margin-left: 30px;">
                                     @if(empty($ad->phone_listing_approval_status) || $ad->phone_listing_approval_status == 'rejected')
-                                        <a href="#" class="btn btn-lg phone-show-request" style="font-size: 13px;">Show
-                                            Phone
-                                            Number</a>
+                                    {{-- <a href="#" class="btn btn-sm phone-show-request">Show Phone Number</a> --}}
                                     @elseif($ad->phone_listing_approval_status == 'approved')
-                                        <b>{{ $ad->created_by_user->phone }}</b>
+                                    <b>{{ $ad->created_by_user->phone }}</b>
                                     @else
-                                        <p class="phone-approval-status">Waiting for phone no approval</p>
+                                    <p class="phone-approval-status">Waiting for phone no approval</p>
                                     @endif
-
+                
                                     <p class="phone-approval-status" style="display: none">Waiting for phone no approval</p>
-
-                                </p>
-                                <p class="text-muted btn-next" style="padding-left:12px;">
-                                    <a href="#" class="btn btn-lg start-chat" style="font-size: 13px;"
-                                       user-id="{{ $ad->created_by_user->id }}"> Chat with Seller &nbsp; &nbsp;  &nbsp;  &nbsp; </a>
-                                </p>
+                                    <button class="btn"  style="border: 1px solid goldenrod ;margin-right: 9px;white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button"  aria-expanded="false">
+                                        Chat
+                                    </button>
+                                    <button class="btn"  style="border: 1px solid goldenrod ;margin-right: 9px;white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button"  aria-expanded="false">
+                                        Call
+                                    </button>
+                                    <button class="btn"  style="border: 1px solid goldenrod ;margin-right: 9px;white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button"  aria-expanded="false">
+                                        WhatsApps
+                                    </button>
+                                    {{-- <a href="#" class="btn btn-sm start-chat" user-id="{{ $ad->created_by_user->id }}">Chatww</a> --}}
+                                    {{-- <a href="#" class="btn btn-sm start-call" user-id="{{ $ad->created_by_user->id }}">Call</a> --}}
+                                </div>
                             </div>
                         </div>
+                
                         <!-- ad area -->
                         @foreach($ad->images as $image)
-                            <div class="col-lg-12 col-md-12 col-12">
-                                <img src="{{ $image->listing_image_url }}" alt="Listing Image" width="100%"
-                                     height="150" style="margin-bottom: 10px;">
-                            </div>
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <img src="{{ $image->listing_image_url }}" alt="Listing Image" width="100%" height="150" style="margin-bottom: 10px;">
+                        </div>
                         @endforeach
                     </div>
                 </div>
+                
                 <!--  mobile view -->
                 <div class="col-12 mobile-view" style="border:0px solid red;">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-12" style="border:0px solid red;margin-right:-30px;">
                             <div class="inner"
-                                 style="border: 2px solid #eee;border-radius:5px;margin:0px 0px 10px 0px;padding:15px;">
+                                 style="border: 1px solid #eee;border-radius:5px;margin:0px 0px 10px 0px;padding:15px;">
                                 <p class="text-muted" style="font-size: 13px;padding-left:12px;">Posted by</p>
                                 <p class="text-muted" style="font-size: 15px;padding-left:12px;">
                                     <b>{{ $ad->created_by_user->name; }}</b></p>
@@ -411,59 +441,39 @@
                     </div>
                 </div>
                 <!---------------------->
-                <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
-                    <h3><b>Similar Ads</b></h3>
+                <div class="col-lg-12 col-md-12 col-12" style="margin-top: 22px;border-bottom: 1px solid #eee;border-top: 1px solid #eee;margin-left: -18px;">
+                    <h3 style="margin-top: 25px;"><b>Similar Ads</b></h3>
                     <!------ad----->
-                    <div class="row">
+                    <div class="row" style="margin-left: 27px;">
                         <div class="col-md-12">
-                            <div class="row">
-                            @php
-                                $similar_ads = \App\Helpers\RecordHelper::getAdsBySubcategory($ad->subcategory_id)->take(5);
-                            @endphp
-                            @foreach($similar_ads as $similar_ad)
-                                <!----------->
-                                    <div class="col-lg-2 col-md-2 col-6">
-                                        <div class="inner">
-                                            <a href="{{env('BASE_URL') . 'ads/detail/' . $similar_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
-                                                <div class="img"
-                                                     style="background-image:url({{ $similar_ad->main_image_url }});height:150px;width:100%;border-radius:10px;">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="row">
-                                                                <div class="col-md-4 col-4"
-                                                                     style="margin:5px;text-align:right;">
-                                                                    <span
-                                                                        style="float: right;position:relative;left:120px;">
-                                                                     <i class="fa {{ $similar_ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}"
-                                                                        is-favourite="{{ $similar_ad->is_favourite ? '1' : '0' }}"
-                                                                        ad-id="{{ $similar_ad->id }}"
-                                                                        style="color: white;"></i>
-                                                                   </span>
-                                                                </div>
-                                                                <div class="col-md-12 col-6"
-                                                                     style="margin:5px;position:absolute;top:120px;">
-                                                                    <i class="fa fa-envelope"
-                                                                       style="color:white;"></i>
-                                                                    <span class="text-white">1</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                            <div class="slider">
+                                @php
+                                    $similar_ads = \App\Helpers\RecordHelper::getAdsBySubcategory($ad->subcategory_id)->take(5);
+                                @endphp
+                                @foreach($similar_ads as $similar_ad)
+                                    <div class="col-lg-2 col-md-3 col-6">
+                                        <a href="{{env('BASE_URL') . 'ads/detail/' . $similar_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
+                                            <div class="listing">
+                                                <img src="{{ $similar_ad->main_image_url }}" alt="{{ $similar_ad->name }}" title="{{ $similar_ad->name }}" width="170" height="152">
+                                                <div class="heart-icon" style="position: absolute; top: 16px; right: 0.2rem;">
+                                                    <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
                                                 </div>
-                                            </a>
-                                            <div
-                                                style="font-size: 14px;font-weight:bold;">{{ $similar_ad->title ?? 'Title N/A' }}</div>
-                                            <div style="font-size: 11px;">{{ $similar_ad->subcategory_name }}</div>
-                                            <div
-                                                style="font-size: 14px;font-weight:bold;">{{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}</div>
-                                        </div>
+                                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
+                                                    <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
+                                                </div>
+                                                <div class="detail" style="padding-top: 10px;">
+                                                    <span style="color:#000; display: block; margin-bottom: 10px;">{{ $similar_ad->title ?? 'Title N/A' }}</span>
+                                                    <span style="color:#999; display: block; margin-bottom: 10px;">{{ $similar_ad->subcategory_name }}</span>
+                                                    <h5 style="margin-bottom: 10px;font-size: 18px;"><b style="color: red;">{{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}</b></h5>
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
-                                    <!----------->
                                 @endforeach
                             </div>
                         </div>
-                        <!-------->
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -475,12 +485,45 @@
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
-
+  $(document).ready(function(){
+    $('.slider').slick({
+infinite: true,
+            infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        // autoplay: true,
+        autoplaySpeed: 2000,
+        arrows: true,
+        prevArrow: '<button type="button" class="slick-prev" style="border: none;"><i class="fa fa-chevron-left" aria-hidden="true" style="color: black;"></i></button>',
+        nextArrow: '<button type="button" class="slick-next" style="border: none;"><i class="fa fa-chevron-right" aria-hidden="true" style="color: black;"></i></button>',
+            responsive: [
+                {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                }
+            },
+                {
+                    breakpoint: 768, // At 768px, show 2 slides
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                },
+                {
+                    breakpoint: 480, // At 480px, show 1 slide
+                    settings: {
+                        slidesToShow: 1,
+                    }
+                }
+            ]
+        });
+});
         $(document).ready(function () {
-            var latitude = "{{ $ad->latitude }}";
-            var longitude = "{{ $ad->longitude }}";
+            var latitude = "{{ $ad->latitude ?? 30.777855 }}";
+            var longitude = "{{ $ad->longitude ?? 31.7989566 }}";
 
-            var myLatlng = new google.maps.LatLng(latitude, longitude);
+            var myLatlng = new google.maps.LatLng(30.777855, 31.777855);
             var myOptions = {
                 zoom: 13,
                 center: myLatlng
