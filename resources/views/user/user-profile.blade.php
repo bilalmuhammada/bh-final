@@ -6,6 +6,24 @@
     input:focus{
         border: 1px solid blue !important;
     }
+    input::placeholder{
+        font-size: 10px;
+        color: blue !important;
+    }
+    select::-ms-expand {
+    display: none; /* Remove the dropdown icon on IE10+ */
+}
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none; /* Remove default background */
+    background-color: transparent;
+    padding-right: 20px; /* Add some padding to keep the layout */
+}
+    input{
+        border: 1px solid #A17A4E !important;
+    }
     #ui-datepicker-div{
 width: 225px !important;
   }
@@ -21,13 +39,13 @@ width: 225px !important;
         <span style="font-size: 12px ;"><a href="{{ env('BASE_URL') . 'home'}}">Home</a>>Profile</span>
 
         <h4><b>My Profile</b></h4>
-        <p style="font-size:13px;">Welcome, {{ session()->get('user')->name }}!</p>
+        <h6 style="font-size:13px;">Welcome, {{ session()->get('user')->name }}!</h6>
         </div>
         <div class="col-md-12 desktop-view">
             <div class="row">
-                <div class="col-md-2" style="border: 0px solid red;text-align:right;">
+                <div class="col-md-2" style="border: 0px solid red;text-align:center;">
                     <img id="profile-image" class="display-profile-img" src="{{session()->get('user')->image_url}}" alt="img" width="120" height="120" style="border-radius: 5%; border: 0px solid red;">
-                    <a href="#" id="change-photo-link" style="margin-right: 10px;">Change Photo</a>
+                    <a href="#" id="change-photo-link" style="display: flex; margin-left: 43px;">Change Photo</a>
                     <input type="file" name="profile_image" id="profile_image" class="form-control-file" accept="image/*" style="border: 1px solid #999; border-radius: 2px; display: none;">
                     <input type="hidden" name="image" class="base64-Image-name">
                 </div>
@@ -36,35 +54,29 @@ width: 225px !important;
                         <form class="profile-form" style="font-size:12px;">
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
-                                    <div class="col-md-4" ><b> Full Name:</b></div>
-                                    @php
-                                    //  dd(session()->get('user'));
-                                    @endphp
+                                    <div class="col-md-4" style="margin-top: 10px;" ><b> First Name:</b></div>
+                                
                                     <div class="col-md-8">
                                     {{-- <p>{{session()->get('user')->name}}</p> --}}
                                          <input type="text" class="form-control" name="name" id="name" value="{{session()->get('user')->name}}" style="border: 1px solid rgb(153, 153, 153);">
                                     </div>
-                                    <!-- <div class="col-md-4"><b></b></div>
-                                    <div class="col-md-8">
-                                        <div class="btnz" style="text-align: center;">
-                                            @if (session()->get('user')->verified_at != null)
-                                                <a class="form-control btn btn-lg verify-account-btn"
-                                                   style="font-weight:bold;font-size:11px;border: 1px solid #999;background-color:inherit;color:#000;padding:6px 0px;">
-                                                   Account Verified
-                                                </a>
-                                            @else
-                                            <a href="{{ env('BASE_URL') . 'verify-email' }}" target="_blank" class="form-control btn btn-lg verify-account-btn"
-                                                   style="font-weight:bold;font-size:11px;border: 1px solid #999;background-color:inherit;color:#000;padding:6px 0px;">
-                                                    Verify Your Account
-                                                </a>
-                                            @endif
-                                        </div>
-                                    </div> -->
+                                    
                                 </div>
                             </div>
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
-                                    <div class="col-md-4"><b>Gender:</b></div>
+                                    <div class="col-md-4" style="margin-top: 10px;" ><b> Last Name:</b></div>
+                                
+                                    <div class="col-md-8">
+                                    {{-- <p>{{session()->get('user')->name}}</p> --}}
+                                         <input type="text" class="form-control" name="name" id="name" value="{{session()->get('user')->name}}" style="border: 1px solid rgb(153, 153, 153);">
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="margin-top: 10px;">
+                                <div class="row">
+                                    <div class="col-md-4" style="margin-top: 10px;"><b>Gender:</b></div>
                                     <div class="col-md-8">
                                         <select name="gender" id="gender" type="text" class="form-control"
                                                 style="border:1px solid #999;">
@@ -77,17 +89,17 @@ width: 225px !important;
                             </div>
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
-                                    <div class="col-md-4"><b>Mobile:</b></div>
+                                    <div class="col-md-4" style="margin-top: 10px;"><b>Mobile:</b></div>
                                     <div class="col-md-8">
-                                        <input name="mobile" id="mobile" type="text" class="form-control" style="border: 1px solid #999;">
+                                        <input name="mobile" id="mobile" type="text" class="form-control" placeholder="Please enter a valid Mobile." style="border: 1px solid #999;">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
-                                    <div class="col-md-4"><b>Email:</b></div>
+                                    <div class="col-md-4" style="margin-top: 10px;"><b>Email:</b></div>
                                     <div class="col-md-8">
-                                        <input name="email" id="email" type="text" class="form-control" style="border: 1px solid #999;">
+                                        <input name="email" id="email" type="text" placeholder="Please provide a valid Email."  class="form-control" style="border: 1px solid #999;">
                                     </div>
                                 </div>
                             </div>
@@ -101,9 +113,9 @@ width: 225px !important;
                             </div> --}}
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
-                                    <div class="col-md-4"><b>Date of Birth:</b></div>
+                                    <div class="col-md-4" style="margin-top: 10px;"><b>Date of Birth:</b></div>
                                     <div class="col-md-8">
-                                        <input name="dob" id="datepicker" type="text" class="form-control" style="border: 1px solid #999;">
+                                        <input name="dob" id="datepicker" type="text" class="form-control" style="border: 1px solid #999;text-align: center;">
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +125,7 @@ width: 225px !important;
                         @endphp
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
-                                    <div class="col-md-4"><b>Location:</b></div>
+                                    <div class="col-md-4" style="margin-top: 10px;"><b>Location:</b></div>
                                     <div class="col-md-4">
                                         <div class="input-group mb-3" style=" 
                                         border: 1px solid #999">
@@ -121,7 +133,7 @@ width: 225px !important;
                                                         class="form-control country_dropdown login-user"
                                                         style="width:100%;">
                                                     @if ($cities->count() < 1)
-                                                        <option value="" selected>Select</option>
+                                                        <option value="" selected>Country</option>
                                                     @endif
                                                     @foreach($countries as $country)
                                                         <option
@@ -140,7 +152,7 @@ width: 225px !important;
                                             class="form-control country_dropdown login-user"
                                             style="width:100%;">
                                         @if ($cities->count() < 1)
-                                            <option value="" selected>Select</option>
+                                            <option value="" selected>City</option>
                                         @endif
                                         @foreach($cities as $city)
                                             <option
@@ -163,6 +175,22 @@ width: 225px !important;
                                     </div> -->
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-4" style="margin-top: 10px;"><b>Password:</b></div>
+                                    <div class="col-md-8">
+                                        <input name="password" id="password" type="password" class="form-control" placeholder="8 Characters - 1 Capital, 1 Number, 1 Special"style="border: 1px solid #999;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="margin-top: 10px;">
+                                <div class="row">
+                                    <div class="col-md-4" style="margin-top: 10px;"><b>Confirm Password:</b></div>
+                                    <div class="col-md-8">
+                                        <input name="password" id="confirmpassword" type="password" class="form-control" placeholder="" style="border: 1px solid #999;">
+                                    </div>
+                                </div>
+                            </div>
                             {{-- <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -179,13 +207,13 @@ width: 225px !important;
                                         <h4 style="font-size:14px;"><b>Subscribe:</b></h4>
                                     </div>
 
-                                    <div class="col-md-12">
+                                    <div class="col-md-12" style="margin-left: 9.5rem;">
                                         <input name="weekly_newsletter" id="weekly_newsletter" type="checkbox">
-                                        <span> &nbsp; The weekly businesshub newsletter of the most popular steals across &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the businesshub site.</span>
+                                        <span> &nbsp; Weekly New Business Ads.</span>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-12" style="margin-left: 9.5rem;">
                                         <input name="offers_and_bargains" id="offers_and_bargains" type="checkbox">
-                                        <span> &nbsp; Amazing offers and bargains from our advertising partners.</span>
+                                        <span> &nbsp; Best Deals from our Advertising Partners.</span>
                                     </div>
                                 </div>
                             </div>
@@ -193,7 +221,7 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-12 text-left">
                                         <a class="btn add-list-button update-profile-btn update-profile-submit-btn"
-                                                style="padding: 8px;font-size:15px;border-radius:8px;margin-left: 11pc">Update 
+                                                style="padding: 8px;font-size:15px;border-radius:8px;margin-left: 15rem;">Update 
                                         </a>
                                     </div>
                                 </div>
@@ -201,27 +229,34 @@ width: 225px !important;
                         </form>
                     </div>
                 </div>
-                <div class="col-md-5" style="box-shadow: #eef0f1 0 0 20px; margin-left: 53px; border: 1px solid #eef0f1;height:150px;padding:10px; ">
+                <div class="col-md-5" style="box-shadow: #eef0f1 0 0 20px; margin-left: 53px; border: 1px solid #eef0f1;height:130px;padding:10px; ">
                     <div class="row">
-                        <div class="col-md-4" style="border: 0px solid red;">
+                        <div class="col-md-3" style="border: 0px solid red;">
                             <div class="inner-content text-center" style="padding: 10px;">
                                 <h6><b>My Ads</b></h6>
                                 <h4><b>{{ \App\Helpers\RecordHelper::getAdsByUserId(session()->get('user')->id)->count() }}</b></h4>
-                                <p style="font-size: 12px;">Ads Viewed 0 times</p>
+                                <p style="font-size: 16px;color: goldenrod;">Live</p>
                             </div>
                         </div>
-                        <div class="col-md-4" style="border-left: 2px solid #eee;border-right: 2px solid #eee;">
+                        <div class="col-md-3" style="border-left: 2px solid #eee;border-right: 2px solid #eee;">
                             <div class="inner-content text-center" style="padding: 10px;">
-                                <h6><b>My Searches</b></h6>
+                                <h6><b>Notification</b></h6>
                                 <h4><b>0</b></h4>
-                                <p style="font-size: 12px;">Saved Searches</p>
+                                <p style="font-size: 16px;color: goldenrod;">New</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3" style="border-right: 2px solid #eee;">
                             <div class="inner-content text-center" style="padding: 10px;">
-                                <h6><b>My Favorites</b></h6>
+                                <h6><b>Favorites</b></h6>
                                 <h4><b>0</b></h4>
-                                <p style="font-size: 12px;">Ads Saved</p>
+                                <p style="font-size: 16px;color: goldenrod;">Recent</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="inner-content text-center" style="padding: 10px;">
+                                <h6><b>Chat</b></h6>
+                                <h4><b>0</b></h4>
+                                <p style="font-size: 16px;color: goldenrod; ">Unread</p>
                             </div>
                         </div>
                     </div>

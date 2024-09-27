@@ -4,7 +4,8 @@
 @section('content')
 <style>
     .slick-slide{
-        margin: 0px 7px !important;
+        margin: 0px 2px !important;
+       
         width: 184px !important;
     }
     .slick-slide img {
@@ -12,6 +13,15 @@
 }
 .slick-prev, .slick-next {
     top: 32% !important
+}
+.slick-prev {
+    left: 10px !important
+}
+.slick-next {
+    right: 6px !important;
+}
+.slider:before {
+    background-color: #fff !important;
 }
 </style>
 {{--        @dd($ad->toArray())--}}
@@ -444,7 +454,7 @@
                 <div class="col-lg-12 col-md-12 col-12" style="margin-top: 22px;border-bottom: 1px solid #eee;border-top: 1px solid #eee;margin-left: -18px;">
                     <h3 style="margin-top: 25px;"><b>Similar Ads</b></h3>
                     <!------ad----->
-                    <div class="row" style="margin-left: 27px;">
+                    <div class="row" style="margin-left: -14px;">
                         <div class="col-md-12">
                             <div class="slider">
                                 @php
@@ -491,7 +501,7 @@ infinite: true,
             infinite: true,
         slidesToShow: 3,
         slidesToScroll: 1,
-        // autoplay: true,
+        autoplay: true,
         autoplaySpeed: 2000,
         arrows: true,
         prevArrow: '<button type="button" class="slick-prev" style="border: none;"><i class="fa fa-chevron-left" aria-hidden="true" style="color: black;"></i></button>',
