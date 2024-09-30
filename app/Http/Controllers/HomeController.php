@@ -39,4 +39,17 @@ class HomeController extends Controller
         return view('home.innerPages.favourite')->with($data);
     }
 
+
+    public function getAllNotification()
+    {
+        // $categories = Category::orderBy('name')->get();
+        // $data = [
+        //     'categories' => $categories
+        // ];
+        return view('home.innerPages.notifications');
+        // ->with($data);
+    }
+    
+
+
 }

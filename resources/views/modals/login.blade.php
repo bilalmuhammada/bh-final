@@ -9,11 +9,11 @@
                         <!-- login title start -->
                         <div class="sigh-in">
                             <h3 style="font-weight: bold;line-height: 20px;color: #A17A4E;" class="login-heading">
-                                <div style="border-right: 0px solid #ffc000;text-align:center;">Sign In</div>
+                                <div style="border-right: 0px solid #ffc000;text-align:center;">Login</div>
                             </h3>
                         </div>
                         <!-- login title finish -->
-                        <form class="login-form">
+                        <form class="login-form" style="width:100%;margin-left: -4px;">
                             <div class="alert-div" style="display: none">
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <div class="alert-text"></div>
@@ -45,26 +45,35 @@
                                 <input type="password" name="password" class="form-control login-user"
                                        placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                             </div>
+                            <div class="form-group" style="margin-top: -5px; margin-bottom: 2px; margin-left: 89px;color:#A17A4E;">
+                                <label class="custom_check" >
+                                    <input type="checkbox" name="rem_password" style="margin-left: -86px !important;">
+                                    {{-- <span class="checkmark"></span>  --}}
+                                    Remember password
+                                </label>
+                            </div>
                             <!-- password area finish -->
                             <!-- forget password area start -->
-                            <div class="Forgot">
-                            <!-- <a href="{{ env('BASE_URL') . 'forgot-password'}}" style="color:#fff !important;"> Forgot Password </a> -->
-                                <a class="show-forgot-btn"> Forgot Password </a>
-                            </div>
+                           
                             <!-- forget password area finish -->
                             <!-- submit button start -->
                             <div class="login-submit-button-area">
-                                <a class="btn login-submit-button" style="color: #FFFF;">Submit</a>
+                                <a class="btn login-submit-button" style="color: #FFFF;">Login</a>
                             </div>
                             <!-- submit button finish -->
                         </form>
+                        <div class="Forgot" style="font-size: 12px; ">
+                             <a href="{{ env('BASE_URL') . 'forgot-password'}}" class="show-forgot-btn" style="margin-right: 40px;" > Forgot Password </a>
+                            <span >New To BusinessHub?  <a href="{{ env('BASE_URL') . 'forgot-password'}}" class="show-forgot-btn"  > Click Here </a></span>
+                                
+                            </div>
                         <!-- or sign in using start -->
-                        <div class="or" style="margin-top:-12px;">
-                            <p style="text-align:center;color:#A17A4E;font-size:11px;">______OR SIGN IN WITH______</p>
-                        </div>
+                        {{-- <div class="or" >
+                            <p style="text-align:center;color:#A17A4E;font-size:11px; margin-top: 12px; ">OR SIGN IN WITH</p>
+                        </div> --}}
                         <!-- or sign in using finish -->
                         <!-- social area start -->
-                        <div class="login-social-modal">
+                        {{-- <div class="login-social-modal">
                             <span>
                                 <img src="{{asset('images/instagram.png')}}"
                                      width="25" height="25"/>
@@ -81,7 +90,7 @@
                                     &nbsp;<img src="{{asset('images/goog.png')}}" width="25" height="25"/>
                                 </a>
                             </span>
-                        </div>
+                        </div> --}}
                         <!-- social area finish -->
                         <div style="text-align:center;">
                             {{-- <button type="button" class="btn btn-danger" data-dismiss="modal">

@@ -31,7 +31,7 @@ Route::get('123', function () {
 
 Route::get('/ads/{subcategory_id}', [AdController::class, 'showAds']);
 Route::get('/ads/detail/{ad_id}', [AdController::class, 'showAdDetail']);
-
+Route::get('/getallNotify', [HomeController::class, 'getAllNotification']);
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'home']);
 Route::get('/forgot-password', [AuthController::class, 'forgotPassword']);

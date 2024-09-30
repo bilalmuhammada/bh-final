@@ -9,16 +9,24 @@
     if (session()->has('user')) {
         $notifications = \App\Helpers\RecordHelper::getNotifications();
         $my_searches = \App\Helpers\RecordHelper::getSearches()->take(2);
-        $favourite_ads = \App\Helpers\RecordHelper::getFavouriteAds()->take(2);
+        $favourite_ads = \App\Helpers\RecordHelper::getFavouriteAds()->take(4);
         $chats = \App\Helpers\RecordHelper::getUnreadMessages();
+        //  dd($chats );
         $my_ads_for_topbar = \App\Helpers\RecordHelper::getAdsByUserId(session()->get('user')->id)->take(2);
     }
     $countries = \App\Helpers\RecordHelper::getCountries();
 @endphp
 <style>
     .dropdown-menu{
-        width: 14pc !important;
+        /* width: 14pc !important; */
+        max-height: 21rem !important;
+        overflow-x: hidden;
     }
+   
+    
+    .dropdown-menu.show {
+        min-width: 29rem !important;}
+    
     .img-flag{
         margin-right: 3px !important;
 
@@ -66,6 +74,48 @@
         background-color: #fff;
         color: #000 !important;
     }
+
+
+    /* .notification-item {
+            position: relative;
+            background: aliceblue;
+            padding: 20px;
+            margin-bottom: 10px;
+        } */
+
+        /* Dropdown Icon styling (absolute top-left corner) */
+        .dropdown-toggle-custom {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        /* Custom dropdown menu */
+        .dropdown-menu-custom {
+            position: absolute;
+            top: 2px; /* Adjust distance from the icon */
+            left: 16rem;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            /* width: 150px; */
+            display: none; /* Initially hidden */
+            z-index: 1000;
+        }
+
+        /* Dropdown items */
+        .dropdown-menu-custom a {
+            display: block;
+            padding: 3px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .dropdown-menu-custom a:hover {
+            background-color: #f0f0f0;
+        }
     /* end */
 </style>
 <header>
@@ -227,12 +277,13 @@
                                     </div>
                                 </a>
                                 <div class="dropdown-menu"  id="notifications" aria-labelledby="notifications"
-                                     style="padding: 10px;width:auto;     border-radius: 12px;">
+                                     style="padding: 10px;width:auto; border-radius: 12px;">
                                     @if (session()->has('user') && count($notifications) > 0)
                                         <!---------inner area----->
                                             <div class="row">
                                             <div class="col-lg-12 col-sm-12 col-12">
-                                                </i> <span>Notifications </span>
+                                               <span style="font-weight: bold;margin-left: 11px;">Notifications </span>
+                                               <span style="float: right;margin-right: 12px;">Mark all as Read </span>
                                             </div>
                                         </div>
                                             <hr>
@@ -240,54 +291,59 @@
                                                
                                             
                                             <div class="notifications-wrapper">
-                                            <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal">
-                                                <div class="dropdown" style="float:right;">
-                                                    <i style="color: black;" class="fa fa-ellipsis-h" data-toggle="dropdown"></i>
-                                                    <div class="dropdown-menu" style="   left: -140px;;
-                                                    ">
-                                                      <a class="dropdown-item" href="#">Mark as Read</a>
-                                                      <a class="dropdown-item" href="#">Remove Notifications</a>
-                                                    </div>
-                                                  </div>
-                                               <div class="notification-item">
-                                                <div class="row">
-                                                  
-                                                    <div class="col-md-9" style="white-space: nowrap;display: ruby;">
-                                                        <h1 class="item-title" style="margin-bottom: 10px;">{{ $notification->message }}</h1>
-                                                        <p style="margin-top: 5px;margin-left:200px ;margin-bottom: unset; color: black; font-size: 0.9em;">7 days ago </p>
-                                                    </div>
-    
-                                                   
-                                                </div>
-                                                <div class="row">
-                                                  
-                                                <div class="col-md-12" style="padding: unset;display: contents;">
-                                                    <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; margin-left: 13px;">
-                                                        <img style="width: 100%; height: 100%; object-fit: cover;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
-                                                    </div>
-                                                    <p style="margin: 11px; font-weight: bold;">Khan</p>
-                                                    <br>
+                                                
+                                            
+                                                
+                                               
+                                                <div class="content" href="#" >
+                                                    <div class="notification-item">
+                                                        <div class="row" style="background: aliceblue; position: relative;">
+                                                            <!-- Three dots icon with dropdown -->
+                                                            
                                                     
-                                                </div>
-                                                <div style=" color: white;
-                                                      margin-top: 10px;
-                                                      margin-left: 160px;">
-                                                    <a class="btn btn-success btn-sm badge bg-success">Approve </a>
-                                                    <a class="btn btn-danger btn-sm badge bg-danger" style="margin-left: 5px;">Reject </a>
-                                                </div>
+                                                            <div class="col-md-2">
+                                                                <div style="width:80px; height:80px; border-radius:10%; overflow: hidden; margin-left: 2px;">
+                                                                    <img style="width: 100%; height: 100%; object-fit: cover;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
+                                                                </div>
+                                                            </div>
+                                                    
+                                                            <div class="col-md-7" style="white-space: nowrap; margin-left: 15px;">
+                                                                <span style="font-weight: bold;">Congrats, your ads is live!</span>
+                                                                <br>
+                                                                <span>Your ad placed in 46 is now live call..</span>
+                                                                <br>
+                                                                <p style="margin: 9px 0px 0px 0px;">10 min ago</p>
+                                                               
+                                                            </div>
+                                                            <div class="col-md-1" style="position: absolute; top: 10px; left: -8px;">
+                                                                <div class="dropdown">
+                                                                    <button class="btn btn-link" type="button" onclick="toggleDropdown(this)" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: 25rem;margin-top: -14px;">
+                                                                        <i class="fa fa-ellipsis-h"></i> <!-- Font Awesome three dots icon -->
+                                                                    </button>
+                                                                    <div class="dropdown-menu-custom">
+                                                                        <a href="#" onclick="markAsRead(this)">Mark as Read</a>
+                                                                        <a href="#" onclick="removeNotification(this)">Remove Notification</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <!-- Add necessary JS -->
+                                                   
+                                                    
+                                                    <!-- Add Bootstrap and Font Awesome if not already included -->
+                                                
+                                              
+                                               
                                             </div>
-                                               
-    
-                                              </div>
-                                              <hr>
-                                               
-                                            </a>
+                                            
                                             </div>
                                             
                                             @endforeach
                                             <li class="divider"></li>
-                                        <div class="notification-footer" style="text-align: center;"><h4 class="menu-title" style="color: red;
-                                            margin: 12px;">   <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal">View all Notifications </a></h4></div>
+                                            <div class="notification-footer" style="text-align: center;"><h4 class="menu-title" style="color: red;font-size: 1rem !important;
+                                            margin: 12px;">   <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal" style="color: red;">View all Notifications </a></h4></div>
                                         <!---------inner area---->
                                         @else
                                           
@@ -389,7 +445,7 @@
                             </span>
                             
 
-                <span style="padding:13px 15px 0px 15px;text-align:center;">
+                            <span style="padding:13px 15px 0px 15px;text-align:center;">
                                 <a type="button" id="searches" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">
                                     {{-- <img src="{{ asset('images/my-searches-selected.svg')}}" width="17" height="17"> --}}
@@ -427,28 +483,28 @@
                                 </div>
                             </span>
                         
-                <span style="padding:13px 15px 0px 15px;text-align:center;">
+                              <span style="padding:13px 15px 0px 15px;text-align:center;">
                                 <a type="button" id="favorite" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">
                                     {{-- <img src="{{ asset('images/my-favorites.svg')}}" width="17" height="17"> --}}
                                     <div><span style="color: #000; font-size: 16px; ">Favorites</span></div>
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="favorite"
+                                {{-- <div class="dropdown-menu" aria-labelledby="favorite"
                                      style="padding: 10px;width:250px;">
                                     @if (session()->has('user') && count($favourite_ads) > 0)
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12 col-12">
                                                 </i> <span>Favorites</span>
                                             </div>
-                                        </div>
-                                        @foreach($favourite_ads as $favourite_ad)
-                                            <hr>
+                                        </div> --}}
+                                        {{-- @foreach($favourite_ads as $favourite_ads) --}}
+                                            {{-- <hr>
                                             <div class="row">
-                                                <div class="col-lg-2 col-sm-4 col-4">
+                                                <div class="col-lg-2 col-sm-4 col-4"> --}}
                                                     {{-- <img width="100" height="100"
                                                          src="https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg"
                                                          alt="img" style="width:40px;height:40px;border-radius:50px;"/> --}}
-                                                </div>
+                                                {{-- </div>
                                                 <div class="col-lg-8 col-sm-7 col-7">
                                                     <a class="link"
                                                        href="{{ env('BASE_URL') . 'ads/detail/' . $favourite_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
@@ -456,8 +512,63 @@
                                                                 style="font-size: 11px;">{{ \App\Helpers\SiteHelper::priceFormatter($favourite_ad->price) }}</span></p>
                                                     </a>
                                                 </div>
+                                            </div> --}}
+                                        {{-- @endforeach --}}
+                                     <div class="dropdown-menu"  id="notifications" aria-labelledby="notifications"
+                                     style="padding: 10px;width:auto; border-radius: 12px;top: 61px !important; border: 1px solid rgb(146 146 146) !important; top: 30px;">
+                                    @if (session()->has('user') && count($favourite_ads) > 0)
+                                        <!---------inner area----->
+                                            <div class="row">
+                                            <div class="col-lg-12 col-sm-12 col-12">
+                                               <span style="font-weight: bold;margin-left: 11px;">Favorites {{count($favourite_ads)}} </span>
+                                               {{-- <span style="float: right;margin-right: 12px;">Mark all as Read </span> --}}
                                             </div>
-                                        @endforeach
+                                        </div>
+                                            <hr>
+                                            @foreach($favourite_ads as $favourite_ads)
+                                               
+                                            
+                                            <div class="notifications-wrapper">
+                                                
+                                            
+                                                
+                                               
+                                                <div class="content" href="#" >
+                                                    <div class="notification-item">
+                                                        <div class="row" style="background: aliceblue; position: relative;">
+                                                            <!-- Three dots icon with dropdown -->
+                                                            
+                                                    
+                                                            <div class="col-md-2">
+                                                                <div style="width:80px; height:80px; border-radius:10%; overflow: hidden; margin-left: 2px;">
+                                                                    <img style="width: 100%; height: 100%; object-fit: cover;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
+                                                                </div>
+                                                            </div>
+                                                    
+                                                            <div class="col-md-7" style="white-space: nowrap; margin-left: 15px;">
+                                                                <span style="font-weight: bold;">CAR CHIP TUNING GARAGE FOR SALE</span>
+                                                                <br>
+                                                                <span>AED 649,990 | in Dubai</span>
+                                                                <br>
+                                                                <p style="margin: 9px 0px 0px 0px;">10 min ago</p>
+                                                               
+                                                            </div>
+                                                           
+                                                        </div>
+                                                    </div>
+                                                    
+                                
+                                                
+                                              
+                                               
+                                            </div>
+                                            
+                                            </div>
+                                            
+                                            @endforeach
+                                            <li class="divider"></li>
+                                            <div class="notification-footer" style="text-align: center;"><h4 class="menu-title" style="color: red;font-size: 1rem !important;
+                                            margin: 12px;">   <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal" style="color: red;">View all Favourites </a></h4></div>
                                     @else
                                         <hr>
                                         <div class="row">
@@ -481,32 +592,46 @@
                                         <!---------inner area------------>
                                             <div class="row">
                                             <div class="col-lg-12 col-sm-12 col-12">
-                                                </i> <span style="color: #000;">Chats</span>
+                                                </i> <span style="color: #000;margin-left: 3px;">Chats</span>
                                             </div>
                                         </div>
-                                            <hr>
+                                            <hr style="width: 25.9rem;margin: 4px;">
                                             @foreach ($chats as $message)
-                                                <div class="row">
+
+
+                                            <div class="row" style="padding:11px 0px 0px 12px;">
                                                     <div class="col-lg-2 col-sm-4 col-4">
                                                         <img width="100" height="100"
                                                              src="{{ $message->user->image_url ?? "https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg"}}"
-                                                             alt="img" style="width:40px;height:40px;border-radius:50px;"/>
+                                                             alt="img" style="width:80px;height:80px;border-radius:50px;margin-top:-3px;"/>
                                                     </div>
-                                                    <div class="col-lg-8 col-sm-7 col-7">
-                                                        <p style="font-size: 13px;">{{ $message->message }}<br/><span
-                                                                style="font-size: 11px;font-size:bold;">{{ $message->message_recieved_time_diff }}</span>
-                                                        </p>
+                                                    <div class="col-lg-7 col-sm-6 col-6" style="margin-left: 12px;">
+                                                        <span style="font-weight: bold;">This is Title of Selling </span><br/>
+                                                    @php
+                                                    // dd($message->user);
+                                                    @endphp
+                                                        <p style="margin-top: 7px;margin-bottom: 8px;">{{ $message->receiver->name }} : <span >{{ $message->message }} </span></p> 
+                                                            <p style="font-size: 11px;margin-top:3px; margin-bottom:2px; bold; color: green;" >{{ $message->message_recieved_time_diff }}</p>
+                                                       
                                                     </div>
-                                                    <div class="col-lg-2 col-sm-1 col-1">
+                                                    <div class="col-lg-3 col-sm-2 col-2" style="margin-left: -28px;margin-top: -3px;">
+                                                        <img width="100" height="100"
+                                                             src="{{ $message->user->image_url ?? "https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg"}}"
+                                                             alt="img" style="width:80px;height:80px;border-radius:10%;"/>
                                                     </div>
-                                                </div>
+                                            </div>
+                                            <hr style="width: 25.9rem;margin: 6px">
                                             @endforeach
-                                            <hr>
+                                            
                                             <div class="row">
                                             <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
-                                                <a href="{{ env('BASE_URL') . 'chats?country=' . request()->country . '&city=' . request()->city}}"
+                                                {{-- <a href="{{ env('BASE_URL') . 'chats?country=' . request()->country . '&city=' . request()->city}}"
                                                    class="btn btn-primary btn-block link"
-                                                   style="font-size: 13px;">View all Chats</a>
+                                                   style="font-size: 13px;">View all Chats</a> --}}
+
+                                                   <li class="divider"></li>
+                                                   <div class="notification-footer" style="text-align: center;"><h4 class="menu-title" style="color: red;font-size: 1rem !important;
+                                                   margin: 12px;">   <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal" style="color: red;">View all Chats </a></h4></div>
                                             </div>
                                         </div>
                                             <!---------inner area------------>
@@ -761,3 +886,34 @@
     <hr>
 </header>
 
+
+<script>
+    // Function to toggle the dropdown visibility
+    function toggleDropdown(element) {
+        const dropdownMenu = element.nextElementSibling;
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Function to mark the notification as read
+    function markAsRead(element) {
+        alert('Marked as read!');
+        const dropdownMenu = element.parentElement;
+        dropdownMenu.style.display = 'none'; // Close the dropdown
+    }
+
+    // Function to remove the notification
+    function removeNotification(element) {
+        const notificationItem = element.closest('.notification-item');
+        notificationItem.remove(); // Remove the entire notification
+    }
+
+    // Close dropdown if clicked outside
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropdown-toggle-custom')) {
+            const dropdowns = document.getElementsByClassName("dropdown-menu-custom");
+            for (let i = 0; i < dropdowns.length; i++) {
+                dropdowns[i].style.display = 'none';
+            }
+        }
+    }
+</script>

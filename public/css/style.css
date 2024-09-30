@@ -3495,7 +3495,8 @@ border: 1px solid #2d11e7;
     }
     
     .by {
-        font-size: 14px !important;
+        margin-left: 16px;
+        font-size: 12px !important;
         color: #A17A4E !important;
         margin-bottom: 15px !important;
         white-space: nowrap;
