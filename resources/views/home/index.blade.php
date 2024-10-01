@@ -220,12 +220,13 @@ a{
     }
     /* end */
     .select2-selection__rendered{
-        font-size:12px !important;
+        font-size:18px !important;
         outline:none !important;
         border:none !important;
     }
     .select2-results__option{
-        font-size:11px !important;
+        font-size:18px !important;
+        font-weight: bold;
         /* background-color:rgba(0, 0, 255, .3) !important; */
     }
     .aaaa{
@@ -271,7 +272,9 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                          <!-- country bar mobile start -->
                 <div class="mobile-country desktop-menu-right" style="margin-top:10px !important;">
                 <select class="form-control country_dropdown" name="country_dropdown" id="" style="width:140px;">
-                @foreach($countries as $country)
+                <option value="" selected>All Countries</option>
+                
+                    @foreach($countries as $country)
                     <option data-flag-url="{{ $country->image_url }}" data-country-id="{{ $country->id }}" value="{{ $country->id }}">&nbsp;{{ $country->nice_name }}</option>
                 @endforeach
                </select>
