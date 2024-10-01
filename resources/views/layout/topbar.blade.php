@@ -52,6 +52,10 @@
         .select2-container--default .select2-results>.select2-results__options{
             max-height: 171px !important;
         }
+        #subcategorydropdown{
+            max-height: 20rem !important;
+
+        }
         .dropdown-menu {
     max-height: 20rem; /* Adjust as needed */
     overflow-y: auto; /* Enable vertical scrolling */
@@ -867,7 +871,7 @@
                                    aria-haspopup="true" aria-expanded="false">
                                     {{$category->name}}
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="subcategorydropdown">
                                     @foreach($category->sub_categories as $sub_category)
                                         <a class="dropdown-item link"
                                            href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city }}">{{$sub_category->name}}</a>
