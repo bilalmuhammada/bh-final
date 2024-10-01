@@ -116,6 +116,8 @@
         .dropdown-menu-custom a:hover {
             background-color: #f0f0f0;
         }
+        .select2-selection__rendered {
+            font-size: 14px !important;}
     /* end */
 </style>
 <header>
@@ -182,7 +184,7 @@
                             {{-- <div class="country" style="border:0px solid green;position:relative;left:-111px;"> --}}
                             <div class="mobile-country desktop-menu-right">
                                
-                                    <select class="form-control country_dropdown1 " name="country_dropdown"  style="width:130px;" id="country_dropdown" onchange="translateLanguage()">>
+                                    <select class="form-control country_dropdown1 " name="country_dropdown"  style="width:112px;" id="country_dropdown" onchange="translateLanguage()">>
                                         @foreach($countries as $country)
                                        
                                             <option
@@ -205,7 +207,7 @@
 
                 {{-- <div class="country" style="border:0px solid red;position:relative;left:-50px;"> --}}
                     <select class="form-control city_dropdown" name="city_dropdown" id="" 
-                            style="width:110px;border:0px solid red !imporatnt;text-align:center;background-color:transparent !important;">
+                            style="width:96px;border:0px solid red !imporatnt;text-align:center;background-color:transparent !important;">
                             <option value=""> &nbsp; All Cities</option>
                         @foreach($cities as $city)
                             <option data-city-id="{{ $city->id }}"
@@ -222,7 +224,7 @@
 
                 <div class="mobile-country desktop-menu-right">
                                
-                    <select class="form-control language_dropdown " name="language_dropdown"  style="width:130px;" id="language_dropdown" onchange="translateLanguage()">>
+                    <select class="form-control language_dropdown " name="language_dropdown"  style="width:100px;" id="language_dropdown" onchange="translateLanguage()">>
                         <option selected value="">Language</option>
                         
                         @foreach($countries as $country)
