@@ -87,8 +87,8 @@
     <section class="desktop-view">
         <div class="container" style=" max-width: 80rem;">
             {{-- <div class="col-lg-12 col-xl-12 col-12 col-md-12"> --}}
-                <form class="form"
-      style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;border-radius: 10px;border: 1px solid rgb(194, 196, 199);">
+                <form class="form" 
+      style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;border-radius: 10px;border: 1px solid rgb(194, 196, 199); display: flex !important; width: 75rem !important;">
     <div class="row" style="display: flex; flex-wrap: nowrap;">
         <div class="col-md-3" style="border-right:2px solid #eee;" id="cityArea">
             <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
@@ -298,7 +298,7 @@
                     <div class="col-lg-9 col-md-9" style="display: flex;">
                         <h3 style="white-space: nowrap;"><b> {{ $subcategory_name }} <span class="text-muted">•{{ $ads->count() }} Ads</span></b>
                         </h3>
-                        <button class="btn"  style="border: 1px solid goldenrod ;white-space: nowrap; height: 36px; border-radius: 5px;margin-left: 43rem; color: red;" type="button"  aria-expanded="false">
+                        <button class="btn"  style="border: 1px solid goldenrod ;white-space: nowrap; height: 36px; border-radius: 5px;margin-left: 45.5rem; color: red;" type="button"  aria-expanded="false">
                             Clear Search
                         </button>
                         {{-- <div class="dropdown" style="margin-left: 1rem; display: flex;"> --}}
