@@ -191,7 +191,7 @@
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h3 style="margin-left: 11px;"><b>Popular in Business for Sale</b></h3>
+                <h4 style="margin-left: 11px;"><b>Popular in Business for Sale</b></h4>
                 <div class="row slider" style="    margin-left: -22px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -227,7 +227,7 @@
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h3 style="margin-left: 11px;"><b>Popular in Share for Sale</b></h3>
+                <h4 style="margin-left: 11px;"><b>Popular in Share for Sale</b></h4>
                 <div class="row slider" style="    margin-left: -22px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -263,7 +263,7 @@
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h3 style="margin-left: 11px;"><b>Popular in Business ideas</b></h3>
+                <h4 style="margin-left: 11px;"><b>Popular in Business ideas</b></h4>
                 <div class="row slider" style="    margin-left: -22px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -299,7 +299,7 @@
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h3 style="margin-left: 11px;"><b>Popular in Investors Required</b></h3>
+                <h4 style="margin-left: 11px;"><b>Popular in Investors Required</b></h4>
                 <div class="row slider" style="    margin-left: -22px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -335,7 +335,7 @@
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h3 style="margin-left: 11px;"><b>Popular in Franchise Opportunities</b></h3>
+                <h4 style="margin-left: 11px;"><b>Popular in Franchise Opportunities</b></h4>
                 <div class="row slider" style="    margin-left: -22px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -371,7 +371,7 @@
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h3 style="margin-left: 11px;"><b>Popular in Machinery & Supplies</b></h3>
+                <h4 style="margin-left: 11px;"><b>Popular in Machinery & Supplies</b></h4>
                 <div class="row slider" style="    margin-left: -22px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -407,7 +407,7 @@
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h3 style="margin-left: 11px;"><b>Popular in Export & Import</b></h3>
+                <h4 style="margin-left: 11px;"><b>Popular in Export & Import</b></h4>
                 <div class="row slider" style="    margin-left: -22px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
