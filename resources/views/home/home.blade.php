@@ -70,7 +70,7 @@
                                 <b>The Best Marketplace to Buy & Sell Businesses Worldwide!</b>
                             </h4>
                             <form action="{{ env('BASE_URL') . 'listing/search' }}" method="get"
-                                  style="border:0px solid red;margin-left: -130px;">
+                                  style="border:0px solid red;margin-left: -24px;">
                                 <div class="searchbox-area" style="border:0px solid red;">
                                     <div class="container">
                                         <div class="row">

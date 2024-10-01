@@ -723,10 +723,10 @@
                                     </span>
                             @endif
                         @if (!session()->has('user'))
-                            <span style="padding:13px 15px;text-align:center;font-size:16px !important;">
+                            <span style="padding:13px 15px;text-align:center;font-size:16px !important;font-weight: bold;">
                             <a class="login-btn">Login</a>
                            </span>
-                            <span style="padding:13px 15px;text-align:center;font-size:16px !important;">
+                            <span style="padding:13px 15px;text-align:center;font-size:16px !important;    font-weight: bold;">
                                     <a class="register-btn">Register</a>
                            </span>
                         @endif
@@ -852,11 +852,11 @@
     <nav class="navbar navbar-expand-lg navbar-light"
          style="border:0px solid green;padding:0px !important;height:20px;">
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContentx" style="margin-left: 0.3rem;border:0px solid green;">
+        <div class="collapse navbar-collapse" id="navbarSupportedContentx" style="margin-left: 4.3rem;border:0px solid green;">
             <div class="container" style="margin:0px auto;border:0px solid green;">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <ul class="navbar-nav"
-                    style="margin:0px auto !important;border:0px solid red;font-size: 13.3px;line-height: 1.43;font-weight: 600;">
+                    style="margin:0px auto !important;border:0px solid red;font-size: 14.6px;line-height: 1.43;font-weight: 600;">
                     <div class="row">
                         @php $categories = \App\Helpers\RecordHelper::getCategories(); @endphp
                         @foreach($categories as $category)
