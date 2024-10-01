@@ -306,7 +306,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
         <div id="demo" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('images/slider-images/1.jpg')}}" alt="Los Angeles" width="100%" height="500px">
+                    <img src="{{asset('images/slider-images/1.jpg')}}" alt="Los Angeles" width="100%" height="400px">
                     <div class="hero-text">
                         <p class="main">Welcome to the World's #1online business website!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">
@@ -323,7 +323,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                     </div>
                 </div> -->
                 <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/2.jpg')}}" alt="New York" width="100%" height="500px">
+                    <img src="{{asset('images/slider-images/2.jpg')}}" alt="New York" width="100%" height="400px">
                     <div class="hero-text" >
                         <p class="main">Welcome to the World's #1 online business website!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
@@ -338,7 +338,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                     </div>
                 </div> -->
                 <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/3.jpg')}}" alt="New York" width="100%" height="500px">
+                    <img src="{{asset('images/slider-images/3.jpg')}}" alt="New York" width="100%" height="400px">
                     <div class="hero-text">
                         <p class="main">Welcome to the World's #1 online business website!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
@@ -361,14 +361,14 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                     </div>
                 </div> -->
                 <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/4.jpg')}}" alt="New York" width="100%" height="500px">
+                    <img src="{{asset('images/slider-images/4.jpg')}}" alt="New York" width="100%" height="400px">
                     <div class="hero-text">
                         <p class="main">Welcome to the World's #1 online business website!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/5.jpg')}}" alt="New York" width="100%" height="500px">
+                    <img src="{{asset('images/slider-images/5.jpg')}}" alt="New York" width="100%" height="400px">
                     <div class="hero-text" >
                         <p class="main">Welcome to the World's #1 online business website!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
