@@ -176,6 +176,7 @@
     });
 
     $(document).on('change', '.country_dropdown', function () {
+        alert($(this).val())
         window.location.assign(base_url + 'home/?country=' + $(this).val());
     });
 </script>

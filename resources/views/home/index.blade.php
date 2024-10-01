@@ -50,6 +50,9 @@
     .hero-text .main {
         font-size: 25px;
     }
+    .select2-search__field{
+        padding-left: 12px !important;
+    }
 
     .btc {
         background: #fff;
