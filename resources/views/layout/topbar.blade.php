@@ -162,7 +162,7 @@
     </script>  
     <!-- topbar start -->
     <div class="topbar desktop-view">
-        <div class="container-fluid" style="border:0px solid red;padding:0px 15px;">
+        <div class="container-fluid" style="border:0px solid red;padding:0px 25px;">
             <div class="row">
                 <div class="col" style="border:0px solid red;">
                     <!-- <div class="col-lg-2 col-xl-2 col-md-2" style="border:2px solid red;"> -->
