@@ -6,7 +6,7 @@
     .slick-slide{
         margin: 0px 2px !important;
        
-        width: 184px !important;
+        /* width: 184px !important; */
     }
     .slick-slide img {
     width: 80% !important;
