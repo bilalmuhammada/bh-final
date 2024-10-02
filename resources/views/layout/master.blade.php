@@ -92,7 +92,8 @@
 <!-- custom scripts -->
 <script src="{{ asset('des/js/main.js')}}"></script>
 <!---------counter------->
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
 <script src="{{asset('js/authenticate.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
 <script src="{{ asset('js/slick.js')}}"></script>
@@ -120,6 +121,13 @@
             return $country;
         };
 
+        $(document).ready(function(){
+    $('#datepicker').datepicker({
+      format: 'dd-mm-yyyy',
+      autoclose: true,
+      todayHighlight: true
+    });
+  });
         $(".country_dropdown").select2({
             templateSelection: formatCountry,
             templateResult: formatCountry,

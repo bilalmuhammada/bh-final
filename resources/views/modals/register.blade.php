@@ -6,6 +6,10 @@
         text-align: left !important;
         /* margin-left: -29px !important; */
     }
+    .datepicker{
+        left: 835px !important;
+
+    }
     .toggle-password {
             position: absolute;
             right: 10px;
@@ -19,6 +23,17 @@
          input::placeholder{
             color: black;
          }
+         #colorTowhite:hover{
+            color: white !important;
+         }
+         .form-control:focus{
+            border-color: #0070cc !important;
+         }
+         #form-border:hover{
+            border:1px solid #0070cc !important;
+         }
+         
+         
         #select2-country-container, #select2-cities-container{
             color: #fff !important;
             margin-left: -30px !important;
@@ -31,7 +46,7 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="ragisterarea">
-                <a class="close close-signup-btn">&times;</a>
+                <a class="close close-signup-btn" style="color: white;">&times;</a>
                     <!-- register form title start -->
                     <div class="sigh-in">
                         <h3 style="font-weight: bold;line-height: 20px;color: #A17A4E;text-align:center;"
@@ -94,7 +109,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input-group mb-3">
-                                        <input type="text" name="email" class="form-control login-user email"
+                                        <input type="text" name="dob" id="datepicker" class="form-control login-user email"
                                                placeholder="Date of Birth" aria-label="Email" aria-describedby="basic-addon1"
                                                onfocus="this.value=''">
                                     </div>
@@ -108,10 +123,10 @@
                             @endphp
 
                                 <div class="col-md-6">
-                                    <div class="input-group mb-3" style="  border-radius: 5px;  padding: 5px 20px;
+                                    <div class="input-group mb-3" id="form-border" style="  border-radius: 5px;  padding: 5px 20px;
                                     border: 1px solid #A17A4E">
                                         <select name="country" id="country"
-                                                    class="form-control country_dropdown login-user"
+                                                    class="form-control language_dropdown login-user"
                                                     style="width:100%;color:#fff !important;">
                                                 @if ($cities->count() < 1)
                                                     <option value="" selected>Country</option>
@@ -128,10 +143,10 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <div class="input-group mb-3" style="   border-radius: 5px;   padding: 5px 20px;
+                                    <div class="input-group mb-3"  id="form-border"  style="   border-radius: 5px;   padding: 5px 20px;
                                     border: 1px solid #A17A4E">
                                         <select name="cities" id="cities"
-                                        class="form-control country_dropdown login-user"
+                                        class="form-control language_dropdown login-user"
                                         style="width:100%;color:#fff !important;">
                                     @if ($cities->count() < 1)
                                         <option value="" selected>City</option>
@@ -158,7 +173,7 @@
                                 <div class="col-md-6">
                                     <div class="input-group mb-3">
                                         <input type="text" name="password_confirmation" id="password_confirmation"
-                                               class="form-control login-user"
+ class="form-control login-user"
                                                placeholder="Confirm Password" aria-label="Cpassword"
                                                aria-describedby="basic-addon1">
                                                <div class="input-group-append">
@@ -174,9 +189,9 @@
                         <!-- clicking start -->
                         <p class="by" >
                             By registering, I agree to the BusinessHub
-                            <a href="{{ env('BASE_URL').'terms-of-use'}}" style="color:#0070cc;">Terms & Condition</a>
+                            <a href="{{ env('BASE_URL').'terms-of-use'}}" id="colorTowhite" style="color:#0070cc;">Terms & Condition</a>
                             and
-                            <a href="{{ env('BASE_URL').'privacy-policy'}}" id="myModal" style="color:#0070cc;">Privacy
+                            <a href="{{ env('BASE_URL').'privacy-policy'}}" id="colorTowhite" style="color:#0070cc;">Privacy
                                 Policy</a>.
                         </p>
                         <!-- clicking finish -->
@@ -189,8 +204,8 @@
                             <a class="btn register-button" style="color: #FFFF;margin-top: 13px;">Register </a>
                         </div>
                         <div class="Forgot" style="font-size: 12px;text-align: left; margin-top: 12px;">
-                            <a href="{{ env('BASE_URL') . 'forgot-password'}}" class="show-forgot-btn"  style="margin-left: 13px;color:#0070cc;" > Forgot Password? </a>
-                           <span style="float: right;margin-right: 13px;">New to BusinessHub?  <a href="{{ env('BASE_URL') . 'forgot-password'}}" class="show-forgot-btn" style="color:#0070cc;" >&nbsp; Click Here </a></span>
+                            <a href="{{ env('BASE_URL') . 'forgot-password'}}" class="show-forgot-btn" id="colorTowhite" style="margin-left: 13px;color:#0070cc;" > Forgot Password? </a>
+                           <span style="float: right;margin-right: 13px;">Already on BusinessHub? <a href="{{ env('BASE_URL') . 'forgot-password'}}" class="show-forgot-btn" style="color:#0070cc;" id="colorTowhite" >&nbsp; Click Here </a></span>
                                
                            </div>
                         <!-- Register button finish -->
@@ -208,6 +223,7 @@
 </div>
 
 <script>
+      
     function togglePassword() {
 
         const passwordField = document.getElementById("password");
