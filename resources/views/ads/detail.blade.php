@@ -338,7 +338,7 @@
                 </div>
                 <!--  desktop view -->
                 <div class="col-lg-4 col-md-4 col-12 desktop-view">
-                    <div class="row">
+                    <div class="row" style="margin-top: -14px;">
                         <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
                         <div class="col-lg-12 col-md-12 col-12">
                             <div class="inner" style="border: 1px solid #eee; border-radius: 5px; padding: 15px;">
