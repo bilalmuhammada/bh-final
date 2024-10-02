@@ -35,6 +35,14 @@ $(document).on('click', '.register-button', function () {
 $(document).on('click', '.close-signup-btn', function () {
     $('#registerModal').modal('hide');
     $('#loginModal').modal('hide');
+    $('#forgotModal').modal('hide');
+   
+    
+});
+$(document).on('click', '.show-forgot-btn,.login-btn', function () {
+    
+    $('#forgotModal').modal('hide');
+    $('#registerModal').modal('hide');
     
 });
 

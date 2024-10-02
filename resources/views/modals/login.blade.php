@@ -7,6 +7,9 @@
      border-color: blue;
     }
     
+    #colorTowhite:hover{
+            color: white !important;
+         }
 </style>
 <div class="modal" id="loginModal" style="border:0px solid red;margin-top:-35px;">
     <div class="modal-dialog modal-sm" style="border:0px solid red; width:380px;">
@@ -76,9 +79,11 @@
                             </div>
                             <!-- submit button finish -->
                         </form>
-                        <div class="Forgot" style="font-size: 12px; ">
-                             <a href="{{ env('BASE_URL') . 'forgot-password'}}" class="show-forgot-btn" style="margin-right: 65px;color:#007bff;" > Forgot Password?</a>
-                            <span >New to BusinessHub?  <a href="{{ env('BASE_URL') . 'forgot-password'}}" class="show-forgot-btn " style="color: #007bff;" > Click Here </a></span>
+                        <div class="Forgot" style="font-size: 12px;margin-left: -21px; ">
+                             <a
+                              {{-- href="{{ env('BASE_URL') . 'forgot-password'}} --}}
+                              class="show-forgot-btn" style="margin-right: 30px;color:#007bff;" id="colorTowhite"> Forgot Password?</a>
+                            <span >New to BusinessHub?  <a  class="register-btn " style="color: #007bff;"  id="colorTowhite"> Click Here </a></span>
                                 
                             </div>
                         <!-- or sign in using start -->

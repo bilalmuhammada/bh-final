@@ -204,8 +204,8 @@
                             <a class="btn register-button" style="color: #FFFF;margin-top: 13px;">Register </a>
                         </div>
                         <div class="Forgot" style="font-size: 12px;text-align: left; margin-top: 12px;">
-                            <a href="{{ env('BASE_URL') . 'forgot-password'}}" class="show-forgot-btn" id="colorTowhite" style="margin-left: 13px;color:#0070cc;" > Forgot Password? </a>
-                           <span style="float: right;margin-right: 13px;">Already on BusinessHub? <a href="{{ env('BASE_URL') . 'forgot-password'}}" class="show-forgot-btn" style="color:#0070cc;" id="colorTowhite" >&nbsp; Click Here </a></span>
+                            <a  class="show-forgot-btn" id="colorTowhite" style="margin-left: 13px;color:#0070cc;" > Forgot Password? </a>
+                           <span style="float: right;margin-right: 13px;">Already on BusinessHub? <a  class="login-btn" style="color:#0070cc;" id="colorTowhite" >&nbsp; Click Here </a></span>
                                
                            </div>
                         <!-- Register button finish -->
