@@ -12,7 +12,7 @@
     width: 80% !important;
 }
 .slick-prev, .slick-next {
-    top: 32% !important
+    top: 50% !important
 }
 .slick-prev {
     left: 10px !important
@@ -501,9 +501,9 @@ infinite: true,
             infinite: true,
         slidesToShow: 3,
         slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        arrows: true,
+        // autoplay: true,
+        // autoplaySpeed: 2000,
+        // arrows: true,
         prevArrow: '<button type="button" class="slick-prev" style="border: none;"><i class="fa fa-chevron-left" aria-hidden="true" style="color: black;"></i></button>',
         nextArrow: '<button type="button" class="slick-next" style="border: none;"><i class="fa fa-chevron-right" aria-hidden="true" style="color: black;"></i></button>',
             responsive: [
