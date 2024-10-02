@@ -1,6 +1,15 @@
 <!-- Login Modal -->
+<style>
+    #email:focus{
+     border-color: blue;
+    }
+    #password:focus{
+     border-color: blue;
+    }
+    
+</style>
 <div class="modal" id="loginModal" style="border:0px solid red;margin-top:-35px;">
-    <div class="modal-dialog modal-sm" style="border:0px solid red; width:350px;">
+    <div class="modal-dialog modal-sm" style="border:0px solid red; width:380px;">
         <div class="modal-content" style="background-color: rgba(33, 34, 35, .90) !important;border-radius:10px;">
             <div class="modal-body">
                 <!-- login area start -->
@@ -30,8 +39,8 @@
                                                                  height="19"/>
                                                         </span>
                                 </div> -->
-                                <input type="email" name="email" class="form-control login-user"
-                                       placeholder="Email Address" aria-label="Email" aria-describedby="basic-addon1">
+                                <input type="email" name="email" class="form-control login-user" id="email"
+                                       placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
                             </div>
                             <!-- user name area finish -->
                             <!-- password area start -->
@@ -42,11 +51,15 @@
                                                                  height="20"/>
                                                         </span>
                                 </div> -->
-                                <input type="password" name="password" class="form-control login-user"
+                                <input type="password" name="password" id="password" class="form-control login-user"
                                        placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+
+                                       <div class="input-group-append">
+                                        <span class="toggle-password" onclick="togglePassword()" style="cursor: pointer;">👁️</span>
+                                    </div>
                             </div>
                             <div class="form-group" style="margin-top: -5px; margin-bottom: 2px; margin-left: 89px;color:#A17A4E;">
-                                <label class="custom_check" >
+                                <label class="custom_check" style="font-size: 14px;">
                                     <input type="checkbox" name="rem_password" style="margin-left: -86px !important;">
                                     {{-- <span class="checkmark"></span>  --}}
                                     Remember password
@@ -63,8 +76,8 @@
                             <!-- submit button finish -->
                         </form>
                         <div class="Forgot" style="font-size: 12px; ">
-                             <a href="{{ env('BASE_URL') . 'forgot-password'}}" class="show-forgot-btn" style="margin-right: 40px;" > Forgot Password </a>
-                            <span >New To BusinessHub?  <a href="{{ env('BASE_URL') . 'forgot-password'}}" class="show-forgot-btn"  > Click Here </a></span>
+                             <a href="{{ env('BASE_URL') . 'forgot-password'}}" class="show-forgot-btn" style="margin-right: 65px;color:#007bff;" > Forgot Password?</a>
+                            <span >New to BusinessHub?  <a href="{{ env('BASE_URL') . 'forgot-password'}}" class="show-forgot-btn " style="color: #007bff;" > Click Here </a></span>
                                 
                             </div>
                         <!-- or sign in using start -->
@@ -105,4 +118,20 @@
         </div>
     </div>
 </div>
+<script>
+    function togglePassword() {
+
+        const passwordField = document.getElementById("password");
+        
+        const icon = document.querySelector(".toggle-password");
+       
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            icon.textContent = "🙈"; // Change the icon
+        } else {
+            passwordField.type = "password";
+            icon.textContent = "👁️"; // Change the icon back
+        }
+    }
+</script>
 <!-- Login Modal -->
