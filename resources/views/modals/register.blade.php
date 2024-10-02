@@ -36,7 +36,7 @@
          
         #select2-country-container, #select2-cities-container{
             color: #fff !important;
-            margin-left: -30px !important;
+            /* margin-left: -30px !important; */
         }
 </style>
 <div class="modal" id="registerModal" style="border:0px solid red;margin-top:-60px;">
