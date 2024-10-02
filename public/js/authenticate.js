@@ -34,6 +34,8 @@ $(document).on('click', '.register-button', function () {
 
 $(document).on('click', '.close-signup-btn', function () {
     $('#registerModal').modal('hide');
+    $('#loginModal').modal('hide');
+    
 });
 
 $(document).on('change', '#country', function () {
