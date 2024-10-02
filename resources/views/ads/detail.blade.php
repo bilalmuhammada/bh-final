@@ -175,7 +175,7 @@
     </section>
 
     <section>
-        <div class="container" style="border:0px solid red;">
+        <div class="container" style="border:0px solid red;margin-left: 9.5rem;">
             <div class="col-lg-12 col-md-12 col-12" style="border:0px solid red;">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-12" style="border:0px solid red;">
