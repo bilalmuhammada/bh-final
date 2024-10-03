@@ -23,6 +23,9 @@
 .slider:before {
     background-color: #fff !important;
 }
+.btn:hover{
+    border: 1px solid blue !important;
+}
 </style>
 {{--        @dd($ad->toArray())--}}
     <!--------ad area --------->
@@ -199,18 +202,18 @@
                                                 <!-- <h2> -->
                                                 <img src="{{ $image->listing_image_url }}" alt="Listing Image"
                                                      width="100%" height="250"
-                                                     style="height:272px;">
+                                                     style="height:320px;">
                                                 <!-- </h2> -->
                                             </div>
                                            
                                         @endforeach
-                                        <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:15rem; z-index: 2;">
+                                        <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:18rem; z-index: 2;">
                                             <i class="fa fa-image" style="color:black;"></i><span class="text-black" style="margin-left:9px">{{ $ad->images->count() }}</span>
                                         </div>
                                     </div>
                                     <div class="cSlider cSlider--nav">
                                         @foreach($ad->attachments as $image)
-                                            <div class="cSlider__item" style="margin-top:18px !important;">
+                                            <div class="cSlider__item" style="margin-top:28px !important;">
                                                 <img src="{{ $image->listing_image_url }}" alt="Listing Image"
                                                      width="100%" height="300"
                                                      style="height:60px;border:2px solid #0000FF;border-radius:6px;">
@@ -338,12 +341,12 @@
                 </div>
                 <!--  desktop view -->
                 <div class="col-lg-4 col-md-4 col-12 desktop-view">
-                    <div class="row" style="margin-top: -14px;">
+                    <div class="row" style="margin-top: -14px; margin-left:5.6rem;">
                         <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
                         <div class="col-lg-12 col-md-12 col-12">
-                            <div class="inner" style="border: 1px solid #eee; border-radius: 5px; padding: 15px;">
-                                <p class="text-muted" style="font-size: 13px;">Posted by</p>
-                                <div class="profile-image-container" style="display: flex; align-items: center; margin-left: 8rem;font-size: 26px;">
+                            <div class="inner" style="border: 1px solid #eee; border-radius: 5px; padding: 15px;width: 24rem;">
+                                <p class="text-muted" style="font-size: 13px;margin-left: 14px;">Posted by:</p>
+                                <div class="profile-image-container" style="display: flex; align-items: center; margin-left:8.3rem;margin-top: -11px; font-size: 26px;">
                                           
                                     <b>{{ $ad->created_by_user->name }}</b>
                                     {{-- <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="40" height="40" style="border-radius: 50%; margin-right: 10px;"> --}}
@@ -353,10 +356,10 @@
                                     <div class="col-6">
                                         
                                        
-                                            <div class="profile-image-container" style="display: flex; align-items: center;margin-left: 7.5rem;margin-top: 9px;">
+                                            <div class="profile-image-container" style="display: flex; align-items: center;margin-left:7.2rem;margin-top:10px;">
                                               
                                                 {{-- <b>{{ $ad->created_by_user->name }}</b> --}}
-                                                <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="150" height="130" style="border-radius: 30%;">
+                                                <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="150" height="135" style="border-radius: 5%;">
                                             </div>
                                         
                                     </div>
@@ -369,12 +372,12 @@
                                 
                 
                                 @if (session()->has('user'))
-                                <div class="profile-image-container" style="text-align: center; margin-bottom: 10px;">
+                                <div class="profile-image-container" style="text-align: center; margin-bottom: 13px;">
                                     <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="80" height="80" style="border-radius: 50%;">
                                 </div>
                                 @endif
                 
-                                <div class="action-buttons" style="text-align: center;margin-top: 13px;margin-left: 30px;">
+                                <div class="action-buttons" style="text-align: center;margin-top: 13px;margin-left:23px;margin-bottom: 15px;">
                                     @if(empty($ad->phone_listing_approval_status) || $ad->phone_listing_approval_status == 'rejected')
                                     {{-- <a href="#" class="btn btn-sm phone-show-request">Show Phone Number</a> --}}
                                     @elseif($ad->phone_listing_approval_status == 'approved')
@@ -384,15 +387,21 @@
                                     @endif
                 
                                     <p class="phone-approval-status" style="display: none">Waiting for phone no approval</p>
-                                    <button class="btn"  style="border: 1px solid goldenrod ;margin-right: 9px;white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button"  aria-expanded="false">
-                                        Chat
+                                    <button class="btn" style="border: 1px solid red; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
+                                        <img src="{{ asset('images/socialicon/call.svg') }}" alt="Call Icon" style="height: 23px;margin-top: -6px; margin-right: 4px;">
+
                                     </button>
-                                    <button class="btn"  style="border: 1px solid goldenrod ;margin-right: 9px;white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button"  aria-expanded="false">
-                                        Call
+                                    <button class="btn" style="border: 1px solid #0088eb; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
+                                        <img src="{{ asset('images/socialicon/chat.png')}}" alt="Chat Icon" style="height: 30px; margin-top: -4px; margin-right: 1px;">
                                     </button>
-                                    <button class="btn"  style="border: 1px solid goldenrod ;margin-right: 9px;white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button"  aria-expanded="false">
-                                        WhatsApps
+         
+                                    <button class="btn" style="border: 1px solid #32d951; margin-right: 9px; white-space: nowrap; height: 36px;width: 60px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
+                                        <img src="{{ asset('images/socialicon/whatsapp.png')}}" alt="WhatsApp Icon" style="height: 45px; margin-top: -12px; margin-left: -5px;">
                                     </button>
+                                    <button class="btn" style="border: 1px solid #fab005; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
+                                        <img src="{{ asset('images/socialicon/email.png')}}" title="Email" alt="WhatsApp Icon" style="height: 25px; margin-right: 2px;margin-top: -4px;">
+                                    </button>
+                                    
                                     {{-- <a href="#" class="btn btn-sm start-chat" user-id="{{ $ad->created_by_user->id }}">Chatww</a> --}}
                                     {{-- <a href="#" class="btn btn-sm start-call" user-id="{{ $ad->created_by_user->id }}">Call</a> --}}
                                 </div>

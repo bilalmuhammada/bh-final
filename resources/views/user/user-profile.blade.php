@@ -141,7 +141,7 @@ width: 225px !important;
                                                     @endif
                                                     @foreach($countries as $country)
                                                         <option
-                                                            {{ $country->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $country->image_url }}"
+                                                            {{ $country->id == request()->country ? 'selected' : '' }} 
                                                             value="{{ $country->id }}"
                                                             style="font-size:8px !important;"> {{ $country->nice_name }}</option>
                                                     @endforeach
@@ -160,7 +160,7 @@ width: 225px !important;
                                         @endif
                                         @foreach($cities as $city)
                                             <option
-                                                {{ $city->id == request()->city ? 'selected' : '' }} data-flag-url="{{ $city->image_url }}"
+                                                {{ $city->id == request()->city ? 'selected' : '' }}
                                                 value="{{ $city->id }}"
                                                 style="font-size:8px !important;"> {{ $city->name }}</option>
                                         @endforeach

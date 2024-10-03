@@ -27,10 +27,10 @@
             color: white !important;
          }
          .form-control:focus{
-            border-color: #0070cc !important;
+            border-color: blue !important;
          }
          #form-border:hover{
-            border:1px solid #0070cc !important;
+            border:1px solid blue !important;
          }
          
          
