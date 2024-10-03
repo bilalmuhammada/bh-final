@@ -4,7 +4,7 @@
         text-transform: math-auto !important;
     }
     input:focus{
-        border: 1px solid blue !important;
+        border: 1px solid #1202c9 !important;
     }
     input::placeholder{
         font-size: 10px;
@@ -49,7 +49,7 @@ width: 225px !important;
                     <input type="file" name="profile_image" id="profile_image" class="form-control-file" accept="image/*" style="border: 1px solid #999; border-radius: 2px; display: none;">
                     <input type="hidden" name="image" class="base64-Image-name">
                 </div>
-                <div class="col-md-4"  style="margin-left: 42px;">
+                <div class="col-md-4"  style="margin-left: 42px;margin-top: -32px;">
                     <div class="row">
                         <form class="profile-form" style="font-size:12px;">
                             <div class="col-md-12" style="margin-top: 10px;">
@@ -91,7 +91,9 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Mobile:</b></div>
                                     <div class="col-md-8">
-                                        <input name="mobile" id="mobile" type="text" class="form-control" placeholder="Please enter a valid Mobile." style="border: 1px solid #999;">
+                                        <input name="mobile" id="mobile" type="text" class="form-control" 
+                                        {{-- placeholder="Please enter a valid Mobile." --}}
+                                         style="border: 1px solid #999;">
                                     </div>
                                 </div>
                             </div>
@@ -99,7 +101,9 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Email:</b></div>
                                     <div class="col-md-8">
-                                        <input name="email" id="email" type="text" placeholder="Please provide a valid Email."  class="form-control" style="border: 1px solid #999;">
+                                        <input name="email" id="email" type="text" 
+                                        {{-- placeholder="Please provide a valid Email."  --}}
+                                         class="form-control" style="border: 1px solid #999;">
                                     </div>
                                 </div>
                             </div>
@@ -179,7 +183,9 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Password:</b></div>
                                     <div class="col-md-8">
-                                        <input name="password" id="password" type="password" class="form-control" placeholder="8 Characters - 1 Capital, 1 Number, 1 Special"style="border: 1px solid #999;">
+                                        <input name="password" id="password" type="password" class="form-control"
+                                         {{-- placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" --}}
+                                         style="border: 1px solid #999;">
                                     </div>
                                 </div>
                             </div>
@@ -204,10 +210,10 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-12">
                                         {{-- <h4 style="font-size:14px;"><b>Please send me:</b></h4> --}}
-                                        <h4 style="font-size:14px;"><b>Subscribe:</b></h4>
+                                        <b>Subscribe:</b>
                                     </div>
 
-                                    <div class="col-md-12" style="margin-left: 9.5rem;">
+                                    <div class="col-md-12" style="margin-left: 9.5rem;margin-top: -14px;">
                                         <input name="weekly_newsletter" id="weekly_newsletter" type="checkbox">
                                         <span> &nbsp; Weekly New Business Ads.</span>
                                     </div>
@@ -234,28 +240,28 @@ width: 225px !important;
                         <div class="col-md-3" style="border: 0px solid red;">
                             <div class="inner-content text-center" style="padding: 10px;">
                                 <h6><b>My Ads</b></h6>
-                                <h4><b>{{ \App\Helpers\RecordHelper::getAdsByUserId(session()->get('user')->id)->count() }}</b></h4>
+                                <h4><b style="color: blue">{{ \App\Helpers\RecordHelper::getAdsByUserId(session()->get('user')->id)->count() }}</b></h4>
                                 <p style="font-size: 16px;color: goldenrod;">Live</p>
                             </div>
                         </div>
                         <div class="col-md-3" style="border-left: 2px solid #eee;border-right: 2px solid #eee;">
                             <div class="inner-content text-center" style="padding: 10px;">
                                 <h6><b>Notification</b></h6>
-                                <h4><b>0</b></h4>
+                                <h4><b style="color: blue">0</b></h4>
                                 <p style="font-size: 16px;color: goldenrod;">New</p>
                             </div>
                         </div>
                         <div class="col-md-3" style="border-right: 2px solid #eee;">
                             <div class="inner-content text-center" style="padding: 10px;">
                                 <h6><b>Favorites</b></h6>
-                                <h4><b>0</b></h4>
+                                <h4><b style="color: blue">0</b></h4>
                                 <p style="font-size: 16px;color: goldenrod;">Recent</p>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="inner-content text-center" style="padding: 10px;">
                                 <h6><b>Chat</b></h6>
-                                <h4><b>0</b></h4>
+                                <h4><b style="color: blue">0</b></h4>
                                 <p style="font-size: 16px;color: goldenrod; ">Unread</p>
                             </div>
                         </div>
