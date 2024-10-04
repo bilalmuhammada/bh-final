@@ -349,7 +349,10 @@
                                             @endforeach
                                             <li class="divider"></li>
                                             <div class="notification-footer" style="text-align: center;"><h4 class="menu-title" style="color: red;font-size: 1rem !important;
-                                            margin: 12px;">   <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal" style="color: red;">View all Notifications </a></h4></div>
+                                            margin: 12px;">   <a class="content" href="{{ env('BASE_URL').'notifications'}}" 
+                                            {{-- data-bs-toggle="modal" data-bs-target="#phoneRequestModal"  --}}
+                                            style="color: red;"
+                                            >View all Notifications </a></h4></div>
                                         <!---------inner area---->
                                         @else
                                           
@@ -574,7 +577,9 @@
                                             @endforeach
                                             <li class="divider"></li>
                                             <div class="notification-footer" style="text-align: center;"><h4 class="menu-title" style="color: red;font-size: 1rem !important;
-                                            margin: 12px;">   <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal" style="color: red;">View all Favourites </a></h4></div>
+                                            margin: 12px;">   <a class="content" href="{{ env('BASE_URL').'ads'}}"
+                                            {{-- data-bs-toggle="modal" data-bs-target="#phoneRequestModal"  --}}
+                                            style="color: red;">View all Favourites </a></h4></div>
                                     @else
                                         <hr>
                                         <div class="row">

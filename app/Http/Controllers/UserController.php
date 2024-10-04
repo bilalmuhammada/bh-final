@@ -124,6 +124,7 @@ class UserController extends Controller
 
     public function myAds()
     {
+        // dd('dd');
         $ads = $this->getAdsOfCurrentUser(Auth::id() ?? Session::get('user')->id);
 
 

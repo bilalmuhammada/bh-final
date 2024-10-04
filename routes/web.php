@@ -29,7 +29,7 @@ Route::get('123', function () {
     Artisan::call('view:clear');
 });
 
-Route::get('/ads/{subcategory_id}', [AdController::class, 'showAds']);
+Route::get('/ads/{subcategory_id?}', [AdController::class, 'showAds']);
 Route::get('/ads/detail/{ad_id}', [AdController::class, 'showAdDetail']);
 Route::get('/getallNotify', [HomeController::class, 'getAllNotification']);
 Route::get('/', [HomeController::class, 'index']);
