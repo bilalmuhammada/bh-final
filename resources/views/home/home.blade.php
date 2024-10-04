@@ -6,17 +6,21 @@
         top: 32% !important;
 
     }
+    .slider {
+    width: 110%; /* Adjust the width as needed */
+    /* margin: 0 auto; Optional: Center the slider */
+}
     .slider:before {
         background-color: transparent !important;
     }
     .slick-prev{
-        left: 45px;
+        left: 29px;
     }
     .slick-next{
-        right: 12px;
+        right: 19px;
     }
 .slick-slide img{
-    width: 91% !important;
+    width: 100% !important;
 }
 </style>
     @php
@@ -159,7 +163,7 @@
                 <h3>
                     <b style="margin-left: -0.7rem;">Popular Categories</b>
                 </h3>
-                <div class="row" style="margin-left: -28px !important;">
+                <div class="row" style="margin-left: -32px !important;margin-bottom: -10px;">
                     @foreach($categories as $category)
                         <div class="col-md-3 cat mb-4">
                             <div class="subcategory-list">
@@ -191,16 +195,16 @@
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h4 style="margin-left: 11px;"><b>Popular in Business for Sale</b></h4>
-                <div class="row slider" style="    margin-left: -22px;">
+                <h4 style="margin-left: 11px;margin-bottom: -6px;"><b>Popular in Business for Sale</b></h4>
+                <div class="row slider" style="margin-left: -10px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
-                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 184px !important;">
+                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                             <div class="listing">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                <div class="heart-icon" style="position: absolute; top: 16px; right: 14.7rem;">
+                                <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
                                     <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
                                 </div>
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
@@ -227,16 +231,16 @@
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h4 style="margin-left: 11px;"><b>Popular in Share for Sale</b></h4>
-                <div class="row slider" style="    margin-left: -22px;">
+                <h4 style="margin-left: 11px; margin-bottom: -2px;"><b>Popular in Share for Sale</b></h4>
+                <div class="row slider" style="margin-left: -22px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
-                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 184px !important;">
+                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                             <div class="listing">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                <div class="heart-icon" style="position: absolute; top: 16px; right: 14.7rem;">
+                                <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
                                     <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
                                 </div>
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
@@ -263,16 +267,16 @@
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h4 style="margin-left: 11px;"><b>Popular in Business ideas</b></h4>
-                <div class="row slider" style="    margin-left: -22px;">
+                <h4 style="margin-left: 11px;margin-bottom: -3px;"><b>Popular in Business Ideas</b></h4>
+                <div class="row slider" style="    margin-left: -22px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
-                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 184px !important;">
+                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                             <div class="listing">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                <div class="heart-icon" style="position: absolute; top: 16px; right: 14.7rem;">
+                                <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
                                     <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
                                 </div>
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
@@ -299,16 +303,16 @@
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h4 style="margin-left: 11px;"><b>Popular in Investors Required</b></h4>
-                <div class="row slider" style="    margin-left: -22px;">
+                <h4 style="margin-left: 11px;margin-bottom: -3px;"><b>Popular in Investors Required</b></h4>
+                <div class="row slider" style="    margin-left: -22px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
-                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 184px !important;">
+                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                             <div class="listing">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                <div class="heart-icon" style="position: absolute; top: 16px; right: 14.7rem;">
+                                <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
                                     <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
                                 </div>
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
@@ -335,16 +339,16 @@
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h4 style="margin-left: 11px;"><b>Popular in Franchise Opportunities</b></h4>
-                <div class="row slider" style="    margin-left: -22px;">
+                <h4 style="margin-left: 11px;margin-bottom: -3px;"><b>Popular in Franchise Opportunities</b></h4>
+                <div class="row slider" style="    margin-left: -22px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
-                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 184px !important;">
+                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                             <div class="listing">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                <div class="heart-icon" style="position: absolute; top: 16px; right: 14.7rem;">
+                                <div class="heart-icon" style="position: absolute; top: 16px; right:0.4rem;">
                                     <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
                                 </div>
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
@@ -371,16 +375,16 @@
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h4 style="margin-left: 11px;"><b>Popular in Machinery & Supplies</b></h4>
-                <div class="row slider" style="    margin-left: -22px;">
+                <h4 style="margin-left: 11px;margin-bottom: -3px;"><b>Popular in Machinery & Supplies</b></h4>
+                <div class="row slider" style="    margin-left: -22px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
-                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 184px !important;">
+                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                             <div class="listing">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                <div class="heart-icon" style="position: absolute; top: 16px; right: 14.7rem;">
+                                <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
                                     <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
                                 </div>
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
@@ -407,16 +411,16 @@
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h4 style="margin-left: 11px;"><b>Popular in Export & Import</b></h4>
-                <div class="row slider" style="    margin-left: -22px;">
+                <h4 style="margin-left: 11px;margin-bottom: -3px;"><b>Popular in Export & Import</b></h4>
+                <div class="row slider" style="margin-left: -22px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
-                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 184px !important;">
+                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                             <div class="listing">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                <div class="heart-icon" style="position: absolute; top: 16px; right: 14.7rem;">
+                                <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
                                     <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
                                 </div>
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
@@ -454,6 +458,7 @@
         autoplay: true,
         autoplaySpeed: 2000,
         arrows: true,
+        variableWidth: true ,
         prevArrow: '<button type="button" class="slick-prev" style="border: none;"><i class="fa fa-chevron-left" aria-hidden="true" style="color: black;"></i></button>',
         nextArrow: '<button type="button" class="slick-next" style="border: none;"><i class="fa fa-chevron-right" aria-hidden="true" style="color: black;"></i></button>',
         responsive: [
