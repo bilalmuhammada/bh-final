@@ -277,7 +277,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                          <!-- country bar mobile start -->
                 <div class="mobile-country desktop-menu-right" style="margin-top:10px !important;">
                 <select class="form-control country_dropdown" name="country_dropdown" id="" style="width:140px;">
-                {{-- <option value="" selected>All Countries</option> --}}
+                <option value="" selected>All Countries</option>
                 
                     @foreach($countries as $country)
                     <option data-flag-url="{{ $country->image_url }}" data-country-id="{{ $country->id }}" value="{{ $country->id }}">&nbsp;{{ $country->nice_name }}</option>
@@ -296,11 +296,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
         </div>
         <div class="col-md-4"></div>
     </div>
-<!-- <div class="col-xl-4 col-md-4 col-lg-4 col-4">
-            <div class="logo text-right" style="margin-top:30px;">
-                <a href="{{env('BASE_URL') . 'home'}}"><b>العربية</b></a>
-            </div>
-        </div> -->
+
 </div>
 </div>
 <!-----hero section-------->
@@ -400,7 +396,9 @@ $countries = \App\Helpers\RecordHelper::getCountries();
               @foreach($countries as $country)
                 <div class="col-md-2" style="margin:10px 15px;">
                     <div class="row">
-              <a class="mx-auto" href="{{env('BASE_URL') . 'home?country=' . $country->id}}" style="border:0px solid red;">
+
+
+              {{-- <a class="mx-auto" href="{{env('BASE_URL') . 'home?country=' . $country->id}}" style="border:0px solid red;"> --}}
                 <div class="col-md-12 main-div" class="main-div" style="border:0px solid red;">
                         <span>
                             <img src="{{asset('images/businesshub.png')}}" alt="businesshub" title="businesshub" width="60px">
@@ -556,11 +554,24 @@ $countries = \App\Helpers\RecordHelper::getCountries();
             return $country;
         };
 
+        $(document).on('change', '.country_dropdown', function () {
+            var country_id = $(country.element).data('country-id');
+            var $country = $(
+                '<a href="' + base_url + 'home?country=' + country_id + '" style="color:inherit;"><span class="spanz"><img src="' + flagUrl + '" class="img-flag" /> ' + country.text + '</span></a>'
+            );
+
+
+        });
+
+
         $(".country_dropdown").select2({
             templateSelection: formatCountry,
             templateResult: formatCountry,
             // minimumResultsForSearch: -1
         });
+
+
+
         $(".country_dropdown1").select2({
             templateSelection: formatCountry,
             templateResult: formatCountry,

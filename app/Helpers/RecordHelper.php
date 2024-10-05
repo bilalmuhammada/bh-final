@@ -19,12 +19,12 @@ class RecordHelper
 {
     public static function getCategories()
     {
-        return Category::with(['attachment', 'sub_categories'])->orderBy('sequence')->get();
+        return Category::with(['attachment', 'sub_categories'])->orderBy('name')->get();
     }
 
     public static function getCountries()
     {
-        return Country::orderBy('sequence')->get();
+        return Country::orderBy('name')->get();
     }
 
     public static function getCities($country_id = false)
