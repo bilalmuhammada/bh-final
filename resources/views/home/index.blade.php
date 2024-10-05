@@ -404,7 +404,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                             <img src="{{asset('images/businesshub.png')}}" alt="businesshub" title="businesshub" width="60px">
                         </span>
                         <br/>
-                        <span class="spans">{{ $country->nice_name }}</span>
+                        <span class="spans">{{ $country->name }}</span>
                         <div>
                             <img src="{{ $country->image_url }} " alt="{{ $country->iso }}" title="{{ $country->iso }}" class="flag2" width="40px">
                         </div>
