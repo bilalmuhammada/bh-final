@@ -164,7 +164,7 @@ a{
         font-weight: bold;
         text-align:center;
         color: #0000FF;
-        font-size: 20px !important;
+        font-size: 18px !important;
         /* color: white; */
         font-family: "Times New Roman", Times, serif;
         position: relative;
@@ -312,7 +312,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
         <div id="demo" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('images/slider-images/1.jpg')}}" alt="Los Angeles" width="100%" height="400px">
+                    <img src="{{asset('images/slider-images/1.jpg')}}" alt="Los Angeles" width="100%" height="450px">
                     <div class="hero-text">
                         <p class="main">Welcome to the World's #1online business website!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">
@@ -329,7 +329,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                     </div>
                 </div> -->
                 <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/2.jpg')}}" alt="New York" width="100%" height="400px">
+                    <img src="{{asset('images/slider-images/2.jpg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text" >
                         <p class="main">Welcome to the World's #1 online business website!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
@@ -344,7 +344,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                     </div>
                 </div> -->
                 <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/3.jpg')}}" alt="New York" width="100%" height="400px">
+                    <img src="{{asset('images/slider-images/3.jpg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text">
                         <p class="main">Welcome to the World's #1 online business website!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
@@ -367,14 +367,14 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                     </div>
                 </div> -->
                 <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/4.jpg')}}" alt="New York" width="100%" height="400px">
+                    <img src="{{asset('images/slider-images/4.jpg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text">
                         <p class="main">Welcome to the World's #1 online business website!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/5.jpg')}}" alt="New York" width="100%" height="400px">
+                    <img src="{{asset('images/slider-images/5.jpg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text" >
                         <p class="main">Welcome to the World's #1 online business website!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
@@ -456,7 +456,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
     <h4 class="text-center mb-50 mobile-view">
         <b>Join Millions of Users to Buy & Sell Businesses Worldwide!</b>
     </h4>
-    <div class="col-md-12 m-10">
+    <div class="col-md-12" style="margin: 40px 0px 0px 53px !important;">
         <div class="row">
             @foreach($categories as $category)
                 <div class="col-lg-3 col-md-6 mb-30 col-12 ">

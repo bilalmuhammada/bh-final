@@ -454,15 +454,15 @@
                             </span>
                             
 
-                            <span style="padding:13px 15px 0px 15px;text-align:center;">
+                            {{-- <span style="padding:13px 15px 0px 15px;text-align:center;">
                                 <a type="button" id="searches" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">
                                     {{-- <img src="{{ asset('images/my-searches-selected.svg')}}" width="17" height="17"> --}}
-                                    <div>
-                                        <span style="color: #000;font-size: 16px; ">My Searches</span>
-                                    </div>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="searches"
+                                    {{-- <div> --}}
+                                        {{-- <span style="color: #000;font-size: 16px; ">My Searches</span> --}}
+                                    {{-- </div> --}}
+                                {{-- </a> --}} 
+                                {{-- <div class="dropdown-menu" aria-labelledby="searches"
                                      style="padding: 10px;width:auto;">
                                     @if (session()->has('user') && count($my_searches) > 0)
                                         <div class="row">
@@ -490,7 +490,7 @@
                                         </div>
                                     @endif
                                 </div>
-                            </span>
+                            </span> --}}
                         
                               <span style="padding:13px 15px 0px 15px;text-align:center;">
                                 <a type="button" id="favorite" data-toggle="dropdown" aria-haspopup="true"
@@ -867,7 +867,7 @@
             <div class="container" style="margin:0px auto;border:0px solid green;">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <ul class="navbar-nav"
-                    style="margin:0px auto !important;border:0px solid red;font-size: 14.6px;line-height: 1.43;font-weight: 600;">
+                    style="margin:0px 0px 22px 0px !important;border:0px solid red;font-size: 14.6px;line-height: 1.43;font-weight: 600;">
                     <div class="row">
                         @php $categories = \App\Helpers\RecordHelper::getCategories(); @endphp
                         @foreach($categories as $category)

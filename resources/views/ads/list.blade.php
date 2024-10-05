@@ -14,11 +14,17 @@
             border: 1px solid rgb(224, 225, 227);
         }
 
+        .carousel-item{
+            border-radius:20px; 
+        }
         .dropdown-toggle::after{
             display: none;
         }
         .btnx:hover {
             background-color: rgb(0, 0, 255, .3);
+        }
+        .swiper-slide{
+            border-radius: 10px;
         }
 
         .filter-options-list {
@@ -50,7 +56,7 @@
         .swiper-button-next:after, .swiper-button-prev:after{
             color: white !important;
     font-size: 23px !important;
-    margin-right: 16pc !important;
+    margin-right: 18pc !important;
         }
     </style>
     <!--------ad area --------->
@@ -60,19 +66,19 @@
             <div id="demo" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:8px;">
+                        <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
                     </div>
                     <div class="carousel-item ">
-                        <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Los Angeles" width="100%" height="257" style="height:310px;border-radius:8px;">
+                        <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Los Angeles" width="100%" height="257" style="height:310px;border-radius:10px;">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{asset('images/slider-images/image3.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:8px;">
+                        <img src="{{asset('images/slider-images/image3.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
                     </div>
                     <div class="carousel-item">
-                      <img src="{{asset('images/slider-images/image4.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:8px;">
+                      <img src="{{asset('images/slider-images/image4.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{asset('images/slider-images/image5.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:8px;">
+                        <img src="{{asset('images/slider-images/image5.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
                     </div>
                 </div>
             </div>
@@ -80,6 +86,8 @@
     </section>
     <!----new filter----------->
     @php
+
+$category_name=  DB::table('categories')->where('id',$category_id)->first();
         $subcategories_for_filter = \App\Helpers\RecordHelper::getSubCategories($category_id);
         $cities_for_filter = \App\Helpers\RecordHelper::getCities(request()->country);
         $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city) ? $cities_for_filter->where('id', request()->city)->first()->name : 'All';
@@ -90,19 +98,19 @@
                 <form class="form" 
       style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;border-radius: 10px;border: 1px solid rgb(194, 196, 199); display: flex !important; width: 75rem !important;">
     <div class="row" style="display: flex; flex-wrap: nowrap;">
-        <div class="col-md-3" style="border-right:2px solid #eee;" id="cityArea">
+        <div class="col-md-4" style="border-right:2px solid #eee;" id="cityArea">
             <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
                aria-controls="multiCollapseExample1" style="color:#000;">
-                <div class="col-md-12"><span style="font-size: 14px;"><b>City</b></span></div>
+                <div class="col-md-12" style="text-align: center;"><span style="font-size: 14px;"><b>City</b></span></div>
                 <div class="col-md-12" style="margin-top: 5px;" ><span style="font-size: 11px;color:#000;">{{ $selected_city_name }}</span></div>
             </a>
         </div>
 
 
-        <div class="col-md-8" style="border-right: 2px solid #eee;">
+        <div class="col-md-7" style="border-right: 2px solid #eee; text-align: center;">
             <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;">Keyword</label>
             <div class="input-group">
-                <input type="text" class="form-control" id="keyword" style="margin-top: -14px;" placeholder="Search anything in.....">
+                <input type="text" class="form-control" id="keyword" style="margin-top: -14px;" placeholder="Search anything in {{ $category_name->name }}">
                 <span style="margin-top: -12px;font-weight: bolder; color: goldenrod;" id="searchIcon">
                     <i class="fa fa-search"></i> <!-- Bootstrap Icons -->
                 </span>
@@ -123,7 +131,7 @@
 
        
 
-        <div class="col-md-6" style="border-right: 2px solid #eee;">
+        <div class="col-md-6" style="border-right: 2px solid #eee; text-align: center;">
             <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px;">Neighborhood</label>
             <div class="input-group">
                 <input type="text" class="form-control" style="margin-top: -12px;" id="neighborhood" placeholder="Enter location">
@@ -135,29 +143,31 @@
 
         
 
-        <div class="col-md-3" style="border-right:2px solid #eee;" id="priceArea1">
+        <div class="col-md-5" style="border-right:2px solid #eee;" id="priceArea1">
             <a data-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false"
                aria-controls="multiCollapseExample4" style="color:#000;">
-                <div class="col-md-12"><span style="font-size: 14px;margin-left: 10px;"><b>Price</b></span></div>
+                <div class="col-md-12" style="text-align: center;"><span style="font-size: 14px;margin-left: 10px;"><b>Price</b></span></div>
              
                 {{-- <div class="col-md-12"><span style="font-size: 11px;color:#000;">{{ $from || $to ? $from . '-' . $to : 'Select'}}</span></div> --}}
             </a>
-            <div class="col-md-12" style="display: flex;">
-                <input type="text" class="form-control" style="border-right: 1px solid #eee; " name="min_price" id="min_price" placeholder="Min" min="0">
+            {{-- <div class="col-md-12" style="display: flex;"> --}}
+                <span style="display: flex;">
+                <input type="text" class="form-control" style="border-right: 1px solid #eee;padding: 0px !important; " name="min_price" id="min_price" placeholder="Min" min="0">
                 {{-- <div style="border-left: 1px solid #ccc; height: 100%; margin: 0 10px;"></div> --}}
     
-                <input type="text" class="form-control" name="max_price" id="max_price" placeholder="Max" min="0">
-            </div>
+                <input type="text" class="form-control" style="padding: 0px !important; " name="max_price" id="max_price" placeholder="Max" min="0">
+            </span>
+                {{-- </div> --}}
         </div>
 
         <div class="col-md-3" id="filtersAreaw1">
             <a data-toggle="collapse1" href="#multiCollapseExample51" role="buttonw" aria-expanded="false"
                aria-controls="multiCollapseExample51" style="color:#000;">
-                <div class="col-md-12"><span style="font-size: 14px;margin-left: -2px;"><b>Filter</b></span></div>
+                <div class="col-md-12" style="text-align: end;" ><span style="font-size: 14px;margin-left: -2px;"><b>Filter</b></span></div>
                 <div class="dropdown" style="margin-left: 1rem; display: flex;">
                     {{-- &nbsp;&nbsp; --}}
                    <button class="btn dropdown-toggle" style="border: 5px;margin-left: -15px;" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    Default
+                    Sort
                    </button>
                    <ul class="dropdown-menu" aria-labelledby="sortDropdown">
                        <li><a class="dropdown-item" href="?sort=newest">Newest to Oldest</a></li>
@@ -174,7 +184,7 @@
           
         {{-- </div> --}}
     </div>
-    <button class="btn"  style="white-space: nowrap;margin-left:42.6rem;  color: red; border: 1px solid goldenrod ;border-radius: 5px;" type="button"  aria-expanded="false">
+    <button class="btn"  style="white-space: nowrap;margin-left:44.2rem;  color: red; border: 1px solid goldenrod ;border-radius: 5px;" type="button"  aria-expanded="false">
         Search
     </button>
    
@@ -185,7 +195,7 @@
             <div class="row">
                 <div class="col">
                     <div class="collapse multi-collapse multiCollapse" id="multiCollapseExample1"
-                         style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;width:240px;position:absolute;z-index:1;background-color: white;width:100%;">
+                         style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;width:240px;position:absolute;z-index:999;background-color: white;width:100%;">
                         <!-- <div class="card card-body"> -->
                         <div style="max-height: 170px !important;  overflow-y: scroll;">
                             <p city-id="" class="city-list filter-options-list">All</p>
@@ -293,12 +303,12 @@
     <!---new filter ennded----->
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 m-10">
-                <div class="row">
+            <div class="col-lg-12 col-md-12 col-12" style="margin: 10px;">
+                <div class="row" style="margin-left: -81px;">
                     <div class="col-lg-9 col-md-9" style="display: flex;">
                         <h3 style="white-space: nowrap;"><b> {{ $subcategory_name }} <span class="text-muted">•{{ $ads->count() }} Ads</span></b>
                         </h3>
-                        <button class="btn"  style="border: 1px solid goldenrod ;white-space: nowrap; height: 36px; border-radius: 5px;margin-left: 45.5rem; color: red;" type="button"  aria-expanded="false">
+                        <button class="btn"  style="border: 1px solid goldenrod ;white-space: nowrap; height: 36px; border-radius: 5px;margin-left: 52.5rem; color: red;" type="button"  aria-expanded="false">
                             Clear Search
                         </button>
                         {{-- <div class="dropdown" style="margin-left: 1rem; display: flex;"> --}}
@@ -343,7 +353,7 @@
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 col-12">
-                <div class="row">
+                <div class="row" style="margin-left: -71px;">
                     <div class="col-lg-12 col-md-12 col-12">
                         @foreach($ads as $ad)
                         <div class="row">

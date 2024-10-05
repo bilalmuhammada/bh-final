@@ -16,6 +16,7 @@ class AdController extends Controller
     {
         $data = [];
         if ($subcategory_id) {
+            // dd($subcategory_id);
 
             $SubCategory = SubCategory::with(['category'])->find($subcategory_id);
 
@@ -59,6 +60,7 @@ class AdController extends Controller
                 'subcategory_name' => $SubCategory->name,
                 'ads' => $ads
             ];
+            return view('ads.list')->with($data);
         }
         else{           
             
