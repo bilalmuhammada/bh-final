@@ -122,6 +122,16 @@
         }
         .select2-selection__rendered {
             font-size: 14px !important;}
+
+
+        .auth{
+            color: blue;
+
+        }
+        .auth:hover{
+            color: goldenrod !important;
+
+        }
     /* end */
 </style>
 <header>
@@ -734,10 +744,10 @@
                                     </span>
                             @endif
                         @if (!session()->has('user'))
-                            <span style="padding:13px 15px;text-align:center;font-size:16px !important;font-weight: bold;">
+                            <span class="auth" style="padding:13px 15px;text-align:center;font-size:16px !important;font-weight: bold;">
                             <a class="login-btn">Login</a>
                            </span>
-                            <span style="padding:13px 15px;text-align:center;font-size:16px !important;    font-weight: bold;">
+                            <span class="auth"  style="padding:13px 15px;text-align:center;font-size:16px !important;    font-weight: bold;">
                                     <a class="register-btn">Register</a>
                            </span>
                         @endif

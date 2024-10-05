@@ -3,6 +3,12 @@
         .topbar{
             border-bottom: 0px solid !important;
         }
+        .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+        background-color: #fff !important;
+        color: blue !important;
+        font-size: 14px;
+        font-weight: bold;
+    }
     </style>
     <div class="container">
         <!-- topbar start -->

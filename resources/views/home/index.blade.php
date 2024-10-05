@@ -108,6 +108,9 @@
         top: 10px;
         margin-bottom: 10px;
     }
+    .select2-container--default .select2-results>.select2-results__options {
+        max-height: 178px;
+    }
 
     .mb-50 {
         margin-bottom: 50px;
@@ -196,23 +199,25 @@ a{
     border-color: blue !important;
         }
         .select2-results__option {
-            padding: 0px !important;
+            padding: 6px !important;
         }
-.spanz{
-        font-size: 16px;
-        font-weight: bold;
-    }
-    .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+
+    /* .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable { */
+        .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
         background-color: #fff !important;
         color: blue !important;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: bold;
+    /* } */
     }
     .select2-container--default .select2-results__option--selected {
         background-color: #fff !important;
     }
     .select2-results__options{
-        padding: 7px !important;
+        margin-right: 0px;
+    font-size: 14px !important;
+    font-weight: bolder !important;
+        padding: 6px !important;
     }
     .select2-dropdown{
         background-color: #fff;
@@ -220,12 +225,12 @@ a{
     }
     /* end */
     .select2-selection__rendered{
-        font-size:18px !important;
+        font-size:14px !important;
         outline:none !important;
         border:none !important;
     }
     .select2-results__option{
-        font-size:18px !important;
+        /* font-size:18px !important; */
         font-weight: bold;
         /* background-color:rgba(0, 0, 255, .3) !important; */
     }
@@ -241,7 +246,7 @@ a{
     
     /* //scrollbar */
     ::-webkit-scrollbar {
-  width: 12px !important;               /* width of the entire scrollbar */
+  width: 6px !important;               /* width of the entire scrollbar */
 }
 
 ::-webkit-scrollbar-track {
@@ -272,7 +277,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                          <!-- country bar mobile start -->
                 <div class="mobile-country desktop-menu-right" style="margin-top:10px !important;">
                 <select class="form-control country_dropdown" name="country_dropdown" id="" style="width:140px;">
-                <option value="" selected>All Countries</option>
+                {{-- <option value="" selected>All Countries</option> --}}
                 
                     @foreach($countries as $country)
                     <option data-flag-url="{{ $country->image_url }}" data-country-id="{{ $country->id }}" value="{{ $country->id }}">&nbsp;{{ $country->nice_name }}</option>
