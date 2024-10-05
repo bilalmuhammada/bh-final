@@ -205,7 +205,7 @@
                                             {{ $country->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $country->image_url }}"
                                             value="{{ $country->id }}"
                                             style="font-size:8px !important;">
-                                            {{ $country->nice_name }}
+                                            {{ $country->name }}
                                                
                                             </option>
                                         @endforeach

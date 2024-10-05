@@ -280,7 +280,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                 <option value="" selected>All Countries</option>
                 
                     @foreach($countries as $country)
-                    <option data-flag-url="{{ $country->image_url }}" data-country-id="{{ $country->id }}" value="{{ $country->id }}">&nbsp;{{ $country->nice_name }}</option>
+                    <option data-flag-url="{{ $country->image_url }}" data-country-id="{{ $country->id }}" value="{{ $country->id }}">&nbsp;{{ $country->name }}</option>
                 @endforeach
                </select>
                         </div>

@@ -143,7 +143,7 @@ width: 225px !important;
                                                         <option
                                                             {{ $country->id == request()->country ? 'selected' : '' }} 
                                                             value="{{ $country->id }}"
-                                                            style="font-size:8px !important;"> {{ $country->nice_name }}</option>
+                                                            style="font-size:8px !important;"> {{ $country->name }}</option>
                                                     @endforeach
                                                 </select>
                                         </div>
