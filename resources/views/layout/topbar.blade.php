@@ -147,30 +147,13 @@
     <script type="text/javascript">
         function translateLanguage() {
             var dropdown = document.getElementById("language_dropdown");
-
-         
             var selectedLanguage = dropdown.options[dropdown.selectedIndex].value;
-            //  alert(selectedLanguage);
-            var languageMapping = {
-                '1': 'en',  // Example: Country ID 1 maps to English
-                '30': 'fr', // Example: Country ID 30 maps to French
-                '13': 'ar', // Example: Country ID 13 maps to Arabic
-                // Add your mappings here
-            };
 
-            var selectedLanguageCode = languageMapping[selectedLanguage];
-
-
-
-            if (selectedLanguageCode) {
+            if (selectedLanguage) {
                 var googleTranslateCombo = document.querySelector('.goog-te-combo');
                 if (googleTranslateCombo) {
-                    googleTranslateCombo.value = selectedLanguageCode;
+                    googleTranslateCombo.value = selectedLanguage;
                     googleTranslateCombo.dispatchEvent(new Event('change'));
-                }
-                else{
-                    // alert('dd');
-                    // translateLanguage();
                 }
             }
 
@@ -246,8 +229,8 @@
                         @foreach($language as $language1)
                        
                             <option
-                            {{-- {{ $country->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $country->image_url }}" --}}
-                            value="{{ $language1->id }}"
+                            {{ $language1->id == request()->language ? 'selected' : '' }}  data-flag-url="{{ $language1->flag_image_url }}"
+                            value="{{ $language1->prefix }}"
                             style="font-size:8px !important;">
                             {{ $language1->name }}
                                
