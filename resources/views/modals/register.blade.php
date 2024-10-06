@@ -134,9 +134,10 @@
                                                 @foreach($countries as $country)
                                                
                                                     <option
-                                                        {{ $country->id == request()->country ? 'selected' : '' }} data1-flag-url1="{{ $country->image_url }}"
+                                                        {{ $country->id == request()->country ? 'selected' : '' }}
+                                                         {{-- data1-flag-url1="{{ $country->image_url }}" --}}
                                                         value="{{ $country->id }}"
-                                                        style="font-size:8px !important;"> {{ $country->nice_name }}</option>
+                                                        style="font-size:8px !important;"> {{ $country->name }}</option>
                                                 @endforeach
                                             </select>
                                     </div>
