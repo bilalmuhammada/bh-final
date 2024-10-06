@@ -27,7 +27,13 @@ class RecordHelper
     {
         return Country::orderBy('name')->get();
     }
-    public static  function getlanguge()
+
+    public static function getCountriesRegistration()
+    {
+        return  DB::table('countries_available')->orderBy("name",'ASC')->get();
+    }
+
+    public static function getlanguge()
     {
         $languages = DB::table('languages')->orderBy("name",'ASC')->get();
     
