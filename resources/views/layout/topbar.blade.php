@@ -205,7 +205,7 @@
                                             {{ $country->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $country->image_url }}"
                                             value="{{ $country->id }}"
                                             style="font-size:8px !important;">
-                                            {{ $country->name }}
+                                            {{ $country->nice_name }}
                                                
                                             </option>
                                         @endforeach
@@ -835,7 +835,7 @@
                             @foreach($countries as $country)
                                     <option data-flag-url="{{ $country->image_url }}"
                                             data-country-id="{{ $country->id }}"
-                                            value="{{ $country->id }}"> {{ $country->nice_name }}22</option>
+                                            value="{{ $country->id }}"> {{ $country->nice_name }}</option>
                                 @endforeach
                             </select>
                             </div>
