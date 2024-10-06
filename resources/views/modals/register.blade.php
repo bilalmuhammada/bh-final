@@ -118,7 +118,7 @@
                                
 
                                 @php
-                                $countries = \App\Helpers\RecordHelper::getCountries();
+                                $countries = \App\Helpers\RecordHelper::getCountriesRegistration();
                                 $cities = \App\Helpers\RecordHelper::getCities(request()->country);
                             @endphp
 
