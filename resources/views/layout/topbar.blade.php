@@ -247,9 +247,9 @@
                        
                             <option
                             {{-- {{ $country->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $country->image_url }}" --}}
-                            value="{{ $language->id }}"
+                            value="{{ $language1->id }}"
                             style="font-size:8px !important;">
-                            {{ $language->name }}
+                            {{ $language1->name }}
                                
                             </option>
                         @endforeach

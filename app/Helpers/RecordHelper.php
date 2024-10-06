@@ -13,6 +13,7 @@ use App\Models\SubCategory;
 use App\Models\UserNotification;
 use App\Notifications\EmailNotification;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class RecordHelper
@@ -26,12 +27,13 @@ class RecordHelper
     {
         return Country::orderBy('name')->get();
     }
-    function getlanguge()
-{
-    $languages = DB::table('languages')->orderBy("name",'ASC')->get();
-
-    return $languages;
-}
+    public static  function getlanguge()
+    {
+        $languages = DB::table('languages')->orderBy("name",'ASC')->get();
+    
+    
+        return $languages;
+    }
 
 
     public static function getCities($country_id = false)

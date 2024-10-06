@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 function getDropdownMenu($role)
 {
@@ -30,6 +31,7 @@ function getSpokenLanguages()
 
     return $SpokenLanguages;
 }
+
 
 function getEthnicity()
 {
