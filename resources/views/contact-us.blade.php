@@ -145,7 +145,7 @@ select {
                                         <select name="country_id" class="form-control floating" id="country_id">
                                             <option selected hidden disabled value="">&nbsp;&nbsp;</option>
                                             @foreach(\App\Helpers\RecordHelper::getCountries() as $country)
-                                                <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                                <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
                                             @endforeach
                                         </select>
                                         <div class="invalid-feedback">
