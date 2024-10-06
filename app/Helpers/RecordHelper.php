@@ -26,6 +26,13 @@ class RecordHelper
     {
         return Country::orderBy('name')->get();
     }
+    function getlanguge()
+{
+    $languages = DB::table('languages')->orderBy("name",'ASC')->get();
+
+    return $languages;
+}
+
 
     public static function getCities($country_id = false)
     {

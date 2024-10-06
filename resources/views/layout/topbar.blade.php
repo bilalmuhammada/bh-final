@@ -15,6 +15,8 @@
         $my_ads_for_topbar = \App\Helpers\RecordHelper::getAdsByUserId(session()->get('user')->id)->take(2);
     }
     $countries = \App\Helpers\RecordHelper::getCountries();
+    $language = \App\Helpers\RecordHelper::getlanguge();
+    
 @endphp
 <style>
     .dropdown-menu{
@@ -144,7 +146,7 @@
 
     <script type="text/javascript">
         function translateLanguage() {
-            var dropdown = document.getElementById("country_dropdown");
+            var dropdown = document.getElementById("language_dropdown");
 
          
             var selectedLanguage = dropdown.options[dropdown.selectedIndex].value;
@@ -198,7 +200,7 @@
                             {{-- <div class="country" style="border:0px solid green;position:relative;left:-111px;"> --}}
                             <div class="mobile-country desktop-menu-right">
                                
-                                    <select class="form-control country_dropdown1 " name="country_dropdown"  style="width:112px;" id="country_dropdown" onchange="translateLanguage()">>
+                                    <select class="form-control country_dropdown1 " name="country_dropdown"  style="width:112px;" id="country_dropdown" >
                                         @foreach($countries as $country)
                                        
                                             <option
@@ -241,13 +243,13 @@
                     <select class="form-control language_dropdown " name="language_dropdown"  style="width:100px;" id="language_dropdown" onchange="translateLanguage()">>
                         <option selected value="">Language</option>
                         
-                        @foreach($countries as $country)
+                        @foreach($language as $language1)
                        
                             <option
                             {{-- {{ $country->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $country->image_url }}" --}}
-                            value="{{ $country->id }}"
+                            value="{{ $language->id }}"
                             style="font-size:8px !important;">
-                            {{ $country->nice_name }}
+                            {{ $language->name }}
                                
                             </option>
                         @endforeach
