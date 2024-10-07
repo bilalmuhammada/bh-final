@@ -95,6 +95,14 @@
      width: 0;
  }
  
+ select {
+  -webkit-appearance: none;  /* for Chrome */
+  -moz-appearance: none;     /* for Firefox */
+  appearance: none;
+  background: transparent;   /* optional: makes background transparent */
+  border: 1px solid #ccc;    /* adjust as needed */
+  padding: 5px;
+}
  .form-focus .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
      border-color: transparent transparent #ccc;
      border-width: 0 6px 6px;
@@ -143,7 +151,7 @@
 
   text-align: center !important;
  
-  padding: 1pc 3pc 1pc 3pc !important;
+  /* padding: 1pc 3pc 1pc 3pc !important; */
   
   color: white !important;
   font-size: 14px !important;
@@ -165,10 +173,10 @@
         <input type='hidden' class='form-control latitude' id='latitude' name='latitude' placeholder='Enter Latitude'>
         <input type='hidden' class='form-control longitude' id='longitude' name='longitude'
                placeholder='Enter Longitude'>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto" >
             <div class="form-group form-focus">
                 <input type="text" class="form-control floating" name="title" value="{{ $listing->title }}" placeholder="Title"
-                   style="padding:22px;" required>
+                    required>
                    <label class="focus-label">Title</label>
                         </div>
             <div class="invalid-feedback">
@@ -176,12 +184,12 @@
             </div>
         </div>
 
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto">
         <div class="row">
 
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="business_type" placeholder="" style="padding:22px;"
+                <input type="text" class="form-control floating" name="business_type" placeholder="" 
                     title="" required>
                     <label class="focus-label">Business Type</label>
                         </div>
@@ -191,7 +199,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating"name="required_investment" placeholder="" style="padding:22px;" required>
+                <input type="text" class="form-control floating"name="required_investment" placeholder="" required>
             
                 <label class="focus-label">Investment Required</label>
             </div>
@@ -201,7 +209,7 @@
         </div>
         </div>
     </div>
-    <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+    <div class="col-md-6 mx-auto" >
         <div class="row">
         <div class="col-md-6">
         <select class="form-controlz" name="trade_licence_type" required>
@@ -215,7 +223,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="reason_for_investment" placeholder="" style="padding:22px;"
+                <input type="text" class="form-control floating" name="reason_for_investment" placeholder="" 
                     title="" required>
                     <label class="focus-label">Reason for Investment</label>
                         </div>
@@ -225,11 +233,11 @@
         </div>
         </div>
     </div>
-    <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+    <div class="col-md-6 mx-auto" >
         <div class="row">
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="established_year" placeholder="" style="padding:22px;" required>
+                <input type="text" class="form-control floating" name="established_year" placeholder=""  required>
                 <label class="focus-label">Established Year</label>
                         </div>
             <div class="invalid-feedback">
@@ -238,7 +246,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="no_of_employees" placeholder="" style="padding:22px;"
+                <input type="text" class="form-control floating" name="no_of_employees" placeholder="" 
                     title="" required>
                     <label class="focus-label">No of Employees</label>
                         </div>
@@ -248,11 +256,11 @@
         </div>
         </div>
     </div>
-    <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+    <div class="col-md-6 mx-auto" >
         <div class="row">
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="size_sqm" placeholder="" style="padding:22px;"
+                <input type="text" class="form-control floating" name="size_sqm" placeholder="" 
                     title="" required>
                     <label class="focus-label">Premise Size SqM</label>
                         </div>
@@ -271,7 +279,7 @@
 
         </div>
     </div>
-<div class="col-md-6 mx-auto" style="margin-top: 20px;">
+<div class="col-md-6 mx-auto" >
         <div class="row">
         <div class="col-md-6">
         <select class="form-controlz" name="open_for_partnership"  required>
@@ -282,7 +290,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating"name="phone"  oninput="validatePhoneNumber(this)" placeholder="" style="padding:22px;"
+                <input type="text" class="form-control floating"name="phone"  oninput="validatePhoneNumber(this)" placeholder="" 
                    title="Please enter a valid 10-digit Mobile number" required>
                    <label class="focus-label">Mobile</label>
                         </div>

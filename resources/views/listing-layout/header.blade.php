@@ -56,13 +56,13 @@
     .remove-document{
     position: absolute;
     top: 5px;
-    right: 5px;
-    background-color: rgba(255, 255, 255, 0.8);
+    right: 45px;
+    /* background-color: rgba(255, 255, 255, 0.8); */
     border-radius: 50%;
     padding: 4px;
     cursor: pointer;
     color: #e74c3c;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
     font-size: 18px;
     }
     .btn-nexts a.btn {
@@ -84,10 +84,13 @@
         background: #0000FF !important;
         color: #fff !important;
     }
+    .img-thumbnail{
+        padding: 0px !important;
+    }
     .form-controlz{
             display: block;
             width: 100%;
-            height: calc(1.5em + 0.75rem + 2px);
+            height: calc(2.4em + 0.75rem + 2px) !important;
             padding: 0.375rem 0.75rem;
             font-size: 1rem;
             font-weight: 400;

@@ -9,7 +9,7 @@
         <span><b>Add Photos</b></span>
     </div>
 </div>
-<div class="col-md-4 mx-auto" style="margin-top: 10px;margin-bottom: 10px; margin-left: 18pc !important; max-width: 63% !important;">
+<div class="col-md-4 mx-auto" style="margin-top:30px; margin-left: 24pc !important; max-width: 53% !important;">
 
     <div id="image-display-div" style="display: flex; flex-wrap: wrap;"></div>
 </div>
@@ -27,11 +27,9 @@
 
 
     <div class="form-group" id="filehide">
-        <label style="    padding: 25px;
-        text-align: center; margin-left: 113px;
-        font-size: 25px;">Do you want to show or hide your Files?</label>
+        <label style="text-align: center; margin-left: 13rem;font-size: 20px;">Do you want to show or hide your Files?</label>
         <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
-            <label class="btn active  btn-show" style="margin-left: 6pc !important;background-color: #dadadb">
+            <label class="btn active  btn-show" style="margin-left:19rem !important;background-color: #dadadb">
                 <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show File
             </label>
             <label class="btn btn-show"  style="margin-right: 9pc !important; float: right;background-color: #525252">
@@ -43,7 +41,7 @@
 
 
 
-<div class="col-md-4 mx-auto" style="margin-top: 20px;padding-bottom: 10px;margin-left: 18pc !important;max-width: 63% !important;">
+<div class="col-md-4 mx-auto" style="margin-left: 24rem !important;max-width: 53% !important;">
     <div id="document-display-div" style="display: flex; flex-wrap: wrap"></div>
 </div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastedjs/dist/toasted.min.css">
@@ -53,7 +51,7 @@
 $(document).ready(function() {
     $('#fileInput').on('change', function() {
         var files = $(this)[0].files;
-        alert('ss');
+     
         var fileError = $('#fileError');
 
         if (files.length > 4) {

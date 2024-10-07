@@ -232,7 +232,7 @@ function displayImages(base64Image, file_name) {
     const imageDisplay = document.getElementById('image-display-div');
 
     const imgHtml = `
-                        <div class="col-md-3" style="margin-bottom:22px !important">
+                        <div class="col-md-3" >
                             <div class="image-gallery">
                               <div class="image-container">
                                 <img class="form-image img-thumbnail" src="${base64Image}" />
@@ -287,7 +287,7 @@ function displayDocs(base64Image, file_name) {
     const imageDisplay = document.getElementById('document-display-div');
 
     const imgHtml = `
-                        <div class="col-md-3" style="margin-bottom: 22px;">
+                        <div class="col-md-3">
                             <div class="image-gallery">
                               <div class="image-container">
                                 <img class="form-image img-thumbnail" src="${base64Image}" />

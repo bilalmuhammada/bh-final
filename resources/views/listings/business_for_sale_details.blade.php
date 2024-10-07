@@ -4,6 +4,14 @@
      height: 58px;
      position: relative;
  }
+ select {
+  -webkit-appearance: none;  /* for Chrome */
+  -moz-appearance: none;     /* for Firefox */
+  appearance: none;
+  background: transparent;   /* optional: makes background transparent */
+  border: 1px solid #ccc;    /* adjust as needed */
+  padding: 5px;
+}
  .floating:focus{
         border: 1px solid blue !important;
     box-shadow: 0 0 0 .2rem rgb(255 255 255 / 25%) !important; 
@@ -141,7 +149,7 @@
 
     text-align: center !important;
    
-    padding: 1pc 3pc 1pc 3pc !important;
+    /* padding: 1pc 3pc 1pc 3pc !important; */
     
     color: white !important;
     font-size: 14px !important;
@@ -166,10 +174,10 @@
         <input type='hidden' class='form-controlz latitude' id='latitude' name='latitude' placeholder='Enter Latitude'>
         <input type='hidden' class='form-controlz longitude' id='longitude' name='longitude'
                placeholder='Enter Longitude'>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto" >
             <div class="form-group form-focus">
                 <input type="text" class="form-control floating"  name="title" value="{{ $listing->title }}"
-                   style="padding:22px;" required>
+                    required>
                    <label class="focus-label">Title</label>
                 </div>
             <div class="invalid-feedback">
@@ -177,21 +185,21 @@
             </div>
         </div>
 
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto" >
         <div class="row">
         <div class="col-md-6">
              <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="business_type" placeholder="" style="padding:22px;"
+                <input type="text" class="form-control floating" name="business_type" placeholder="" 
                     title="" required>
                     <label class="focus-label">Business Type</label>
                 </div>
-            <div class="invalid-feedback">
+            {{-- <div class="invalid-feedback">
                 Please provide a valid Business Type.
-            </div>
+            </div> --}}
         </div>
         <div class="col-md-6">
              <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="price" placeholder="" style="padding:22px;" required>
+                <input type="text" class="form-control floating" name="price" placeholder=""   oninput="validatePhoneNumber(this)" required>
                 <label class="focus-label">Price</label>
             </div>
             <div class="invalid-feedback">
@@ -200,7 +208,7 @@
         </div>
         </div>
     </div>
-    <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+    <div class="col-md-6 mx-auto" >
         <div class="row">
         <div class="col-md-6">
         <select class="form-controlz" name="trade_licence_type" required>
@@ -214,7 +222,7 @@
         </div>
         <div class="col-md-6">
          <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="established_year" placeholder="" style="padding:22px;" required>
+                <input type="text" class="form-control floating" name="established_year" placeholder=""  oninput="validatePhoneNumber(this)" required>
                 <label class="focus-label">Established Year</label>
             </div>
             <div class="invalid-feedback">
@@ -223,11 +231,11 @@
         </div>
         </div>
     </div>
-<div class="col-md-6 mx-auto" style="margin-top: 20px;">
+<div class="col-md-6 mx-auto" >
         <div class="row">
         <div class="col-md-6">
              <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="size_sqm" placeholder="" style="padding:22px;"
+                <input type="text" class="form-control floating" name="size_sqm"  oninput="validatePhoneNumber(this)" placeholder="" 
                     title="" required>
                     <label class="focus-label">Premise Size SqM</label>
                 </div>
@@ -245,11 +253,11 @@
         </div>
         </div>
     </div>
-    <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+    <div class="col-md-6 mx-auto">
         <div class="row">
         <div class="col-md-6">
          <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="no_of_employees" placeholder="" style="padding:22px;"
+                <input type="text" class="form-control floating" name="no_of_employees"  oninput="validatePhoneNumber(this)" placeholder="" 
                     title="" required>
                     <label class="focus-label">No of Employees</label>
                 </div>
@@ -259,7 +267,7 @@
         </div>
         <div class="col-md-6">
              <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="reason_for_sale" placeholder="" style="padding:22px;"
+                <input type="text" class="form-control floating" name="reason_for_sale" placeholder="" 
                     title="" required>
                     <label class="focus-label">Reason for Sale</label>
                 </div>
@@ -269,7 +277,7 @@
         </div>
 </div>
 </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto">
         <div class="row">
         <div class="col-md-6">
             <select class="form-controlz" name="open_for_partnership"  required>
@@ -280,7 +288,7 @@
         </div>
             <div class="col-md-6">
                 <div class="form-group form-focus">
-                    <input type="text" class="form-control floating"  name="phone" placeholder="" style="padding:22px;"
+                    <input type="text" class="form-control floating"  name="phone" placeholder="" 
                     {{-- pattern="\d{10}"  --}}
                     title="Please enter a valid 10-digit  number"   oninput="validatePhoneNumber(this)" required>
                    <label class="focus-label">Mobile</label>
@@ -291,7 +299,7 @@
         </div>
         </div>
     </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto" >
             <div class="form-group form-focus">
             <textarea name="products_and_services_offered" class="form-control floating"  placeholder="" style="height: 150px;"
                       required></textarea>
@@ -301,7 +309,7 @@
                 Please provide a Products & Services Offered.
             </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 100px;">
+        <div class="col-md-6 mx-auto" style="margin-top: 120px;">
             <div class="form-group form-focus">
             <textarea name="description" class="form-control floating" placeholder="" style="height: 200px;"
                       required></textarea>
@@ -315,11 +323,11 @@
         @include('listings.image&file');
 
     
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-6 mx-auto" style="margin-bottom: 20px;">
             <div class="row">
         <div class="col-md-6">
             <select class="form-controlz country" name="country" placeholder="Select Country" required>
-                <option disabled selected>Select Country</option>
+                <option disabled selected>Country</option>
                     @foreach($countries as $country)
                         <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
                     @endforeach
@@ -330,7 +338,7 @@
         </div>
         <div class="col-md-6">
             <select class="form-controlz city" name="city" placeholder="Select City" required>
-                <option disabled selected>Select city</option>
+                <option disabled selected>City</option>
             </select>
             <div class="invalid-feedback">
                 Please select a city.
@@ -338,17 +346,17 @@
         </div>
         </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto">
             <div class="form-group form-focus">
                 <input type="text" class="form-control floating location_name" name="location_name" placeholder=""
                    style="padding:22px;" required>
-                   <label class="focus-label">Location Type</label>
+                   <label class="focus-label">Location</label>
                 </div>
             <div class="invalid-feedback">
                 Please provide a location.
             </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto">
             <div class="map" id="map"></div>
         </div>
         <div class="col-md-6 mx-auto text-center btn-nexts" style="margin-top: 20px;">

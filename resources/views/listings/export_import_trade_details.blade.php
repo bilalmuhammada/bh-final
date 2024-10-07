@@ -64,6 +64,14 @@
      color: #8d13ff;
  }
  
+ select {
+  -webkit-appearance: none;  /* for Chrome */
+  -moz-appearance: none;     /* for Firefox */
+  appearance: none;
+  background: transparent;   /* optional: makes background transparent */
+  border: 1px solid #ccc;    /* adjust as needed */
+  padding: 5px;
+}
  .form-focus.select-focus .focus-label {
      opacity: 1;
      font-weight: 300;
@@ -142,7 +150,7 @@
 
   text-align: center !important;
  
-  padding: 1pc 3pc 1pc 3pc !important;
+  /* padding: 1pc 3pc 1pc 3pc !important; */
   
   color: white !important;
   font-size: 14px !important;
@@ -170,7 +178,7 @@
 
             <div class="form-group form-focus">
             <input type="text" class="form-control floating" name="title" value="{{ $listing->title }}" placeholder="Title"
-                   style="padding:22px;" required>
+                    required>
 
                    
                    <label class="focus-label">Title</label>
@@ -179,11 +187,11 @@
                 Please provide a title.
             </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto" >
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <input type="text" class="form-control floating" name="price" placeholder="" style="padding:22px;"
+                    <input type="text" class="form-control floating" name="price" oninput="validatePhoneNumber(this)" placeholder=""   
                            required>
                              
                    <label class="focus-label">Price</label>
@@ -194,7 +202,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <input type="text" class="form-control floating" name="manufactured_year" placeholder="Manufactured Year" style="padding:22px;" required>
+                    <input type="text" class="form-control floating" name="manufactured_year" oninput="validatePhoneNumber(this)" placeholder="Manufactured Year"    required>
                     <label class="focus-label">Manufactured Year</label>
                 </div>
                     <div class="invalid-feedback">
@@ -203,7 +211,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto" >
             <div class="row">
                 <div class="col-md-6">
                     <select class="form-controlz" name="condition" required>
@@ -232,7 +240,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="stock_level" placeholder="Stock Level" style="padding:22px;"
+                <input type="text" class="form-control floating" name="stock_level" oninput="validatePhoneNumber(this)" placeholder="Stock Level"   
                            required>
                            <label class="focus-label">Stock Level</label>
                         </div>
@@ -260,7 +268,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto">
             <div class="row">
                 <div class="col-md-6">
                     <select class="form-controlz" name="source" required>
@@ -281,7 +289,7 @@
         </div>
            <div class="col-md-6 mx-auto" style="margin-top: 20px;">
             <div class="form-group form-focus">
-           <input type="text" class="form-control floating" name="phone" placeholder="" style="padding:22px;"
+           <input type="text" class="form-control floating" name="phone" placeholder=""   
            oninput="validatePhoneNumber(this)"  title="" required>
                     
                            <label class="focus-label">Mobile</label>
@@ -290,7 +298,7 @@
                         Please provide a valid 10-digit Mobile number.
                     </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto">
             <div class="form-group form-focus">
             <textarea name="description" class="form-control floating" placeholder="" style="height: 200px;"
                       required></textarea>
@@ -302,60 +310,13 @@
             </div>
         </div>
 
-        <div class="col-md-6 mx-auto" style="margin-top: 166px;">
-            <div class="input--file">
-                <i class="fa fa-camera fa-1x"></i>
-              
-                <input type="file" multiple class="form-controlz form-control-file images" name="images[]"
-                       placeholder="Upload Images">
-                <div class="invalid-feedback image-error">
-                    Please upload at least one image.
-                </div>
-                <span><b>Add Photos</b></span>
-            </div>
-        </div>
-        <div class="col-md-4 mx-auto" style="margin-top: 20px;">
-            <div id="image-display-div" class="row "></div>
-        </div>
-
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
-            <div class="input--file">
-                <i class="fa fa-camera fa-1x"></i>
-                <input type="file" multiple class="form-controlz form-control-file documents" name="documents[]"
-                       placeholder="Upload Documents">
-                <div class="invalid-feedback image-error">
-                    Invalid
-                </div>
-                <span><b>Add File</b></span>
-            </div>
-
-
-            
-<div class="form-group" id="filehide">
-    <label style="    padding: 25px;
-    text-align: center;
-    font-size: 25px;">Do you want to show or hide your Files?</label>
-    <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
-        <label class="btn active  btn-show" style="margin-left: 6pc !important;background-color: #dadadb">
-            <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show File
-        </label>
-        <label class="btn btn-show"  style="margin-right: 9pc !important; float: right;background-color: #525252">
-            <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide File
-        </label>
-    </div>
-</div>
-
-
-        </div>
-        <div class="col-md-4 mx-auto" style="margin-top: 20px;margin-bottom: 10px;">
-            <div id="document-display-div" class="row "></div>
-        </div>
+        @include('listings.image&file');
    
         <div class="col-md-6 mx-auto">
             <div class="row">
                 <div class="col-md-6">
                     <select class="form-controlz country" name="country" placeholder="Select Country" required>
-                        <option disabled selected>Select Country</option>
+                        <option disabled selected>Country</option>
                         @foreach($countries as $country)
                             <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
                         @endforeach
@@ -366,7 +327,7 @@
                 </div>
                 <div class="col-md-6">
                     <select class="form-controlz city" name="city" placeholder="Select City" required>
-                        <option selected disabled>Select city</option>
+                        <option selected disabled>City</option>
                     </select>
                     <div class="invalid-feedback">
                         Please select a city.
@@ -377,7 +338,7 @@
         <div class="col-md-6 mx-auto" style="margin-top: 20px;">
             <div class="form-group form-focus">
             <input type="text" class="form-control floating location_name" name="location_name" placeholder="Location Type"
-                   style="padding:22px;" required>
+                      required>
                    <label class="focus-label">Location Type</label>
                 </div>
             <div class="invalid-feedback">

@@ -19,9 +19,18 @@
             opacity: 0;
         }
 
+        .img-thumbnail{
+            padding: 0px !important;
+            background-color: transparent !important;
+            border: 0px solid transparent !important;
+
+        }
+      
         .map {
-            height: 300px;
-            margin-top: 10px;
+            height: 10rem;
+    width: 33rem;
+    margin-left: 8rem;
+    margin-top: 10px;
         }
 
         .image-gallery {
@@ -40,8 +49,8 @@
         }
 
         .form-image {
-            width: 100%;
-            height: 100%;
+            width: 80%;
+            height: 80%;
             object-fit: contain; /* Display the full image without cropping */
         }
 
@@ -119,7 +128,7 @@
         </div>
         <div class="col-md-4 mx-auto" style="margin-top: 20px;">
             <select class="form-control country" name="country" placeholder="Select Country" required>
-                <option selected disabled>Select Country</option>
+                <option selected disabled>Country</option>
                 @foreach($countries as $country)
                     <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
                 @endforeach
@@ -129,7 +138,7 @@
             </div>
         </div>
         <div class="col-md-4 mx-auto" style="margin-top: 20px;">
-            <select class="form-control city" name="city" placeholder="Select City" required>
+            <select class="form-control city" name="city" placeholder="City" required>
                 <option selected disabled>Select a country to see relevent cities</option>
             </select>
             <div class="invalid-feedback">

@@ -27,7 +27,14 @@
      color: #000;
      margin-bottom: 0;
  }
- 
+ select {
+  -webkit-appearance: none;  /* for Chrome */
+  -moz-appearance: none;     /* for Firefox */
+  appearance: none;
+  background: transparent;   /* optional: makes background transparent */
+  border: 1px solid #ccc;    /* adjust as needed */
+  padding: 5px;
+}
  .form-focus.focused .focus-label {
      opacity: 1;
      top: -18px;
@@ -142,7 +149,7 @@
 
   text-align: center !important;
  
-  padding: 1pc 3pc 1pc 3pc !important;
+  /* padding: 1pc 3pc 1pc 3pc !important; */
   
   color: white !important;
   font-size: 14px !important;
@@ -167,7 +174,7 @@
         <input type='hidden' class='form-controlz latitude' id='latitude' name='latitude' placeholder='Enter Latitude'>
         <input type='hidden' class='form-controlz longitude' id='longitude' name='longitude'
                placeholder='Enter Longitude'>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto" >
             <div class="form-group form-focus">
             <input type="text" class="form-control floating" name="title" value="{{ $listing->title }}" placeholder=""
                     required>
@@ -179,7 +186,7 @@
                 Please provide a title.
             </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto" >
         <div class="row">
         <div class="col-md-6">
             <div class="form-group form-focus">
@@ -199,7 +206,7 @@
 
             
     <div class="form-group form-focus">
-        <input type="text" class="form-control floating" name="investment_amount">
+        <input type="text" class="form-control floating" name="investment_amount" oninput="validatePhoneNumber(this)">
         <label class="focus-label">Investment Required</label>
     </div>
             {{-- <input type="text" class="form-controlz" name="investment_amount" placeholder="Investment Required" style="padding:22px;" required> --}}
@@ -209,7 +216,7 @@
         </div>
         </div>
     </div>
-    <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+    <div class="col-md-6 mx-auto" >
         <div class="row">
         <div class="col-md-6">
           <select class="form-controlz" name="trade_licence_type" required>
@@ -224,7 +231,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="stock_level">
+                <input type="text" class="form-control floating" oninput="validatePhoneNumber(this)" name="stock_level">
                 <label class="focus-label">Stock Level</label>
             </div>
             {{-- <input type="text" class="form-controlz" name="stock_level" placeholder="Stock Level" style="padding:22px;"
@@ -235,7 +242,7 @@
         </div>
         </div>
     </div>
-    <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+    <div class="col-md-6 mx-auto" style="margin-bottom: 20px;">
         <div class="row">
         <div class="col-md-6">
             <select class="form-controlz" name="open_for_partnership"  required>
@@ -255,7 +262,7 @@
         </div>
 
     </div>
-    <div class="col-md-6 mx-auto" style="margin-top:20px">
+    <div class="col-md-6 mx-auto" >
         <div class="form-group form-focus">
             <input type="text" class="form-control floating" oninput="validatePhoneNumber(this)"  name="phone" required>
             <label class="focus-label">Mobile</label>
@@ -266,7 +273,7 @@
                 Please provide a valid 10-digit Mobile number.
             </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto" >
             <div class="form-group form-focus">
             <textarea name="products_and_services_offered" class="form-control floating" maxlength="100" placeholder="" style="height: 150px;"
                       required></textarea>
@@ -289,11 +296,11 @@
 
        @include('listings.image&file');
   
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-6 mx-auto" style="margin-bottom: 20px;">
             <div class="row">
         <div class="col-md-6">
             <select class="form-controlz country" name="country" required>
-                <option disabled selected>Select Country</option>
+                <option disabled selected>Country</option>
                 @foreach($countries as $country)
                     <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
                 @endforeach
@@ -304,7 +311,7 @@
         </div>
         <div class="col-md-6">
             <select class="form-controlz city" name="city" required>
-                <option selected disabled>Select cities</option>
+                <option selected disabled>City</option>
             </select>
             <div class="invalid-feedback">
                 Please select a city.
@@ -312,7 +319,7 @@
         </div>
         </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto">
             <div class="form-group form-focus">
             <input type="text" class="form-control floating location_name" name="location_name" placeholder=""
                    style="padding:22px;" required>
@@ -322,7 +329,7 @@
                 Please provide a location.
             </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto" >
             <div class="map" id="map"></div>
         </div>
         <div class="col-md-6 mx-auto text-center btn-nexts" style="margin-top: 20px;">
