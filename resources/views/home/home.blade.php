@@ -22,6 +22,9 @@
 .slick-slide img{
     width: 100% !important;
 }
+.select2-container--open .select2-dropdown{
+    left: -5px !important ;
+}
 </style>
     @php
         $categories = \App\Helpers\RecordHelper::getCategories();
@@ -161,9 +164,9 @@
         <div class="container">
             <div class="col-md-12 m-10" style="min-width: 92rem;">
                 <h3>
-                    <b style="margin-left: -0.7rem;">Popular Categories</b>
+                    <b style="margin-left: -1rem;">Popular Categories</b>
                 </h3>
-                <div class="row" style="margin-left: -32px !important;margin-bottom: -10px;">
+                <div class="row" style="margin-left: -30px !important;margin-bottom: -10px;">
                     @foreach($categories as $category)
                         <div class="col-md-3 cat mb-4">
                             <div class="subcategory-list">
@@ -194,9 +197,9 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h4 style="margin-left: 11px;margin-bottom: -6px;"><b>Popular in Business for Sale</b></h4>
-                <div class="row slider" style="margin-left: -10px;margin-bottom: -26px;">
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom: -6px;"><b>Popular in Business for Sale</b></h4>
+                <div class="row slider" style="margin-left: -8px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -230,9 +233,9 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h4 style="margin-left: 11px; margin-bottom: -2px;"><b>Popular in Share for Sale</b></h4>
-                <div class="row slider" style="margin-left: -22px;margin-bottom: -26px;">
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
+                <h4 style="margin-left: 12px; margin-bottom: -2px;"><b>Popular in Share for Sale</b></h4>
+                <div class="row slider" style="margin-left: -8px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -266,9 +269,9 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h4 style="margin-left: 11px;margin-bottom: -3px;"><b>Popular in Business Ideas</b></h4>
-                <div class="row slider" style="    margin-left: -22px;margin-bottom: -26px;">
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom: -3px;"><b>Popular in Business Ideas</b></h4>
+                <div class="row slider" style="    margin-left: -8px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -302,9 +305,9 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h4 style="margin-left: 11px;margin-bottom: -3px;"><b>Popular in Investors Required</b></h4>
-                <div class="row slider" style="    margin-left: -22px;margin-bottom: -26px;">
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom: -3px;"><b>Popular in Investors Required</b></h4>
+                <div class="row slider" style="    margin-left: -8px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -338,9 +341,9 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h4 style="margin-left: 11px;margin-bottom: -3px;"><b>Popular in Franchise Opportunities</b></h4>
-                <div class="row slider" style="    margin-left: -22px;margin-bottom: -26px;">
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom: -3px;"><b>Popular in Franchise Opportunities</b></h4>
+                <div class="row slider" style="    margin-left: -8px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -374,9 +377,9 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h4 style="margin-left: 11px;margin-bottom: -3px;"><b>Popular in Machinery & Supplies</b></h4>
-                <div class="row slider" style="    margin-left: -22px;margin-bottom: -26px;">
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom: -3px;"><b>Popular in Machinery & Supplies</b></h4>
+                <div class="row slider" style="    margin-left: -8px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -410,9 +413,9 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -81px;">
-                <h4 style="margin-left: 11px;margin-bottom: -3px;"><b>Popular in Export & Import</b></h4>
-                <div class="row slider" style="margin-left: -22px;margin-bottom: -26px;">
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom: -3px;"><b>Popular in Export & Import</b></h4>
+                <div class="row slider" style="margin-left: -8px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)

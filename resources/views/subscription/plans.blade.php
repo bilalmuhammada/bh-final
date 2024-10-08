@@ -1,12 +1,15 @@
 @extends('layout.master')
 <style>
     .package-card {
-      border: 1px solid #ddd;
-      box-shadow: 0px 0px 4px 0px #888;
+      border: 1px solid #b9b9b9;
+      /* box-shadow: 0px 0px 2px 0px #888; */
       padding: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       border-radius: 5px;
     }
+    .form-group {
+    margin-bottom: 1.5rem !important;
+}
     .premium {
       border-color: gold;
     }
@@ -14,9 +17,9 @@
       border-color: dodgerblue;
     }
     .order-summary {
-      border: 1px solid #ddd;
-      box-shadow: 0px 0px 4px 0px #888;
-      padding: 20px;
+      border: 1px solid #b9b9b9;
+      /* box-shadow: 0px 0px 2px 0px #888; */
+      padding: 25px;
       border-radius: 5px;
     }
     .form-check-input {
@@ -89,6 +92,9 @@
 @section('content')
 
     <section style="padding-bottom:40px;">
+      <div class="logo" style="text-align:center;">
+        <img src="{{asset('images/businesshub-slogan.png')}}" alt="" width="250px" alt="logo">
+        </div>
         <div class="container mt-5">
           <form action="/session" method="POST">
             <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -177,7 +183,7 @@
                   <p>Premium Ad for 7 days  <span style="font-weight: 900;
                     margin-left: 108px;">$ 2</span></p>
                   <div class="form-group">
-                    <input type="text" class="form-control1 text-muted" placeholder="Discount code" id="discountCode">
+                    <input type="text" class="form-control1 text-muted" placeholder="Referal Code" id="discountCode">
                     <button class="btn apply-btn" style="    background-color: #e9e9e9;color: white">Apply</button>
                   </div>
                   <hr>

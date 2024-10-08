@@ -4,8 +4,17 @@
 @include("layout.header")
 <!--end::Head-->
 <!--begin::Body-->
+
+@php
+
+$url = request()->path();
+$parts = explode('/', $url);
+$first = $parts[0] ?? null;  
+$second = $parts[1] ?? null;
+//  dd($second =="plane-ad" );
+@endphp
 <body style="overflow-x: hidden;">
-    @if(!in_array(request()->path(), ["about-us", "privacy-policy", "terms-of-use", "contact-us"]))
+    @if(!in_array(request()->path(), ["about-us", "privacy-policy", "terms-of-use", "contact-us",]) && $second !=="plane-ad")
     @include("layout.topbar")
 @else
     @include("layout.new-topbar")

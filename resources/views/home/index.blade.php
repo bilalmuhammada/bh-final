@@ -213,6 +213,18 @@ a{
     .select2-container--default .select2-results__option--selected {
         background-color: #fff !important;
     }
+    .countrylist:hover{
+        /* color: blue; */
+        animation: shake 0.5s ease-in-out;
+    }
+
+    @keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
     .select2-results__options{
         margin-right: 0px;
     font-size: 14px !important;
@@ -225,6 +237,7 @@ a{
     }
     /* end */
     .select2-selection__rendered{
+        padding-left: 12px !important;
         font-size:14px !important;
         outline:none !important;
         border:none !important;
@@ -263,7 +276,7 @@ a{
 $countries = \App\Helpers\RecordHelper::getCountries();
 @endphp
 <body style="overflow-x: hidden;">
-<div class="container" style="border:0px solid red;">
+<div class="container" >
     <div class="row">
     <!-- <div class="col-" style="padding:0px 0px 0px 20px;">
             <div class="logo">
@@ -391,7 +404,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
 <section class="desktop-view">
     <div class="container country-divs">
         <div class="row justify-content-md-center">
-            <div class="col-lg-12" style="border:0px solid red;">
+            <div class="col-lg-12" style="margin-top: 12px;">
               <div class="row">
               @foreach($countries as $country)
                 <div class="col-md-2" style="margin:10px 15px;">
@@ -399,7 +412,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
 
 
               {{-- <a class="mx-auto" href="{{env('BASE_URL') . 'home?country=' . $country->id}}" style="border:0px solid red;"> --}}
-                <div class="col-md-12 main-div" class="main-div" style="border:0px solid red;">
+                <div class="col-md-12 main-div countrylist" class="main-div" style="border:0px solid red;">
                         <span>
                             <img src="{{asset('images/businesshub.png')}}" alt="businesshub" title="businesshub" width="60px">
                         </span>
@@ -429,7 +442,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
         </div>
         <div class="row">
         @foreach($countries as $country)
-            <div class="col-lg-3 p-5px col-6 " style="border:0px solid #eee;">
+            <div class="col-lg-3 p-5px col-6  " style="border:0px solid #eee;">
             <a class="mx-auto" href="{{env('BASE_URL') . 'home'}}">
                 <div class="col mx-auto main-div">
            <span>
@@ -459,7 +472,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
     <h4 class="text-center mb-50 mobile-view">
         <b>Join Millions of Users to Buy & Sell Businesses Worldwide!</b>
     </h4>
-    <div class="col-md-12" style="margin: 40px 0px 0px 53px !important;">
+    <div class="col-md-12" style="margin: 40px 0px 0px 32px !important;">
         <div class="row">
             @foreach($categories as $category)
                 <div class="col-lg-3 col-md-6 mb-30 col-12 ">

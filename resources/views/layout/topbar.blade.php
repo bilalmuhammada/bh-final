@@ -16,7 +16,7 @@
     }
     $countries = \App\Helpers\RecordHelper::getCountries();
     $language = \App\Helpers\RecordHelper::getlanguge();
-    
+   
 @endphp
 <style>
     .dropdown-menu{
@@ -123,6 +123,7 @@
             background-color: #f0f0f0;
         }
         .select2-selection__rendered {
+            /* padding-left: 16px !important; */
             font-size: 14px !important;}
 
 
@@ -862,7 +863,7 @@
             <div class="container" style="margin:0px auto;border:0px solid green;">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <ul class="navbar-nav"
-                    style="margin:0px 0px 22px 0px !important;border:0px solid red;font-size: 14.6px;line-height: 1.43;font-weight: 600;">
+                    style="margin:0px 0px 22px 5px !important;border:0px solid red;font-size: 14.6px;line-height: 1.43;font-weight: 600;">
                     <div class="row">
                         @php $categories = \App\Helpers\RecordHelper::getCategories(); @endphp
                         @foreach($categories as $category)
