@@ -68,12 +68,12 @@
         <div class="cont-w desktop-view" style="border-bottom:2px solid #eee;">
             <div class="col-lg-12 col-md-12 col-12" style="">
                 <div class="row" style="margin-top: 7px;">
-                    <div class="cat_btn" style="margin:3px 5px;">
+                    <div class="cat_btn" >
                         <a href="{{ env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city }}"
                            style="color:#0000FF;font-size:12px;">Home</a>
                         <i class="fa fa-chevron-right" style="font-size:11px;"></i>
                     </div>
-                    <div class="cat_btn" style="margin:3px 5px;">
+                    <div class="cat_btn" style="margin:0px 5px;">
                         <a href="{{ env('BASE_URL') . 'ads/' . $ad->subcategory_id . '?country=' . request()->country . '&city=' . request()->city }}"
                            style="color:#0000FF;font-size:12px;">{{ $ad->subcategory_name }}</a>
                         <i class="fa fa-chevron-right" style="font-size:11px;"></i>
@@ -159,7 +159,7 @@
         <div class="container mobile-view">
             <div class="col-lg-12 col-md-12 mb-30 col-12 mt-10" style="border:0px solid red;">
                 <div class="row">
-                    <div class="cat_btn" style="margin:7px 5px;">
+                    <div class="cat_btn">
                         <a href="{{ env('BASE_URL') . 'home' }}" style="color:#0000FF;font-size:12px;">Home</a>
                         <i class="fa fa-chevron-right" style="font-size:11px;"></i>
                     </div>
@@ -167,7 +167,7 @@
                     {{--                        <a href="{{ env('BASE_URL') . 'ads/category/' . $ad->category_id}}" style="color:#0000FF;font-size:12px;">{{ $ad->category_name }}</a>--}}
                     {{--                        <i class="fa fa-chevron-right" style="font-size:11px;"></i>--}}
                     {{--                    </div>--}}
-                    <div class="cat_btn" style="margin:7px 5px;">
+                    <div class="cat_btn" style="margin:0px 5px;">
                         <a href="{{ env('BASE_URL') . 'ads/' . $ad->subcategory_id}}"
                            style="color:#0000FF;font-size:12px;">{{ $ad->subcategory_name }}</a>
                         <i class="fa fa-chevron-right" style="font-size:11px;"></i>
@@ -178,10 +178,10 @@
     </section>
 
     <section>
-        <div class="container" style="border:0px solid red;margin-left: 9.5rem;">
+        <div class="container" style="border:0px solid red;margin-left: 9.2rem;">
             <div class="col-lg-12 col-md-12 col-12" style="border:0px solid red;">
                 <div class="row">
-                    <div class="col-lg-8 col-md-8 col-12" style="border:0px solid red;">
+                    <div class="col-lg-9 col-md-9 col-12" style="border:0px solid red;">
                         <div class="row">
                             <!-----content----->
                             <div class="col-lg-12 col-md-12 col-12"
@@ -216,7 +216,7 @@
                                             <div class="cSlider__item" style="margin-top:28px !important;">
                                                 <img src="{{ $image->listing_image_url }}" alt="Listing Image"
                                                      width="100%" height="300"
-                                                     style="height:60px;border:2px solid #0000FF;border-radius:6px;">
+                                                     style="height:60px;border-radius:6px;">
                                             </div>
                                         @endforeach
                                     </div>
@@ -340,8 +340,8 @@
                     </div>
                 </div>
                 <!--  desktop view -->
-                <div class="col-lg-4 col-md-4 col-12 desktop-view">
-                    <div class="row" style="margin-top: -14px; margin-left:5.6rem;">
+                <div class="col-lg-3 col-md-3 col-12 desktop-view">
+                    <div class="row" style="margin-top: -14px;">
                         <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
                         <div class="col-lg-12 col-md-12 col-12">
                             <div class="inner" style="border: 1px solid #eee; border-radius: 5px; padding: 15px;width: 24rem;">
@@ -354,6 +354,14 @@
                                 <div class="row" style="padding-bottom: 10px; align-items: center;">
                                    
                                     <div class="col-6">
+                                    @if (session()->has('user'))
+                                    <div class="profile-image-container" style="display: flex; align-items: center;margin-left:7.2rem;margin-top:10px;">
+                                                  
+                                        {{-- <b>{{ $ad->created_by_user->name }}</b> --}}
+                                        <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="150" height="135" style="border-radius: 5%;">
+                                    </div>
+                                
+                                 @else
                                         
                                        
                                             <div class="profile-image-container" style="display: flex; align-items: center;margin-left:7.2rem;margin-top:10px;">
@@ -361,21 +369,13 @@
                                                 {{-- <b>{{ $ad->created_by_user->name }}</b> --}}
                                                 <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="150" height="135" style="border-radius: 5%;">
                                             </div>
-                                        
+                                            @endif 
                                     </div>
-                                    {{-- <div class="col-6">
-                                        <span class="verified-badge bg-success">
-                                            <i class="fa fa-check-circle"></i> VERIFIED USER
-                                        </span>
-                                    </div> --}}
+                                    
                                 </div>
                                 
                 
-                                @if (session()->has('user'))
-                                <div class="profile-image-container" style="text-align: center; margin-bottom: 13px;">
-                                    <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="80" height="80" style="border-radius: 50%;">
-                                </div>
-                                @endif
+                               
                 
                                 <div class="action-buttons" style="text-align: center;margin-top: 13px;margin-left:23px;margin-bottom: 15px;">
                                     @if(empty($ad->phone_listing_approval_status) || $ad->phone_listing_approval_status == 'rejected')
@@ -409,11 +409,11 @@
                         </div>
                 
                         <!-- ad area -->
-                        @foreach($ad->images as $image)
+                        {{-- @foreach($ad->images as $image)
                         <div class="col-lg-12 col-md-12 col-12">
                             <img src="{{ $image->listing_image_url }}" alt="Listing Image" width="100%" height="150" style="margin-bottom: 10px;">
                         </div>
-                        @endforeach
+                        @endforeach --}}
                     </div>
                 </div>
                 

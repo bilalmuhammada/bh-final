@@ -24,6 +24,10 @@
         max-height: 21rem !important;
         overflow-x: hidden;
     }
+    .colorChange:hover{
+        color: blue !important;
+
+    }
    
     
     .dropdown-menu.show {
@@ -275,7 +279,7 @@
                                    aria-expanded="false">
                                     {{-- <img src="{{ asset('images/my-notifications.svg')}}" width="17" height="17"> --}}
                                     <div>
-                                        <span style="color: #000;font-size:16px;">Notification</span>
+                                        <span class="colorChange" style="color: #000;font-size:16px;">Notification</span>
                                     </div>
                                 </a>
                                 <div class="dropdown-menu"  id="notifications" aria-labelledby="notifications"
@@ -492,7 +496,7 @@
                                 <a type="button" id="favorite" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">
                                     {{-- <img src="{{ asset('images/my-favorites.svg')}}" width="17" height="17"> --}}
-                                    <div><span style="color: #000; font-size: 16px; ">Favorites</span></div>
+                                    <div><span class="colorChange" style="color: #000; font-size: 16px; ">Favorites</span></div>
                                 </a>
                                 {{-- <div class="dropdown-menu" aria-labelledby="favorite"
                                      style="padding: 10px;width:250px;">
@@ -592,7 +596,7 @@
                                    aria-haspopup="true"
                                    aria-expanded="false">
                                     {{-- <img src="{{ asset('images/my-chats.svg')}}" width="17" height="17"> --}}
-                                    <div><span style="color: #000;font-size: 16px;">Chat</span></div>
+                                    <div><span  class="colorChange" style="color: #000;font-size: 16px;">Chat</span></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="chat" style="padding: 10px;width:auto;">
                                     @if (session()->has('user') && count($chats) > 0)
@@ -660,7 +664,7 @@
                                    aria-haspopup="true"
                                    aria-expanded="false">
                                     {{-- <i class="fa fa-user" width="19" style="color: #999;"></i> --}}
-                                    <div><span style="color: #000; font-size: 16px;">My Ads</span></div>
+                                    <div><span class="colorChange" style="color: #000; font-size: 16px;">My Ads</span></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="ads" style="padding: 10px;width:auto;">
                                     @if (session()->has('user') && count($my_ads_for_topbar) > 0)
@@ -714,7 +718,7 @@
                                          style="border-radius: 50%;border:0px solid red;">
                                 </a>
                                 <span class="dropdown">
-                                        <span style="width:;display:inline;border:0px solid red;" type="button"
+                                        <span class="colorChange" style="width:;display:inline;border:0px solid red;" type="button"
                                               id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                               aria-expanded="false">
                                             {{session()->get('user')->name}}
