@@ -36,18 +36,20 @@ class UserController extends Controller
 
     public function updateProfile(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'dob' => 'required|date',
-            'gender' => 'required',
-            'nationality' => 'required',
-        ]);
 
-        if ($validator->fails()) {
-            return response()->json([
-                'status' => FALSE,
-                'message' => $validator->errors()->first()
-            ]);
-        }
+        // dd($request->all());
+        // $validator = Validator::make($request->all(), [
+        //     'dob' => 'required|date',
+        //     'gender' => 'required',
+        //     'nationality' => 'required',
+        // ]);
+
+        // if ($validator->fails()) {
+        //     return response()->json([
+        //         'status' => FALSE,
+        //         'message' => $validator->errors()->first()
+        //     ]);
+        // }
 
         $User = User::find(Auth::id() ?? Session::get('user')->id);
 

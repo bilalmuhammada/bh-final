@@ -2,6 +2,12 @@
 @php
     $countries = \App\Helpers\RecordHelper::getCountries();
 @endphp
+
+<style>
+    .changeColor:hover{
+     color: blue !important;
+    }
+</style>
 <footer>
 {{--<div class="marquee" style="background-color: #0000FF;color: white;padding-top: 10px;margin-bottom: 10px;height: 25px;">
         <marquee behavior="" direction=""><h5><b><i><span>BusinessHub</span> </i> </b></h5></marquee>
@@ -40,7 +46,7 @@
                             <a href="{{env('BASE_URL') . 'how-it-works?country=' . request()->country . '&city=' . request()->city }}">How It Works</a>
                         </li> -->
                         <li>
-                            <a href="{{env('BASE_URL') . 'about-us?country=' . request()->country . '&city=' . request()->city }}">About Us</a>
+                            <a href="{{env('BASE_URL') . 'about-us?country=' . request()->country . '&city=' . request()->city }}" class="changeColor">About Us</a>
                         </li>
                         <!-- <li>
                             <a href="# ">Advertising</a>
@@ -49,13 +55,13 @@
                             <a href="{{env('BASE_URL') . 'subscription'. '/plans' }}">Subscription</a>
                         </li> --}}
                         <li>
-                            <a href="{{env('BASE_URL') . 'contact-us'}}">Contact Us</a>
+                            <a href="{{env('BASE_URL') . 'contact-us'}}" class="changeColor">Contact Us</a>
                         </li>
                         <li>
-                            <a href="{{env('BASE_URL') . 'terms-of-use?country=' . request()->country . '&city=' . request()->city }}">Terms of Use</a>
+                            <a href="{{env('BASE_URL') . 'terms-of-use?country=' . request()->country . '&city=' . request()->city }}" class="changeColor">Terms of Use</a>
                         </li>
                         <li>
-                            <a href="{{env('BASE_URL') . 'privacy-policy?country=' . request()->country . '&city=' . request()->city }}">Privacy Policy</a>
+                            <a href="{{env('BASE_URL') . 'privacy-policy?country=' . request()->country . '&city=' . request()->city }}" class="changeColor">Privacy Policy</a>
                         </li>
                        
                     </ul>

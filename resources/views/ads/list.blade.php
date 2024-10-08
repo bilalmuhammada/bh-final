@@ -13,6 +13,12 @@
             padding: 10px 16px;
             border: 1px solid rgb(224, 225, 227);
         }
+        .filter1::placeholder{
+
+            font-size: 13px;
+            color: #000;
+            /* margin-top: 4px; */
+        }
 
         .carousel-item{
             border-radius:20px; 
@@ -39,10 +45,23 @@
             background-color: #e6e6e6;
             cursor: pointer;
         }
+        .btn:hover{
+            border: 1px solid blue !important; 
+        }
 
         .multi-collapse {
             min-width: 340px;
             margin-top: 10px;
+        }
+        .form{
+            
+    border-radius: 10px;
+    border: 1px solid rgb(194, 196, 199);
+    display: flex !important;
+    width: 75rem !important;
+        }
+        .form:hover{
+            border: 1px solid blue !important;
         }
 
         .active {
@@ -95,14 +114,13 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
     <section class="desktop-view">
         <div class="container" style=" max-width: 80rem;">
             {{-- <div class="col-lg-12 col-xl-12 col-12 col-md-12"> --}}
-                <form class="form" 
-      style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;border-radius: 10px;border: 1px solid rgb(194, 196, 199); display: flex !important; width: 75rem !important;">
+                <form class="form" >
     <div class="row" style="display: flex; flex-wrap: nowrap;">
         <div class="col-md-4" style="border-right:2px solid #eee;" id="cityArea">
             <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
                aria-controls="multiCollapseExample1" style="color:#000;">
                 <div class="col-md-12" style="text-align: center;"><span style="font-size: 14px;"><b>City</b></span></div>
-                <div class="col-md-12" style="margin-top: 5px;" ><span style="font-size: 11px;color:#000;">{{ $selected_city_name }}</span></div>
+                <div class="col-md-12" style="margin-top: 5px;" ><span style="font-size: 13px;color:#000;">{{ $selected_city_name }}</span></div>
             </a>
         </div>
 
@@ -110,8 +128,8 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
         <div class="col-md-7" style="border-right: 2px solid #eee; text-align: center;">
             <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;">Keyword</label>
             <div class="input-group">
-                <input type="text" class="form-control" id="keyword" style="margin-top: -14px;" placeholder="Search anything in {{ $category_name->name }}">
-                <span style="margin-top: -12px;font-weight: bolder; color: goldenrod;" id="searchIcon">
+                <input type="text" class="form-control filter1" id="keyword" style="margin-top: -10px;" placeholder="Search anything in {{ $category_name->name }}">
+                <span style="margin-top: -3px;font-weight: bolder; color: goldenrod;" id="searchIcon">
                     <i class="fa fa-search"></i> <!-- Bootstrap Icons -->
                 </span>
             </div>
@@ -134,7 +152,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
         <div class="col-md-6" style="border-right: 2px solid #eee; text-align: center;">
             <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px;">Neighborhood</label>
             <div class="input-group">
-                <input type="text" class="form-control" style="margin-top: -12px;" id="neighborhood" placeholder="Enter location">
+                <input type="text" class="form-control filter1" style="margin-top: -12px;" id="neighborhood" placeholder="Enter location">
                 <span class="" id="locationIcon">
                     <i class="fa fa-map-marker" style="margin-top: -5px; color:red;"></i> <!-- Bootstrap Icons location marker -->
                 </span>
@@ -152,7 +170,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             </a>
             {{-- <div class="col-md-12" style="display: flex;"> --}}
                 <span style="display: flex;">
-                <input type="text" class="form-control" style="border-right: 1px solid #eee;padding: 0px !important; " name="min_price" id="min_price" placeholder="Min" min="0">
+                <input type="text" class="form-control filter1" style="border-right: 1px solid #eee;padding: 0px !important; " name="min_price" id="min_price" placeholder="Min" min="0">
                 {{-- <div style="border-left: 1px solid #ccc; height: 100%; margin: 0 10px;"></div> --}}
     
                 <input type="text" class="form-control" style="padding: 0px !important; " name="max_price" id="max_price" placeholder="Max" min="0">
@@ -389,7 +407,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                             </div>
                             <div class="col-lg-8 col-md-8 col-12">
                                 <div class="row">
-                                    <div class="col-lg-9 col-md-9 col-9" style="margin-left: -97px">
+                                    <div class="col-lg-7 col-md-7 col-7" style="margin-left: -97px">
                                         <h5 style="font-size: 22px;font-weight:700;">{{ $ad->title ?? 'Heading N/A' }}</h5>
                                         <p style="font-size: 13px;">{{ $ad->category_name }} <span style="font-size: 16px;">&#9679;</span> {{ $ad->subcategory_name }}</p>
                                         <h3 style="font-weight: bold;font-size:23px;">AED {{ \App\Helpers\SiteHelper::priceFormatter($ad->price, request()->currency) }}</h3>
@@ -408,7 +426,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                 </div>
                             </div>
                             <!-----content----->
-                            <hr style="width: 81.5%;margin-top: -9px;margin-left: 12px;background:#eee;">
+                            <hr style="width: 71.5%;margin-top: -9px;margin-left: 12px;background:#eee;">
                         </div>
                     @endforeach
                     
