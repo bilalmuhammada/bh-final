@@ -141,28 +141,31 @@ class ListingController extends Controller
         ]);
     }
 
-    public function showPlaceAd($listing_id)
+    public function showPlaceAd($category_id,$subcategory_id)
     {
-        $validation_arr = [
-            'listing_id' => $listing_id,
-        ];
+        // $validation_arr = [
+        //     'listing_id' => $listing_id,
+        // ];
 
-        $Validator = Validator::make($validation_arr, [
-            'listing_id' => 'required|exists:listings,id',
-        ]);
+        // $Validator = Validator::make($validation_arr, [
+        //     'listing_id' => 'required|exists:listings,id',
+        // ]);
 
-        if ($Validator->fails()) {
-            $error = $Validator->errors()->first();
-            SiteHelper::setAlert('danger', $error);
-            return redirect(env('base_url') . 'listing/select-subcategory');
-        }
+        // if ($Validator->fails()) {
+        //     $error = $Validator->errors()->first();
+        //     SiteHelper::setAlert('danger', $error);
+        //     return redirect(env('base_url') . 'listing/select-subcategory');
+        // }
 
-        $Listing = Listing::find($listing_id);
+        // $Listing = Listing::find($listing_id);
 
-        $view_name = Category::find($Listing->category_id)->form_view;
+        $Categories = Category::find($category_id)->first();
+        $subcategories = SubCategory::find($subcategory_id)->first();;
+        $view_name = Category::find($category_id)->form_view;
 // dd('ddd');
         $data = [
-            'listing' => $Listing,
+             'Categories' => $Categories,
+             'subcategories' => $subcategories,
             'countries' => RecordHelper::getCountries(),
         ];
 

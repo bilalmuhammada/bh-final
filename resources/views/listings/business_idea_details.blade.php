@@ -165,18 +165,19 @@
          <h3 class="mx-auto text-center">You are almost there!</h3>
         <p class="mx-auto text-center">Provide as much Details & Pictures as possible and set right Price!</p>
         <p>
-            <span class="text-muted">{{ $listing->category_name }}</span> ><span
-                class="text-muted">{{ $listing->subcategory_name }}</span>
+            <span class="text-muted">{{ $Categories->name }}</span> ><span
+                class="text-muted">{{ $subcategories->name }}</span>
         </p>
     </div>
     <form class="place-ad-form" enctype="multipart/form-data">
-        <input name="listing_id" type="hidden" value="{{$listing->id}}">
+        <input name="category_name" type="hidden" value="{{ $Categories->name }}">
+        <input name="subcategory_name" type="hidden" value="{{ $subcategories->name }}">
         <input type='hidden' class='form-controlz latitude' id='latitude' name='latitude' placeholder='Enter Latitude'>
         <input type='hidden' class='form-controlz longitude' id='longitude' name='longitude'
                placeholder='Enter Longitude'>
         <div class="col-md-6 mx-auto" >
             <div class="form-group form-focus">
-            <input type="text" class="form-control floating" name="title" value="{{ $listing->title }}" placeholder=""
+            <input type="text" class="form-control floating" name="title" value="" placeholder=""
                     required>
 
                    <label class="focus-label">Title</label>
@@ -190,13 +191,12 @@
         <div class="row">
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="business_ype" value="{{ $listing->title }}" placeholder=""
+                <input type="text" class="form-control floating" name="business_modal" value="" placeholder=""
                         required>
     
-                       <label class="focus-label">Business Type</label>
+                       <label class="focus-label">Business Modal</label>
                     </div>
-            {{-- <input type="text" class="form-controlz" name="business_ype" placeholder="Business Type" style="padding:22px;"
-                    title="" required> --}}
+            
             <div class="invalid-feedback">
                 Please provide a valid Business Type.
             </div>
@@ -231,48 +231,118 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating" oninput="validatePhoneNumber(this)" name="stock_level">
-                <label class="focus-label">Stock Level</label>
+                <input type="text" class="form-control floating" oninput="validatePhoneNumber(this)" name="Premise">
+                <label class="focus-label">Premise                 </label>
             </div>
             {{-- <input type="text" class="form-controlz" name="stock_level" placeholder="Stock Level" style="padding:22px;"
             required> --}}
-     <div class="invalid-feedback">
+     {{-- <div class="invalid-feedback">
          Please provide a valid Stock Level.
-     </div>
+     </div> --}}
         </div>
         </div>
     </div>
     <div class="col-md-6 mx-auto" style="margin-bottom: 20px;">
         <div class="row">
-        <div class="col-md-6">
-            <select class="form-controlz" name="open_for_partnership"  required>
-                <option selected disabled>Open for Partnership</option>
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
-            </select>
-        </div>
-        <div class="col-md-6">
-        <select class="form-controlz" name="estimated_sales_in_letters" required>
-                    <option selected disabled>Sales Frequency</option>
-                    <option value="Daily">Daily</option>
-                    <option value="Monthly">Monthly</option>
-                    <option value="Yearly">Yearly</option>
-            </select>
-        </div>
+            <div class="col-md-6">
+                <div class="form-group form-focus">
+                    <input type="text" class="form-control floating"  oninput="validatePhoneNumber(this)" name="size_sqm" placeholder="" 
+                        title="" required>
+                        <label class="focus-label">Premise Size SqM</label>
+                    </div>
+                <div class="invalid-feedback">
+                    Please provide a valid Premise Size SqM.
+                </div>
+            </div>
+            <div class="col-md-6">
+                <select class="form-controlz" name="lease_term" required>
+                            <option selected disabled>Lease Term</option>
+                            <option value="Annual">Annual</option>
+                            <option value="Monthly">Monthly</option>
+                            <option value="Yearly">Yearly</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                       <input type="text" class="form-control floating" name="branches"  oninput="validatePhoneNumber(this)" placeholder="" 
+                           title="" required>
+                           <label class="focus-label">Braches #</label>
+                       </div>
+                   <div class="invalid-feedback">
+                       Please provide a valid Premise Size SqM.
+                   </div>
+               </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                           <input type="text" class="form-control floating" name="no_of_employees"  oninput="validatePhoneNumber(this)" placeholder="" 
+                               title="" required>
+                               <label class="focus-label">Employees #</label>
+                           </div>
+                       {{-- <div class="invalid-feedback">
+                           Please provide a valid No of Employees.
+                       </div> --}}
+                </div>
+                <div class="col-md-6">
+                    <select class="form-controlz" name="sale_freq" required>
+                                <option selected disabled>Sales Frequency       </option>
+                                <option value="Annual">Daily</option>
+                                <option value="Monthly">Weekly</option>
+                                <option value="Yearly">Monthly</option>
+                                <option value="Yearly">Yearly</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group form-focus">
+                               <input type="text" class="form-control floating" name="expect_sale"  oninput="validatePhoneNumber(this)" placeholder="" 
+                                   title="" required>
+                                   <label class="focus-label">Expected Sale</label>
+                               </div>
+                    </div>
+        
+                    <div class="col-md-6">
+                        <div class="form-group form-focus">
+                               <input type="text" class="form-control floating" name="expect_roi"   placeholder="" 
+                                   title="" required>
+                                   <label class="focus-label">Expected ROI %</label>
+                               </div>
+                    </div>
+                    <div class="col-md-6">
+                        <select class="form-controlz" name="contract_term" required>
+                                    <option selected disabled>Contract Term</option>
+                                    <option value="Annual">Daily</option>
+                                    <option value="Monthly">Weekly</option>
+                                    <option value="Yearly">Monthly</option>
+                                    <option value="Yearly">Yearly</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group form-focus">
+                               <input type="text" class="form-control floating" name="contrt_length"   placeholder="" 
+                                   title="" required>
+                                   <label class="focus-label">Contract Length</label>
+                               </div>
+                    </div>
+                    <div class="col-md-6 " >
+                        <div class="form-group form-focus">
+                            <input type="text" class="form-control floating" oninput="validatePhoneNumber(this)"  name="phone" required>
+                            <label class="focus-label">Mobile</label>
+                        </div>
+                           
+                    </div>
         </div>
 
     </div>
     <div class="col-md-6 mx-auto" >
         <div class="form-group form-focus">
-            <input type="text" class="form-control floating" oninput="validatePhoneNumber(this)"  name="phone" required>
-            <label class="focus-label">Mobile</label>
+            <input type="text" class="form-control floating" oninput="validatePhoneNumber(this)"  name="whatsapp" required>
+            <label class="focus-label">WhatsApp</label>
         </div>
             {{-- <input type="tel" class="form-controlz" name="phone" placeholder="Mobile" style="padding:22px;"
                    pattern="[0-9]{10}" title="Please enter a valid 10-digit Mobile number" required> --}}
-            <div class="invalid-feedback">
+            {{-- <div class="invalid-feedback">
                 Please provide a valid 10-digit Mobile number.
-            </div>
-        </div>
+            </div> --}}
+    </div>
         <div class="col-md-6 mx-auto" >
             <div class="form-group form-focus">
             <textarea name="products_and_services_offered" class="form-control floating" maxlength="100" placeholder="" style="height: 150px;"

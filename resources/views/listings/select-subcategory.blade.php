@@ -1,20 +1,20 @@
 @extends('listing-layout.master')
 @section('content')
     <div class="col-md-5 mx-auto text-center" >
-        <h4 style="font-size: 24px;font-weight:bold;">Choose the Category of your Business!</h4>
+        <h4 style="font-size: 1.55rem;font-weight:bold;">Choose the Category of your Business!</h4>
     </div>
-    <div class="col-md-5 mx-auto" >
+    <div class="col-md-5 mx-auto" style="padding-left: 4rem" >
         <ul style="list-style-type:none;">
-            <li style="width:350px;border-bottom:1px solid #eee;padding:5px;text-decoration: none;width:450px;">
+            <li style="width:350px;border-bottom:1px solid #eee;padding:2px;text-decoration: none;width:456px;">
                 <a href="{{env('BASE_URL') . 'listing/select-category'. ''}}" >...</a> >
                 <b class="text-muted">{{ $category->name }}</b>
             </li>
         </ul>
         <ul style="list-style-type:none;" style="border: 1px solid red;padding:;">
             @foreach($subcategories as $subcategory)
-            <li style="width:350px;border-bottom:1px solid #eee;padding:15px;text-decoration: none;width:450px;">
+            <li style="width:350px;border-bottom:1px solid #eee;padding:5px;text-decoration: none;width:456px;">
                 <a href="{{env('BASE_URL') . 'listing/' . $category_id . '/listing-title/' . $subcategory->id}}" class="text-dark">{{$subcategory->name}}
-                    <i class="fa fa-chevron-right" style="float: right;text-decoration: none;"></i>
+                    <i class="fa fa-chevron-right" style="float: right;text-decoration: none; color: blue;"></i>
                 </a>
             </li>
             @endforeach

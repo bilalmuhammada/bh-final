@@ -159,24 +159,25 @@
  
  </style>
 @section('content')
+
     <div class="col-md-6 mx-auto">
          <h3 class="mx-auto text-center">You are almost there!</h3>
         <p class="mx-auto text-center">Provide as much Details & Pictures as possible and set right Price!</p>
         <p>
-            <span class="text-muted">{{ $listing->category_name }}</span> ><span
-                class="text-muted">{{ $listing->subcategory_name }}</span>
+            <span class="text-muted">{{ $Categories->name }}</span> ><span
+                class="text-muted">{{ $subcategories->name }}</span>
         </p>
     </div>
     <form class="place-ad-form" enctype="multipart/form-data" >
-        <input name="listing_id" type="hidden" value="{{$listing->id}}">
-        <input name="category_name" type="hidden" value="{{$listing->category_name}}">
-        <input name="subcategory_name" type="hidden" value="{{$listing->subcategory_name}}">
+        <input name="listing_id" type="hidden" value="">
+        <input name="category_name" type="hidden" value="{{ $Categories->name }}">
+        <input name="subcategory_name" type="hidden" value="{{ $subcategories->name }}">
         <input type='hidden' class='form-controlz latitude' id='latitude' name='latitude' placeholder='Enter Latitude'>
         <input type='hidden' class='form-controlz longitude' id='longitude' name='longitude'
                placeholder='Enter Longitude'>
         <div class="col-md-6 mx-auto" >
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating"  name="title" value="{{ $listing->title }}"
+                <input type="text" class="form-control floating"  name="title" value=""
                     required>
                    <label class="focus-label">Title</label>
                 </div>
@@ -187,29 +188,41 @@
 
         <div class="col-md-6 mx-auto" >
         <div class="row">
-        <div class="col-md-6">
-             <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="business_type" placeholder="" 
-                    title="" required>
-                    <label class="focus-label">Business Type</label>
-                </div>
-            {{-- <div class="invalid-feedback">
-                Please provide a valid Business Type.
-            </div> --}}
-        </div>
-        <div class="col-md-6">
-             <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="price" placeholder=""   oninput="validatePhoneNumber(this)" required>
-                <label class="focus-label">Price</label>
-            </div>
-            <div class="invalid-feedback">
-                Please provide a valid price.
-            </div>
-        </div>
+            <div class="col-md-6">
+                <div class="form-group form-focus">
+                   <input type="text" class="form-control floating" name="price" placeholder=""   oninput="validatePhoneNumber(this)" required>
+                   <label class="focus-label">Price</label>
+               </div>
+               <div class="invalid-feedback">
+                   Please provide a valid price.
+               </div>
+           </div>
+           <div class="col-md-6">
+            <div class="form-group form-focus">
+               <input type="text" class="form-control floating" name="sale_revenue"  oninput="validatePhoneNumber(this)" placeholder="" 
+                   title="" required>
+                   <label class="focus-label">Sales Revenue  </label>
+               </div>
+           {{-- <div class="invalid-feedback">
+               Please provide a valid Business Type.
+           </div> --}}
+       </div>
+        
+        
         </div>
     </div>
     <div class="col-md-6 mx-auto" >
         <div class="row">
+            <div class="col-md-6">
+                <div class="form-group form-focus">
+                   <input type="text" class="form-control floating" name="business_type" placeholder="" 
+                       title="" required>
+                       <label class="focus-label">Business Modal</label>
+                   </div>
+            <div class="invalid-feedback">
+                   Please provide a valid Business Type.
+               </div>
+           </div> 
         <div class="col-md-6">
         <select class="form-controlz" name="trade_licence_type" required>
                 <option disabled selected>Trade Licence</option>
@@ -220,37 +233,32 @@
                     <option value="Private">Private</option>
             </select>
         </div>
-        <div class="col-md-6">
-         <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="established_year" placeholder=""  oninput="validatePhoneNumber(this)" required>
-                <label class="focus-label">Established Year</label>
-            </div>
-            <div class="invalid-feedback">
-                Please provide a valid Established Year.
-            </div>
-        </div>
+       
+        
         </div>
     </div>
 <div class="col-md-6 mx-auto" >
         <div class="row">
+            <div class="col-md-6">
+                <div class="form-group form-focus">
+                       <input type="text" class="form-control floating" name="established_year" placeholder=""  oninput="validatePhoneNumber(this)" required>
+                       <label class="focus-label">Established Year</label>
+                   </div>
+                   <div class="invalid-feedback">
+                       Please provide a valid Established Year.
+                   </div>
+               </div>
         <div class="col-md-6">
              <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="size_sqm"  oninput="validatePhoneNumber(this)" placeholder="" 
+                <input type="text" class="form-control floating" name="branches"  oninput="validatePhoneNumber(this)" placeholder="" 
                     title="" required>
-                    <label class="focus-label">Premise Size SqM</label>
+                    <label class="focus-label">Braches#</label>
                 </div>
             <div class="invalid-feedback">
                 Please provide a valid Premise Size SqM.
             </div>
         </div>
-        <div class="col-md-6">
-        <select class="form-controlz" name="lease_term" required>
-                    <option disabled selected>Lease Term</option>
-                    <option value="Annual">Annual</option>
-                    <option value="Monthly">Monthly</option>
-                    <option value="Yearly">Yearly</option>
-            </select>
-        </div>
+       
         </div>
     </div>
     <div class="col-md-6 mx-auto">
@@ -259,13 +267,22 @@
          <div class="form-group form-focus">
                 <input type="text" class="form-control floating" name="no_of_employees"  oninput="validatePhoneNumber(this)" placeholder="" 
                     title="" required>
-                    <label class="focus-label">No of Employees</label>
+                    <label class="focus-label">Employees#</label>
                 </div>
             <div class="invalid-feedback">
                 Please provide a valid No of Employees.
             </div>
         </div>
         <div class="col-md-6">
+            <select class="form-controlz" name="premise_status" required>
+                        <option disabled selected>Premise Status        </option>
+                        <option value="own">Owned</option>
+                        <option value="rent">Rented</option>
+                        <option value="not_reg">Not Registered</option>
+                </select>
+            </div>
+        
+        {{-- <div class="col-md-6">
              <div class="form-group form-focus">
                 <input type="text" class="form-control floating" name="reason_for_sale" placeholder="" 
                     title="" required>
@@ -274,29 +291,139 @@
             <div class="invalid-feedback">
                 Please provide a valid Reason for Sale.
             </div>
-        </div>
+        </div> --}}
 </div>
 </div>
         <div class="col-md-6 mx-auto">
         <div class="row">
-        <div class="col-md-6">
-            <select class="form-controlz" name="open_for_partnership"  required>
-                <option disabled selected>Open for Partnership</option>
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
-            </select>
-        </div>
+            <div class="col-md-6">
+                <select class="form-controlz" name="lease_term" required>
+                            <option disabled selected>Lease Term</option>
+                            <option value="Annual">Daily</option>
+                            <option value="Monthly">Monthly</option>
+                            <option value="Yearly">Yearly</option>
+                            <option value="lifetime">Lifetime</option>
+                    </select>
+                </div>
             <div class="col-md-6">
                 <div class="form-group form-focus">
-                    <input type="text" class="form-control floating"  name="phone" placeholder="" 
+                    <input type="text" class="form-control floating"  name="squrft" placeholder="" 
                     {{-- pattern="\d{10}"  --}}
                     title="Please enter a valid 10-digit  number"   oninput="validatePhoneNumber(this)" required>
-                   <label class="focus-label">Mobile</label>
+                   <label class="focus-label">Premise Size Sq.ft</label>
                 </div>
                    <div class="invalid-feedback">
                 Please provide a valid 10-digit Mobile number.
             </div>
         </div>
+           
+               
+        {{-- <div class="col-md-6">
+            <select class="form-controlz" name="open_for_partnership"  required>
+                <option disabled selected>Open for Partnership</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+            </select>
+        </div> --}}
+            <div class="col-md-6">
+                <div class="form-group form-focus">
+                    <input type="text" class="form-control floating"  name="least_amt" placeholder="" 
+                    {{-- pattern="\d{10}"  --}}
+                    title="Please enter a valid 10-digit  number"   oninput="validatePhoneNumber(this)" required>
+                   <label class="focus-label">Least Amount</label>
+                </div>
+                   <div class="invalid-feedback">
+                Please provide a valid 10-digit Mobile number.
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group form-focus">
+                <input type="text" class="form-control floating"  name="invt_value" placeholder="" 
+                {{-- pattern="\d{10}"  --}}
+                title="Please enter a valid 10-digit  number"   oninput="validatePhoneNumber(this)" required>
+               <label class="focus-label">Inventory Value</label>
+            </div>
+               <div class="invalid-feedback">
+            Please provide a valid 10-digit Mobile number.
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group form-focus">
+            <input type="text" class="form-control floating"  name="selling_fin" placeholder="" 
+            {{-- pattern="\d{10}"  --}}
+            title=""   required>
+           <label class="focus-label">Seller Financing
+        </label>
+        </div>
+          
+</div>
+<div class="col-md-6">
+    <div class="form-group form-focus">
+        <input type="text" class="form-control floating"  name="supt_traning" placeholder="" 
+        {{-- pattern="\d{10}"  --}}
+        title=""   required>
+       <label class="focus-label">Support & Training</label>
+    </div>
+       
+</div>
+<div class="col-md-6">
+            <select class="form-controlz" name="posted_by"  required>
+                <option disabled selected>Posted By</option>
+                    <option value="1">Agent</option>
+                    <option value="0">Broker</option>
+                    <option value="2">Owner</option>
+                    <option value="3">Staff</option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group form-focus">
+                <input type="text" class="form-control floating"  name="reason_sale" placeholder="" 
+                {{-- pattern="\d{10}"  --}}
+                title=""   required>
+               <label class="focus-label">Reason For Sale</label>
+            </div>
+               
+        </div>
+        <div class="col-md-6">
+            <div class="form-group form-focus">
+                <input type="text" class="form-control floating"  name="website" placeholder="url" 
+                {{-- pattern="\d{10}"  --}}
+                title=""   required>
+               <label class="focus-label">Website</label>
+            </div>
+               
+        </div>
+        <div class="col-md-6">
+            <div class="form-group form-focus">
+                <input type="text" class="form-control floating"  name="reason_sale" placeholder="url" 
+                {{-- pattern="\d{10}"  --}}
+                title=""   required>
+               <label class="focus-label">Instagram</label>
+            </div>
+               
+        </div>
+        
+        <div class="col-md-6">
+            <div class="form-group form-focus">
+                <input type="text" class="form-control floating"  name="phone" placeholder="" 
+                {{-- pattern="\d{10}"  --}}
+                title="Please enter a valid 10-digit  number"   oninput="validatePhoneNumber(this)" required>
+               <label class="focus-label">Mobile</label>
+            </div>
+               <div class="invalid-feedback">
+            Please provide a valid 10-digit Mobile number.
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group form-focus">
+            <input type="text" class="form-control floating"  name="whatsapp" placeholder="number" 
+            {{-- pattern="\d{10}"  --}}
+            title=""   required>
+           <label class="focus-label">WhatsApp</label>
+        </div>
+           
+    </div>
         </div>
     </div>
         <div class="col-md-6 mx-auto" >

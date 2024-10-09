@@ -163,18 +163,18 @@
         <h3 class="mx-auto text-center">You are almost there!</h3>
         <p class="mx-auto text-center">Provide as much Details & Pictures as possible and set right Price!</p>
         <p>
-            <span class="text-muted">{{ $listing->category_name }}</span> ><span
-                class="text-muted">{{ $listing->subcategory_name }}</span>
+            <span class="text-muted">{{ $Categories->name }}</span> ><span
+                class="text-muted">{{ $subcategories->name }}</span>
         </p>
     </div>
     <form class="place-ad-form" enctype="multipart/form-data">
-        <input name="listing_id" type="hidden" value="{{$listing->id}}">
+        {{-- <input name="listing_id" type="hidden" value="{{$listing->id}}"> --}}
         <input type='hidden' class='form-control latitude' id='latitude' name='latitude' placeholder='Enter Latitude'>
         <input type='hidden' class='form-control longitude' id='longitude' name='longitude'
                placeholder='Enter Longitude'>
         <div class="col-md-6 mx-auto">
             <div class="form-group form-focus">
-            <input type="text" class="form-control floating" name="title" value="{{ $listing->title }}" placeholder=""
+            <input type="text" class="form-control floating" name="title" value="" placeholder=""
                    required>
                    <label class="focus-label">Title</label>
                         </div>
@@ -191,11 +191,24 @@
                             required>
                            <label class="focus-label">Investment Amount</label>
                         </div>
-                    <div class="invalid-feedback">
+                    {{-- <div class="invalid-feedback">
                         Please provide a valid Investment Amount.
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-md-6">
+                    <div class="form-group form-focus">
+                           <input type="text" class="form-control floating" name="int_bus_mdl"   placeholder="" 
+                               title="" required>
+                               <label class="focus-label">Interested Business Model</label>
+                           </div>
+                </div>
+              
+            </div>
+        </div>
+        <div class="col-md-6 mx-auto" >
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
                     <select class="form-controlz" name="open_to_invest" required>
                         <option selected disabled>Open to Invest</option>
                         <option value="Inside Country">Inside Country</option>
@@ -204,18 +217,53 @@
                     </select>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6 mx-auto" >
-            <div class="row">
-
                 <div class="col-md-6">
+                <div class="form-group form-focus">
                     <select class="form-controlz" name="open_for_partnership" required>
                         <option selected disabled>Open for partnership</option>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>
                 </div>
+                
+            </div>
+         </div>
+
+            
+        </div>
+        <div class="col-md-6 mx-auto" >
+            <div class="row">
                 <div class="col-md-6">
+                    <div class="form-group form-focus">
+                    <select class="form-controlz" name="ptn_plan" required>
+                        <option selected disabled>Partnership Plan   </option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="yearly">Yearly</option>
+                    </select>
+                </div>
+            </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                    <select class="form-controlz" name="communication_pre" required>
+                        <option selected disabled>Communication Preferance                         </option>
+                        <option value="1">Call</option>
+                        <option value="0">Cbat</option>
+                        <option value="2">Whatsapp</option>
+                        <option value="3">Email</option>
+                    </select>
+                </div>
+            </div>  
+            </div>
+
+            
+        </div>
+        
+
+        <div class="col-md-6 mx-auto" >
+            <div class="row">
+                <div class="col-md-6" >
                     <div class="form-group form-focus">
                     <input type="text" class="form-control floating mobile" name="phone" placeholder=""   oninput="validatePhoneNumber(this)" 
                            pattern="[0-9]{10}" title="Please enter a valid 10-digit Mobile  number" required>
@@ -228,19 +276,26 @@
 
                 </div>
                 
-                <div class="form-group" id="filemoble">
-                    <label style="padding: 8px; margin-left: 123px;
-                    text-align: center;
-                    font-size: 20px;">Do you want to show or hide your Phone Number?</label>
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
-                        <label class="btn active  btn-show" style="margin-left:16rem !important;background-color: #dadadb">
-                            <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show Phone
-                        </label>
-                        <label class="btn btn-show"  style=" float: right;background-color: #525252">
-                            <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide Phone
-                        </label>
-                    </div>
+               
+                <div class="col-md-6" >
+                <div class="form-group form-focus">
+                    <input type="text" class="form-control floating" oninput="validatePhoneNumber(this)"  name="whatsapp" required>
+                    <label class="focus-label">WhatsApp</label>
                 </div>
+            </div>
+            <div class="form-group" id="filemoble">
+                <label style="padding: 8px; margin-left: 123px;
+                text-align: center;
+                font-size: 20px;">Do you want to show or hide your Phone Number?</label>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
+                    <label class="btn active  btn-show" style="margin-left:16rem !important;background-color: #dadadb">
+                        <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show Phone
+                    </label>
+                    <label class="btn btn-show"  style=" float: right;background-color: #525252">
+                        <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide Phone
+                    </label>
+                </div>
+            </div>
             </div>
         </div>
 
