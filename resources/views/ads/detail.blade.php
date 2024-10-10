@@ -222,67 +222,47 @@
                                     </div>
                                 </div>
                             </div>
+                        
+                         
+                        @if($ad->category_name==="Businesses for Sale")
                            
-                            <div class="col-lg-12 col-md-12 col-12" style="border-top: 1px solid #eee;border-bottom: 1px solid #eee;margin-top: 35px;margin-bottom: 10px;">
-                                <div class="row" style="margin-top:13px;">
-                                    <div class="col-lg-6 col-md-6 col-6" >
-                                        <p style="font-size: 14px;"><b>Business Type:</b>
-                                            <span>{{ $ad->details->business_type ?? '....' }}</span></p>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-6" >
-                                        <p style="font-size: 14px;"><b>Trade License:</b>
-                                            <span>{{ $ad->details->trade_licence_type ?? '....' }}</span></p>
-                                    </div>
-                                </div>
+                        @include('ads.description_detail.business_for_sale');
+                         
+                        @elseif($ad->category_name==="Businesses for Rent")
+                         
+                        @include('ads.description_detail.business_for_rent');
+                         
 
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-6">
-                                        <p style="font-size: 14px;"><b>Established Year:</b>
-                                            <span>{{ $ad->details->established_year ?? '....' }}</span></p>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-6">
-                                        <p style="font-size: 14px;"><b>Lease Term:</b>
-                                            <span>{{ $ad->details->lease_term ?? '....' }}</span></p>
-                                    </div>
-                                </div>
+                        @elseif($ad->category_name==="Shares for Sale")
+                         
+                        @include('ads.description_detail.share_for_sale');
 
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-6">
-                                        <p style="font-size: 14px;"><b>Size SqM:</b>
-                                            <span>{{ $ad->details->size_sqm ?? '....' }}</span></p>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-6">
-                                        <p style="font-size: 14px;"><b>No. of Employees:</b>
-                                            <span>{{ $ad->details->no_of_employees ?? '....' }}</span></p>
-                                    </div>
-                                </div>
+                        @elseif($ad->category_name==="Business Ideas")
+                         
+                        @include('ads.description_detail.business_idea');
 
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-6">
-                                        <p style="font-size: 14px;"><b>Reason for Sale:</b>
-                                            <span>{{ $ad->details->reason_for_sale ?? '....' }}</span></p>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-6">
-                                        <p style="font-size: 14px;"><b>Open for Partnership:</b>
-                                            <span>{{ !empty($ad->details->open_for_partnership) && $ad->details->open_for_partnership == 1 ? 'Yes' : 'NO' }}</span>
-                                        </p>
-                                    </div>
-                                </div>
+                        
+                        @elseif($ad->category_name==="Investors")
+                         
+                        @include('ads.description_detail.investor');
+
+                        @elseif($ad->category_name==="Investors Required")
+                         
+                        @include('ads.description_detail.investor_required');
+                        @elseif($ad->category_name==="Franchise Opportunities")
+                         
+                        @include('ads.description_detail.franchise_opp');
+                        @elseif($ad->category_name==="Machinery & Supplies")
+                         
+                        @include('ads.description_detail.machinarySupplies');
+                        
+                        
+                        
+                        @endif
 
 
-                            </div>
-                            <!---------->
-                            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;border-bottom: 1px solid #eee;">
-                                <h4><b>Products & Services Offered</b></h4>
-                                <p style="font-size: 14px; margin-bottom: 7px;">{{ $ad->details->products_and_services_offered ?? '....' }} this is one line</p>
-                            </div>
-
-                            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;border-bottom: 1px solid #eee;">
-                                <h4><b>Description</b></h4>
-                                <p style="font-size: 14px;margin-bottom: 7px;">{{ $ad->description }} this is description</p>
-
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;border-bottom: 1px solid #eee;">
+                                
+                                
                                 {{--<h4><b>Files({{ $ad->documents->count() ?? 0 }})</b></h4>--}}
                                 <h4><b>Files</b></h4>
                                 <p style="font-size: 14px;">
