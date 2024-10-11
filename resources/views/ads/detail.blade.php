@@ -4,16 +4,18 @@
 @section('content')
 <style>
     .slick-slide{
-        margin: 0px 2px !important;
-       
-        /* width: 184px !important; */
+        margin: 0px 4px !important;
     }
     .slick-slide img {
     width: 80% !important;
 }
 .slick-prev, .slick-next {
-    top: 50% !important
+    top: 30% !important
 }
+.slick-slide {
+        width: 11.6rem !important;
+
+    }
 .slick-prev {
     left: 10px !important
 }
@@ -31,38 +33,54 @@
     <!--------ad area --------->
     <section>
         <!-- <div class="container slider-area"> -->
+        {{-- <div class="cont-w slider-area desktop-view">
+            <div id="demo" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{ $ad->main_image_url }}" alt="Los Angeles5555" width="100%" height="270px">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{asset('images/hero_image_7.jpeg')}}" alt="Chicago" width="100%" height="270px">
+                    </div>
+                </div>
+            </div>
+        </div> --}}
         <div class="cont-w slider-area desktop-view">
             <div id="demo" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ $ad->main_image_url }}" alt="Los Angeles" width="100%" height="270px">
+                        <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="{{asset('images/slider-images/image1.JPG')}}" alt="Los Angelesyyyyyy" width="100%" height="257" style="height:310px;border-radius:10px;">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{asset('images/hero_image_7.jpeg')}}" alt="Chicago" width="100%" height="270px">
+                        <img src="{{asset('images/slider-images/image2.JPG')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{{asset('images/slider-images/image3.JPG')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{asset('images/slider-images/image4.JPG')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container slider-area mobile-view">
+        {{-- <div class="container slider-area mobile-view">
             <div id="demo" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ $ad->main_image_url }}" alt="Los Angeles" width="100%" height="270px">
+                        <img src="{{ $ad->main_image_url }}" alt="Los Angeles444" width="100%" height="270px">
                     </div>
                     <div class="carousel-item">
                         <img src="{{asset('images/hero_image_7.jpeg')}}" alt="Chicago" width="100%" height="270px">
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
     </section>
- {{-- <section>
-        <div class="cont-w" style="margin-bottom: 7px;">
-    ad area 
-        <img src="{{ $ad->main_image_url }}" alt="Los Angeles" width="100%" height="257">
-        </div>
-    </section>  --}}
+ 
 
     <section>
         <div class="cont-w desktop-view" style="border-bottom:2px solid #eee;">
@@ -85,7 +103,7 @@
             <div class="col-md-12" style="border:0px solid red;">
                 <div class="row">
                     <div class="col" style="border:0px solid red;">
-                        <div class="row">
+                        <div class="row" style="margin-top: 12px;">
                             <h3 style="border:0px solid red;"><b>{{ $ad->title ?? 'Title N?A' }}</b></h3>
                         </div>
                         <div class="row">
@@ -302,7 +320,7 @@
                             </div>
                         </div>
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
-                        <div style="font-weight: bold;font-size:20px;margin-top: 18px;">
+                        <div style="font-weight: bold;font-size:20px;margin-top: 18px;margin-left: 12px;">
                             Is there an issue?
 
                             @php $report_text = "Report this ad"; $report_class = "report-ad-btn"; @endphp
@@ -441,11 +459,11 @@
                 </div>
                 <!---------------------->
                 <div class="col-lg-12 col-md-12 col-12" style="margin-top: 22px;border-bottom: 1px solid #eee;border-top: 1px solid #eee;margin-left: -18px;">
-                    <h3 style="margin-top: 25px;"><b>Similar Ads</b></h3>
+                    <h3 style="margin-top: 25px;margin-left: 15px;"><b>Similar Ads</b></h3>
                     <!------ad----->
-                    <div class="row" style="margin-left: -14px;">
+                    <div class="row">
                         <div class="col-md-12">
-                            <div class="slider">
+                            <div class="slider" style="margin-left: 12px;">
                                 @php
                                     $similar_ads = \App\Helpers\RecordHelper::getAdsBySubcategory($ad->subcategory_id)->take(5);
                                 @endphp
@@ -486,7 +504,7 @@
     <script type="text/javascript">
   $(document).ready(function(){
     $('.slider').slick({
-infinite: true,
+        // infinite: true,
             infinite: true,
         slidesToShow: 3,
         slidesToScroll: 1,

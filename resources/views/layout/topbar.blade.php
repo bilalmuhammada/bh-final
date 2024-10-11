@@ -80,6 +80,9 @@
     .select2-results__options{
         padding: 7px !important;
     }
+    .select2-search__field{
+        padding-left: 8px !important;
+    }
     .select2-dropdown{
         background-color: #fff;
         color: #000 !important;
@@ -188,7 +191,7 @@
                             {{-- <div class="country" style="border:0px solid green;position:relative;left:-111px;"> --}}
                             <div class="mobile-country desktop-menu-right">
                                
-                                    <select class="form-control country_dropdown1 " name="country_dropdown"  style="width:112px;" id="country_dropdown" >
+                                    <select class="form-control country_dropdown1 " name="country_dropdown"  style="width:130px;" id="country_dropdown" >
                                         @foreach($countries as $country)
                                        
                                             <option
@@ -211,7 +214,7 @@
 
                 {{-- <div class="country" style="border:0px solid red;position:relative;left:-50px;"> --}}
                     <select class="form-control city_dropdown" name="city_dropdown" id="" 
-                            style="width:96px;border:0px solid red !imporatnt;text-align:center;background-color:transparent !important;">
+                            style="width:140px;border:0px solid red !imporatnt;text-align:center;background-color:transparent !important;">
                             <option value=""> &nbsp; All Cities</option>
                         @foreach($cities as $city)
                             <option data-city-id="{{ $city->id }}"
@@ -228,7 +231,7 @@
 
                 <div class="mobile-country desktop-menu-right">
                                
-                    <select class="form-control language_dropdown " name="language_dropdown"  style="width:100px;" id="language_dropdown" onchange="translateLanguage()">>
+                    <select class="form-control language_dropdown " name="language_dropdown"  style="width:140px;" id="language_dropdown" onchange="translateLanguage()">>
                         <option selected value="">Language</option>
                         
                         @foreach($language as $language1)
@@ -251,7 +254,7 @@
                 
                     {{-- <div class="country" style="border:0px solid red;position:relative;left:-184px;"> --}}
                         <select class="form-control currency_dropdown" name="currency_dropdown" id="" 
-                                style="width:110px;border:0px solid red !imporatnt;text-align:center;background-color:transparent !important;">
+                                style="width:100px;border:0px solid red !imporatnt;text-align:center;background-color:transparent !important;">
                                 <option value=""> &nbsp;Currency</option>
                                 @foreach($currency as $currencyn)
                                 <option data-currency-id="{{ $currencyn->currency }}"
@@ -867,7 +870,7 @@
             <div class="container" style="margin:0px auto;border:0px solid green;">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <ul class="navbar-nav"
-                    style="margin:0px 0px 22px 5px !important;border:0px solid red;font-size: 14.6px;line-height: 1.43;font-weight: 600;">
+                    style="margin:0px 0px 22px 5px !important;border:0px solid red;font-size: 14px;line-height: 1.43;font-weight: 600;">
                     <div class="row">
                         @php $categories = \App\Helpers\RecordHelper::getCategories(); @endphp
                         @foreach($categories as $category)

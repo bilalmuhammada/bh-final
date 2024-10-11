@@ -7,7 +7,7 @@
             <div id="demo" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ $ad->main_image_url }}" alt="Los Angeles" width="100%" height="257">
+                        <img src="{{ $ad->main_image_url }}" alt="Los Angeles44" width="100%" height="257">
                     </div>
                     <div class="carousel-item">
                         <img src="{{asset('images/hero_image_7.jpeg')}}" alt="Chicago" width="100%" height="257">
@@ -19,7 +19,7 @@
             <div id="demo" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ $ad->main_image_url }}" alt="Los Angeles" width="100%" height="257">
+                        <img src="{{ $ad->main_image_url }}" alt="Los Angeles55" width="100%" height="257">
                     </div>
                     <div class="carousel-item">
                         <img src="{{asset('images/hero_image_7.jpeg')}}" alt="Chicago" width="100%" height="257">

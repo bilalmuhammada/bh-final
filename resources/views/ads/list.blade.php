@@ -88,16 +88,16 @@
                         <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
                     </div>
                     <div class="carousel-item ">
-                        <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Los Angeles" width="100%" height="257" style="height:310px;border-radius:10px;">
+                        <img src="{{asset('images/slider-images/image1.JPG')}}" alt="Los Angeles" width="100%" height="257" style="height:310px;border-radius:10px;">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{asset('images/slider-images/image3.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                        <img src="{{asset('images/slider-images/image2.JPG')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
                     </div>
                     <div class="carousel-item">
-                      <img src="{{asset('images/slider-images/image4.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                      <img src="{{asset('images/slider-images/image3.JPG')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{asset('images/slider-images/image5.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                        <img src="{{asset('images/slider-images/image4.JPG')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
                     </div>
                 </div>
             </div>
@@ -184,15 +184,15 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                 <div class="col-md-12" style="text-align: end;" ><span style="font-size: 14px;margin-left: -2px;"><b>Filter</b></span></div>
                 <div class="dropdown" style="margin-left: 1rem; display: flex;">
                     {{-- &nbsp;&nbsp; --}}
-                   <button class="btn dropdown-toggle" style="border: 5px;margin-left: -15px;" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                   <button class="dropdown-toggle" style="border: 5px;margin-left: -15px; background-color: transparent;" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     Sort
                    </button>
-                   <ul class="dropdown-menu" aria-labelledby="sortDropdown">
-                       <li><a class="dropdown-item" href="?sort=newest">Newest to Oldest</a></li>
-                       <li><a class="dropdown-item" href="?sort=oldest">Oldest to Newest</a></li>
-                       <li><a class="dropdown-item" href="?sort=price_highest">Price Highest to Lowest</a></li>
-                       <li><a class="dropdown-item" href="?sort=price_lowest">Price Lowest to Highest</a></li>
-                       <li><a class="dropdown-item" href="?sort=distance_nearest">Distance Nearest First</a></li>
+                   <ul class="dropdown-menu" aria-labelledby="sortDropdown" style="line-height: 0.5">
+                       <li><a class="dropdown-item" href="?sort=newest">New to Old</a></li>
+                       <li><a class="dropdown-item" href="?sort=oldest">Old to New</a></li>
+                       <li><a class="dropdown-item" href="?sort=price_highest">Price High to Low</a></li>
+                       <li><a class="dropdown-item" href="?sort=price_lowest">Price Low to High</a></li>
+                       <li><a class="dropdown-item" href="?sort=distance_nearest">Nearest First</a></li>
                    </ul>
                </div>
             </a>
@@ -202,7 +202,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
           
         {{-- </div> --}}
     </div>
-    <button class="btn"  style="white-space: nowrap;margin-left:44.2rem;  color: red; border: 1px solid goldenrod ;border-radius: 5px;" type="button"  aria-expanded="false">
+    <button class="btn"  style="white-space: nowrap;margin-left:43rem;  color: red; border: 1px solid goldenrod ;border-radius: 5px;" type="button"  aria-expanded="false">
         Search
     </button>
    
@@ -326,7 +326,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                     <div class="col-lg-9 col-md-9" style="display: flex;">
                         <h3 style="white-space: nowrap;"><b> {{ $subcategory_name }} <span class="text-muted">•{{ $ads->count() }} Ads</span></b>
                         </h3>
-                        <button class="btn"  style="border: 1px solid goldenrod ;white-space: nowrap; height: 36px; border-radius: 5px;margin-left: 52.5rem; color: red;" type="button"  aria-expanded="false">
+                        <button class="btn"  style="border: 1px solid goldenrod ;white-space: nowrap; height: 36px; border-radius: 5px;margin-left: 50rem; color: red;" type="button"  aria-expanded="false">
                             Clear Search
                         </button>
                         {{-- <div class="dropdown" style="margin-left: 1rem; display: flex;"> --}}
@@ -406,8 +406,8 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                 </a>
                             </div>
                             <div class="col-lg-8 col-md-8 col-12">
-                                <div class="row">
-                                    <div class="col-lg-7 col-md-7 col-7" style="margin-left: -97px">
+                                <div class="row" style="margin-top: 12px;">
+                                    <div class="col-lg-7 col-md-7 col-7" style="margin-left: -118px">
                                         <h5 style="font-size: 22px;font-weight:700;">{{ $ad->title ?? 'Heading N/A' }}</h5>
                                         <p style="font-size: 13px;">{{ $ad->category_name }} <span style="font-size: 16px;">&#9679;</span> {{ $ad->subcategory_name }}</p>
                                         <h3 style="font-weight: bold;font-size:23px;">AED {{ \App\Helpers\SiteHelper::priceFormatter($ad->price, request()->currency) }}</h3>
@@ -426,7 +426,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                 </div>
                             </div>
                             <!-----content----->
-                            <hr style="width: 71.5%;margin-top: -9px;margin-left: 12px;background:#eee;">
+                            <hr style="width: 69%;margin-top: -9px;margin-left: 12px;background:#eee;">
                         </div>
                     @endforeach
                     

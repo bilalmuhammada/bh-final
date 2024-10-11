@@ -51,7 +51,7 @@
         font-size: 25px;
     }
     .select2-search__field{
-        padding-left: 12px !important;
+        padding-left: 8px !important;
     }
 
     .btc {
