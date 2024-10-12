@@ -159,8 +159,8 @@ class ListingController extends Controller
 
         // $Listing = Listing::find($listing_id);
 
-        $Categories = Category::find($category_id)->first();
-        $subcategories = SubCategory::find($subcategory_id)->first();;
+        $Categories = Category::where('id',$category_id)->first();
+        $subcategories = SubCategory::where('id',$subcategory_id)->first();;
         $view_name = Category::find($category_id)->form_view;
 // dd('ddd');
         $data = [

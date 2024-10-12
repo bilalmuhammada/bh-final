@@ -28,9 +28,12 @@
      margin-bottom: 0;
  }
  
+ .remove-img:hover{
+    color: blue !important;
+ }
  .form-focus.focused .focus-label {
      opacity: 1;
-     top: -18px;
+     top: -11px;
      font-size: 12px;
      z-index: 1;
  }
@@ -155,7 +158,7 @@
   
   color: white !important;
   font-size: 14px !important;
-  border-radius: 11px !important;
+  border-radius: 2px !important;
 }
  </style>
 @section('content')
@@ -187,7 +190,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <input type="text" class="form-control floating" name="investment_amount" placeholder=""
+                    <input type="text" class="form-control floating" name="investment_amount" placeholder="" oninput="validatePhoneNumber(this)"
                             required>
                            <label class="focus-label">Investment Amount</label>
                         </div>
@@ -199,7 +202,7 @@
                     <div class="form-group form-focus">
                            <input type="text" class="form-control floating" name="int_bus_mdl"   placeholder="" 
                                title="" required>
-                               <label class="focus-label">Interested Business Model</label>
+                               <label class="focus-label">Interested Business Models</label>
                            </div>
                 </div>
               
@@ -211,6 +214,7 @@
                     <div class="form-group form-focus">
                     <select class="form-controlz" name="open_to_invest" required>
                         <option selected disabled>Open to Invest</option>
+                        <option value="Inside Country">Based Country</option>
                         <option value="Inside Country">Inside Country</option>
                         <option value="Within Region">Within Region</option>
                         <option value="Worldwide">Worldwide</option>
@@ -220,7 +224,7 @@
                 <div class="col-md-6">
                 <div class="form-group form-focus">
                     <select class="form-controlz" name="open_for_partnership" required>
-                        <option selected disabled>Open for partnership</option>
+                        <option selected disabled>Open for Partnership</option>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>
@@ -284,14 +288,14 @@
                 </div>
             </div>
             <div class="form-group" id="filemoble">
-                <label style="padding: 8px; margin-left: 123px;
+                <label style="margin-left: 13rem;
                 text-align: center;
-                font-size: 20px;">Do you want to show or hide your Phone Number?</label>
+                font-size: 17px;">Do you want to show or hide your Phone Number?</label>
                 <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
-                    <label class="btn active  btn-show" style="margin-left:16rem !important;background-color: #dadadb">
+                    <label class="btn active  btn-show" style="margin-left:17rem !important;background-color: #dadadb">
                         <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show Phone
                     </label>
-                    <label class="btn btn-show"  style=" float: right;background-color: #525252">
+                    <label class="btn btn-show"  style=" margin-left: 2rem;float: right;background-color: #525252">
                         <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide Phone
                     </label>
                 </div>
@@ -299,10 +303,10 @@
             </div>
         </div>
 
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto" >
             <div class="form-group form-focus">
             <textarea name="interested_business_types" class="form-control floating" maxlength="1000"
-                      placeholder="" style="height: 120px;"
+                      placeholder="" style="height: 150px;"
                       required></textarea>
                       <label class="focus-label">Interested Business Types</label>
                     </div>
@@ -311,7 +315,7 @@
                 Please provide a Interested Business Types.
             </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 80px;">
+        <div class="col-md-6 mx-auto" style="margin-top: 120px;">
             <div class="form-group form-focus">
             <textarea name="description" class="form-control floating" placeholder="" style="height: 200px;"
                       required></textarea>
@@ -354,7 +358,7 @@
             <div class="form-group form-focus">
             <input type="text" class="form-control floating location_name" name="location_name" placeholder=""
                    required>
-                   <label class="focus-label">Location Type</label>
+                   <label class="focus-label">Location </label>
                         </div>
             <div class="invalid-feedback">
                 Please provide a location.

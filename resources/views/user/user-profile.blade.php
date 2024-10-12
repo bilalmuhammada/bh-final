@@ -119,7 +119,9 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Date of Birth:</b></div>
                                     <div class="col-md-8">
-                                        <input name="dob" id="datepicker" type="text" class="form-control" style="border: 1px solid #999;text-align: center;">
+                                        <input type="text" name="dob" id="datepicker" class="form-control login-user email"
+                                        placeholder="Date of Birth" aria-label="Email" aria-describedby="basic-addon1"
+                                        onfocus="this.value=''">
                                     </div>
                                 </div>
                             </div>
@@ -390,9 +392,14 @@ width: 225px !important;
     <script type="text/javascript">
  
 
-$('#datepicker').datepicker({
-dateFormat: 'dd-mm-yy'
-});
+// $('#datepicker').datepicker({
+
+// changeMonth: true, // Enables month dropdown
+// changeYear: true,
+// autoclose: true,
+
+// todayHighlight: true
+// });
 document.getElementById('change-photo-link').addEventListener('click', function() {
     document.getElementById('profile_image').click();
 });

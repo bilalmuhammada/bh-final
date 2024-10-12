@@ -99,7 +99,7 @@
                                     <div class="input-group search-box-area search-w" style="border:0px solid red;">
                                         <input name="key_words" type="search"
                                                class="form-control searbox-input category-search-box"
-                                               placeholder="Search In All" aria-label="Search"
+                                               placeholder="Search in All" aria-label="Search"
                                                aria-describedby="search-addon">
                                         <input name="category_id" type="hidden" class="category-search-category-id">
                                         <input name="country" type="hidden" class="country" value="{{ request()->country }}">
@@ -503,7 +503,7 @@
             thisElem.addClass('searching-cat');
 
             //changing the placeholder of search input
-            searchBox.attr('placeholder', "Search In " + thisElem.text());
+            searchBox.attr('placeholder', "Search in " + thisElem.text());
 
             //setting attribute to search in relevent category
             $('.category-search-category-id').val(thisElem.attr('category-id'))

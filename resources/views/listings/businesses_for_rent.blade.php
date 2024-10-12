@@ -154,7 +154,7 @@
   
   color: white !important;
   font-size: 14px !important;
-  border-radius: 11px !important;
+  border-radius:2px !important;
 }
  
  
@@ -256,7 +256,7 @@
                     <div class="form-group form-focus">
                        <input type="text" class="form-control floating" name="branches"  oninput="validatePhoneNumber(this)" placeholder="" 
                            title="" required>
-                           <label class="focus-label">Braches #</label>
+                           <label class="focus-label">Braches </label>
                        </div>
                    <div class="invalid-feedback">
                        Please provide a valid Premise Size SqM.
@@ -270,7 +270,7 @@
              <div class="form-group form-focus">
                     <input type="text" class="form-control floating" name="no_of_employees"  oninput="validatePhoneNumber(this)" placeholder="" 
                         title="" required>
-                        <label class="focus-label">Employees#</label>
+                        <label class="focus-label">Employees</label>
                     </div>
                 <div class="invalid-feedback">
                     Please provide a valid No of Employees.
@@ -285,66 +285,28 @@
                     </select>
                 </div>
             
-            {{-- <div class="col-md-6">
-                 <div class="form-group form-focus">
-                    <input type="text" class="form-control floating" name="reason_for_sale" placeholder="" 
-                        title="" required>
-                        <label class="focus-label">Reason for Sale</label>
-                    </div>
-                <div class="invalid-feedback">
-                    Please provide a valid Reason for Sale.
-                </div>
-            </div> --}}
+        
     </div>
     </div>
 
         <div class="col-md-6 mx-auto" >
             <div class="row">
-                {{-- <div class="col-md-6">
-                    <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="stock_level" oninput="validatePhoneNumber(this)" placeholder="Stock Level"   
-                           required>
-                           <label class="focus-label">Stock Level</label>
-                        </div>
-                    <div class="invalid-feedback">
-                        Please provide a valid stock level.
-                    </div> --}}
-                   {{-- <select class="form-controlz" name="stock_level" required>
-                        {{-- <option selected disabled>Stock Level</option> --}}
-                        {{-- <option selected disabled>MAke Swwwwelf Type Bar</option>
-                        <option value="1000">1000</option>
-                        <option value="2000">2000</option>
-                        <option value="3000">3000</option>
-                        <option value="4000">4000</option>
-                        <option value="5000">5000</option>
-                    </select>  --}} 
-                {{-- </div> --}}
-                {{-- <div class="col-md-6">
-                    <select class="form-controlz" name="stock_unit" required>
-                        <option selected disabled>Stock Unit</option>
-                        <option value="pcs">Pcs</option>
-                        <option value="kg">Kg</option>
-                        <option value="ton">Tons</option>
-                        <option value="ltr">Ltr</option>
-                    </select>
-                </div> --}}
+               
                 <div class="col-md-6">
                     <div class="form-group form-focus">
                         <input type="text" class="form-control floating"  name="squrft" placeholder="" 
                         {{-- pattern="\d{10}"  --}}
                         title="Please enter a valid 10-digit  number"   oninput="validatePhoneNumber(this)" required>
-                       <label class="focus-label">Premise Size Sq.ft</label>
+                       <label class="focus-label">Premise Size Sq.Ft</label>
                     </div>
-                       {{-- <div class="invalid-feedback">
-                    Please provide a valid 10-digit Mobile number.
-                </div> --}}
+                       
             </div>
                 <div class="col-md-6">
                     <select class="form-controlz" name="lease_term" required>
                                 <option disabled selected>Lease Term</option>
-                                <option value="Annual">Daily</option>
-                                <option value="Monthly">Monthly</option>
-                                <option value="Yearly">Yearly</option>
+                                <option value="annual">Daily</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="yearly">Yearly</option>
                                 <option value="lifetime">Lifetime</option>
                         </select>
                     </div>
@@ -431,7 +393,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group form-focus">
-                    <input type="text" class="form-control floating"  name="website" placeholder="url" 
+                    <input type="text" class="form-control floating"  name="website" placeholder="URL" 
                     {{-- pattern="\d{10}"  --}}
                     title=""   required>
                    <label class="focus-label">Website</label>
@@ -440,7 +402,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group form-focus">
-                    <input type="text" class="form-control floating"  name="reason_sale" placeholder="url" 
+                    <input type="text" class="form-control floating"  name="reason_sale" placeholder="URL" 
                     {{-- pattern="\d{10}"  --}}
                     title=""   required>
                    <label class="focus-label">Instagram</label>
@@ -461,7 +423,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating"  name="whatsapp" placeholder="number" 
+                <input type="text" class="form-control floating"  name="whatsapp" placeholder="" 
                 {{-- pattern="\d{10}"  --}}
                 title=""   required>
                <label class="focus-label">WhatsApp</label>
@@ -523,7 +485,7 @@
             <div class="form-group form-focus">
             <input type="text" class="form-control floating location_name" name="location_name" placeholder="Location Type"
                       required>
-                   <label class="focus-label">Location Type</label>
+                   <label class="focus-label">Location</label>
                 </div>
             <div class="invalid-feedback">
                 Please provide a location.

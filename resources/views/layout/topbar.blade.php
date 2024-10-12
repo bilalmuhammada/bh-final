@@ -38,7 +38,7 @@
 
     }
     .select2-dropdown,.select2-dropdown--below{
-        width: 130px !important;
+        width: 135px !important;
     }
 
     /* start */

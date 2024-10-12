@@ -145,7 +145,7 @@ $second = $parts[1] ?? null;
         $(".language_dropdown").select2({
             templateSelection: formatCountry,
             templateResult: formatCountry,
-            minimumResultsForSearch: -1
+            // minimumResultsForSearch: -1
         });
         $(".subcategory-select").select2({
             //  dropdownParent: $(this).parent()

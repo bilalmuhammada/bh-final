@@ -43,7 +43,7 @@
         top: 20%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: #A17A4E;
+        color: goldenrod;
         font-weight:bold;
     }
 
@@ -330,7 +330,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                     <div class="hero-text">
                         <p class="main">Welcome to the World's #1online business website!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">
-                        Explore our Countries! comment
+                        Explore our Countries!
                         </p>
                     </div>
                 </div>
@@ -411,7 +411,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                     <div class="row">
 
 
-              {{-- <a class="mx-auto" href="{{env('BASE_URL') . 'home?country=' . $country->id}}" style="border:0px solid red;"> --}}
+              <a class="mx-auto" href="{{env('BASE_URL') . 'home?country=' . $country->id}}" style="border:0px solid red;">
                 <div class="col-md-12 main-div countrylist" class="main-div" style="border:0px solid red;">
                         <span>
                             <img src="{{asset('images/businesshub.png')}}" alt="businesshub" title="businesshub" width="60px">

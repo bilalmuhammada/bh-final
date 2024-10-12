@@ -68,7 +68,7 @@
         }
 
         .remove-img:hover {
-            color: #c0392b;
+            color: blue !important;
         }
      
     </style>

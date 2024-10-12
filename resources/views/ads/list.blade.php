@@ -185,13 +185,13 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                 <div class="dropdown" style="margin-left: 1rem; display: flex;">
                     {{-- &nbsp;&nbsp; --}}
                    <button class="dropdown-toggle" style="border: 5px;margin-left: -15px; background-color: transparent;" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    Sort
+                    
                    </button>
                    <ul class="dropdown-menu" aria-labelledby="sortDropdown" style="line-height: 0.5">
-                       <li><a class="dropdown-item" href="?sort=newest">New to Old</a></li>
-                       <li><a class="dropdown-item" href="?sort=oldest">Old to New</a></li>
-                       <li><a class="dropdown-item" href="?sort=price_highest">Price High to Low</a></li>
-                       <li><a class="dropdown-item" href="?sort=price_lowest">Price Low to High</a></li>
+                       <li><a class="dropdown-item" href="?sort=newest">Post: New to Old</a></li>
+                       <li><a class="dropdown-item" href="?sort=oldest">Post: Old to New</a></li>
+                       <li><a class="dropdown-item" href="?sort=price_highest">Price: High to Low</a></li>
+                       <li><a class="dropdown-item" href="?sort=price_lowest">Price: Low to High</a></li>
                        <li><a class="dropdown-item" href="?sort=distance_nearest">Nearest First</a></li>
                    </ul>
                </div>

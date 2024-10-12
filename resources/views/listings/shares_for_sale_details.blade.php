@@ -31,7 +31,7 @@
  
  .form-focus.focused .focus-label {
      opacity: 1;
-     top: -18px;
+     top: -11px;
      font-size: 12px;
      z-index: 1;
  }
@@ -157,7 +157,7 @@
   
   color: white !important;
   font-size: 14px !important;
-  border-radius: 11px !important;
+  border-radius: 2px !important;
 }
  </style>
 @section('content')
@@ -246,20 +246,20 @@
         <div class="row">
         <div class="col-md-6">
         <select class="form-controlz" name="trade_licence" required>
-                <option selected disabled>Trade Licence </option>
-                    <option value="E-Commerce">E-Commerce</option>
-                    <option value="Freezone">Freezone</option>
-                    <option value="freelance">Freelance</option>
-                    <option value="Mainland">Mainland</option>
-                    <option value="Offshore">Offshore</option>
-                    <option value="online">Online</option>
-                    <option value="Private">Private</option>
+            <option selected disabled>Trade Licence</option>
+            <option value="e-commerce">E-Commerce</option>
+            <option value="freezone">Freezone</option>
+            <option value="freelance">Freelance</option>
+            <option value="mainland">Mainland</option>
+            <option value="offshore">Offshore</option>
+            <option value="online">Online</option>
+            <option value="private">Private</option>
                     
             </select>
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating"  name="established_year" placeholder=""  required>
+                <input type="text" class="form-control floating"  name="established_year" oninput="validatePhoneNumber(this)" placeholder=""  required>
                 <label class="focus-label">Established Year</label>
             </div>
             <div class="invalid-feedback">
@@ -270,7 +270,7 @@
             <div class="form-group form-focus">
                <input type="text" class="form-control floating" name="branches"  oninput="validatePhoneNumber(this)" placeholder="" 
                    title="" required>
-                   <label class="focus-label">Braches #</label>
+                   <label class="focus-label">Branches </label>
                </div>
            <div class="invalid-feedback">
                Please provide a valid Premise Size SqM.
@@ -280,7 +280,7 @@
             <div class="form-group form-focus">
                    <input type="text" class="form-control floating" name="no_of_employees"  oninput="validatePhoneNumber(this)" placeholder="" 
                        title="" required>
-                       <label class="focus-label">Employees #</label>
+                       <label class="focus-label">Employees </label>
                    </div>
                {{-- <div class="invalid-feedback">
                    Please provide a valid No of Employees.
@@ -364,7 +364,7 @@
       
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating"  name="website" placeholder="url" 
+                <input type="text" class="form-control floating"  name="website" placeholder="URL" 
                 {{-- pattern="\d{10}"  --}}
                 title=""   required>
                <label class="focus-label">Website</label>
@@ -373,7 +373,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating"  name="reason_sale" placeholder="url" 
+                <input type="text" class="form-control floating"  name="reason_sale" placeholder="URL" 
                 {{-- pattern="\d{10}"  --}}
                 title=""   required>
                <label class="focus-label">Instagram</label>
@@ -408,13 +408,13 @@
             <div class="form-group form-focus">
             <textarea name="products_and_services_offered" class="form-control floating" style="height: 150px;"
                       required></textarea>
-                      <label class="focus-label">Products & Services Offered"</label>
+                      <label class="focus-label">Products & Services Offered</label>
                     </div>
             <div class="invalid-feedback">
                 Please provide a Products & Services Offered.
             </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 100px;">
+        <div class="col-md-6 mx-auto" style="margin-top: 120px;">
             <div class="form-group form-focus">
             <textarea name="description" class="form-control floating" placeholder="" style="height: 200px;"
                       required></textarea>
@@ -457,7 +457,7 @@
             <div class="form-group form-focus">
                 <input type="text" class="form-control floating location_name" name="location_name" placeholder=""
                    required>
-                   <label class="focus-label">Location Type</label>
+                   <label class="focus-label">Location</label>
                 </div>
             <div class="invalid-feedback">
                 Please provide a location.

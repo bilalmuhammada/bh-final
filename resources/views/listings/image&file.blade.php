@@ -27,12 +27,12 @@
 
 
     <div class="form-group" id="filehide">
-        <label style="text-align: center; margin-left: 13rem;font-size: 20px;">Do you want to show or hide your Files?</label>
+        <label style="text-align: center; margin-left: 13rem;font-size: 17px;">Do you want to show or hide your Files?</label>
         <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
-            <label class="btn active  btn-show" style="margin-left:19rem !important;background-color: #dadadb">
+            <label class="btn active  btn-show" style="margin-left:17rem !important;background-color: #dadadb">
                 <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show File
             </label>
-            <label class="btn btn-show"  style="margin-right: 9pc !important; float: right;background-color: #525252">
+            <label class="btn btn-show"  style="margin-right: 2rem !important; float: right;background-color: #525252">
                 <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide File
             </label>
         </div>

@@ -49,7 +49,7 @@
  .form-focus .form-control:-webkit-autofill~.focus-label {
      opacity: 1;
      font-weight: 400;
-     top: -18px;
+     top: -11px;
      font-size: 12px;
      z-index: 1;
  }
@@ -157,7 +157,7 @@
   
   color: white !important;
   font-size: 14px !important;
-  border-radius: 11px !important;
+  border-radius: 2px !important;
 }
  </style>
 @section('content')
@@ -166,7 +166,7 @@
     <div class="col-md-6 mx-auto">
          <h3 class="mx-auto text-center">You are almost there!</h3>
         <p class="mx-auto text-center">Provide as much Details & Pictures as possible and set right Price!</p>
-        <p>
+        <p style="margin-top: 8px;"
             <span class="text-muted">{{ $Categories->name }}</span> ><span
                 class="text-muted">{{ $subcategories->name }}</span>
         </p>
@@ -176,9 +176,9 @@
         <input type='hidden' class='form-control latitude' id='latitude' name='latitude' placeholder='Enter Latitude'>
         <input type='hidden' class='form-control longitude' id='longitude' name='longitude'
                placeholder='Enter Longitude'>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="title" value="" placeholder="Title"
+                <input type="text" class="form-control floating" name="title" value="" placeholder=""
                      required>
                    <label class="focus-label">Title</label>
                 </div>
@@ -225,12 +225,15 @@
             </div>
             <div class="col-md-6">
                 <select class="form-controlz" name="trade_licence_type" required>
-                        <option disabled selected>Trade Licence</option>
-                            <option value="Mainland">Mainland</option>
-                            <option value="Freezone">Freezone</option>
-                            <option value="Offshore">Offshore</option>
-                            <option value="E-Commerce">E-Commerce</option>
-                            <option value="Private">Private</option>
+                    <option disabled selected>Trade Licence</option>
+                   
+                    <option value="e-commerce">E-Commerce</option>
+                    <option value="freezone">Freezone</option>
+                    <option value="freelance">Freelance</option>
+                    <option value="mainland">Mainland</option>
+                    <option value="offshore">Offshore</option>
+                    <option value="online">Online</option>
+                    <option value="private">Private</option>
                     </select>
                 </div>
                 <div class="col-md-6">
@@ -246,7 +249,7 @@
                  <div class="form-group form-focus">
                     <input type="text" class="form-control floating" name="branches"  oninput="validatePhoneNumber(this)" placeholder="" 
                         title="" required>
-                        <label class="focus-label">Braches#</label>
+                        <label class="focus-label">Branches</label>
                     </div>
                 <div class="invalid-feedback">
                     Please provide a valid Premise Size SqM.
@@ -256,7 +259,7 @@
                 <div class="form-group form-focus">
                        <input type="text" class="form-control floating" name="no_of_employees"  oninput="validatePhoneNumber(this)" placeholder="" 
                            title="" required>
-                           <label class="focus-label">Employees#</label>
+                           <label class="focus-label">Employees</label>
                        </div>
                    <div class="invalid-feedback">
                        Please provide a valid No of Employees.
@@ -275,7 +278,7 @@
                         <input type="text" class="form-control floating"  name="squrft" placeholder="" 
                         {{-- pattern="\d{10}"  --}}
                         title="Please enter a valid 10-digit  number"   oninput="validatePhoneNumber(this)" required>
-                       <label class="focus-label">Premise Size Sq.ft</label>
+                       <label class="focus-label">Premise Size Sq.Ft</label>
                     </div>
                        <div class="invalid-feedback">
                     Please provide a valid 10-digit Mobile number.
@@ -394,7 +397,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group form-focus">
-                    <input type="text" class="form-control floating"  name="website" placeholder="url" 
+                    <input type="text" class="form-control floating"  name="website" placeholder="URL" 
                     {{-- pattern="\d{10}"  --}}
                     title=""   required>
                    <label class="focus-label">Website</label>
@@ -403,7 +406,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group form-focus">
-                    <input type="text" class="form-control floating"  name="reason_sale" placeholder="url" 
+                    <input type="text" class="form-control floating"  name="reason_sale" placeholder="URL" 
                     {{-- pattern="\d{10}"  --}}
                     title=""   required>
                    <label class="focus-label">Instagram</label>
@@ -423,7 +426,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="text" class="form-control floating"  name="whatsapp" placeholder="number" 
+                        <input type="text" class="form-control floating"  name="whatsapp" placeholder="" 
                         {{-- pattern="\d{10}"  --}}
                         title=""   required>
                        <label class="focus-label">WhatsApp</label>
@@ -480,7 +483,7 @@
             <div class="form-group form-focus">
                 <input type="text" class="form-control floating location_name" name="location_name" placeholder=""
                      required>
-                   <label class="focus-label">Location Type</label>
+                   <label class="focus-label">Location</label>
                 </div>
             <div class="invalid-feedback">
                 Please provide a location.
