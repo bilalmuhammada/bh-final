@@ -7,6 +7,17 @@
 .floating {
     border: 1px solid #997045 !important;
 }
+select {
+    word-wrap: normal;
+    text-transform:initial !important;
+}
+.form-focus .form-control {
+    padding: 11px 10px 6px !important;
+}
+
+form{
+    width: auto !important;
+}
 .contact-us{
     background-color:  #997045 !important;
     color: white;
@@ -170,10 +181,10 @@ select {
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
                                       <select name="iam" id="" class="form-control floating"> 
-                                                                           
                                         <option selected hidden disabled value="">&nbsp;&nbsp;</option>
-                                        <option value="brands">Brand</option>
-                                        <option value="influncer">Influncer</option>
+                                        @foreach(\App\Helpers\RecordHelper::getCategories() as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
                                       </select>
                                       <label class="focus-label">I'm a/an  </label>
                                     </div>
@@ -183,11 +194,16 @@ select {
                                         <select name="reason" id="" class="form-control floating"> 
                                             {{-- <option  selected value="">Reason</option> --}}
                                             <option selected hidden disabled value="">&nbsp;&nbsp;</option>
-                                              <option value="collaboration">Collaboration</option>
-                                              <option value="suggestion">Suggestion</option>
-                                              <option value="complain">Complain</option>
-                                              <option value="reportbrand">Report a Brand</option>
-                                              <option value="reportinfluncer">Report an Influncer</option>
+                                              <option value="1">Advertising</option>
+                                              <option value="2">Account Related</option>
+                                              <option value="3">Ad Related</option>
+                                              <option value="4">Payment Related</option>
+                                              <option value="5">Collaboration</option>
+
+                                              <option value="6">Complain</option>
+                                              <option value="7">Suggestion</option>
+                                              <option value="9">Report User</option>
+                                              <option value="0">Other</option>
                                             </select>
                                             <label class="focus-label">Reason </label>
                                     </div>

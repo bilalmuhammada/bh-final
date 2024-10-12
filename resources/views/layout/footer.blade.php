@@ -7,6 +7,9 @@
     .changeColor:hover{
      color: blue !important;
     }
+    .m-10{
+        margin: 40px 0px 0px -63px !important;
+    }
 </style>
 <footer>
 {{--<div class="marquee" style="background-color: #0000FF;color: white;padding-top: 10px;margin-bottom: 10px;height: 25px;">
