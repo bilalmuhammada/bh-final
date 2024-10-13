@@ -184,7 +184,9 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             </span>
                 {{-- </div> --}}
         </div>
-
+@php
+// dd(request()->sort);
+@endphp
         <div class="col-md-3 border-color" id="filtersAreaw1">
             <a data-toggle="collapse1" href="#multiCollapseExample51" role="buttonw" aria-expanded="false"
                aria-controls="multiCollapseExample51" style="color:#000;">
@@ -195,7 +197,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                     
                    </button>
                    <ul class="dropdown-menu" aria-labelledby="sortDropdown" style="line-height: 0.5">
-                       <li><sort class="dropdown-item" href="?sort=newest" @if(request()->sort=="newest") ? selected : '' @endif>Post: New to Old</a></li>
+                       <li><a class="dropdown-item {{ request()->sort == 'newest' ? 'selected' : '' }}" selected href="?sort=newest">Post: New to Old</a></li>
                        <li><a class="dropdown-item" href="?sort=oldest">Post: Old to New</a></li>
                        <li><a class="dropdown-item" href="?sort=price_highest">Price: High to Low</a></li>
                        <li><a class="dropdown-item" href="?sort=price_lowest">Price: Low to High</a></li>
