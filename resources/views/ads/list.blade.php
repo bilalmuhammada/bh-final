@@ -94,17 +94,17 @@
                     <div class="carousel-item active">
                         <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
                     </div>
-                    <div class="carousel-item ">
-                        <img src="{{asset('images/slider-images/image3.JPG')}}" alt="Los Angeles" width="100%" height="257" style="height:310px;border-radius:10px;">
+                    <div class="carousel-item">
+                        <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{asset('images/slider-images/image2.JPG')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                        <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
                     </div>
                     <div class="carousel-item">
-                      <img src="{{asset('images/slider-images/image3.JPG')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                      <img src="{{asset('images/slider-images/image3.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{asset('images/slider-images/image4.JPG')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                        <img src="{{asset('images/slider-images/image4.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
                     </div>
                 </div>
             </div>
