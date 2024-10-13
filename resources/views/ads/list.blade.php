@@ -331,8 +331,8 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             <div class="col-lg-12 col-md-12 col-12" style="margin: 10px;">
                 <div class="row" style="margin-left: -81px;">
                     <div class="col-lg-9 col-md-9" style="display: flex;">
-                        <h4 style="white-space: nowrap;"><b> {{ $subcategory_name }} <span class="text-muted">•{{ $ads->count() }} Ads</span></b>
-                        </h4>
+                        <h5 style="white-space: nowrap;"><b> {{ $subcategory_name }} <span class="text-muted">-{{ $ads->count() }} Ads</span></b>
+                        </h5>
                         <button class="btn"  style="border: 1px solid goldenrod ;white-space: nowrap; height: 36px; border-radius: 5px;margin-left: 53.2rem; color: red;" type="button"  aria-expanded="false">
                             Clear Search
                         </button>
