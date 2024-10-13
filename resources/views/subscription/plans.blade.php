@@ -4,7 +4,7 @@
       border: 1px solid #b9b9b9;
       /* box-shadow: 0px 0px 2px 0px #888; */
       padding: 20px;
-      margin-bottom: 25px;
+      margin-bottom: 15px;
       border-radius: 5px;
     }
     .form-group {
@@ -71,7 +71,7 @@
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     }
     #discountCode::placeholder {
-  color: #ddd; /* Change this to the desired color */
+  color: #c0bcbc; /* Change this to the desired color */
   /* font-style: italic; Optional: Add any additional styling */
   opacity: 1; /* Ensure full opacity if needed */
   font-size: 14px; /* Optional: Change the font size */
@@ -95,7 +95,7 @@
       <div class="logo" style="text-align:center;">
         <img src="{{asset('images/businesshub-slogan.png')}}" alt="" width="250px" alt="logo">
         </div>
-        <div class="container mt-5">
+        <div class="container mt-3">
           <form action="/session" method="POST">
             <input type="hidden" name="_token" value="{{csrf_token()}}">
             <input type='hidden' name="total" value="5">
@@ -106,7 +106,7 @@
                     <hr class="bold-hr">
                     <div class="package-card section-package" style="background-color: #e7f5fb">
                   <h6 class="text-center font-weight-bolder" style="margin-top: 12px;">You're posting in a paid only category</h6>
-                  <p class="text-center text-muted" style="font-size: 13px;">This will help you get quality buyers for a small fee</p>
+                  <p class="text-center text-muted" style="font-size: 12px;">This will help you get quality buyers for a small fee</p>
                 </div>
                 <div class="form-group package-card section-package">
                     <div class="form-check">
@@ -125,12 +125,12 @@
                   
                   "><h5>Featured Ad</h5>  <span class="badge badge-primary" style="margin-left: 13.77rem;    margin-bottom: 14px;">Featured</span></div>
                     
-                    <p  style="font-size: 13px;">Featured Ads appear above the standard ads</p>
+                    <p  style="font-size: 13px;">Featured Ads appear above  standard Ads</p>
                     <div class="form-group package-card ">
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="feature" id="feature3" value="3days" style="margin-left: -30px;margin-top: -6px;">
                         <label class="form-check-label font-weight-bolder" for="feature3" >
-                          Feature your Ad for 3 days   <span style="margin-left:102px;font-weight: bolder">$ 2</span>
+                          Feature your Ad for 5 days   <span style="margin-left:102px;font-weight: bolder">$ 2</span>
                         </label>
                       
                       </div>
@@ -139,7 +139,7 @@
                         <div class="form-check">
                           <input class="form-check-input" type="checkbox" name="feature" id="feature3" value="3days" style="margin-left: -30px;margin-top: -6px;">
                           <label class="form-check-label font-weight-bolder" for="feature3" >
-                            Feature your Ad for 7 days    <span style="margin-left:102px;font-weight: bolder">$ 2</span>
+                            Feature your Ad for 10 days    <span style="margin-left:102px;font-weight: bolder">$ 2</span>
                           </label>
                         
                         </div>
@@ -148,7 +148,7 @@
                         <div class="form-check">
                           <input class="form-check-input" type="checkbox" name="feature" id="feature3" value="3days" style="margin-left: -30px;margin-top: -6px;">
                           <label class="form-check-label font-weight-bolder" for="feature3" >
-                            Feature your Ad for 15 days    <span style="margin-left: 96px;font-weight: bolder">$ 2</span>
+                            Feature your Ad for 20 days    <span style="margin-left: 96px;font-weight: bolder">$ 2</span>
                           </label>
                         
                         </div>
@@ -168,7 +168,7 @@
 
       <div style="display: grid">
                 <span class="text-center font-weight-bolder">Price are exclusive of VAT</span>
-                 <span class="text-center text-muted " style="margin-top: 8px;">The applicable options have been automatically selected <br>based on the posts applied on previous listings generally</span>
+                 <span class="text-center text-muted " style="margin-top: 8px;font-size: 13px;">Ads Price has been automatically selected <br>based on the posts applied on previous listings generally</span>
         </div>
 
                 {{-- </div> --}}
@@ -178,22 +178,22 @@
                 <div class="order-summary">
                     <h4 class="text-center"><b>Order Summary</b></h4>
                     <hr class="bold-hr">
-                  <p>Basic Ad  <span style="font-weight: 900;
+                  <p>Standard Ad  <span style="font-weight: 900;
                     margin-left: 15rem;">$ 2</span></p>
-                  <p>Premium Ad for 7 days  <span style="font-weight: 900;
-                    margin-left: 8.8rem;">$ 2</span></p>
+                  <p>Featured Ad for 7 days  <span style="font-weight: 900;
+                    margin-left: 10.4rem;">$ 2</span></p>
                   <div class="form-group">
                     <input type="text" class="form-control1 text-muted" placeholder="Referral Code" id="discountCode">
                     <button class="btn apply-btn" style="    background-color: #c4bfbf7d;color: white">Apply</button>
                   </div>
                   <hr>
-                  <p>Subtotal: <span style="margin-left: 15rem;font-weight: 900">$ 2.00</span> </p>
-                  <p>VAT 5%: <span style="margin-left: 15.3rem;font-weight: 900"> $ 2</span></p>
+                  <p>Subtotal: <span style="margin-left: 17rem;font-weight: 900">$ 2</span> </p>
+                  <p>VAT 5%: <span style="margin-left: 17.2rem;font-weight: 900"> $ 2</span></p>
                   <hr>
-                  <p>Total: <span style="margin-left: 16.7rem;font-weight: 900"> $ 2.00</span> </p>
+                  <p>Total: <span style="margin-left: 18.7rem;font-weight: 900"> $ 2</span> </p>
                   
                   <input type='hidden' name="productname" value="Bussiness For Sale">
-                  <button type="submit"  class="btn  btn-block "  id="checkout-live-button" style="margin-left: 88px;width: 11pc; background-color: #ff3131;color: white;"><b>Pay $ 2.00</b></button>
+                  <button type="submit"  class="btn  btn-block "  id="checkout-live-button" style="margin-left: 7.4rem;width: 9pc; background-color: #ff3131;color: white;"><b>Pay $ 2.00</b></button>
                
                   {{-- <a href=""> --}}
                       {{-- <button class="btn bt-plan" type="submit" id="checkout-live-button"><i class="fa fa-money"></i> SELECT PLAN</button>

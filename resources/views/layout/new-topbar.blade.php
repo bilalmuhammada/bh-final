@@ -140,7 +140,7 @@ $second = $parts[1] ?? null;
     @endphp
     <div class="container">
         <!-- topbar start -->
-        @if(request()->path()!=="contact-us" && request()->path()!=="about-us" &&  $second !=="plane-ad")
+        @if(request()->path()!=="contact-us" && request()->path()!=="about-us" && request()->path()!=="privacy-policy" && request()->path()!=="terms-of-use" &&  $second !=="plane-ad")
         <div class="topbar desktop-view">
             <div class="cont-w">
                 <div class="row">

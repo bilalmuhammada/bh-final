@@ -353,12 +353,12 @@
 
 @section('page_scripts')
     <script>
- $(document).ready(function () {
+//  $(document).ready(function () {
 
-$('.datepicker').datepicker({
-dateFormat: 'dd-mm-yy'
-});
- });
+// $('.datepicker').datepicker({
+// dateFormat: 'dd-mm-yy'
+// });
+//  });
 
 
 

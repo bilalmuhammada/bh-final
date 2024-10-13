@@ -11,6 +11,16 @@ color: goldenrod !important;
 .fa-chevron-right:hover{
 color: blue !important;
 }
+.text-muted:hover{
+    color: blue !important;
+}
+
+a.text-dark1, a.text-dark1 {
+    color: #121416 !important;
+}
+a.text-dark1:focus, a.text-dark1:hover {
+    color: blue !important;
+}
 </style>
 @section('content')
     <div class="col-md-5 mx-auto text-center" >
@@ -26,7 +36,7 @@ color: blue !important;
         <ul style="list-style-type:none;" style="border: 1px solid red;padding:;">
             @foreach($subcategories as $subcategory)
             <li style="width:350px;border-bottom:1px solid #eee;padding:5px;text-decoration: none;width:456px;">
-                <a href="{{env('BASE_URL') . 'listing/' . $category_id . '/listing-title/' . $subcategory->id}}" class="text-dark">{{$subcategory->name}}
+                <a href="{{env('BASE_URL') . 'listing/' . $category_id . '/listing-title/' . $subcategory->id}}" class="text-dark1">{{$subcategory->name}}
                     <i class="fa fa-chevron-right" style="float: right;text-decoration: none; "></i>
                 </a>
             </li>

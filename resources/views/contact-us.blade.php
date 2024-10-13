@@ -11,8 +11,11 @@ select {
     word-wrap: normal;
     text-transform:initial !important;
 }
-.form-focus .form-control {
-    padding: 11px 10px 6px !important;
+.form-focus.focused .focus-label {
+    top: -14px !important;
+}
+.form-focus .form-padding {
+    padding: 22px 10px 6px !important;
 }
 
 form{
@@ -126,25 +129,25 @@ select {
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
-                                        <input type="text" class="form-control floating" name="first_name">
+                                        <input type="text" class="form-control form-padding floating" name="first_name">
                                         <label class="focus-label">First Name</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
-                                        <input type="text" class="form-control floating" name="last_name">
+                                        <input type="text" class="form-control form-padding floating" name="last_name">
                                         <label class="focus-label">Last Name</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
-                                        <input type="email" class="form-control floating" name="email"  placeholder="Please enter a valid Email.">
+                                        <input type="email" class="form-control form-padding floating" name="email"  placeholder="Please enter a valid Email.">
                                         <label class="focus-label">Email</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
-                                        <input type="tel" class="form-control floating" name="mobile" pattern="\+?\d*"  oninput="validateInput(this)"   placeholder="Please enter a valid Mobile."> 
+                                        <input type="tel" class="form-control form-padding floating" name="mobile" pattern="\+?\d*"  oninput="validateInput(this)"   placeholder="Please enter a valid Mobile."> 
                                         <label class="focus-label">Mobile</label>
                                     </div>
                                 </div>
@@ -153,10 +156,10 @@ select {
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
                                         {{--    <input type="text" class="form-control floating" name="country">--}}
-                                        <select name="country_id" class="form-control floating" id="country_id">
+                                        <select name="country_id" class="form-control form-padding floating" id="country_id">
                                             <option selected hidden disabled value="">&nbsp;&nbsp;</option>
-                                            @foreach(\App\Helpers\RecordHelper::getCountries() as $country)
-                                                <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
+                                            @foreach(\App\Helpers\RecordHelper::getCountriesRegistration() as $country)
+                                                <option value="{{ $country->id }}">{{ $country->name }}</option>
                                             @endforeach
                                         </select>
                                         <div class="invalid-feedback">
@@ -167,7 +170,7 @@ select {
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus label">
-                                        <select name="city_id" class="form-control floating" id="brand_city_id">
+                                        <select name="city_id" class="form-control form-padding floating" id="brand_city_id">
                                             {{-- <option value="">Select City</option> --}}
                                             {{-- <option selected hidden disabled value="">&nbsp;&nbsp;</option> --}}
 
@@ -180,7 +183,7 @@ select {
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
-                                      <select name="iam" id="" class="form-control floating"> 
+                                      <select name="iam" id="" class="form-control form-padding floating"> 
                                         <option selected hidden disabled value="">&nbsp;&nbsp;</option>
                                         @foreach(\App\Helpers\RecordHelper::getCategories() as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -191,7 +194,7 @@ select {
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
-                                        <select name="reason" id="" class="form-control floating"> 
+                                        <select name="reason" id="" class="form-control form-padding floating"> 
                                             {{-- <option  selected value="">Reason</option> --}}
                                             <option selected hidden disabled value="">&nbsp;&nbsp;</option>
                                               <option value="1">Advertising</option>
@@ -210,24 +213,24 @@ select {
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
-                                        <input type="text" class="form-control floating" name="subject">
+                                        <input type="text" class="form-control form-padding floating" name="subject">
                                         <label class="focus-label">Subject</label>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
-                                        <input type="file" class="form-control  floating"  id="attachmentInput" name="attachments">
+                                        <input type="file" class=" form-control floating"  id="attachmentInput" name="attachments">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group form-focus">
-                                        <textarea class="form-control floating" style="height:120px;" name="message"></textarea>
+                                        <textarea class="form-control  form-padding floating" style="height:180px;" name="message"></textarea>
                                         <label class="focus-label">Message</label>
                                     </div>
                                 </div>
                                 <div class="col-md-2" style="text-align: center;
-                                margin-top: 75px; margin-left: 24rem;">
+                                margin-top: 8rem; margin-left: 24rem;">
                                     <button class="btn-block btn-lg t-btn contact-us" type="submit">Submit</button>
                                 </div>
                             </div>
@@ -237,11 +240,6 @@ select {
                 </div>
             </div>
         </section>
-        {{-- <section class="" style="margin-top: -30px;">
-            <div class="container-fluid" style="border:0px solid red;background-image:url('images/footer.png');height:180px;width:100%;content:'';  background-repeat: repeat-x;">
-                
-            </div>
-        </section> --}}
-        <!-----contact form end------>
-
+       
+       
 @endsection

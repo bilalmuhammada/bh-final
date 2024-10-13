@@ -40,6 +40,9 @@
             margin-bottom: 0px !important;
         }
 
+        .max_price::placeholder{
+            color: #000 !important
+        }
         .filter-options-list:hover {
             color: black;
             background-color: #e6e6e6;
@@ -62,8 +65,12 @@
         }
         .form:hover{
             border: 1px solid blue !important;
+            border-right: 1px solid blue !important;
         }
 
+        /* .border-color:hover{
+            border-right: 1px solid blue !important;
+        } */
         .active {
             background-color: rgb(0, 0, 255, .3);
             color: white;
@@ -116,7 +123,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             {{-- <div class="col-lg-12 col-xl-12 col-12 col-md-12"> --}}
                 <form class="form" >
     <div class="row" style="display: flex; flex-wrap: nowrap;">
-        <div class="col-md-4" style="border-right:2px solid #eee;" id="cityArea">
+        <div class="col-md-4 border-color" style="border-right:2px solid #eee;" id="cityArea">
             <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
                aria-controls="multiCollapseExample1" style="color:#000;">
                 <div class="col-md-12" style="text-align: center;"><span style="font-size: 14px;"><b>City</b></span></div>
@@ -125,7 +132,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
         </div>
 
 
-        <div class="col-md-7" style="border-right: 2px solid #eee; text-align: center;">
+        <div class="col-md-7 border-color" style="border-right: 2px solid #eee; text-align: center;">
             <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;">Keyword</label>
             <div class="input-group">
                 <input type="text" class="form-control filter1" id="keyword" style="margin-top: -10px;" placeholder="Search anything in {{ $category_name->name }}">
@@ -149,7 +156,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
 
        
 
-        <div class="col-md-6" style="border-right: 2px solid #eee; text-align: center;">
+        <div class="col-md-6 border-color" style="border-right: 2px solid #eee; text-align: center;">
             <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px;">Neighborhood</label>
             <div class="input-group">
                 <input type="text" class="form-control filter1" style="margin-top: -12px;" id="neighborhood" placeholder="Enter location">
@@ -161,7 +168,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
 
         
 
-        <div class="col-md-5" style="border-right:2px solid #eee;" id="priceArea1">
+        <div class="col-md-5 border-color" style="border-right:2px solid #eee;" id="priceArea1">
             <a data-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false"
                aria-controls="multiCollapseExample4" style="color:#000;">
                 <div class="col-md-12" style="text-align: center;"><span style="font-size: 14px;margin-left: 10px;"><b>Price</b></span></div>
@@ -170,15 +177,15 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             </a>
             {{-- <div class="col-md-12" style="display: flex;"> --}}
                 <span style="display: flex;">
-                <input type="text" class="form-control filter1" style="border-right: 1px solid #eee;padding: 0px !important; " name="min_price" id="min_price" placeholder="Min" min="0">
+                <input type="text" class="form-control filter1" style="border-right: 2px solid #eee;padding: 0px !important; " name="min_price" id="min_price" placeholder="Min" min="0">
                 {{-- <div style="border-left: 1px solid #ccc; height: 100%; margin: 0 10px;"></div> --}}
     
-                <input type="text" class="form-control" style="padding: 0px !important; " name="max_price" id="max_price" placeholder="Max" min="0">
+                <input type="text" class="form-control max_price" style="padding: 9px !important; " name="max_price" id="max_price" placeholder="Max" min="0">
             </span>
                 {{-- </div> --}}
         </div>
 
-        <div class="col-md-3" id="filtersAreaw1">
+        <div class="col-md-3 border-color" id="filtersAreaw1">
             <a data-toggle="collapse1" href="#multiCollapseExample51" role="buttonw" aria-expanded="false"
                aria-controls="multiCollapseExample51" style="color:#000;">
                 <div class="col-md-12" style="text-align: end;" ><span style="font-size: 14px;margin-left: -2px;"><b>Filter</b></span></div>
@@ -202,7 +209,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
           
         {{-- </div> --}}
     </div>
-    <button class="btn"  style="white-space: nowrap;margin-left:43rem;  color: red; border: 1px solid goldenrod ;border-radius: 5px;" type="button"  aria-expanded="false">
+    <button class="btn"  style="white-space: nowrap;margin-left:43.5rem;  color: red; border: 1px solid goldenrod ;border-radius: 5px;" type="button"  aria-expanded="false">
         Search
     </button>
    
@@ -324,9 +331,9 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             <div class="col-lg-12 col-md-12 col-12" style="margin: 10px;">
                 <div class="row" style="margin-left: -81px;">
                     <div class="col-lg-9 col-md-9" style="display: flex;">
-                        <h3 style="white-space: nowrap;"><b> {{ $subcategory_name }} <span class="text-muted">•{{ $ads->count() }} Ads</span></b>
-                        </h3>
-                        <button class="btn"  style="border: 1px solid goldenrod ;white-space: nowrap; height: 36px; border-radius: 5px;margin-left: 50rem; color: red;" type="button"  aria-expanded="false">
+                        <h4 style="white-space: nowrap;"><b> {{ $subcategory_name }} <span class="text-muted">•{{ $ads->count() }} Ads</span></b>
+                        </h4>
+                        <button class="btn"  style="border: 1px solid goldenrod ;white-space: nowrap; height: 36px; border-radius: 5px;margin-left: 51.8rem; color: red;" type="button"  aria-expanded="false">
                             Clear Search
                         </button>
                         {{-- <div class="dropdown" style="margin-left: 1rem; display: flex;"> --}}
@@ -376,7 +383,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                         @foreach($ads as $ad)
                         <div class="row">
                             <!-----content----->
-                            <div class="col-lg-4 col-md-4 col-12" style="margin-bottom:10px;">
+                            <div class="col-lg-4 col-md-4 col-12" style="margin-top:-12px;">
                                 <div style="position:absolute;border:0px solid red;width:100%;">
                                     <div class="row">
                                         <!-- Sharing and Favourite buttons -->
@@ -406,7 +413,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                 </a>
                             </div>
                             <div class="col-lg-8 col-md-8 col-12">
-                                <div class="row" style="margin-top: 12px;">
+                                <div class="row" style="margin-top: -12px;">
                                     <div class="col-lg-7 col-md-7 col-7" style="margin-left: -118px">
                                         <h5 style="font-size: 22px;font-weight:700;">{{ $ad->title ?? 'Heading N/A' }}</h5>
                                         <p style="font-size: 13px;">{{ $ad->category_name }} <span style="font-size: 16px;">&#9679;</span> {{ $ad->subcategory_name }}</p>

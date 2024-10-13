@@ -1,4 +1,14 @@
 @extends('layout.master')
+
+<style>
+    .term-text h1{
+        margin-top: 20px !important;
+    }
+    .login-header{
+        margin-left: -30px;
+        margin-top: -50px !important;
+    }
+</style>
 @section('content')
 
     <!-- Privacy Policy area start -->
@@ -6,8 +16,16 @@
         <div class="container">
             <div class="row mb-20px">
                 <div class="col-md-12 col-lg-12 col-xl-12 term-text">
+                    <div class="login-header">
+                        <a href="{{ env('BASE_URL') }}">
+                            <img src="{{asset('images/businesshub-slogan.png')}}" alt="" width="250px" alt="logo">
+                        </a>
+                        {{-- <h3 style="margin-top: 20px;">Contact Us</h3> --}}
+                        <h1 class="terms-h">Privacy Policy</h1>
+                        {{-- <p>Share your mind with us!</p> --}}
+                    </div>
                     <!-- Privacy Policy title start -->
-                    <h1 class="terms-h">Privacy Policy</h1>
+                    
                     <!-- Privacy Policy title finish -->
                     <!-- Privacy Policy text start -->
                     <h6 class="terms">Introduction</h6>

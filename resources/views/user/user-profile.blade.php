@@ -391,15 +391,16 @@ width: 225px !important;
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript">
  
+ $(function() {
+    $("#datepicker").datepicker({
+        beforeShowDay: function(date) {
+            return [true]; // This enables all dates
+        },
+        showOtherMonths: true, // Show dates of other months
+        selectOtherMonths: true // Allow selection of dates from other months
+    });
+});
 
-// $('#datepicker').datepicker({
-
-// changeMonth: true, // Enables month dropdown
-// changeYear: true,
-// autoclose: true,
-
-// todayHighlight: true
-// });
 document.getElementById('change-photo-link').addEventListener('click', function() {
     document.getElementById('profile_image').click();
 });

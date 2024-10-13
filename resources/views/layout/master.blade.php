@@ -196,6 +196,23 @@ $second = $parts[1] ?? null;
       
         window.location.assign(base_url + 'home/?country=' + $(this).val());
     });
+
+
+  
+           
+                
+                // $(document).on('input', '.floating', function (e) {
+        
+        
+                if ($('.floating').length > 0) {
+                   
+                   $('.floating').on('focus blur', function (e) {
+                       $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
+                   }).trigger('blur');
+               }
+        // });
+    
+
 </script>
 @yield('page_scripts')
 </body>

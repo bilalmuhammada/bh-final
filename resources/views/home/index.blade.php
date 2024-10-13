@@ -43,7 +43,7 @@
         top: 20%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: goldenrod;
+        color: #F5BD02;
         font-weight:bold;
     }
 
@@ -133,7 +133,7 @@
     }
 
     .cf:hover {
-        color: #A17A4E !important;
+        color: #F5BD02 !important;
         font-size: 16px !important;
         font-weight: bold;
     }
@@ -163,6 +163,8 @@ a{
     }
 
     .main-div .spans {
+
+        margin-left: -5px;
         margin-top: -10px;
         font-weight: bold;
         text-align:center;
@@ -253,6 +255,7 @@ a{
         background-color:rgba(0, 0, 255, .3) !important;
     }
     .flag2{
+        margin-left: -8px;
         width:40px;
        height:25px;
     }
@@ -315,9 +318,9 @@ $countries = \App\Helpers\RecordHelper::getCountries();
 <!-----hero section-------->
 <div class="hero-image mobile-view">
     <div class="hero-text">
-        <p>Welcome to World’s bt#1 Only Businesses Marketplace!</p>
+        <p>Welcome to Only-Businesses Focused Worldwide Platform!</p>
 
-        <p class="text-center" style="font-size:14px;margin-top:10px;">Which country would you like to explore?</p>
+        <p class="text-center" style="font-size:14px;margin-top:10px;">Explore our Countries!</p>
     </div>
 </div>
 <!-- slider start -->
@@ -328,7 +331,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                 <div class="carousel-item active">
                     <img src="{{asset('images/slider-images/1.jpg')}}" alt="Los Angeles" width="100%" height="450px">
                     <div class="hero-text">
-                        <p class="main">Welcome to the World's #1online business website!</p>
+                        <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">
                         Explore our Countries!
                         </p>
@@ -345,7 +348,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                 <div class="carousel-item">
                     <img src="{{asset('images/slider-images/2.jpg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text" >
-                        <p class="main">Welcome to the World's #1 online business website!</p>
+                        <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
                     </div>
                 </div>
@@ -360,7 +363,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                 <div class="carousel-item">
                     <img src="{{asset('images/slider-images/3.jpg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text">
-                        <p class="main">Welcome to the World's #1 online business website!</p>
+                        <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
                     </div>
                 </div>
@@ -383,14 +386,14 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                 <div class="carousel-item">
                     <img src="{{asset('images/slider-images/4.jpg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text">
-                        <p class="main">Welcome to the World's #1 online business website!</p>
+                        <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="{{asset('images/slider-images/5.jpg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text" >
-                        <p class="main">Welcome to the World's #1 online business website!</p>
+                        <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
                     </div>
                 </div>
