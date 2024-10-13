@@ -195,7 +195,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                     
                    </button>
                    <ul class="dropdown-menu" aria-labelledby="sortDropdown" style="line-height: 0.5">
-                       <li><a class="dropdown-item" href="?sort=newest">Post: New to Old</a></li>
+                       <li><sort class="dropdown-item" href="?sort=newest" @if(request()->sort=="newest") ? selected : '' @endif>Post: New to Old</a></li>
                        <li><a class="dropdown-item" href="?sort=oldest">Post: Old to New</a></li>
                        <li><a class="dropdown-item" href="?sort=price_highest">Price: High to Low</a></li>
                        <li><a class="dropdown-item" href="?sort=price_lowest">Price: Low to High</a></li>
