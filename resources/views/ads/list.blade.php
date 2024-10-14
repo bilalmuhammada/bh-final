@@ -3,6 +3,24 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 @section('content')
     <style>
+ .pagination {
+        margin-top: 20px;
+    }
+    .pagination .page-link {
+        color: #007bff; /* Change the color of the page link */
+    }
+    .pagination .page-link:hover {
+        color: #0056b3; /* Hover color */
+    }
+    .pagination .page-item.active .page-link {
+        background-color: #007bff; /* Active page background */
+        border-color: #007bff;
+    }
+    .paginationLink{
+        margin-left: 13px;
+    }
+
+
         .btnx {
             /*background: rgb(0, 0, 255, .3);*/
             font-size: 13px;
@@ -438,8 +456,17 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                             <hr style="width: 69%;margin-top: -9px;margin-left: 12px;background:#eee;">
                         </div>
                     @endforeach
-                    
+                    {{-- <div class="pagination mt-4">
+                        {{ $ads->links() }}
+                    </div> --}}
                     </div>
+                    <div class="d-flex justify-content-center paginationLink" >
+                        {{ $ads->links('pagination::bootstrap-4') }}
+                    </div>
+                    <!-- Pagination links -->
+{{-- <div class="pagination">
+    {{ $ads->links() }}
+</div> --}}
                     <!--  add area -->
                     {{-- <div class="col-lg-4 col-md-8 mb-30 col-12">
                         <img src="{{asset('images/hero_image_7.jpeg')}}" alt="Los Angeles" width="100%" height="200"

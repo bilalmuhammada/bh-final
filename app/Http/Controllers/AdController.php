@@ -19,7 +19,7 @@ class AdController extends Controller
             // dd($subcategory_id);
 
             $SubCategory = SubCategory::with(['category'])->find($subcategory_id);
-
+            $perPage = 10;
             $price_from = $request->from;
             $price_to = $request->to;
             $keyword = $request->keyword;
@@ -46,7 +46,7 @@ class AdController extends Controller
                 ->when($city_id, function ($Listing) use ($city_id) {
                     $Listing->where('city_id', $city_id);
                 })
-                ->orderBy('name')->get();
+                ->orderBy('name')->paginate($perPage);
 
             $data = [
                 'from' => $request->from ?? false,
@@ -60,6 +60,7 @@ class AdController extends Controller
                 'subcategory_name' => $SubCategory->name,
                 'ads' => $ads
             ];
+          
             return view('ads.list')->with($data);
         }
         else{           
@@ -72,6 +73,8 @@ class AdController extends Controller
             $country_id = $request->country;
             $city_id = $request->city;
             
+            $perPage = 10;
+
             $ads = Listing::with([
                 'attachments',
                 'created_by_user'
@@ -85,13 +88,14 @@ class AdController extends Controller
                 ->when($keyword, function ($listing) use ($keyword) {
                     $listing->where('title', 'like', '%' . $keyword . '%');
                 })
-                ->when($country_id, function ($Listing) use ($country_id) {
-                    $Listing->where('country_id', $country_id);
+                ->when($country_id, function ($listing) use ($country_id) {
+                    $listing->where('country_id', $country_id);
                 })
-                ->when($city_id, function ($Listing) use ($city_id) {
-                    $Listing->where('city_id', $city_id);
+                ->when($city_id, function ($listing) use ($city_id) {
+                    $listing->where('city_id', $city_id);
                 })
-                ->orderBy('name')->get();
+                ->orderBy('name')
+                ->paginate($perPage); // Use pagination
             
             // Safely accessing category details from the first SubCategory, assuming there are multiple
             $firstSubCategory = $SubCategory->first(); // Access the first item in the collection if available
