@@ -3,11 +3,11 @@
 <div class="col-lg-12 col-md-12 col-12" style="margin-top: 35px;margin-bottom: 10px;">
     <div class="row" style="margin-top:13px;">
         <div class="col-lg-6 col-md-6 col-6" >
-            <p style="font-size: 14px;"><b>Instrested Business Models:</b>
+            <p style="font-size: 14px;"><b>Instrested Business Models :</b>
                 <span>{{ $ad->details->business_type ?? '....' }}</span></p>
         </div>
         <div class="col-lg-6 col-md-6 col-6" >
-            <p style="font-size: 14px;"><b>Open to Invest:</b>
+            <p style="font-size: 14px;"><b>Open to Invest :</b>
                 <span>{{ $ad->details->trade_licence_type ?? '....' }}</span></p>
         </div>
     </div>
@@ -25,18 +25,18 @@
 
     <div class="row">
         <div class="col-lg-6 col-md-6 col-6">
-            <p style="font-size: 14px;"><b>Communication Preferance:</b>
+            <p style="font-size: 14px;"><b>Communication Preferance :</b>
                 <span>{{ $ad->details->size_sqm ?? '....' }}</span></p>
         </div>
         <div class="col-lg-6 col-md-6 col-6">
-            <p style="font-size: 14px;"><b>Mobile:</b>
+            <p style="font-size: 14px;"><b>Mobile :</b>
                 <span>{{ $ad->details->no_of_employees ?? '....' }}</span></p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-6 col-md-6 col-6">
-            <p style="font-size: 14px;"><b>WhatsApp:</b>
+            <p style="font-size: 14px;"><b>WhatsApp :</b>
                 <span>{{ $ad->details->reason_for_sale ?? '....' }}</span></p>
         </div>
         

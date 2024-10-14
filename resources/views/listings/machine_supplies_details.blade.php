@@ -49,7 +49,7 @@
  .form-focus .form-control:-webkit-autofill~.focus-label {
      opacity: 1;
      font-weight: 400;
-     top: -11px;
+     top: -18px;
      font-size: 12px;
      z-index: 1;
  }

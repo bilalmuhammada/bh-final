@@ -33,7 +33,7 @@
  }
  .form-focus.focused .focus-label {
      opacity: 1;
-     top: -11px;
+     top: -18px;
      font-size: 12px;
      z-index: 1;
  }
