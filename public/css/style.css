@@ -386,10 +386,10 @@
     }
     
     .listing:hover {
-        /* width: 230px; */
+        width: 230px;
         border: 1px solid #fff;
-        /* padding: 5px; */
-        box-shadow: 3px 5px 5px 5px #ffffff;
+         padding: 5px;
+        box-shadow: 3px 5px 5px 5px #8e888842;
     }
     
     .sick-area {

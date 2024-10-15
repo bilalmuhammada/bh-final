@@ -4,7 +4,7 @@
 @section('content')
     <style>
  .pagination {
-        margin-top: 20px;
+        margin-top: 40px;
     }
     .pagination .page-link {
         color: #007bff; /* Change the color of the page link */
@@ -17,7 +17,7 @@
         border-color: #007bff;
     }
     .paginationLink{
-        margin-left: 13px;
+        margin-left: 17rem;
     }
 
 

@@ -19,7 +19,7 @@ class AdController extends Controller
             // dd($subcategory_id);
 
             $SubCategory = SubCategory::with(['category'])->find($subcategory_id);
-            $perPage = 10;
+            $perPage = 2;
             $price_from = $request->from;
             $price_to = $request->to;
             $keyword = $request->keyword;
@@ -73,7 +73,7 @@ class AdController extends Controller
             $country_id = $request->country;
             $city_id = $request->city;
             
-            $perPage = 10;
+            $perPage = 2;
 
             $ads = Listing::with([
                 'attachments',
