@@ -5,6 +5,9 @@
         color: blue;
         animation: shake 0.5s ease-in-out;
     }
+    a:hover {
+        text-decoration: none !important;
+    }
 
     @keyframes shake {
   0% { transform: translateX(0); }

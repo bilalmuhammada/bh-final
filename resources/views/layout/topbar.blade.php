@@ -169,17 +169,17 @@
     </script>  
     <!-- topbar start -->
     <div class="topbar desktop-view">
-        <div class="container-fluid" style="border:0px solid red;padding:0px 25px;">
+        <div class="container-fluid" style="padding:0px 25px;">
             <div class="row">
-                <div class="col" style="border:0px solid red;">
-                    <!-- <div class="col-lg-2 col-xl-2 col-md-2" style="border:2px solid red;"> -->
-                    <!-- social icon desktop start -->
-                    {{-- <a class="navbar-brand"
-                       href="{{env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city}}">
-                        <img src="{{asset('images/businesshub.png')}}" alt="businesshub" title="businesshub"
-                             style="border:0px solid red;">
-                    </a> --}}
-                </div>
+                <div class="col" style="margin-top: 9px;margin-left: -11px;">
+                    {{-- <div class="col-lg-1 col-xl-1 col-md-1"> --}}
+                        <!-- social icon desktop start -->
+                        <a class="" href="{{env('BASE_URL') . 'home'}}" >
+                            <img src="{{asset('images/businesshub.png')}}" alt="" width="150px" alt="logo">
+                        </a>
+                    </div>
+                    
+                {{-- </div> --}}
                 <div class="col-lg-4 col-xl-4 col-md-4" style="border:0px solid red;margin-right:-1.4rem;">
                     <!-- <div class="col-md-4"> -->
                     <span style="position:relative;top:20px;border:0px solid red;background-color:inherit !important;">
@@ -215,7 +215,7 @@
                 {{-- <div class="country" style="border:0px solid red;position:relative;left:-50px;"> --}}
                     <select class="form-control city_dropdown" name="city_dropdown" id="" 
                             style="width:140px;border:0px solid red !imporatnt;text-align:center;background-color:transparent !important;">
-                            <option value=""> &nbsp; All Cities</option>
+                            <option value="">All Cities</option>
                         @foreach($cities as $city)
                             <option data-city-id="{{ $city->id }}"
                                     {{ $city->id == request()->city ? 'selected' : '' }} value="{{ $city->id }}"
@@ -255,7 +255,7 @@
                     {{-- <div class="country" style="border:0px solid red;position:relative;left:-184px;"> --}}
                         <select class="form-control currency_dropdown" name="currency_dropdown" id="" 
                                 style="width:100px;border:0px solid red !imporatnt;text-align:center;background-color:transparent !important;">
-                                <option value=""> &nbsp;Currency</option>
+                                <option value="">Currency</option>
                                 @foreach($currency as $currencyn)
                                 <option data-currency-id="{{ $currencyn->currency }}"
                                         {{$currencyn->currency == request()->currency ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" value="{{ $currencyn->currency }}"

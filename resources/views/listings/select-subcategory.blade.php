@@ -21,9 +21,7 @@ a.text-dark1, a.text-dark1 {
 a.text-dark1:focus, a.text-dark1:hover ,.text-dark1:hover, .text-dark1:hover , .text-dark1:hover i{
         color: blue !important;
     }
-    a:hover {
-        text-decoration: none !important;
-    }
+   
 
    
 

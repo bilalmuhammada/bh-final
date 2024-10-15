@@ -17,7 +17,7 @@
     </div>--}}
     <div class="container mb-30" style="margin-top:15px;">
         <div class="col-lg-12 col-md-12 col-12 m-10">
-            <div class="row" style="margin-right: -15rem;">
+            <div class="row" style="margin-right: -8.9rem;">
                 <div class="col-lg-4 col-md-6 col-12">
                     <h5>
                         Find amazing Businesses on the go.<br/>
