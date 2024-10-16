@@ -15,7 +15,7 @@ select {
     top: -14px !important;
 }
 .form-focus .form-padding {
-    padding: 22px 10px 6px !important;
+    padding: 16px 10px 6px !important;
 }
 
 form{
@@ -147,7 +147,7 @@ select {
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
-                                        <input type="tel" class="form-control form-padding floating" name="mobile" pattern="\+?\d*"  oninput="validateInput(this)"   placeholder="Please enter a valid Mobile."> 
+                                        <input type="tel" class="form-control form-padding floating" name="mobile" pattern="\+?\d*"  oninput="validatePhoneNumber(this)"   placeholder="Please enter a valid Mobile."> 
                                         <label class="focus-label">Mobile</label>
                                     </div>
                                 </div>
@@ -189,7 +189,7 @@ select {
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                       </select>
-                                      <label class="focus-label">I'm a/an  </label>
+                                      <label class="focus-label">Category  </label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -220,7 +220,7 @@ select {
 
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
-                                        <input type="file" class=" form-control floating"  id="attachmentInput" name="attachments">
+                                        <input type="file" class=" form-control floating" multiple  id="attachmentInput" name="attachments[]">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -230,7 +230,7 @@ select {
                                     </div>
                                 </div>
                                 <div class="col-md-2" style="text-align: center;
-                                margin-top: 8rem; margin-left: 24rem;">
+                                margin-top: 8rem; margin-left: 22rem;">
                                     <button class="btn-block btn-lg t-btn contact-us" type="submit">Submit</button>
                                 </div>
                             </div>
@@ -241,5 +241,19 @@ select {
             </div>
         </section>
        
-       
+    <script>
+        function validatePhoneNumber(input) {
+    // Remove any non-digit characters
+    input.value = input.value.replace(/\D/g, '');
+    
+    // Check if the input length is exactly 10 digits
+    if (input.value.length !== 10) {
+        input.setCustomValidity('Please enter a valid 10-digit number');
+    } else {
+        input.setCustomValidity('');
+    }
+
+}
+        </script>   
 @endsection
+

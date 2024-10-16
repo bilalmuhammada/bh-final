@@ -41,6 +41,10 @@
       font-weight: bold;
       border-radius: 0 5px 5px 0;
     }
+        #checkout-live-button:hover {
+        background-color: #ff6666; /* Lighter red on hover */
+        transform: scale(1.05); /* Slightly larger */
+    }
     .form-group {
       display: flex;
       align-items: center;
@@ -92,7 +96,7 @@
 @section('content')
 
     <section style="padding-bottom:40px;">
-      <div class="logo" style="text-align:center;">
+      <div class="logo" style="text-align:center;margin-top: 18px;">
         <img src="{{asset('images/businesshub-slogan.png')}}" alt="" width="250px" alt="logo">
         </div>
         <div class="container mt-3">
@@ -103,16 +107,16 @@
               <div class="col-md-6 package-card" style="max-width: 38pc !important">
                 <h4 class="text-center"> <b>Select a package that works for you</b></h4>
                 {{-- <div class=""> --}}
-                    <hr class="bold-hr">
-                    <div class="package-card section-package" style="background-color: #e7f5fb">
+                  <hr class="bold-hr">
+                  <div class="package-card section-package" style="background-color: #e7f5fb">
                   <h6 class="text-center font-weight-bolder" style="margin-top: 12px;">You're posting in a paid only category</h6>
                   <p class="text-center text-muted" style="font-size: 12px;">This will help you get quality buyers for a small fee</p>
                 </div>
                 <div class="form-group package-card section-package">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="package" id="standard" value="standard" checked>
-                      <span style="margin-left: 13px;font-weight: 900">Standard</span><br>
-                      <label class="form-check-label" for="standard" style="margin-left: 13px">
+                    <input class="form-check-input" type="checkbox" name="package" id="standard" value="standard" checked>
+                    <span style="margin-left: 13px;font-weight: 900">Standard</span><br>
+                    <label class="form-check-label" for="standard" style="margin-left: 13px">
                         Ad will be live for 30 days <span style=" font-weight: 900;
                         color: red;
                         margin-left: 8pc;"> $ 2</span>
@@ -123,7 +127,7 @@
                   <div class="package-card  section-package">
                     <div style=" display: inline-flex
                   
-                  "><h5>Featured Ad</h5>  <span class="badge badge-primary" style="margin-left: 13.77rem;    margin-bottom: 14px;">Featured</span></div>
+                  "><h5>Featured Ad</h5>  <span class="badge badge-primary" style="margin-left: 13.66rem;    margin-bottom: 14px;">Featured</span></div>
                     
                     <p  style="font-size: 13px;">Featured Ads appear above  standard Ads</p>
                     <div class="form-group package-card ">

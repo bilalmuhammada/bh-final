@@ -106,11 +106,11 @@
     /* font-weight:bold; */
 }
 .external a{
-    color:#0000FF !important;
+    color:#000 !important;
     
 }
 .external a:hover{
-    color:#A17A4E !important;
+    color:blue !important;
     /* font-weight:bold; */
 }
 </style>

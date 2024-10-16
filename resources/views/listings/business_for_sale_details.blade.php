@@ -503,7 +503,7 @@
 
 
     
-    function validatePhoneNumber(input) {
+function validatePhoneNumber(input) {
     // Remove any non-digit characters
     input.value = input.value.replace(/\D/g, '');
     

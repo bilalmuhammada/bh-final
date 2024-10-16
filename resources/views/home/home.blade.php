@@ -10,6 +10,16 @@
     width: 110%; /* Adjust the width as needed */
     /* margin: 0 auto; Optional: Center the slider */
 }
+
+.show-more-btn1{
+    color: goldenrod !important;
+
+}
+.show-more-btn1:hover{
+    color: blue !important;
+
+}
+
     .slider:before {
         background-color: transparent !important;
     }
@@ -188,7 +198,7 @@
                                     @endif
                                 @endforeach
                                 @if (count($category->sub_categories) >= 4)
-                                    <a class="text-danger show-more-btn">All in {{$category->name}}</a>
+                                    <a href="{{env('BASE_URL') . 'ads/?country=' . request()->country . '&city=' . request()->city.'&currency=' . request()->currency}}" class="show-more-btn1">All in {{$category->name}}</a>
                                 @endif
                             </div>
                         </div>
@@ -218,7 +228,7 @@
                                 <div class="detail" style="padding-top: 10px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: 10px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <h5 style="margin-bottom: -9px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
                                 </div>
                                 
                             </div>
@@ -254,7 +264,7 @@
                                 <div class="detail" style="padding-top: 10px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: 10px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <h5 style="margin-bottom: -9px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
                                 </div>
                                 
                             </div>
@@ -290,7 +300,7 @@
                                 <div class="detail" style="padding-top: 10px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: 10px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <h5 style="margin-bottom:-9px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
                                 </div>
                                 
                             </div>
@@ -326,7 +336,7 @@
                                 <div class="detail" style="padding-top: 10px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: 10px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <h5 style="margin-bottom:-9px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
                                 </div>
                                 
                             </div>
@@ -362,7 +372,7 @@
                                 <div class="detail" style="padding-top: 10px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: 10px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <h5 style="margin-bottom:-9px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
                                 </div>
                                 
                             </div>
@@ -398,7 +408,7 @@
                                 <div class="detail" style="padding-top: 10px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: 10px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <h5 style="margin-bottom:-9px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
                                 </div>
                                 
                             </div>
@@ -434,7 +444,7 @@
                                 <div class="detail" style="padding-top: 10px;">
                                     <span style="color:#000; display: block; margin-bottom:2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom:5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: 10px;font-size: 15px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <h5 style="margin-bottom: -9px;font-size: 15px;"><b style="color: red;"> AED 73,988</b></h5>
                                 </div>
                                 
                             </div>
@@ -460,7 +470,7 @@
         infinite: true,
         slidesToShow: 5,
         slidesToScroll: 1,
-        autoplay: true,
+        // autoplay: true,
         autoplaySpeed: 2000,
         arrows: true,
         variableWidth: true ,

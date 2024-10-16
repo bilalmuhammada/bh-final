@@ -2564,7 +2564,7 @@ border: 1px solid #2d11e7;
         font-size: 30px;
         font-weight: bold;
         color: #000;
-        margin-top: 60px;
+        /* margin-top: 60px; */
         line-height: 30px;
         text-align: center;
         padding-left: 10px;

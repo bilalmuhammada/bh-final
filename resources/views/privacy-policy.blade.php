@@ -5,7 +5,6 @@
         margin-top: 20px !important;
     }
     .login-header{
-        margin-left: -30px;
         margin-top: -50px !important;
     }
 </style>
@@ -18,7 +17,7 @@
                 <div class="col-md-12 col-lg-12 col-xl-12 term-text">
                     <div class="login-header">
                         <a href="{{ env('BASE_URL') }}">
-                            <img src="{{asset('images/businesshub-slogan.png')}}" alt="" width="250px" alt="logo">
+                            <img src="{{asset('images/businesshub.png')}}" alt="" width="250px" alt="logo">
                         </a>
                         {{-- <h3 style="margin-top: 20px;">Contact Us</h3> --}}
                         <h1 class="terms-h">Privacy Policy</h1>
