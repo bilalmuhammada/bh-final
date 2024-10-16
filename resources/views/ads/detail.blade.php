@@ -302,24 +302,26 @@
                         </div>
                         <!-----add----->
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
-                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;border-bottom: 1px solid #eee;">
+                        <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;">
+                        <div class="col-lg-12 col-md-12 col-12" >
                             <h4><b>Location</b></h4>
                             <div class="row">
-                                <div class="col-lg-6 col-md-6 co-12">
-                                    <div style="border-radius:5px;">
+                                <div class="col-lg-6 col-md-6 col-6">
+                                    {{-- <div style="border-radius:5px;"> --}}
                                         <h6 style="text-align: left;font-size:13px;font-weight:bold;">
                                             <span><i class="fa fa-map-marker"></i> {{ $ad->location_name }} This is location</span>
                                         </h6>
-                                    </div>
+                                    {{-- </div> --}}
                                 </div>
-                                <div class="col-lg-6 col-md-6 co-12" style="padding:10px;">
-                                    <div style="border-radius:5px;">
-                                        <div style="width:370px; height:66px; border:0;" id="map"></div>
-                                    </div>
+                                <div class="col-lg-6 col-md-6 col-6">
+                                    {{-- <div style="border-radius:5px;"> --}}
+                                        <div style="width:370px; height:66px; border:0;bottom: 2rem;left: 2.2rem;" id="map"></div>
+                                    {{-- </div> --}}
                                 </div>
                             </div>
                         </div>
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
+                        <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;">
                         <div style="font-weight: bold;font-size:20px;margin-top: 18px;margin-left: 12px;">
                             Is there an issue?
 
@@ -329,10 +331,12 @@
                             @endif
                             <a class="{{ $report_class }}" ad-id="{{ $ad->id }}"
                                title="{{ $report_text }}"
-                               style="color: #0000FF;">
+                               style="color: #0000FF;margin-left: 12px;">
                                 {{ $report_text }}
                             </a>
                         </div>
+                        <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;">
+
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
                         <!---------------------->
                     </div>
@@ -376,13 +380,13 @@
                                
                 
                                 <div class="action-buttons" style="text-align: center;margin-top: 13px;margin-left:23px;margin-bottom: 15px;">
-                                    @if(empty($ad->phone_listing_approval_status) || $ad->phone_listing_approval_status == 'rejected')
+                                    {{-- @if(empty($ad->phone_listing_approval_status) || $ad->phone_listing_approval_status == 'rejected') --}}
                                     {{-- <a href="#" class="btn btn-sm phone-show-request">Show Phone Number</a> --}}
-                                    @elseif($ad->phone_listing_approval_status == 'approved')
+                                    {{-- @elseif($ad->phone_listing_approval_status == 'approved')
                                     <b>{{ $ad->created_by_user->phone }}</b>
                                     @else
                                     <p class="phone-approval-status">Waiting for phone no approval</p>
-                                    @endif
+                                    @endif --}}
                 
                                     <p class="phone-approval-status" style="display: none">Waiting for phone no approval</p>
                                     <button class="btn" style="border: 1px solid red; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
@@ -458,7 +462,8 @@
                     </div>
                 </div>
                 <!---------------------->
-                <div class="col-lg-12 col-md-12 col-12" style="margin-top: 22px;border-bottom: 1px solid #eee;border-top: 1px solid #eee;margin-left: -18px;">
+                {{-- <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;"> --}}
+                <div class="col-lg-12 col-md-12 col-12" style="margin-top: 22px;margin-left: -18px;">
                     <h3 style="margin-top: 25px;margin-left: 15px;"><b>Similar Ads</b></h3>
                     <!------ad----->
                     <div class="row">
@@ -492,6 +497,7 @@
                     </div>
                     
                 </div>
+                <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;">
             </div>
         </div>
         </div>

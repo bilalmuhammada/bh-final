@@ -373,7 +373,7 @@
                                                   <a class="dropdown-item" href="#">Remove Notifications</a>
                                                 </div>
                                               </div>
-                                           <div class="notification-item">
+                                           {{-- <div class="notification-item">
                                             <div class="row">
                                               
                                                 <div class="col-md-9" style="white-space: nowrap;display: ruby;">
@@ -382,8 +382,8 @@
                                                 </div>
 
                                                
-                                            </div>
-                                            <div class="row">
+                                            </div> --}}
+                                            {{-- <div class="row">
                                               
                                             <div class="col-md-12" style="padding: unset;display: contents;">
                                                 <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; margin-left: 30px;">
@@ -399,7 +399,7 @@
                                                 <a class="btn btn-success btn-sm badge bg-success">Approve </a>
                                                 <a class="btn btn-danger btn-sm badge bg-danger" style="margin-left: 5px;">Reject </a>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                            
 
                                           </div>
