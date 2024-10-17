@@ -37,7 +37,7 @@ class UserController extends Controller
     public function updateProfile(Request $request)
     {
 
-        // dd($request->all());
+         dd($request->all());
         // $validator = Validator::make($request->all(), [
         //     'dob' => 'required|date',
         //     'gender' => 'required',
@@ -83,13 +83,13 @@ class UserController extends Controller
             return response()->json([
                 'status' => true,
                 'imag' => $img_response,
-                'message' => 'Profile Updated successfully',
+                'message' => 'Updated',
                 'data' => $User
             ]);
         } else {
             return response()->json([
                 'status' => FALSE,
-                'message' => 'Invalid request'
+                'message' => 'Error'
             ]);
         }
     }
@@ -118,7 +118,7 @@ class UserController extends Controller
 
             return [
                 'status' => true,
-                'message' => 'Profile Image Updated successfully',
+                'message' => 'Updated',
                 'image_url' => $new_user_data->image_url
             ];
         }
