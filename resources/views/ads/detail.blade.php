@@ -305,7 +305,7 @@
                         <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;">
                         <div class="col-lg-12 col-md-12 col-12" >
                             <h4><b>Location</b></h4>
-                            <div class="row">
+                            <div class="row" style="margin-top: -11px;">
                                 <div class="col-lg-6 col-md-6 col-6">
                                     {{-- <div style="border-radius:5px;"> --}}
                                         <h6 style="text-align: left;font-size:13px;font-weight:bold;">
@@ -315,7 +315,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-6">
                                     {{-- <div style="border-radius:5px;"> --}}
-                                        <div style="width:370px; height:66px; border:0;bottom: 2rem;left: 2.2rem;" id="map"></div>
+                                        <div style="width:370px; height:66px; border:0;bottom: 0.8rem;left: 2.2rem;" id="map"></div>
                                     {{-- </div> --}}
                                 </div>
                             </div>

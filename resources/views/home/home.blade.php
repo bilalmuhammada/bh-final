@@ -6,6 +6,10 @@
         top: 32% !important;
 
     }
+    .external,.show-more-btn1{
+        font-size: 13px;
+
+    }
     .slider {
     width: 110%; /* Adjust the width as needed */
     /* margin: 0 auto; Optional: Center the slider */
@@ -26,9 +30,11 @@
     
     .slick-prev{
         left: 29px;
+        opacity: 0.5;
     }
     .slick-next{
-        right: 19px;
+        right: 24px;
+        opacity: 0.5;
     }
 .slick-slide img{
     width: 100% !important;
@@ -209,8 +215,8 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 8px 0px 0px -76px;">
-                <h4 style="margin-left: 12px;margin-bottom: -6px;"><b>Popular in Business for Sale</b></h4>
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 15px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom: 0px;"><b>Popular in Business for Sale</b></h4>
                 <div class="row slider" style="margin-left: -8px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -245,8 +251,8 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 8px 0px 0px -76px;">
-                <h4 style="margin-left: 12px; margin-bottom: -2px;"><b>Popular in Share for Sale</b></h4>
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 15px 0px 0px -76px;">
+                <h4 style="margin-left: 12px; margin-bottom: 0px;"><b>Popular in Share for Sale</b></h4>
                 <div class="row slider" style="margin-left: -8px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -281,8 +287,8 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 8px 0px 0px -76px;">
-                <h4 style="margin-left: 12px;margin-bottom: -3px;"><b>Popular in Business Ideas</b></h4>
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:15px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom: 0px;"><b>Popular in Business Ideas</b></h4>
                 <div class="row slider" style="    margin-left: -8px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -317,8 +323,8 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 8px 0px 0px -76px;">
-                <h4 style="margin-left: 12px;margin-bottom: -3px;"><b>Popular in Investors Required</b></h4>
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 15px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom: 0px;"><b>Popular in Investors Required</b></h4>
                 <div class="row slider" style="    margin-left: -8px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -353,8 +359,8 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 8px 0px 0px -76px;">
-                <h4 style="margin-left: 12px;margin-bottom: -3px;"><b>Popular in Franchise Opportunities</b></h4>
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 15px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom: 0px;"><b>Popular in Franchise Opportunities</b></h4>
                 <div class="row slider" style="    margin-left: -8px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -389,8 +395,8 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 8px 0px 0px -76px;">
-                <h4 style="margin-left: 12px;margin-bottom: -3px;"><b>Popular in Machinery & Supplies</b></h4>
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 15px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom: 0px;"><b>Popular in Machinery & Supplies</b></h4>
                 <div class="row slider" style="    margin-left: -8px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -425,8 +431,8 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 8px 0px 0px -76px;">
-                <h4 style="margin-left: 12px;margin-bottom: -3px;"><b>Popular in Export & Import</b></h4>
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 15px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom: 0px;"><b>Popular in Export & Import</b></h4>
                 <div class="row slider" style="margin-left: -8px;margin-bottom: -26px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -470,9 +476,10 @@
         infinite: true,
         slidesToShow: 5,
         slidesToScroll: 1,
-        // autoplay: true,
+        autoplay: true,
         autoplaySpeed: 2000,
         arrows: true,
+        
         variableWidth: true ,
         prevArrow: '<button type="button" class="slick-prev" style="border: none;"><i class="fa fa-chevron-left" aria-hidden="true" style="color: black;"></i></button>',
         nextArrow: '<button type="button" class="slick-next" style="border: none;"><i class="fa fa-chevron-right" aria-hidden="true" style="color: black;"></i></button>',

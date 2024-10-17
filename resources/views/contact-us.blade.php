@@ -15,7 +15,7 @@ select {
     top: -14px !important;
 }
 .form-focus .form-padding {
-    padding: 16px 10px 6px !important;
+    padding: 25px 10px 6px !important;
 }
 
 form{
@@ -31,7 +31,7 @@ form{
 }
 
 .form-control {
-    font-size: 18px !important;
+    font-size: 16px !important;
 }
 select {
     -webkit-appearance: none; /* For Chrome, Safari, Edge */

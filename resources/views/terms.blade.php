@@ -17,7 +17,7 @@
                 <div class="col-md-12 col-lg-12 col-xl-12 term-text">
                     <div class="login-header">
                         <a href="{{ env('BASE_URL') }}">
-                            <img src="{{asset('images/businesshub.png')}}" alt="" width="250px" alt="logo">
+                            <img src="{{asset('images/businesshub.png')}}" alt="" width="200px" alt="logo">
                         </a>
                         {{-- <h3 style="margin-top: 20px;">Contact Us</h3> --}}
                         <h1 class="terms-h">Terms of Use</h1>

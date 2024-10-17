@@ -1,7 +1,7 @@
 @extends('layout.master')
 <style>
     select{
-        text-transform: math-auto !important;
+        text-transform: none !important;
     }
     input:focus{
         border: 1px solid #1202c9 !important;
@@ -9,6 +9,12 @@
     input::placeholder{
         font-size: 10px;
         color: blue !important;
+    }
+    .lobibox-notify-success{
+        width: 150px !important
+    }
+    .lobibox-notify-error{
+        width: 150px !important
     }
     select::-ms-expand {
     display: none; /* Remove the dropdown icon on IE10+ */
@@ -491,7 +497,7 @@ document.getElementById('profile_image').addEventListener('change', function() {
                     }
                 },
                 error: function (response) {
-                    showAlert("error", "Server Error");
+                    showAlert("error", "Error");
                 }
             });
         });

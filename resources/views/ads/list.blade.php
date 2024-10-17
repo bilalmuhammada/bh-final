@@ -348,48 +348,20 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
     <!---new filter ennded----->
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 col-12" style="margin: 10px;">
-                <div class="row" style="margin-left: -81px;">
-                    <div class="col-lg-9 col-md-9" style="display: flex;">
+            <div class="col-lg-12 col-md-12 col-12" style="margin-left: 4rem;">
+                <div class="row" style="margin-left: -137px;">
+                    <div class="col-lg-8 col-md-8" style="display: flex;">
                         <h5 style="white-space: nowrap;"><b> {{ $subcategory_name }} <span class="text-muted">-{{ $ads->count() }} Ads</span></b>
                         </h5>
-                        <button class="btn"  style="border: 1px solid goldenrod ;white-space: nowrap; height: 36px; border-radius: 5px;margin-left: 56.6rem; color: red;" type="button"  aria-expanded="false">
+                       
+                    
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <button class="btn"  style="border: 1px solid goldenrod ;float: right; white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button"  aria-expanded="false">
                             Clear Search
                         </button>
-                        {{-- <div class="dropdown" style="margin-left: 1rem; display: flex;"> --}}
-                             {{-- &nbsp;&nbsp; --}}
-                            {{-- <button class="btn dropdown-toggle" style="border: 1px solid goldenrod ; height: 36px;border-radius: 5px;" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                Sort: Default
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="sortDropdown">
-                                <li><a class="dropdown-item" href="?sort=newest">Newest to Oldest</a></li>
-                                <li><a class="dropdown-item" href="?sort=oldest">Oldest to Newest</a></li>
-                                <li><a class="dropdown-item" href="?sort=price_highest">Price Highest to Lowest</a></li>
-                                <li><a class="dropdown-item" href="?sort=price_lowest">Price Lowest to Highest</a></li>
-                                <li><a class="dropdown-item" href="?sort=distance_nearest">Distance Nearest First</a></li>
-                            </ul>
-                        </div> --}}
-
                     </div>
-                    {{--                    <div class="col-lg-3 col-md-3" style="border:0px solid red;">--}}
-                    {{--                        <div class="row">--}}
-                    {{--                            <div class="cat_btn"--}}
-                    {{--                                 style="margin:7px 7px;border:0px solid red;position:relative;left:165px;">--}}
-                    {{--                                <div>--}}
-                    {{--                                    <div class="row" style="border: 1px solid #E0E1E3;border-radius:6px;font-size:13px;text-align:center;width:120px;">--}}
-                    {{--                                        <div style="margin-left: 10px;">--}}
-                    {{--                                            <i class="fa fa-chevron-up" style="position:relative;top:5px;"></i>--}}
-                    {{--                                            <br/>--}}
-                    {{--                                            <i class="fa fa-chevron-down" style="position:relative;bottom:5px;"></i>--}}
-                    {{--                                        </div>--}}
-                    {{--                                        <div style="margin-top: 10px;margin-left:10px;">--}}
-                    {{--                                            <span>Sort: <b>Default</b></span></div>--}}
-                    {{--                                    </div>--}}
-                    {{--                                </div>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-                </div>
+                  
             </div>
         </div>
         </div>

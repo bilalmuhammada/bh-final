@@ -24,6 +24,9 @@
         max-height: 21rem !important;
         overflow-x: hidden;
     }
+    #dropdownProfile{
+  min-width: 6rem !important;
+    }
     .colorChange:hover{
         color: blue !important;
 
@@ -726,7 +729,7 @@
                                               aria-expanded="false">
                                             {{session()->get('user')->name}}
                                         </span>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="max-width: 106px">
+                                        <div class="dropdown-menu" id="dropdownProfile" aria-labelledby="dropdownMenuButton" style="max-width: 106px">
                                             <a class="dropdown-item link"
                                                href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">My Profile</a>
                                             {{-- <a class="dropdown-item link"

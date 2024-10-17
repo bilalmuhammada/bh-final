@@ -6,11 +6,13 @@ $(document).ready(function () {
     });
 });
 
-function showAlert(type = 'success', msg = 'Notification') {
+function showAlert(type = 'success', msg = 'Notification', delay = 500) {
     Lobibox.notify(type, {
         size: 'mini',
         msg: msg,
+        width: 400,
         position: 'top right', // Notification position
+        delay:delay
     });
 }
 
