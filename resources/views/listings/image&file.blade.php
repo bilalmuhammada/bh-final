@@ -14,7 +14,7 @@
     <div id="image-display-div" style="display: flex; flex-wrap: wrap;"></div>
 </div> --}}
 
-<div class="col-md-6 mx-auto">
+<div class="col-md-6 mx-auto" style="margin-top: 20px;"
     <div class="input--file">
         <i class="fa fa-camera fa-1x"></i>
         <input type="file" multiple class="form-controlz form-control-file documents"  id="fileInput" name="documents[]"
