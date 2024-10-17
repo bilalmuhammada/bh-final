@@ -82,7 +82,7 @@ class Listing extends Model
 
     public function getSubcategoryNameAttribute()
     {
-        return $this->subcategory->name;
+        return $this->subcategory->name ?? '';
     }
 
     public function getIsFavouriteAttribute()

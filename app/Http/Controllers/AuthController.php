@@ -74,6 +74,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        
         if ($request->isMethod('get')) {
             return response()->json([
                 'status' => false,
