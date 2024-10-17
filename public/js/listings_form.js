@@ -231,9 +231,10 @@ $(document).on('change', '.images', function (e) {
 function displayImages(base64Image, file_name) {
     const imageDisplay = document.getElementById('image-display-div');
 
+// alert(imageDisplay);
     const imgHtml = `
                         <div class="col-md-3" >
-                            <div class="image-gallery">
+                            <div class="image-gallery" style="margin-bottom:0px;">
                               <div class="image-container">
                                 <img class="form-image img-thumbnail" src="${base64Image}" />
                                 <i class="fa fa-close remove-img" file-name="${file_name}"></i>
@@ -287,8 +288,8 @@ function displayDocs(base64Image, file_name) {
     const imageDisplay = document.getElementById('document-display-div');
 
     const imgHtml = `
-                        <div class="col-md-3">
-                            <div class="image-gallery">
+                        <div class="col-md-3" >
+                            <div class="image-gallery" style="margin-bottom:-26px;">
                               <div class="image-container">
                                 <img class="form-image img-thumbnail" src="${base64Image}" />
                                 <i class="fa fa-close remove-document" file-name="${file_name}"></i>
