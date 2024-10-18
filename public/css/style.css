@@ -388,7 +388,7 @@
     .listing:hover {
         width: 230px;
         border: 1px solid #fff;
-         padding: 5px;
+         /* padding: 5px; */
         box-shadow: 3px 5px 5px 5px #8e888842;
     }
     
@@ -2569,7 +2569,7 @@ border: 1px solid #2d11e7;
         text-align: center;
         padding-left: 10px;
         /* border-left: 2px solid #ffc000; */
-        margin-bottom: 30px;
+        margin-bottom: 16px;
     }
     
     .blog h1 {

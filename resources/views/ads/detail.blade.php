@@ -16,6 +16,9 @@
         width: 11.6rem !important;
 
     }
+    .listing {
+        width: 242px !important; 
+    }
 .slick-prev {
     left: 10px !important
 }
@@ -467,8 +470,8 @@
                     <h3 style="margin-top: 25px;margin-left: 15px;"><b>Similar Ads</b></h3>
                     <!------ad----->
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="slider" style="margin-left: 12px;">
+                        <div class="col-md-9">
+                            <div class="slider">
                                 @php
                                     $similar_ads = \App\Helpers\RecordHelper::getAdsBySubcategory($ad->subcategory_id)->take(5);
                                 @endphp

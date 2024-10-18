@@ -215,9 +215,9 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 15px 0px 0px -76px;">
-                <h4 style="margin-left: 12px;margin-bottom: 0px;"><b>Popular in Business for Sale</b></h4>
-                <div class="row slider" style="margin-left: -8px;margin-bottom: -26px;">
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Business for Sale</b></h4>
+                <div class="row slider" style="margin-left: -8px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -251,9 +251,9 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 15px 0px 0px -76px;">
-                <h4 style="margin-left: 12px; margin-bottom: 0px;"><b>Popular in Share for Sale</b></h4>
-                <div class="row slider" style="margin-left: -8px;margin-bottom: -26px;">
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Business for Rent</b></h4>
+                <div class="row slider" style="margin-left: -8px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -287,9 +287,45 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:15px 0px 0px -76px;">
-                <h4 style="margin-left: 12px;margin-bottom: 0px;"><b>Popular in Business Ideas</b></h4>
-                <div class="row slider" style="    margin-left: -8px;margin-bottom: -26px;">
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Share For Sale</b></h4>
+                <div class="row slider" style="margin-left: -8px;">
+                    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+    
+                    @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
+                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
+                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
+                            <div class="listing">
+                                <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
+                                <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
+                                    <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
+                                </div>
+                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
+                                    <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
+                                </div>
+                                <div class="detail" style="padding-top: 10px;">
+                                    <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
+                                    <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
+                                    <h5 style="margin-bottom: -9px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
+                                </div>
+                                
+                            </div>
+                        </a>
+                    </div>
+                    @endforeach
+                </div>
+    
+                <!-- Custom Arrows -->
+                {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
+                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:0px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Business Ideas</b></h4>
+                <div class="row slider" style="    margin-left: -8px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -323,9 +359,9 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 15px 0px 0px -76px;">
-                <h4 style="margin-left: 12px;margin-bottom: 0px;"><b>Popular in Investors Required</b></h4>
-                <div class="row slider" style="    margin-left: -8px;margin-bottom: -26px;">
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Investors Required</b></h4>
+                <div class="row slider" style="    margin-left: -8px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -359,9 +395,9 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 15px 0px 0px -76px;">
-                <h4 style="margin-left: 12px;margin-bottom: 0px;"><b>Popular in Franchise Opportunities</b></h4>
-                <div class="row slider" style="    margin-left: -8px;margin-bottom: -26px;">
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Franchise Opportunities</b></h4>
+                <div class="row slider" style="    margin-left: -8px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -395,9 +431,9 @@
     </section>
     <section>
         <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 15px 0px 0px -76px;">
-                <h4 style="margin-left: 12px;margin-bottom: 0px;"><b>Popular in Machinery & Supplies</b></h4>
-                <div class="row slider" style="    margin-left: -8px;margin-bottom: -26px;">
+            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:0px 0px 0px -76px;">
+                <h4 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Machinery & Supplies</b></h4>
+                <div class="row slider" style="    margin-left: -8px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -429,42 +465,7 @@
             </div>
         </div>
     </section>
-    <section>
-        <div class="container">
-            <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 15px 0px 0px -76px;">
-                <h4 style="margin-left: 12px;margin-bottom: 0px;"><b>Popular in Export & Import</b></h4>
-                <div class="row slider" style="margin-left: -8px;margin-bottom: -26px;">
-                    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
-    
-                    @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
-                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
-                            <div class="listing">
-                                <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                    <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
-                                </div>
-                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                    <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
-                                </div>
-                                <div class="detail" style="padding-top: 10px;">
-                                    <span style="color:#000; display: block; margin-bottom:2px;">2 Beds . 2 Baths {{$key}}</span>
-                                    <span style="color:#999; display: block; margin-bottom:5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: -9px;font-size: 15px;"><b style="color: red;"> AED 73,988</b></h5>
-                                </div>
-                                
-                            </div>
-                        </a>
-                    </div>
-                    @endforeach
-                </div>
-    
-                <!-- Custom Arrows -->
-                {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
-                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
-            </div>
-        </div>
-    </section>
+   
     
     
     
@@ -476,7 +477,7 @@
         infinite: true,
         slidesToShow: 5,
         slidesToScroll: 1,
-        autoplay: true,
+        // autoplay: true,
         autoplaySpeed: 2000,
         arrows: true,
         

@@ -15,7 +15,7 @@ select {
     top: -14px !important;
 }
 .form-focus .form-padding {
-    padding: 25px 10px 6px !important;
+    padding: 21px 10px 6px !important;
 }
 
 form{
