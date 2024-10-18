@@ -740,12 +740,12 @@
                                             {{session()->get('user')->name}}
                                         </span>
                                         <div class="dropdown-menu" id="dropdownProfile" aria-labelledby="dropdownMenuButton" style="max-width: 106px">
-                                            <a class="dropdown-item link" style="font-weight: bolder;"
+                                            <a class="dropdown-item link" style="font-weight: bolder;padding:6px;"
                                                href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">My Profile</a>
                                             {{-- <a class="dropdown-item link"
                                                href="{{ env('BASE_URL') . 'user/ads?country=' . request()->country . '&city=' . request()->city}}">My Ads</a> --}}
 
-                                            <a class="dropdown-item logout-btn"  style="font-weight: bolder;">Sign out</a>
+                                            <a class="dropdown-item logout-btn"  style="font-weight: bolder;padding:6px;">Sign out</a>
                                         </div>
                                     </span>
                             @endif
