@@ -93,7 +93,7 @@ width: 225px !important;
                                     <div class="col-md-8">
                                         <select name="gender" id="gender" type="text" class="form-control"
                                                 style="border:1px solid #999;">
-                                            <option value="">-----</option>
+                                            <option value=""></option>
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>
                                         </select>
@@ -498,7 +498,7 @@ document.getElementById('profile_image').addEventListener('change', function() {
                         showAlert("success", response.message);
                         setTimeout(function () {
                             window.location.assign(window.location.href);
-                        }, 6000000);
+                        }, 600);
                     } else {
                         showAlert("error", response.message);
                     }
