@@ -498,7 +498,7 @@ document.getElementById('profile_image').addEventListener('change', function() {
                         showAlert("success", response.message);
                         setTimeout(function () {
                             window.location.assign(window.location.href);
-                        }, 600);
+                        }, 6000000);
                     } else {
                         showAlert("error", response.message);
                     }
