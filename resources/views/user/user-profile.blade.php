@@ -16,6 +16,10 @@
     .lobibox-notify-error{
         width: 150px !important
     }
+    .form-control{
+        text-align: center;
+
+    }
     select::-ms-expand {
     display: none; /* Remove the dropdown icon on IE10+ */
 }
@@ -126,7 +130,7 @@ width: 225px !important;
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Date of Birth:</b></div>
                                     <div class="col-md-8">
                                         <input type="text" name="dob" id="datepicker" class="form-control login-user email"
-                                        placeholder="Date of Birth" aria-label="Email" aria-describedby="basic-addon1"
+                                        placeholder="" aria-label="Email" aria-describedby="basic-addon1"
                                         onfocus="this.value=''">
                                     </div>
                                 </div>

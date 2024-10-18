@@ -171,6 +171,7 @@
         }
     </script>  
     <!-- topbar start -->
+  
     <div class="topbar desktop-view">
         <div class="container-fluid" style="padding:0px 25px;">
             <div class="row">
@@ -181,8 +182,16 @@
                             <img src="{{asset('images/businesshub.png')}}" alt="" width="150px" alt="logo">
                         </a>
                     </div>
+                    @php
+                    $url = request()->path();
+                    $parts = explode('/', $url);
+                    $first = $parts[0] ?? null;  
+                    $second = $parts[1] ?? null;
+                    // dd(    $second, $first );
+                        @endphp
                     
                 {{-- </div> --}}
+                @if($second!=="profile")
                 <div class="col-lg-4 col-xl-4 col-md-4" style="border:0px solid red;margin-right:-1.4rem;">
                     <!-- <div class="col-md-4"> -->
                     <span style="position:relative;top:20px;border:0px solid red;background-color:inherit !important;">
@@ -274,6 +283,7 @@
         </span>
         <!-- </div> -->
     </div>
+    @endif
     <!-----icons---bar---->
     <div class="col-md-7 col-xl-7 col-md-9" style="border:0px solid red;">
         <div class="social-icon float-right text-dark">
