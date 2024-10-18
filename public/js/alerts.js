@@ -13,6 +13,7 @@ function showAlert(type = 'success', msg = 'Notification', delay = 500) {
         width: 400,
         position: 'top right', // Notification position
         delay:delay,
+        
         icon: false 
     });
 }
