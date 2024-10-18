@@ -41,6 +41,9 @@ width: 225px !important;
         border: 0px !important;
     background-color: white !important; /* Change this to the desired color */
   }
+  .lobibox-notify .lobibox-icon {
+    display: none !important;
+}
 </style>
 @section('content')
     <!-- form content start -->
@@ -401,7 +404,7 @@ width: 225px !important;
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript">
  
- $(function() {
+$(function() {
     $("#datepicker").datepicker({
         beforeShowDay: function(date) {
             return [true]; // This enables all dates
