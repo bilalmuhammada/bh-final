@@ -10,11 +10,12 @@ function showAlert(type = 'success', msg = 'Notification', delay = 500) {
     Lobibox.notify(type, {
         size: 'mini',
         msg: msg,
+        icon: false,
         width: 400,
         position: 'top right', // Notification position
         delay:delay,
-        
-        icon: false 
+
+       
     });
 }
 
