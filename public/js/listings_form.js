@@ -234,7 +234,7 @@ function displayImages(base64Image, file_name) {
 // alert(imageDisplay);
     const imgHtml = `
                         <div class="col-md-3" >
-                            <div class="image-gallery" style="margin-bottom:0px;">
+                            <div class="image-gallery" style="margin-bottom:-13px;">
                               <div class="image-container">
                                 <img class="form-image img-thumbnail" src="${base64Image}" />
                                 <i class="fa fa-close remove-img" file-name="${file_name}"></i>
@@ -289,7 +289,7 @@ function displayDocs(base64Image, file_name) {
 
     const imgHtml = `
                         <div class="col-md-3" >
-                            <div class="image-gallery" style="margin-bottom:-26px;">
+                            <div class="image-gallery" style="margin-bottom:-13px;">
                               <div class="image-container">
                                 <img class="form-image img-thumbnail" src="${base64Image}" />
                                 <i class="fa fa-close remove-document" file-name="${file_name}"></i>

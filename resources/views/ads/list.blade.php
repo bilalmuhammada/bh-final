@@ -61,6 +61,11 @@
         .max_price::placeholder{
             color: #000 !important
         }
+        #sortDropdown{
+            width: 173% !important;
+            font-weight: 600;
+
+        }
         .filter-options-list:hover {
             color: black;
             background-color: #e6e6e6;
@@ -102,6 +107,17 @@
     font-size: 23px !important;
     margin-right: 18pc !important;
         }
+        select::-ms-expand {
+    display: none; /* Remove the dropdown icon on IE10+ */
+}
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none; /* Remove default background */
+    background-color: transparent;
+    padding-right: 20px; /* Add some padding to keep the layout */
+}
     </style>
     <!--------ad area --------->
     <section>
@@ -202,34 +218,26 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             </span>
                 {{-- </div> --}}
         </div>
-@php
-// dd(request()->sort);
-@endphp
+
         <div class="col-md-3 border-color" id="filtersAreaw1">
-            <a data-toggle="collapse1" href="#multiCollapseExample51" role="buttonw" aria-expanded="false"
-               aria-controls="multiCollapseExample51" style="color:#000;">
-                <div class="col-md-12" style="text-align: end;" ><span style="font-size: 14px;margin-left: -2px;"><b>Filter</b></span></div>
-                <div class="dropdown" style="margin-left: 1rem; display: flex;">
-                    {{-- &nbsp;&nbsp; --}}
-                   <button class="dropdown-toggle" style="border: 5px;margin-left: -15px; background-color: transparent;" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    
-                   </button>
-                   <ul class="dropdown-menu" aria-labelledby="sortDropdown" style="line-height: 0.5">
-                       <li><a class="dropdown-item {{ request()->sort == 'newest' ? 'selected' : '' }}" selected href="?sort=newest">Post: New to Old</a></li>
-                       <li><a class="dropdown-item" href="?sort=oldest">Post: Old to New</a></li>
-                       <li><a class="dropdown-item" href="?sort=price_highest">Price: High to Low</a></li>
-                       <li><a class="dropdown-item" href="?sort=price_lowest">Price: Low to High</a></li>
-                       <li><a class="dropdown-item" href="?sort=distance_nearest">Nearest First</a></li>
-                   </ul>
-               </div>
-            </a>
+            <div class="col-md-12" style="text-align: end;">
+                <span style="font-size: 14px; margin-left: -2px;"><b>Sort</b></span>
+            </div>
+            <select class="form-select form-control"  id="sortDropdown" onchange="window.location.href=this.value" style="margin-left: 1rem;">
+                <option value="?sort=newest" {{ request()->sort == 'newest' ? 'selected' : '' }}>Post: New to Old</option>
+                <option value="?sort=oldest" {{ request()->sort == 'oldest' ? 'selected' : '' }}>Post: Old to New</option>
+                <option value="?sort=price_high" {{ request()->sort == 'price_high' ? 'selected' : '' }}>Price: High to Low</option>
+                <option value="?sort=price_low" {{ request()->sort == 'price_low' ? 'selected' : '' }}>Price: Low to High</option>
+                <option value="?sort=nearest" {{ request()->sort == 'nearest' ? 'selected' : '' }}>Nearest First</option>
+            </select>
         </div>
+        
         {{-- <div class="col"> --}}
         
           
         {{-- </div> --}}
     </div>
-    <button class="btn"  style="white-space: nowrap;margin-left:44rem;  color: red; border: 1px solid goldenrod ;border-radius: 5px;" type="button"  aria-expanded="false">
+    <button class="btn"  style="white-space: nowrap;margin-left:43.6rem;  color: red; border: 1px solid goldenrod ;border-radius: 5px;" type="button"  aria-expanded="false">
         Search
     </button>
    
@@ -250,11 +258,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                 </p>
                             @endforeach
                         </div>
-                        {{--                        <hr>--}}
-                        {{--                        <div class="col-md-12 mx-auto" style="margin-top: 20px;margin-bottom:20px;">--}}
-                        {{--                            <a class="btn form-control " style="background: #0000FF;color:#fff;font-size:13px;">Apply--}}
-                        {{--                                Filters</a>--}}
-                        {{--                        </div>--}}
+                       
                     </div>
                 </div>
 
@@ -351,7 +355,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             <div class="col-lg-12 col-md-12 col-12" style="margin-left: 4rem;">
                 <div class="row" style="margin-left: -137px;">
                     <div class="col-lg-8 col-md-8" style="display: flex;">
-                        <h5 style="white-space: nowrap;"><b> {{ $subcategory_name }} <span class="text-muted">-{{ $ads->count() }} Ads</span></b>
+                        <h5 style="white-space: nowrap;"><b> {{ $subcategory_name }} <span class="text-muted">   - {{ $ads->count() }} Ads</span></b>
                         </h5>
                        
                     
@@ -375,7 +379,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                         @foreach($ads as $ad)
                         <div class="row">
                             <!-----content----->
-                            <div class="col-lg-4 col-md-4 col-12" style="margin-top:-12px;">
+                            <div class="col-lg-4 col-md-4 col-12" style="margin-top:-5px;">
                                 <div style="position:absolute;border:0px solid red;width:100%;">
                                     <div class="row">
                                         <!-- Sharing and Favourite buttons -->
@@ -405,7 +409,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                 </a>
                             </div>
                             <div class="col-lg-8 col-md-8 col-12">
-                                <div class="row" style="margin-top: -12px;">
+                                <div class="row" style="margin-top: -3px;">
                                     <div class="col-lg-7 col-md-7 col-7" style="margin-left: -118px">
                                         <h5 style="font-size: 22px;font-weight:700;">{{ $ad->title ?? 'Heading N/A' }}</h5>
                                         <p style="font-size: 13px;">{{ $ad->category_name }} <span style="font-size: 16px;">&#9679;</span> {{ $ad->subcategory_name }}</p>

@@ -154,7 +154,7 @@
   
   color: white !important;
   font-size: 14px !important;
-  border-radius:2px !important;
+  border-radius:5px !important;
 }
  
  
@@ -458,7 +458,7 @@
 
         @include('listings.image&file');
    
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-6 mx-auto" >
             <div class="row">
                 <div class="col-md-6">
                     <select class="form-controlz country" name="country" placeholder="Select Country" required>

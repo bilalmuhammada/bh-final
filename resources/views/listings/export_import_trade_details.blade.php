@@ -154,7 +154,7 @@
   
   color: white !important;
   font-size: 14px !important;
-  border-radius: 2px !important;
+  border-radius: 5px !important;
 }
  
  
