@@ -213,10 +213,10 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             </a>
             {{-- <div class="col-md-12" style="display: flex;"> --}}
                 <span style="display: flex;">
-                <input type="text" class="form-control filter1" style="border-right: 2px solid #eee;padding: 0px !important; " name="min_price" id="min_price" placeholder="Min" min="0">
+                <input type="text" class="form-control filter1" style="border-right: 2px solid #eee;padding: 0px !important; " name="min_price" id="min_price" oninput="validatePhoneNumber(this)" placeholder="Min" min="0">
                 {{-- <div style="border-left: 1px solid #ccc; height: 100%; margin: 0 10px;"></div> --}}
     
-                <input type="text" class="form-control max_price" style="padding: 9px !important; " name="max_price" id="max_price" placeholder="Max" min="0">
+                <input type="text" class="form-control max_price" style="padding: 9px !important; " name="max_price" id="max_price" oninput="validatePhoneNumber(this)" placeholder="Max" min="0">
             </span>
                 {{-- </div> --}}
         </div>
@@ -465,6 +465,18 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
         var to_price = $('#to').val();
         var keyword = $('.keyword-input').val();
 
+    function validatePhoneNumber(input) {
+    // Remove any non-digit characters
+    input.value = input.value.replace(/\D/g, '');
+    
+    // Check if the input length is exactly 10 digits
+    if (input.value.length !== 10) {
+        input.setCustomValidity('Please enter a valid 10-digit number');
+    } else {
+        input.setCustomValidity('');
+    }
+
+}
 
         $(document).ready(function () {
             $("#cityArea a").click(function () {

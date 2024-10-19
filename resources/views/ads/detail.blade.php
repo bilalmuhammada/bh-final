@@ -301,10 +301,10 @@
                         </div>
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
                         <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;">
-                        <div style="font-weight: bold;font-size:20px;margin-top: 18px;margin-left: 12px;">
+                        <div style="font-weight: bold;font-size:20px;margin-top: 6px;margin-left: 12px;">
                             Is there an issue?
 
-                            @php $report_text = "Report this ad"; $report_class = "report-ad-btn"; @endphp
+                            @php $report_text = "Report this Ad"; $report_class = "report-ad-btn"; @endphp
                             @if ($ad->is_reported_by_this_user)
                                 @php $report_text = "Ad Reported"; $report_class = ""; @endphp
                             @endif
@@ -314,7 +314,7 @@
                                 {{ $report_text }}
                             </a>
                         </div>
-                        <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;">
+                        <hr style="border-color: #eee; width: 95%; margin:5px 0px 0px 12px;">
 
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
                         <!---------------------->
@@ -442,8 +442,8 @@
                 </div>
                 <!---------------------->
                 {{-- <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;"> --}}
-                <div class="col-lg-12 col-md-12 col-12" style="margin-top: 22px;margin-left: -18px;">
-                    <h3 style="margin-top: 25px;margin-left: 15px;"><b>Similar Ads</b></h3>
+                <div class="col-lg-12 col-md-12 col-12" style="margin-top: 7px;margin-left: -18px;">
+                    <h3 style="margin-top: 0px;margin-left: 15px;"><b>Similar Ads</b></h3>
                     <div class="row">
                         <div class="col-md-9">
                             <div class="slider" style="width: auto;"> <!-- Adjust the width here -->
@@ -492,8 +492,8 @@
             infinite: true,
         slidesToShow: 3,
         slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
+        // autoplay: true,
+        // autoplaySpeed: 2000,
         // arrows: true,
         prevArrow: '<button type="button" class="slick-prev" style="border: none;"><i class="fa fa-chevron-left" aria-hidden="true" style="color: black;"></i></button>',
         nextArrow: '<button type="button" class="slick-next" style="border: none;"><i class="fa fa-chevron-right" aria-hidden="true" style="color: black;"></i></button>',
