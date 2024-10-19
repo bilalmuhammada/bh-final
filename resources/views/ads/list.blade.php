@@ -53,8 +53,8 @@
 
         .filter-options-list {
             color: black;
-            border-bottom: 1px solid #eee;
-            padding: 10px 12px;
+            /* border-bottom: 1px solid #eee; */
+            padding: 0px 12px;
             margin-bottom: 0px !important;
         }
 
@@ -76,8 +76,10 @@
         }
 
         .multi-collapse {
-            min-width: 340px;
-            margin-top: 10px;
+            font-size: 13px;
+            min-width: 6px !important;
+width: 44% !important;
+            margin-top: 0px;
         }
         .form{
             
