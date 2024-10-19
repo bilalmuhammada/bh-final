@@ -4,23 +4,31 @@
 @section('content')
 <style>
     .slick-slide{
-        margin: 0px 4px !important;
+        width: 285px !important;
+        margin: 0px -30px !important;
     }
     .slick-slide img {
-    width: 80% !important;
+    width: 100% !important;
 }
 .slick-prev, .slick-next {
     top: 30% !important
 }
-.slick-slide {
-        width: 11.6rem !important;
+.cSlider__item {
+        width: 6rem !important;
 
     }
     .listing {
-        width: 242px !important; 
+        /* margin-left: -63px; */
+        width: 200px !important
     }
+    .listing:hover {
+        /* margin-left: -63px; */
+        width: 200px !important
+    }
+    
+    
 .slick-prev {
-    left: 10px !important
+    left: 15px !important
 }
 .slick-next {
     right: 6px !important;
@@ -69,18 +77,7 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="container slider-area mobile-view">
-            <div id="demo" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{{ $ad->main_image_url }}" alt="Los Angeles444" width="100%" height="270px">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{asset('images/hero_image_7.jpeg')}}" alt="Chicago" width="100%" height="270px">
-                    </div>
-                </div>
-            </div>
-        </div> --}}
+       
 
     </section>
  
@@ -152,28 +149,7 @@
         </div>
     </section>
 
-    <!-- <section>
-        <div class="cont-w">
-            <div class="col-lg-12 col-md-12 col-12" style="border:0px solid red;">
-                <div class="row">
-                    <div class="col-lg-10 col-md-10" style="border:0px solid red;">
-                    <div class="row">
-                        <h3 style="border:0px solid red;"><b>{{ $ad->title ?? 'Title N?A' }}dd</b></h3>
-                        </div>
-                        <div class="row">
-                        <span class="text-muted" style="font-size: 12px;">• Posted {{ $ad->created_at_time_diff }}</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2">
-                    <div class="row text-center" style="border:0px solid red;">
-                        <h4 style="font-weight:bold;font-size:25px;text-align:right;"><a href="" style="color: #0000FF;font-weight:bold;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}8798987</a></h4>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section> -->
+   
 
     <section>
 
@@ -468,15 +444,14 @@
                 {{-- <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;"> --}}
                 <div class="col-lg-12 col-md-12 col-12" style="margin-top: 22px;margin-left: -18px;">
                     <h3 style="margin-top: 25px;margin-left: 15px;"><b>Similar Ads</b></h3>
-                    <!------ad----->
                     <div class="row">
                         <div class="col-md-9">
-                            <div class="slider">
+                            <div class="slider" style="width: auto;"> <!-- Adjust the width here -->
                                 @php
                                     $similar_ads = \App\Helpers\RecordHelper::getAdsBySubcategory($ad->subcategory_id)->take(5);
                                 @endphp
                                 @foreach($similar_ads as $similar_ad)
-                                    <div class="col-lg-2 col-md-3 col-6">
+                                    <div class="col-lg-2 col-md-3 col-6" style="width: 13rem !important;"> <!-- Adjust column width if needed -->
                                         <a href="{{env('BASE_URL') . 'ads/detail/' . $similar_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                                             <div class="listing">
                                                 <img src="{{ $similar_ad->main_image_url }}" alt="{{ $similar_ad->name }}" title="{{ $similar_ad->name }}" width="170" height="152">
@@ -487,9 +462,9 @@
                                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                                 </div>
                                                 <div class="detail" style="padding-top: 10px;">
-                                                    <span style="color:#000; display: block; margin-bottom: 10px;">{{ $similar_ad->title ?? 'Title N/A' }}</span>
-                                                    <span style="color:#999; display: block; margin-bottom: 10px;">{{ $similar_ad->subcategory_name }}</span>
-                                                    <h5 style="margin-bottom: 10px;font-size: 18px;"><b style="color: red;">{{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}</b></h5>
+                                                    <span style="color:#000; display: block;">{{ $similar_ad->title ?? 'Title N/A' }}</span>
+                                                    <span style="color:#999; display: block;">{{ $similar_ad->subcategory_name }}</span>
+                                                    <h5 style="margin-bottom: -8px;font-size: 18px;"><b style="color: red;">{{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}</b></h5>
                                                 </div>
                                             </div>
                                         </a>
@@ -498,9 +473,9 @@
                             </div>
                         </div>
                     </div>
-                    
                 </div>
-                <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;">
+                
+                <hr style="border-color: #eee; width: 95%; margin:12px 0px 0px 12px;">
             </div>
         </div>
         </div>
@@ -517,8 +492,8 @@
             infinite: true,
         slidesToShow: 3,
         slidesToScroll: 1,
-        // autoplay: true,
-        // autoplaySpeed: 2000,
+        autoplay: true,
+        autoplaySpeed: 2000,
         // arrows: true,
         prevArrow: '<button type="button" class="slick-prev" style="border: none;"><i class="fa fa-chevron-left" aria-hidden="true" style="color: black;"></i></button>',
         nextArrow: '<button type="button" class="slick-next" style="border: none;"><i class="fa fa-chevron-right" aria-hidden="true" style="color: black;"></i></button>',
