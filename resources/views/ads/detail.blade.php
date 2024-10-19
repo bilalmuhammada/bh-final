@@ -39,6 +39,14 @@
 .btn:hover{
     border: 1px solid blue !important;
 }
+.report-ad-btn{
+    color: #ff3131 !important;
+
+}
+.report-ad-btn:hover{
+    color: blue !important;
+
+}
 </style>
 {{--        @dd($ad->toArray())--}}
     <!--------ad area --------->
@@ -310,7 +318,7 @@
                             @endif
                             <a class="{{ $report_class }}" ad-id="{{ $ad->id }}"
                                title="{{ $report_text }}"
-                               style="color: #0000FF;margin-left: 12px;">
+                               style="margin-left: 12px;">
                                 {{ $report_text }}
                             </a>
                         </div>
