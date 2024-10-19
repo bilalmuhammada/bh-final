@@ -10,12 +10,12 @@
     </div>
    
 </div>
-<div class="col-md-4" style="margin-top:30px; margin-left: 24pc !important; max-width: 53% !important;">
+<div class="col-md-4" style="margin-top:30px; margin-left: 24rem !important; max-width: 53% !important;">
 
     <div id="image-display-div" style="display: flex; flex-wrap: wrap;"></div>
 </div>
 
-<div class="col-md-6 mx-auto" style="margin-top:-7px;">
+<div class="col-md-6 mx-auto" style="margin-top:-7px;margin-bottom: 14px;">
     <div class="input--file">
         <i class="fa fa-camera fa-1x"></i>
         <input type="file" multiple class="form-controlz form-control-file documents"  id="fileInput" name="documents[]"
@@ -27,13 +27,14 @@
     </div>
 
 
-    <div class="form-group" id="filehide">
-        <label style="text-align: center; margin-left: 13rem;font-size: 17px;">Do you want to show or hide your Files?</label>
+    <div class="form-group" id="filehide" style="margin-bottom: -21px !important;">
+        <label style="text-align: center; margin-left: 16.2rem;font-size: 13px;padding: 7px;">Do you want to Show or Hide your Files?</label>
         <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
-            <label class="btn active  btn-show" style="margin-left:17rem !important;background-color: #dadadb">
+            <label class="btn active  btn-show" style="margin-left:17.8rem !important;background-color: #dadadb">
                 <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show File
             </label>
-            <label class="btn btn-show"  style="margin-right: 2rem !important; float: right;background-color: #525252">
+            {{-- 525252 --}}
+            <label class="btn btn-show"  style="margin-left: 26px !important; float: right;background-color: #dadadb">
                 <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide File
             </label>
         </div>
@@ -42,7 +43,7 @@
 
 
 
-<div class="col-md-4 mx-auto" style=" margin-left: 24rem !important;max-width: 53% !important;">
+<div class="col-md-4 mx-auto" style="margin-bottom: -19px; margin-left: 24rem !important;max-width: 53% !important;">
     <div id="document-display-div" style="display: flex; flex-wrap: wrap"></div>
 </div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastedjs/dist/toasted.min.css">
