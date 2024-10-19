@@ -67,7 +67,7 @@
                                 <label class="custom_check" style="font-size: 13px;margin-left: 5px">
                                     
                                     {{-- <span class="checkmark"></span>  --}}
-                                    Remember password
+                                    Remember Password
                                 </label>
                             </div>
                             <!-- password area finish -->
@@ -83,7 +83,7 @@
                         <div class="Forgot" style="font-size: 12px;margin-left: -21px; ">
                              <a
                               {{-- href="{{ env('BASE_URL') . 'forgot-password'}} --}}
-                              class="show-forgot-btn" style="margin-right: 30px;color:#007bff;" id="colorTowhite"> Forgot Password?</a>
+                              class="show-forgot-btn" style="margin-right: 35px;color:#007bff;" id="colorTowhite"> Forgot Password?</a>
                             <span >New to BusinessHub?  <a  class="register-btn " style="color: #007bff;"  id="colorTowhite"> Click Here </a></span>
                                 
                             </div>
