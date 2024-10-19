@@ -67,8 +67,8 @@
 
         }
         .filter-options-list:hover {
-            color: black;
-            background-color: #e6e6e6;
+            color: blue;
+            background-color: transparent;
             cursor: pointer;
         }
         .btn:hover{
