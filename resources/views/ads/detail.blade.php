@@ -81,8 +81,14 @@
         /* margin-left: -63px; */
         width: 200px !important
     }
+    #slider{
+        margin: 0px 0px !important;
+
+    }
     
-    
+    #slider_main{
+width: 60rem !important;
+    }
 .slick-prev {
     left: 15px !important
 }
@@ -257,9 +263,9 @@
                             </div>
                             <div class="col-lg-12 col-md-12 col-12">
                                 <div class="column small-11 small-centered">
-                                    <div class="cSlider cSlider--single" style="background-color:#eee;">
+                                    <div class="cSlider cSlider--single" style="background-color:#eee; margin: 0px 0px !important;">
                                         @foreach($ad->attachments as $image)
-                                            <div class="cSlider__item">
+                                            <div class="cSlider__item" id="slider_main">
                                                 <!-- <h2> -->
                                                 <img src="{{ $image->listing_image_url }}" alt="Listing Image"
                                                      width="100%" height="250"
@@ -274,8 +280,8 @@
                                     </div>
                                     <div class="cSlider cSlider--nav">
                                         @foreach($ad->attachments as $image)
-                                            <div class="cSlider__item" style="margin-top:28px !important;">
-                                                <img src="{{ $image->listing_image_url }}" alt="Listing Image"
+                                            <div class="cSlider__item" id="slider" style="margin-top:28px !important;">
+                                                <img src="{{ $image->listing_image_url }}" alt="Listing Image11"
                                                      width="100%" height="300"
                                                      style="height:60px;border-radius:6px;">
                                             </div>
@@ -316,15 +322,25 @@
                         @elseif($ad->category_name==="Machinery & Supplies")
                          
                         @include('ads.description_detail.machinarySupplies');
-                        
-                        
-                        
+                    
                         @endif
 
 
-                                
-                                
-                                {{--<h4><b>Files({{ $ad->documents->count() ?? 0 }})</b></h4>--}}
+                        <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
+                        <!---------->
+                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
+                            <h4><b>Products & Services Offered</b></h4>
+                            <p style="font-size: 14px; margin-bottom: 7px;">{{ $ad->details->products_and_services_offered ?? '....' }} this is one line</p>
+                        </div>
+                        <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
+                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
+                            <h4><b>Description</b></h4>
+                            <p style="font-size: 14px;margin-bottom: 7px;">{{ $ad->description }} this is description</p>
+                        
+                        </div>
+                        <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
+                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
+                
                                 <h4><b>Files</b></h4>
                                 <p style="font-size: 14px;">
                                     <embed class="@if(empty($ad->document_listing_approval_status) || $ad->document_listing_approval_status == 'rejected') blur-image @endif" src="https://www.buds.com.ua/images/Lorem_ipsum.pdf"
@@ -343,9 +359,8 @@
                             </div>
                             </p>
                         </div>
-                        <!-----add----->
-                        {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
-                        <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;">
+                      
+                        <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <div class="col-lg-12 col-md-12 col-12" >
                             <h4><b>Location</b></h4>
                             <div class="row" style="margin-top: -11px;">
@@ -364,7 +379,7 @@
                             </div>
                         </div>
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
-                        <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;">
+                        <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <div style="font-weight: bold;font-size:20px;margin-top: 6px;margin-left: 12px;">
                             Is there an issue?
 
