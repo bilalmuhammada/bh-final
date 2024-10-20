@@ -6,6 +6,26 @@
     input:focus{
         border: 1px solid #1202c9 !important;
     }
+    .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year{
+        border: transparent;
+    }
+
+    .ui-datepicker select.ui-datepicker-month,
+        .ui-datepicker select.ui-datepicker-year {
+            height: 35px !important;
+            font-size: 16px;
+            overflow-y: auto !important; /* Adds vertical scroll */
+        }
+        .select2-container--default .select2-results__options {
+    max-height: 10px;  /* Set the max height for the dropdown */
+    overflow-y: auto;   /* Add vertical scrollbar */
+}
+        /* Apply overflow to the entire datepicker if needed */
+        .ui-datepicker {
+            max-height: 300px !important; /* Example: limit height */
+            overflow-y: auto !important;  /* Enable vertical scrolling */
+        }
+
     input::placeholder{
         font-size: 10px;
         color: blue !important;
@@ -93,7 +113,7 @@ width: 225px !important;
                                     <div class="col-md-8">
                                         <select name="gender" id="gender" type="text" class="form-control"
                                                 style="border:1px solid #999;">
-                                            <option value=""></option>
+                                            <option value="" selected hidden disabled></option>
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>
                                         </select>
@@ -406,11 +426,8 @@ width: 225px !important;
  
 $(function() {
     $("#datepicker").datepicker({
-        beforeShowDay: function(date) {
-            return [true]; // This enables all dates
-        },
-        showOtherMonths: true, // Show dates of other months
-        selectOtherMonths: true // Allow selection of dates from other months
+        changeMonth: true,
+       changeYear: true
     });
 });
 

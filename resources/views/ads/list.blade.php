@@ -3,6 +3,22 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 @section('content')
     <style>
+
+
+select{
+    text-transform: none !important;
+}
+select>option:hover{
+    color: blue;
+    background-color: transparent !important;
+    /* text-transform: none !important; */
+}
+
+#sortDropdown option {
+    background: none;
+    border: none;
+}
+    /* Apply minimal padding to the dropdown options */
  .pagination {
         margin-top: 40px;
     }
@@ -84,6 +100,7 @@ width: 44% !important;
         .form{
             
     border-radius: 10px;
+    margin-left: -24px;
     border: 1px solid rgb(194, 196, 199);
     display: flex !important;
     width: 75rem !important;
@@ -225,19 +242,14 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             <div class="col-md-12" style="text-align: end;">
                 <span style="font-size: 14px; margin-left: -2px;"><b>Sort</b></span>
             </div>
-            <select class="form-select form-control"  id="sortDropdown" onchange="window.location.href=this.value" style="margin-left: 1rem;">
-                <option value="?sort=newest" {{ request()->sort == 'newest' ? 'selected' : '' }}>Post: New to Old</option>
-                <option value="?sort=oldest" {{ request()->sort == 'oldest' ? 'selected' : '' }}>Post: Old to New</option>
-                <option value="?sort=price_high" {{ request()->sort == 'price_high' ? 'selected' : '' }}>Price: High to Low</option>
-                <option value="?sort=price_low" {{ request()->sort == 'price_low' ? 'selected' : '' }}>Price: Low to High</option>
-                <option value="?sort=nearest" {{ request()->sort == 'nearest' ? 'selected' : '' }}>Nearest First</option>
+            <select class="form-select form-control "  id="sortDropdown" onchange="window.location.href=this.value" style="margin-left: 1rem;">
+                <option class="option" value="?sort=newest" {{ request()->sort == 'newest' ? 'selected' : '' }}>Post: New to Old</option>
+                <option class="option" value="?sort=oldest" {{ request()->sort == 'oldest' ? 'selected' : '' }}>Post: Old to New</option>
+                <option class="option" value="?sort=price_high" {{ request()->sort == 'price_high' ? 'selected' : '' }}>Price: High to Low</option>
+                <option  class="option" value="?sort=price_low" {{ request()->sort == 'price_low' ? 'selected' : '' }}>Price: Low to High</option>
+                <option  class="option" value="?sort=nearest" {{ request()->sort == 'nearest' ? 'selected' : '' }}>Nearest First</option>
             </select>
         </div>
-        
-        {{-- <div class="col"> --}}
-        
-          
-        {{-- </div> --}}
     </div>
     <button class="btn"  style="white-space: nowrap;margin-left:43.6rem;  color: red; border: 1px solid goldenrod ;border-radius: 5px;" type="button"  aria-expanded="false">
         Search

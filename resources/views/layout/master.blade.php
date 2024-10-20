@@ -151,6 +151,11 @@ $second = $parts[1] ?? null;
             //  dropdownParent: $(this).parent()
             minimumResultsForSearch: -1
         });
+
+        $(".sort").select2({
+            //  dropdownParent: $(this).parent()
+            minimumResultsForSearch: -1
+        });
         
         $(".country_dropdown1").select2({
             templateSelection: formatCountry,

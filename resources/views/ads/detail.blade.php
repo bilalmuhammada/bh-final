@@ -3,6 +3,62 @@
 
 @section('content')
 <style>
+/* Center and style the popup container */
+.popup-container {
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px; /* Adjust the width as needed */
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure spacing between radio buttons and labels */
+.popup-container label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Style the input box (description field) */
+.popup-container textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Align the Close and Report buttons */
+.popup-container .button-group {
+    text-align: right;
+}
+
+.popup-container .button-group button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.popup-container .button-group .close-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.popup-container .button-group .report-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+
+
     .slick-slide{
         width: 285px !important;
         margin: 0px -30px !important;
@@ -314,7 +370,7 @@
 
                             @php $report_text = "Report this Ad"; $report_class = "report-ad-btn"; @endphp
                             @if ($ad->is_reported_by_this_user)
-                                @php $report_text = "Ad Reported"; $report_class = ""; @endphp
+                                @php $report_text = "Ad Reported"; $report_class = "report-ad-btn"; @endphp
                             @endif
                             <a class="{{ $report_class }}" ad-id="{{ $ad->id }}"
                                title="{{ $report_text }}"
@@ -322,6 +378,8 @@
                                 {{ $report_text }}
                             </a>
                         </div>
+                       
+                        
                         <hr style="border-color: #eee; width: 95%; margin:5px 0px 0px 12px;">
 
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
@@ -645,6 +703,15 @@
                 downloadLink.remove();
             }
         }
+
+        $(document).on('click', '.report-ad-btn', function() {
+    $('.popup-container').fadeIn(); // Show the popup
+});
+
+$(document).on('click', '.close-btn', function() {
+    $('.popup-container').fadeOut(); // Hide the popup
+});
+
 
     </script>
 
