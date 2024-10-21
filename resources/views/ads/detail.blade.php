@@ -395,7 +395,7 @@ width: 60rem !important;
                         </div>
                        
                         
-                        <hr style="border-color: #eee; width: 95%; margin:5px 0px 0px 12px;">
+                        <hr style="border-color: #eee; width: 95%; margin:9  px 0px 0px 12px;">
 
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
                         <!---------------------->

@@ -6,7 +6,7 @@
 .modal-content{
     border: 0px solid;
 }
-        form {
+.report-ad-form {
             width: 60rem;
             margin-left: 1px;
             margin-top: 11px;
