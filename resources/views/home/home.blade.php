@@ -234,7 +234,7 @@
                                 <div class="detail" style="padding-top: 10px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: -9px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
                                 </div>
                                 
                             </div>
@@ -270,7 +270,7 @@
                                 <div class="detail" style="padding-top: 10px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: -9px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
                                 </div>
                                 
                             </div>
@@ -306,7 +306,7 @@
                                 <div class="detail" style="padding-top: 10px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: -9px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
                                 </div>
                                 
                             </div>
@@ -342,7 +342,7 @@
                                 <div class="detail" style="padding-top: 10px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom:-9px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
                                 </div>
                                 
                             </div>
@@ -378,7 +378,7 @@
                                 <div class="detail" style="padding-top: 10px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom:-9px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
                                 </div>
                                 
                             </div>
@@ -414,7 +414,7 @@
                                 <div class="detail" style="padding-top: 10px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom:-9px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
                                 </div>
                                 
                             </div>
@@ -450,7 +450,7 @@
                                 <div class="detail" style="padding-top: 10px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom:-9px;font-size: 18px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
                                 </div>
                                 
                             </div>
