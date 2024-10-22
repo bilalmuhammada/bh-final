@@ -31,6 +31,7 @@ form{
 }
 
 .form-control {
+    width: -webkit-fill-available !important;
     font-size: 16px !important;
 }
 select {

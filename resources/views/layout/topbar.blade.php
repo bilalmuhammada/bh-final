@@ -231,7 +231,7 @@
                         @foreach($cities as $city)
                             <option data-city-id="{{ $city->id }}"
                                     {{ $city->id == request()->city ? 'selected' : '' }} value="{{ $city->id }}"
-                                    style="font-size:8px !important;"> &nbsp; {{ $city->name }}</option>
+                                    style="font-size:8px !important;">{{ $city->name }}</option>
                         @endforeach
                     </select>
                 {{-- </div> --}}

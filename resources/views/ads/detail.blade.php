@@ -74,10 +74,13 @@
 
     }
     .listing {
+     
         /* margin-left: -63px; */
         width: 200px !important
     }
     .listing:hover {
+        margin-bottom: 9px;
+        padding: 7px 7px 0px 7px !important;
         /* margin-left: -63px; */
         width: 200px !important
     }
@@ -90,9 +93,11 @@
 width: 60rem !important;
     }
 .slick-prev {
+    opacity: 0.5;
     left: 15px !important
 }
 .slick-next {
+    opacity: 0.5;
     right: 6px !important;
 }
 .slider:before {
@@ -363,17 +368,17 @@ width: 60rem !important;
                         <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <div class="col-lg-12 col-md-12 col-12" >
                             <h4><b>Location</b></h4>
-                            <div class="row" style="margin-top: -11px;">
+                            <div class="row">
                                 <div class="col-lg-6 col-md-6 col-6">
                                     {{-- <div style="border-radius:5px;"> --}}
                                         <h6 style="text-align: left;font-size:13px;font-weight:bold;">
-                                            <span><i class="fa fa-map-marker"></i> {{ $ad->location_name }} This is location</span>
+                                          <i class="fa fa-map-marker text-danger"></i>   <span style="margin-left: 9px;">{{ $ad->location_name }} This is location</span>
                                         </h6>
                                     {{-- </div> --}}
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-6">
                                     {{-- <div style="border-radius:5px;"> --}}
-                                        <div style="width:370px; height:66px; border:0;bottom: 0.8rem;left: 2.2rem;" id="map"></div>
+                                        <div style="width:370px; height:66px; border:0;bottom: 1.8rem;left: 2.2rem;" id="map"></div>
                                     {{-- </div> --}}
                                 </div>
                             </div>
@@ -395,7 +400,7 @@ width: 60rem !important;
                         </div>
                        
                         
-                        <hr style="border-color: #eee; width: 95%; margin:9  px 0px 0px 12px;">
+                        <hr style="border-color: #eee; width: 95%; margin:9px 0px 0px 12px;">
 
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
                         <!---------------------->
@@ -524,7 +529,7 @@ width: 60rem !important;
                 <!---------------------->
                 {{-- <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;"> --}}
                 <div class="col-lg-12 col-md-12 col-12" style="margin-top: 7px;margin-left: -18px;">
-                    <h3 style="margin-top: 0px;margin-left: 15px;"><b>Similar Ads</b></h3>
+                    <h4 style="margin-top: 9px;margin-left: 15px;"><b>Similar Ads</b></h4>
                     <div class="row">
                         <div class="col-md-9">
                             <div class="slider" style="width: auto;"> <!-- Adjust the width here -->
@@ -536,16 +541,16 @@ width: 60rem !important;
                                         <a href="{{env('BASE_URL') . 'ads/detail/' . $similar_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                                             <div class="listing">
                                                 <img src="{{ $similar_ad->main_image_url }}" alt="{{ $similar_ad->name }}" title="{{ $similar_ad->name }}" width="170" height="152">
-                                                <div class="heart-icon" style="position: absolute; top: 16px; right: 0.2rem;">
+                                                <div class="heart-icon" style="position: absolute; top: 16px; right: 5.5rem;">
                                                     <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
                                                 </div>
                                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                                 </div>
-                                                <div class="detail" style="padding-top: 10px;">
+                                                <div class="detail" >
                                                     <span style="color:#000; display: block;">{{ $similar_ad->title ?? 'Title N/A' }}</span>
                                                     <span style="color:#999; display: block;">{{ $similar_ad->subcategory_name }}</span>
-                                                    <h5 style="margin-bottom: -8px;font-size: 18px;"><b style="color: red;">{{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}</b></h5>
+                                                    <h5 style="font-size: 18px;"><b style="color: red;">{{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}</b></h5>
                                                 </div>
                                             </div>
                                         </a>
@@ -556,7 +561,7 @@ width: 60rem !important;
                     </div>
                 </div>
                 
-                <hr style="border-color: #eee; width: 95%; margin:12px 0px 0px 12px;">
+                {{-- <hr style="border-color: #eee; width: 95%; margin:12px 0px 0px 12px;"> --}}
             </div>
         </div>
         </div>

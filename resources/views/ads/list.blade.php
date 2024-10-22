@@ -70,7 +70,7 @@ select>option:hover{
         .filter-options-list {
             color: black;
             /* border-bottom: 1px solid #eee; */
-            padding: 0px 12px;
+            padding: 2px 12px;
             margin-bottom: 0px !important;
         }
 
@@ -78,8 +78,10 @@ select>option:hover{
             color: #000 !important
         }
         #sortDropdown{
-            width: 173% !important;
-            font-weight: 600;
+            width: 117% !important;
+            /* font-weight: 600; */
+
+            font-size: 13px;
 
         }
         .filter-options-list:hover {
@@ -92,10 +94,15 @@ select>option:hover{
         }
 
         .multi-collapse {
-            font-size: 13px;
+            font-size: 14px;
             min-width: 6px !important;
 width: 44% !important;
             margin-top: 0px;
+        }
+        .form-control {
+            margin-left: 4px;
+            width: 49.5% !important;
+
         }
         .form{
             
@@ -180,7 +187,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
                aria-controls="multiCollapseExample1" style="color:#000;">
                 <div class="col-md-12" style="text-align: center;"><span style="font-size: 14px;"><b>City</b></span></div>
-                <div class="col-md-12" style="margin-top: 5px;" ><span style="font-size: 13px;color:#000;">{{ $selected_city_name }}</span></div>
+                <div class="col-md-12" style="margin-top: 12px;" ><span style="font-size: 13px;color:#000;margin-left: 12px;">{{ $selected_city_name }}</span></div>
             </a>
         </div>
 
@@ -188,7 +195,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
         <div class="col-md-7 border-color" style="border-right: 2px solid #eee; text-align: center;">
             <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;">Keyword</label>
             <div class="input-group">
-                <input type="text" class="form-control filter1" id="keyword" style="margin-top: -10px;" placeholder="Search anything in {{ $category_name->name }}">
+                <input type="text" class="form-control filter1" id="keyword" style="margin-top: -10px; font-size: 16px;" placeholder="Search anything in {{ $category_name->name }}">
                 <span style="margin-top: -3px;font-weight: bolder; color: goldenrod;" id="searchIcon">
                     <i class="fa fa-search"></i> <!-- Bootstrap Icons -->
                 </span>
@@ -212,7 +219,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
         <div class="col-md-6 border-color" style="border-right: 2px solid #eee; text-align: center;">
             <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px;">Neighborhood</label>
             <div class="input-group">
-                <input type="text" class="form-control filter1" style="margin-top: -12px;" id="neighborhood" placeholder="Enter location">
+                <input type="text" class="form-control filter1" style="margin-top: -10px; font-size: 16px;" id="neighborhood" placeholder="Enter location">
                 <span class="" id="locationIcon">
                     <i class="fa fa-map-marker" style="margin-top: -5px; color:red;"></i> <!-- Bootstrap Icons location marker -->
                 </span>
@@ -221,28 +228,28 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
 
         
 
-        <div class="col-md-5 border-color" style="border-right:2px solid #eee;" id="priceArea1">
+        <div class="col-md-4 border-color" style="border-right:2px solid #eee;" id="priceArea1">
             <a data-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false"
                aria-controls="multiCollapseExample4" style="color:#000;">
-                <div class="col-md-12" style="text-align: center;"><span style="font-size: 14px;margin-left: 10px;"><b>Price</b></span></div>
+                <div class="col-md-12" style="text-align: center;"><span style="font-size: 14px;"><b>Price</b></span></div>
              
                 {{-- <div class="col-md-12"><span style="font-size: 11px;color:#000;">{{ $from || $to ? $from . '-' . $to : 'Select'}}</span></div> --}}
             </a>
             {{-- <div class="col-md-12" style="display: flex;"> --}}
                 <span style="display: flex;">
-                <input type="text" class="form-control filter1" style="border-right: 2px solid #eee;padding: 0px !important; " name="min_price" id="min_price" oninput="validatePhoneNumber(this)" placeholder="Min" min="0">
+                <input type="text" class="form-control filter1" style="border-right: 2px solid #eee;padding: 0px !important; font-size: 13px;" name="min_price" id="min_price" oninput="validatePhoneNumber(this)" placeholder="Min" min="0">
                 {{-- <div style="border-left: 1px solid #ccc; height: 100%; margin: 0 10px;"></div> --}}
     
-                <input type="text" class="form-control max_price" style="padding: 9px !important; " name="max_price" id="max_price" oninput="validatePhoneNumber(this)" placeholder="Max" min="0">
+                <input type="text" class="form-control max_price" style="padding: 0px 0px 0px 15px !important; font-size: 13px; " name="max_price" id="max_price" oninput="validatePhoneNumber(this)" placeholder="Max" min="0">
             </span>
                 {{-- </div> --}}
         </div>
 
         <div class="col-md-3 border-color" id="filtersAreaw1">
             <div class="col-md-12" style="text-align: end;">
-                <span style="font-size: 14px; margin-left: -2px;"><b>Sort</b></span>
+                <span style="font-size: 14px;"><b>Sort</b></span>
             </div>
-            <select class="form-select form-control "  id="sortDropdown" onchange="window.location.href=this.value" style="margin-left: 1rem;">
+            <select class="form-select form-control "  id="sortDropdown" onchange="window.location.href=this.value" >
                 <option class="option" value="?sort=newest" {{ request()->sort == 'newest' ? 'selected' : '' }}>Post: New to Old</option>
                 <option class="option" value="?sort=oldest" {{ request()->sort == 'oldest' ? 'selected' : '' }}>Post: Old to New</option>
                 <option class="option" value="?sort=price_high" {{ request()->sort == 'price_high' ? 'selected' : '' }}>Price: High to Low</option>
@@ -423,13 +430,13 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                 </a>
                             </div>
                             <div class="col-lg-8 col-md-8 col-12">
-                                <div class="row" style="margin-top: -3px;">
+                                <div class="row" style="margin-top: -10px;">
                                     <div class="col-lg-7 col-md-7 col-7" style="margin-left: -118px">
-                                        <h5 style="font-size: 22px;font-weight:700;">{{ $ad->title ?? 'Heading N/A' }}</h5>
-                                        <p style="font-size: 13px;">{{ $ad->category_name }} <span style="font-size: 16px;">&#9679;</span> {{ $ad->subcategory_name }}</p>
-                                        <h3 style="font-weight: bold;font-size:23px;">AED {{ \App\Helpers\SiteHelper::priceFormatter($ad->price, request()->currency) }}</h3>
+                                        <h5 style="font-size: 22px;font-weight:700;margin: 0px;">{{ $ad->title ?? 'Heading N/A' }}</h5>
+                                        <p style="font-size: 13px;margin-bottom: 6px;">{{ $ad->category_name }} <span style="font-size: 16px;">&#9679;</span> {{ $ad->subcategory_name }}</p>
+                                        <h3 style="font-weight: bold;font-size:20px;">AED {{ \App\Helpers\SiteHelper::priceFormatter($ad->price, request()->currency) }}</h3>
                                     
-                                        <p style="margin-top: 55px;font-size: 16px;"><i class="fa fa-map-marker" style="color: red;font-size:21px;"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span  style="margin-top: 12px;font-size: 16px;">24 May 2024</span></p>
+                                        <p style="margin-top:4.7rem;font-size: 16px;"><i class="fa fa-map-marker" style="color: red;font-size:21px;"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span  style="margin-top: 12px;font-size: 16px;">24 May 2024</span></p>
                                         
                                         <!-- Buttons for Call and Chat -->
                                        
@@ -443,7 +450,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                 </div>
                             </div>
                             <!-----content----->
-                            <hr style="width: 69%;margin-top: -9px;margin-left: 12px;background:#eee;">
+                            <hr style="width: 69%;margin-top:0px;margin-left: 12px;background:#eee;">
                         </div>
                     @endforeach
                     {{-- <div class="pagination mt-4">
