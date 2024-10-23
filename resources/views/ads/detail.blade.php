@@ -85,7 +85,7 @@
     }
     .listing:hover {
         margin-bottom: 9px;
-        padding: 7px 7px 0px 7px !important;
+        /* padding: 7px 7px 0px 7px !important; */
         /* margin-left: -63px; */
         width: 200px !important
     }

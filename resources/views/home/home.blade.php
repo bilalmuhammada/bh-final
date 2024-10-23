@@ -231,7 +231,7 @@
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                 </div>
-                                <div class="detail" style="padding-top: 10px;">
+                                <div class="detail" style="padding: 12px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
                                     <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
@@ -267,7 +267,7 @@
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                 </div>
-                                <div class="detail" style="padding-top: 10px;">
+                                <div class="detail" style="padding: 12px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
                                     <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
@@ -303,7 +303,7 @@
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                 </div>
-                                <div class="detail" style="padding-top: 10px;">
+                                <div class="detail" style="padding: 12px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
                                     <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
@@ -339,7 +339,7 @@
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                 </div>
-                                <div class="detail" style="padding-top: 10px;">
+                                <div class="detail" style="padding: 12px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
                                     <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
@@ -375,7 +375,7 @@
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                 </div>
-                                <div class="detail" style="padding-top: 10px;">
+                                <div class="detail" style="padding: 12px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
                                     <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
@@ -411,7 +411,7 @@
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                 </div>
-                                <div class="detail" style="padding-top: 10px;">
+                                <div class="detail" style="padding: 12px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
                                     <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
@@ -447,7 +447,7 @@
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                 </div>
-                                <div class="detail" style="padding-top: 10px;">
+                                <div class="detail" style="padding: 12px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
                                     <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
