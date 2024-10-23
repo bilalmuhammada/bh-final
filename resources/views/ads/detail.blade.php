@@ -656,7 +656,11 @@ width: 60rem !important;
 
         $(document).on('click', '.document-download-request', function (e) {
             e.preventDefault();
+            if (!checkIfUserLoggedIn()) {
 
+$('#loginModal').modal('show');
+return ;
+}
             ajaxCall('ads/download-document-request', 'document');
         });
 
