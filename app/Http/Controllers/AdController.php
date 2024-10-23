@@ -191,7 +191,7 @@ class AdController extends Controller
         if (empty($user_id)) {
             return response()->json([
                 'status' => false,
-                'message' => 'invalid request'
+                'message' => 'Invalid'
             ]);
         }
 
@@ -209,7 +209,7 @@ class AdController extends Controller
 
         return response()->json([
             'status' => true,
-            'message' => 'request sent successfully. waiting for approval'
+            'message' => 'Sent'
         ]);
     }
 

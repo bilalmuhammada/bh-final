@@ -16,7 +16,12 @@
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-
+.lobibox-notify-success{
+        width: 80px !important
+    }
+    .lobibox-notify-error{
+        width: 80px !important
+    }
 /* Ensure spacing between radio buttons and labels */
 .popup-container label {
     display: block;
