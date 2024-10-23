@@ -237,10 +237,10 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             </a>
             {{-- <div class="col-md-12" style="display: flex;"> --}}
                 <span style="display: flex;">
-                <input type="text" class="form-control filter1" style="border-right: 2px solid #eee;padding: 0px !important; font-size: 13px;" name="min_price" id="min_price" oninput="validatePhoneNumber(this)" placeholder="Min" min="0">
+                <input type="text" class="form-control filter1" style="border-right: 2px solid #eee;padding: 1px !important; font-size: 13px;" name="min_price" id="min_price" oninput="validatePhoneNumber(this)" placeholder="Min" min="0">
                 {{-- <div style="border-left: 1px solid #ccc; height: 100%; margin: 0 10px;"></div> --}}
     
-                <input type="text" class="form-control max_price" style="padding: 0px 0px 0px 15px !important; font-size: 13px; " name="max_price" id="max_price" oninput="validatePhoneNumber(this)" placeholder="Max" min="0">
+                <input type="text" class="form-control max_price" style="padding: 0px 0px 0px 5px !important; font-size: 13px; " name="max_price" id="max_price" oninput="validatePhoneNumber(this)" placeholder="Max" min="0">
             </span>
                 {{-- </div> --}}
         </div>
