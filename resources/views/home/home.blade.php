@@ -213,7 +213,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section class="business-sale">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h4 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Business for Sale</b></h4>
@@ -249,7 +249,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section class="business-rent">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h4 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Business for Rent</b></h4>
@@ -259,7 +259,7 @@
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
-                            <div class="listing">
+                            <div class="listing ">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
                                     <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
@@ -285,7 +285,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section class="share-sale">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h4 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Share For Sale</b></h4>
@@ -321,7 +321,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section class="business-idea">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:0px 0px 0px -76px;">
                 <h4 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Business Ideas</b></h4>
@@ -357,7 +357,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section class="investor-required">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h4 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Investors Required</b></h4>
@@ -393,7 +393,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section class="franchise-opp">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h4 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Franchise Opportunities</b></h4>
@@ -429,7 +429,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section class="machinery">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:0px 0px 0px -76px;">
                 <h4 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Machinery & Supplies</b></h4>
@@ -477,7 +477,7 @@
         infinite: true,
         slidesToShow: 5,
         slidesToScroll: 1,
-        autoplay: true,
+        // autoplay: true,
         autoplaySpeed: 2000,
         arrows: true,
         

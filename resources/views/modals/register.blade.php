@@ -204,7 +204,7 @@
                              style="border:0px solid red;text-align:center;margin-top: -15px;margin-bottom: 26px;">
                             <a class="btn register-button" style="color: #FFFF;margin-top: 13px;">Register </a>
                         </div>
-                        <div class="Forgot" style="font-size: 12px;text-align: left; margin-top: 12px;">
+                        <div class="Forgot" style="font-size: 12px;text-align: left; margin-top: -15px;">
                             <a  class="show-forgot-btn" id="colorTowhite" style="margin-left: 13px;color:#0070cc;" > Forgot Password? </a>
                            <span style="float: right;margin-right: 13px;">Already on BusinessHub? <a  class="login-btn" style="color:#0070cc;" id="colorTowhite" >&nbsp; Click Here </a></span>
                                

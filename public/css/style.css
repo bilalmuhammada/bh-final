@@ -377,7 +377,7 @@
     
     .listing {
         width: 230px;
-        /* padding: 5px; */
+        padding: 7px;
         border-radius: 10px;
     }
     
@@ -385,13 +385,57 @@
         border-radius: 10px;
     }
     
-    .listing:hover {
+     .business-sale .listing:hover {
         width: 230px;
         /* border: 1px solid #fff; */
-         /* padding: 7px; */
+        padding: 7px; 
+        box-shadow: 3px 5px 5px 5px #8e888842;
+    }
+    .business-rent .listing:hover {
+        width: 230px;
+        /* border: 1px solid #fff; */
+        padding: 7px; 
+        box-shadow: 3px 5px 5px 5px #8e888842;
+    }
+
+    .business-idea .listing:hover {
+        width: 230px;
+        /* border: 1px solid #fff; */
+        padding: 7px; 
         box-shadow: 3px 5px 5px 5px #8e888842;
     }
     
+    .share-sale .listing:hover {
+        width: 230px;
+        /* border: 1px solid #fff; */
+        padding: 7px; 
+        box-shadow: 3px 5px 5px 5px #8e888842;
+    }
+    
+   
+    .investor-required .listing:hover {
+        width: 230px;
+        /* border: 1px solid #fff; */
+        padding: 7px; 
+        box-shadow: 3px 5px 5px 5px #8e888842;
+    }
+
+    
+
+    .franchise-opp .listing:hover {
+        width: 230px;
+        /* border: 1px solid #fff; */
+        padding: 7px; 
+        box-shadow: 3px 5px 5px 5px #8e888842;
+    }
+
+    
+    .machinery .listing:hover {
+        width: 230px;
+        /* border: 1px solid #fff; */
+        padding: 7px; 
+        box-shadow: 3px 5px 5px 5px #8e888842;
+    }
     .sick-area {
         background: #f7f7f7;
         float: left;
