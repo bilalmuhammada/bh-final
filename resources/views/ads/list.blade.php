@@ -432,11 +432,11 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                             <div class="col-lg-8 col-md-8 col-12">
                                 <div class="row" style="margin-top: -10px;">
                                     <div class="col-lg-7 col-md-7 col-7" style="margin-left: -118px">
-                                        <h5 style="font-size: 22px;font-weight:700;margin: 0px;">{{ $ad->title ?? 'Heading N/A' }}</h5>
+                                        <h5 style="font-size: 18px;font-weight:700;margin: 0px;">{{ $ad->title ?? 'Heading N/A' }}</h5>
                                         <p style="font-size: 13px;margin-bottom: 6px;">{{ $ad->category_name }} <span style="font-size: 16px;">&#9679;</span> {{ $ad->subcategory_name }}</p>
-                                        <h3 style="font-weight: bold;font-size:20px;">AED {{ \App\Helpers\SiteHelper::priceFormatter($ad->price, request()->currency) }}</h3>
+                                        <h3 style="font-weight: bold;font-size:18px;">AED {{ \App\Helpers\SiteHelper::priceFormatter($ad->price, request()->currency) }}</h3>
                                     
-                                        <p style="margin-top:4.7rem;font-size: 16px;"><i class="fa fa-map-marker" style="color: red;font-size:21px;"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span  style="margin-top: 12px;font-size: 16px;">24 May 2024</span></p>
+                                        <p style="margin-top:6rem;font-size: 13px;"><i class="fa fa-map-marker" style="color: red;"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span  style="margin-top: 12px;">24 May 2024</span></p>
                                         
                                         <!-- Buttons for Call and Chat -->
                                        

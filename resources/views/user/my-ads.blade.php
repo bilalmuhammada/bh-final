@@ -7,6 +7,9 @@
     {  border-color: transparent !important;
 
     }
+    .btn:focus, .btn.focus{
+        box-shadow: transparent !important;
+    }
     .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
         border-color: transparent !important;
         color: goldenrod !important;
