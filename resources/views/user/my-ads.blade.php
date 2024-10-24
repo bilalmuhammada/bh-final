@@ -3,12 +3,50 @@
         .custom-icon {
         font-size: 24px !important; /* Adjust the size as needed */
     }
+    .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus
+    {  border-color: transparent !important;
+
+    }
     .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
         border-color: transparent !important;
         color: goldenrod !important;
     }
     .nav-link:hover{
         color: goldenrod !important;
+    }
+    .pricetext{
+        font-size: 14px;
+        font-weight:bold;
+        margin-bottom: -4px;
+        margin-top: 4px;
+    }
+    .upgradebtn{
+    border: 1px solid #32d951 !important;
+    white-space: nowrap;
+    height: 26px;
+    font-size: 13px !important;
+    padding: 2px 5px 5px 5px !important;
+    border-radius: 5px !important;
+    margin-left: 17px;
+    }
+    .editbtn{
+        border: 1px solid #0088eb !important ; 
+        white-space: nowrap;
+        height: 26px;
+        font-size: 13px !important;
+        padding: 2px 5px 5px 5px !important;
+        border-radius: 5px; 
+       
+        margin-left: 12px;"
+    }
+    .deletebtn{
+        border: 1px solid red !important ; 
+        white-space: nowrap;
+        height: 26px;
+        font-size: 13px !important;
+        padding: 2px 5px 5px 5px !important;
+        border-radius: 5px; 
+        margin-left: 12px;"
     }
 
 </style>
@@ -165,7 +203,7 @@
                     <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
                         <input type="checkbox" style=" border-radius: 5px;"> &nbsp;&nbsp;All
                       </label>
-                      <button class="btn" style="border: 1px solid red ; white-space: nowrap; height: 26px; border-radius: 5px; color: red;margin-left: 12px; display:block;  margin: -38px 0px -38px 47.9rem;padding-top:0;" type="button" aria-expanded="false">
+                      <button class="btn deletebtn" style="color: red; display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                         Delete
                     </button>
                       
@@ -185,7 +223,7 @@
                                     <div >
                                         <div class="ad-show" style="padding:10px;border-radius:5px;margin-left: 11px;margin-top: 20px;">
                                             {{-- <div class="img"> --}}
-                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="120" width="120" style="border-radius: 5px;">
+                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="100" width="120" style="border-radius: 5px;">
                                             {{-- </div> --}}
                                         </div>
                                         {{-- <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:6.5rem; z-index: 2;color: white;">
@@ -199,7 +237,7 @@
 
                                 <span class="badge badge-primary" style="margin-left: 7px;">Featured</span>
                                
-                               <div style="margin-top: 6px;display: grid;">
+                               <div style="display: grid;">
                             
                                     <a href="" style="font-size: 18px;font-weight:bold;color:#000;">
                                         {{ $my_ad->title ?? 'TITLE N/A' }}
@@ -211,7 +249,7 @@
                                 </div> 
                                 
                                    
-                                    <h4 style="font-size: 14px;font-weight:bold;margin-top: 12px;margin-bottom: 0px;">
+                                    <h4 class="pricetext">
                                         {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
                                         {{-- <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i class="fa fa-trash delete-ad-btn" ad-id="{{ $my_ad->id }}"></i></span> --}}
                                     </h4>
@@ -221,19 +259,19 @@
                                <span style="font-size: 12px;"> Last Updated: 15 May</span> <span style="margin-left:33px ;font-size: 12px;"> Expires: in 9 days</span> 
                             </div>
                             <div class="col-md-4 d-flex flex-column justify-content-end" style="margin-bottom: 13px;">
-                                <div style="margin-left: 16px;">
+                                <div style="margin-left: 4.8rem;">
                                     {{-- <i class="fa fa-exclamation-circle text-warning"></i>  --}}
                                     <span class="text-bold "  style="font-weight: 700; color: goldenrod;"> 👁️ 1,224 </span> 
                                     <!-- Button with calendar icon -->
-                                    <button class="btn" style="border: 1px solid #32d951 ; white-space: nowrap; height: 36px; border-radius: 5px; margin-left: 12px;" type="button" aria-expanded="false">
+                                    <button class="btn upgradebtn"  type="button" aria-expanded="false">
                                         <a href="" style="color: #32d951">Upgrade</a>
                                     </button>
                                     
-                                    <button class="btn" style="border: 1px solid #0088eb ; white-space: nowrap; height: 36px; border-radius: 5px; color: #0088eb;margin-left: 12px;" type="button" aria-expanded="false">
+                                    <button class="btn editbtn" style="color: #0088eb;" type="button" aria-expanded="false">
                                         Edit
                                     </button>
                                     
-                                    <button class="btn" style="border: 1px solid red ; white-space: nowrap; height: 36px; border-radius: 5px; color: red;margin-left: 12px;" type="button" aria-expanded="false">
+                                    <button class="btn deletebtn" style="color: red;" type="button" aria-expanded="false">
                                         Delete
                                     </button>
                                     
@@ -267,7 +305,7 @@
                         <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
                             <input type="checkbox" style=" border-radius: 5px;"> &nbsp;&nbsp;All
                           </label>
-                          <button class="btn" style="border: 1px solid red ; white-space: nowrap; height: 26px; border-radius: 5px; color: red;margin-left: 12px; display:block;  margin: -38px 0px -38px 47.9rem;padding-top:0;" type="button" aria-expanded="false">
+                          <button class="btn deletebtn" style="color: red;display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                             Delete
                         </button>
                         @foreach($my_ads->where('status', 'draft') as $my_ad)
@@ -281,7 +319,7 @@
                                         <div >
                                             <div class="ad-show" style="padding:10px;border-radius:5px;margin-top: 7px;">
                                                 {{-- <div class="img"> --}}
-                                                    <img src="{{ $my_ad->main_image_url  }}" alt="img" height="120" width="120" style="border-radius: 5px;">
+                                                    <img src="{{ $my_ad->main_image_url  }}" alt="img" height="100" width="120" style="border-radius: 5px;">
                                                 {{-- </div> --}}
                                             </div>
                                             {{-- <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:6.5rem; z-index: 2;color: white;">
@@ -307,7 +345,7 @@
                                     </div> 
                                     
                                        
-                                        <h4 style="font-size: 14px;font-weight:bold;margin-top: 12px;">
+                                        <h4 class="pricetext">
                                             {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
                                             {{-- <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i class="fa fa-trash delete-ad-btn" ad-id="{{ $my_ad->id }}"></i></span> --}}
                                         </h4>
@@ -317,7 +355,7 @@
                                    {{-- <span style="font-size: 12px;"> Last Updated: 15 May</span> <span style="margin-left:33px ;font-size: 12px;"> Expires: in 9 days</span>  --}}
                                 </div>
                                 <div class="col-md-4 d-flex flex-column justify-content-end" style="margin-bottom: 13px;">
-                                    <div style="margin-left:11rem;" >
+                                    <div style="margin-left:13.6rem;" >
                                         {{-- <i class="fa fa-exclamation-circle text-warning"></i>  --}}
                                         {{-- <span class="text-bold "  style="font-weight: 700; color: goldenrod;"> 👁️ 1,224 </span>  --}}
                                         <!-- Button with calendar icon -->
@@ -325,11 +363,11 @@
                                             <a href="" style="color: #32d951">Upgrade</a>
                                         </button> --}}
                                         
-                                        <button class="btn" style="border: 1px solid #0088eb ; white-space: nowrap; height: 36px; border-radius: 5px; color: #0088eb;margin-left: 12px;" type="button" aria-expanded="false">
+                                        <button class="btn editbtn" style="color: #0088eb" type="button" aria-expanded="false">
                                             Edit
                                         </button>
                                         
-                                        <button class="btn" style="border: 1px solid red ; white-space: nowrap; height: 36px; border-radius: 5px; color: red;margin-left: 12px;" type="button" aria-expanded="false">
+                                        <button class="btn deletebtn" style="color: red;" type="button" aria-expanded="false">
                                             Delete
                                         </button>
                                         
@@ -362,7 +400,7 @@
                     <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
                         <input type="checkbox" style=" border-radius: 5px;"> &nbsp;&nbsp;All
                       </label>
-                      <button class="btn" style="border: 1px solid red ; white-space: nowrap; height: 26px; border-radius: 5px; color: red;margin-left: 12px; display:block;  margin: -38px 0px -38px 47.9rem;padding-top:0;" type="button" aria-expanded="false">
+                      <button class="btn deletebtn" style="color:red; display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                         Delete
                     </button>
                     @foreach($my_ads->where('status', 'payment_pending') as $my_ad)
@@ -376,7 +414,7 @@
                                     <div >
                                         <div class="ad-show" style="padding:10px;border-radius:5px;margin-top: 16px;">
                                             {{-- <div class="img"> --}}
-                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="120" width="120" style="border-radius: 5px;">
+                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="100" width="120" style="border-radius: 5px;">
                                             {{-- </div> --}}
                                         </div>
                                         {{-- <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:6.5rem; z-index: 2;color: white;">
@@ -402,7 +440,7 @@
                                 </div> 
                                 
                                    
-                                    <h4 style="font-size: 14px;font-weight:bold;margin-top: 12px;">
+                                    <h4 class="pricetext">
                                         {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
                                         {{-- <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i class="fa fa-trash delete-ad-btn" ad-id="{{ $my_ad->id }}"></i></span> --}}
                                     </h4>
@@ -412,19 +450,19 @@
                                {{-- <span style="font-size: 12px;"> Last Updated: 15 May</span> <span style="margin-left:33px ;font-size: 12px;"> Expires: in 9 days</span>  --}}
                             </div>
                             <div class="col-md-4 d-flex flex-column justify-content-end" style="margin-bottom: 13px;">
-                                <div style="margin-left:4rem;" >
+                                <div style="margin-left:8rem;" >
                                     {{-- <i class="fa fa-exclamation-circle text-warning"></i>  --}}
                                     {{-- <span class="text-bold "  style="font-weight: 700; color: goldenrod;"> 👁️ 1,224 </span>  --}}
                                     <!-- Button with calendar icon -->
-                                    <button class="btn" style="border: 1px solid #32d951 ; white-space: nowrap; height: 36px; border-radius: 5px; margin-left: 12px;" type="button" aria-expanded="false">
+                                    <button class="btn upgradebtn"  type="button" aria-expanded="false">
                                         <a href="" style="color: #32d951">Complete</a>
                                     </button>
                                     
-                                    <button class="btn" style="border: 1px solid #0088eb ; white-space: nowrap; height: 36px; border-radius: 5px; color: #0088eb;margin-left: 12px;" type="button" aria-expanded="false">
+                                    <button class="btn editbtn" style="color: #0088eb;" type="button" aria-expanded="false">
                                         Edit
                                     </button>
                                     
-                                    <button class="btn" style="border: 1px solid red ; white-space: nowrap; height: 36px; border-radius: 5px; color: red;margin-left: 12px;" type="button" aria-expanded="false">
+                                    <button class="btn deletebtn" style=" color: red;" type="button" aria-expanded="false">
                                         Delete
                                     </button>
                                     
@@ -459,7 +497,7 @@
                     <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
                         <input type="checkbox" style=" border-radius: 5px;"> &nbsp;&nbsp;All
                       </label>
-                      <button class="btn" style="border: 1px solid red ; white-space: nowrap; height: 26px; border-radius: 5px; color: red;margin-left: 12px; display:block;  margin: -38px 0px -38px 47.9rem;padding-top:0;" type="button" aria-expanded="false">
+                      <button class="btn deletebtn" style="color:red;display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                         Delete
                     </button>
                     @foreach($my_ads->where('status', 'pending') as $my_ad)
@@ -473,7 +511,7 @@
                                     <div >
                                         <div class="ad-show" style="padding:10px;border-radius:5px;margin-top: 16px;">
                                             {{-- <div class="img"> --}}
-                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="120" width="120" style="border-radius: 5px;">
+                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="100" width="120" style="border-radius: 5px;">
                                             {{-- </div> --}}
                                         </div>
                                         {{-- <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:6.5rem; z-index: 2;color: white;">
@@ -499,7 +537,7 @@
                                 </div> 
                                 
                                    
-                                    <h4 style="font-size: 14px;font-weight:bold;margin-top: 12px;">
+                                    <h4 class="pricetext">
                                         {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
                                         {{-- <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i class="fa fa-trash delete-ad-btn" ad-id="{{ $my_ad->id }}"></i></span> --}}
                                     </h4>
@@ -575,7 +613,7 @@
                     <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
                         <input type="checkbox" style=" border-radius: 5px;"> &nbsp;&nbsp;All
                       </label>
-                      <button class="btn" style="border: 1px solid red ; white-space: nowrap; height: 26px; border-radius: 5px; color: red;margin-left: 12px; display:block;  margin: -38px 0px -38px 47.9rem;padding-top:0;" type="button" aria-expanded="false">
+                      <button class="btn deletebtn" style="color: red; display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                         Delete
                     </button>
                     @foreach($my_ads->where('status', 'rejected') as $my_ad)
@@ -589,7 +627,7 @@
                                     <div >
                                         <div class="ad-show" style="padding:10px;border-radius:5px;margin-top: 17px;">
                                             {{-- <div class="img"> --}}
-                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="120" width="120" style="border-radius: 5px;">
+                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="100" width="120" style="border-radius: 5px;">
                                             {{-- </div> --}}
                                         </div>
                                         {{-- <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:6.5rem; z-index: 2;color: white;">
@@ -615,7 +653,7 @@
                                 </div> 
                                 
                                    
-                                    <h4 style="font-size: 14px;font-weight:bold;">
+                                    <h4 class="pricetext">
                                         {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
                                         {{-- <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i class="fa fa-trash delete-ad-btn" ad-id="{{ $my_ad->id }}"></i></span> --}}
                                     </h4>
@@ -625,19 +663,19 @@
                                {{-- <span style="font-size: 12px;"> Last Updated: 15 May</span> <span style="margin-left:33px ;font-size: 12px;"> Expires: in 9 days</span>  --}}
                             </div>
                             <div class="col-md-4 d-flex flex-column justify-content-end" style="margin-bottom: 13px;">
-                                <div style="margin-left: 5rem;">
+                                <div style="margin-left: 8.9rem;">
                                     {{-- <i class="fa fa-exclamation-circle text-warning"></i>  --}}
                                     {{-- <span class="text-bold "  style="font-weight: 700; color: goldenrod;"> 👁️ 1,224 </span>  --}}
                                     <!-- Button with calendar icon -->
-                                    <button class="btn" style="border: 1px solid #32d951 ; white-space: nowrap; height: 36px; border-radius: 5px; margin-left: 12px;" type="button" aria-expanded="false">
+                                    <button class="btn upgradebtn"  type="button" aria-expanded="false">
                                         <a href="" style="color: #32d951">Repost</a>
                                     </button>
                                     
-                                    <button class="btn" style="border: 1px solid #0088eb ; white-space: nowrap; height: 36px; border-radius: 5px; color: #0088eb;margin-left: 12px;" type="button" aria-expanded="false">
+                                    <button class="btn editbtn" style="color: #0088eb;" type="button" aria-expanded="false">
                                         Edit
                                     </button>
                                     
-                                    <button class="btn" style="border: 1px solid red ; white-space: nowrap; height: 36px; border-radius: 5px; color: red;margin-left: 12px;" type="button" aria-expanded="false">
+                                    <button class="btn deletebtn" style=" color: red;" type="button" aria-expanded="false">
                                         Delete
                                     </button>
                                     
@@ -691,7 +729,7 @@
                     <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
                         <input type="checkbox" style=" border-radius: 5px;"> &nbsp;&nbsp;All
                       </label>
-                      <button class="btn" style="border: 1px solid red ; white-space: nowrap; height: 26px; border-radius: 5px; color: red;margin-left: 12px; display:block;  margin: -38px 0px -38px 47.9rem;padding-top:0;" type="button" aria-expanded="false">
+                      <button class="btn deletebtn" style="color: red; display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                         Delete
                     </button>
                     @foreach($my_ads->where('status', 'expired') as $my_ad)
@@ -705,7 +743,7 @@
                                     <div >
                                         <div class="ad-show" style="padding:10px;border-radius:5px;margin-top: 19px;">
                                             {{-- <div class="img"> --}}
-                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="120" width="120" style="border-radius: 5px;">
+                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="100" width="120" style="border-radius: 5px;">
                                             {{-- </div> --}}
                                         </div>
                                         {{-- <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:6.5rem; z-index: 2;color: white;">
@@ -731,7 +769,7 @@
                                 </div> 
                                 
                                    
-                                    <h4 style="font-size: 14px;font-weight:bold;">
+                                    <h4 class="pricetext">
                                         {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
                                         {{-- <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i class="fa fa-trash delete-ad-btn" ad-id="{{ $my_ad->id }}"></i></span> --}}
                                     </h4>
@@ -741,19 +779,19 @@
                                {{-- <span style="font-size: 12px;"> Last Updated: 15 May</span> <span style="margin-left:33px ;font-size: 12px;"> Expires: in 9 days</span>  --}}
                             </div>
                             <div class="col-md-4 d-flex flex-column justify-content-end" style="margin-bottom: 13px;">
-                                <div style="margin-left: 5rem;">
+                                <div style="margin-left: 8.9rem;">
                                     {{-- <i class="fa fa-exclamation-circle text-warning"></i>  --}}
                                     {{-- <span class="text-bold "  style="font-weight: 700; color: goldenrod;"> 👁️ 1,224 </span>  --}}
                                     <!-- Button with calendar icon -->
-                                    <button class="btn" style="border: 1px solid #32d951 ; white-space: nowrap; height: 36px; border-radius: 5px; margin-left: 12px;" type="button" aria-expanded="false">
+                                    <button class="btn upgradebtn "  type="button" aria-expanded="false">
                                         <a href="" style="color: #32d951">Repost</a>
                                     </button>
                                     
-                                    <button class="btn" style="border: 1px solid #0088eb ; white-space: nowrap; height: 36px; border-radius: 5px; color: #0088eb;margin-left: 12px;" type="button" aria-expanded="false">
+                                    <button class="btn editbtn" style="color:#0088eb" type="button" aria-expanded="false">
                                         Edit
                                     </button>
                                     
-                                    <button class="btn" style="border: 1px solid red ; white-space: nowrap; height: 36px; border-radius: 5px; color: red;margin-left: 12px;" type="button" aria-expanded="false">
+                                    <button class="btn deletebtn" style="color:red;" type="button" aria-expanded="false">
                                         Delete
                                     </button>
                                     
