@@ -382,8 +382,8 @@
                         
                         <option value="bscity">Based City</option>
                         <option value="insdcountry">Inside Country</option>
-                        <option value="withreg">within Region</option>
-                        <option value="wrdwde">worldwide</option>
+                        <option value="withreg">Within Region</option>
+                        <option value="wrdwde">Worldwide</option>
                         
                     </select>
                     <label class="focus-label">Export</label>
