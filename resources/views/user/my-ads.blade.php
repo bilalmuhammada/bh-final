@@ -23,6 +23,9 @@
         margin-bottom: -4px;
         margin-top: 4px;
     }
+    .upgradebtn:hover, .editbtn:hover, .deletebtn:hover{
+        border: 1px solid blue !important;
+    }
     .upgradebtn{
     border: 1px solid #32d951 !important;
     white-space: nowrap;
