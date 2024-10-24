@@ -286,7 +286,7 @@
                     </form>
                         <!-- Add margin bottom -->
                         <div class="mb-3"></div>
-                        <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: -1.4rem;">
+                        <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: 1.6rem;">
                     @endforeach
                 </div>
                       
@@ -317,7 +317,7 @@
                                 <div class="col-md-4" style="max-width: 11pc">
                                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
                                         <div >
-                                            <div class="ad-show" style="padding:10px;border-radius:5px;margin-top: 7px;">
+                                            <div class="ad-show" style="padding:10px;border-radius:5px;margin-top: 0px;">
                                                 {{-- <div class="img"> --}}
                                                     <img src="{{ $my_ad->main_image_url  }}" alt="img" height="100" width="120" style="border-radius: 5px;">
                                                 {{-- </div> --}}
@@ -382,7 +382,7 @@
                         </form>
                             <!-- Add margin bottom -->
                             <div class="mb-3"></div>
-                            <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: -1.2rem;">
+                            <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: -1.3rem;">
                         @endforeach
                     </div>
                           
@@ -574,7 +574,7 @@
                     </form>
                         <!-- Add margin bottom -->
                         <div class="mb-3"></div>
-                        <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: -1.2rem;">
+                        <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: 2rem;">
                     @endforeach
                 </div>
                     <!----single row ended------>
@@ -690,7 +690,7 @@
                     </form>
                         <!-- Add margin bottom -->
                         <div class="mb-3"></div>
-                        <hr style="margin-top: -1.3rem; width: 64%;margin-left: 24px;margin-bottom: -1.2rem;">
+                        <hr style="margin-top: -1.3rem; width: 64%;margin-left: 24px;margin-bottom: 1.6rem;">
                     @endforeach
                 </div>
                     <!----single row ended------>
@@ -806,7 +806,7 @@
                     </form>
                         <!-- Add margin bottom -->
                         <div class="mb-3"></div>
-                        <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: -1.2rem;">
+                        <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: 1.6rem;">
                     @endforeach
                 </div>
                     <!----single row ended------>
