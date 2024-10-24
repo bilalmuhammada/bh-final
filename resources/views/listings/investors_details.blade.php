@@ -212,22 +212,24 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <select class="form-controlz" name="open_to_invest" required>
-                        <option selected disabled>Open to Invest</option>
+                    <select class="form-controlz form-control floating" name="open_to_invest" required>
+                        <option selected disabled hidden></option>
                         <option value="Inside Country">Based Country</option>
                         <option value="Inside Country">Inside Country</option>
                         <option value="Within Region">Within Region</option>
                         <option value="Worldwide">Worldwide</option>
                     </select>
+                   
                 </div>
             </div>
                 <div class="col-md-6">
                 <div class="form-group form-focus">
-                    <select class="form-controlz" name="open_for_partnership" required>
-                        <option selected disabled>Open for Partnership</option>
+                    <select class="form-controlz form-control floating" name="open_for_partnership" required>
+                        <option selected disabled hidden></option>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>
+                    <label class="focus-label">Open for Partnership</label>
                 </div>
                 
             </div>
@@ -239,24 +241,26 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <select class="form-controlz" name="ptn_plan" required>
-                        <option selected disabled>Partnership Plan   </option>
+                    <select  class="form-controlz form-control floating" name="ptn_plan" required>
+                        <option selected disabled hidden>   </option>
                         <option value="daily">Daily</option>
                         <option value="weekly">Weekly</option>
                         <option value="monthly">Monthly</option>
                         <option value="yearly">Yearly</option>
                     </select>
+                    <label class="focus-label">Partnership Plan</label>
                 </div>
             </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <select class="form-controlz" name="communication_pre" required>
-                        <option selected disabled>Communication Preferance                         </option>
+                    <select class="form-controlz form-control floating" name="communication_pre" required>
+                        <option selected disabled hidden></option>
                         <option value="1">Call</option>
-                        <option value="0">Cbat</option>
+                        <option value="0">Chat</option>
                         <option value="2">Whatsapp</option>
                         <option value="3">Email</option>
                     </select>
+                    <label class="focus-label">Communication Preferance </label>
                 </div>
             </div>  
             </div>

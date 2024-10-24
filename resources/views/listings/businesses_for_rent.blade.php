@@ -177,7 +177,7 @@
 
 
             <div class="form-group form-focus">
-            <input type="text" class="form-control floating" name="title" value="" placeholder="Title"
+            <input type="text" class="form-control floating" name="title" value="" placeholder=""
                     required>
 
                    
@@ -201,13 +201,16 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <select class="form-controlz" name="business_status"  required>
-                        <option disabled selected>Business Status</option>
+                    <div class="form-group form-focus">
+                        <select class="form-controlz  form-control floating"  name="business_status"  required>
+                        <option disabled selected hidden>Business Status</option>
                             <option value="1">Operating</option>
                             <option value="0">Closed</option>
                             <option value="2">Temporary Closed</option>
                             {{-- <option value="3">Staff</option> --}}
                     </select>
+                    <label class="focus-label">Business Status</label>
+                    </div>
                 </div>
                 {{-- <div class="col-md-6">
                     <div class="form-group form-focus">
@@ -277,14 +280,16 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <select class="form-controlz" name="premise_status" required>
-                            <option disabled selected>Premise Status        </option>
+                <div class="form-group form-focus">
+                <select class="form-controlz  form-control floating" name="premise_status" required>
+                            <option disabled selected hidden> </option>
                             <option value="own">Owned</option>
                             <option value="rent">Rented</option>
                             <option value="not_reg">Not Registered</option>
                     </select>
+                    <label class="focus-label">Premise Status</label>
                 </div>
-            
+            </div>
         
     </div>
     </div>
@@ -302,15 +307,17 @@
                        
             </div>
                 <div class="col-md-6">
-                    <select class="form-controlz" name="lease_term" required>
-                                <option disabled selected>Lease Term</option>
+                    <div class="form-group form-focus">
+                    <select class="form-controlz form-control floating" name="lease_term" required>
+                                <option disabled selected hidden></option>
                                 <option value="annual">Daily</option>
                                 <option value="monthly">Monthly</option>
                                 <option value="yearly">Yearly</option>
                                 <option value="lifetime">Lifetime</option>
                         </select>
+                        <label class="focus-label">Lease Term</label>
                     </div>
-                
+                </div>
             </div>
         </div>
         <div class="col-md-6 mx-auto">
@@ -373,13 +380,17 @@
             </div>
 
             <div class="col-md-6">
-                <select class="form-controlz" name="posted_by"  required>
-                    <option disabled selected>Posted By</option>
+                <div class="form-group form-focus">
+                <select class="form-controlz form-control floating" name="posted_by"  required>
+                    <option disabled selected hidden></option>
                         <option value="1">Agent</option>
                         <option value="0">Broker</option>
                         <option value="2">Owner</option>
                         <option value="3">Staff</option>
+                        
                 </select>
+                <label class="focus-label">Posted By</label>
+                </div>
             </div>
     
             <div class="col-md-6">
@@ -423,7 +434,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating"  name="whatsapp" placeholder="" 
+                <input type="text" class="form-control floating"  oninput="validatePhoneNumber(this)"  name="whatsapp" placeholder="" 
                 {{-- pattern="\d{10}"  --}}
                 title=""   required>
                <label class="focus-label">WhatsApp</label>
@@ -483,7 +494,7 @@
         </div>
         <div class="col-md-6 mx-auto" style="margin-top: 20px;">
             <div class="form-group form-focus">
-            <input type="text" class="form-control floating location_name" name="location_name" placeholder="Location Type"
+            <input type="text" class="form-control floating location_name" name="location_name" placeholder=""
                       required>
                    <label class="focus-label">Location</label>
                 </div>

@@ -37,9 +37,16 @@
         width: 150px !important
     }
     .form-control{
+        /* width:100%; */
         text-align: center;
 
     }
+    .form-control1{
+        width:100% !important;
+        
+
+    }
+  
     select::-ms-expand {
     display: none; /* Remove the dropdown icon on IE10+ */
 }
@@ -91,7 +98,7 @@ width: 225px !important;
                                 
                                     <div class="col-md-8">
                                     {{-- <p>{{session()->get('user')->name}}</p> --}}
-                                         <input type="text" class="form-control" name="name" id="name" value="{{session()->get('user')->name}}" style="border: 1px solid rgb(153, 153, 153);">
+                                         <input type="text" class="form-control form-control1" name="name" id="name" value="{{session()->get('user')->name}}" style="border: 1px solid rgb(153, 153, 153);">
                                     </div>
                                     
                                 </div>
@@ -102,7 +109,7 @@ width: 225px !important;
                                 
                                     <div class="col-md-8">
                                     {{-- <p>{{session()->get('user')->name}}</p> --}}
-                                         <input type="text" class="form-control" name="name" id="name" value="{{session()->get('user')->name}}" style="border: 1px solid rgb(153, 153, 153);">
+                                         <input type="text" class="form-control form-control1" name="name" id="name" value="{{session()->get('user')->name}}" style="border: 1px solid rgb(153, 153, 153);">
                                     </div>
                                     
                                 </div>
@@ -111,7 +118,7 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Gender:</b></div>
                                     <div class="col-md-8">
-                                        <select name="gender" id="gender" type="text" class="form-control"
+                                        <select name="gender" id="gender" type="text" class="form-control form-control1"
                                                 style="border:1px solid #999;">
                                             <option value="" selected hidden disabled></option>
                                             <option value="male">Male</option>
@@ -124,7 +131,7 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Mobile:</b></div>
                                     <div class="col-md-8">
-                                        <input name="mobile" id="mobile" type="text" class="form-control" 
+                                        <input name="mobile" id="mobile" type="text" class="form-control form-control1" 
                                         {{-- placeholder="Please enter a valid Mobile." --}}
                                          style="border: 1px solid #999;">
                                     </div>
@@ -136,7 +143,7 @@ width: 225px !important;
                                     <div class="col-md-8">
                                         <input name="email" id="email" type="text" 
                                         {{-- placeholder="Please provide a valid Email."  --}}
-                                         class="form-control" style="border: 1px solid #999;">
+                                         class="form-control form-control1" style="border: 1px solid #999;">
                                     </div>
                                 </div>
                             </div>
@@ -152,15 +159,15 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Date of Birth:</b></div>
                                     <div class="col-md-8">
-                                        <input type="text" name="dob" id="datepicker" class="form-control login-user email"
+                                        <input type="text" name="dob" id="datepicker" class="form-control form-control1 login-user email"
                                         placeholder="" aria-label="Email" aria-describedby="basic-addon1"
                                         onfocus="this.value=''">
                                     </div>
                                 </div>
                             </div>
                             @php
-                            $countries = \App\Helpers\RecordHelper::getCountries();
-                            $cities = \App\Helpers\RecordHelper::getCities(request()->country);
+                            $countries = \App\Helpers\RecordHelper::getCountriesRegistration();
+                            $cities = \App\Helpers\RecordHelper::getCities(request()->country ?? 1);
                         @endphp
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
@@ -169,7 +176,7 @@ width: 225px !important;
                                         <div class="input-group mb-3" style=" 
                                         border: 1px solid #999">
                                             <select name="country" id="country"
-                                                        class="form-control country_dropdown login-user"
+                                                        class="form-control form-control1 country_dropdown login-user"
                                                         style="width:100%;">
                                                     @if ($cities->count() < 1)
                                                         <option value="" selected>Country</option>
@@ -178,7 +185,7 @@ width: 225px !important;
                                                         <option
                                                             {{ $country->id == request()->country ? 'selected' : '' }} 
                                                             value="{{ $country->id }}"
-                                                            style="font-size:8px !important;"> {{ $country->nice_name }}</option>
+                                                            style="font-size:8px !important;"> {{ $country->name }}</option>
                                                     @endforeach
                                                 </select>
                                         </div>
@@ -188,7 +195,7 @@ width: 225px !important;
                                         <div class="input-group mb-3" style="
                                         border: 1px solid #999">
                                             <select name="cities" id="cities"
-                                            class="form-control country_dropdown login-user"
+                                            class="form-control form-control1 country_dropdown login-user"
                                             style="width:100%;">
                                         @if ($cities->count() < 1)
                                             <option value="" selected>City</option>
@@ -218,7 +225,7 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Password:</b></div>
                                     <div class="col-md-8">
-                                        <input name="password" id="password" type="password" class="form-control"
+                                        <input name="password" id="password" type="password" class="form-control form-control1"
                                          {{-- placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" --}}
                                          style="border: 1px solid #999;">
                                     </div>
@@ -228,7 +235,7 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Confirm Password:</b></div>
                                     <div class="col-md-8">
-                                        <input name="password" id="confirmpassword" type="password" class="form-control" placeholder="" style="border: 1px solid #999;">
+                                        <input name="password" id="confirmpassword" type="password" class="form-control form-control1" placeholder="" style="border: 1px solid #999;">
                                     </div>
                                 </div>
                             </div>

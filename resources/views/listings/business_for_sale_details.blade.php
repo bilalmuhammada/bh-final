@@ -224,8 +224,9 @@
                </div>
            </div> 
         <div class="col-md-6">
-            <select class="form-controlz" name="trade_licence_type" required>
-                <option selected disabled>Trade Licence</option>
+            <div class="form-group form-focus">
+                <select class="form-controlz form-control floating"name="trade_licence_type" required>
+                <option selected disabled hidden></option>
                 <option value="e-commerce">E-Commerce</option>
                 <option value="freezone">Freezone</option>
                 <option value="freelance">Freelance</option>
@@ -235,6 +236,8 @@
                 <option value="private">Private</option>
                  
          </select>
+         <label class="focus-label">Trade Licence</label>
+        </div>
         </div>
        
         
@@ -277,12 +280,15 @@
             </div>
         </div>
         <div class="col-md-6">
-            <select class="form-controlz" name="premise_status" required>
-                        <option disabled selected>Premise Status</option>
+            <div class="form-group form-focus">
+                <select class="form-controlz form-control floating"name="premise_status" required>
+                        <option disabled selected hidden></option>
                         <option value="own">Owned</option>
                         <option value="rent">Rented</option>
                         <option value="not_reg">Not Registered</option>
                 </select>
+                <label class="focus-label">Premise Status</label>
+            </div>
             </div>
         
         {{-- <div class="col-md-6">
@@ -300,13 +306,16 @@
         <div class="col-md-6 mx-auto">
         <div class="row">
             <div class="col-md-6">
-                <select class="form-controlz" name="lease_term" required>
-                            <option disabled selected>Lease Term</option>
+                <div class="form-group form-focus">
+                    <select class="form-controlz form-control floating"name="lease_term" required>
+                            <option disabled selected hidden></option>
                             <option value="Annual">Daily</option>
                             <option value="Monthly">Monthly</option>
                             <option value="Yearly">Yearly</option>
                             <option value="lifetime">Lifetime</option>
                     </select>
+                    <label class="focus-label">Lease Term</label>
+                </div>
                 </div>
             <div class="col-md-6">
                 <div class="form-group form-focus">
@@ -370,13 +379,16 @@
        
 </div>
 <div class="col-md-6">
-            <select class="form-controlz" name="posted_by"  required>
-                <option disabled selected>Posted By</option>
+    <div class="form-group form-focus">
+        <select class="form-controlz form-control floating" name="posted_by"  required>
+                <option disabled selected hidden></option>
                     <option value="1">Agent</option>
                     <option value="0">Broker</option>
                     <option value="2">Owner</option>
                     <option value="3">Staff</option>
             </select>
+            <label class="focus-label">Posted By</label>
+        </div>
         </div>
 
         <div class="col-md-6">
@@ -420,7 +432,7 @@
     </div>
     <div class="col-md-6">
         <div class="form-group form-focus">
-            <input type="text" class="form-control floating"  name="whatsapp" placeholder="" 
+            <input type="text" class="form-control floating" oninput="validatePhoneNumber(this)" name="whatsapp" placeholder="" 
             {{-- pattern="\d{10}"  --}}
             title=""   required>
            <label class="focus-label">WhatsApp</label>
@@ -479,7 +491,7 @@
         <div class="col-md-6 mx-auto">
             <div class="form-group form-focus">
                 <input type="text" class="form-control floating location_name" name="location_name" placeholder=""
-                   style="padding:22px;" required>
+                   required>
                    <label class="focus-label">Location</label>
                 </div>
             <div class="invalid-feedback">

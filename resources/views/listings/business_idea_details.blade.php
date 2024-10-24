@@ -219,8 +219,9 @@
     <div class="col-md-6 mx-auto" >
         <div class="row">
         <div class="col-md-6">
-          <select class="form-controlz" name="trade_licence_type" required>
-                   <option selected disabled>Trade Licence</option>
+            <div class="form-group form-focus">
+                <select class="form-controlz form-control floating" name="trade_licence_type" required>
+                   <option selected disabled hidden>Trade Licence</option>
                    <option value="e-commerce">E-Commerce</option>
                    <option value="freezone">Freezone</option>
                    <option value="freelance">Freelance</option>
@@ -230,15 +231,20 @@
                    <option value="private">Private</option>
                     
             </select>
+            <label class="focus-label">Trade Licence</label>
+        </div>
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <select class="form-controlz" name="premise_status" required>
-                    <option disabled selected>Premise Status</option>
+                <div class="form-group form-focus">
+                    <select class="form-controlz form-control floating" name="premise_status" required>
+                    <option disabled selected hidden></option>
                     <option value="own">Owned</option>
                     <option value="rent">Rented</option>
                     <option value="not_reg">Not Registered</option>
-            </select>           
+            </select>  
+            <label class="focus-label">Premise Status</label>
+        </div>         
             </div>
             {{-- <input type="text" class="form-controlz" name="stock_level" placeholder="Stock Level" style="padding:22px;"
             required> --}}
@@ -261,12 +267,15 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <select class="form-controlz" name="lease_term" required>
-                            <option selected disabled>Lease Term</option>
+                <div class="form-group form-focus">
+                    <select class="form-controlz form-control floating" name="lease_term" required>
+                            <option selected disabled hidden></option>
                             <option value="Annual">Annual</option>
                             <option value="Monthly">Monthly</option>
                             <option value="Yearly">Yearly</option>
                     </select>
+                    <label class="focus-label">Lease Term</label>
+                </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
@@ -289,17 +298,20 @@
                        </div> --}}
                 </div>
                 <div class="col-md-6">
-                    <select class="form-controlz" name="sale_freq" required>
-                                <option selected disabled>Sales Frequency       </option>
+                    <div class="form-group form-focus">
+                        <select class="form-controlz form-control floating" name="sale_freq" required>
+                                <option selected disabled hidden>      </option>
                                 <option value="Annual">Daily</option>
                                 <option value="Monthly">Weekly</option>
                                 <option value="Yearly">Monthly</option>
                                 <option value="Yearly">Yearly</option>
                         </select>
+                        <label class="focus-label">Sales Frequency </label>
+                    </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group form-focus">
-                               <input type="text" class="form-control floating" name="expect_sale"  oninput="validatePhoneNumber(this)" placeholder="" 
+                               <input type="text" class="form-control floating" name="expect_sale"   placeholder="" 
                                    title="" required>
                                    <label class="focus-label">Expected Sale</label>
                                </div>
@@ -313,13 +325,16 @@
                                </div>
                     </div>
                     <div class="col-md-6">
-                        <select class="form-controlz" name="contract_term" required>
-                                    <option selected disabled>Contract Term</option>
+                        <div class="form-group form-focus">
+                            <select class="form-controlz form-control floating" name="contract_term" required>
+                                    <option selected disabled hidden></option>
                                     <option value="Annual">Daily</option>
                                     <option value="Monthly">Weekly</option>
                                     <option value="Yearly">Monthly</option>
                                     <option value="Yearly">Yearly</option>
                         </select>
+                        <label class="focus-label">Contract Term</label>
+                    </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group form-focus">

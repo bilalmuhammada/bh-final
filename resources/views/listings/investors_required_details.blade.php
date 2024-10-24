@@ -232,9 +232,10 @@
                </div> --}}
            </div>
         <div class="col-md-6">
-            <select class="form-controlz" name="trade_licence_type" required>
+            <div class="form-group form-focus">
+                <select class="form-controlz form-control floating" name="trade_licence_type" required>
                
-                <option selected disabled>Trade Licence</option>
+                <option selected disabled hidden></option>
                 <option value="e-commerce">E-Commerce</option>
                 <option value="freezone">Freezone</option>
                 <option value="freelance">Freelance</option>
@@ -243,6 +244,8 @@
                 <option value="online">Online</option>
                 <option value="private">Private</option>
             </select>
+            <label class="focus-label">Trade Licence</label>
+        </div>
         </div>
         {{-- <div class="col-md-6">
             <div class="form-group form-focus">
@@ -288,12 +291,15 @@
             </div> --}}
         </div>
         <div class="col-md-6">
-            <select class="form-controlz" name="premise_status" required>
-                        <option selected disabled>Premise Status                        </option>
+            <div class="form-group form-focus">
+                <select class="form-controlz form-control floating"  name="premise_status" required>
+                        <option selected disabled hidden> </option>
                         <option value="Annual">Owned</option>
                         <option value="Monthly">Rented</option>
                         <option value="Yearly">Not Registered</option>
                 </select>
+                <label class="focus-label">Premise Status</label>
+            </div>
             </div>
         </div>
     </div>
@@ -303,21 +309,24 @@
             <div class="form-group form-focus">
                 <input type="text" class="form-control floating" name="size_sqm" oninput="validatePhoneNumber(this)" placeholder="" 
                     title="" required>
-                    <label class="focus-label">Premise Size SqM</label>
+                    <label class="focus-label">Premise Size Sq.Ft</label>
                         </div>
             <div class="invalid-feedback">
                 Please provide a valid Premise Size SqM.
             </div>
         </div>
         <div class="col-md-6">
-        <select class="form-controlz" name="lease_term" required>
-                    <option selected disabled>Lease Term</option>
+            <div class="form-group form-focus">
+                <select class="form-controlz form-control floating" name="lease_term" required>
+                    <option selected disabled hidden></option>
                     <option value="daily">Daily</option>
                   
                     <option value="monthly">Monthly</option>
                     <option value="yearly">Yearly</option>
                     <option value="lifetime">Lifetime</option>
             </select>
+            <label class="focus-label">Lease Term</label>
+            </div>
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
@@ -331,24 +340,30 @@
         </div>
     </div>
     <div class="col-md-6">
-        <select class="form-controlz" name="contract_term" required>
-                    <option selected disabled>Contract Term</option>
+        <div class="form-group form-focus">
+            <select class="form-controlz form-control floating" name="contract_term" required>
+                    <option selected disabled hidden></option>
                     <option value="daily">Daily</option>
                     <option value="weekly">weekly</option>
                     <option value="monthly">Monthly</option>
                     <option value="yearly">Yearly</option>
                     
             </select>
+            <label class="focus-label">Contract Term</label>
+        </div>
         </div>
         <div class="col-md-6">
-            <select class="form-controlz" name="contract_period" required>
-                        <option selected disabled>Contract period</option>
+            <div class="form-group form-focus">
+                <select class="form-controlz form-control floating" name="contract_period" required>
+                        <option selected disabled hidden> </option>
                         <option value="daily">Daily</option>
                         <option value="weekly">weekly</option>
                         <option value="monthly">Monthly</option>
                         <option value="yearly">Yearly</option>
                         
                 </select>
+                <label class="focus-label">Contract Period</label>
+            </div>
             </div>
 
             <div class="col-md-6">
@@ -361,13 +376,16 @@
                   
         </div>
         <div class="col-md-6">
-            <select class="form-controlz" name="posted_by"  required>
-                <option disabled selected>Posted By</option>
+            <div class="form-group form-focus">
+                <select class="form-controlz form-control floating" name="posted_by"  required>
+                <option disabled selected hidden></option>
                     <option value="1">Agent</option>
                     <option value="0">Broker</option>
                     <option value="2">Owner</option>
                     <option value="3">Staff</option>
             </select>
+            <label class="focus-label">Posted By</label>
+        </div>
         </div>
 
         <div class="col-md-6">
@@ -411,7 +429,7 @@
     </div>
     <div class="col-md-6">
         <div class="form-group form-focus">
-            <input type="text" class="form-control floating"  name="whatsapp" placeholder="number" 
+            <input type="text" class="form-control floating"  name="whatsapp" oninput="validatePhoneNumber(this)"  placeholder="number" 
             {{-- pattern="\d{10}"  --}}
             title=""   required>
            <label class="focus-label">WhatsApp</label>

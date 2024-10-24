@@ -14,7 +14,7 @@
         <input type='hidden' class='form-control longitude' id='longitude' name='longitude'
                placeholder='Enter Longitude'>
         <div class="col-md-6 mx-auto" style="margin-top: 20px;">
-            <input type="text" class="form-control" name="title" value="{{ $listing->title }}" placeholder="Title"
+            <input type="text" class="form-control" name="title" value="{{ $listing->title }}" placeholder=""
                    style="padding:22px;" required>
             <div class="invalid-feedback">
                 Please provide a title.
