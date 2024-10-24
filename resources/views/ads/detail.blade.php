@@ -72,23 +72,18 @@
     width: 100% !important;
 }
 .slick-prev, .slick-next {
-    top: 30% !important
+    top: 17% !important
 }
 .cSlider__item {
         width: 6rem !important;
 
     }
     .listing {
-     
+        padding: 7px 7px 7px 7px !important;
         /* margin-left: -63px; */
         width: 200px !important
     }
-    .listing:hover {
-        margin-bottom: 9px;
-        /* padding: 7px 7px 0px 7px !important; */
-        /* margin-left: -63px; */
-        width: 200px !important
-    }
+    
     #slider{
         margin: 0px 0px !important;
 
@@ -99,7 +94,7 @@ width: 60rem !important;
     }
 .slick-prev {
     opacity: 0.5;
-    left: 15px !important
+    left: 25px !important
 }
 .slick-next {
     opacity: 0.5;
@@ -533,7 +528,7 @@ width: 60rem !important;
                 </div>
                 <!---------------------->
                 {{-- <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;"> --}}
-                <div class="col-lg-12 col-md-12 col-12" style="margin-top: 7px;margin-left: -18px;">
+                <div class="col-lg-12 col-md-12 col-12 similar_ad" style="margin-top: 7px;margin-left: -18px;">
                     <h4 style="margin-top: 9px;margin-left: 15px;"><b>Similar Ads</b></h4>
                     <div class="row">
                         <div class="col-md-9">
@@ -544,7 +539,7 @@ width: 60rem !important;
                                 @foreach($similar_ads as $similar_ad)
                                     <div class="col-lg-2 col-md-3 col-6" style="width: 13rem !important;"> <!-- Adjust column width if needed -->
                                         <a href="{{env('BASE_URL') . 'ads/detail/' . $similar_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
-                                            <div class="listing">
+                                            <div class="listing" style="margin-bottom: 12px;">
                                                 <img src="{{ $similar_ad->main_image_url }}" alt="{{ $similar_ad->name }}" title="{{ $similar_ad->name }}" width="170" height="152">
                                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 5.5rem;">
                                                     <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
@@ -552,10 +547,10 @@ width: 60rem !important;
                                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                                 </div>
-                                                <div class="detail" >
+                                                <div class="detail"  style="margin-bottom:8px;margin-left: -3px;">
                                                     <span style="color:#000; display: block;">{{ $similar_ad->title ?? 'Title N/A' }}</span>
                                                     <span style="color:#999; display: block;">{{ $similar_ad->subcategory_name }}</span>
-                                                    <h5 style="font-size: 18px;"><b style="color: red;">{{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}</b></h5>
+                                                    <h5 style="font-size: 14px;margin-bottom: -10px;"><b style="color: red;">{{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}</b></h5>
                                                 </div>
                                             </div>
                                         </a>
@@ -581,11 +576,11 @@ width: 60rem !important;
     $('.slider').slick({
         // infinite: true,
             infinite: true,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
-        // autoplay: true,
-        // autoplaySpeed: 2000,
-        // arrows: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        arrows: true,
         prevArrow: '<button type="button" class="slick-prev" style="border: none;"><i class="fa fa-chevron-left" aria-hidden="true" style="color: black;"></i></button>',
         nextArrow: '<button type="button" class="slick-next" style="border: none;"><i class="fa fa-chevron-right" aria-hidden="true" style="color: black;"></i></button>',
             responsive: [

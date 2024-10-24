@@ -317,7 +317,7 @@
                             <select class="form-controlz form-control floating" name="contract_period" required>
                                     <option selected disabled hidden></option>
                                     <option value="daily">Daily</option>
-                                    <option value="weekly">weekly</option>
+                                    <option value="weekly">Weekly</option>
                                     <option value="monthly">Monthly</option>
                                     <option value="yearly">Yearly</option>
                                     
