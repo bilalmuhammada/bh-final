@@ -47,7 +47,7 @@
                             </div>
                             <!-- submit button finish -->
                         </form>
-                        <div class="Forgot" style="font-size: 12px; margin-left: -18px;">
+                        <div class="Forgot" style="font-size: 12px; margin-left: -18px;margin-top: -15px;">
                             
                            <span >New to BusinessHub?  <a class="register-btn " style="color: #007bff;"  id="colorTowhite"> Click Here </a></span>
                                
