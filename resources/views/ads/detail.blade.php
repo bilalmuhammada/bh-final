@@ -424,9 +424,10 @@ width: 60rem !important;
                         <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
                         <div class="col-lg-12 col-md-12 col-12">
                             <div class="inner" style="border: 1px solid #eee; border-radius: 5px; padding: 15px;width: 24rem;">
-                                <p class="text-muted" style="font-size: 13px;margin-left: 14px;">Posted by:</p>
-                                <div class="profile-image-container" style="display: flex; align-items: center; margin-left:8.3rem;margin-top: -11px; font-size: 26px;">
-                                          
+                                <p class="text-muted" style="font-size: 13px;margin-left: 14px;">Posted by: <b style="color:#000" >{{ ($ad->posted_by == 1) ? "Agent" : "User"  }}</b></p>
+ 
+                                <div class="profile-image-container" style=" align-items: center; margin-left:8.3rem;margin-top: -11px; font-size: 26px;">
+                                      
                                     <b>{{ $ad->created_by_user->name }}</b>
                                     {{-- <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="40" height="40" style="border-radius: 50%; margin-right: 10px;"> --}}
                                 </div>

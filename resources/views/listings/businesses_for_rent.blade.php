@@ -531,7 +531,6 @@
 $(document).on('click', '.place-ad-form-submit', function (e) {
             e.preventDefault();
              var formData = new FormData($('.place-ad-form')[0]);
-// console.log(formData);
             $.ajax({
                 url: api_url + 'listing/nextsubmit',
                 type: 'POST',

@@ -365,7 +365,7 @@
                                             @endforeach
                                             <li class="divider"></li>
                                             <div class="notification-footer" style="text-align: center;"><h4 class="menu-title" style="color: red;font-size: 1rem !important;
-                                            margin: 12px;">   <a class="content" href="{{ env('BASE_URL').'notifications'}}" 
+                                                margin: 0px;">   <a class="content" href="{{ env('BASE_URL').'notifications'}}" 
                                             {{-- data-bs-toggle="modal" data-bs-target="#phoneRequestModal"  --}}
                                             style="color: red;"
                                             >View all Notifications </a></h4></div>
@@ -571,7 +571,7 @@
                                                             </div>
                                                     
                                                             <div class="col-md-7" style="white-space: nowrap; margin-left: 15px;">
-                                                                <span style="font-weight: bold;">CAR CHIP TUNING GARAGE FOR SALE</span>
+                                                                <span style="font-weight: bold;">Car Chip Tuning Garage for Sale</span>
                                                                 <br>
                                                                 <span>AED 649,990 | in Dubai</span>
                                                                 <br>
@@ -593,7 +593,7 @@
                                             @endforeach
                                             <li class="divider"></li>
                                             <div class="notification-footer" style="text-align: center;"><h4 class="menu-title" style="color: red;font-size: 1rem !important;
-                                            margin: 12px;">   <a class="content" href="{{ env('BASE_URL').'ads'}}"
+                                            margin: 0px;">   <a class="content" href="{{ env('BASE_URL').'ads'}}"
                                             {{-- data-bs-toggle="modal" data-bs-target="#phoneRequestModal"  --}}
                                             style="color: red;">View all Favourites </a></h4></div>
                                     @else
@@ -675,14 +675,17 @@
                             
                 <span style="padding:13px 15px 0px 15px;text-align:center;">
 
-                                <a type="button" id="ads"
-                                   data-toggle="dropdown"
-                                   aria-haspopup="true"
-                                   aria-expanded="false">
-                                    {{-- <i class="fa fa-user" width="19" style="color: #999;"></i> --}}
-                                    <div><span class="colorChange" style="color: #000; font-size: 16px;">My Ads</span></div>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="ads" style="padding: 10px;width:auto;">
+                    <a href="{{ env('BASE_URL') . 'user/ads?country=' . request()->get('country') . '&city=' . request()->get('city') }}" 
+                        type="button" 
+                        id="ads"
+                        class="colorChange" 
+                        style="color: #000; font-size: 16px;"
+                        aria-haspopup="true"
+                        aria-expanded="false">
+                         My Ads
+                     </a>
+                     
+                                {{-- <div class="dropdown-menu" aria-labelledby="ads" style="padding: 10px;width:auto;">
                                     @if (session()->has('user') && count($my_ads_for_topbar) > 0)
                                         <div class="row">
                                             <div class="col-lg-12 col-sm-12 col-12">
@@ -723,7 +726,7 @@
                                             </div>
                                         </div>
                                     @endif
-                                </div>
+                                </div> --}}
                             </span>
                             @endif
                 @if (session()->has('user'))
