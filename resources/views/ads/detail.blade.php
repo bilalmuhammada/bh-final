@@ -16,6 +16,17 @@
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+.approval-status{
+    font-size: 16px;
+    color: blue;
+    margin-left: 21px;
+
+}
+.download-document{
+    font-size: 16px;
+    color: #fab005;
+    margin-left: 21px;
+}
 .lobibox-notify-success{
         width: 80px !important
     }
@@ -355,12 +366,12 @@ width: 60rem !important;
                                         @if(empty($ad->document_listing_approval_status) || $ad->document_listing_approval_status == 'rejected')
                                             <a href="" class="btn document-download-request">Send Request</a>
                             @elseif($ad->document_listing_approval_status == 'approved')
-                                            <a href="#" class="btn download-document">Download</a>
+                                            <a href="#" class="btn download-document">Approved</a>
                                 @else
-                                    <p class="approval-status">Waiting for approval</p>
+                                    <p class="approval-status"> Under Approval </p>
                                 @endif
 
-                                <p class="approval-status" style="display: none">Waiting for approval</p>
+                                <p class="approval-status" style="display: none">Under Approval </p>
                             </div>
                             </p>
                         </div>

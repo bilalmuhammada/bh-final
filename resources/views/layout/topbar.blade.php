@@ -41,7 +41,7 @@
 
     }
     .select2-dropdown,.select2-dropdown--below{
-        width: 135px !important;
+        width: 145px !important;
     }
 
     /* start */
@@ -54,7 +54,7 @@
         .select2-results__option {
             margin-right: 0px !important;
             /* padding: 4px !important; */
-            font-size: 14px;
+            font-size: 13px;
             font-weight: bold;
 
         }
@@ -74,7 +74,7 @@
     .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
         background-color: #fff !important;
         color: blue !important;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: bold;
     }
     .select2-container--default .select2-results__option--selected {
