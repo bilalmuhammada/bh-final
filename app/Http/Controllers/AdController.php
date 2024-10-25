@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AdController extends Controller
 {
-    public function showAds($subcategory_id = false, Request $request)
+    public function showAds(Request $request,$subcategory_id = false)
     {
         $data = [];
         if ($subcategory_id) {
