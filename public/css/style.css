@@ -2526,7 +2526,7 @@
     height: 51px;
     padding: 11px 15px 6px;
 border: 1px solid #2d11e7;
-    box-shadow: 1px 1px 1px 1px #eee;
+    /* box-shadow: 1px 1px 1px 1px #eee; */
 }
 
 .form-focus .form-control::-webkit-input-placeholder {
@@ -3357,7 +3357,7 @@ border: 1px solid #2d11e7;
     
     .loginarea .login-user {
         background: transparent;
-        padding: 10px 20px 10px 10px;
+        padding: 17px 20px 1px 10px;
         border: 1px solid #A17A4E;
         /* border-right: 1px solid #A17A4E; */
         /* border-bottom: 1px solid #A17A4E; */
@@ -3487,8 +3487,8 @@ border: 1px solid #2d11e7;
     
     .ragisterarea .login-user {
         background: transparent;
-        /* padding: 10px 20px 10px 10px; */
-        padding: 10px 20px;
+        padding: 17px 20px 1px 10px;
+        /* padding: 10px 20px; */
         border: 1px solid #A17A4E;
         /* border-right: 1px solid #A17A4E;
         border-bottom: 1px solid #A17A4E; */

@@ -219,7 +219,7 @@
                         <option value="Within Region">Within Region</option>
                         <option value="Worldwide">Worldwide</option>
                     </select>
-                   
+                    <label class="focus-label">Open to Invest</label>
                 </div>
             </div>
                 <div class="col-md-6">

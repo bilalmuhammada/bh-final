@@ -340,7 +340,8 @@
                    
                 </div>
                 <div class="col-md-6">
-                    <select class="form-controlz" name="stock_unit" required>
+                    <div class="form-group form-focus">
+                    <select class="form-control floating" name="stock_unit" required>
                         <option selected disabled hidden></option>
                         
                         <option value="kg">Kg</option>

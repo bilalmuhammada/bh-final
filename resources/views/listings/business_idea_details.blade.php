@@ -260,7 +260,7 @@
                 <div class="form-group form-focus">
                     <input type="text" class="form-control floating"  oninput="validatePhoneNumber(this)" name="size_sqm" placeholder="" 
                         title="" required>
-                        <label class="focus-label">Premise Size SqM</label>
+                        <label class="focus-label">Premise Size Sq.Ft</label>
                     </div>
                 <div class="invalid-feedback">
                     Please provide a valid Premise Size SqM.
@@ -313,7 +313,7 @@
                         <div class="form-group form-focus">
                                <input type="text" class="form-control floating" name="expect_sale"   placeholder="" 
                                    title="" required>
-                                   <label class="focus-label">Expected Sale</label>
+                                   <label class="focus-label">Expected Sales</label>
                                </div>
                     </div>
         
@@ -338,7 +338,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group form-focus">
-                               <input type="text" class="form-control floating" name="contrt_length"  oninput="validatePhoneNumber(this)"  placeholder="" 
+                               <input type="text" class="form-control floating" name="contrt_length"   placeholder="" 
                                    title="" required>
                                    <label class="focus-label">Contract Length</label>
                                </div>
@@ -352,7 +352,7 @@
                     </div>
                     <div class="col-md-6" >
                         <div class="form-group form-focus">
-                            <input type="text" class="form-control floating" oninput="validatePhoneNumber(this)"  name="whatsapp" placeholder="URL" required>
+                            <input type="text" class="form-control floating" oninput="validatePhoneNumber(this)"  name="whatsapp" placeholder="" required>
                             <label class="focus-label">WhatsApp</label>
                     </div>
         </div>

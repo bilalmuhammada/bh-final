@@ -19,7 +19,8 @@
 .approval-status{
     font-size: 16px;
     color: blue;
-    margin-left: 21px;
+    margin-top:-17px;
+    margin-left: 25px;
 
 }
 .download-document{
@@ -83,7 +84,7 @@
     width: 100% !important;
 }
 .slick-prev, .slick-next {
-    top: 17% !important
+    top: 36% !important
 }
 .cSlider__item {
         width: 6rem !important;
@@ -109,7 +110,7 @@ width: 60rem !important;
 }
 .slick-next {
     opacity: 0.5;
-    right: 6px !important;
+    right: 12px !important;
 }
 .slider:before {
     background-color: #fff !important;
@@ -587,7 +588,7 @@ width: 60rem !important;
     $('.slider').slick({
         // infinite: true,
             infinite: true,
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,

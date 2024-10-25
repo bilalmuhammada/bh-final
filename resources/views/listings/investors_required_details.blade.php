@@ -357,7 +357,7 @@
                 <select class="form-controlz form-control floating" name="contract_period" required>
                         <option selected disabled hidden> </option>
                         <option value="daily">Daily</option>
-                        <option value="weekly">weekly</option>
+                        <option value="weekly">Weekly</option>
                         <option value="monthly">Monthly</option>
                         <option value="yearly">Yearly</option>
                         
@@ -429,7 +429,7 @@
     </div>
     <div class="col-md-6">
         <div class="form-group form-focus">
-            <input type="text" class="form-control floating"  name="whatsapp" oninput="validatePhoneNumber(this)"  placeholder="number" 
+            <input type="text" class="form-control floating"  name="whatsapp" oninput="validatePhoneNumber(this)"  placeholder="" 
             {{-- pattern="\d{10}"  --}}
             title=""   required>
            <label class="focus-label">WhatsApp</label>

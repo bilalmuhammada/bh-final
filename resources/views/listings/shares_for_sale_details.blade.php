@@ -300,7 +300,7 @@
             <div class="form-group form-focus">
                 <input type="text" class="form-control floating"  oninput="validatePhoneNumber(this)" name="size_sqm" placeholder="" 
                     title="" required>
-                    <label class="focus-label">Premise Size SqM</label>
+                    <label class="focus-label">Premise Size Sq.Ft</label>
                 </div>
             <div class="invalid-feedback">
                 Please provide a valid Premise Size SqM.

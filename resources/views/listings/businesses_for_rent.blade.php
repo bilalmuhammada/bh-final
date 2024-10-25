@@ -259,7 +259,7 @@
                     <div class="form-group form-focus">
                        <input type="text" class="form-control floating" name="branches"  oninput="validatePhoneNumber(this)" placeholder="" 
                            title="" required>
-                           <label class="focus-label">Braches </label>
+                           <label class="focus-label">Branches </label>
                        </div>
                    <div class="invalid-feedback">
                        Please provide a valid Premise Size SqM.
