@@ -10,6 +10,14 @@
     #colorTowhite:hover{
             color: white !important;
          }
+
+         #email, #password{
+            padding: 10px 6px 11px 11px;
+         }
+
+         .toggle-password{
+            top:54% !important;
+         }
 </style>
 <div class="modal" id="loginModal" style="border:0px solid red;margin-top:-35px;">
     <div class="modal-dialog modal-sm" style="border:0px solid red; width:380px;">

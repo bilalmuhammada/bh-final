@@ -68,7 +68,7 @@
 
    <h4 style="font-weight:bold;margin-left:-9px;">Notification</h4>
     @foreach($notifications as $notification)
-    <div class="notification-item" style="padding: 10px; position: relative;">
+    <div class="notification-item" style="position: relative; padding:10px 10px 0px 10px;">
     <div class="row" style="border-bottom:1px solid #eee">
         <!-- Image Section -->
         <div class="col-md-1">
@@ -83,7 +83,7 @@
             <br>
             <span>Your ad placed in 46 is now live call..</span>
             <br>
-            <p style="padding: 0px; margin-top: 12px;">10 min ago</p>
+            <p style="padding: 0px;">10 min ago</p>
         </div>
 
         <!-- Dropdown Section -->

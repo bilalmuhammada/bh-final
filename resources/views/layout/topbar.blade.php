@@ -656,9 +656,10 @@
                                                    class="btn btn-primary btn-block link"
                                                    style="font-size: 13px;">View all Chats</a> --}}
 
-                                                   <li class="divider"></li>
-                                                   <div class="notification-footer" style="text-align: center;"><h4 class="menu-title" style="color: red;font-size: 1rem !important;
-                                                   margin: 12px;">   <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal" style="color: red;">View all Chats </a></h4></div>
+                                                   {{-- <li class="divider"></li> --}}
+                                                   <div class="notification-footer">
+                                                    <h4 class="menu-title" style="color: red;font-size: 1rem !important;
+                                                   margin:0px;">   <a class="content" href="{{ env('BASE_URL') . 'chats?country=' . request()->country . '&city=' . request()->city}}"  style="color: red;">View all Chats </a></h4></div>
                                             </div>
                                         </div>
                                             <!---------inner area------------>
