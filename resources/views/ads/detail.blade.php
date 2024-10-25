@@ -360,7 +360,7 @@ width: 60rem !important;
                                 <h4><b>Files</b></h4>
                                 <p style="font-size: 14px;">
                                     <embed class="@if(empty($ad->document_listing_approval_status) || $ad->document_listing_approval_status == 'rejected') blur-image @endif" src="https://www.buds.com.ua/images/Lorem_ipsum.pdf"
-                                           type="application/pdf" width="200px" height="200px"/>
+                                           type="application/pdf" width="180px" height="228px"/>
                                     <br/>
                                     <div class="btn-next">
                                         @if(empty($ad->document_listing_approval_status) || $ad->document_listing_approval_status == 'rejected')
