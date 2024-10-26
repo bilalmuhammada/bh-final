@@ -162,3 +162,30 @@ Route::prefix('/listing')->group(function () {
 Route::prefix('/subscription')->group(function() {
     // Route::post('/checkout', [\App\Http\Controllers\PlanController::class, 'checkout']);
 });
+
+
+// admin api
+Route::prefix('/categories')->group(function () {
+    Route::get('/list', [CategoryController::class, 'all']);
+    Route::post('/change-status', [CategoryController::class, 'changeStatus']);
+    Route::post('/store', [CategoryController::class, 'store']);
+    Route::post('/edit/{category_id}', [CategoryController::class, 'edit']);
+    Route::post('/update', [CategoryController::class, 'update']);
+    Route::post('/delete/{category_id}', [CategoryController::class, 'delete']);
+    Route::post('/upload-file', [CategoryController::class, 'uploadFile']);
+});
+
+Route::prefix('/users')->group(function () {
+    Route::post('/', [UserController::class, 'all']);
+    Route::post('/change-status', [UserController::class, 'changeStatus']);
+    Route::post('/store', [UserController::class, 'store']);
+    Route::post('/{id}/show', [UserController::class, 'show']);
+    Route::post('/update', [UserController::class, 'update']);
+    Route::post('{id}/delete', [UserController::class, 'delete']);
+    Route::post('reviews', [UserController::class, 'reviews']);
+    Route::post('{id}/delete-review', [UserController::class, 'deleteReview']);
+    Route::post('transactions', [UserController::class, 'transactions']);
+    Route::post('{id}/delete-transaction', [UserController::class, 'deleteTransaction']);
+});
+
+// end api

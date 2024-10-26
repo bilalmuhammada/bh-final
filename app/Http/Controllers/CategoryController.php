@@ -4,11 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Helpers\RecordHelper;
 use App\Helpers\SiteHelper;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
+
+    public function index()
+    {
+        $categories=RecordHelper::getCategories();
+        return view('Admin.categories.list')->with(['menu' => 'categories']);
+    }
+    public function all()
+    {
+        $categories = Category::latest()->get();
+
+        if ($categories->isNotEmpty()) {
+            return response()->json([
+                'status' => true,
+                'message' => '',
+                'data' => $categories
+            ]);
+        }
+
+        return response()->json([
+            'status' => false,
+            'message' => 'No Record Found'
+        ]);
+    }
+
     public function uploadFile(Request $request)
     {
         // Get the data from the request
@@ -34,6 +59,28 @@ class CategoryController extends Controller
         return response()->json([
             'status' => true,
             'data' => RecordHelper::getCategories()
+        ]);
+    }
+
+    public function edit($category_id = '')
+    {
+     
+        if ($category_id != '') {
+            $category = Category::find($category_id);
+
+           
+            if (!empty($category)) {
+                return response()->json([
+                    'status' => true,
+                    'message' => '',
+                    'data' => $category
+                ]);
+            }
+        }
+
+        return response()->json([
+            'status' => false,
+            'message' => 'Invalid request'
         ]);
     }
 

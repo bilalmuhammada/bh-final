@@ -23,6 +23,16 @@ use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
+
+    public function index()
+    {
+        if (Session::has('user')) {
+            return redirect('/dashboard');
+        }
+        return view('Admin.auth.login');
+    }
+
+
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [

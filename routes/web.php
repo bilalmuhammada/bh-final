@@ -6,6 +6,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\AdController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PlanController;
 
@@ -153,3 +155,52 @@ Route::get('/machinery-supplies-form', function(){
 
 //chat route start here
 Route::get('/chats/', [\App\Http\Controllers\ChatController::class, 'index']);
+
+
+
+
+
+// startadmin
+
+Route::prefix('/admins')->group(function() {
+
+Route::get('/login', [AuthController::class, 'index']);
+
+Route::middleware('check_user_auth')->group(function () {
+
+     Route::get('/dashboard', [AdminController::class, 'index']);
+
+    // Route::prefix('/admins')->group(function () {
+    //     Route::get('/', [AdminController::class, 'index']);
+    //     Route::get('/create', [AdminController::class, 'create']);
+    // });
+
+    // Route::prefix('/categories')->group(function () {
+         Route::get('/categories', [CategoryController::class, 'index']);
+         
+    // });
+
+    Route::prefix('/user')->group(function () {
+        Route::get('/', [UserController::class, 'index']);
+        Route::get('/create', [UserController::class, 'create']);
+        Route::get('/transactions', [UserController::class, 'transactions']);
+        Route::get('/reviews', [UserController::class, 'reviews']);
+    });
+
+    // Route::prefix('/influencers')->group(function () {
+    //     Route::get('/', [InfluencerController::class, 'index']);
+    //     Route::get('/create', [InfluencerController::class, 'create']);
+    //     Route::get('/transactions', [InfluencerController::class, 'transactions']);
+    //     Route::get('/reviews', [InfluencerController::class, 'reviews']);
+    // });
+
+    Route::get('/faqs', function () {
+        return view('faq')->with(['menu' => 'faqs']);
+    });
+
+    Route::get('/change-password', [AuthController::class, 'resetPassword']);
+});
+});
+
+// endlogin
+

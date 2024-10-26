@@ -23,6 +23,51 @@ class UserController extends Controller
         return view('user.user-profile');
     }
 
+    public function all(Request $request)
+    {
+        // dd($request->role);
+        $validator = Validator::make($request->all(), [
+            'role' => 'required|exists:roles,role_key',
+        ]);
+        // dd('dd');
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => FALSE,
+                'message' => $validator->errors()->first()
+            ]);
+        }
+
+      
+        $role = $request->role;
+
+        $Users = User::whereHas('role', function ($Role) use ($role) {
+            $Role->where('role_key', $role);
+        })->when($request->status, function ($User, $status) {
+            $User->where('status', $status);
+        })->latest()->get();
+// dd(  $Users);
+        if ($Users->isNotEmpty()) {
+            return response()->json([
+                'status' => true,
+                'message' => '',
+                'data' => $Users
+            ]);
+        }
+
+        return response()->json([
+            'status' => false,
+            'message' => 'No Record Found'
+        ]);
+    }
+
+    public function index()
+    {
+        $countries = Country::all();
+        return view('Admin.vendors.list')->with(['menu' => 'users', 'countries' => $countries]);
+    }
+
+
     public function detail()
     {
         $User = User::with(['role', 'attachment'])->where('id', Auth::id() ?? Session::get('user')->id)->first();

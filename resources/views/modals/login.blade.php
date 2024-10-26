@@ -9,13 +9,10 @@
     
     #colorTowhite:hover{
             color: white !important;
-         }
-
-         #email, #password{
+         } #email, #password{
             padding: 10px 6px 11px 11px;
          }
-
-         .toggle-password{
+        .toggle-password{
             top:54% !important;
          }
 </style>
