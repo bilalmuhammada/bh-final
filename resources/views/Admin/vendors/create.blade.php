@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('Admin.layout.master')
 <style>
     .form-control{
     border-color: #997045 !important;
@@ -29,7 +29,7 @@
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h3 class="card-title text-muted text-center" style="color: blue !important;">Add Brand</h3>
+            <h3 class="card-title text-muted text-center" style="color: blue !important;">Add User</h3>
             <ol class="breadcrumb">
             </ol>
         </nav>
@@ -174,7 +174,7 @@
                                 {{--    <input type="text" class="form-control floating" name="country">--}}
                                 <select name="country_id" class="form-control floating" id="country_id">
                                     <option selected hidden disabled value="">&nbsp;&nbsp;</option>
-                                    @foreach(getCountries() as $country)
+                                    @foreach(\App\Helpers\RecordHelper::getCountriesRegistration() as $country)
                                         <option value="{{ $country->id }}">{{ $country->name }}</option>
                                     @endforeach
                                 </select>

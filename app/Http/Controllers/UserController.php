@@ -66,6 +66,11 @@ class UserController extends Controller
         $countries = Country::all();
         return view('Admin.vendors.list')->with(['menu' => 'users', 'countries' => $countries]);
     }
+    public function create()
+    {
+        $countries = Country::all();
+        return view('Admin.vendors.create')->with(['menu' => 'vendors/create', 'countries' => $countries]);
+    }
 
 
     public function detail()

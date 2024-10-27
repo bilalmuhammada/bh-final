@@ -39,7 +39,7 @@
     <div class="sidebar-body">
         <ul class="nav">
             <li class="nav-item @if (isset($menu) && $menu == 'dashboard') {{ 'active'}} @endif">
-                <a href="{{ env('BASE_URL')}}" class="nav-link">
+                <a href="{{ env('BASE_URL'). 'admins/dashboard'}}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
                     <span class="link-title">Dashboard</span>
                 </a>
