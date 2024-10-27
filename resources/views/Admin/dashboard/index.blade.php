@@ -142,7 +142,7 @@ label{
         <div class="row">
             <div class="col-12 col-xl-12 stretch-card">
                 <div class="row flex-grow-1">
-                    <label for="" style="font-size: 17px !important;font-weight: bold;">Influencers</label>
+                    <label for="" style="font-size: 17px !important;font-weight: bold;">Users</label>
                     <div class="col-md-3 topcard grid-margin stretch-card" style="width: 16% !important;">
                         <div class="card">
                             <div class="card-body">
@@ -218,7 +218,7 @@ label{
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Pending </h6>
+                                    <h6 class="card-title mb-0">Blocked </h6>
                                     {{-- <div class="dropdown mb-2">
                                         <button class="btn p-0" type="button" id="dropdownMenuButton"
                                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -290,7 +290,7 @@ label{
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Blocked</h6>
+                                    <h6 class="card-title mb-0">Deleted</h6>
                                     {{-- <div class="dropdown mb-2">
                                         <button class="btn p-0" type="button" id="dropdownMenuButton"
                                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -397,7 +397,7 @@ label{
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Subscriptions</h6>
+                                    <h6 class="card-title mb-0">Active Today</h6>
                                     {{-- <div class="dropdown mb-2">
                                         <button class="btn p-0" type="button" id="dropdownMenuButton"
                                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -430,7 +430,7 @@ label{
 
                     <!----------------------->
                     
-                    <label for="" style="font-size: 17px !important;font-weight: bold;">Brands</label>
+                    <label for="" style="font-size: 17px !important;font-weight: bold;">Posts</label>
                     <div class="col-md-3 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
@@ -574,7 +574,7 @@ label{
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Popular</h6>
+                                    <h6 class="card-title mb-0">Expired</h6>
                                     {{-- <div class="dropdown mb-2">
                                         <button class="btn p-0" type="button" id="dropdownMenuButton"
                                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -715,7 +715,7 @@ label{
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Subscriptions</h6>
+                                    <h6 class="card-title mb-0">Posted Today</h6>
                                     {{-- <div class="dropdown mb-2">
                                         <button class="btn p-0" type="button" id="dropdownMenuButton2"
                                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
