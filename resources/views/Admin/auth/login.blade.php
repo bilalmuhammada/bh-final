@@ -48,7 +48,8 @@
                         <div class="auth-form-wrapper px-4 py-4">
                             {{-- <h3 style="text-align: center;">Welcome Back!</h3> --}}
                             <a href="#" class="noble-ui-logo d-block mb-2 text-center">
-                                <img src="{{asset('assets/images/logo/Influencers Pro-01-01.png')}}" alt="logo">
+                                <img src="{{asset('images/businesshub.png')}}" title="businesshub" alt="businesshub "
+                                width="150 "/>
                             </a>
                             <h5 class="text-bold fw-normal mb-4 text-center">Welcome back! Log in to your account.</h5>
                             <form class="login-form">
