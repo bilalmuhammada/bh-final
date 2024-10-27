@@ -168,6 +168,11 @@ Route::get('/login', [AuthController::class, 'index']);
 
 Route::middleware('check_user_auth')->group(function () {
 
+    Route::prefix('/admin')->group(function () {
+        Route::get('/', [AdminController::class, 'Adminindex']);
+        Route::get('/create', [AdminController::class, 'create']);
+    });
+
      Route::get('/dashboard', [AdminController::class, 'index']);
 
     // Route::prefix('/admins')->group(function () {
@@ -187,12 +192,12 @@ Route::middleware('check_user_auth')->group(function () {
         Route::get('/reviews', [UserController::class, 'reviews']);
     });
 
-    // Route::prefix('/influencers')->group(function () {
-    //     Route::get('/', [InfluencerController::class, 'index']);
+     Route::prefix('/post')->group(function () {
+         Route::get('/', [AdController::class, 'index']);
     //     Route::get('/create', [InfluencerController::class, 'create']);
     //     Route::get('/transactions', [InfluencerController::class, 'transactions']);
     //     Route::get('/reviews', [InfluencerController::class, 'reviews']);
-    // });
+     });
 
     Route::get('/faqs', function () {
         return view('faq')->with(['menu' => 'faqs']);

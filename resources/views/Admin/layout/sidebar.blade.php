@@ -60,31 +60,31 @@
                 </a>
             </li>
             <li class="nav-item @if (isset($menu) && $menu == 'influencers') {{ 'active'}} @endif ">
-                <a href="{{ env('BASE_URL'). 'admins/influencers'}}" class="nav-link">
+                <a href="{{ env('BASE_URL'). 'admins/post'}}" class="nav-link">
                     <i class="link-icon" data-feather="users"></i>
                     <span class="link-title">Post</span>
                 </a>
             </li>
             <li class="nav-item @if (isset($menu) && $menu == 'admins') {{ 'active'}} @endif">
-                <a href="{{ env('BASE_URL') . 'admins/admins'}}" class="nav-link">
+                <a href="{{ env('BASE_URL') . 'admins/admin'}}" class="nav-link">
                     <i class="link-icon" data-feather="users"></i>
                     <span class="link-title">Admins</span>
                 </a>
             </li>
             <li class="nav-item @if (isset($menu) && $menu == 'vendors/create') {{ 'active'}} @endif">
-                <a href="{{ env('BASE_URL') . '/vendors/create'}}" class="nav-link">
+                <a href="{{ env('BASE_URL') . '/admins/user/create'}}" class="nav-link">
                     <i class="link-icon" data-feather="plus-circle"></i>
-                    <span class="link-title">Add Brands</span>
+                    <span class="link-title">Add User</span>
                 </a>
             </li>
             <li class="nav-item @if (isset($menu) && $menu == 'influencers/create') {{ 'active'}} @endif ">
-                <a href="{{ env('BASE_URL') . '/influencers/create'}}" class="nav-link">
+                <a href="{{ env('BASE_URL') . 'listing/select-category'}}" class="nav-link">
                     <i class="link-icon" data-feather="plus-circle"></i>
-                    <span class="link-title">Add Influencers</span>
+                    <span class="link-title">Add Post</span>
                 </a>
             </li>
             <li class="nav-item @if (isset($menu) && $menu == 'admins/create') {{ 'active'}} @endif ">
-                <a href="{{ env('BASE_URL') . '/admins/create'}}" class="nav-link">
+                <a href="{{ env('BASE_URL') . '/admins/admin/create'}}" class="nav-link">
                     <i class="link-icon" data-feather="plus-circle"></i>
                     <span class="link-title">Add Admins</span>
                 </a>

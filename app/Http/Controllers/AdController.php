@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\RecordHelper;
 use App\Helpers\SiteHelper;
+use App\Models\Country;
 use App\Models\Listing;
 use App\Models\ListingUserApproval;
 use App\Models\SubCategory;
@@ -12,6 +13,14 @@ use Illuminate\Support\Facades\Validator;
 
 class AdController extends Controller
 {
+
+    public function index()
+    {
+        $countries = Country::all();
+        return view('Admin.influencers.list')->with(['menu' => 'post', 'countries' => $countries]);
+    }
+
+
     public function showAds(Request $request,$subcategory_id = false)
     {
         $data = [];
@@ -116,6 +125,72 @@ class AdController extends Controller
             return view('ads.list')->with($data);
             
         }            
+    }
+
+
+
+    public function getAllAds(Request $request)
+    {
+        // dd('jjj');
+        // $data = RecordHelper::getAds()->where('is_popular', 1);
+
+        $SubCategory = SubCategory::with(['category'])->get(); // This returns a collection of SubCategories
+
+        $price_from = $request->from;
+        $price_to = $request->to;
+        $keyword = $request->keyword;
+        $country_id = $request->country;
+        $city_id = $request->city;
+        
+        $perPage = 10;
+
+        $ads = Listing::with([
+            'attachments',
+            'created_by_user'
+        ])
+            ->when($price_from, function ($listing) use ($price_from) {
+                $listing->where('price', '>=', $price_from);
+            })
+            ->when($price_to, function ($listing) use ($price_to) {
+                $listing->where('price', '<=', $price_to);
+            })
+            ->when($keyword, function ($listing) use ($keyword) {
+                $listing->where('title', 'like', '%' . $keyword . '%');
+            })
+            ->when($country_id, function ($listing) use ($country_id) {
+                $listing->where('country_id', $country_id);
+            })
+            ->when($city_id, function ($listing) use ($city_id) {
+                $listing->where('city_id', $city_id);
+            })
+            ->orderBy('name')->take(10)->get()->toArray();
+            // ->paginate($perPage); // Use pagination here
+        
+        //  dd($ads);
+        // Safely accessing category details from the first SubCategory, assuming there are multiple
+        $firstSubCategory = $SubCategory->first(); // Access the first item in the collection if available
+        
+        $data = [
+            'from' => $request->from ?? false,
+            'to' => $request->to ?? false,
+            'keyword' => $request->keyword ?? false,
+            'country' => $request->country ?? false,
+            'city' => $request->city ?? false,
+            'category_id' => $firstSubCategory?->category?->id ?? false,
+            'category_name' => $firstSubCategory?->category?->name ?? false,
+            'subcategory_name' => $firstSubCategory?->name ?? false, // If only one is required
+           'subcategory_id' => $subcategory_id ?? 0,
+            'ads' => $ads
+        ];
+        $adsArray = $ads->toArray();
+
+        // If you need only the data portion without the pagination metadata
+        $adsData = $ads->items();
+        // dd($ads);
+        return response()->json([
+            'status' => true,
+            'ads' => $adsData
+        ]);
     }
 
     public function showAdDetail($ad_id = false)

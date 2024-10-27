@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LangController;
@@ -99,9 +100,10 @@ Route::post('/popular-ads', [AdController::class, 'getPopularAds']);
     Route::post('/verify-email-code', [AuthController::class, 'verifyEmailCode']);
     Route::post('/update-profile', [UserController::class, 'updateProfile']);
 
-
+    Route::post('/dashboard', [AdminController::class, 'dashboard']);
+    Route::get('get-chart-data', [AdminController::class, 'getChartData']);
 Route::middleware('auth:sanctum')->group(function () {
-
+    
     // Route::prefix('/search')->group(function () {
     //     Route::post('/delete/{search_id}', [SearchController::class, 'delete']);
     //     Route::post('/delete-all', [SearchController::class, 'deleteAll']);
@@ -157,6 +159,9 @@ Route::prefix('/listing')->group(function () {
     Route::post('add-to-favourites/{listing_id}', [ListingController::class, 'addToFavourites']);
     Route::post('remove-from-favourites/{listing_id}', [ListingController::class, 'removeFromFavourites']);
     Route::post('report-ad', [ListingController::class, 'reportAd']);
+    Route::get('/ads', [AdController::class, 'getAllAds']);
+
+
 });
 
 Route::prefix('/subscription')->group(function() {

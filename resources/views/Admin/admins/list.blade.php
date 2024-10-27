@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('Admin.layout.master')
 <style>
     .dt-button:hover{
     background-color: blue !important;
@@ -124,7 +124,7 @@
             <ol class="breadcrumb">
             </ol>
         </nav>
-        @include('modals.edit-admin-users')
+        @include('Admin.modals.edit-admin-users')
         <div class="row" style="margin-top: -28px;">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
@@ -133,7 +133,7 @@
                             <div class="table-responsive">
                                 <table id="datatable" class="table">
                             <div style="margin-bottom:10px;">
-                                <a href="{{ env('BASE_URL') . '/admins/create'}}">
+                                <a href="{{ env('BASE_URL') . 'admins/admin/create'}}">
                                     {{-- <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
                                                                                                   class="link-icon text-white"
                                                                                                   data-feather="plus-circle"></i>
@@ -146,9 +146,9 @@
                                         Add Admin
                                     </button>
                                 </a>
-                                @include('modals.edit-admin-users')
+                                @include('Admin.modals.edit-admin-users')
 
-                                @include('modals.edit-vendor-and-influencer-status-modal')
+                                @include('Admin.modals.edit-vendor-and-influencer-status-modal')
                                 <thead>
                         <!-- <h6 class="card-title">All Transactions</h6> -->
                         <tr>

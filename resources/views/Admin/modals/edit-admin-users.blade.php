@@ -170,7 +170,7 @@
                                 </div>
                                 <div class="form-group form-focus">
                                     <select name="country_id" class="form-control floating country_id" id="country_id">
-                                        @foreach(getCountries() as $country)
+                                        @foreach(\App\Helpers\RecordHelper::getCountriesRegistration() as $country)
                                             <option value="{{ $country->id }}">{{ $country->name }}</option>
                                         @endforeach
                                     </select>

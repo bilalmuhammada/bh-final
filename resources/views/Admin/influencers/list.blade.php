@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('Admin.layout.master')
 <style>
     .dt-button:hover{
     background-color: blue !important;
@@ -122,7 +122,7 @@
 
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h6 class="card-title" style="color: blue !important; font-weight: bold; margin-left: 25px;"> Influencers</h6>
+            <h6 class="card-title" style="color: blue !important; font-weight: bold; margin-left: 25px;"> Post</h6>
             <ol class="breadcrumb">
             </ol>
         </nav>
@@ -135,22 +135,17 @@
                         <div class="table-responsive">
                             <table id="datatable" class="table">
                                 <div style="margin-bottom:10px;">
-                                    <a href="{{ env('BASE_URL') . '/influencers/create'}}">
-                                        {{-- <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
-                                                                                                      class="link-icon text-white"
-                                                                                                      data-feather="plus-circle"></i>
-                                            Add New Influencer
-                                        </button> --}}
-
+                                    <a href="{{ env('BASE_URL') . 'listing/select-category'}}">
+                             
                                           <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
                                                                                                       class="link-icon text-white"
                                                                                                       data-feather="plus-circle"></i>
-                                            Add Influencer
+                                            Add Post
                                         </button>
                                     </a>
-                                    @include('modals.edit-influencer')
+                                    {{-- @include('modals.edit-influencer')
 
-                                    @include('modals.edit-vendor-and-influencer-status-modal')
+                                    @include('modals.edit-vendor-and-influencer-status-modal') --}}
                                 </div>
                                 <thead>
                                 <tr>
@@ -174,12 +169,12 @@
                                     <th>Status</th>
                                     <th>Action</th> -->
                                     <th>#</th>
-                                    <th>ID #</th>
-                                    <th>Photo</th>
-                                    <th>Category</th>
+                                    {{-- <th>ID #</th>
+                                    <th>Photo</th> --}}
+                                    {{-- <th>Category</th>
                                     <th>Name</th>
-                                    <th>Mobile</th>
-                                    <th>Email</th>
+                                    <th>Mobile</th> --}}
+                                    {{-- <th>Email</th>
                                    
                                     <th>Gender</th>
                                     <th>Age</th>
@@ -191,10 +186,10 @@
                                     {{-- <th>Added By</th> --}}
                                  
                                    
-                                    <th>Amount</th> 
+                                    {{-- <th>Amount</th> 
                                     <th>Invoice #</th> 
                                     <th>Status</th>
-                                    <th>Action</th>
+                                    <th>Action</th> --}} 
                                 </tr>
                                 </thead>
                                 <tbody class="t-body"></tbody>
@@ -233,60 +228,27 @@ function validateInput(input) {
     });
         function makeTableBody(data) {
             var table_body = '';
+            
+            
+            
             var count = 1;
-            data.forEach(function (value, key) {
-                var checked = '';
-                if (value.status === 'ACTIVE') {
-                    checked = 'checked';
-                }
-                // <td>${value.type}</td>
-                    // <td>${value.plan ? value.plan.name : '-'}</td>
-                                    // <td>${value.amount_received}</td>
-                table_body += `<tr>
-                                    <td>${count++}</td>
-                                      <td>${value.id}</td>
-                                    <td>
-                                        <img class="wd-30 ht-30 rounded-circle" src="${value.image_url}" alt="profile">
-                                    </td>
-                                     <td>${value.category ?? '-'}</td>
-                                  <td>${value.name}</td>
-                                     <td>${value.phone ?? '-'}</td>
-                                    <td>${value.email ?? '-'}</td>
-                                      
-                                    
-                                   
-                                    <td>${value.personal_information ? value.personal_information.gender : '-'}</td>
-                                    <td>${ value.personal_information ? value.personal_information.age :'-'}</td>
-                                      <td>${value.city_name}</td>
-                                    <td>${value.country_name}</td>
-                                    <td>${value.member_since}</td>
-                                     <td>${value.plane ? value.plane.name : '-'}</td>
-                                    <td>${value.amount}</td>
-                                   <td>--</td> 
-                                
-                                    
+            var checked = '';
+            // if (Array.isArray(data)) {
 
-                                   <td class='td-toggle'>
-    <label class="c-toggle">
-        <input type="checkbox" name="change-status" ${checked} class="change-status" category-id='${value.id}' state='${checked}'>
-        <span class="c-slider"></span>
-    </label>
-</td>
-                                 
-                                
-                                 <td>
+               data.forEach(function (value, index) {
                 
-                                    
-                                    <a href='#'  influencer-id='${value.id}' class='open-popup mr-2 edit-btn'>
-                                       
-                                        Edit</a>
-                                    <a href='#' id='delete-btn' influencer-id='${value.id}' class='remove-user text-danger'>
+                console.log(value['id']);
+                table_body += `<tr>
+                                    <td>1</td>
                                      
-                                            </i> Delete</a>
-                                </td>
+                             
 
                                 </tr>`;
             });
+//         } else {
+//     console.error('Data is not an array:', data);
+// }
+
 
             $('.t-body').html(table_body);
             initializeDatatable('#datatable');
@@ -294,13 +256,17 @@ function validateInput(input) {
 
         function fetchRecords() {
             $.ajax({
-                url: api_url + 'users',
-                type: 'post',
+                url: api_url + 'listing/ads/',
+                type: 'get',
                 data: {'role': 'influencer', 'status': "{{ request()->status }}"},
                 dataType: "JSON",
                 success: function (response) {
-                    if (response.status) {
-                        makeTableBody(response.data);
+                    console.log(response.status);
+                //    console.log(response.ads.id);
+                //    console.log(Object.values(ads));
+                     makeTableBody(response.ads);
+                    if (!response.status) {
+                        // makeTableBody(response.data);
                     } else {
                         $('.t-body').html("<tr><td class='text-center' colspan='17'>No Data</td></tr>");
                     }

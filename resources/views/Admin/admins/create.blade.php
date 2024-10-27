@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('Admin.layout.master')
 <style>
        .form-control{
     border-color: #997045 !important;
@@ -164,7 +164,7 @@
                             <div class="form-group form-focus">
                                 <select name="country_id" class="form-control floating country_id" id="country_id">
                                     <option selected hidden disabled value="">&nbsp;&nbsp;</option>
-                                    @foreach(getCountries() as $country)
+                                    @foreach(\App\Helpers\RecordHelper::getCountriesRegistration() as $country)
                                         <option value="{{ $country->id }}">{{ $country->name }}</option>
                                     @endforeach
                                 </select>
