@@ -26,7 +26,8 @@
 <nav class="sidebar">
     <div class="sidebar-header">
         <a href="#" class="sidebar-brand">
-        <img src="{{asset('assets/images/logo/Influencers Pro-01-01.png')}}" alt="logo">
+            <img src="{{asset('images/businesshub.png')}}" title="businesshub" alt="businesshub "
+            width="150 "/>
             <!-- Influencers<span>Pro</span> -->
         </a>
         <div class="sidebar-toggler not-active">
