@@ -8,6 +8,13 @@
     border-color: blue;
     
 }
+.toggle-password {
+            position: absolute;
+            right: 23px;
+            top: 36%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
 .form-control:focus{
     border-color: blue !important;
     
@@ -143,7 +150,19 @@
                                 {{-- <div class="invalid-feedback">
                                     {{-- Please provide a valid Age. --}}
                                 {{-- </div>  --}}
-                                <label class="focus-label">Age</label>
+                                <label class="focus-label">Date of Birth</label>
+                            </div>
+                            <div class="form-group form-focus">
+                                <select name="natinality" class="form-control floating natinality" id="natinality">
+                                    <option selected hidden disabled value="">&nbsp;&nbsp;</option>
+                                    @foreach(\App\Helpers\RecordHelper::getCountriesRegistration() as $country)
+                                        <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please provide a valid Country.
+                                </div>
+                                <label class="focus-label">Nationality </label>
                             </div>
                           
                             <div class="form-group form-focus">
@@ -208,21 +227,25 @@
                                 </div>
                                 <label class="focus-label">City </label>
                             </div>
+                            
                             <div class="form-group form-focus">
-                                <input type="password" class="form-control floating" name="password"
-                                       id="influencer_password"
+                                <input type="password" name="password" id="password" class="form-control login-user floating"
+                                               placeholder="" aria-label="Password" aria-describedby="basic-addon1">
                                 {{-- placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" --}}
-                                 >
-                                <i class="fa fa-eye" id="eye"
-                                   onclick="togglePassword('influencer_password')"></i>
+                                 
+                                 <div class="input-group-append">
+                                    <span class="toggle-password" onclick="togglePassword()" style="cursor: pointer;">👁️</span>
+                                </div>
 
                                 <label class="focus-label">Password</label>
                             </div>
                             <div class="form-group form-focus mb-0">
-                                <input type="password" class="form-control floating"
-                                       name="confirm_password" id="influencer_confirm_password">
-                                <i class="fa fa-eye" id="eye"
-                                   onclick="togglePassword('influencer_confirm_password')"></i>
+                                <input type="password" name="password_confirmation" id="password_confirmation"
+                                class="form-control login-user floating" placeholder="" aria-label="Cpassword"
+                                                                              aria-describedby="basic-addon1">
+                                       <div class="input-group-append">
+                                        <span class="toggle-password" onclick="togglePassword()" style="cursor: pointer;">👁️</span>
+                                    </div>
                                 <div class="invalid-feedback">
                                     Please provide a valid Confirm Password.
                                 </div>
@@ -281,6 +304,23 @@
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
+     function togglePassword() {
+
+const passwordField = document.getElementById("password");
+
+const password_confirmation = document.getElementById("password_confirmation");
+// alert(passwordField);
+
+const icon = document.querySelector(".toggle-password");
+
+if (passwordField.type === "password" || password_confirmation.type === "password") {
+    passwordField.type = "text";
+    icon.textContent = "🙈"; // Change the icon
+} else {
+    passwordField.type = "password";
+    icon.textContent = "👁️"; // Change the icon back
+}
+}
     function validateInputText(input) {
     // Remove any character that is not a letter (A-Z, a-z) or space
        input.value = input.value.replace(/[^a-zA-Z\s]/g, '');
@@ -317,18 +357,18 @@ $(document).ready(function() {
         });
        
 
-        function togglePassword(inputId, iconId) {
-            var passwordInput = document.getElementById(inputId);
-            // var toggleIcon = document.getElementById(iconId);
+        // function togglePassword(inputId, iconId) {
+        //     var passwordInput = document.getElementById(inputId);
+        //     // var toggleIcon = document.getElementById(iconId);
 
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                // toggleIcon.src = 'https://img.icons8.com/material-outlined/24/000000/invisible.png';
-            } else {
-                passwordInput.type = 'password';
-                // toggleIcon.src = 'https://img.icons8.com/material-outlined/24/000000/visible.png';
-            }
-        }
+        //     if (passwordInput.type === 'password') {
+        //         passwordInput.type = 'text';
+        //         // toggleIcon.src = 'https://img.icons8.com/material-outlined/24/000000/invisible.png';
+        //     } else {
+        //         passwordInput.type = 'password';
+        //         // toggleIcon.src = 'https://img.icons8.com/material-outlined/24/000000/visible.png';
+        //     }
+        // }
 
         $(document).on('submit', '#form_date', function (e) {
             e.preventDefault();

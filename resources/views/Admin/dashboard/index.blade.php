@@ -926,25 +926,25 @@ label{
                 type: 'post',
                 dataType: "JSON",
                 success: function (response) {
-                    influencer_counts = response.influencer_counts;
-                    vendor_counts = response.vendor_counts;
+                    users_counts = response.users_counts;
+                    ads_counts = response.ads_counts;
 
-                    $('.total-influencer').html(influencer_counts.total_Influencer_count);
-                    $('.popular-influencer').html(influencer_counts.popular_Influencer_count);
-                    $('.pending-influencer').html(influencer_counts.pending_Influencer_count);
-                    $('.active-influencer').html(influencer_counts.active_Influencer_count);
-                    $('.block-influencer').html(influencer_counts.block_Influencer_count);
-                    $('.rated-influencer').html(influencer_counts.rated_Influencer_count);
-                    $('.favorite-influencer').html(influencer_counts.favorite_Influencer_count);
+                    $('.total-influencer').html(users_counts.total_Influencer_count);
+                    $('.popular-influencer').html(users_counts.popular_Influencer_count);
+                    $('.pending-influencer').html(users_counts.pending_Influencer_count);
+                    $('.active-influencer').html(users_counts.active_Influencer_count);
+                    $('.block-influencer').html(users_counts.block_Influencer_count);
+                    $('.rated-influencer').html(users_counts.rated_Influencer_count);
+                    $('.favorite-influencer').html(users_counts.favorite_Influencer_count);
 
 
-                    $('.total-vendor').html(vendor_counts.total_vendor_count);
-                    $('.popular-vendor').html(vendor_counts.popular_vendor_count);
-                    $('.pending-vendor').html(vendor_counts.pending_vendor_count);
-                    $('.active-vendor').html(vendor_counts.active_vendor_count);
-                    $('.block-vendor').html(vendor_counts.block_vendor_count);
-                    $('.rated-vendor').html(vendor_counts.rated_vendor_count);
-                    $('.favorite-vendor').html(vendor_counts.favorite_vendor_count);
+                    $('.total-vendor').html(ads_counts.total_post_count);
+                    $('.popular-vendor').html(ads_counts.payment_pending_post_count);
+                    $('.pending-vendor').html(ads_counts.pending_post_count);
+                    $('.active-vendor').html(ads_counts.active_post_count);
+                    $('.block-vendor').html(ads_counts.block_post_count);
+                    $('.rated-vendor').html(ads_counts.draft_post_count);
+                    $('.favorite-vendor').html(ads_counts.rejected_post_count);
 
 
                     data = [
@@ -1130,17 +1130,17 @@ label{
 
                     var options = {
                         series: [{
-                            name: 'User',
+                            name: 'Users',
                           
                            data: [30, 40, 35, 50, 49, 60, 70, 91]
                         }, {
-                            name: 'Post',
+                            name: 'Ads',
                             data: [30, 40, 35, 50, 49, 60, 70, 91]
                         }, 
-                        // {
-                        //     name: 'Total',
-                        //     data: data.payment_amount_array
-                        // }
+                     {
+                            name: 'Total',
+                        data: [60, 80, 88, 80, 99, 98, 100, 120]
+                         }
                     ],
                         chart: {
                             type: 'bar',

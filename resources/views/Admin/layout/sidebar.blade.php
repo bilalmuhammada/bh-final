@@ -73,7 +73,7 @@
                 </a>
             </li>
             <li class="nav-item @if (isset($menu) && $menu == 'vendors/create') {{ 'active'}} @endif">
-                <a href="{{ env('BASE_URL') . '/admins/user/create'}}" class="nav-link">
+                <a href="{{ env('BASE_URL') . 'admins/user/create'}}" class="nav-link">
                     <i class="link-icon" data-feather="plus-circle"></i>
                     <span class="link-title">Add User</span>
                 </a>
@@ -85,7 +85,7 @@
                 </a>
             </li>
             <li class="nav-item @if (isset($menu) && $menu == 'admins/create') {{ 'active'}} @endif ">
-                <a href="{{ env('BASE_URL') . '/admins/admin/create'}}" class="nav-link">
+                <a href="{{ env('BASE_URL') . 'admins/admin/create'}}" class="nav-link">
                     <i class="link-icon" data-feather="plus-circle"></i>
                     <span class="link-title">Add Admins</span>
                 </a>

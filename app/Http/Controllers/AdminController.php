@@ -33,8 +33,8 @@ class AdminController extends Controller
     {
         return response()->json([
             'status' => true,
-            'vendor_counts' => $this->getPostData(),
-            'influencer_counts' => $this->getInfluencerData()
+            'ads_counts' => $this->getPostData(),
+            'users_counts' => $this->getuserData()
         ]);
     }
     public function getPostData()
