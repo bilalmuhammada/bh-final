@@ -105,15 +105,15 @@
                 </a>
             </li> --}}
             <li class="nav-item @if (isset($menu) && $menu == 'vendors/reviews') {{ 'active'}} @endif">
-                <a href="{{ env('BASE_URL') . '/vendors/reviews'}}" class="nav-link">
+                <a href="{{ env('BASE_URL') .  'admins/user/reportUser' }}" class="nav-link">
                     <i class="link-icon" data-feather="activity"></i>
-                    <span class="link-title">Reported Users</span>
+                    <span class="link-title">Blocked Users</span>
                 </a>
             </li>
             <li class="nav-item @if (isset($menu) && $menu == 'influencers/reviews') {{ 'active'}} @endif ">
-                <a href="{{ env('BASE_URL') . '/influencers/reviews'}}" class="nav-link">
+                <a href="{{ env('BASE_URL') . 'admins/post/reportpost'}}" class="nav-link">
                     <i class="link-icon" data-feather="activity"></i>
-                    <span class="link-title">Reported Posts</span>
+                    <span class="link-title">Reported Ads</span>
                 </a>
             </li>
            

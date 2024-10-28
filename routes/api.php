@@ -71,6 +71,7 @@ Route::post('/popular-ads', [AdController::class, 'getPopularAds']);
 
     Route::prefix('/user')->group(function () {
         Route::post('/ads', [UserController::class, 'getAdsOfCurrentUser']);
+        Route::post('reviews', [UserController::class, 'reviews']);
         Route::post('/favourites', [UserController::class, 'getFavouriteAdsOfCurrentUser']);
         Route::post('/searches', [UserController::class, 'getSearchesOfCurrentUser']);
         Route::post('/delete-account', [UserController::class, 'deleteAccount']);
@@ -152,6 +153,7 @@ Route::post('/user-data', [UserController::class, 'detail']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::prefix('/listing')->group(function () {
+    Route::post('reviews', [AdController::class, 'reviews']);
     Route::post('/save-listing-title', [ListingController::class, 'storeListingTitle']);
     Route::post('/nextsubmit', [ListingController::class, 'SubmitPrice']);
     Route::post('/save-ad', [ListingController::class, 'storeAd']);

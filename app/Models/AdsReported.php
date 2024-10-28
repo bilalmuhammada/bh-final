@@ -11,4 +11,8 @@ class AdsReported extends Model
     protected $guarded = [];
 
     protected $table = 'ads_reported';
+    public function listing()
+    {
+        return $this->belongsTo(Listing::class, 'listing_id', 'id');
+    }
 }

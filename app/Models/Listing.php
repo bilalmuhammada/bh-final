@@ -64,6 +64,10 @@ class Listing extends Model
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+    public function ads_report()
+    {
+        return $this->hasMany(AdsReported::class, 'listing_id', 'id');
+    }
 
     public function subcategory()
     {

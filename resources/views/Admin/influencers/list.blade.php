@@ -148,51 +148,80 @@
                                     @include('modals.edit-vendor-and-influencer-status-modal') --}}
                                 </div>
                                 <thead>
+                                    @php
+                                    //  dd($data);
+
+                                    @endphp
                                 <tr>
-                                    <!-- <th>Sr.No</th>
-                                    <th>Image</th>
-                                    <th>influencer.Id</th>
-                                    <th>influencer.Name</th>
-                                    <th>influencer.Type</th>
-                                    <th>Member.Since</th>
-                                    <th>Number.of.Deals</th>
-                                    <th>Pending.Deals</th>
-                                    <th>Cencelled.Deals</th>
-                                    <th>Amount.Received</th>
-                                    <th>Country</th>
-                                    <th>City</th>
-                                    <th>Mobile</th>
-                                    <th>Email</th>
-                                    <th>Rating.by.InfluencerPro</th>
-                                    <th>Rating.by.Vendors</th>
-                                    <th>Submitted Files</th>
-                                    <th>Status</th>
-                                    <th>Action</th> -->
+                                    
                                     <th>#</th>
-                                    {{-- <th>ID #</th>
-                                    <th>Photo</th> --}}
-                                    {{-- <th>Category</th>
-                                    <th>Name</th>
-                                    <th>Mobile</th> --}}
-                                    {{-- <th>Email</th>
+                                    <th>ID #</th>
+                                    <th>Photo</th> 
+                                    <th>Category</th>
+                                    <th>Sub Category</th>
+                                    <th>Date</th>
+                                    <th>Expire Date</th> 
+                                    <th>Featured Day</th>
                                    
-                                    <th>Gender</th>
-                                    <th>Age</th>
+                                    <th>Posted By</th>
+                                    <th>User Id</th>
                                      
+                                    <th>Position</th>
+                                    <th>Referral Code</th>
+                                    <th>Discount %</th>
+                                    <th>Amount</th>
+                                    <th>Payment Status</th>
                                     <th>City</th>
-                                    <th>Country</th>
-                                    <th>Member</th>
-                                    <th>Subscription</th>
-                                    {{-- <th>Added By</th> --}}
                                  
                                    
-                                    {{-- <th>Amount</th> 
-                                    <th>Invoice #</th> 
+                                     <th>Country</th> 
+                                    <th>Ad Status</th> 
                                     <th>Status</th>
-                                    <th>Action</th> --}} 
+                                    <th>Action</th> 
                                 </tr>
                                 </thead>
-                                <tbody class="t-body"></tbody>
+                                <tbody class="t-body">
+                                    {{-- @php dd($data) @endphp --}}
+
+@foreach($data as $key=>$value)
+
+{{-- @php dd($value) @endphp --}}
+<tr><td>{{++$key}}</td>
+    <td>{{$value->id}}</td>
+    <td> <img class="wd-30 ht-30 rounded-circle" src="{{$value->main_image_url}}" alt="Image"></td>
+    <td>{{$value->category?->name}}</td>
+    <td>{{$value->subcategory?->name}}</td>
+    <td>{{date('d-m-Y', strtotime($value->created_at))}}</td>
+    <td>expire date</td>
+    <td>-- featured day</td>
+    <td> @php
+        $posted = [
+            1 => 'Agent',
+            0 => 'Broker',
+            2 => 'Owner',
+            3 => 'Staff'
+        ];
+    @endphp
+    {{ $posted[$value->posted_by] ?? 'Unknown' }}</td>
+   
+    <td>{{$value->created_by}}</td>
+    <td>{{$value->created_by_user?->role?->name}}</td>
+    <td>--</td>
+    <td>--</td>
+    <td>{{$value->price ?? '--'}}</td>
+    <td>--</td>
+    <td>{{'--'}}</td>
+    <td>{{'--'}}</td>
+    <td>{{'--'}}</td>
+    <td>{{'--'}}</td>
+    <td>{{'--'}}</td>
+    
+</tr>
+
+
+@endforeach
+
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -211,6 +240,7 @@ function validateInput(input) {
         } 
         
      $(document).ready(function() {
+        initializeDatatable('#datatable');
         
         if ($('.floating').length > 0) {
             $('.floating').on('focus blur', function(e) {
@@ -264,19 +294,20 @@ function validateInput(input) {
                     console.log(response.status);
                 //    console.log(response.ads.id);
                 //    console.log(Object.values(ads));
-                     makeTableBody(response.ads);
+                    // makeTableBody(response.ads);
                     if (!response.status) {
                         // makeTableBody(response.data);
                     } else {
                         $('.t-body').html("<tr><td class='text-center' colspan='17'>No Data</td></tr>");
                     }
                 },
+
                 error: function (response) {
-                    Swal.fire({
-                        title: 'Problem!',
-                        text: 'Unexpected error',
-                        icon: 'warning',
-                    })
+                    //Swal.fire({
+                     //   title: 'Problem!',
+                       // text: 'Unexpected error',
+                        //icon: 'warning',
+                    //})
                 }
             });
         }

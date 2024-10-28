@@ -23,6 +23,31 @@ class UserController extends Controller
         return view('user.user-profile');
     }
 
+    public function reportUser() {
+        $users = User::where('status','')->get();
+        $data = [
+            'users' => $users
+        ];
+     
+     return view('Admin.vendors.reviews');
+    }
+
+    public function reviews(Request $request)
+    {
+       
+        $users = User::where('status','inactive')->get();
+        if ($users->isNotEmpty()) {
+            return response()->json([
+                'status' => true,
+                'data' => $users
+            ]);
+        }
+
+        return response()->json([
+            'status' => false,
+            'message' => 'No Record Found'
+        ]);
+    }
     public function all(Request $request)
     {
         // dd($request->role);

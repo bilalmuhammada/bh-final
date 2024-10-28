@@ -53,6 +53,10 @@ Route::middleware('check_user_auth')->group(function () {
     });
 
     Route::prefix('/listing')->group(function() {
+
+        
+
+
         Route::get('/select-category', [ListingController::class, 'showSelectCategory']);
         Route::get('/select-subcategory/{category_id}', [ListingController::class, 'showSelectSubcategory']);
         Route::get('{category_id}/listing-title1/{subcategory_id}', [ListingController::class, 'showListingTitleForm']);
@@ -187,12 +191,14 @@ Route::middleware('check_user_auth')->group(function () {
 
     Route::prefix('/user')->group(function () {
         Route::get('/', [UserController::class, 'index']);
+        
         Route::get('/create', [UserController::class, 'create']);
         Route::get('/transactions', [UserController::class, 'transactions']);
-        Route::get('/reviews', [UserController::class, 'reviews']);
+        Route::get('/reportUser', [UserController::class, 'reportUser']);
     });
 
      Route::prefix('/post')->group(function () {
+        Route::get('/reportpost', [AdController::class, 'reportedUser']);
          Route::get('/', [AdController::class, 'index']);
     //     Route::get('/create', [InfluencerController::class, 'create']);
     //     Route::get('/transactions', [InfluencerController::class, 'transactions']);

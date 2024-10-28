@@ -100,7 +100,7 @@ class AdminController extends Controller
         
 
 
-        $period = \Carbon\CarbonPeriod::create($to, '1 month', $from);
+        // $period = \Carbon\CarbonPeriod::create($to, '1 month', $from);
 
 //         $Subscription = Subscription::whereDate('created_at', '>=', $start_date)->when($to, function ($Subscription) use ($to) {
 //             $Subscription->whereDate('created_at', '>=', $to);
@@ -110,9 +110,17 @@ class AdminController extends Controller
 
 
 //         //get influencer or brands form user
-//         $influencer_ids = User::with('role')->whereHas('role', function ($Role) {
-//             $Role->where('code', 'influencer');
-//         })->pluck('id')->toArray();
+   
+        $user_count = User::with('role')
+    // ->whereHas('role', function ($query) {
+    //     $query->where('code', 'influencer');
+    // })
+    ->count();
+    $listing_count = Listing::get()
+    // ->whereHas('role', function ($query) {
+    //     $query->where('code', 'influencer');
+    // })
+    ->count();
 
 //         $brand_ids = User::with('role')->whereHas('role', function ($Role) {
 //             $Role->where('code', 'vendor');
@@ -133,13 +141,16 @@ class AdminController extends Controller
 //         }
 // //        $subscriptionPaymentArray['total_net'] = $total_net_payment;
 
-//         return response()->json([
-//             'status' => true,
-//             'payment_amount_array' => $subscriptionPaymentArray,
-//             'month_array' => $subscriptionPaymentMonthArray,
-//             'influencer_payment_amount_array' => $subscriptionInfluencerPaymentArray,
-//             'brand_payment_amount_array' => $subscriptionBrandPaymentArray,
-//         ]);
+        return response()->json([
+            'status' => true,
+            'user_count' => $user_count,
+            'listing_count' => $listing_count,
+    
+
+            // 'month_array' => $subscriptionPaymentMonthArray,
+            // 'influencer_payment_amount_array' => $subscriptionInfluencerPaymentArray,
+            // 'brand_payment_amount_array' => $subscriptionBrandPaymentArray,
+        ]);
     }
 
 

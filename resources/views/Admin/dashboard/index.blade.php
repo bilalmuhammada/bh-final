@@ -804,8 +804,8 @@ label{
             <div class="col">
                 <select name="" id="" class="form-control">
                     <option value="">Sales</option>
-                    <option value="">Brands</option>
-                    <option value="">Influencers</option>
+                    <option value="">Counts</option>
+                    {{-- <option value="">Influencers</option> --}}
                 </select>
             </div>
             <div class="col">
@@ -1130,15 +1130,18 @@ label{
 
                     var options = {
                         series: [{
-                            name: 'Influencers',
-                            data: data.influencer_payment_amount_array
+                            name: 'User',
+                          
+                           data: [30, 40, 35, 50, 49, 60, 70, 91]
                         }, {
-                             name: 'Brands',
-                            data: data.brand_payment_amount_array
-                        }, {
-                            name: 'Total',
-                            data: data.payment_amount_array
-                        }],
+                            name: 'Post',
+                            data: [30, 40, 35, 50, 49, 60, 70, 91]
+                        }, 
+                        // {
+                        //     name: 'Total',
+                        //     data: data.payment_amount_array
+                        // }
+                    ],
                         chart: {
                             type: 'bar',
                             height: 350
@@ -1159,17 +1162,20 @@ label{
                             colors: ['transparent']
                         },
                         xaxis: {
+                            
+    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug']
+  
                             // categories: data.month_array,
-                            categories: data.month_array.map(function(date) {
-            const dateParts = date.split("/"); // Split the date by "/"
-            const year = dateParts[0]; // Get the last two digits of the year
-            const month = dateParts[1];
+        //                     categories: data.month_array.map(function(date) {
+        //     const dateParts = date.split("/"); // Split the date by "/"
+        //     const year = dateParts[0]; // Get the last two digits of the year
+        //     const month = dateParts[1];
 
-            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-            const monthAbbreviation = monthNames[parseInt(month) - 1]; // Convert month number to abbreviation
+        //     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        //     const monthAbbreviation = monthNames[parseInt(month) - 1]; // Convert month number to abbreviation
 
-            return `${monthAbbreviation}/${year}`; // Combine abbreviation with year
-        }),
+        //     return `${monthAbbreviation}/${year}`; // Combine abbreviation with year
+        // }),
                             // categories: data.month_array.map(month => month + "/24"), 
                         },
                         yaxis: {
