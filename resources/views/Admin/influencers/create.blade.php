@@ -139,11 +139,23 @@
                                 <label class="focus-label">Gender</label>
                             </div>
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating" name="age"   pattern="\+?\d*" oninput="validateInput(this)">
+                                <input type="text" class="form-control floating" name="dob"   pattern="\+?\d*" oninput="validateInput(this)">
                                 {{-- <div class="invalid-feedback">
                                     {{-- Please provide a valid Age. --}}
                                 {{-- </div>  --}}
-                                <label class="focus-label">Age</label>
+                                <label class="focus-label">Date of Birth</label>
+                            </div>
+                            <div class="form-group form-focus">
+                                <select name="natinality" class="form-control floating natinality" id="natinality">
+                                    <option selected hidden disabled value="">&nbsp;&nbsp;</option>
+                                    @foreach(\App\Helpers\RecordHelper::getCountriesRegistration() as $country)
+                                        <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please provide a valid Country.
+                                </div>
+                                <label class="focus-label">Nationality </label>
                             </div>
 
                             <div class="form-group form-focus">
@@ -194,20 +206,23 @@
                                 <label class="focus-label">City </label>
                             </div>
                             <div class="form-group form-focus">
-                                <input type="password" class="form-control floating" name="password"
-                                       id="influencer_password"
-                                {{-- placeholder="8 Characters - 1 Capital, 1 Number, 1 Special"  --}}
-                                >
-                                <i class="fa fa-eye" id="eye"
-                                   onclick="togglePassword('influencer_password')"></i>
+                                <input type="password" name="password" id="password" class="form-control login-user floating"
+                                               placeholder="" aria-label="Password" aria-describedby="basic-addon1">
+                                {{-- placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" --}}
+                                 
+                                 <div class="input-group-append">
+                                    <span class="toggle-password" onclick="togglePassword()" style="cursor: pointer;">👁️</span>
+                                </div>
 
                                 <label class="focus-label">Password</label>
                             </div>
                             <div class="form-group form-focus mb-0">
-                                <input type="password" class="form-control floating"
-                                       name="confirm_password" id="influencer_confirm_password">
-                                <i class="fa fa-eye" id="eye"
-                                   onclick="togglePassword('influencer_confirm_password')"></i>
+                                <input type="password" name="password_confirmation" id="password_confirmation"
+                                class="form-control login-user floating" placeholder="" aria-label="Cpassword"
+                                                                              aria-describedby="basic-addon1">
+                                       <div class="input-group-append">
+                                        <span class="toggle-password" onclick="togglePassword()" style="cursor: pointer;">👁️</span>
+                                    </div>
                                 <div class="invalid-feedback">
                                     Please provide a valid Confirm Password.
                                 </div>
@@ -266,6 +281,25 @@
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
+
+function togglePassword() {
+
+const passwordField = document.getElementById("password");
+
+const password_confirmation = document.getElementById("password_confirmation");
+// alert(passwordField);
+
+const icon = document.querySelector(".toggle-password");
+
+if (passwordField.type === "password" || password_confirmation.type === "password") {
+    passwordField.type = "text";
+    icon.textContent = "🙈"; // Change the icon
+} else {
+    passwordField.type = "password";
+    icon.textContent = "👁️"; // Change the icon back
+}
+}
+
         function validateInput(input) {
             
             // Allow only digits and the '+' sign, and ensure '+' is only at the beginning

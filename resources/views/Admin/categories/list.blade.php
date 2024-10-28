@@ -27,7 +27,7 @@
 }
 .dataTables_filter{
     
-    padding: 2px 29px 0px 0px !important ;
+    padding: 1px 10.5rem 0px 0px !important ;
     /* border-color:#997045 !important; */
     /* margin-right: 161px !important; */
 

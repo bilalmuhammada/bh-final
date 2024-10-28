@@ -26,9 +26,9 @@
 }
 .dataTables_filter{
     
-    padding: 2px 0px 0px 0px !important ;
+    padding: 1px 2px 0px 0px !important ;
     /* border-color:#997045 !important; */
-    margin-right: -135px !important;
+    /* margin-right: -135px !important; */
 
 } 
 ::-webkit-scrollbar {
@@ -162,7 +162,8 @@
                                     {{-- <th>Email</th> --}}
                                    
                                     <th>Gender</th>
-                                    <th>Age</th>
+                                    <th>Date of Birth</th>
+                                    <th>Nationality</th>
                                     <th>Position</th>
                                    
                                     <th>Added By</th>
@@ -230,6 +231,7 @@
 
   <td>${value.personal_information ? value.personal_information.gender : '-'}</td>
 <td>${ value.personal_information ? value.personal_information.age :'-'}</td>
+<td>${ value.country_name ?? '-'}</td>
 <td> ${value.position ?? '-'} </td>
 
 <td> ${value.addedby ?? '-'} </td>
