@@ -828,11 +828,18 @@ label{
 
                                 </select>
             </div>
+@php
+ $currency = \App\Helpers\RecordHelper::getCurrency();
+@endphp
+
             <div class="col">
-                <select name="" id="" class="form-control">
-                    <option value="" >Currency</option>
-                    <option value="">AED</option>
-                    <option value="">USD</option>
+                <select name="currency" class="form-control currency_dropdown" name="currency_dropdown" id="" >
+                    <option value="">Currency</option>
+                    @foreach($currency as $currencyn)
+                    <option data-currency-id="{{ $currencyn->currency }}"
+                            {{$currencyn->currency == request()->currency ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" value="{{ $currencyn->currency }}"
+                            style="font-size:8px !important;">{{ $currencyn->currency }}</option>
+                @endforeach
                 </select>
             </div>
             <div class="col">
@@ -1223,5 +1230,7 @@ label{
             }
         }
 
+
+      
     </script>
 @endsection

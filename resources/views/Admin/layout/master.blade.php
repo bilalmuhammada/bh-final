@@ -63,7 +63,10 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('admin_asset/assets/js/custom.js')}}"></script>
     <script src="{{ asset('admin_asset/assets/js/authenticate.js')}}"></script>
-
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    
 
 
 {{--Datetime picker--}}
@@ -92,6 +95,25 @@
 }
   </style>
     <script>
+       function formatCountry(country) {
+            if (!country.id) {
+                return country.text;
+            }
+
+            var flagUrl = $(country.element).data('flag-url'); // Access the flag-url data attribute
+
+            var $country = $(
+                '<span><img src="' + flagUrl + '" class="img-flag" /> ' + country.text + '</span>'
+            );
+            return $country;
+        };
+
+        $(document).ready(function () {
+         $(".currency_dropdown").select2({
+            templateSelection: formatCountry,
+            templateResult: formatCountry,
+        });
+      });
         var varyingModal = document.getElementById('varyingModal')
         // alert(varyingModal);
         // if(varyingModal){
