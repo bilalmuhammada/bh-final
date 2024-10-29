@@ -7,7 +7,7 @@
     <meta name="keywords" content="InfluencersPRO">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>BusinessHub Admin Panel </title>
+    <title>BH Admin Panel </title>
     <link rel="stylesheet" href="{{ asset('admin_asset/assets/vendors/dropify/dist/dropify.min.css')}}">
 
     <!-- Fonts -->
