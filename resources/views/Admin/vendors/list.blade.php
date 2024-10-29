@@ -33,9 +33,9 @@ th{
 }
 .dataTables_filter{
     
-    padding: 1px 44px 0px 0px !important ;
+    padding: 1px 0px 0px 0px !important ;
     /* border-color:#997045 !important; */
-    /* margin-right: -142px !important; */
+    margin-right: -6.3rem !important;
 
 
 }
