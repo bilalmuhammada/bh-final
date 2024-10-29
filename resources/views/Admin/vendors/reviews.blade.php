@@ -5,7 +5,7 @@
         font-weight: 900 !important;
     }
     #datatable_filter{
-margin-right: 17rem;
+margin-right: 12rem !important;
     }
     .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_length {
         padding: 0px !important;
