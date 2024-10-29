@@ -26,9 +26,9 @@
 }
 .dataTables_filter{
     
-    padding: 1px 2px 0px 0px !important ;
+    padding: 1px 0px 0px 0px !important ;
     /* border-color:#997045 !important; */
-    /* margin-right: -135px !important; */
+    margin-right: -83px !important;
 
 } 
 ::-webkit-scrollbar {
