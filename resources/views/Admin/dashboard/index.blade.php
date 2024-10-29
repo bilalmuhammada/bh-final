@@ -948,17 +948,17 @@ label{
 
 
                     data = [
-                        {category: 'Total Influencers', count: influencer_counts.total_Influencer_count},
-                        {category: 'Popular', count: influencer_counts.popular_Influencer_count},
-                        {category: 'Pending ', count: influencer_counts.pending_Influencer_count},
-                        {category: 'Blocked', count: influencer_counts.block_Influencer_count},
+                        {category: 'Total Influencers', count: users_counts.total_Influencer_count},
+                        {category: 'Popular', count: users_counts.popular_Influencer_count},
+                        {category: 'Pending ', count: users_counts.pending_Influencer_count},
+                        {category: 'Blocked', count: users_counts.block_Influencer_count},
                         // {category: 'Favorite Influencers', count: influencer_counts.favorite_Influencer_count},
                         {category: 'Subscriptions', count: 0},
-                        {category: 'Total Brands', count: vendor_counts.total_vendor_count},
-                        {category: 'Popular', count: vendor_counts.popular_vendor_count},
-                        {category: 'Active', count: vendor_counts.active_vendor_count},
-                        {category: 'Pending', count: vendor_counts.pending_vendor_count},
-                        {category: 'Blocked', count: vendor_counts.block_vendor_count},
+                        {category: 'Total Brands', count: ads_counts.total_post_count},
+                        {category: 'Popular', count: ads_counts.pending_post_count},
+                        {category: 'Active', count: ads_counts.active_vendor_count},
+                        {category: 'Pending', count: ads_counts.pending_post_count},
+                        {category: 'Blocked', count: ads_counts.rejected_post_count},
                         // {category: 'Favorite Brands', count: vendor_counts.favorite_vendor_count},
                         {category: 'Subscriptions', count: 0},
                     ];
@@ -1003,7 +1003,7 @@ label{
       
    
             XLSX.utils.book_append_sheet(wb, ws, "Dashboard");
-            XLSX.writeFile(wb, 'IP-Admin-Dashboard.xlsx');
+            XLSX.writeFile(wb, 'BH-Admin-Dashboard.xlsx');
         });
 
         // For PDF, you can use a library like 'jsPDF'
@@ -1017,7 +1017,7 @@ label{
                 rows.push(temp);
             });
             doc.autoTable(col, rows);
-            doc.save('IP-Admin-Dashboard.pdf');
+            doc.save('BH-Admin-Dashboard.pdf');
         });
 
         $(document).on('click', '#print-page', function (e) {

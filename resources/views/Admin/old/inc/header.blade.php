@@ -8,7 +8,7 @@
 	<meta name="author" content="InfluencersPRO">
 	<meta name="keywords" content="InfluencersPRO">
 
-	<title>InfluencersPRO Admin Panel </title>
+	<title>BusinessHub Admin Panel </title>
 	<link rel="stylesheet" href="{{ asset('assets/vendors/dropify/dist/dropify.min.css')}}">
 
   <!-- Fonts -->

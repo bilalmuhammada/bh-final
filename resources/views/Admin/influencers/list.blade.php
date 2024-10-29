@@ -122,7 +122,7 @@
 
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h6 class="card-title" style="color: blue !important; font-weight: bold; margin-left: 25px;"> Post</h6>
+            <h6 class="card-title" style="color: blue !important; font-weight: bold; margin-left: 25px;"> Ads</h6>
             <ol class="breadcrumb">
             </ol>
         </nav>
@@ -140,8 +140,7 @@
                                           <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
                                                                                                       class="link-icon text-white"
                                                                                                       data-feather="plus-circle"></i>
-                                            Add Post
-                                        </button>
+                                            Add Ads                                        </button>
                                     </a>
                                     {{-- @include('modals.edit-influencer')
 
