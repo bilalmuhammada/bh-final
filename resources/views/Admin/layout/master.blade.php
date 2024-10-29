@@ -103,7 +103,7 @@
             var flagUrl = $(country.element).data('flag-url'); // Access the flag-url data attribute
 
             var $country = $(
-                '<span><img src="' + flagUrl + '" class="img-flag" /> ' + country.text + '</span>'
+                '<span><img src="' + flagUrl + '" class="img-flag" / style="width:20px;"> ' + country.text + '</span>'
             );
             return $country;
         };
