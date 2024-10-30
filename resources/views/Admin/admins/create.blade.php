@@ -8,7 +8,13 @@
     border-color: blue;
     
 }
- 
+.toggle-password {
+            position: absolute;
+            right: 23px;
+            top: 43%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
 .form-control:focus{
     border-color: blue !important;
     
