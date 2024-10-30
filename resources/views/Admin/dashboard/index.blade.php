@@ -1222,7 +1222,7 @@ label{
                         },
                         yaxis: {
                             title: {
-                                text: 'Thousand'
+                                text: 'Count & Amount'
                             }
                         },
                         fill: {
