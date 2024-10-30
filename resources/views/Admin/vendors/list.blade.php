@@ -135,7 +135,7 @@ th{
                 <div class="card">
                     <div class="card-body" >
                         <!-- <h6 class="card-title">All Transactions</h6> -->
-                        <div style="margin-bottom:10px;">
+                        <div style="margin-bottom:10px;margin-top: -12px;">
                             <a href="{{ env('BASE_URL') . 'admins/user/create' }}">
                                 <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
                                                                                               class="link-icon text-white"
@@ -146,7 +146,7 @@ th{
                             @include('Admin.modals.edit-vendor')
                             @include('Admin.modals.edit-vendor-and-influencer-status-modal')
                         </div>
-                        <div class="table-responsive">
+                        <div class="table-responsive" style="margin-top: -20px;">
                             <table id="datatable" class="table">
                                 <thead>
                                 <tr>

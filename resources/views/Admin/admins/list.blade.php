@@ -133,7 +133,7 @@ div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
                 <div class="card">
                     <div class="card-body">
                         
-                            <div class="table-responsive">
+                            <div class="table-responsive" style="    margin-top: -20px;">
                                 <table id="datatable" class="table">
                             <div style="margin-bottom:10px;">
                                 <a href="{{ env('BASE_URL') . 'admins/admin/create'}}">

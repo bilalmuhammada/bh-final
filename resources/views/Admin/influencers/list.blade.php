@@ -125,25 +125,25 @@ div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
 
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h6 class="card-title" style="color: blue !important; font-weight: bold; margin-left: 25px;"> Ads</h6>
+            <h6 class="card-title" style="color: blue !important; font-weight: bold; margin-left: 25px;"> Ad</h6>
             <ol class="breadcrumb">
             </ol>
         </nav>
 
-        <div class="row"  style="margin-top: -28px;">
+        <div class="row"  >
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <!-- <h6 class="card-title">All Transactions</h6> -->
-                        <div class="table-responsive">
+                        <div class="table-responsive" style="margin-top: -3rem;">
                             <table id="datatable" class="table">
-                                <div style="margin-bottom:10px;">
+                                <div >
                                     <a href="{{ env('BASE_URL') . 'listing/select-category'}}">
                              
                                           <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
                                                                                                       class="link-icon text-white"
                                                                                                       data-feather="plus-circle"></i>
-                                            Add Ads                                        </button>
+                                            Add Ad                                        </button>
                                     </a>
                                     {{-- @include('modals.edit-influencer')
 
@@ -162,7 +162,7 @@ div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
                                     <th>Category</th>
                                     <th>Sub Category</th>
                                     <th>Date</th>
-                                    <th>Expire Date</th> 
+                                    <th>Expiry Date</th> 
                                     <th>Featured Days</th>
                                    
                                     <th>Posted By</th>
