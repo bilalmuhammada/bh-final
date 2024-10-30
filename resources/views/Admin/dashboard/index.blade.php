@@ -7,8 +7,12 @@
     }
 
     .apexcharts-legend-text{
-        margin-left: 6px !important;
+        margin-left: 4px !important;
 
+    }
+   
+    .select2-container--default .select2-selection--single{
+        border: 1px solid #997045 !important;
     }
     .select2-results__option, .selection {
         text-align: center !important;
