@@ -13,6 +13,9 @@
 
 }
 
+div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
+    margin-right: 0.667em !important ;
+}
 .dataTables_filter>input:focus{
    border-color:blue !important; 
 }
@@ -162,7 +165,9 @@
                                     {{-- <th>Email</th> --}}
                                    
                                     <th>Gender</th>
-                                    <th>Date of Birth</th>
+                                    <th>DOB</th>
+                                    <th>Age</th>
+                                    
                                     <th>Nationality</th>
                                     <th>Position</th>
                                    
@@ -170,7 +175,7 @@
                                    
                                     <th>City</th>
                                     <th>Country</th>
-                                    <th>Member</th>
+                                    <th>Joined</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -229,8 +234,9 @@
                                 <td> ${value.email} </td>
 <td> ${value.phone ?? '-'} </td>
 
-  <td>${value.personal_information ? value.personal_information.gender : '-'}</td>
-<td>${ value.personal_information ? value.personal_information.age :'-'}</td>
+  <td>${value.gender ?? '-'}</td>
+ <td>${value.dob ? new Date(value.dob).toISOString().split('T')[0].split('-').reverse().join('.') : '-'}</td>
+<td>${ value.age ?? '-'}</td>
 <td>${ value.country_name ?? '-'}</td>
 <td> ${value.position ?? '-'} </td>
 

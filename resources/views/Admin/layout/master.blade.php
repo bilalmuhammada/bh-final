@@ -67,7 +67,10 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
+    <!-- jQuery UI CSS (required for styling) -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 
 {{--Datetime picker--}}
 {{--https://xdsoft.net/jqplugins/datetimepicker/--}}
@@ -103,7 +106,7 @@
             var flagUrl = $(country.element).data('flag-url'); // Access the flag-url data attribute
 
             var $country = $(
-                '<span><img src="' + flagUrl + '" class="img-flag" / style="width:20px;"> ' + country.text + '</span>'
+                '<span><img src="' + flagUrl + '" class="img-flag" / style="width:20vh;"> ' + country.text + '</span>'
             );
             return $country;
         };
@@ -113,6 +116,12 @@
             templateSelection: formatCountry,
             templateResult: formatCountry,
         });
+        $(".country_dropdown").select2({
+            templateSelection: formatCountry,
+            templateResult: formatCountry,
+            minimumResultsForSearch: -1
+        });
+      
       });
         var varyingModal = document.getElementById('varyingModal')
         // alert(varyingModal);

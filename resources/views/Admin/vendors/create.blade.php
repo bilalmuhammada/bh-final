@@ -9,6 +9,13 @@
    
     
 }
+.toggle-password {
+            position: absolute;
+            right: 23px;
+            top: 43%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
 .form-control::placeholder{
     color: blue !important;
     font-size: 12px !important;
@@ -44,20 +51,7 @@
                                 <input type="text" class="form-control" name="brand_name" id="exampleInputUsername1"
                                        autocomplete="off" placeholder="Brand Name">
                             </div> --}}
-                            <div class="form-group form-focus">
-                                <input type="text" class="form-control floating" name="brand_name">
-                                <div class="invalid-feedback">
-                                    Please provide a valid Brand Name.
-                                </div>
-                                <label class="focus-label">Brand Name</label>
-                            </div>
-                            <div class="form-group form-focus">
-                                <input type="text" class="form-control floating" name="company_name">
-                                <div class="invalid-feedback">
-                                    Please provide a valid Company Name.
-                                </div>
-                                <label class="focus-label">Company Name</label>
-                            </div>
+                           
                             {{-- <div class="mb-3">
                                 <label for="exampleInputUsername1" class="form-label">Company Name</label>
                                 <input type="text" class="form-control" name="company_name" id="exampleInputUsername1"
@@ -68,28 +62,8 @@
                                 <input type="text" class="form-control" name="website" id="exampleInputUsername1"
                                        autocomplete="off" placeholder="Website">
                             </div> --}}
-                            <div class="form-group form-focus">
-                                <input type="text" class="form-control floating "  
-                                {{-- placeholder="Please provide a valid Business Website."  --}}
-                                name="website">
-                                {{-- <div class="invalid-feedback">
-                                    Please provide a valid Website.
-                                </div> --}}
-                                <label class="inner_label focus-label">Business Website</label>
-                            </div>
-
-                            {{-- <div class="mb-3">
-                                <label for="exampleInputUsername1" class="form-label">Business Mail</label>
-                                <input type="text" class="form-control" name="email" id="exampleInputUsername1"
-                                       autocomplete="off" placeholder="Business Mail">
-                            </div> --}}
-                            <div class="form-group form-focus">
-                                <input type="text" class="form-control floating email" id="bemail" 
-                                {{-- placeholder="Please provide a valid Business Email."  --}}
-                                name="email">
-                                
-                                <label class="inner_label focus-label">Business Email</label>
-                            </div>
+                           
+                         
                            
                             <!-- <div class="mb-3">
                                 <label for="exampleInputUsername1" class="form-label">Brand Email</label>
@@ -130,15 +104,6 @@
                                 <input type="text" class="form-control" name="phone" id="exampleInputUsername1"
                                        autocomplete="off" placeholder="Mobile">
                             </div> --}}
-
-                            <div class="form-group form-focus">
-                                <input type="text" class="form-control floating position"
-                                       name="position">
-                                <div class="invalid-feedback">
-                                    Please provide a valid Position.
-                                </div>
-                                <label class="focus-label">Position </label>
-                            </div>
                             <div class="form-group form-focus">
                                 <input type="text" class="form-control floating"   pattern="\+?\d*" 
                                 {{-- placeholder="Please provide a valid Mobile." --}}
@@ -148,6 +113,13 @@
                                 </div> --}}
                                 <label class="inner_label focus-label">Mobile </label>
                             </div>
+                            <div class="form-group form-focus">
+                                <input type="email" class="form-control floating position"
+                                       name="email">
+                                
+                                <label class="focus-label">Email </label>
+                            </div>
+                           
 
                             <div class="form-group form-focus">
                                                 
@@ -163,7 +135,7 @@
                                 <label class="focus-label">Gender</label>
                             </div>
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating" name="dob"   pattern="\+?\d*" oninput="validateInput(this)">
+                                <input type="text" class="form-control  datepicker1 floating" name="dob"   pattern="\+?\d*" oninput="validateInput(this)">
                                 {{-- <div class="invalid-feedback">
                                     {{-- Please provide a valid Age. --}}
                                 {{-- </div>  --}}
@@ -239,22 +211,22 @@
                             </div> -->
                             <div class="form-group form-focus">
                                 <input type="password" name="password" id="password" class="form-control login-user floating"
-                                               placeholder="" aria-label="Password" aria-describedby="basic-addon1">
-                                {{-- placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" --}}
-                                 
-                                 <div class="input-group-append">
-                                    <span class="toggle-password" onclick="togglePassword()" style="cursor: pointer;">👁️</span>
+                                       placeholder="" aria-label="Password" aria-describedby="basic-addon1">
+                                <!-- placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" -->
+                                
+                                <div class="input-group-append">
+                                    <span class="toggle-password" onclick="togglePassword('password')" style="cursor: pointer;">👁️</span>
                                 </div>
-
+                            
                                 <label class="focus-label">Password</label>
                             </div>
                             <div class="form-group form-focus mb-0">
                                 <input type="password" name="password_confirmation" id="password_confirmation"
-                                class="form-control login-user floating" placeholder="" aria-label="Cpassword"
-                                                                              aria-describedby="basic-addon1">
-                                       <div class="input-group-append">
-                                        <span class="toggle-password" onclick="togglePassword()" style="cursor: pointer;">👁️</span>
-                                    </div>
+                                       class="form-control login-user floating" placeholder="" aria-label="Cpassword"
+                                       aria-describedby="basic-addon1">
+                                <div class="input-group-append">
+                                    <span class="toggle-password" onclick="togglePassword('password_confirmation')" style="cursor: pointer;">👁️</span>
+                                </div>
                                 <div class="invalid-feedback">
                                     Please provide a valid Confirm Password.
                                 </div>
@@ -282,22 +254,17 @@
 @section('page_scripts')
     <script type="text/javascript">
 
-function togglePassword() {
+function togglePassword(fieldId) {
+    const passwordField = document.getElementById(fieldId);
+    const icon = passwordField.nextElementSibling.querySelector(".toggle-password");
 
-const passwordField = document.getElementById("password");
-
-const password_confirmation = document.getElementById("password_confirmation");
-// alert(passwordField);
-
-const icon = document.querySelector(".toggle-password");
-
-if (passwordField.type === "password" || password_confirmation.type === "password") {
-    passwordField.type = "text";
-    icon.textContent = "🙈"; // Change the icon
-} else {
-    passwordField.type = "password";
-    icon.textContent = "👁️"; // Change the icon back
-}
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        icon.textContent = "🙈"; // Change the icon to "hide"
+    } else {
+        passwordField.type = "password";
+        icon.textContent = "👁️"; // Change the icon to "show"
+    }
 }
         function validateInput(input) {
             
@@ -305,6 +272,9 @@ if (passwordField.type === "password" || password_confirmation.type === "passwor
             input.value = input.value.replace(/[^\d+]/g, '').replace(/(?!^)\+/g, '');
         }
     $(document).ready(function() {
+        $(".datepicker1").datepicker({
+        dateFormat: "dd-mm-yy"  
+        });
         if ($('.floating').length > 0) {
             // alert($('.floating').length);
             $('.floating').on('focus blur', function(e) {
@@ -323,18 +293,7 @@ if (passwordField.type === "password" || password_confirmation.type === "passwor
         // });
 });
 
-        function togglePassword(inputId, iconId) {
-            var passwordInput = document.getElementById(inputId);
-            // var toggleIcon = document.getElementById(iconId);
-
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                // toggleIcon.src = 'https://img.icons8.com/material-outlined/24/000000/invisible.png';
-            } else {
-                passwordInput.type = 'password';
-                // toggleIcon.src = 'https://img.icons8.com/material-outlined/24/000000/visible.png';
-            }
-        }
+      
 
         // $(document).on('change', '#country_id', function () {
         //     getCitiesByCountry($(this).val());

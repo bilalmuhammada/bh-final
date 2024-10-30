@@ -10,13 +10,16 @@ margin-right: 12rem !important;
     .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_length {
         padding: 0px !important;
     }
+    div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
+    margin-right: 0.667em !important ;
+}
 </style>
 @section('content')
 
     <div class="page-content">
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <h6 class="card-title" style="color: blue; font-weight: bold; ">Ad Report</h6>
+                <h6 class="card-title" style="color: blue; font-weight: bold; ">Reported Ads </h6>
             </ol>
         </nav>
         <div class="row">

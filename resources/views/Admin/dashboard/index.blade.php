@@ -2,6 +2,23 @@
 @section('content')
 
 <style>
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        line-height: 29px
+    }
+
+    .apexcharts-legend-text{
+        margin-left: 6px !important;
+
+    }
+    .select2-results__option, .selection {
+        text-align: center !important;
+    }
+    .select2-container .select2-selection--single {
+        height: 48px !important;
+    }
+    .select2-selection__arrow{
+        display:none; 
+    }
     @media (min-width: 768px) {
         .col-md-3 {
       width: 16% !important;
@@ -36,7 +53,7 @@ font-weight:bold !important;
 /* margin-bottom: 30px; */
 }
 .topcard{
-    margin-bottom: 10px !important;
+    margin-bottom: 16px !important;
 }
 /* option{
     text-align: left;
@@ -95,6 +112,11 @@ label{
     color: blue;
 }
 </style>
+
+@php
+ $countries = \App\Helpers\RecordHelper::getCountriesRegistration();
+ $cities = \App\Helpers\RecordHelper::getCities(request()->country);
+@endphp
     <div class="page-content">
 
         <div class="row">
@@ -430,7 +452,7 @@ label{
 
                     <!----------------------->
                     
-                    <label for="" style="font-size: 17px !important;font-weight: bold;">Posts</label>
+                    <label for="" style="font-size: 17px !important;font-weight: bold;">Ads</label>
                     <div class="col-md-3 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
@@ -810,11 +832,11 @@ label{
             </div>
             <div class="col">
                
-                    <select class="js-example-basic-single form-select form-control country_id" id="country_id" data-width="100%"
+                    <select class="js-example-basic-single form-select country_dropdown form-control country_id" id="country_id" data-width="100%"
                             name="country_id">
                         <option value=""> Country</option>
                         @foreach($countries as $country)
-                            <option value="{{ $country->id }}">{{ $country->name }}</option>
+                            <option value="{{ $country->id }}" >{{ $country->name }}</option>
                         @endforeach
                     </select>
                
@@ -843,12 +865,12 @@ label{
                 </select>
             </div>
             <div class="col">
-                <input type="text" class="form-control datepicker" id="from_date" placeholder="DD/MM/YYYY"
-                       value="{{ \Carbon\Carbon::now()->startOfYear()->format('d/m/Y') }}">
+                <input type="text" class="form-control datepicker1" id="from_date1" placeholder="DD.MM.YYYY"
+                       value="{{ \Carbon\Carbon::now()->startOfYear()->format('d.m.Y') }}">
             </div>
             <div class="col">
-                <input type="text" class="form-control datepicker" id="to_date"
-                       placeholder="DD/MM/YYYY" {{ \Carbon\Carbon::now()->endOfYear()->format('d/m/Y') }}>
+                <input type="text" class="form-control datepicker1" id="to_date1"
+                       placeholder="DD.MM.YYYY" {{ \Carbon\Carbon::now()->endOfYear()->format('d.m.Y') }}>
             </div>
             {{--            <div class="col">--}}
             {{--                <input type="text" placeholder="Search" class="form-control">--}}
@@ -926,6 +948,9 @@ label{
         var fontFamily = "'Roboto', Helvetica, sans-serif"
 
         $(document).ready(function () {
+            $(".datepicker1").datepicker({
+        dateFormat: "dd-mm-yy"  
+        });
             render_monthly_sale_chart();
 
             $.ajax({
@@ -955,19 +980,25 @@ label{
 
 
                     data = [
-                        {category: 'Total Influencers', count: users_counts.total_Influencer_count},
-                        {category: 'Popular', count: users_counts.popular_Influencer_count},
-                        {category: 'Pending ', count: users_counts.pending_Influencer_count},
-                        {category: 'Blocked', count: users_counts.block_Influencer_count},
+                        {category: 'Total User', count: users_counts.total_Influencer_count},
+                        {category: 'Active User', count: users_counts.active_Influencer_count},
+                        {category: 'Blocked User', count: users_counts.block_Influencer_count},
+                        {category: 'Delete User', count: users_counts.rejected_post_count},
+                       
+                        {category: 'Popular', count: users_counts.draft_post_count},
+                        {category: 'Active Today ', count: users_counts.pending_post_count},
+                        
                         // {category: 'Favorite Influencers', count: influencer_counts.favorite_Influencer_count},
-                        {category: 'Subscriptions', count: 0},
-                        {category: 'Total Brands', count: ads_counts.total_post_count},
+                        
+                        {category: 'Total Post', count: ads_counts.total_post_count},
+                        {category: 'Active', count: ads_counts.active_post_count},
                         {category: 'Popular', count: ads_counts.pending_post_count},
-                        {category: 'Active', count: ads_counts.active_vendor_count},
-                        {category: 'Pending', count: ads_counts.pending_post_count},
-                        {category: 'Blocked', count: ads_counts.rejected_post_count},
+                       
+                        {category: 'Blocked', count: ads_counts.block_post_count},
+                        {category: 'Expired', count: ads_counts.rejected_post_count},
+                        {category: 'Posted Today', count: ads_counts.draft_post_count},
                         // {category: 'Favorite Brands', count: vendor_counts.favorite_vendor_count},
-                        {category: 'Subscriptions', count: 0},
+                      
                     ];
                 },
                 error: function (response) {
@@ -1170,7 +1201,7 @@ label{
                         },
                         xaxis: {
                             
-    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug']
+    categories: ['Jan/2024', 'Feb/2024', 'Mar/2024', 'Apr/2024', 'May/2024', 'Jun/2024', 'Jul/2024', 'Aug/2024']
   
                             // categories: data.month_array,
         //                     categories: data.month_array.map(function(date) {

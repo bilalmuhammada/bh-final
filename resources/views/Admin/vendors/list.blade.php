@@ -52,7 +52,9 @@ th{
         width: 0;
         height: 0;
     }
-
+    div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
+    margin-right: 0.667em !important ;
+}
     /* The slider (background) */
     .c-slider {
         position: absolute;
@@ -134,7 +136,7 @@ th{
                     <div class="card-body" >
                         <!-- <h6 class="card-title">All Transactions</h6> -->
                         <div style="margin-bottom:10px;">
-                            <a href="{{ env('BASE_URL') . '/vendors/create' }}">
+                            <a href="{{ env('BASE_URL') . 'admins/user/create' }}">
                                 <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
                                                                                               class="link-icon text-white"
                                                                                               data-feather="plus-circle"></i>
@@ -171,22 +173,26 @@ th{
                                     <th>#</th>
                                     <th>ID #</th>
                                     <th>Photo</th>
-                                    <th>Brand Name</th>
-                                    <th>Company Name</th>
-                                    <th>Website</th>
-                                    <th>Business Email</th>
                                     <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Mobile</th>
+                                    <th>Mobile </th>
+                                    <th>Email</th>
                                     <th>Gender</th>
+                                    <th>DOB</th>
                                     <th>Age</th>
+                                    <th>Nationality</th>
                                     <th>City</th>
                                     <th>Country</th>
-                                    
-                                    <th>Member</th>
-                                    <th>Subscription</th>
+                                    <th>Joined</th>
+                                    <th>Active Ads</th>
+                                    <th>Total Ads</th>
                                     <th>Amount</th>
-                                    <th>Invoice#</th>
+                                    <th>Invoice</th>
+                                    <th>Reported User</th>
+                                    <th>Blocked User</th>
+                                    <th>Reported By User</th>
+                                    <th>Blocked By User</th>
+                        
+                                   
                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -243,22 +249,29 @@ $(document).ready(function() {
                                         <img class="wd-30 ht-30 rounded-circle" src="${value.image_url}" alt="profile">
                                     </td>
                                   
-                                    <td>${value.brand_name ?? '-'}</td>
-                                    <td>${value.company_name ?? '-'}</td>
-                                    <td> ${value.website ?? '-'}</td>
-                                    <td>${value.email ?? '-'}</td>
-                                    <td>${value.name} ${value.last_name ?? '-'}</td>
-                                     <td>${value.position ?? '-'}</td>
+                                    <td>${value.name ?? '-'}</td>
                                     <td>${value.phone ?? '-'}</td>
-                                     <td>${value.personal_information ? value.personal_information.gender : '-'}</td>
-                                    <td>${ value.personal_information ? value.personal_information.age :'-'}</td>
-                                    <td>${value.city_name}</td>
-                                    <td>${value.country_name}</td>
+                                    <td> ${value.email ?? '-'}</td>
+                                    <td>${value.gender ?? '-'}</td>
+                                 <td>${value.dob ? new Date(value.dob).toISOString().split('T')[0].split('-').reverse().join('.') : '-'}</td>
+
+                                         <td>${value.age ?? '-'}</td>
+                                    <td>${value.nationality_id ?? '-'}</td>
+                                    <td>${value.city_name ?? '-'}</td>
+                                    <td>${value.country_name ?? '-'}</td>
+                                    <td>${value.member_since ?? '-'}</td>
+                                    <td>${'-'}</td>
+                                    <td>${'-'}</td>
+                                    <td>${value.amount_received ?? '-'}</td>
+                                    <td>${value.invoice_no ?? '-'}</td>
+                                    <td>${'-'}</td>
+                                    <td>${'-'}</td>
+                                    <td>${'-'}</td>
+                                    <td>${'-'}</td>
                                     
-                                    <td>${value.member_since}</td>
-                                     <td>${value.plan ? value.plan.name : '-'}</td>
-                                    <td>${value.amount_received}</td>
-                                     <td>${value.invoice_no ?? '-inv'}</td>
+                                    
+                                    
+                                     
 
                                    <td class='td-toggle'>
     <label class="c-toggle">

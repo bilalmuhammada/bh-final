@@ -8,13 +8,7 @@
     border-color: blue;
     
 }
-.toggle-password {
-            position: absolute;
-            right: 23px;
-            top: 36%;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
+ 
 .form-control:focus{
     border-color: blue !important;
     
@@ -146,7 +140,7 @@
                                 <label class="focus-label">Gender</label>
                             </div>
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating age" name="age"   pattern="\+?\d*" oninput="validateInput(this)">
+                                <input type="text" class="form-control datepicker1 floating age" name="age"   pattern="\+?\d*" oninput="validateInput(this)">
                                 {{-- <div class="invalid-feedback">
                                     {{-- Please provide a valid Age. --}}
                                 {{-- </div>  --}}
@@ -174,7 +168,7 @@
                                 <label class="focus-label">Position </label>
                             </div>
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating addedby" name="addedby"   oninput="validateInputText(this)"  >
+                                <input type="text" class="form-control  floating addedby" name="addedby"   oninput="validateInputText(this)"  >
                                 {{-- <div class="invalid-feedback">
                                     {{-- Please provide a valid Age. --}}
                                 {{-- </div>  --}}
@@ -230,27 +224,28 @@
                             
                             <div class="form-group form-focus">
                                 <input type="password" name="password" id="password" class="form-control login-user floating"
-                                               placeholder="" aria-label="Password" aria-describedby="basic-addon1">
-                                {{-- placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" --}}
-                                 
-                                 <div class="input-group-append">
-                                    <span class="toggle-password" onclick="togglePassword()" style="cursor: pointer;">👁️</span>
+                                       placeholder="" aria-label="Password" aria-describedby="basic-addon1">
+                                <!-- placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" -->
+                                
+                                <div class="input-group-append">
+                                    <span class="toggle-password" onclick="togglePassword('password')" style="cursor: pointer;">👁️</span>
                                 </div>
-
+                            
                                 <label class="focus-label">Password</label>
                             </div>
                             <div class="form-group form-focus mb-0">
                                 <input type="password" name="password_confirmation" id="password_confirmation"
-                                class="form-control login-user floating" placeholder="" aria-label="Cpassword"
-                                                                              aria-describedby="basic-addon1">
-                                       <div class="input-group-append">
-                                        <span class="toggle-password" onclick="togglePassword()" style="cursor: pointer;">👁️</span>
-                                    </div>
+                                       class="form-control login-user floating" placeholder="" aria-label="Cpassword"
+                                       aria-describedby="basic-addon1">
+                                <div class="input-group-append">
+                                    <span class="toggle-password" onclick="togglePassword('password_confirmation')" style="cursor: pointer;">👁️</span>
+                                </div>
                                 <div class="invalid-feedback">
                                     Please provide a valid Confirm Password.
                                 </div>
                                 <label class="focus-label">Confirm Password</label>
                             </div>
+                            
 
                             {{-- <div class="mb-3">
                                 <label for="password_influencer" class="form-label">Password</label>
@@ -304,23 +299,19 @@
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
-     function togglePassword() {
+ function togglePassword(fieldId) {
+    const passwordField = document.getElementById(fieldId);
+    const icon = passwordField.nextElementSibling.querySelector(".toggle-password");
 
-const passwordField = document.getElementById("password");
-
-const password_confirmation = document.getElementById("password_confirmation");
-// alert(passwordField);
-
-const icon = document.querySelector(".toggle-password");
-
-if (passwordField.type === "password" || password_confirmation.type === "password") {
-    passwordField.type = "text";
-    icon.textContent = "🙈"; // Change the icon
-} else {
-    passwordField.type = "password";
-    icon.textContent = "👁️"; // Change the icon back
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        icon.textContent = "🙈"; // Change the icon to "hide"
+    } else {
+        passwordField.type = "password";
+        icon.textContent = "👁️"; // Change the icon to "show"
+    }
 }
-}
+
     function validateInputText(input) {
     // Remove any character that is not a letter (A-Z, a-z) or space
        input.value = input.value.replace(/[^a-zA-Z\s]/g, '');
@@ -331,6 +322,10 @@ if (passwordField.type === "password" || password_confirmation.type === "passwor
     input.value = input.value.replace(/[^\d+]/g, '').replace(/(?!^)\+/g, '');
 }
 $(document).ready(function() {
+
+    $(".datepicker1").datepicker({
+        dateFormat: "dd-mm-yy"  
+        });
         if ($('.floating').length > 0) {
             // alert($('.floating').length);
             $('.floating').on('focus blur', function(e) {

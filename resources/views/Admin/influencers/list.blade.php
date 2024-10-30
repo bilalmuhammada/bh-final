@@ -12,6 +12,9 @@
     padding-right: 230px !important;
 
 }
+div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
+    margin-right: 0.667em !important ;
+}
 
 .dataTables_filter>input:focus{
    border-color:blue !important; 
@@ -160,7 +163,7 @@
                                     <th>Sub Category</th>
                                     <th>Date</th>
                                     <th>Expire Date</th> 
-                                    <th>Featured Day</th>
+                                    <th>Featured Days</th>
                                    
                                     <th>Posted By</th>
                                     <th>User Id</th>
@@ -190,9 +193,9 @@
     <td> <img class="wd-30 ht-30 rounded-circle" src="{{$value->main_image_url}}" alt="Image"></td>
     <td>{{$value->category?->name}}</td>
     <td>{{$value->subcategory?->name}}</td>
-    <td>{{date('d-m-Y', strtotime($value->created_at))}}</td>
-    <td>expire date</td>
-    <td>-- featured day</td>
+    <td>{{date('d.m.Y', strtotime($value->created_at))}}</td>
+      <td>{{date('d.m.Y', strtotime($value->created_at))}}</td>
+    <td>1</td>
     <td> @php
         $posted = [
             1 => 'Agent',

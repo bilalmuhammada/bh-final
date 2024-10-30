@@ -32,6 +32,10 @@
     /* margin-right: 161px !important; */
 
 }
+div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
+    margin-right: 0.667em !important ;
+
+}
     ::-webkit-scrollbar {
   width: 12px; /* You can adjust this value based on your preference */
 }
@@ -138,9 +142,10 @@ th{
                                 <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>ID #</th>
                                     <th>Photo</th>
                                     <th>Category</th>
-                                    <th>Category #</th>
+                                   
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -183,11 +188,12 @@ th{
                 }
                 table_body += `<tr>
                                 <td> ${Number(count++)} </td>
+                                 <td> ${value.id} </td>
                                 <td>
                                     <img class="wd-30 ht-30 rounded-circle" src="${value.image_url}" alt="Image">
                                 </td>
                                 <td> ${value.name} </td>
-                                <td> ${value.id} </td>
+                               
                                 <td class='td-toggle'>
                                     <label class="c-toggle">
                                         <input type="checkbox" name="change-status" ${checked} class="change-status" category-id='${value.id}' state='${checked}'>

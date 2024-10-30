@@ -5,11 +5,14 @@
         font-weight: 900 !important;
     }
     #datatable_filter{
-margin-right: 12rem !important;
+margin-right: 11.1rem !important;
     }
     .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_length {
         padding: 0px !important;
     }
+    div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
+    margin-right: 0.667em !important ;
+}
 </style>
 @section('content')
 
@@ -17,7 +20,7 @@ margin-right: 12rem !important;
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <h6 class="card-title" style="color: blue; font-weight: bold;" >User Report</h6>
+                <h6 class="card-title" style="color: blue; font-weight: bold;" >Blocked Users</h6>
             </ol>
         </nav>
 {{--        <div class="row">--}}
@@ -54,14 +57,14 @@ margin-right: 12rem !important;
                                     <th>Gender</th>
                                     <th>Mobile</th>
                                     <th>Email</th>
-                                    <th>nationality</th>
-                                    <th>Blocked By</th>
-                                    <th>Blocked ID</th>
+                                    <th>Nationality</th>
+                                    <th>Blocker By</th>
+                                    <th>Blocker ID</th>
                                     <th>Date</th>
 
                                     <th>Reason </th>
                                     <th>Message </th>
-                                    <th>Blocked By User </th>
+                                    {{-- <th>Blocked By User </th> --}}
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -98,18 +101,18 @@ margin-right: 12rem !important;
                                         <img class="wd-30 ht-30 rounded-circle" src="${value.image_url}" alt="profile">
                                     </td>
                                     <td>${value.name}</td>
-                                    <td>${value.gender}</td>
+                                    <td>${value.gender ?? '-'}</td>
 
-                                    <td>${value.phone}</td>
-                                    <td>${value.email}</td>
-                                    <td>${value.nationality_id}</td>
+                                    <td>${value.phone ?? '-'}</td>
+                                    <td>${value.email ?? '-'}</td>
+                                    <td>${value.nationality_id ?? '-'}</td>
 
                                     <td>${'--'}</td>
                                     <td>${'--'}</td>
                                     <td>${'--'}</td>
                                     <td>${'--'}</td>
                                     <td>${'--'}</td>
-                                    <td>${'--'}</td>
+                                    
 
                                     <td class='td-toggle'>
                                         <label class="c-toggle">
