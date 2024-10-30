@@ -135,7 +135,7 @@ div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
                 <div class="card">
                     <div class="card-body">
                         <!-- <h6 class="card-title">All Transactions</h6> -->
-                        <div class="table-responsive" style="margin-top: -3rem;">
+                        <div class="table-responsive" style="margin-top: -2.5rem;">
                             <table id="datatable" class="table">
                                 <div >
                                     <a href="{{ env('BASE_URL') . 'listing/select-category'}}">

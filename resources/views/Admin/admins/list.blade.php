@@ -128,12 +128,12 @@ div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
             </ol>
         </nav>
         @include('Admin.modals.edit-admin-users')
-        <div class="row" style="margin-top: -28px;">
+        <div class="row" >
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         
-                            <div class="table-responsive" style="    margin-top: -20px;">
+                            <div class="table-responsive" style="    margin-top: -2.5rem;">
                                 <table id="datatable" class="table">
                             <div style="margin-bottom:10px;">
                                 <a href="{{ env('BASE_URL') . 'admins/admin/create'}}">

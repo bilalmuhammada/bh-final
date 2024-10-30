@@ -128,7 +128,7 @@ th{
                 <div class="card">
                     <div class="card-body">
                         <!-- <h6 class="card-title">All Transactions</h6> -->
-                        <div style="margin-bottom:10px;margin-top: -3rem;">
+                        <div style="margin-bottom:10px;margin-top: -2.5rem;">
                             <button class="btn btn-primary btn-icon-text mb-2 mb-md-0" data-bs-toggle="modal"
                                     data-bs-target="#addcategory"><i width="15" class="link-icon text-white"
                                                                      data-feather="plus-circle"></i> Add
