@@ -90,11 +90,11 @@
                                     <label class="focus-label">Password</label>
                                 </div>
                                 <div class="form-group" style="margin-top: 15px;">
-                                    <label class="custom_check">
+                                    <label class="custom_check" style="font-size: 10px !important;">
                                         <input type="checkbox" name="rem_password">
                                         {{-- <span class="checkmark"></span>  --}}
                                         
-                                        Remember password
+                                        Remember Password
                                     </label>
                                 </div>
                                 <div class="text-center">
