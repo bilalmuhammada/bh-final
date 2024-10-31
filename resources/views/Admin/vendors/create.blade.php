@@ -153,8 +153,8 @@ ul.ui-menu {
                             <div class="form-group form-focus">
                                 <select name="natinality" class="form-control floating natinality" id="natinality">
                                     <option selected hidden disabled value="">&nbsp;&nbsp;</option>
-                                    @foreach(\App\Helpers\RecordHelper::getCountriesRegistration() as $country)
-                                        <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                    @foreach(\App\Helpers\RecordHelper::getnationalities() as $getnationalities)
+                                        <option value="{{ $getnationalities->id }}">{{ $getnationalities->name }}</option>
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">

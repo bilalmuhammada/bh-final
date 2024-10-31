@@ -10,9 +10,21 @@
         margin-left: 4px !important;
 
     }
+    span.ui-selectmenu-button.ui-button {
+  width: 55%;
+}
+.ui-datepicker .ui-datepicker-title {
+    display: flex;
+}
+ul.ui-menu {
+  max-height: 160px;
+}
    
     .select2-container--default .select2-selection--single{
         border: 1px solid #997045 !important;
+    }
+    .select2-container--default .select2-selection--single:hover {
+        border: 1px solid blue !important;
     }
     .select2-results__option, .selection {
         text-align: center !important;
@@ -71,7 +83,7 @@ font-weight:bold !important;
     
 }
 .text-success{
-    margin-left: 12px
+    margin-left: 6px
 }
 .dt-button{
     /* background-color: #997045 !important; */
@@ -107,6 +119,7 @@ color: white;
         background-image:none !important;
 }
 .mb-2{
+    font-size: 16px !important;
     text-align: center !important;
     color: blue !important;
     margin-top: 0.5rem !important;
@@ -830,7 +843,7 @@ label{
             <div class="col">
                 <select name="filtergraph" id="filtergraph" class="form-control filtergraph">
                     <option value="sales">Sales</option>
-                    <option value="counts">Counts</option>
+                    <option value="counts" >Counts</option>
                     {{-- <option value="">Influencers</option> --}}
                 </select>
             </div>
@@ -953,8 +966,16 @@ label{
 
         $(document).ready(function () {
             $(".datepicker1").datepicker({
-        dateFormat: "dd-mm-yy"  
+        dateFormat: "dd-mm-yy",
+        changeMonth: true, 
+        changeYear: true,
+
         });
+        $(".datepicker1").click(function() {
+    setTimeout(function() {
+      $(".ui-datepicker-month, .ui-datepicker-year").selectmenu();
+    }, 10);
+  });
             render_monthly_sale_chart();
 
             $.ajax({
@@ -1078,107 +1099,18 @@ label{
 
 
         function render_monthly_sale_chart() {
-          var filtergraph = $('#filtergraph').val();
-         
-
+          
             $.ajax({
                 url: api_url + 'get-chart-data', // Update with your actual endpoint
                 method: 'GET',
                 data: {
                     from_date: $('#from_date1').val(),
                     to_date: $('#to_date1').val(),
-                    // filtergraph: $('#filtergraph').val()
+                     filtergraph: $('#filtergraph').val()
                 },
                 success: function (data) {
-
-                    // var options = {
-                    //     chart: {
-                    //         type: 'bar',
-                    //         height: '318',
-                    //         parentHeightOffset: 0,
-                    //         foreColor: colors.bodyColor,
-                    //         background: colors.cardBg,
-                    //         toolbar: {
-                    //             show: false
-                    //         },
-                    //     },
-                    //     theme: {
-                    //         mode: 'light'
-                    //     },
-                    //     tooltip: {
-                    //         theme: 'light'
-                    //     },
-                    //     colors: [colors.primary],
-                    //     fill: {
-                    //         opacity: .9
-                    //     },
-                    //     grid: {
-                    //         padding: {
-                    //             bottom: -4
-                    //         },
-                    //         borderColor: colors.gridBorder,
-                    //         xaxis: {
-                    //             lines: {
-                    //                 show: true
-                    //             }
-                    //         }
-                    //     },
-                    //     series: [{
-                    //         name: 'Sales',
-                    //         data: data.payment_amount_array
-                    //     }],
-                    //     xaxis: {
-                    //         type: 'datetime',
-                    //         categories: data.month_array,
-                    //         axisBorder: {
-                    //             color: colors.gridBorder,
-                    //         },
-                    //         axisTicks: {
-                    //             color: colors.gridBorder,
-                    //         },
-                    //     },
-                    //     yaxis: {
-                    //         title: {
-                    //             text: 'Number of Sales',
-                    //             style: {
-                    //                 size: 9,
-                    //                 color: colors.muted
-                    //             }
-                    //         },
-                    //     },
-                    //     legend: {
-                    //         show: true,
-                    //         position: "top",
-                    //         horizontalAlign: 'center',
-                    //         fontFamily: fontFamily,
-                    //         itemMargin: {
-                    //             horizontal: 8,
-                    //             vertical: 0
-                    //         },
-                    //     },
-                    //     stroke: {
-                    //         width: 0
-                    //     },
-                    //     dataLabels: {
-                    //         enabled: true,
-                    //         style: {
-                    //             fontSize: '10px',
-                    //             fontFamily: fontFamily,
-                    //         },
-                    //         offsetY: -27
-                    //     },
-                    //     plotOptions: {
-                    //         bar: {
-                    //             columnWidth: "50%",
-                    //             borderRadius: 4,
-                    //             dataLabels: {
-                    //                 position: 'top',
-                    //                 orientation: 'vertical',
-                    //             }
-                    //         },
-                    //     },
-                    // }
-
+                    console.log(data.filtergraph);
+                  
                     var options = {
                         series: [{
                             name: 'Users',
@@ -1216,23 +1148,12 @@ label{
                             
     categories: ['Jan/2024', 'Feb/2024', 'Mar/2024', 'Apr/2024', 'May/2024', 'Jun/2024', 'Jul/2024', 'Aug/2024']
   
-                            // categories: data.month_array,
-        //                     categories: data.month_array.map(function(date) {
-        //     const dateParts = date.split("/"); // Split the date by "/"
-        //     const year = dateParts[0]; // Get the last two digits of the year
-        //     const month = dateParts[1];
-
-        //     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        //     const monthAbbreviation = monthNames[parseInt(month) - 1]; // Convert month number to abbreviation
-
-        //     return `${monthAbbreviation}/${year}`; // Combine abbreviation with year
-        // }),
-                            // categories: data.month_array.map(month => month + "/24"), 
+                       
                         },
                         yaxis: {
                             title: {
-                            display: true,
-                                text: filtergraph === "sales" ? "Sales":"Counts"
+                         
+                                text: data.filtergraph  
                             }
                         },
                         fill: {
@@ -1251,7 +1172,21 @@ label{
 
                     var apexBarChart = new ApexCharts(document.querySelector("#monthlySalesChart"), options);
                     apexBarChart.render();
+
+                    $('#filtergraph').on('change', function () {
+                filtergraph = $(this).val(); // Get updated filtergraph value
+                apexBarChart.updateOptions({
+                    yaxis: {
+                        title: {
+                            text: filtergraph === "sales" ? "Sales" : "Counts" // Update title based on selection
+                        }
+                    }
+                });
+            });
+
                 }
+
+
             });
 
         }

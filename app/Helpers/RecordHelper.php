@@ -33,6 +33,13 @@ class RecordHelper
         return  DB::table('countries_available')->orderBy("name",'ASC')->get();
     }
 
+    public static function getnationalities()
+    {
+        $nationalities = DB::table('nationalities')->orderBy("name",'ASC')->get();
+    
+    
+        return $nationalities;
+    }
     public static function getlanguge()
     {
         $languages = DB::table('languages')->orderBy("name",'ASC')->get();

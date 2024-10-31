@@ -145,6 +145,7 @@ class AdminController extends Controller
         return response()->json([
             'status' => true,
             'user_count' => $user_count,
+            'filtergraph' => $request->input('filtergraph') === "sales" ? "Sales":"Counts",
             'listing_count' => $listing_count,
     
 

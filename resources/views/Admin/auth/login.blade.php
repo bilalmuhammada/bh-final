@@ -11,7 +11,13 @@
 ::-webkit-scrollbar {
   width: 12px; /* You can adjust this value based on your preference */
 }
-
+.toggle-password {
+            position: absolute;
+            right: 23px;
+            top: 43%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
 /* Define the scrollbar thumb */
 ::-webkit-scrollbar-thumb {
   background-color: #997045;
@@ -74,7 +80,10 @@
                                     <input type="password" name="password"class="form-control floating password login-user" id="userPassword" autocomplete="current-password" 
                                     {{-- placeholder="Password" --}}
                                     >
-                                    <i class="fa fa-eye" id="togglePassword" onclick="togglePassword()"></i>
+                                    {{-- <i class="fa fa-eye" id="togglePassword" onclick="togglePassword()"></i> --}}
+                                    <div class="input-group-append">
+                                        <span class="toggle-password" onclick="togglePassword('userPassword')" style="cursor: pointer;">👁️</span>
+                                    </div>
                                     <div class="invalid-feedback">
                                         Please provide a correct password.
                                     </div>
@@ -84,6 +93,7 @@
                                     <label class="custom_check">
                                         <input type="checkbox" name="rem_password">
                                         {{-- <span class="checkmark"></span>  --}}
+                                        
                                         Remember password
                                     </label>
                                 </div>
@@ -117,6 +127,19 @@
 @section('page_scripts')
     <script type="text/javascript">
    
+   function togglePassword(fieldId) {
+    const passwordField = document.getElementById(fieldId);
+    const icon = passwordField.nextElementSibling.querySelector(".toggle-password");
+
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        icon.textContent = "🙈"; // Change the icon to "hide"
+    } else {
+        passwordField.type = "password";
+        icon.textContent = "👁️"; // Change the icon to "show"
+    }
+}
+
 $(document).ready(function() {
     if ($('.floating').length > 0) {
         // alert($('.floating').length);
@@ -128,12 +151,7 @@ $(document).ready(function() {
     }
 
     // Toggle Password Visibility
-    $('#togglePassword').on('click', function() {
-        let input = $(this).siblings('input');
-        let type = input.attr('type') === 'password' ? 'text' : 'password';
-        input.attr('type', type);
-        $(this).toggleClass('fa-eye fa-eye-slash');
-    });
+  
 });
 </script>
 @endsection
