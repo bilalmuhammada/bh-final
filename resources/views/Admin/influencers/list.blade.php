@@ -178,8 +178,8 @@ div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
                                    
                                      <th>Country</th> 
                                     <th>Ad Status</th> 
-                                    <th>Status</th>
-                                    <th>Action</th> 
+                                    <th class="noExport">Status</th> <!-- Add noExport class here -->
+                                    <th class="noExport">Action</th> 
                                 </tr>
                                 </thead>
                                 <tbody class="t-body">
@@ -215,8 +215,24 @@ div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
     <td>{{'--'}}</td>
     <td>{{'--'}}</td>
     <td>{{'--'}}</td>
-    <td>{{'--'}}</td>
-    <td>{{'--'}}</td>
+    <td class='td-toggle'>
+        <label class="c-toggle">
+            <input type="checkbox" name="change-status" ${checked} class="change-status" category-id='${value.id}' state='${checked}'>
+            <span class="c-slider"></span>
+        </label>
+    </td>
+             
+                                  
+                     <td>
+                    
+                                        
+                                        <a href='#'  edit-id='${value.id}' class='open-popup mr-2 edit-btn'>
+                                           
+                                            Edit</a>
+                                        <a href='#' id='delete-btn' influencer-id='${value.id}' class='remove-user text-danger'>
+                                         
+                                                </i> Delete</a>
+                                    </td>
     
 </tr>
 
@@ -242,7 +258,7 @@ function validateInput(input) {
         } 
         
      $(document).ready(function() {
-        initializeDatatable('#datatable');
+        initializeDatatable('#datatable','Ads');
         
         if ($('.floating').length > 0) {
             $('.floating').on('focus blur', function(e) {

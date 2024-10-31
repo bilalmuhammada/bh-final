@@ -13,6 +13,53 @@ margin-right: 11.1rem !important;
     div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
     margin-right: 0.667em !important ;
 }
+
+    /* The slider (background) */
+    .c-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: red !important; /* Inactive state */
+        transition: 0.4s;
+        border-radius: 34px;
+    }
+
+    /* Circle inside the slider */
+    .c-slider:before {
+        position: absolute;
+        content: "\2715" !important; /* Unicode for X */
+        height: 24px;
+        width: 24px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        color: red !important;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s;
+        border-radius: 50%;
+    }
+
+    /* Toggle to active (checked) state */
+    input:checked + .c-slider {
+        background-color: green !important; /* Active state */
+    }
+
+    /* Move the circle and change icon when checked */
+    input:checked + .c-slider:before {
+        transform: translateX(30px);
+        content: "\2713" !important; /* Unicode for checkmark */
+        color: green !important;
+    }
+    .dt-button:hover{
+    background-color: blue !important;
+    color: white !important;
+}
 </style>
 @section('content')
 
@@ -114,25 +161,29 @@ margin-right: 11.1rem !important;
                                     <td>${'--'}</td>
                                     
 
-                                    <td class='td-toggle'>
-                                        <label class="c-toggle">
-                                            <input type="checkbox" name="change-status" ${checked} class="change-status" category-id='${value.id}' state='${checked}'>
-                                            <span class="c-slider"></span>
-                                        </label>
-                                    </td>
-                                    <td>
+                                   <td class='td-toggle'>
+    <label class="c-toggle">
+        <input type="checkbox" name="change-status" ${checked} class="change-status" category-id='${value.id}' state='${checked}'>
+        <span class="c-slider"></span>
+    </label>
+</td>
+         
+                              
+                 <td>
+                
+                                    
                                     <a href='#'  edit-id='${value.id}' class='open-popup mr-2 edit-btn'>
                                        
                                         Edit</a>
-                                    <a href='#' id='delete-btn' vendor-id='${value.id}' class='remove-user text-danger'>
-                                        
-                                         Delete</a>
-                                    </td>
+                                    <a href='#' id='delete-btn' influencer-id='${value.id}' class='remove-user text-danger'>
+                                     
+                                            </i> Delete</a>
+                                </td>
                                 </tr>`;
             });
 
             $('.t-body').html(table_body);
-            initializeDatatable('#datatable');
+            initializeDatatable('#datatable','Reported-Users');
         }
 
         function fetchRecords() {

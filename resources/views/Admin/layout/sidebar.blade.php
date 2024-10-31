@@ -57,7 +57,7 @@
             <li class="nav-item @if (isset($menu) && $menu == 'users') {{ 'active'}} @endif ">
                 <a href="{{ env('BASE_URL') . 'admins/user'}}" class="nav-link">
                     <i class="link-icon" data-feather="users"></i>
-                    <span class="link-title">User</span>
+                    <span class="link-title">Users</span>
                 </a>
             </li>
             <li class="nav-item @if (isset($menu) && $menu == 'influencers') {{ 'active'}} @endif ">

@@ -13,6 +13,52 @@ margin-right: 12rem !important;
     div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
     margin-right: 0.667em !important ;
 }
+    /* The slider (background) */
+    .c-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: red !important; /* Inactive state */
+        transition: 0.4s;
+        border-radius: 34px;
+    }
+
+    /* Circle inside the slider */
+    .c-slider:before {
+        position: absolute;
+        content: "\2715" !important; /* Unicode for X */
+        height: 24px;
+        width: 24px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        color: red !important;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s;
+        border-radius: 50%;
+    }
+
+    /* Toggle to active (checked) state */
+    input:checked + .c-slider {
+        background-color: green !important; /* Active state */
+    }
+
+    /* Move the circle and change icon when checked */
+    input:checked + .c-slider:before {
+        transform: translateX(30px);
+        content: "\2713" !important; /* Unicode for checkmark */
+        color: green !important;
+    }
+    .dt-button:hover{
+    background-color: blue !important;
+    color: white !important;
+}
 </style>
 @section('content')
 
@@ -33,7 +79,6 @@ margin-right: 12rem !important;
                                     <th>#</th>
                                     <th>ID #</th>
                                     <th>Photo</th>
-                                   
                                     <th>Category</th>
                                     <th>Sub Category</th>
                                     <th>Ad status</th>
@@ -41,12 +86,9 @@ margin-right: 12rem !important;
                                     <th>Reporter ID</th>
                                     <th>Reason</th>
                                     <th>Message</th>
-
                                     <th>Date</th>
                                     <th>Report</th>
-                                   
                                     <th>Report Status</th>
-
                                     <th>Date</th>
                                     <th>Actioned By</th>
                                     <th>Actioned ID</th>
@@ -80,7 +122,7 @@ margin-right: 12rem !important;
                 table_body += `<tr>
                                     <td>${count++}</td>
                                     <td>${value.id}</td>
-                                     <td>
+                                    <td>
                                         <img class="wd-30 ht-30 rounded-circle" src="${value.listing.image_url}" alt="profile">
                                     </td>
                                       <td>${value.listing.category.name}</td>
@@ -88,19 +130,26 @@ margin-right: 12rem !important;
                                         <td>${value.listing.status}</td>
                                         <td>${'--'}</td>
                                          <td>${'--'}</td>
-                                          <td>${'--'}</td>
-                                             <td>${'--'}</td>
-                                              <td>${'--'}</td>
                                          <td>${'--'}</td>
-                                          <td>${'--'}</td>
-                                             <td>${'--'}</td>
-                                               <td>${'--'}</td>
-                                                   <td>${'--'}</td>
-                                               <td>${'--'}</td>
-                                               <td>
-                                            
-                                     <a href='#' id='delete-btn' review-id='${value.id}' class='remove-review text-danger'><i class='fa fa-trash'></i></a></td>
-                                </tr>`;
+                                         <td>${'--'}</td>
+                                         <td>${'--'}</td>
+                                         <td>${'--'}</td>
+                                         <td>${'--'}</td>
+                                         <td>${'--'}</td>
+                                         <td>${'--'}</td>
+                                         <td>${'--'}</td>
+                                        <td class='td-toggle'>
+                                            <label class="c-toggle">
+                                                <input type="checkbox" name="change-status" ${checked} class="change-status" category-id='${value.id}' state='${checked}'>
+                                                <span class="c-slider"></span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                           <a href='#'  edit-id='${value.id}' class='open-popup mr-2 edit-btn'>Edit</a>
+                                            <a href='#' id='delete-btn' influencer-id='${value.id}' class='remove-user text-danger'></i> Delete</a>
+                                        </td>
+                                    
+                                        </tr>`;
             });
  // <td>${value.id}</td>
                                     // <td>${value.category ? value.category.name : '-'}</td>
@@ -115,7 +164,7 @@ margin-right: 12rem !important;
                                     // <a href='#' id='delete-btn' review-id='${value.id}' class='remove-review text-danger'><i class='fa fa-trash'></i></a></td>
 
             $('.t-body').html(table_body);
-            initializeDatatable('#dataTable');
+            initializeDatatable('#dataTable','Reported-Ads');
         }
 
         function fetchRecords() {

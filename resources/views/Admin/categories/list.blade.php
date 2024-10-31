@@ -146,8 +146,8 @@ th{
                                     <th>Photo</th>
                                     <th>Category</th>
                                    
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                    <th class="noExport">Status</th> <!-- Add noExport class here -->
+                                    <th class="noExport">Action</th> 
                                 </tr>
                                 </thead>
                                 <tbody class="t-body"></tbody>
@@ -213,7 +213,7 @@ th{
             });
 
             $('.t-body').html(table_body);
-            initializeDatatable('#datatable');
+            initializeDatatable('#datatable','Categories');
         }
 
         function fetchRecords() {

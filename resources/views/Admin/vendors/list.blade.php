@@ -126,7 +126,7 @@ th{
 @section('content')
     <div class="page-content">
         <nav class="page-breadcrumb">
-            <h6 class="card-title" style="color: blue !important; font-weight: bold; margin-left: 25px;">User</h6>
+            <h6 class="card-title" style="color: blue !important; font-weight: bold; margin-left: 25px;">Users</h6>
             <ol class="breadcrumb">
             </ol>
         </nav>
@@ -183,6 +183,8 @@ th{
                                     <th>City</th>
                                     <th>Country</th>
                                     <th>Joined</th>
+                                    <th>Posted By</th>
+                                    <th>ID#</th>
                                     <th>Active Ads</th>
                                     <th>Total Ads</th>
                                     <th>Amount</th>
@@ -193,8 +195,8 @@ th{
                                     <th>Blocked By User</th>
                         
                                    
-                                   <th>Status</th>
-                                    <th>Action</th>
+                                    <th class="noExport">Status</th> <!-- Add noExport class here -->
+                                    <th class="noExport">Action</th> 
                                 </tr>
                                 </thead>
                                 <tbody class="t-body">
@@ -269,6 +271,8 @@ $(document).ready(function() {
                                     <td>${'-'}</td>
                                     <td>${'-'}</td>
                                     
+                                     <td>${'-'}</td>
+                                    <td>${'-'}</td>
                                     
                                     
                                      
@@ -295,7 +299,7 @@ $(document).ready(function() {
             });
 
             $('.t-body').html(table_body);
-            initializeDatatable('#datatable');
+            initializeDatatable('#datatable','Users');
         }
 
         function fetchRecords() {

@@ -79,9 +79,10 @@ class AdminController extends Controller
     
     public function getChartData(Request $request)
     {
+        // dd($request->all());
         // Get the date range from the request
-        $fromDate = $request->input('from_date');
-        $toDate = $request->input('to_date');
+        $fromDate = $request->input('from_date1');
+        $toDate = $request->input('to_date1');
 
         $date = Carbon::now()->firstOfYear();
         $start_date = Carbon::parse($date)->format('Y-m-d');
@@ -100,10 +101,10 @@ class AdminController extends Controller
         
 
 
-        // $period = \Carbon\CarbonPeriod::create($to, '1 month', $from);
+       // $period = \Carbon\CarbonPeriod::create($to, '1 month', $from);
 
-//         $Subscription = Subscription::whereDate('created_at', '>=', $start_date)->when($to, function ($Subscription) use ($to) {
-//             $Subscription->whereDate('created_at', '>=', $to);
+       //  $Subscription = Subscription::whereDate('created_at', '>=', $start_date)->when($to, function ($Subscription) use ($to) {
+       //  $Subscription->whereDate('created_at', '>=', $to);
 //         })->when($from, function ($Subscription) use ($from) {
 //             $Subscription->whereDate('created_at', '<=', $from);
 //         })->get();

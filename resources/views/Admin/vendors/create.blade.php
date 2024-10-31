@@ -9,6 +9,15 @@
    
     
 }
+span.ui-selectmenu-button.ui-button {
+  width: 55%;
+}
+.ui-datepicker .ui-datepicker-title {
+    display: flex;
+}
+ul.ui-menu {
+  max-height: 160px;
+}
 .toggle-password {
             position: absolute;
             right: 23px;
@@ -273,8 +282,15 @@ function togglePassword(fieldId) {
         }
     $(document).ready(function() {
         $(".datepicker1").datepicker({
-        dateFormat: "dd-mm-yy"  
+        dateFormat: "dd-mm-yy" ,
+        changeMonth: true, 
+        changeYear: true, 
         });
+        $(".datepicker1").click(function() {
+    setTimeout(function() {
+      $(".ui-datepicker-month, .ui-datepicker-year").selectmenu();
+    }, 10);
+  });
         if ($('.floating').length > 0) {
             // alert($('.floating').length);
             $('.floating').on('focus blur', function(e) {

@@ -172,12 +172,12 @@ div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
                                     <th>Position</th>
                                    
                                     <th>Added By</th>
-                                   
+                                    <th>ID #</th>
                                     <th>City</th>
                                     <th>Country</th>
                                     <th>Joined</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                    <th class="noExport">Status</th> <!-- Add noExport class here -->
+                                    <th class="noExport">Action</th> 
                                 </tr>
                                 </thead>
                                 <tbody class="t-body"></tbody>
@@ -241,22 +241,18 @@ div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
 <td> ${value.position ?? '-'} </td>
 
 <td> ${value.addedby ?? '-'} </td>
-
+<td> ${'-'} </td>
        <td>${value.city_name ?? '-'}</td>
                                     <td>${value.country_name ?? '-'}</td>
 
 <td> ${value.member_since ?? '-'} </td>
-                                                    <td class='td-toggle'>
+    <td class='td-toggle'>
     <label class="c-toggle">
         <input type="checkbox" name="change-status" ${checked} class="change-status" category-id='${value.id}' state='${checked}'>
         <span class="c-slider"></span>
     </label>
-</td>
-         
-                              
-                 <td>
-                
-                                    
+</td>              
+                 <td>    
                                     <a href='#'  edit-id='${value.id}' class='open-popup mr-2 edit-btn'>
                                        
                                         Edit</a>
@@ -268,7 +264,7 @@ div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
             });
 
             $('.t-body').html(table_body);
-            initializeDatatable('#datatable');
+            initializeDatatable('#datatable','Admin');
         }
 
         function fetchRecords() {

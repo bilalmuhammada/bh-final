@@ -828,9 +828,9 @@ label{
         </div> <!-- row -->
         <div class="row mb-4" style="width: 98%;">
             <div class="col">
-                <select name="" id="" class="form-control">
-                    <option value="">Sales</option>
-                    <option value="">Counts</option>
+                <select name="filtergraph" id="filtergraph" class="form-control filtergraph">
+                    <option value="sales">Sales</option>
+                    <option value="counts">Counts</option>
                     {{-- <option value="">Influencers</option> --}}
                 </select>
             </div>
@@ -854,9 +854,9 @@ label{
 
                                 </select>
             </div>
-@php
- $currency = \App\Helpers\RecordHelper::getCurrency();
-@endphp
+                    @php
+                     $currency = \App\Helpers\RecordHelper::getCurrency();
+                    @endphp
 
             <div class="col">
                 <select name="currency" class="form-control currency_dropdown" name="currency_dropdown" id="" >
@@ -1067,18 +1067,27 @@ label{
             window.print();
         });
 
-        $(document).on('change', '#from_date, #tod_date', function () {
+
+        // $(document).on('change', '#filtergraph', function () {
+        //     render_monthly_sale_chart();
+        // })
+
+        $(document).on('change', '#from_date1, #tod_date1, #filtergraph', function () {
             render_monthly_sale_chart();
         })
 
 
         function render_monthly_sale_chart() {
+          var filtergraph = $('#filtergraph').val();
+         
+
             $.ajax({
                 url: api_url + 'get-chart-data', // Update with your actual endpoint
                 method: 'GET',
                 data: {
-                    from_date: $('#from_date').val(),
-                    to_date: $('#to_date').val()
+                    from_date: $('#from_date1').val(),
+                    to_date: $('#to_date1').val(),
+                    // filtergraph: $('#filtergraph').val()
                 },
                 success: function (data) {
 
@@ -1222,7 +1231,8 @@ label{
                         },
                         yaxis: {
                             title: {
-                                text: 'Count & Amount'
+                            display: true,
+                                text: filtergraph === "sales" ? "Sales":"Counts"
                             }
                         },
                         fill: {
