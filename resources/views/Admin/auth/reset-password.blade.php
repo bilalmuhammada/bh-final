@@ -1,4 +1,4 @@
-@extends('auth.layout.master')
+@extends('Admin.auth.layout.master')
 @section('content')
 
     <div class="page-content">

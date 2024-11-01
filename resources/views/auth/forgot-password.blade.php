@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('Admin.auth.layout.master')
 @section('content')
 
     <section class="padtb50">
@@ -8,8 +8,12 @@
                 <div class="col-md-6 col-lg-5 col-xl-4 about-us-text-area">
                     <div class="password-alert" style="display: none"></div>
                     <div class="loginarea">
+                        <a href="#" class="noble-ui-logo d-block mb-2 text-center">
+                            <img src="{{asset('images/businesshub.png')}}" title="businesshub" alt="businesshub"
+                            width="150 "/>
+                        </a>
                         <div class="changepassword">
-                            <h1>Forgot Password11</h1>
+                            <h1>Forgot Password</h1>
                         </div>
                         <form class="forgot-password-form">
                             <div class="alert-div" style="display: none">

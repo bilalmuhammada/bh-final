@@ -90,21 +90,24 @@
                                     <label class="focus-label">Password</label>
                                 </div>
                                 <div class="form-group" style="margin-top: 15px;">
-                                    <label class="custom_check" style="font-size: 10px !important;">
-                                        <input type="checkbox" name="rem_password">
+                                    <input type="checkbox" name="rem_password" >
+                                    <label class="custom_check" style="font-size: 10px !important;margin-left: -25px;">
+                                       
                                         {{-- <span class="checkmark"></span>  --}}
                                         
                                         Remember Password
                                     </label>
+                                    
                                 </div>
-                                <div class="text-center">
+                                <div class="text-center" >
                                     <a href="#" class="btn btn-primary me-2 mb-2 mb-md-0 text-white login-submit-button" style="padding:10px 30px;">Login</a>
                                 </div>
                                 {{-- <div class="mb-3">
                                     <div class="Forgot"><a href="{{env('BASE_URL') . 'forgot-password'}}">Forgot Password</a></div>
                                 </div> --}}
-                                <div class="row">
+                                <div class="row" style="margin-top: 12px;">
                                     <div class="col-6 text-start">
+                                        
                                         <a class="forgot-link" href="{{ env('BASE_URL') }}/forgot-password" style="margin-left:6px; color:#0504aa;">Forgot
                                             Password?</a>
                                     </div>

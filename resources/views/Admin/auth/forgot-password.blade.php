@@ -1,4 +1,4 @@
-@extends('auth.layout.master')
+@extends('Admin.auth.layout.master')
 <style>
        input:focus {
     border: 1px solid blue !important;
