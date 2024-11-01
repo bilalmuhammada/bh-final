@@ -877,7 +877,7 @@ label{
                     @foreach($currency as $currencyn)
                     <option data-currency-id="{{ $currencyn->currency }}"
                             {{$currencyn->currency == request()->currency ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" style="margin-bottom: 5px;width: 31px;" value="{{ $currencyn->currency }}"
-                            style="font-size:12px !important;">{{ $currencyn->currency }}</option>
+                            style="font-size:10px !important;">{{ $currencyn->currency }}</option>
                 @endforeach
                 </select>
             </div>
