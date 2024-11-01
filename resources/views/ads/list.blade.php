@@ -216,7 +216,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
 
        
 
-        <div class="col-md-6 border-color" style="border-right: 2px solid #eee; text-align: center;">
+        <div class="col-md-8 border-color" style="border-right: 2px solid #eee; text-align: center;">
             <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px;">Neighborhood</label>
             <div class="input-group">
                 <input type="text" class="form-control filter1" style="margin-top: -10px; font-size: 16px;" id="neighborhood" placeholder="Enter location">

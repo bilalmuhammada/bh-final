@@ -29,7 +29,10 @@ form{
     background-color:  blue !important;  
     color: white;
 }
+.form-focus .focus-label {
+    color: #000 !important;
 
+}
 .form-control {
     width: -webkit-fill-available !important;
     font-size: 16px !important;
