@@ -146,7 +146,7 @@ th{
                             @include('Admin.modals.edit-vendor')
                             @include('Admin.modals.edit-vendor-and-influencer-status-modal')
                         </div>
-                        <div class="table-responsive" style="margin-top: -20px;">
+                        <div class="table-responsive" style="margin-top: -10px;">
                             <table id="datatable" class="table">
                                 <thead>
                                 <tr>
