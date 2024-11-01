@@ -191,7 +191,7 @@
                                 <img src="{{ $category->image_url  }}" alt="" width="25"  style="margin-top: -11px;">  <b > {{$category->name}}</b>
                                 <br>
                                 @foreach($category->sub_categories as $key=>$sub_category)
-                                    @if($key >= 4)
+                                    @if($key >= 5)
                                         <div class="collapse hidden-div">
                                             <a href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city.'&currency=' . request()->currency}}">{{$sub_category->name}}</a>
                                             <br>

@@ -191,6 +191,8 @@ Route::prefix('/users')->group(function () {
     Route::post('{id}/delete', [UserController::class, 'delete']);
     Route::post('reviews', [UserController::class, 'reviews']);
     Route::post('{id}/delete-review', [UserController::class, 'deleteReview']);
+    Route::post('{id}/ delete-review-ads', [UserController::class, 'deleteReviewAds']);
+   
     Route::post('transactions', [UserController::class, 'transactions']);
     Route::post('{id}/delete-transaction', [UserController::class, 'deleteTransaction']);
 });

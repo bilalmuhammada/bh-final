@@ -155,7 +155,7 @@ ul.ui-menu {
                                 <label class="focus-label">Gender</label>
                             </div>
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control datepicker1 floating age" name="age"   pattern="\+?\d*" oninput="validateInput(this)">
+                                <input type="text" class="form-control datepicker1 floating dob" name="dob"   pattern="\+?\d*" oninput="validateInput(this)">
                                 {{-- <div class="invalid-feedback">
                                     {{-- Please provide a valid Age. --}}
                                 {{-- </div>  --}}
@@ -339,15 +339,19 @@ ul.ui-menu {
 $(document).ready(function() {
 
     $(".datepicker1").datepicker({
-        dateFormat: "dd-mm-yy",
-        changeMonth: true, 
-        changeYear: true,  
-        });
-        $(".datepicker1").click(function() {
+    dateFormat: "dd-mm-yy",
+    changeMonth:true,
+    changeYear:true
+   
+});
+$(".datepicker1").change(function() {
+    var input = $(this); // Store reference to `this`
     setTimeout(function() {
-      $(".ui-datepicker-month, .ui-datepicker-year").selectmenu();
+        input.parents('.form-focus').toggleClass('focused', input.val().length > 0);
     }, 10);
-  });
+});
+
+
 
         if ($('.floating').length > 0) {
             // alert($('.floating').length);

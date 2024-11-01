@@ -46,7 +46,7 @@
         color: #F5BD02;
         font-weight:bold;
     }
-
+   
     .hero-text .main {
         font-size: 25px;
     }
@@ -468,21 +468,21 @@ $countries = \App\Helpers\RecordHelper::getCountries();
 @endphp
 
 <div class="container">
-    <h4 class="text-center desktop-view" style="margin:15px 0px;color:#A17A4E;font-weight:bold;">
+    <h4 class="text-center desktop-view" style="color:#A17A4E;font-weight:bold;">
     <b>Join Millions of Users to Buy & Sell Businesses Worldwide!
     </b>
     </h4>
     <h4 class="text-center mb-50 mobile-view">
         <b>Join Millions of Users to Buy & Sell Businesses Worldwide!</b>
     </h4>
-    <div class="col-md-12" style="margin: 40px 0px 0px 32px !important;">
+    <div class="col-md-12" style="margin: 20px 0px 0px 32px !important;">
         <div class="row">
             @foreach($categories as $category)
                 <div class="col-lg-3 col-md-6 mb-30 col-12 ">
                     <div class="subcategory-list">
                         <b>{{$category->name}}</b>
                         <br>
-                        @foreach($category->sub_categories->take(4) as $key=>$sub_category)
+                        @foreach($category->sub_categories->take(5) as $key=>$sub_category)
                             <a link="{{env('BASE_URL') . 'ads/' . $sub_category->id}}" class="cf subcategory-name">{{$sub_category->name}}</a>
                             <br>
                         @endforeach

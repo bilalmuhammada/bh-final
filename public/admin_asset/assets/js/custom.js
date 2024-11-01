@@ -76,9 +76,9 @@ function initializeDatatable(selector = '#table',type = 'type') {
             },
             customize: function (doc) {
                 // Set the font size for the document content
-                doc.defaultStyle.fontSize = 6; // Adjust font size here
+                doc.defaultStyle.fontSize = 8; // Adjust font size here
                 // Optional: Adjust title style
-                doc.styles.tableHeader.fontSize = 6; 
+                doc.styles.tableHeader.fontSize = 8; 
                 doc.styles.title.fontSize = 10;
                
                 var tableBody = doc.content[1].table.body;
@@ -96,7 +96,7 @@ function initializeDatatable(selector = '#table',type = 'type') {
             });
 
             // Calculate width based on max content length
-            columnWidths.push(maxColumnLength * 3); // Adjust multiplier for width
+            columnWidths.push(maxColumnLength * 4); // Adjust multiplier for width
         });
 
         // Apply calculated widths to table

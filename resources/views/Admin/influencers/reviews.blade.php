@@ -4,6 +4,10 @@
     th{
         font-weight: 900 !important;
     }
+    .dt-button{
+    border-color: #997045 !important;
+
+}
     #datatable_filter{
 margin-right: 12rem !important;
     }
@@ -91,7 +95,7 @@ margin-right: 12rem !important;
                                     <th>Report Status</th>
                                     <th>Date</th>
                                     <th>Actioned By</th>
-                                    <th>Actioned ID</th>
+                                    <th>ID</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -145,8 +149,8 @@ margin-right: 12rem !important;
                                             </label>
                                         </td>
                                         <td>
-                                           <a href='#'  edit-id='${value.id}' class='open-popup mr-2 edit-btn'>Edit</a>
-                                            <a href='#' id='delete-btn' influencer-id='${value.id}' class='remove-user text-danger'></i> Delete</a>
+
+                                            <a href='#' id='delete-btn' influencer-id='${value.id}' class='remove-review text-danger'></i> Delete</a>
                                         </td>
                                     
                                         </tr>`;
@@ -196,7 +200,7 @@ margin-right: 12rem !important;
 
         $(document).on('click', '.remove-review', function () {
             var id = $(this).attr('review-id');
-            var url = api_url + 'users/' + id + '/delete-review';
+            var url = api_url + 'users/' + id + '/delete-review-ads';
             deleteRecord(url, $(this));
         });
     </script>

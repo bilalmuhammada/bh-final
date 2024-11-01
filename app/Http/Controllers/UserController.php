@@ -275,6 +275,51 @@ class UserController extends Controller
         return RecordHelper::getFavouriteAds();
     }
 
+    public function deleteReview($id)
+    {
+        $rules = [
+            'id' => 'required|exists:reviews,id',
+        ];
+
+        $validator = Validator::make(['id' => $id], $rules);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => FALSE,
+                'message' => $validator->errors()->first()
+            ]);
+        }
+
+        User::where('id', $id)->delete();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'User Review Deleted Successfully'
+        ]);
+    }
+    public function deleteReviewAds($id)
+    {
+        $rules = [
+            'id' => 'required|exists:reviews,id',
+        ];
+
+        $validator = Validator::make(['id' => $id], $rules);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => FALSE,
+                'message' => $validator->errors()->first()
+            ]);
+        }
+
+        Listing::where('id', $id)->delete();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Listing Review Deleted Successfully'
+        ]);
+    }
+    
     public function deleteAccount()
     {
         $User = User::find(Auth::id());

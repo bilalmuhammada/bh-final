@@ -7,6 +7,10 @@
     #datatable_filter{
 margin-right: 11.1rem !important;
     }
+    .dt-button{
+    border-color: #997045 !important;
+
+}
     .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_length {
         padding: 0px !important;
     }
@@ -172,10 +176,8 @@ margin-right: 11.1rem !important;
                  <td>
                 
                                     
-                                    <a href='#'  edit-id='${value.id}' class='open-popup mr-2 edit-btn'>
-                                       
-                                        Edit</a>
-                                    <a href='#' id='delete-btn' influencer-id='${value.id}' class='remove-user text-danger'>
+                                  
+                                    <a href='#' id='delete-btn' influencer-id='${value.id}' class='remove-review text-danger'>
                                      
                                             </i> Delete</a>
                                 </td>

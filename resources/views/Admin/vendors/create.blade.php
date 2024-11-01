@@ -9,14 +9,11 @@
    
     
 }
-span.ui-selectmenu-button.ui-button {
-  width: 55%;
-}
-.ui-datepicker .ui-datepicker-title {
-    display: flex;
-}
-ul.ui-menu {
-  max-height: 160px;
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year {
+    height: 2em; /* Adjust as needed */
+    padding: 0.2em; /* Adjust padding if necessary */
+    font-size: 1em; /* Adjust font size if desired */
 }
 .toggle-password {
             position: absolute;
@@ -286,13 +283,16 @@ function togglePassword(fieldId) {
         changeMonth: true, 
         changeYear: true, 
         });
-        $(".datepicker1").click(function() {
+        $(".datepicker1").change(function() {
+    var input = $(this); // Store reference to `this`
     setTimeout(function() {
-      $(".ui-datepicker-month, .ui-datepicker-year").selectmenu();
+        input.parents('.form-focus').toggleClass('focused', input.val().length > 0);
     }, 10);
-  });
+});
+
+
         if ($('.floating').length > 0) {
-            // alert($('.floating').length);
+            alert('dd');
             $('.floating').on('focus blur', function(e) {
                 $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
             }).trigger('blur');

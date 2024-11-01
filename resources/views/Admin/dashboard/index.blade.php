@@ -971,11 +971,13 @@ label{
         changeYear: true,
 
         });
-        $(".datepicker1").click(function() {
+        $(".datepicker1").change(function() {
+    var input = $(this); // Store reference to `this`
     setTimeout(function() {
-      $(".ui-datepicker-month, .ui-datepicker-year").selectmenu();
+        input.parents('.form-focus').toggleClass('focused', input.val().length > 0);
     }, 10);
-  });
+});
+
             render_monthly_sale_chart();
 
             $.ajax({

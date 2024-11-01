@@ -74,11 +74,22 @@
 
 {{--Datetime picker--}}
 {{--https://xdsoft.net/jqplugins/datetimepicker/--}}
-<link rel="stylesheet" href="{{asset('admin_asset/assets/datetimepicker/build/jquery.datetimepicker.min.css')}}">
-<script src="{{asset('admin_asset/assets/datetimepicker/build/jquery.datetimepicker.full.min.js')}}"></script>
 
-   
-  <style>
+ {{-- <link rel="stylesheet" href="{{asset('admin_asset/assets/datetimepicker/build/jquery.datetimepicker.min.css')}}"> --}}
+ {{-- <script src="{{asset('admin_asset/assets/datetimepicker/build/jquery.datetimepicker.full.min.js')}}"></script> 
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.js"></script> --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.css" /> 
+<!-- jQuery library -->
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+<!-- jQuery UI library for Datepicker -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+{{-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> --}}
+
+ 
+ <style>
     .dataTables_wrapper .dataTables_filter input{
         padding: 5px 0px 6px 14px !important; 
     }

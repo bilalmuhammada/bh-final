@@ -23,7 +23,7 @@
    
     
     .dropdown-menu.show {
-        min-width: 29rem !important;}
+        min-width: 0rem !important;}
     
     .img-flag{
         margin-right: 3px !important;
