@@ -145,21 +145,21 @@ width: 60rem !important;
         </div> --}}
         <div class="cont-w slider-area desktop-view">
             <div id="demo" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
+                <div class="carousel-inner"  style="border-radius:10px;">
                     <div class="carousel-item active">
-                        <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                        <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;">
                     </div>
                     <div class="carousel-item ">
-                        <img src="{{asset('images/slider-images/image1.JPG')}}" alt="Los Angelesyyyyyy" width="100%" height="257" style="height:310px;border-radius:10px;">
+                        <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Los Angeles" width="100%" height="257" style="height:310px;">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{asset('images/slider-images/image2.JPG')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                        <img src="{{asset('images/slider-images/image3.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;">
                     </div>
                     <div class="carousel-item">
-                      <img src="{{asset('images/slider-images/image3.JPG')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                      <img src="{{asset('images/slider-images/image4.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{asset('images/slider-images/image4.JPG')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                        <img src="{{asset('images/slider-images/image5.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;">
                     </div>
                 </div>
             </div>
