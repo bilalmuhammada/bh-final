@@ -66,38 +66,38 @@
             </li> --}}
             <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#live">Live -
-                    {{ $my_ads->where('status', 'active')->count() }}</a>
+                    {{ $activeListing->total() }}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#draft">Drafts -
-                    {{ $my_ads->where('status', 'draft')->count() }}</a>
+                    {{ $draftListing->total() }}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#payment_pending">Payment Pending - 
-                    {{ $my_ads->where('status', 'payment_pending')->count() }}</a>
+                    {{ $payment_pendingtListing->total() }}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#under_review">Under Review
-                    - {{ $my_ads->where('status', 'pending')->count() }} </a>
+                    - {{ $pendingListing->total() }} </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#rejected">Rejected
-                     - {{ $my_ads->where('status', 'rejected')->count() }} </a>
+                     - {{ $rejectedListing->total() }} </a>
             </li>
            
             <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#expired">Expired
-                     - {{ $my_ads->where('status', 'expired')->count() }} </a>
+                     - {{ $expiredListing->total() }} </a>
             </li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
             <div id="all_ads" class="cont-w tab-pane fade"><br>
                
-            @if ($my_ads->count() > 0)
+            @if ($payment_pendingtListing->total() > 0)
                 <!------------------single row----------->
                 <div class="col-md-12" style="border-radius:6px;margin-top:-2.5rem;">
-                    @foreach($my_ads as $my_ad)
+                    @foreach($payment_pendingtListing as $my_ad)
                     <form class="place-ad-form" enctype="multipart/form-data">
                         <div class="row" >
                             <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;">
@@ -203,11 +203,11 @@
             {{-- live --}}
             <div id="live" class="cont-w tab-pane active "><br>
                 
-            @if ($my_ads->where('status', 'active')->count() > 0)
+            @if ($activeListing->total() > 0)
                 <!------------------single row----------->
                 <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
                     <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
-                        <input type="checkbox" style=" border-radius: 5px;"> &nbsp;&nbsp;All
+                        <input type="checkbox" id="selectAll" style=" border-radius: 5px;"> &nbsp;&nbsp;All
                       </label>
                       <button class="btn deletebtn" style="color: red; display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                         Delete
@@ -215,14 +215,14 @@
                       
                         {{-- <input type="checkbox" style="color: red white-space: nowrap;margin-left: -16px;margin-top: 12px; height: 36px; border-radius: 5px;"/>All --}}
                    
-                    @foreach($my_ads->where('status', 'active') as $my_ad)
+                    @foreach($activeListing as $my_ad)
                     <form class="place-ad-form" enctype="multipart/form-data">
                         <div class="row" style="margin-top: -3rem;" >
                            
                             <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;margin-left: 19px;">
                                 
                                
-                                <input type="checkbox">
+                                <input type="checkbox" class="row-checkbox" id="row-checkbox">
                             </div>
                             <div class="col-md-4" style="max-width: 11pc;margin-left: -15px;">
                                 <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
@@ -294,6 +294,9 @@
                         <div class="mb-3"></div>
                         <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: 1.6rem;">
                     @endforeach
+                    <div class="d-flex justify-content-center paginationLink" style="margin: 29px 27rem 0px 0px">
+                        {{ $activeListing->links('pagination::bootstrap-4') }}
+                    </div>
                 </div>
                       
                        
@@ -305,20 +308,20 @@
 {{-- draft --}}
             <div id="draft" class="cont-w tab-pane "><br>
                 
-                @if ($my_ads->where('status', 'draft')->count() > 0)
+                @if ($draftListing->total() > 0)
                     <!------------------single row----------->
                     <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
                         <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
-                            <input type="checkbox" style=" border-radius: 5px;"> &nbsp;&nbsp;All
+                            <input type="checkbox" id="selectAll" style=" border-radius: 5px;"> &nbsp;&nbsp;All
                           </label>
                           <button class="btn deletebtn" style="color: red;display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                             Delete
                         </button>
-                        @foreach($my_ads->where('status', 'draft') as $my_ad)
+                        @foreach($draftListing as $my_ad)
                         <form class="place-ad-form" enctype="multipart/form-data">
                             <div class="row"  >
                                 <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;">
-                                    <input type="checkbox">
+                                    <input type="checkbox"  class="row-checkbox">
                                 </div>
                                 <div class="col-md-4" style="max-width: 11pc">
                                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
@@ -386,10 +389,15 @@
                                 </div>
                             </div>
                         </form>
+                       
                             <!-- Add margin bottom -->
                             <div class="mb-3"></div>
                             <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: -1.3rem;">
                         @endforeach
+
+                        <div class="d-flex justify-content-center paginationLink" style="margin: 29px 27rem 0px 0px">
+                            {{ $draftListing->links('pagination::bootstrap-4') }}
+                        </div>
                     </div>
                           
                            
@@ -400,7 +408,7 @@
                 {{-- enddraft --}}
 {{-- payment_pending --}}
             <div id="payment_pending" class="cont-w tab-pane fade"><br>
-                @if ($my_ads->where('status', 'payment_pending')->count() > 0)
+                @if ($payment_pendingtListing->total() > 0)
                 <!------------------single row----------->
                 <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
                     <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
@@ -409,7 +417,7 @@
                       <button class="btn deletebtn" style="color:red; display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                         Delete
                     </button>
-                    @foreach($my_ads->where('status', 'payment_pending') as $my_ad)
+                    @foreach($payment_pendingtListing as $my_ad)
                     <form class="place-ad-form" enctype="multipart/form-data">
                         <div class="row"  style="margin-top: -3rem;">
                             <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;">
@@ -485,6 +493,9 @@
                         <div class="mb-3"></div>
                         <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: -1.2rem;">
                     @endforeach
+                    <div class="d-flex justify-content-center paginationLink" style="margin: 29px 27rem 0px 0px">
+                        {{ $payment_pendingtListing->links('pagination::bootstrap-4') }}
+                    </div>
                 </div>
                       
                        
@@ -497,7 +508,7 @@
             {{-- endpayment_pending --}}
             {{-- under_review --}}
             <div id="under_review" class="cont-w tab-pane fade"><br>
-            @if ($my_ads->where('status', 'pending')->count() > 0)
+            @if ($pendingListing->total() > 0)
                 <!------------------single row----------->
                 <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
                     <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
@@ -506,7 +517,7 @@
                       <button class="btn deletebtn" style="color:red;display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                         Delete
                     </button>
-                    @foreach($my_ads->where('status', 'pending') as $my_ad)
+                    @foreach($pendingListing as $my_ad)
                     <form class="place-ad-form" enctype="multipart/form-data">
                         <div class="row" style="margin-top: -3rem;">
                             <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;">
@@ -582,6 +593,9 @@
                         <div class="mb-3"></div>
                         <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: 2rem;">
                     @endforeach
+                    <div class="d-flex justify-content-center paginationLink" style="margin: 29px 27rem 0px 0px">
+                        {{ $pendingListing->links('pagination::bootstrap-4') }}
+                    </div>
                 </div>
                     <!----single row ended------>
             @else
@@ -613,7 +627,7 @@
             {{-- endunder_review --}}
              {{-- rejected --}}
             <div id="rejected" class="cont-w tab-pane fade"><br>
-            @if ($my_ads->where('status', 'rejected')->count() > 0)
+            @if ($rejectedListing->total() > 0)
                 <!------------------single row----------->
                 <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
                     <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
@@ -622,7 +636,7 @@
                       <button class="btn deletebtn" style="color: red; display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                         Delete
                     </button>
-                    @foreach($my_ads->where('status', 'rejected') as $my_ad)
+                    @foreach($rejectedListing as $my_ad)
                     <form class="place-ad-form" enctype="multipart/form-data">
                         <div class="row" style="margin-top: -3rem;">
                             <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;">
@@ -698,6 +712,9 @@
                         <div class="mb-3"></div>
                         <hr style="margin-top: -1.3rem; width: 64%;margin-left: 24px;margin-bottom: 1.6rem;">
                     @endforeach
+                    <div class="d-flex justify-content-center paginationLink" style="margin: 29px 27rem 0px 0px">
+                        {{ $rejectedListing->links('pagination::bootstrap-4') }}
+                    </div>
                 </div>
                     <!----single row ended------>
             @else
@@ -729,7 +746,7 @@
             {{-- endrejected --}}
              {{-- expired --}}
             <div id="expired" class="cont-w tab-pane fade"><br>
-            @if ($my_ads->where('status', 'expired')->count() > 0)
+            @if ($expiredListing->total() > 0)
                 <!------------------single row----------->
                 <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
                     <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
@@ -738,7 +755,7 @@
                       <button class="btn deletebtn" style="color: red; display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                         Delete
                     </button>
-                    @foreach($my_ads->where('status', 'expired') as $my_ad)
+                    @foreach($expiredListing as $my_ad)
                     <form class="place-ad-form" enctype="multipart/form-data">
                         <div class="row" style="margin-top: -3rem;">
                             <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;">
@@ -814,6 +831,9 @@
                         <div class="mb-3"></div>
                         <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: 1.6rem;">
                     @endforeach
+                    <div class="d-flex justify-content-center paginationLink" style="margin: 29px 27rem 0px 0px">
+                        {{ $expiredListing->links('pagination::bootstrap-4') }}
+                    </div>
                 </div>
                     <!----single row ended------>
             @else
@@ -876,6 +896,20 @@ $(document).on('click', '.place-ad-form-submit', function (e) {
         error: function (response) {
             showAlert("error", "Server Error");
         }
+    });
+});
+$(document).ready(function() {
+    // When the "Select All" checkbox is changed
+    $('#selectAll').change(function() {
+        // Set all row checkboxes to the same state as the "Select All" checkbox
+        $('.row-checkbox').prop('checked', this.checked);
+    });
+
+    // Optional: When any row checkbox is changed
+    $('.row-checkbox').change(function() {
+        // If not all checkboxes are checked, uncheck "Select All"
+        // Otherwise, check "Select All"
+        $('#selectAll').prop('checked', $('.row-checkbox:checked').length === $('.row-checkbox').length);
     });
 });
 

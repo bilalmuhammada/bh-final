@@ -110,6 +110,7 @@ class RecordHelper
 
     public static function getAdsByUserId($user_id)
     {
+        
         return Listing::with(['attachments', 'created_by_user'])->where('created_by', $user_id)->orderBy('name')->get();
     }
 

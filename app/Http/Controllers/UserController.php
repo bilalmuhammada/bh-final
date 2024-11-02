@@ -201,14 +201,47 @@ class UserController extends Controller
 
     public function myAds()
     {
-        // dd('dd');
-        $ads = $this->getAdsOfCurrentUser(Auth::id() ?? Session::get('user')->id);
+        //  dd('dd');
+        $user_id =Auth::id() ?? Session::get('user')->id;
+        if (!$user_id) {
+            $user_id = Auth::id();
+        }
 
-
-        $data = [
-            'my_ads' => $ads
+        $validation_arr = [
+            'user_id' => $user_id
         ];
-        return view('user.my-ads')->with($data);
+
+        $validator = Validator::make($validation_arr, [
+            'user_id' => 'required|exists:users,id'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'message' => $validator->errors()->first()
+            ]);
+        }
+       $activeListing = Listing::with(['attachments', 'created_by_user'])->where('created_by', $user_id)->where('status', 'active')->orderBy('name')->paginate(20, ['*'], 'activePage');
+       $draftListing = Listing::with(['attachments', 'created_by_user'])->where('created_by', $user_id)->where('status', 'draft')->orderBy('name') ->paginate(20, ['*'], 'draftPage');;
+       $pendingListing = Listing::with(['attachments', 'created_by_user'])->where('created_by', $user_id)->where('status', 'pending')->orderBy('name')->paginate(20, ['*'], 'pendingPage');
+       $rejectedListing = Listing::with(['attachments', 'created_by_user'])->where('created_by', $user_id)->where('status', 'rejected')->orderBy('name')->paginate(20, ['*'], 'rejectedPage');
+       $expiredListing = Listing::with(['attachments', 'created_by_user'])->where('created_by', $user_id)->where('status', 'expired')->orderBy('name')->paginate(20, ['*'], 'expiredPage');
+       $payment_pendingtListing = Listing::with(['attachments', 'created_by_user'])->where('created_by', $user_id)->where('status', 'payment_pending')->orderBy('name')->paginate(20, ['*'], 'payment_pendingPage');
+       
+        // $ads = $this->getAdsOfCurrentUser(Auth::id() ?? Session::get('user')->id);
+
+// dd($draftListing->total());
+        $data = [
+            'activeListing' => $activeListing,
+            'draftListing' => $draftListing,
+            'pendingListing' => $pendingListing,
+            'rejectedListing' => $rejectedListing,
+            'expiredListing' => $expiredListing,
+            'payment_pendingtListing' => $payment_pendingtListing,
+            
+        ];
+        
+        return view('user.my-ads',)->with($data);
     }
 
     public function mySearches()
