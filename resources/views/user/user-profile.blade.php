@@ -3,6 +3,12 @@
     select{
         text-transform: none !important;
     }
+    .countryfield:focus{
+        border: 1px solid #1202c9;
+    }
+    .countryfield{
+        border: 1px solid #A17A4E;
+    }
     input:focus{
         border: 1px solid #1202c9 !important;
     }
@@ -131,7 +137,7 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Mobile:</b></div>
                                     <div class="col-md-8">
-                                        <input name="mobile" id="mobile" type="text" class="form-control form-control1" 
+                                        <input name="mobile" id="mobile" type="text"  oninput="validateInputText(this)" class="form-control form-control1" 
                                         {{-- placeholder="Please enter a valid Mobile." --}}
                                          style="border: 1px solid #999;">
                                     </div>
@@ -173,8 +179,7 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Location:</b></div>
                                     <div class="col-md-4">
-                                        <div class="input-group mb-3" style=" 
-                                        border: 1px solid #999">
+                                        <div class="input-group mb-3 countryfield" >
                                             <select name="country" id="country"
                                                         class="form-control form-control1 country_dropdown login-user"
                                                         style="width:100%;">
@@ -192,8 +197,8 @@ width: 225px !important;
                                   </div>
 
                                        <div class="col-md-4">
-                                        <div class="input-group mb-3" style="
-                                        border: 1px solid #999">
+                                        <div class="input-group mb-3 countryfield" 
+                                        >
                                             <select name="cities" id="cities"
                                             class="form-control form-control1 country_dropdown login-user"
                                             style="width:100%;">
@@ -228,6 +233,9 @@ width: 225px !important;
                                         <input name="password" id="password" type="password" class="form-control form-control1"
                                          {{-- placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" --}}
                                          style="border: 1px solid #999;">
+                                         <div class="input-group-append">
+                                            <span class="toggle-password" onclick="togglePassword('password')" style="cursor: pointer;">👁️</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -236,6 +244,9 @@ width: 225px !important;
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Confirm Password:</b></div>
                                     <div class="col-md-8">
                                         <input name="password" id="confirmpassword" type="password" class="form-control form-control1" placeholder="" style="border: 1px solid #999;">
+                                        <div class="input-group-append">
+                                            <span class="toggle-password" onclick="togglePassword('confirmpassword')" style="cursor: pointer;">👁️</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -282,28 +293,28 @@ width: 225px !important;
                         <div class="col-md-3" style="border: 0px solid red;">
                             <div class="inner-content text-center" style="padding: 10px;">
                                 <h6><b>My Ads</b></h6>
-                                <h4><b style="color: blue">{{ \App\Helpers\RecordHelper::getAdsByUserId(session()->get('user')->id)->count() }}</b></h4>
+                                <h6><b style="color: blue">{{ \App\Helpers\RecordHelper::getAdsByUserId(session()->get('user')->id)->count() }}</b></h6>
                                 <p style="font-size: 16px;color: goldenrod;">Live</p>
                             </div>
                         </div>
                         <div class="col-md-3" style="border-left: 2px solid #eee;border-right: 2px solid #eee;">
                             <div class="inner-content text-center" style="padding: 10px;">
                                 <h6><b>Notification</b></h6>
-                                <h4><b style="color: blue">0</b></h4>
+                                <h6><b style="color: blue">0</b></h6>
                                 <p style="font-size: 16px;color: goldenrod;">New</p>
                             </div>
                         </div>
                         <div class="col-md-3" style="border-right: 2px solid #eee;">
                             <div class="inner-content text-center" style="padding: 10px;">
                                 <h6><b>Favorites</b></h6>
-                                <h4><b style="color: blue">0</b></h4>
+                                <h6><b style="color: blue">0</b></h6>
                                 <p style="font-size: 16px;color: goldenrod;">Recent</p>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="inner-content text-center" style="padding: 10px;">
                                 <h6><b>Chat</b></h6>
-                                <h4><b style="color: blue">0</b></h4>
+                                <h6><b style="color: blue">0</b></h6>
                                 <p style="font-size: 16px;color: goldenrod; ">Unread</p>
                             </div>
                         </div>
@@ -433,10 +444,29 @@ width: 225px !important;
  
 $(function() {
     $("#datepicker").datepicker({
+        format:'dd-mm-yy',
         changeMonth: true,
        changeYear: true
+       
     });
 });
+
+function validateInputText(input) {
+    // Remove any character that is not a letter (A-Z, a-z) or space
+       input.value = input.value.replace(/[^a-zA-Z\s]/g, '');
+}
+function togglePassword(fieldId) {
+    const passwordField = document.getElementById(fieldId);
+    const icon = passwordField.nextElementSibling.querySelector(".toggle-password");
+
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        icon.textContent = "🙈"; // Change the icon to "hide"
+    } else {
+        passwordField.type = "password";
+        icon.textContent = "👁️"; // Change the icon to "show"
+    }
+}
 
 document.getElementById('change-photo-link').addEventListener('click', function() {
     document.getElementById('profile_image').click();

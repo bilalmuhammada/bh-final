@@ -33,17 +33,17 @@ Either, you are looking to Buy, Sell or Rent Businesses, Company Shares, Innovat
 
                        
                    
-                    <p style="text-align:justify;">
-                    <li style="text-align:justify;margin-left:20px;"> Buy & Sell Businesses: Access a wide range of listings, from startups to established companies looking for a new owner in various business industries.</li>
-                    <li style="text-align:justify;margin-left:20px;">	Rent Businesses: Discover potential rental opportunities that allow you to manage a business without full ownership commitments, to avoid country leaglity time-consuming process. </li>
-                        <li style="text-align:justify;margin-left:20px;">Company Shares: Invest in or Sell Company Shares to expand your Business Portfolio or Generate additonal capital worldwide.</li>
-                            <li style="text-align:justify;margin-left:20px;">Business Ideas: Explore innovative business ideas to Invest or find a Potential Investor that align with your passion and expertise.</li>
-                                <li style="text-align:justify;margin-left:20px;">	Investor Connections: We bridge the gap between Business Idea Owners and Investors, facilitating partnerships that drive growth and maximize high ROIs.</li>
-                                    <li style="text-align:justify;margin-left:20px;">	Franchise Opportunities: Discover franchising as a viable option to expand your Business or invest in an Established Brand with a Proven Track Record.</li>
-                                        <li style="text-align:justify;margin-left:20px;">	Machinery & Supplies: Find the necessary equipment and supplies to start or grow your business efficiently.</li>
+                    {{-- <p style="text-align:justify;"> --}}
+                    <li style="text-align:justify;text-indent:-20px; padding-left:20px;"> Buy & Sell Businesses: Access a wide range of listings, from startups to established companies looking for a new owner in various business industries.</li>
+                    <li style="text-align:justify;text-indent:-20px; padding-left:20px;">	Rent Businesses: Discover potential rental opportunities that allow you to manage a business without full ownership commitments, to avoid country leaglity time-consuming process. </li>
+                        <li style="text-align:justify;text-indent:-20px; padding-left:20px;">Company Shares: Invest in or Sell Company Shares to expand your Business Portfolio or Generate additonal capital worldwide.</li>
+                            <li style="text-align:justify;text-indent:-20px; padding-left:20px;">Business Ideas: Explore innovative business ideas to Invest or find a Potential Investor that align with your passion and expertise.</li>
+                                <li style="text-align:justify;text-indent:-20px; padding-left:20px;">	Investor Connections: We bridge the gap between Business Idea Owners and Investors, facilitating partnerships that drive growth and maximize high ROIs.</li>
+                                    <li style="text-align:justify;text-indent:-20px; padding-left:20px;">	Franchise Opportunities: Discover franchising as a viable option to expand your Business or invest in an Established Brand with a Proven Track Record.</li>
+                                        <li style="text-align:justify;text-indent:-20px; padding-left:20px;">	Machinery & Supplies: Find the necessary equipment and supplies to start or grow your business efficiently.</li>
                         
                               
-                    </p>
+                    {{-- </p> --}}
                     <b class="joinnow">  <a class="register-btn">Join BusinessHub Now! </a></b>
                 </div>
                 <!-- about us text finish -->

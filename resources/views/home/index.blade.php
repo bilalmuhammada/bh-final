@@ -468,7 +468,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
 @endphp
 
 <div class="container">
-    <h4 class="text-center desktop-view" style="color:#F5BD02;font-weight:bold;">
+    <h4 class="text-center desktop-view" style="color:goldenrod;font-weight:bold;">
     <b>Join Millions of Users to Buy & Sell Businesses Worldwide!
     </b>
     </h4>

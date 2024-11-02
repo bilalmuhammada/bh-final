@@ -369,10 +369,10 @@ width: 60rem !important;
                             @elseif($ad->document_listing_approval_status == 'approved')
                                             <a href="#" class="btn download-document">Approved</a>
                                 @else
-                                    <p class="approval-status"> Under Approval </p>
+                                    <p class="approval-status"> Request Sent </p>
                                 @endif
 
-                                <p class="approval-status" style="display: none">Under Approval </p>
+                                <p class="approval-status" style="display: none">Request Sent </p>
                             </div>
                             </p>
                         </div>

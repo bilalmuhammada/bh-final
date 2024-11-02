@@ -743,7 +743,7 @@
                                               aria-expanded="false">
                                             {{session()->get('user')->name}}
                                         </span>
-                                        <div class="dropdown-menu" id="dropdownProfile" aria-labelledby="dropdownMenuButton" style="max-width: 106px">
+                                        <div class="dropdown-menu" id="dropdownProfile" aria-labelledby="dropdownMenuButton" style="max-width: 106px ;    position: absolute;top: 80% !important;">
                                             <a class="dropdown-item link" style="font-weight: bolder;padding:6px;"
                                                href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">My Profile</a>
                                             {{-- <a class="dropdown-item link"
