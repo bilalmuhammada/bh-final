@@ -6772,6 +6772,7 @@ a.close.disabled {
 .carousel-fade .active.carousel-item-right {
     z-index: 0;
     opacity: 0;
+    border-radius: 50px;
     transition: opacity 0s 0.6s;
 }
 

@@ -131,7 +131,10 @@ width: 44% !important;
         .swiper-button-next:after, .swiper-button-prev:after{
             color: white !important;
     font-size: 23px !important;
-    margin-right: 18pc !important;
+    margin-left:7px !important;
+        }
+        .swiper-button-next{
+left: 15rem;
         }
         select::-ms-expand {
     display: none; /* Remove the dropdown icon on IE10+ */
@@ -425,7 +428,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                         <div class="swiper-pagination"></div>
                                         <!-- Add Navigation buttons if needed -->
                                         <div class="swiper-button-next"></div>
-                                        {{-- <div class="swiper-button-prev"></div> --}}
+                                        <div class="swiper-button-prev"></div>
                                     </div>
                                 </a>
                             </div>
@@ -436,7 +439,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                         <p style="font-size: 13px;margin-bottom: 6px;">{{ $ad->category_name }} <span style="font-size: 16px;">&#9679;</span> {{ $ad->subcategory_name }}</p>
                                         <h3 style="font-weight: bold;font-size:18px;">AED {{ \App\Helpers\SiteHelper::priceFormatter($ad->price, request()->currency) }}</h3>
                                     
-                                        <p style="margin-top:6rem;font-size: 13px;"><i class="fa fa-map-marker" style="color: red;"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span  style="margin-top: 12px;">24 May 2024</span></p>
+                                        <p style="margin-top:5.3rem;font-size: 13px;"><i class="fa fa-map-marker" style="color: red;"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span  style="margin-top: 12px;">24 May 2024</span></p>
                                         
                                         <!-- Buttons for Call and Chat -->
                                        

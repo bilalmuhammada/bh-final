@@ -61,7 +61,7 @@ class AdController extends Controller
             // dd($subcategory_id);
 
             $SubCategory = SubCategory::with(['category'])->find($subcategory_id);
-            $perPage = 2;
+            $perPage = 20;
             $price_from = $request->from;
             $price_to = $request->to;
             $keyword = $request->keyword;

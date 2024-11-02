@@ -175,11 +175,11 @@
     <div class="topbar desktop-view">
         <div class="container-fluid" style="padding:0px 25px;">
             <div class="row">
-                <div class="col" style="margin-top: 9px;margin-left: -11px;">
+                <div class="col" style="margin-top: 15px;margin-left: -11px;">
                     {{-- <div class="col-lg-1 col-xl-1 col-md-1"> --}}
                         <!-- social icon desktop start -->
                         <a class="" href="{{env('BASE_URL') . 'home'}}" >
-                            <img src="{{asset('images/businesshub.png')}}" alt="" width="150px" alt="logo">
+                            <img src="{{asset('images/businesshub.png')}}" alt="" width="120px" alt="logo">
                         </a>
                     </div>
                     @php

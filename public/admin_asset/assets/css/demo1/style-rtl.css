@@ -6155,6 +6155,7 @@ div.tox .btn-group-vertical > .btn-group:not(:first-child) > .tox-button,
 .carousel-item.active,
 .carousel-item-next,
 .carousel-item-prev {
+
   display: block;
 }
 .carousel-item-next:not(.carousel-item-start),
