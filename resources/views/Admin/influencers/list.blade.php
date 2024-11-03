@@ -143,7 +143,7 @@ div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
                                           <button class="btn btn-primary btn-icon-text mb-2 mb-md-0"><i width="15"
                                                                                                       class="link-icon text-white"
                                                                                                       data-feather="plus-circle"></i>
-                                            Add Ad                                        </button>
+                                            Post Ad                                        </button>
                                     </a>
                                     {{-- @include('modals.edit-influencer')
 

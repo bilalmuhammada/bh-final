@@ -52,41 +52,41 @@
                     <input type="hidden" name="ad_id" class="ad-id" id="ad-id">
                     <!-- Default radio -->
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="report_reason" id="reason1" value="scam"/>
-                        <label class="form-check-label" for="reason1"> Scam </label>
+                        <input class="form-check-input" type="radio" name="report_reason" id="reason1" value="Spam"/>
+                        <label class="form-check-label" for="reason1"> Spam </label>
                     </div>
 
                     <!-- Defaul radio -->
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="report_reason" id="reason2" value="disturbing"/>
-                        <label class="form-check-label" for="reason2"> Disturbing </label>
+                        <input class="form-check-input" type="radio" name="report_reason" id="reason2" value="Fraud"/>
+                        <label class="form-check-label" for="reason2"> Fraud </label>
                     </div>
 
                     <!-- Defaul radio -->
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="report_reason" id="reason3" value="fake profile"/>
-                        <label class="form-check-label" for="reason3"> Fake Profile </label>
+                        <input class="form-check-input" type="radio" name="report_reason" id="reason3" value="Not Available"/>
+                        <label class="form-check-label" for="reason3"> Not Available </label>
                     </div>
 
                     <!-- Defaul radio -->
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="report_reason" id="reason4" value="disrespectful"/>
-                        <label class="form-check-label" for="reason4"> Disrespectful </label>
+                        <input class="form-check-input" type="radio" name="report_reason" id="reason4" value="Miscategorized"/>
+                        <label class="form-check-label" for="reason4"> Miscategorized </label>
                     </div>
 
                     <!-- Defaul radio -->
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="report_reason" id="reason5" value="privacy violation"/>
-                        <label class="form-check-label" for="reason5">Privacy Violation </label>
+                        <input class="form-check-input" type="radio" name="report_reason" id="reason5" value="Incorrect Pricing"/>
+                        <label class="form-check-label" for="reason5">Incorrect Pricing </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="report_reason" id="reason5" value="abusive behavior"/>
-                        <label class="form-check-label" for="reason5">Abusive Behavior </label>
+                        <input class="form-check-input" type="radio" name="report_reason" id="reason5" value="Repetitive Listing"/>
+                        <label class="form-check-label" for="reason5">Repetitive Listing </label>
                     </div>
-                    {{-- <div class="form-check">
+                    <div class="form-check">
                         <input class="form-check-input" type="radio" name="report_reason" id="reason5" value="Copyright Infringment"/>
-                        <label class="form-check-label" for="reason5">Cop </label>
-                    </div> --}}
+                        <label class="form-check-label" for="reason5">Copyright Infringment </label>
+                    </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="report_reason" id="reason5" value="other"/>
                         <label class="form-check-label" for="reason5">Other </label>
@@ -95,8 +95,8 @@
                     <div class="col-md-12">
                         <div class="row">
                             <label for=""></label>
-                            <textarea name="description" class="form-control" placeholder="Describe your Reason"
-                                      style="border:2px solid #eee;" cols="12" rows="2" maxlength="160"
+                            <textarea name="description"  class="form-control" placeholder="Describe your Reason"
+                                      style="border:2px solid #eee;font-size: 14px;border: 2px solid #eee;color:#000" cols="12" rows="2" maxlength="80"
                                       ></textarea>
                         </div>
                     </div>

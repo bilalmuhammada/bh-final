@@ -81,13 +81,13 @@
             <li class="nav-item @if (isset($menu) && $menu == 'influencers/create') {{ 'active'}} @endif ">
                 <a href="{{ env('BASE_URL') . 'listing/select-category'}}" class="nav-link">
                     <i class="link-icon" data-feather="plus-circle"></i>
-                    <span class="link-title">Add Ads</span>
+                    <span class="link-title">Post Ad</span>
                 </a>
             </li>
             <li class="nav-item @if (isset($menu) && $menu == 'admins/create') {{ 'active'}} @endif ">
                 <a href="{{ env('BASE_URL') . 'admins/admin/create'}}" class="nav-link">
                     <i class="link-icon" data-feather="plus-circle"></i>
-                    <span class="link-title">Add Admins</span>
+                    <span class="link-title">Add Admin</span>
                 </a>
             </li>
            

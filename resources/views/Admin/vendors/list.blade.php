@@ -146,7 +146,7 @@ th{
                             @include('Admin.modals.edit-vendor')
                             @include('Admin.modals.edit-vendor-and-influencer-status-modal')
                         </div>
-                        <div class="table-responsive" style="margin-top: -10px;">
+                        <div class="table-responsive" style="margin-top:5px;">
                             <table id="datatable" class="table">
                                 <thead>
                                 <tr>
@@ -183,7 +183,7 @@ th{
                                     <th>City</th>
                                     <th>Country</th>
                                     <th>Joined</th>
-                                    <th>Posted By</th>
+                                    <th>Added By</th>
                                     <th>ID#</th>
                                     <th>Active Ads</th>
                                     <th>Total Ads</th>

@@ -110,7 +110,7 @@ margin-right: 11.1rem !important;
                                     <th>Email</th>
                                     <th>Nationality</th>
                                     <th>Blocker By</th>
-                                    <th>Blocker ID</th>
+                                    <th>ID #</th>
                                     <th>Date</th>
 
                                     <th>Reason </th>

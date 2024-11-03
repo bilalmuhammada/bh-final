@@ -87,7 +87,7 @@ margin-right: 12rem !important;
                                     <th>Sub Category</th>
                                     <th>Ad status</th>
                                     <th>Reported By</th>
-                                    <th>Reporter ID</th>
+                                    <th>ID #</th>
                                     <th>Reason</th>
                                     <th>Message</th>
                                     <th>Date</th>

@@ -12,6 +12,10 @@
     input:focus{
         border: 1px solid #1202c9 !important;
     }
+     
+    .select2-dropdown{
+margin-left: -7px;
+    }
     .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year{
         border: transparent;
     }
@@ -181,7 +185,7 @@ width: 225px !important;
                                     <div class="col-md-4">
                                         <div class="input-group mb-3 countryfield" >
                                             <select name="country" id="country"
-                                                        class="form-control form-control1 country_dropdown login-user"
+                                                        class="form-control form-control1 country_dropdown_user login-user"
                                                         style="width:100%;">
                                                     @if ($cities->count() < 1)
                                                         <option value="" selected>Country</option>
@@ -200,7 +204,7 @@ width: 225px !important;
                                         <div class="input-group mb-3 countryfield" 
                                         >
                                             <select name="cities" id="cities"
-                                            class="form-control form-control1 country_dropdown login-user"
+                                            class="form-control form-control1 country_dropdown_user login-user"
                                             style="width:100%;">
                                         @if ($cities->count() < 1)
                                             <option value="" selected>City</option>
@@ -439,6 +443,7 @@ width: 225px !important;
 @section('page_scripts')
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript">
  
@@ -449,6 +454,14 @@ $(function() {
        changeYear: true
        
     });
+});
+$(document).ready(function(){
+
+    $(".country_dropdown_user").select2({
+            // templateSelection: formatCountry,
+            // templateResult: formatCountry,
+            // minimumResultsForSearch: -1
+        });
 });
 
 function validateInputText(input) {

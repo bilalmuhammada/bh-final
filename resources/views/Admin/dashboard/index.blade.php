@@ -1134,7 +1134,7 @@ label{
                         plotOptions: {
                             bar: {
                                 horizontal: false,
-                                columnWidth: '55%',
+                                columnWidth: '30%',
                                 endingShape: 'rounded'
                             },
                         },
