@@ -226,7 +226,7 @@
 
                 {{-- <div class="country" style="border:0px solid red;position:relative;left:-50px;"> --}}
                     <select class="form-control city_dropdown" name="city_dropdown" id="" 
-                            style="width:140px;border:0px solid red !imporatnt;text-align:center;background-color:transparent !important;">
+                            style="width:131px;border:0px solid red !imporatnt;text-align:center;background-color:transparent !important;">
                             <option value="">All Cities</option>
                         @foreach($cities as $city)
                             <option data-city-id="{{ $city->id }}"
@@ -243,7 +243,7 @@
 
                 <div class="mobile-country desktop-menu-right">
                                
-                    <select class="form-control language_dropdown " name="language_dropdown"  style="width:156px;" id="language_dropdown" onchange="translateLanguage()">>
+                    <select class="form-control language_dropdown " name="language_dropdown"  style="width:136px;" id="language_dropdown" onchange="translateLanguage()">>
                         <option selected value="">Language</option>
                         
                         @foreach($language as $language1)
