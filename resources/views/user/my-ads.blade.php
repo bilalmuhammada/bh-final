@@ -55,6 +55,15 @@
         margin-left: 12px;"
     }
 
+    .checkbox-label{
+        display: inline-block; 
+        color: red;
+        white-space: nowrap;
+         margin-left: -13px;
+          margin-top: 16px; 
+          height: 36px;
+    }
+
 </style>
 @section('content')
     <div class="cont-w">
@@ -205,10 +214,11 @@
                 
             @if ($activeListing->total() > 0)
                 <!------------------single row----------->
-                <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
-                    <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
-                        <input type="checkbox" id="selectAll" style=" border-radius: 5px;"> &nbsp;&nbsp;All
-                      </label>
+               <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
+                        <label class="checkbox-label" style=" position: relative; z-index: 10;" >
+                            
+                            <input type="checkbox" id="selectAllLive" class="select-all-checkbox"> &nbsp;&nbsp;All
+                        </label>
                       <button class="btn deletebtn" style="color: red; display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                         Delete
                     </button>
@@ -220,9 +230,7 @@
                         <div class="row" style="margin-top: -3rem;" >
                            
                             <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;margin-left: 19px;">
-                                
-                               
-                                <input type="checkbox" class="row-checkbox" id="row-checkbox">
+                                <input type="checkbox" class="row-checkbox" value="{{$my_ad->id}}">
                             </div>
                             <div class="col-md-4" style="max-width: 11pc;margin-left: -15px;">
                                 <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
@@ -311,9 +319,9 @@
                 @if ($draftListing->total() > 0)
                     <!------------------single row----------->
                     <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
-                        <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
-                            <input type="checkbox" id="selectAll" style=" border-radius: 5px;"> &nbsp;&nbsp;All
-                          </label>
+                        <label class="checkbox-label" >
+                            <input type="checkbox" id="selectAll" class="select-draft-checkbox"> &nbsp;&nbsp;All
+                        </label>
                           <button class="btn deletebtn" style="color: red;display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                             Delete
                         </button>
@@ -321,7 +329,7 @@
                         <form class="place-ad-form" enctype="multipart/form-data">
                             <div class="row"  >
                                 <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;">
-                                    <input type="checkbox"  class="row-checkbox">
+                                    <input type="checkbox"  class="row-checkbox" value="{{ $my_ad->id }}">
                                 </div>
                                 <div class="col-md-4" style="max-width: 11pc">
                                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
@@ -411,9 +419,9 @@
                 @if ($payment_pendingtListing->total() > 0)
                 <!------------------single row----------->
                 <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
-                    <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
-                        <input type="checkbox" style=" border-radius: 5px;"> &nbsp;&nbsp;All
-                      </label>
+                    <label class="checkbox-label" style="position: relative; z-index: 10;" >
+                        <input type="checkbox" id="selectpayment_pending" class="select-payment_pending-checkbox"> &nbsp;&nbsp;All
+                    </label>
                       <button class="btn deletebtn" style="color:red; display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                         Delete
                     </button>
@@ -421,7 +429,7 @@
                     <form class="place-ad-form" enctype="multipart/form-data">
                         <div class="row"  style="margin-top: -3rem;">
                             <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;">
-                                <input type="checkbox">
+                                <input type="checkbox"  class="row-checkbox" value="{{ $my_ad->id }}">
                             </div>
                             <div class="col-md-4" style="max-width: 11pc">
                                 <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
@@ -511,9 +519,9 @@
             @if ($pendingListing->total() > 0)
                 <!------------------single row----------->
                 <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
-                    <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
-                        <input type="checkbox" style=" border-radius: 5px;"> &nbsp;&nbsp;All
-                      </label>
+                    <label class="checkbox-label" style="position: relative; z-index: 10;" >
+                        <input type="checkbox" id="selectunder_review" class="select-under_review-checkbox"> &nbsp;&nbsp;All
+                    </label>
                       <button class="btn deletebtn" style="color:red;display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                         Delete
                     </button>
@@ -521,7 +529,7 @@
                     <form class="place-ad-form" enctype="multipart/form-data">
                         <div class="row" style="margin-top: -3rem;">
                             <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;">
-                                <input type="checkbox">
+                                <input type="checkbox"  class="row-checkbox" value="{{ $my_ad->id }}">
                             </div>
                             <div class="col-md-4" style="max-width: 11pc">
                                 <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
@@ -630,17 +638,17 @@
             @if ($rejectedListing->total() > 0)
                 <!------------------single row----------->
                 <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
-                    <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
-                        <input type="checkbox" style=" border-radius: 5px;"> &nbsp;&nbsp;All
-                      </label>
-                      <button class="btn deletebtn" style="color: red; display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
+                    <label class="checkbox-label" style="position: relative; z-index: 10;" >
+                        <input type="checkbox" id="selectrejected" class="select-rejected-checkbox"> &nbsp;&nbsp;All
+                    </label>
+                      <button class="btn deletebtn" id="deletedbtn" style="color: red; display:block; position: relative; z-index: 10; margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                         Delete
                     </button>
                     @foreach($rejectedListing as $my_ad)
                     <form class="place-ad-form" enctype="multipart/form-data">
                         <div class="row" style="margin-top: -3rem;">
                             <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;">
-                                <input type="checkbox">
+                                <input type="checkbox"  class="row-checkbox" value="{{ $my_ad->id }}">
                             </div>
                             <div class="col-md-4" style="max-width: 11pc">
                                 <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
@@ -749,9 +757,9 @@
             @if ($expiredListing->total() > 0)
                 <!------------------single row----------->
                 <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
-                    <label style="display: inline-block; color: red;white-space: nowrap; margin-left: -13px; margin-top: 16px; height: 36px;">
-                        <input type="checkbox" style=" border-radius: 5px;"> &nbsp;&nbsp;All
-                      </label>
+                    <label class="checkbox-label" style="position: relative; z-index: 10;" >
+                        <input type="checkbox" id="selectexpired" class="select-expired-checkbox"> &nbsp;&nbsp;All
+                    </label>
                       <button class="btn deletebtn" style="color: red; display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
                         Delete
                     </button>
@@ -759,7 +767,7 @@
                     <form class="place-ad-form" enctype="multipart/form-data">
                         <div class="row" style="margin-top: -3rem;">
                             <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;">
-                                <input type="checkbox">
+                                <input type="checkbox"  class="row-checkbox" value="{{ $my_ad->id }}">
                             </div>
                             <div class="col-md-4" style="max-width: 11pc">
                                 <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
@@ -870,6 +878,64 @@
 
 @section('page_scripts')
 <script>
+$(document).ready(function() {
+    // When the "Select All" checkbox is changed
+    $(document).on('change', '#selectAll', function() {
+        // console.log("Select All checkbox changed");
+            $('#draft .row-checkbox').prop('checked', $(this).is(':checked'));
+        });
+        $(document).on('change', '#selectAllLive', function() {
+        // console.log("Select All checkbox changed");
+            $('#live .row-checkbox').prop('checked', $(this).is(':checked'));
+        });
+        $(document).on('change', '#selectpayment_pending', function() {
+        // console.log("Select All checkbox changed");
+            $('#payment_pending .row-checkbox').prop('checked', $(this).is(':checked'));
+        });
+
+        $(document).on('change', '#selectunder_review', function() {
+        // console.log("Select All checkbox changed");
+            $('#under_review .row-checkbox').prop('checked', $(this).is(':checked'));
+        });
+        $(document).on('change', '#selectrejected', function() {
+        // console.log("Select All checkbox changed");
+            $('#rejected .row-checkbox').prop('checked', $(this).is(':checked'));
+        });
+        
+        $(document).on('change', '#selectexpired', function() {
+        // console.log("Select All checkbox changed");
+            $('#expired .row-checkbox').prop('checked', $(this).is(':checked'));
+        });
+     
+
+        
+        
+    // jQuery for deleting selected ads
+    $(document).on('click', '#deletedbtn', function() {
+        let selectedIds = $('.row-checkbox:checked').map(function() {
+            return this.value;
+        }).get();
+
+        if (selectedIds.length > 0) {
+            // Confirmation dialog
+            if (confirm('Are you sure you want to delete the selected ads?')) {
+                // Example: AJAX call to delete selected ads on the server
+                console.log("Selected IDs to delete:", selectedIds);
+                // $.post('/delete-ads', { ids: selectedIds })
+                //    .done(function(response) {
+                //        // handle success
+                //    })
+                //    .fail(function(error) {
+                //        // handle error
+                //    });
+            }
+        } else {
+            alert('No ads selected for deletion.');
+        }
+    });
+});
+
+
 $(document).on('click', '.place-ad-form-submit', function (e) {
     e.preventDefault();
      var formData = new FormData($('.place-ad-form')[0]);
@@ -898,20 +964,7 @@ $(document).on('click', '.place-ad-form-submit', function (e) {
         }
     });
 });
-$(document).ready(function() {
-    // When the "Select All" checkbox is changed
-    $('#selectAll').change(function() {
-        // Set all row checkboxes to the same state as the "Select All" checkbox
-        $('.row-checkbox').prop('checked', this.checked);
-    });
 
-    // Optional: When any row checkbox is changed
-    $('.row-checkbox').change(function() {
-        // If not all checkboxes are checked, uncheck "Select All"
-        // Otherwise, check "Select All"
-        $('#selectAll').prop('checked', $('.row-checkbox:checked').length === $('.row-checkbox').length);
-    });
-});
 
 </script>
 @endsection

@@ -15,9 +15,9 @@
                         <!-- login title start -->
                         <a class="close close-signup-btn" style="color: white;">&times;</a>
                         <div class="sigh-in">
-                            <h3 style="font-weight: bold;line-height: 20px;color: #A17A4E;" class="login-heading">
+                            <h5 style="font-weight: bold;line-height: 20px;color: #A17A4E;" class="login-heading">
                                 <div style="border-right: 0px solid #ffc000;text-align:center;">Forgot Password</div>
-                            </h3>
+                            </h5>
                         </div>
                         <!-- login title finish -->
                         <form class="forgot-password-form" style="margin-left: 13px; width: 18rem;">
@@ -37,7 +37,7 @@
                                                                  height="19"/>
                                                         </span>
                                 </div> -->
-                                <input type="email" name="email" class="form-control login-user email"
+                                <input type="email" name="email" class="form-control login-user email" style="padding: 12px 20px 12px 10px !important;"
                                        placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
                             </div>
                             <!-- user name area finish -->
@@ -47,7 +47,7 @@
                             </div>
                             <!-- submit button finish -->
                         </form>
-                        <div class="Forgot" style="font-size: 12px; margin-left: -18px;margin-top: -10px;">
+                        <div class="Forgot" style="font-size: 12px; margin-left: -18px;margin-top: -4px;">
                             
                            <span >New to BusinessHub?  <a class="register-btn " style="color: #007bff;"  id="colorTowhite"> Click Here </a></span>
                                

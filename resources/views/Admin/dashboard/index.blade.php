@@ -2,6 +2,9 @@
 @section('content')
 
 <style>
+    .select2-dropdown{
+        border: 1px solid #ffffff00 !important;
+    }
     .select2-container--default .select2-selection--single .select2-selection__rendered {
         line-height: 29px
     }

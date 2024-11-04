@@ -292,7 +292,7 @@ function togglePassword(fieldId) {
 
 
         if ($('.floating').length > 0) {
-            alert('dd');
+         
             $('.floating').on('focus blur', function(e) {
                 $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
             }).trigger('blur');

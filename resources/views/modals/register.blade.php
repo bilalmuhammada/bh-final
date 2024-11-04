@@ -27,7 +27,7 @@
     .toggle-password {
             position: absolute;
             right: 23px;
-            top: 36%;
+            top: 36% !important;
             transform: translateY(-50%);
             cursor: pointer;
         }
@@ -36,6 +36,9 @@
         } */
         select{
             text-transform:none
+        }
+        #first_name,#last_name, #phone,#Email,#password_confirmation,#password{
+            padding: 12px 20px 12px 10px;
         }
          input::placeholder{
             color: black;
@@ -93,56 +96,56 @@
 
                                         <input type="text" name="first_name" id="first_name"
                                                class="form-control floating login-user"
-                                               placeholder="" aria-label="First Name"
+                                               placeholder="First Name" aria-label="First Name"
                                                aria-describedby="basic-addon1">
-                                               <label class="focus-label">First Name</label>
+                                               {{-- <label class="focus-label">First Name</label> --}}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
                                         <input type="text" name="last_name" id="last_name"
                                                class="form-control floating login-user"
-                                               placeholder="" aria-label="Last Name"
+                                               placeholder="Last Name" aria-label=""
                                                aria-describedby="basic-addon1">
-                                               <label class="focus-label">Last Name</label>
+                                               {{-- <label class="focus-label">Last Name</label> --}}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
                                         <input type="text" name="phone" id="phone" class="form-control floating login-user"
-                                               placeholder="" aria-label="Mobile" aria-describedby="basic-addon1">
-                                               <label class="focus-label">Mobile</label>
+                                               placeholder="Mobile" aria-label="Mobile" aria-describedby="basic-addon1">
+                                               {{-- <label class="focus-label">Mobile</label> --}}
                                             </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
-                                        <input type="text" name="email" class="form-control floating login-user email"
-                                               placeholder="" aria-label="Email" aria-describedby="basic-addon1"
+                                        <input type="text" name="email" id="Email" class="form-control floating login-user email"
+                                               placeholder="Email" aria-label="Email" aria-describedby="basic-addon1"
                                                onfocus="this.value=''">
-                                               <label class="focus-label">Email</label>
+                                               {{-- <label class="focus-label"></label> --}}
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <div class="form-group form-focus">
-                                        <select type="text" name="gender" id="phone" class="form-control drppading floating login-user"
-                                               placeholder="" aria-label="Mobile" aria-describedby="basic-addon1">
+                                    {{-- <div class="form-group form-focus"> --}}
+                                        <select type="text" name="gender" id="phone" class="form-control    login-user"
+                                               placeholder="Gender" aria-label="Mobile" aria-describedby="basic-addon1">
                                                <option value="" hidden disabled selected></option>
-                                               <option value="male">Male</option>
-                                               <option value="female">Female</option>
+                                               <option value="male" style="color:#000;">Male</option>
+                                               <option value="female" style="color:#000;">Female</option>
 </select>
 
-                                               <label class="focus-label">Gender</label>
-                                            </div>
+                                               {{-- <label class="focus-label">Gender</label> --}}
+                                            {{-- </div> --}}
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
 
-                                        <input type="text" name="dob" id="datepicker" class="form-control floating login-user email"
-                                               placeholder="" aria-label="Email" aria-describedby="basic-addon1"
+                                        <input type="text" name="dob" id="datepicker" class="form-control  login-user email"
+                                               placeholder="Date of Birth" aria-label="Email" aria-describedby="basic-addon1"
                                                onfocus="this.value=''">
 
-                                               <label class="focus-label">Date of Birth</label>
+                                               {{-- <label class="focus-label">Date of Birth</label> --}}
                                     </div>
                                 </div>
                                 
@@ -154,11 +157,11 @@
                             @endphp
 
                                 <div class="col-md-6">
-                                    <div class=" form-group form-focus" id="form-border" style="  border-radius: 5px;  padding: 5px 20px;
+                                    <div class=" " id="form-border" style="  border-radius: 5px;  padding: 5px 20px;
                                     border: 1px solid #A17A4E">
                                         <select name="country" id="country"
                                                     class="form-control    language_dropdown login-user"
-                                                    style="width:100%;color:#fff !important;">
+                                                    style="width:100%;">
                                                 @if ($cities->count() < 1)
                                                     <option value="" selected>Country</option>
                                                 @endif
@@ -171,15 +174,15 @@
                                                         style="font-size:8px !important;"> {{ $country->name }}</option>
                                                 @endforeach
                                             </select>
-                                            <label class="focus-label">Country</label>
+                                            {{-- <label class="focus-label">Country</label> --}}
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <div class="input-group mb-3 form-group form-focus"  id="form-border"  style="   border-radius: 5px;   padding: 5px 20px;
+                                    <div class="input-group mb-3 "  id="form-border"  style="border-radius: 5px;   padding: 5px 20px;
                                     border: 1px solid #A17A4E">
                                         <select name="cities" id="cities"
-                                        class="form-control language_dropdown floating login-user"
+                                        class="form-control language_dropdown  login-user"
                                         style="width:100%;color:#fff !important;">
                                     @if ($cities->count() < 1)
                                         <option value="" selected>City</option>
@@ -191,7 +194,7 @@
                                             style="font-size:8px !important;"> {{ $city->name }}</option>
                                     @endforeach
                                 </select>
-                                <label class="focus-label">City</label>
+                                {{-- <label class="focus-label">City</label> --}}
                                     </div>
                                 </div>
 
@@ -203,7 +206,7 @@
                                             <span class="toggle-password" onclick="togglePassword()" style="cursor: pointer;">👁️</span>
                                         </div>
 
-                                        <label class="focus-label">Password</label>
+                                        {{-- <label class="focus-label">Password</label> --}}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -212,7 +215,7 @@
  class="form-control login-user floating"
                                                placeholder="" aria-label="Cpassword"
                                                aria-describedby="basic-addon1">
-                                               <label class="focus-label">Confirm Password</label>
+                                               {{-- <label class="focus-label">Confirm Password</label> --}}
                                                <div class="input-group-append">
                                                 <span class="toggle-password" onclick="togglePassword()" style="cursor: pointer;">👁️</span>
                                             </div>
