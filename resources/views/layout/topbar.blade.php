@@ -175,7 +175,7 @@
     <div class="topbar desktop-view">
         <div class="container-fluid" style="padding:0px 25px;">
             <div class="row">
-                <div class="col" style="margin-top: 15px;margin-left:0px;">
+                <div class="col" style="margin-top: 12px;margin-left:0px;">
                     {{-- <div class="col-lg-1 col-xl-1 col-md-1"> --}}
                         <!-- social icon desktop start -->
                         <a class="" href="{{env('BASE_URL') . 'home'}}" >

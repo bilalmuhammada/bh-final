@@ -2613,7 +2613,7 @@ border: 1px solid #2d11e7;
     }
     
     .term-text h1 {
-        font-size: 30px;
+        font-size: 23px;
         font-weight: bold;
         color: #000;
         /* margin-top: 60px; */
@@ -2621,7 +2621,7 @@ border: 1px solid #2d11e7;
         text-align: center;
         padding-left: 10px;
         /* border-left: 2px solid #ffc000; */
-        margin-bottom: 16px;
+        margin-bottom: 30px;
     }
     
     .blog h1 {

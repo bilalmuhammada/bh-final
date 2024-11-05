@@ -37,12 +37,12 @@
                        
                         </p>
 
-                        <span style="margin-left: 20px;">1.	WHO WE ARE AND HOW TO CONTACT US.</span> <br> <br>
+                        <span style="font-weight:800; font-size: 16px;">1.	WHO WE ARE AND HOW TO CONTACT US.</span> <br> <br>
                     <p style="text-align: justify;">
                         The Platform is operated and owned by BusinessHub ("businesshub", "we", "our", "us").
 
                     </p> 
-                    <span style="margin-left: 20px;"> 2.	BY USING THE PLATFORM, YOU ACCEPT THESE TERMS OF USE. </span>
+                    <span style="font-weight:800 ; font-size: 16px;"> 2.	BY USING THE PLATFORM, YOU ACCEPT THESE TERMS OF USE. </span>
                     <br>  <br><p style="text-align: justify;">
 By accessing and continuing to use the Platform, you confirm that you accept these Terms of Use, and acknowledge and agree that these Terms of Use govern and condition your access to, and use of, the Platform and any Content.
 You understand that these Terms of Use constitute a legally binding agreement between you and BusinessHub. <br> <br>
@@ -51,32 +51,32 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
 
                     </p>
 
-                    <span style="margin-left: 20px;"> 3.	WE MAY MAKE CHANGES TO THESE TERMS OF USE. </span>
+                    <span style="font-weight:800; font-size: 16px;"> 3.	WE MAY MAKE CHANGES TO THESE TERMS OF USE. </span>
                     <br>  <br><p style="text-align: justify;">
                         We may amend these Terms of Use from time to time, with or without notice to you. The new version of these Terms of Use will be made available on this page. If you are an existing registered user, we may also notify you of any material update to these Terms of Use via email (for example, where we are legally required to do so).
                         <br>  <br>  Every time you wish to use the Platform, please check these Terms of Use to ensure that you understand the terms and conditions that apply to the Platform and its Content at that time.
                         
                     </p>
 
-                    <span style="margin-left: 20px;"> 4.	WE MAY MAKE CHANGES TO THE PLATFORM.. </span>
+                    <span style="font-weight:800; font-size: 16px;"> 4.	WE MAY MAKE CHANGES TO THE PLATFORM.. </span>
                     <br>  <br><p style="text-align: justify;">
                         We may change the way the Platform operates and/or change any Content from time to time without notice to you. This could be, for example, to reflect changes to the features and functionalities of the Platform, the state of current technology, or market practice, applicable laws or regulations and/or our business priorities.
 
                     </p>
 
-                    <span style="margin-left: 20px;">5. WE MAY SUSPEND OR WITHDRAW THE PLATFORM.</span>
+                    <span style="font-weight:800; font-size: 16px;">5. WE MAY SUSPEND OR WITHDRAW THE PLATFORM.</span>
                     <br><br>
                     <p style="text-align: justify;">
                         We do not guarantee that the Platform and/or any Content will always be available free of charge, or generally available. We may suspend or withdraw, or restrict the availability of, all or any part of the Platform for business and/or operational reasons.
                     </p>
                     
-                    <span style="margin-left: 20px;">6. YOUR PRIVACY.</span>
+                    <span style="font-weight:800; font-size: 16px;">6. YOUR PRIVACY.</span>
                     <br><br>
                     <p style="text-align: justify;">
                         Please refer to our Privacy Policy to understand how we collect, process and share your personal data in relation to your use of the Platform.
                     </p>
                     
-                    <span style="margin-left: 20px;">7. YOUR RIGHT TO USE THE PLATFORM AND THE CONTENT.</span>
+                    <span style="font-weight:800; font-size: 16px;">7. YOUR RIGHT TO USE THE PLATFORM AND THE CONTENT.</span>
                     <br><br>
                     <p style="text-align: justify;">
                         Subject to your continued compliance with these Terms of Use, BusinessHub grants you a personal, limited, non-transferable, non-exclusive, revocable right to use the Platform and the Content.
@@ -88,7 +88,7 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
                         All trademarks, logos, trade dress, service names and service marks ("Marks") displayed on the Platform are our property or the property of certain other third-parties. You are not permitted to use these Marks without our prior written consent.
                     </p>
                     
-                    <span style="margin-left: 20px;">8. RESTRICTIONS.</span>
+                    <span style="font-weight:800; font-size: 16px;">8. RESTRICTIONS.</span>
 <br><br>
 <p style="text-align: justify;">
     You must not:
@@ -108,7 +108,7 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
     We will report any breach of the restrictions listed above to the relevant law enforcement authorities and will cooperate with those authorities by disclosing your identity to them.
 </p>
 
-<span style="margin-left: 20px;">9. ACCOUNT CREATION.</span>
+<span style="font-weight:800; font-size: 16px;">9. ACCOUNT CREATION.</span>
 <br><br>
 <p style="text-align: justify;">
     Account creation. Although you can browse the Platform as a guest, you will need to create an account (an "Account") in order to access certain features of the Platform. If you choose to register for an Account, you will have to provide certain information about yourself as prompted during the account registration process on the Platform.
@@ -124,7 +124,7 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
     Privacy. All information you provide to create an Account (including all information you provide to obtain ‘Verified’ status) will be used in accordance with our Privacy Policy.
 </p>
 
-<span style="margin-left: 20px;">10. PAID SERVICES.</span>
+<span style="font-weight:800; font-size: 16px;">10. PAID SERVICES.</span>
 <br><br>
 <p style="text-align: justify;">
     BusinessHub may, from time to time, offer paid services on the Platform ("Paid Service"). For example, you may choose to pay a fee to ensure that your Listing is featured more prominently in search results on the Platform.
@@ -136,7 +136,7 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
     </ul>
 </p>
 
-<span style="margin-left: 20px;">11. LISTINGS.</span>
+<span style="font-weight:800; font-size: 16px;">11. LISTINGS.</span>
 <br><br>
 <p style="text-align: justify;">
     The Platform enables a user wishing to sell an item or service (the "Seller") to advertise such item or service (each a "Listing") to other users of the Platform. A user who is interested in such item or service (the "Buyer") may then contact the Seller (via the Listing) to make an offer for such item or service.
@@ -164,7 +164,7 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
     BusinessHub may from time to time make available to you a feature allowing you to automatically complete Listings using an artificial intelligence (AI) tool. Such feature is made available for your convenience only. Due to the nature of such feature, it may not always deliver accurate or complete results. It is your responsibility to verify the information included in your Listing before it is published on the Platform. BusinessHub excludes all liability in connection with your use of such feature.
 </p>
 
-<span style="margin-left: 20px;">12. BusinessHub IS NOT RESPONSIBLE FOR LISTINGS.</span>
+<span style="font-weight:800; font-size: 16px;">12. BusinessHub IS NOT RESPONSIBLE FOR LISTINGS.</span>
 <br><br>
 <p style="text-align: justify;">
     You acknowledge and agree that BusinessHub does not have an obligation to monitor, approve or moderate Listings or their content. We are not responsible for the Listings posted on the Platform.
@@ -174,7 +174,7 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
     Although BusinessHub is not responsible for Listings, we reserve the right to monitor Listings and to remove any Listing from the Platform if, in our sole opinion, a Listing is in breach of these Terms of Use (including the Acceptable Policy Use).
 </p>
 
-<span style="margin-left: 20px;">13. REVIEWS AND RATINGS.</span>
+<span style="font-weight:800; font-size: 16px;">13. REVIEWS AND RATINGS.</span>
 <br><br>
 <p style="text-align: justify;">
     BusinessHub allows users to rate and review their interactions with other users of the Platform, and also allows users to respond to any rating or review they receive (each a "Review"). The purpose of Reviews is to build trust and transparency on the Platform and promote a respectful community.
@@ -193,7 +193,7 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
     Although BusinessHub is not responsible for any Review posted on the Platform, we reserve the right to monitor Reviews and to remove any Review from the Platform if, in our opinion, a Review is in breach of these Terms of Use (including the Acceptable Policy Use).
 </p>
 
-<span style="margin-left: 20px;">14. UPLOADING CONTENT TO THE PLATFORM.</span>
+<span style="font-weight:800; font-size: 16px;">14. UPLOADING CONTENT TO THE PLATFORM.</span>
 <br><br>
 <p style="text-align: justify;">
     Any content you upload to the Platform, including as part of a Listing, will be considered non-confidential and non-proprietary.
@@ -207,14 +207,14 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
     We reserve the right to remove any content posted or uploaded by you to the Platform with or without notice if, in our sole opinion, it does not comply with these Terms of Use (including the Acceptable Policy Use).
 </p>
 
-<span style="margin-left: 20px;">15. ACCEPTABLE USE POLICY</span>
+<span style="font-weight:800; font-size: 16px;">15. ACCEPTABLE USE POLICY</span>
 <br><br>
 <p style="text-align: justify;">
     Whenever you make use of a feature that allows you to upload content to the Platform, or to make contact with other users of the Platform, you must comply with the standards set out in our Acceptable Use Policy.
     You warrant that any such content does comply with those standards, and you are liable to us and indemnify us for any breach of that warranty. This means that you will be responsible for any loss or damage we suffer as a result of your breach of warranty.
 </p>
 
-<span style="margin-left: 20px;">16. PROCESSING PAYMENTS</span>
+<span style="font-weight:800; font-size: 16px;">16. PROCESSING PAYMENTS</span>
 <br><br>
 <p style="text-align: justify;">
     We may, in certain circumstances, collect payments from you via the Platform (including when you choose to purchase Paid Services).
@@ -222,7 +222,7 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
     We will not be responsible for any losses you may suffer if the payment method you use to make a payment on the Platform does not have sufficient funds to cover the full value of such payment.
 </p>
 
-<span style="margin-left: 20px;">17. OUR LIABILITY TO YOU</span>
+<span style="font-weight:800; font-size: 16px;">17. OUR LIABILITY TO YOU</span>
 <br><br>
 <p style="text-align: justify;">
     We do not intend to exclude or limit in any way our liability to you where it would be unlawful to do so.
@@ -244,13 +244,13 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
     </li>
 </ul>
 
-<span style="margin-left: 20px;">18. BREACH OF THESE TERMS OF USE</span>
+<span style="font-weight:800; font-size: 16px;">18. BREACH OF THESE TERMS OF USE</span>
 <br><br>
 <p style="text-align: justify;">
     When we consider, in our sole opinion, that you are in breach of any part of these Terms of Use, we may take such action as we deem appropriate in our sole discretion, including without limitation suspending or withdrawing your right to use the Platform or its Content, closing your Account and/or taking legal action against you.
 </p>
 
-<span style="margin-left: 20px;">19. REPORTING ILLEGAL OR INFRINGING CONTENT</span>
+<span style="font-weight:800; font-size: 16px;">19. REPORTING ILLEGAL OR INFRINGING CONTENT</span>
 <br><br>
 <p style="text-align: justify;">
     If you come across any Content on the Platform that you believe to be illegal, please contact us immediately at <a href="mailto:support@businesshub.at">support@businesshub.at</a> with full details of the illegal Content.
@@ -258,7 +258,7 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
 </p>
 
 
-<span style="margin-left: 20px;">20. GENERAL</span>
+<span style="font-weight:800; font-size: 16px;">20. GENERAL</span>
 <br><br>
 <p style="text-align: justify;">
     <strong>Links to third-party sites or content:</strong> Where the Platform contains links to other websites and/or third-party content (including in Listings), these links are provided for your information and convenience only. Such links should not be interpreted as approval by us of those linked websites or any content you may obtain from them. We have no control over the contents of such third-party websites, and exclude all liability in that respect.
