@@ -3,7 +3,7 @@
 <style>
     .term-text h1{
         margin-top: 0px !important;
-        margin-bottom: 0px !important;
+        margin-bottom: 26px !important;
     }
     .login-header{
         margin-top: -38px !important;
@@ -14,7 +14,7 @@
     <!-- Privacy Policy area start -->
     <section class="padtb50">
         <div class="container">
-            <div class="row mb-20px">
+            <div class="row ">
                 <div class="col-md-12 col-lg-12 col-xl-12 term-text">
                     <div class="login-header">
                         <a href="{{ env('BASE_URL') }}">
@@ -24,7 +24,9 @@
                         <h1 class="terms-h">Privacy Policy</h1>
                         {{-- <p>Share your mind with us!</p> --}}
                     </div>
-                    <h5 style=" color: #4A90E2;">What Privacy Policy Covers</h5>
+                    <h5 style=" color: #000;
+    font-weight: 900;
+    font-size: 16px;">What Privacy Policy Covers</h5>
 
 <p style="text-align: justify; color: #333;">
     Your privacy is extremely important to BusinessHub. We are committed to protecting your Personal Data (as that term is defined further below). We want to be transparent with you about how we collect and use your Personal Data in making our website and mobile applications ("Platform") available to you and tell you about your privacy rights and how the law protects you.
@@ -46,19 +48,27 @@
     This Privacy Policy may be published in different languages. If that is the case and there are any inconsistencies between versions, the English language version will prevail.
 </p>
 
-<h5 style="color: #4A90E2;">Who We Are and How to Contact Us</h5>
+<h5 style="color: #000;
+    font-weight: 900;
+    font-size: 16px;">Who We Are and How to Contact Us</h5>
 
-<h5 style="color: #4A90E2;">Who We Are</h5>
+<h5 style="color: #000;
+    font-weight: 900;
+    font-size: 16px;">Who We Are</h5>
 <p style="text-align: justify; color: #333;">
     BusinessHub operates the Platform and is therefore the controller of your Personal Data (referred to as either "BusinessHub", "we", "us" or "our" in this Privacy Policy).
 </p>
 
-<h5 style="color: #000;">How to Contact Us</h5>
+<h5 style="color: #000;font-weight: 900;
+    font-size: 16px;">How to Contact Us</h5>
 <p style="text-align: justify; color: #333;">
-    You can contact us by emailing: <a href="mailto:support@businesshub.at" style="color: #4A90E2;">support@businesshub.at</a>.
+    You can contact us by emailing: <a href="mailto:support@businesshub.at" style="color: #000;
+    font-weight: 900;
+    font-size: 16px;">support@businesshub.at</a>.
 </p>
 
-<h5 style="color: #000;">Personal Data We Collect from You</h5>
+<h5 style="color: #000;font-weight: 900;
+    font-size: 16px;">Personal Data We Collect from You</h5>
 <p style="text-align: justify; color: #333;">
     The Personal Data we collect directly from you is outlined in the table below.
 </p>
@@ -66,13 +76,15 @@
 <p style="text-align: justify; color: #333;">
     "Personal Data" is information about an individual from which that individual is either directly identified or can be identified. It does not include ‘anonymised data’ (which is information where the identity of an individual has been permanently removed). However, it does include ‘pseudonymised data’ (which is information that alone doesn’t identify an individual but, when combined with additional information, could be used to identify an individual).
 </p>
-<h3 style="color: #4A90E2;">Category of Personal Data</h3>
+<h3 style="color: #000;
+    font-weight: 900;
+    font-size: 16px;">Category of Personal Data</h3>
 
 <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
     <thead>
         <tr>
-            <th style="background-color: #f2f2f2; color: #333; padding: 10px; text-align: left;">Category of Personal Data</th>
-            <th style="background-color: #f2f2f2; color: #333; padding: 10px; text-align: left;">What This Means</th>
+            <th style="background-color: #f2f2f2; color: #333; padding: 10px; text-align: left;    white-space: nowrap;">Category of Personal Data</th>
+            <th style="background-color: #f2f2f2; color: #333; padding: 10px; text-align: left;    white-space: nowrap;">What This Means</th>
         </tr>
     </thead>
     <tbody>
@@ -119,12 +131,14 @@
 </table>
 
 
-<h5 style="color: #000;">Aggregated Data</h5>
+<h5 style="color: #000;font-weight: 900;
+    font-size: 16px;">Aggregated Data</h5>
 <p style="color: #333;">
     We also collect, use and share ‘aggregated data’, such as statistical or demographic data for a number of purposes. Aggregated data may be derived from your Personal Data, but once in aggregated form it will no longer constitute Personal Data as this data does not directly or indirectly reveal your identity. For example, we may aggregate your Behavioural Data to calculate the percentage of users accessing a specific Platform feature. However, if we combine or connect aggregated data with your Personal Data so that it can directly or indirectly identify you, we treat the combined data as Personal Data which will be used in accordance with this Privacy Policy.
 </p>
 
-<h5 style="color: #000;">Special Categories of Personal Data</h5>
+<h5 style="color: #000;font-weight: 900;
+    font-size: 16px;">Special Categories of Personal Data</h5>
 <p style="color: #333;">
     We do not knowingly collect any ‘special categories of personal data’ about you (this includes, for example, details about your race or ethnicity, religious or philosophical beliefs, political opinions, information about your health, genetic and/or biometric data, and information about criminal offences and convictions).
 </p>
@@ -132,11 +146,14 @@
     We advise you not to share any of that data with us (for example, through our support chat function) or other users of the Platform (for example, through the user-to-user chat function). However, should you choose to share such data with us or other users of the Platform, you consent to us processing such data in accordance with this Privacy Policy.
 </p>
 
-<h5 style="color: #000;">What Happens If You Refuse to Provide Necessary Personal Data?</h5>
+<h5 style="color: #000;font-weight: 900;
+    font-size: 16px;">What Happens If You Refuse to Provide Necessary Personal Data?</h5>
 <p style="color: #333;">
     You do not have to provide any Personal Data to us. However, where we need to process your Personal Data either to grant you access to the Platform or to comply with applicable law, and you fail to provide that Personal Data when requested, we may not be able to provide you access to the Platform. For example, we need your email address in order to register your account on the Platform.
 </p>
-<h5 style="color: #4A90E2;">Personal Data We Collect from Other Sources</h5>
+<h5 style="color: #000;
+    font-weight: 900;
+    font-size: 16px;">Personal Data We Collect from Other Sources</h5>
 <p style="color: #333;">
     In addition to the Personal Data that we collect directly from you (as described in the section immediately above this one), we also collect certain of your Personal Data from third party sources. These sources are set out in the table below.
 </p>
@@ -144,8 +161,12 @@
 <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
     <thead>
         <tr>
-            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #4A90E2;">Third Party Source</th>
-            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #4A90E2;">Categories of Personal Data</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #000;
+    font-weight: 900;
+    font-size: 16px;">Third Party Source</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #000;
+    font-weight: 900;
+    font-size: 16px;">Categories of Personal Data</th>
         </tr>
     </thead>
     <tbody>
@@ -168,12 +189,14 @@
     </tbody>
 </table>
 
-<h5 style="color: #000;">How We Use Your Personal Data and Why</h6>
+<h5 style="color: #000;font-weight: 900;
+    font-size: 16px;">How We Use Your Personal Data and Why</h6>
 <p style="color: #333;">
     We will only use your Personal Data for the purposes for which we collected it as listed below, unless we reasonably consider that we need to use it for another reason and that reason is compatible with the original purpose. If we need to use your Personal Data for an unrelated purpose, we will update this Privacy Policy and we will explain the legal basis which allows us to do so (please refer to the ‘Changes to this Privacy Policy’ section further below).
 </p>
 
-<h5 style="color: #000;">What Is Our ‘Legal Basis’ for Processing Your Personal Data?</h5>
+<h5 style="color: #000;font-weight: 900;
+    font-size: 16px;">What Is Our ‘Legal Basis’ for Processing Your Personal Data?</h5>
 <p style="color: #333;">
     In respect of each of the purposes for which we use your Personal Data, applicable privacy laws require us to ensure that we have a ‘legal basis’ for that use. Most commonly, we will rely on one of the following legal bases:
 </p>
@@ -187,14 +210,24 @@
 </p>
 
 
-<h3 style="color: #4A90E2;">Purpose, Categories of Personal Data, and Legal Basis</h3>
+<h3 style="color: #000;
+    font-weight: 900;
+    font-size: 16px;">Purpose, Categories of Personal Data, and Legal Basis</h3>
 <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
     <thead>
         <tr>
-            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #4A90E2;">Purpose</th>
-            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #4A90E2;">Categories of Personal Data</th>
-            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #4A90E2;">Why We Do This</th>
-            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #4A90E2;">Our Legal Basis</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #000;
+    font-weight: 900;
+    font-size: 16px;">Purpose</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #000;
+    font-weight: 900;
+    font-size: 16px;">Categories of Personal Data</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #000;
+    font-weight: 900;
+    font-size: 16px;">Why We Do This</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #000;
+    font-weight: 900;
+    font-size: 16px;">Our Legal Basis</th>
         </tr>
     </thead>
     <tbody>
@@ -208,10 +241,10 @@
             <td style="border: 1px solid #ddd; padding: 8px;">Verification</td>
             <td style="border: 1px solid #ddd; padding: 8px;">• Identity Data<br>• Contact Data</td>
             <td style="border: 1px solid #ddd; padding: 8px;">To verify your account through ‘BusinessHub Verified’ if you choose to do so.</td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Contractual Necessity</td>
+            <td style="border: 1px solid #ddd; padding: 8px;white-space: nowrap;">Contractual Necessity</td>
         </tr>
         <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">Operation of our services</td>
+            <td style="border: 1px solid #ddd; padding: 8px;white-space: nowrap;">Operation of our services</td>
             <td style="border: 1px solid #ddd; padding: 8px;">• Identity Data<br>• Contact Data<br>• Location Data<br>• Listings Data<br>• Chat Data<br>• Call Data</td>
             <td style="border: 1px solid #ddd; padding: 8px;">To operate the Platform and enable your use of the Platform, including by allowing you to interact with other users of the Platform.</td>
             <td style="border: 1px solid #ddd; padding: 8px;">Contractual Necessity</td>
@@ -243,7 +276,9 @@
     </tbody>
 </table>
 
-<h5 style="color: #4A90E2;">Who We Share Your Personal Data With</h5>
+<h5 style="color: #000;
+    font-weight: 900;
+    font-size: 16px;">Who We Share Your Personal Data With</h5>
 <p style="color: #333;">
     The table below describes who we may share your Personal Data with and why we share it.
 </p>
@@ -251,13 +286,17 @@
 <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
     <thead>
         <tr>
-            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #4A90E2;">Recipients</th>
-            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #4A90E2;">Why We Share It</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #000;
+    font-weight: 900;
+    font-size: 16px;">Recipients</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #000;
+    font-weight: 900;
+    font-size: 16px;">Why We Share It</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">Other users of the Platform</td>
+            <td style="border: 1px solid #ddd; padding: 8px;white-space: nowrap;">Other users of the Platform</td>
             <td style="border: 1px solid #ddd; padding: 8px;">We need to share some of your Personal Data with other users of the Platform when you wish to transact with them through the Platform. By placing an advert or submitting a review/rating on our Platform, that information and any Personal Data associated with your account profile (including your username, profile picture and BusinessHub Verified status) will be publicly accessible to, and may be copied and shared externally by, all other users of our Platform. Please ensure that you are comfortable with such information being publicly available before submitting it on our Platform.</td>
         </tr>
         <tr>
@@ -279,12 +318,14 @@
     </tbody>
 </table>
 
-<h5 style="color: #000;">Data Transfers</h5>
+<h5 style="color: #000;font-weight: 900;
+    font-size: 16px;">Data Transfers</h5>
 <p style="color: #333;">
     We may transfer your Personal Data to jurisdictions outside of the country in which you are located that may not be deemed to provide the same level of data protection as your home country, as necessary for the purposes set out in this Privacy Policy. We will always ensure that any such cross-border transfers of your Personal Data comply with applicable requirements.
 </p>
 
-<h5 style="color: #000;">How We Keep Your Personal Data Secure</h3>
+<h5 style="color: #000;font-weight: 900;
+    font-size: 16px;">How We Keep Your Personal Data Secure</h3>
 <p style="color: #333;">
     We have put in place appropriate security measures to prevent your Personal Data from being accidentally lost or altered, or used or accessed in an unauthorized way. We limit access to your Personal Data to those employees and other staff who have a business need to have such access. All such persons are subject to a contractual duty of confidentiality.
 </p>
@@ -292,16 +333,20 @@
     We have put in place procedures to deal with any actual or suspected Personal Data breach. In the event of any such breach, we have systems in place to mitigate any impact to your privacy and to work with relevant regulators.
 </p>
 
-<h5 style="color: #000;">How Long We Store Your Personal Data</h3>
+<h5 style="color: #000;font-weight: 900;
+    font-size: 16px;">How Long We Store Your Personal Data</h3>
 <p style="color: #333;">
     We will only retain your Personal Data for as long as we reasonably need to use it for the purposes set out in this Privacy Policy, unless a longer retention period is required by applicable law (for example, for regulatory purposes).
 </p>
 <p style="color: #333;">
     Under some circumstances, we may anonymize your Personal Data so that it can no longer be associated with you. We may retain such anonymized data indefinitely. Our data retention policies are reviewed at regular intervals and comply with all applicable requirements.
 </p>
-<h5 style="color: #4A90E2;">Your Rights in Relation to Your Personal Data</h5>
+<h5 style="color: #000;
+    font-weight: 900;
+    font-size: 16px;">Your Rights in Relation to Your Personal Data</h5>
 
-<h5 style="color: #000;">Your Rights</h5>
+<h5 style="color: #000;font-weight: 900;
+    font-size: 16px;">Your Rights</h5>
 <p style="color: #333;">
     Under some circumstances, you may have certain rights in relation to your Personal Data. For example, you may have the right to:
 </p>
@@ -317,7 +362,8 @@
     Please note that not all of the rights listed above may be available to you, and some rights may only be exercisable in specific circumstances.
 </p>
 
-<h5 style="color: #000;">How to Exercise Your Rights</h4>
+<h5 style="color: #000;font-weight: 900;
+    font-size: 16px;">How to Exercise Your Rights</h4>
 <p style="color: #333;">
     If you want to exercise any of the rights described above, please contact us.
 </p>
@@ -331,7 +377,8 @@
     Although we will typically not charge a fee for exercising your rights described above, we reserve the right to charge a reasonable fee in some circumstances (for example, if your request is unreasonable or if you submit an excessive number of requests).
 </p>
 
-<h5 style="color: #000;">Complaints</h4>
+<h5 style="color: #000;font-weight: 900;
+    font-size: 16px;">Complaints</h4>
 <p style="color: #333;">
     If you would like to make a complaint regarding this Privacy Policy or our practices in relation to your Personal Data, please contact us. We will reply to your complaint as soon as we can.
 </p>
@@ -339,27 +386,31 @@
     If you are unsatisfied with our response to any issue that you raise with us, you may have the right to submit a complaint to the data protection authority in your jurisdiction.
 </p>
 
-<h5 style="color: #000;">Marketing Communications</h5>
+<h5 style="color: #000;font-weight: 900;
+    font-size: 16px;">Marketing Communications</h5>
 <p style="color: #333;">
     You can ask us to stop sending you marketing messages at any time by logging in to the Platform and checking or unchecking relevant boxes to adjust your marketing preferences, or by following the "Unsubscribe" link included at the bottom of any marketing email you receive from us.
 </p>
 
-<h5 style="color: #000;">Our Policy on Minors</h5>
+<h5 style="color: #000;font-weight: 900;
+    font-size: 16px;">Our Policy on Minors</h5>
 <p style="color: #333;">
     This Platform is not intended to be used by minors, and we do not actively monitor the age of our users. However, if you become aware that a minor has been using the Platform in breach of this restriction, please contact us if you would like us to remove their Personal Data from our systems.
 </p>
 
-<h5 style="color: #000;">Third Party Links</h4>
+<h5 style="color: #000;font-weight: 900;
+    font-size: 16px;">Third Party Links</h4>
 <p style="color: #333;">
     This Platform may include links to third party websites and applications. Clicking on those links will take you off-Platform and may allow third parties to collect or share your Personal Data. We do not control these third-party websites and applications and are not responsible for their privacy practices. When you leave our Platform, we encourage you to read the privacy policy of every website and application you visit.
 </p>
 
-<h5 style="color: #000;">Changes to This Privacy Policy</h5>
+<h5 style="color: #000;font-weight: 900;
+    font-size: 16px;">Changes to This Privacy Policy</h5>
 <p style="color: #333;">
     We reserve the right to update this Privacy Policy at any time, with or without notice to you. Where that is the case, we will update this page to display the revised Privacy Policy and may also under certain circumstances notify you (for example, by email). Any revisions to this Privacy Policy will be effective immediately once posted on this page.
 </p>
 
-<p style="color: #333;"><strong>Last Revised Date: November 1, 2024</strong></p>
+<p style="color: #333;">Last Revised Date:<strong> November 1, 2024</strong></p>
 
 
                     <!-- Privacy Policy text finish -->

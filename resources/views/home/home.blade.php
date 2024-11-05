@@ -184,9 +184,9 @@
     <section class="list">
         <div class="container">
             <div class="col-md-12 m-10" style="min-width: 92rem;">
-                <h4>
+                <h5>
                     <b style="margin-left: 0rem;">Popular Categories</b>
-                </h4>
+                </h5>
                 <div class="row" style="margin-left: -13px !important;margin-bottom: -10px;">
                     @foreach($categories as $category)
                         <div class="col-md-3 cat mb-4">

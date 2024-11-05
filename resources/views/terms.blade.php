@@ -308,7 +308,7 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
     These Business Account Terms are in addition to, and supplement, the BusinessHub Platform Terms of Use. All terms capitalised but not defined in these Business Account Terms will have the meaning given to them in the BusinessHub Platform Terms of Use. In case of any conflict or inconsistency between these Business Account Terms and the BusinessHub Platform Terms of Use, these Business Account Terms will take precedence.
 </p>
 
-<h6>1. DESCRIPTION OF THE FEATURE</h6>
+<h6 style="font-weight:800; font-size: 16px;">1. DESCRIPTION OF THE FEATURE</h6>
 <p style="text-align: justify;">
     BusinessHub may from time to time make available to you a ‘Verified Business Account’ feature (the "Feature"). This Feature allows business users of the Platform to secure a ‘Verified Business’ status. The perks associated with this Feature may change from time to time and will be described on the Platform at all relevant times (please refer to this page).
 </p>
@@ -316,7 +316,7 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
     As part of the Feature, you may have the ability to display your business logo and a description of your business on your BusinessHub storefront and on your Listings. You may also provide a link to your website. You will be asked to upload that content to the Platform. You must ensure that such content is accurate, appropriate, complies with our Privacy Policy and does not infringe the rights of a third-party (including privacy rights and intellectual property rights). You must only provide content that relates to your business.
 </p>
 
-<h6>2. SUBSCRIBING TO THE FEATURE</h6>
+<h6 style="font-weight:800; font-size: 16px;">2. SUBSCRIBING TO THE FEATURE</h6>
 <p style="text-align: justify;">
     Business users of the Platform may subscribe to the Feature at any time by following the instructions on the Platform.
 </p>
@@ -334,7 +334,7 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
 </p>
 
 
-<h6>3. PAYMENT OF SUBSCRIPTION FEES</h6>
+<h6 style="font-weight:800; font-size: 16px;">3. PAYMENT OF SUBSCRIPTION FEES</h6>
 <p style="text-align: justify;">
     By purchasing a subscription for the Feature, you agree to pay all applicable subscription fees to Dubizzle (the "Subscription Fees"), as described at checkout and as may be updated from time to time. The Subscription Fees will be debited using your chosen payment method at the beginning of each Billing Cycle.
 </p>
@@ -348,7 +348,7 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
     In the event we are unable to charge the Subscription Fees to your payment method in any Billing Cycle, we reserve the right to suspend your access to the Feature and/or suspend your BusinessHub account until payment of the outstanding Subscription Fees.
 </p>
 
-<h6>4. PROVIDING KYC DOCUMENTS</h6>
+<h6 style="font-weight:800; font-size: 16px;">4. PROVIDING KYC DOCUMENTS</h6>
 <p style="text-align: justify;">
     In order to subscribe to the Feature, BusinessHub needs to ensure that you operate your BusinessHub account in a business capacity. As such, BusinessHub requires you to provide a copy of your business licence (or equivalent document), and may request additional documents or information from you. By submitting such documents and information to BusinessHub, you warrant that these are genuine, accurate and up-to-date.
 </p>
@@ -356,12 +356,12 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
     All documents and information supplied to BusinessHub will be handled in accordance with our Privacy Policy.
 </p>
 
-<h6>5. WE DO NOT GUARANTEE THE PERFORMANCE OF THE FEATURE</h6>
+<h6 style="font-weight:800; font-size: 16px;">5. WE DO NOT GUARANTEE THE PERFORMANCE OF THE FEATURE</h6>
 <p style="text-align: justify;">
     The Feature is designed to allow business users of the Platform to be identified as such, potentially increasing trust from other users and visibility for your Listings. However, you acknowledge and agree that BusinessHub does not provide any guarantee whatsoever as to the performance of the Feature and/or its impact on the success of your Listings.
 </p>
 
-<h6>6. WE MAY MODIFY OR DISCONTINUE THE FEATURE AT ANY TIME</h3>
+<h6 style="font-weight:800; font-size: 16px;">6. WE MAY MODIFY OR DISCONTINUE THE FEATURE AT ANY TIME</h3>
 <p style="text-align: justify;">
     BusinessHub may, with or without notice to you, substitute, replace or remove features and functionalities from the Feature. Such changes may include changes to the operation and/or look and feel of the Feature, or the addition of new features or functionalities. Please note that you are free to cancel your subscription at any time.
 </p>
@@ -369,12 +369,13 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
     BusinessHub may also discontinue the Feature at any time in its sole discretion. If that happens, we will inform you via email and automatically cancel your subscription.
 </p>
 
-<h6>7. WE MAY MAKE CHANGES TO THESE BUSINESS ACCOUNT TERMS</h>
+<h6 style="font-weight:800; font-size: 16px;">7. WE MAY MAKE CHANGES TO THESE BUSINESS ACCOUNT TERMS</h>
 <p style="text-align: justify;">
     We may amend these Business Account Terms from time to time, with or without notice to you. The new version of these Business Account Terms will be made available on this page.
 </p>
 
-<h6 style="text-align: center;">Last Revised Date: November 1, 2024</h6>
+
+<h6 style="margin-top: 28px; ">Last Revised Date: <span style="font-weight:800 "> November 1, 2024</span></h6>
 
                 </div>
             </div>
