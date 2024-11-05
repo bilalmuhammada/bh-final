@@ -78,7 +78,7 @@ select>option:hover{
             color: #000 !important
         }
         #sortDropdown{
-            width: 117% !important;
+            width: 76% !important;
             /* font-weight: 600; */
 
             font-size: 13px;
@@ -110,7 +110,7 @@ width: 44% !important;
     margin-left: -24px;
     border: 1px solid rgb(194, 196, 199);
     display: flex !important;
-    width: 75rem !important;
+    width: 77rem !important;
         }
         .form:hover{
             border: 1px solid blue !important;
@@ -150,6 +150,9 @@ select {
     </style>
     <!--------ad area --------->
     <section>
+        {{-- @php
+        dd('jj');
+        @endphp --}}
         <!-- <div class="container slider-area"> -->
         <div class="cont-w slider-area desktop-view">
             <div id="demo" class="carousel slide" data-ride="carousel">
@@ -190,7 +193,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
                aria-controls="multiCollapseExample1" style="color:#000;">
                 <div class="col-md-12" style="text-align: center;"><span style="font-size: 14px;"><b>City</b></span></div>
-                <div class="col-md-12" style="margin-top: 12px;" ><span style="font-size: 13px;color:#000;margin-left: 12px;">{{ $selected_city_name }}</span></div>
+                <div class="col-md-12" style="margin-top: 12px;" ><span style="font-size: 16px;color:#252525;margin-left: 12px;">{{ $selected_city_name }}</span></div>
             </a>
         </div>
 
@@ -199,7 +202,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;">Keyword</label>
             <div class="input-group">
                 <input type="text" class="form-control filter1" id="keyword" style="margin-top: -10px; font-size: 16px;" placeholder="Search anything in {{ $category_name->name }}">
-                <span style="margin-top: -3px;font-weight: bolder; color: goldenrod;" id="searchIcon">
+                <span style="margin-top:0px;font-weight: bolder; color: goldenrod;" id="searchIcon">
                     <i class="fa fa-search"></i> <!-- Bootstrap Icons -->
                 </span>
             </div>
@@ -219,19 +222,19 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
 
        
 
-        <div class="col-md-8 border-color" style="border-right: 2px solid #eee; text-align: center;">
+        <div class="col-md-7 border-color" style="border-right: 2px solid #eee; text-align: center;">
             <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px;">Neighborhood</label>
             <div class="input-group">
                 <input type="text" class="form-control filter1" style="margin-top: -10px; font-size: 16px;" id="neighborhood" placeholder="Enter location">
                 <span class="" id="locationIcon">
-                    <i class="fa fa-map-marker" style="margin-top: -5px; color:red;"></i> <!-- Bootstrap Icons location marker -->
+                    <i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i> <!-- Bootstrap Icons location marker -->
                 </span>
             </div>
         </div>
 
         
 
-        <div class="col-md-4 border-color" style="border-right:2px solid #eee;" id="priceArea1">
+        <div class="col-md-5 border-color" style="border-right:2px solid #eee;" id="priceArea1">
             <a data-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false"
                aria-controls="multiCollapseExample4" style="color:#000;">
                 <div class="col-md-12" style="text-align: center;"><span style="font-size: 14px;"><b>Price</b></span></div>
@@ -248,8 +251,8 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                 {{-- </div> --}}
         </div>
 
-        <div class="col-md-3 border-color" id="filtersAreaw1">
-            <div class="col-md-12" style="text-align: end;">
+        <div class="col-md-4 border-color" id="filtersAreaw1">
+            <div class="col-md-10" style="text-align: center;">
                 <span style="font-size: 14px;"><b>Sort</b></span>
             </div>
             <select class="form-select form-control "  id="sortDropdown" onchange="window.location.href=this.value" >
@@ -269,7 +272,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
 
             {{-- </div> --}}
             <!----------->
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col">
                     <div class="collapse multi-collapse multiCollapse" id="multiCollapseExample1"
                          style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;width:240px;position:absolute;z-index:999;background-color: white;width:100%;">
@@ -369,7 +372,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                 </div>
                 
 
-            </div>
+            </div> --}}
             <!----------->
         </div>
     </section>
@@ -439,7 +442,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                     <p style="font-size: 13px;margin-bottom: 6px;">{{ $ad->category_name }} <span style="font-size: 16px;">&#9679;</span> {{ $ad->subcategory_name }}</p>
                                     <h3 style="font-weight: bold;font-size:18px;">AED {{ \App\Helpers\SiteHelper::priceFormatter($ad->price, request()->currency) }}</h3>
                                     
-                                        <p style="margin-top:5.3rem;font-size: 13px;"><i class="fa fa-map-marker" style="color: red;"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span  style="margin-top: 12px;">24 May 2024</span></p>
+                                        <p style="margin-top:5.8rem;font-size: 13px;margin-bottom: 0.4rem;"><i class="fa fa-map-marker" style="color: red;"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span  style="margin-top: 12px;">24 May 2024</span></p>
                                     
                                     </div>
                                     

@@ -169,8 +169,9 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Date of Birth:</b></div>
                                     <div class="col-md-8">
-                                        <input type="text" name="dob" id="datepicker" class="form-control form-control1 login-user email"
-                                        placeholder="" aria-label="Email" aria-describedby="basic-addon1"
+                                        <input type="text" name="dob" id="datepicker12" class="form-control datepicker12 form-control1 login-user email"
+                                       
+                                
                                         onfocus="this.value=''">
                                     </div>
                                 </div>
@@ -238,7 +239,7 @@ width: 225px !important;
                                          {{-- placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" --}}
                                          style="border: 1px solid #999;">
                                          <div class="input-group-append">
-                                            <span class="toggle-password" onclick="togglePassword('password')" style="cursor: pointer;">👁️</span>
+                                            <span class="toggle-password"  onclick="togglePassword('password')" style="cursor: pointer;top: 60% !important;">👁️</span>
                                         </div>
                                     </div>
                                 </div>
@@ -249,7 +250,7 @@ width: 225px !important;
                                     <div class="col-md-8">
                                         <input name="password" id="confirmpassword" type="password" class="form-control form-control1" placeholder="" style="border: 1px solid #999;">
                                         <div class="input-group-append">
-                                            <span class="toggle-password" onclick="togglePassword('confirmpassword')" style="cursor: pointer;">👁️</span>
+                                            <span class="toggle-password" onclick="togglePassword('confirmpassword')" style="cursor: pointer;top: 60% !important;">👁️</span>
                                         </div>
                                     </div>
                                 </div>
@@ -440,23 +441,23 @@ width: 225px !important;
 
     </div>
 @endsection
+
 @section('page_scripts')
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script type="text/javascript">
+{{-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> --}}
+  {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
+  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script> --}}
+  {{-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> --}}
+    <script >
  
-$(function() {
-    $("#datepicker").datepicker({
-        format:'dd-mm-yy',
+
+$(document).ready(function(){
+   
+    $("#datepicker12").datepicker({
+        format:'dd.mm.yy',
         changeMonth: true,
        changeYear: true
        
     });
-});
-$(document).ready(function(){
-
     $(".country_dropdown_user").select2({
             // templateSelection: formatCountry,
             // templateResult: formatCountry,
@@ -464,22 +465,7 @@ $(document).ready(function(){
         });
 });
 
-function validateInputText(input) {
-    // Remove any character that is not a letter (A-Z, a-z) or space
-       input.value = input.value.replace(/[^a-zA-Z\s]/g, '');
-}
-function togglePassword(fieldId) {
-    const passwordField = document.getElementById(fieldId);
-    const icon = passwordField.nextElementSibling.querySelector(".toggle-password");
 
-    if (passwordField.type === "password") {
-        passwordField.type = "text";
-        icon.textContent = "🙈"; // Change the icon to "hide"
-    } else {
-        passwordField.type = "password";
-        icon.textContent = "👁️"; // Change the icon to "show"
-    }
-}
 
 document.getElementById('change-photo-link').addEventListener('click', function() {
     document.getElementById('profile_image').click();
