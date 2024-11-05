@@ -316,7 +316,9 @@ class SiteHelper
 
     public static function getLoginUserId()
     {
-//        return 2;
+      return 2;
+
+
         if (session()->has('user')) {
             return session()->get('user')['id'];
         } else {

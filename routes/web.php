@@ -159,6 +159,8 @@ Route::get('/machinery-supplies-form', function(){
 
 //chat route start here
 Route::get('/chats/', [\App\Http\Controllers\ChatController::class, 'index']);
+Route::post('/chat/favorite',[\App\Http\Controllers\ChatController::class,'toggleFavorite'])->name('chat.favorite');
+Route::post('/chat/block', [\App\Http\Controllers\ChatController::class,'toggleBlock'])->name('chat.block');
 
 
 

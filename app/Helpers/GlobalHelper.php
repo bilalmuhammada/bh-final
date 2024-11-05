@@ -13,6 +13,8 @@ function getDropdownMenu($role)
     return $DropdownMenus;
 }
 
+
+
 function getCategories()
 {
     $Categories = \App\Models\Category::where('status', 'active')->orderBy('sequence', 'asc')->get();

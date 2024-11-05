@@ -73,6 +73,23 @@ class RecordHelper
 
         return $currency;
     }
+    
+    public static function getSafeValueFromObject($object, $index, $default = '')
+    {
+        
+    //   dd($object);
+        // Check if the object is null or not an object
+        if (empty($object) || !is_object($object)) {
+            return $default;
+        }
+
+        // Check if the index exists and is not null
+        if (isset($object->$index) && !empty($object->$index)) {
+            return $object->$index;
+        }
+
+        return $default;
+    }
 
     public static function getSubCategories($category_id)
     {
@@ -114,6 +131,7 @@ class RecordHelper
         return Listing::with(['attachments', 'created_by_user'])->where('created_by', $user_id)->orderBy('name')->get();
     }
 
+   
     public static function getSearches()
     {
         return Search::where('searched_by', Auth::id() ?? Session::get('user')->id)->orderBy('created_at')->get();

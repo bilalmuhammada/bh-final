@@ -13,12 +13,26 @@ class ChatController extends Controller
 {
     private $logged_in_user_id = 1;
 
-    public function index()
-    {
-
+    public function index(Request $request)
+    {  
+        
+        
+        if($request->i){
+        Chat::updateOrCreate(
+            ['second_user_id'=>$request->i],
+            ['first_user_id'=>session()->get('User')['id'],'status'=> 'accepted', 'initiated_by'=>session()->get('User')['id']]
+        );
+    }
+      
         $chats = Chat::with(['messages'])
             ->where('first_user_id', SiteHelper::getLoginUserId())
             ->orWhere('second_user_id', SiteHelper::getLoginUserId());
+
+    //   dd();
+        if ($request->i) {
+                $chats = $chats->where('second_user_id', '=', $request->i);
+        } 
+        // dd( $chats );
 
         if (session()->get('role') == 'vendor') {
             $chats = $chats->where('status', '=', 'accepted');
@@ -26,16 +40,28 @@ class ChatController extends Controller
             $chats = $chats->where('status', '!=', 'rejected');
         }
 
-        $chats = $chats->get();
-
+        $chats = $chats->orderBy('created_at','desc')
+        ->get();
+    //    dd( $chats,session()->get('role'));
         foreach ($chats as $chat) {
+            $groupedMessages = [];
             if ($chat->messages) {
                 foreach ($chat->messages as $message) {
+                    $dateKey = Carbon::parse($message->sended_at)->format('d-m-Y');
+                    // Log the date key for debugging
+                    \Log::info('Date Key: ' . $dateKey);
+                    $groupedMessages[$dateKey][] = $message;
                     $message->update(['is_delivered' => true]);
                 }
+        
+                // Sort the messages by the date key
+                ksort($groupedMessages);
+                $chat->sorted_messages = $groupedMessages;
+        
             }
         }
 
+       
         return view('chats.list')->with([
             'chats' => $chats,
             'login_user_id' => SiteHelper::getLoginUserId()

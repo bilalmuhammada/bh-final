@@ -1,242 +1,594 @@
 @extends('layout.master')
-@section('content')
-    @php
-        $categories = \App\Helpers\RecordHelper::getCategories();
-        $catgories_for_search = $categories->random()->take(5)->get();
-    @endphp
+@php
+$categories = \App\Helpers\RecordHelper::getCategories();
 
-    <style>
+$catgories_for_search = $categories->random()->take(5)->get();
+@endphp
+<style>/* Style for the chat users list */
+    .chat-users-list {
+        overflow-y: auto;
+        max-height: 400px; /* Adjust as needed */
+        padding: 10px;
+        /* border: 1px solid #ddd; */
+        border-radius: 5px;
+    }
+    .emojionearea .emojionearea-button>div, .emojionearea .emojionearea-picker .emojionearea-wrapper:after{
+        filter: sepia(22%) saturate(904%) hue-rotate(12deg) !important;
+    }
+    .emojionearea.emojionearea-inline>.emojionearea-button{
+        right: 15px !important;
+        top:7px !important;
+    }
+    .emojionearea.focused {
+    border-color: blue !important;
+    outline: 0;
+  
+    box-shadow: none  !important;
+}
+
+    .emojionearea {
+    border-color: goldenrod !important;
+    outline: 0;
+  
+    box-shadow: none  !important;
+}
+
+    .emojionearea.emojionearea-inline>.emojionearea-editor{
+    top: 5px !important;
+    
+    }
+    .chat-scroll {
+        padding-right: 10px;
+    }
+    
+    .chat-item {
+        margin-bottom: 15px;
+    }
+    
+    .chat-title {
+        text-decoration: none;
+        color: #333;
+        display: flex;
+        align-items: center;
+        transition: background-color 0.3s;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    
+    .chat-title:hover {
+        background-color: #f0f0f0;
+    }
+    ::-webkit-scrollbar {
+  width: 12px; /* You can adjust this value based on your preference */
+}
+
+/* Define the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #997045;
+  border-radius: 34px;
+}
+
+/* Define the scrollbar track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+    .chat-title:not(:last-child) {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
+    
+    .user-info {
+        flex-grow: 1;
+    }
+    
+    .user-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    
+    .user-last-chat {
+        color: #666;
+        font-size: 14px;
+    }
+    .emojionearea.emojionearea-inline {
+
+    border-radius: 25px !important;
+}
+.mgn-send-color{
+color:#0686ee !important;
+}
+    
+.mgn-send-color:hover{
+color: goldenrod !important;
+}
+#select2-language_dropdown-container {
+    margin-left: -22px !important;
+}
+    .chat-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    
+    .last-chat-time {
+        color: #999;
+        font-size: 12px;
+    }
+    
+    .unread-badge {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+    }
+    
+    .unread-count {
+        background-color: #ffc107;
+        color: #333;
+        font-size: 12px;
+        padding: 3px 8px;
+        border-radius: 10px;
+    }
+    .input-msg-send{
+        width: 99% !important;
+    }
+    .emojionearea-editor{
+        left: 19px !important;
+    }
+    /* Professional Dropdown Styling */
 
 
-        /* Style the tab */
-        .tabx {
-            float: left;
-            border: 1px solid #ccc;
-            background-color: #f1f1f1;
-            border-radius: 5px 0px 0px 5px;
-            width: 30%;
-            height: 500px;
-        }
+#filter-dropdown:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
 
-        /* Style the buttons inside the tab */
-        .tabx button {
-            display: block;
-            background-color: inherit;
-            color: black;
-            padding: 6px 16px;
-            width: 100%;
-            border: none;
-            border-bottom: 1px solid #eee;
-            outline: none;
-            text-align: left;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 17px;
-            margin: 5px 0px;
-        }
+#filter-dropdown:hover {
+    border-color: #80bdff;
+}
 
-        /* Change background color of buttons on hover */
-        .tabx button:hover {
-            background-color: #ddd;
-        }
+/* Customize the dropdown arrow */
+select::-ms-expand {
+    display: none;
+}
 
-        /* Create an active/current "tab button" class */
-        .tabx button.active {
-            background-color: #ccc;
-        }
-
-        /* Style the tab content */
-        .tabcontent {
-            float: left;
-            padding: 0px 12px;
-            border: 1px solid #ccc;
-            width: 70%;
-            border-left: none;
-            height: 500px;
-        }
-
-        .image-upload > input {
-            display: none;
-        }
     </style>
+@section('content')
+    <div class="content-chat"
+         style="background-color:#eee;min-height: 500px !important;padding-top:5px;padding-bottom:10px;">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- <div style="padding-bottom:2px;"><button class="btn btn-danger" id="deleteSelected"><i class="fa fa-trash"></i></button>
+                <input type="checkbox" style="margin-left:26.5%;" id="check-all">&nbsp;ALL
 
-    <div class="cont-w">
-        <div class="tabx">
-            <div style="padding:10px 0px 0px 10px;">
-                <spin><b>INBOX</b></spin>
-            </div>
-            <hr>
-            {{--            <div class="col-md-12">--}}
-            {{--                <div class="row">--}}
-            {{--                    <span style="font-size:13px;padding: 0px 10px;">Quick Filters</span>--}}
-            {{--                </div>--}}
-            {{--                <div class="row">--}}
-            {{--                    <div style="padding:0px 10px;">--}}
-            {{--                        <div class="row" style="padding:0px 10px;">--}}
-            {{--                            <div--}}
-            {{--                                style="text-align:center;border-radius: 50px;border:1px solid #0000ff;background:none;padding:2px 5px;font-size:12px;margin-right:6px;">--}}
-            {{--                                <a href="#">All</a></div>--}}
-            {{--                            <div--}}
-            {{--                                style="text-align:center;border-radius: 50px;border:1px solid #0000ff;background:none;padding:2px 5px;font-size:12px;margin-right:6px;">--}}
-            {{--                                <a href="#">Unread</a></div>--}}
-            {{--                            <div--}}
-            {{--                                style="text-align:center;border-radius: 50px;border:1px solid #0000ff;background:none;padding:2px 5px;font-size:12px;margin-right:6px;">--}}
-            {{--                                <a href="#">Important</a></div>--}}
-            {{--                        </div>--}}
-            {{--                    </div>--}}
-            {{--                </div>--}}
-            {{--            </div>--}}
+                </div> -->
+                <div class="col-md-12">
+                    <div class="chat-window">
 
-            @forelse($chats as $chat)
-                <button
-                    class="tablinks media chat-title @if(\App\Helpers\SiteHelper::getSafeValueFromObject($chat->other_user, 'id') == request()->u) chat-with-user-{{ request()->u }} @endif"
-                    onclick="openCity(event, '{{ \App\Helpers\SiteHelper::getSafeValueFromObject($chat->other_user, 'name') . '-' . \App\Helpers\SiteHelper::getSafeValueFromObject($chat->other_user, 'id') }}-chat-body-div')"
-                    id="{{ \App\Helpers\SiteHelper::getSafeValueFromObject($chat->other_user, 'name') . '-' . \App\Helpers\SiteHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
-                    unread-ids="{{ json_encode($chat->unread_ids) }}" chat-id="{{ $chat->id }}">
-                    <div class="row">
-                        <div><span><img
-                                    src="{{  \App\Helpers\SiteHelper::getSafeValueFromObject($chat->other_user, 'image_url', 'https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg') }}"
-                                    alt="img" width="40" height="40" style="border-radius:50px;"></span></div>
-                        <div style="padding:0px 15px;">
-                            <span
-                                style="font-size: 14px;">{{ \App\Helpers\SiteHelper::getSafeValueFromObject($chat->other_user, 'name') }}</span>
-                            {{--                            <h6 style="font-size: 12px;"><b>Kenwood AC DC inverter Ton For Sale</b></h6>--}}
+                        <div class="chat-cont-left">
+                            <div class="row" style="padding:5px 8px;">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-2 text-center ">
+                                            <input type="checkbox" class="hiddencheck" id="check-all" style="margin-left: 5px;margin-top: 14px;">
+                                        </div>
+                                        <div class="col-md-10 hiddencheck" style="margin-top: 8px;">Select All</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2" style="margin-left: -97px;">
+                                    <select class="form-select" id="filter-dropdown" style="width: 164%; padding: 0; border:transparent !important">
+                                        <option value="all">All Chats</option>
+                                        <option value="favorites">Favourites</option>
+                                        <option value="blocked">Blocked</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2 hiddentrash">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 137px;">
+                                            <i class="fa fa-trash" style="color: rgb(9, 9, 166);"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 edit">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 90px;">
+                                            <i class="fa fa-pencil" id="edit-icon" style="color: rgb(9, 9, 166);"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                      
+                            <div class="chat-users-list" id="chat-users-list">
+                                <div class="chat-scroll">
+                                    @foreach($chats as $chat)
+                                        <a href="javascript:void(0);"
+                                           class="media chat-title @if($chat->is_blocked) blocked @endif @if($chat->is_favorite) favorite @endif @if(\App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') == request()->i) chat-with-user-{{ request()->i }} @endif"
+                                           style="display:flex;"
+                                           id="{{ str_replace(' ', '', \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name')). '-' . \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
+                                           unread-ids="{{ json_encode($chat->unread_ids) }}" chat-id="{{ $chat->id }}">
+                                           <input type="checkbox" style="width: 27 !important; margin-left:-14px;position: relative; z-index: 10; pointer-events: auto; "
+                                              value="{{ $chat->id }}" class="dlt-chat hiddencheck" >
+                                            <div class="media-img-wrap flex-shrink-0">
+                                                <div class="avatar">
+                                                    <img
+                                                        src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') ?: 'https://via.placeholder.com/30x30' }}"
+                                                        alt="User Image" style="width:50px"
+                                                        class="avatar-img rounded-circle">
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="media-body flex-grow-1">
+                                                <div>
+                                                    <div class="user-name">{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }}</div>
+                                                    <div class="user-last-chat">{{ $chat->latest_message }}</div>
+                                                </div>
+                                                <div>
+                                                   
+                                                    <div class="badge bgg-yellow badge-pill unread-count"
+                                                         style="display: {{($login_user_id != $chat->latest_message_sender_id && $chat->unread_count > 0) ? 'block' : 'none'}} ">{{ $chat->unread_count }}</div>
+                                                </div>
+                                                <div style="display:flex; justify-content: flex-end; align-items: center;    margin-top: -10px;  margin-right: -63px;margin-bottom: 25px;">
+                                                    <button class="btn btn-link favorite-chat" title="{{ $chat->is_favorite ? 'Unfavourite ' : 'Favourite' }}" style="padding: 0px;" data-chat-id="{{ $chat->id }}">
+                                                        <i class="fa fa-heart"  style="color: {{ $chat->is_favorite ? 'red' : 'grey' }};"></i>
+                                                    </button>
+                                                    <button class="btn btn-link block-chat" title="{{ $chat->is_blocked ? 'Unblock' : 'Block ' }}" style="padding: 8px;"  data-chat-id="{{ $chat->id }}">
+                                                        <i class="fa fa-ban"  style="color: {{ $chat->is_blocked ? 'goldenrod' : 'grey' }};"></i>
+                                                    </button>
+                                                </div>
+                                              
+                                            </div>
+                                            <div class="last-chat-time block" style="margin-top: 26px;">{{ $chat->latest_message_recieved_time_diff }}</div>
+                                          
+                                        </a>
+                                      
+                                        <!-- Add Favorite and Block Icons -->
+                                       
+                                    @endforeach
+                                </div>
+                            </div>
+                            
                         </div>
-                        <div style="font-size: 12px;">
-                            <div>{{ $chat->latest_message_recieved_time_diff }}</div>
+
+                        <div class="chat-cont-right">
+                        
+                           
+                         
+                            @foreach($chats as $key => $chat)
+                           
+                                <div class="chat-body-div"
+                                     id="{{ str_replace(' ', '', \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name')). '-' .\App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}-chat-body-div"
+                                     {{-- style="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') == request()->i ? '' : 'display: none' }}"  --}}
+                                     chat-id="{{ $chat->id }}"
+                                     user="{{ str_replace(' ', '', \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name')) . '-' . \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}">
+                                    <div class="chat-header">
+                                        <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
+                                            <i class="material-icons">chevron_left</i>
+                                        </a>
+                                        
+                                        <div class="media d-flex">
+                                            <div class="media-img-wrap theiaStickySidebar gallerys flex-shrink-0">
+                                                <div class="avatar">
+                                                    <a href="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') }}">
+                                                    <img
+                                                        src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') }}"
+                                                        alt="UserImage"  width="50px" height="50px"
+                                                        class="avatar-img rounded-circle">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @php
+                                        // $user_categories = DB::table('user_categories')
+                                        // ->join('categories', 'user_categories.category_id', '=', 'categories.id')
+                                        // ->where('user_categories.user_id', \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id'))
+                                        // ->select('categories.name')
+                                        // ->get();
+                                        // $categoryNames = '';
+                                        // foreach ($user_categories as $key => $category) {
+                                        //     // Append the category name to the string
+                                        //     $categoryNames .= $category->name;
+                                        //     // Add a comma and space if it's not the last category
+                                        //     if ($key != $user_categories->count() - 1) {
+                                        //         $categoryNames .= ', ';
+                                        //     }
+                                        // }
+                                        @endphp
+                                            <div class="media-body flex-grow-1">
+                                                <div
+                                                    class="user-name">{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }} - {{ $categoryNames ?? ''}} {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'company_name') }}</div>
+                                                {{--                                            <div class="user-status">online</div>--}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    @if($chat->status == 'accepted')
+                                   
+                                        <div class="chat-body">
+                                            <div class="chat-scroll">
+                                                <ul class="list-unstyled message-body" style="font-weight: 300;">
+                                                    @foreach($chat->sorted_messages as $date => $sorted_messages)
+                                                        <div class="text-center fw-bolds " style="font-size:12px;">{{ $date}}</div>
+                                                        @foreach($sorted_messages as $date => $message)
+                                                      
+                                                            <li class="media {{ $message->message_position == 'right' ? 'sent' : 'received' }} d-flex">
+                                                                <div class="avatar flex-shrink-0">
+                                                                    <img
+                                                                        src="{{ $message->message_position == 'right' ? session()->get('user')['image_url'] : \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') }}"
+                                                                        alt="User Image" style="width:25px;"
+                                                                        class="avatar-img rounded-circle">
+                                                                </div>
+                                                                <div class="media-body flex-grow-1">
+                                                                    <div class="msg-box" >
+                                                                        <div style="display: flex;">
+                                                                            <p>{{ $message->message }}</p>
+                                                                            <ul class="chat-msg-info">
+                                                                                <li>
+                                                                                    <div class="chat-time">
+                                                                                        <span>{{ $message->sended_at_formatted }}</span>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        @endforeach
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="chat-footer">
+                                            <div class="input-group" style="margin-left: 12px;" >
+                                                {{-- <div class="avatar" style="padding:4px;">
+                                                    <img
+                                                        src="{{ getSafeValueFromObject($chat->other_user, 'image_url') }}"
+                                                        alt="User Image"
+                                                        class="avatar-img rounded-circle">
+                                                </div> --}}
+                                                <div class="input-group" style="position: relative; width: 93%; height: 42px;">
+                                                    <input type="text" class="input-msg-send emoji-trigger form-controls"
+                                                           id="emoji-trigger"
+                                                           data-user-id="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
+                                                           data-chat-id="{{ $chat->id }}"
+                                                           style="border-radius: 30px; width: 100%; padding-right: 50px;">
+                                                   
+                                                </div>
+                                                        
+                                                <button type="button" id="msg-send-btn" class="btn btn-primary msg-send-btn"
+                                                data-user-id="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
+                                                data-chat-id="{{ $chat->id }}"
+                                                style="position: absolute; right: 41px; top: 3px; background-color: transparent; border: none;">
+                                            <i class="fa fa-arrow-circle-up mgn-send-color" aria-hidden="true"
+                                               style="font-size: 30px; background-color: none;"></i>
+                                        </button>
+                                            </div>
+                                        </div>
+                                    @else
+                                        <div class="chat-body">
+                                            <div class="row mt-4">
+                                                <div class="col-md-6 col-12 text-end">
+                                                    <button class="btn btn-primary accept" chat-id="{{ $chat->id }}">
+                                                        Accept
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <button class="btn btn-danger reject" chat-id="{{ $chat->id }}">
+                                                        Reject
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
+                            @endforeach
                         </div>
                     </div>
-                </button>
-            @empty
-                <div class="text-center">
-                    Nothing Found
                 </div>
-            @endforelse
+            </div>
         </div>
-
-        @foreach($chats as $key => $chat)
-            <div
-                id="{{ \App\Helpers\SiteHelper::getSafeValueFromObject($chat->other_user, 'name') . '-' . \App\Helpers\SiteHelper::getSafeValueFromObject($chat->other_user, 'id') }}-chat-body-div"
-                class="tabcontent chart-body"
-                style="{{ $key > 0 ? 'display: none' : '' }}" chat-id="{{ $chat->id }}"
-                user="{{ \App\Helpers\SiteHelper::getSafeValueFromObject($chat->other_user, 'name') . '-' . \App\Helpers\SiteHelper::getSafeValueFromObject($chat->other_user, 'id') }}">
-                <div class="row" style="border-bottom:1px solid #eee;padding:10px;">
-                    <div style=""><span><img
-                                src="{{  \App\Helpers\SiteHelper::getSafeValueFromObject($chat->other_user, 'image_url', 'https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg') }}"
-                                alt="img"
-                                width="40" height="40" style="border-radius:50px;"></span></div>
-                    <div style="padding:0px 15px;width:700px;">
-                        <span
-                            style="font-size: 14px;">{{ \App\Helpers\SiteHelper::getSafeValueFromObject($chat->other_user, 'name') }}</span>
-                        <h6 style="font-size: 12px;">{{ $chat->latest_message }}</h6>
-                    </div>
-                    <div class="row" style="font-size: 12px;width:30px;">
-                        <div style="text-align:right;margin-top:8px;"><span><a href="" class="close-chat"><img
-                                        src="{{ asset('images/cross.png')}}" width="30" height="30"></a></span></div>
-                    </div>
-                </div>
-            {{--                <div class="row" style="border-bottom:1px solid #eee;padding:10px;">--}}
-            {{--                    <div style=""><span><img--}}
-            {{--                                src="https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg"--}}
-            {{--                                alt="img"--}}
-            {{--                                width="40" height="40" style="border-radius:10px;"></span></div>--}}
-            {{--                    <div style="padding:0px 15px;width:650px;">--}}
-            {{--                        <h6 style="font-size: 12px;"><b>Kenwood AC DC inverter Ton For Sale</b></h6>--}}
-            {{--                        <span style="font-size: 14px;">RS 31,500</span>--}}
-            {{--                    </div>--}}
-            {{--                    <div class="row" style="font-size: 12px;width:130px;">--}}
-            {{--                        <div style="text-align:right;margin-top:8px;margin-left:20px;"><a href="">--}}
-            {{--                                <button class="btn" style="background-color:#0000FF;color:white;font-size:12px;">View Ad--}}
-            {{--                                </button>--}}
-            {{--                            </a></div>--}}
-            {{--                    </div>--}}
-            {{--                </div>--}}
-            {{--                <div class="col-md-3 mx-auto mt-1">--}}
-            {{--                    <a href="#">--}}
-            {{--                        <div--}}
-            {{--                            style="text-align:center;border-radius: 50px;border:1px solid #0000ff;background:none;padding:2px 5px;font-size:12px;margin-right:6px;">--}}
-            {{--                            FRIDAY, 4 AUGUST--}}
-            {{--                        </div>--}}
-            {{--                    </a>--}}
-            {{--                </div>--}}
-            <!------messages-------->
-                <div style="height: 347px;overflow-x: hidden;overflow-y: scroll;" class="msg-append">
-                    @foreach($chat->messages as $message)
-                        <div style="text-align:{{ $message->message_position == 'right' ? 'right' : 'left' }};">
-                            <span>{{ $message->message }}</span></div>
-                    @endforeach
-                </div>
-                <!-------------->
-                <!------send messages---->
-                <div class="row write-area-body"
-                     style="border-bottom:1px solid #eee;padding:10px;position:relative;top:30px;border-top:1px solid #eee;position:sticky;">
-                    <div style=""><span>
-                      <div class="image-upload" style="display:;">
-                      <label for="file-input">
-{{--                      <img src="{{ asset('images/attachment.png') }}" alt="img" width="20" height="20">--}}
-                      </label>
-
-{{--                      <input id="file-input" type="file"/>--}}
-                    </div>
-                      </span></div>
-                    <div style="padding:0px 15px;width:650px;">
-                        <input type="text" placeholder=" Type a message" class="form-control write-msg"
-                               data-user-id="{{ \App\Helpers\SiteHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
-                               data-chat-id="{{ $chat->id }}">
-                    </div>
-                    <div class="row" style="font-size: 12px;width:130px;">
-                        <div style="text-align:right;margin-top:0px;margin-left:60px;">
-                            <a class="msg-send-btn"
-                               data-user-id="{{ \App\Helpers\SiteHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
-                               data-chat-id="{{ $chat->id }}">
-                                <img
-                                    src="{{ asset('images/arrow.png') }}" width="35" hieght="35"></a>
-                        </div>
-                    </div>
-                </div>
-                <!------send messages---->
-            </div>
-        @endforeach
-
-        <div class="row">
-            <div class="col-12">
-                <div
-                    style="border-bottom:1px solid #eee;padding:10px;position:relative;top:30px;border-top:1px solid #eee;position:sticky; height: 400px; display: none; background: #f1f1f1"
-                    class="show-default text-center">
-                    Select user for chat
-                </div>
-            </div>
-        </div>
-
     </div>
-    <script>
-        function openCity(evt, cityName) {
-            console.log(evt)
-            $('.show-default').hide();
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
+@endsection
+
+@section('page_scripts')
+    <script type="text/javascript">
+    alert('ss');
+
+        // var api_url = "{{ env('API_URL') }}";
+        $(document).on('click', '.hiddencheck', function(e) {
+            
+    e.stopPropagation();  // Prevent the click from triggering the anchor link
+});
+$(document).ready(function () {
+    $('.emoji-trigger').emojioneArea({
+                pickerPosition: "bottom",
+                events: {
+            keyup: function (editor, event) {
+                checkInput();
+                console.log('emoji');
+            },
+         
+            keydown: function (editor, event) {
+                checkInput();
+                if (event.which == 13) {
+                    console.log('enter');
+                 
+               
+                    $('#msg-send-btn').click();  
+                }
+                
+            },
+            
+            change: function (editor, event) {
+                checkInput();
+                console.log('emoji');
+            },
+            paste: function (editor, event) {
+                checkInput();
+                console.log('emoji');
             }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(cityName).style.display = "block";
-            evt.currentTarget.className += " active";
+            
         }
 
-        // Get the element with id="defaultOpen" and click on it
-        // document.getElementById("defaultOpen").click();
-    </script>
+            });
+        
 
-@endsection
-@section('page_scripts')
-    <script>
-        $(document).ready(function () {
-            $('.chat-with-user-{{ request()->u }}').click();
+    function checkInput() {
+        var inputMessage = $('.emojionearea-editor').text().trim();
+       var hasImg = $('.emojionearea-editor').find('img').length > 0;
+    // var hasImg = emojioneAreaInstance.editor.find('img').length > 0;
+    
+    // alert(hasImg);
+    if (inputMessage === '' && !hasImg) {
+        $('.msg-send-btn').prop('disabled', true);
+    } else {
+        $('.msg-send-btn').prop('disabled', false);
+    }
+}
+    $('.msg-send-btn').prop('disabled', true);
+    $(document).on('click', '.msg-send-btn', function(e) {
+        $('.msg-send-btn').prop('disabled', true);
+     });
+    
+     
+//         $(document).on('input keyup emoji-trigger.change', '.emojionearea-editor', function(e) { 
+//     var inputMessage = $('.emojionearea-editor').text().trim();
+//     var hasImg = $('.emojionearea-editor').find('img').length > 0;
+
+//     if (inputMessage === '' && !hasImg) {
+//         // If there's no text and no emojis
+//         $('.msg-send-btn').prop('disabled', true);
+//     } else {
+//         $('.msg-send-btn').prop('disabled', false);
+//     }
+// });
+
+
+            $('.gallerys').magnificPopup({
+                type: 'image',
+                delegate: 'a',
+                gallery: {
+                    enable: true
+                }
+            });
+        
+        // alert('ssss');
+            @if(request()->i)
+            $('.chat-body-div').css('display', 'none');
+            $('.chat-with-user-{{ request()->i }}').click();
+            @endif
             ajax_setup();
+
+
+           
         });
+
+
+$(document).ready(function() {
+
+ $('.hiddentrash .fa-trash').on('click', function() {
+        if (!$('input[type="checkbox"]').is(':checked')) {
+            // Code to return to edit mode or perform your specific action
+              $('.edit').show()
+            $('.hiddencheck').hide();
+            $('.hiddentrash').hide();
+            console.log('Edit mode activated');
+            // Your edit mode logic here
+        }else{
+        
+        alert('22');
+        }
+    });
+   
+    // Handle favorite button click
+    $('.favorite-chat').on('click', function() {
+            var button = $(this);
+            var chatId = button.data('chat-id');
+
+            $.ajax({
+                url: "{{ route('chat.favorite') }}",
+                method: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    chat_id: chatId
+                },
+                success: function(response) {
+                    if (response.is_favorite) {
+                        button.find('i').css('color', 'red');
+                    } else {
+                        button.find('i').css('color', 'grey');
+                    }
+                }
+            });
+        });
+
+        // Toggle block
+        $('.block-chat').on('click', function() {
+            var button = $(this);
+            var chatId = button.data('chat-id');
+
+            $.ajax({
+                url: "{{ route('chat.block') }}",
+                method: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    chat_id: chatId
+                },
+                success: function(response) {
+                    if (response.is_blocked) {
+                        button.find('i').css('color', 'goldenrod');
+                    } else {
+                        button.find('i').css('color', 'grey');
+                    }
+                }
+            });
+        });
+    //fiter dropdown
+
+    
+    $('#filter-dropdown').on('change', function() {
+        var filterValue = $(this).val();
+
+        if (filterValue === 'all') {
+            $('.chat-title').show(); // Show all chats
+        } else if (filterValue === 'favorites') {
+            $('.chat-title').hide(); // Hide all chats
+            $('.favorite').show();   // Show only favorite chats
+        } else if (filterValue === 'blocked') {
+            $('.chat-title').hide(); // Hide all chats
+            $('.blocked').show();    // Show only blocked chats
+        }
+    });
+
+
+});
+
+
+        $(document).ready(function () {
+
+
+
+            $('.hiddencheck').hide()
+            $('.hiddentrash').hide()
+
+
+            $('#edit-icon').click(function() {
+                $('.edit').hide()
+            $('.hiddencheck').toggle();
+            $('.hiddentrash').toggle();
+        });
+
+        });
+        
+
+        $(document).on('change', '#check-all', function () {
+// Get the checked state of the toggle checkbox
+            var isChecked = $(this).prop('checked');
+
+            // Set the same checked state to all other checkboxes with class 'otherCheckbox'
+            $('.dlt-chat').prop('checked', isChecked);
+        })
 
         function ajax_setup() {
             $.ajaxSetup({
@@ -247,13 +599,6 @@
                 dataType: 'json'
             });
         }
-
-        $(document).on('click', '.close-chat', function (e) {
-            e.preventDefault();
-
-            $(this).parents('.chart-body').hide();
-            $('.show-default').show();
-        });
 
         //accept or reject chat request start
         $(document).on('click', '.accept', function (e) {
@@ -288,6 +633,7 @@
 
 
         function markMessageAsReaded(id, selector) {
+            
             $.ajax({
                 url: api_url + 'chats/mark-as-read',
                 method: 'POST',
@@ -305,7 +651,8 @@
 
         $(document).on('click', '.chat-title', function (e) {
             e.preventDefault();
-
+    
+            alert('ddd');
             //calling function to mark messages as readed
             markMessageAsReaded($(this).attr('chat-id'), $(this));
 
@@ -313,30 +660,21 @@
             $('.chat-body-div').css('display', 'none');
             $(chat_body_selector).css('display', 'block');
         });
+       
 
-        $(document).on('click', '.msg-send-btn', function (e) {
+        $(document).on('click', '.msg-send-btn', function () {
+            alert('eee');
             thisElem = $(this);
-            e.preventDefault();
-            console.log(thisElem)
-            var message = $(thisElem).parents('.write-area-body').find('.write-msg');
+          
+            var message = $(thisElem).parents('.chat-footer').find('.input-msg-send');
+        
             send_new_message(message, thisElem);
         });
 
-        //send request on input enter
-        $(".write-msg").on('keypress', function (e) {
-            console.log(e.which)
-            if (e.which === 13) {
-                console.log('good')
-                // Check if the key pressed is Enter (key code 13)
-                e.preventDefault(); // Prevent the form submission
-
-                // send message
-                send_new_message($(this), $(this));
-
-            }
-        });
+       
 
         function send_new_message(message, thisElem) {
+            // alert($(message).val());
             $.ajax({
                 url: api_url + 'chats/send-message',
                 method: 'POST',
@@ -350,8 +688,9 @@
                         send_msg_body(response.data, thisElem);
 
                         $(message).val('');
+                        $('.emojionearea-editor').html('');
                     }
-                    // $(selector).find('.unread-count').css('display', 'none');
+                    $(selector).find('.unread-count').css('display', 'none');
                 },
                 error: function (response) {
                     console.log('error');
@@ -360,6 +699,8 @@
         }
 
         setInterval(function () {
+
+            // alert('sss');
             $.ajax({
                 url: api_url + 'chats/get-new-messages',
                 method: 'GET',
@@ -392,21 +733,41 @@
 
         function send_msg_body(message, thisElem, using_button = true, parent, chat) {
 
-            var msg = `<div style="text-align:${message.message_position == 'right' ? 'right' : 'left'};">
-                            <span>${message.message}</span></div>`;
+            var li = `<li class="media ${message.message_position === 'right' ? 'sent' : 'received'} d-flex">
+                    <div class="avatar flex-shrink-0">
+                        <img
+                            src="${message.message_position === 'right' ? "{{session()->get('user')}}" : chat.other_user.image_url}"
+                            alt="User Image"
+                            class="avatar-img rounded-circle">
+                    </div>
+                    <div class="media-body flex-grow-1">
+                        <div class="msg-box">
+                            <div>
+                                <p>${message.message}</p>
+                                <ul class="chat-msg-info">
+                                    <li>
+                                        <div class="chat-time">
+                                            <span>${message.sended_at_formatted}</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>`;
 
             if (using_button === true) {
-                $(thisElem).parents('.chart-body').find('.msg-append').append(msg);
+                $(thisElem).parents('.chat-body-div').find('.message-body').append(li);
             } else {
                 console.log(message)
-                $(parent).find('.msg-append').append(msg);
+                $(parent).find('.message-body').append(li);
             }
         }
 
         // mark as read message on input focus
-        $(document).on('focus', '.write-msg', function () {
-            var chat_id = $(this).parents('.chart-body').attr('chat-id');
-            var user = $(this).parents('.chart-body').attr('user');
+        $(document).on('focus', '.input-msg-send', function () {
+            var chat_id = $(this).parents('.chat-body-div').attr('chat-id');
+            var user = $(this).parents('.chat-body-div').attr('user');
             markMessageAsReaded(chat_id, $('#' + user));
         });
 
@@ -418,6 +779,61 @@
             $("#chat-users-list .chat-title").filter(function () {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
+        });
+
+
+        // Attach a click event to the 'Delete Selected' button
+        $('#deleteSelected').on('click', function () {
+            // Get an array of selected checkbox values
+            var selectedValues = $('.dlt-chat:checked').map(function () {
+                return this.value;
+            }).get();
+
+            if (selectedValues.length > 0)
+                Swal.fire({
+                    icon: 'warning',
+                    title: "Are you sure?",
+                    text: "You will not be able to recover this!",
+                    type: "error",
+                    showCancelButton: true,
+                    cancelButtonClass: '#d33',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Delete!',
+                }).then((result) => {
+                    if (result.value) {
+                        $.ajax({
+                            url: api_url + 'chats/delete-chats',
+                            type: 'POST',
+                            dataType: "JSON",
+                            data: {chat_ids: selectedValues},
+                            success: function (response) {
+                                if (response.status) {
+                                    Swal.fire({
+                                        title: 'Success!',
+                                        text: response.message,
+                                        icon: 'success',
+                                    }).then((result) => {
+                                        // $(thisElem).parents('tr').remove();
+                                        window.location.reload();
+                                    })
+                                } else {
+                                    Swal.fire({
+                                        title: 'Problem!',
+                                        text: response.message,
+                                        icon: 'warning',
+                                    })
+                                }
+                            },
+                            error: function (response) {
+                                Swal.fire({
+                                    title: 'Problem!',
+                                    text: 'Unexpected error',
+                                    icon: 'warning',
+                                })
+                            }
+                        });
+                    }
+                })
         });
     </script>
 @endsection

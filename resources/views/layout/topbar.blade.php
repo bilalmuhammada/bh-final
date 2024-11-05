@@ -243,7 +243,7 @@
 
                 <div class="mobile-country desktop-menu-right">
                                
-                    <select class="form-control language_dropdown " name="language_dropdown"  style="width:136px;" id="language_dropdown" onchange="translateLanguage()">>
+                    <select class="form-control language_dropdown " name="language_dropdown"  style="width:130px;" id="language_dropdown" onchange="translateLanguage()">>
                         <option selected value="">Language</option>
                         
                         @foreach($language as $language1)
