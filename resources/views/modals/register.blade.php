@@ -6,6 +6,15 @@
         text-align: left !important;
         /* margin-left: -29px !important; */
     }
+    select {
+    -webkit-appearance: none; /* Safari and Chrome */
+    -moz-appearance: none;    /* Firefox */
+    appearance: none;         /* Standard */
+    background: none;         /* Remove background */
+    background-color: #fff;   /* Optional: set your desired background color */
+    padding-right: 10px;      /* Optional: adjust padding */
+    border: 1px solid #ccc;   /* Optional: adjust border style */
+}
     .datepicker{
         left: 835px !important;
 
