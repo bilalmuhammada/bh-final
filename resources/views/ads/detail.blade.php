@@ -205,7 +205,7 @@ width: 60rem !important;
 
                                 style="font-weight:bold;font-size:25px;text-align:right;border:0px solid red;width:100%;">
                                 <a href=""
-                                   style="color: red;font-weight:bold;">{{request()->currency}} : {{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
+                                   style="color: red;font-weight:bold;">{{request()->currency}} {{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
                                 </a></div>
                         </div>
                     </div>
