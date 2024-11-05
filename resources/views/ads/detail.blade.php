@@ -200,10 +200,7 @@ width: 60rem !important;
                     </div>
                     <div class="col" style="text-align:right;">
                         <div class="row text-right" style="border:0px solid red;">
-                            @php
-                            dd(request()->currency);
-
-                            @endphp
+                           
                             <div
 
                                 style="font-weight:bold;font-size:25px;text-align:right;border:0px solid red;width:100%;">
