@@ -41,7 +41,7 @@
             <!-- Modal body -->
             <div class="modal-body" style="position:relative;top:-20px;">
                 <form class="report-ad-form">
-                    <div class="alert-div" style="display: none;width:13rem;"> 
+                    <div class="alert-div" style="display: none;width:13rem; white-space: nowrap;"> 
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             <div class="alert-text"></div>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">

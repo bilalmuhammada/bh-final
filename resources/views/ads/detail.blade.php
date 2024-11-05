@@ -122,6 +122,10 @@ width: 60rem !important;
     color: #ff3131 !important;
 
 }
+.ad-report-btn{
+    color: blue !important;
+
+}
 .report-ad-btn:hover{
     color: blue !important;
 
@@ -404,7 +408,7 @@ width: 60rem !important;
 
                             @php $report_text = "Report this Ad"; $report_class = "report-ad-btn"; @endphp
                             @if ($ad->is_reported_by_this_user)
-                                @php $report_text = "Ad Reported"; $report_class = "report-ad-btn"; @endphp
+                                @php $report_text = "Ad Reported"; $report_class = "ad-report-btn"; @endphp
                             @endif
                             <a class="{{ $report_class }}" ad-id="{{ $ad->id }}"
                                title="{{ $report_text }}"
