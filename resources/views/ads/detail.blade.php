@@ -201,7 +201,7 @@ width: 60rem !important;
                     <div class="col" style="text-align:right;">
                         <div class="row text-right" style="border:0px solid red;">
                             <div
-                                style="font-weight:bold;font-size:25px;text-align:right;border:0px solid red;width:100%;">
+                                style="font-weight:bold;font-size:25px;margin-right:27px;border:0px solid red;width:100%;">
                                 <a href=""
                                    style="color: red;font-weight:bold;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
                                 </a></div>
