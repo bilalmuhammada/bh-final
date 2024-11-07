@@ -15,7 +15,7 @@
     padding-right: 10px;      /* Optional: adjust padding */
     border: 1px solid #ccc;   /* Optional: adjust border style */
 }
-    .datepicker{
+    .position-850{
         left: 835px !important;
 
     }
@@ -72,6 +72,7 @@
     <div class="modal-dialog" style="border:0px solid red; width:500px;">
         <div class="modal-content" style="background-color: rgba(33, 34, 35, .90) !important;border-radius:10px;">
         
+
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="ragisterarea">
@@ -139,7 +140,7 @@
                                     {{-- <div class="form-group form-focus"> --}}
                                         <select type="text" name="gender" id="phone" class="form-control    login-user"
                                                placeholder="Gender" aria-label="Mobile" aria-describedby="basic-addon1">
-                                               <option value="" hidden disabled selected></option>
+                                               <option value=""  selected>Gender</option>
                                                <option value="male" style="color:#000;">Male</option>
                                                <option value="female" style="color:#000;">Female</option>
 </select>

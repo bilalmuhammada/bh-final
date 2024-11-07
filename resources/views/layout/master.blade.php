@@ -25,6 +25,7 @@ $second = $parts[1] ?? null;
 @include('modals.forgot-password')
 @include('modals.register')
 @include('modals.report')
+@include('modals.report_user')
 @include('modals.phone-request')
 @include('modals.document-request')
 
@@ -133,8 +134,27 @@ $second = $parts[1] ?? null;
         $(document).ready(function(){
     $('#datepicker').datepicker({
       format: 'dd-mm-yyyy',
-      autoclose: true,
+       autoclose: true,
       todayHighlight: true
+    }).on('show', function(e) {
+        $('.datepicker').addClass('position-850');
+    });;
+
+    
+
+
+
+    $('#datepicker1').datepicker({
+        format: 'dd.mm.yyyy',
+        autoclose: true,
+        todayHighlight: true,
+        beforeShow: function(input, inst) {
+        setTimeout(function() {
+            $('.datepicker').css('left', '550px');
+        }, 0); // Set timeout to ensure it applies after datepicker positioning
+    }
+    }).on('show', function(e) {
+        $('.datepicker').addClass('position-550');
     });
   });
         $(".country_dropdown").select2({

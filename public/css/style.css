@@ -3547,8 +3547,8 @@ border: 1px solid #2d11e7;
     }
     
     .by {
-        margin-left: 16px;
-        font-size: 12px !important;
+        margin-left: 15px;
+        font-size: 12.3px !important;
         color: #A17A4E !important;
         margin-bottom: 15px !important;
         white-space: nowrap;
@@ -6581,10 +6581,10 @@ border: 1px solid #2d11e7;
     }
     
     .chat-cont-left .chat-users-list a.media {
-        background: #fff;
+        background: #eafafe;
         /* box-shadow: 0px 4px 4px #f5f8ff; */
         /* margin: 10px; */
-        padding: 10px 15px;
+        padding: 4px 15px;
         transition: all 0.2s ease 0s;
     }
     
@@ -6597,10 +6597,10 @@ border: 1px solid #2d11e7;
         position: relative;
     }
     
-    .chat-cont-left .chat-users-list a.media .media-img-wrap .avatar {
-        height: 45px;
-        width: 45px;
-    }
+    /* .chat-cont-left .chat-users-list a.media .media-img-wrap .avatar {
+        /* height: 45px;
+        width: 45px; */
+    /* } */ 
     
     .chat-cont-left .chat-users-list a.media .media-img-wrap .status {
         bottom: 7px;
@@ -6651,7 +6651,7 @@ border: 1px solid #2d11e7;
     }
     
     .chat-cont-left .chat-users-list a.media:hover {
-        background-color: #f5f5f6;
+        background-color: #eafafe;
     }
     
     .chat-cont-left .chat-users-list a.media.read-chat .media-body>div:last-child .last-chat-time {
@@ -6659,7 +6659,7 @@ border: 1px solid #2d11e7;
     }
     
     .chat-cont-left .chat-users-list a.media.active {
-        background-color: #f5f5f6;
+        background-color: #eafafe;
     }
     
     .chat-cont-right {
@@ -6818,7 +6818,7 @@ border: 1px solid #2d11e7;
     
     .chat-cont-right .chat-body .media.received {
         margin-bottom: 6px;
-        margin-left: 10px;
+        margin-left: 4px;
         position: relative;
     }
     

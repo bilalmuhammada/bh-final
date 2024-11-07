@@ -4,7 +4,7 @@ $categories = \App\Helpers\RecordHelper::getCategories();
 
 $catgories_for_search = $categories->random()->take(5)->get();
 @endphp
-<style>/* Style for the chat users list */
+<style> /* Style for the chat users list */
     .chat-users-list {
         overflow-y: auto;
         max-height: 400px; /* Adjust as needed */
@@ -12,12 +12,53 @@ $catgories_for_search = $categories->random()->take(5)->get();
         /* border: 1px solid #ddd; */
         border-radius: 5px;
     }
+    .btn:focus, .btn.focus {
+        box-shadow:none;
+    }
+    .dropdown:hover .dropdown-menu{
+        display:none !important;
+    }
+    .dropdown-menu a.dropdown-item{
+        padding:2px !important;
+    }
     .emojionearea .emojionearea-button>div, .emojionearea .emojionearea-picker .emojionearea-wrapper:after{
         filter: sepia(22%) saturate(904%) hue-rotate(12deg) !important;
     }
     .emojionearea.emojionearea-inline>.emojionearea-button{
         right: 15px !important;
         top:7px !important;
+    }
+
+    .product-details{
+        font-family: system-ui;
+        letter-spacing:1px;
+        font-size: 14px;
+      margin-left: 26px;
+    }
+    .product-image{
+        margin-left: 8px;
+
+        border-radius: 7px;
+        width: 16vh;
+
+    }
+    .hiddencheck{
+        margin-left: -19px;
+        margin-top: 9px;
+    }
+    .product-left-image{
+        margin-left: 2px;
+        border-radius: 5px;
+        width: 80px;
+        height: 80px;
+    }
+    .product-location{
+margin-top: 12px;
+    }
+    .product-price{
+        margin-top: 5px;
+        font-weight: 900;
+
     }
     .emojionearea.focused {
     border-color: blue !important;
@@ -48,6 +89,7 @@ $catgories_for_search = $categories->random()->take(5)->get();
     .chat-title {
         text-decoration: none;
         color: #333;
+        background-color: #f0f0f0;
         display: flex;
         align-items: center;
         transition: background-color 0.3s;
@@ -68,6 +110,7 @@ $catgories_for_search = $categories->random()->take(5)->get();
   border-radius: 34px;
 }
 
+
 /* Define the scrollbar track */
 ::-webkit-scrollbar-track {
   background: transparent;
@@ -86,7 +129,7 @@ $catgories_for_search = $categories->random()->take(5)->get();
     
     .user-name {
         font-weight: bold;
-        margin-bottom: 5px;
+        margin-bottom: 1px;
     }
     
     .user-last-chat {
@@ -156,8 +199,65 @@ select::-ms-expand {
     display: none;
 }
 
+
+
+
+.user-name-left{
+    margin-left: 25px;
+
+}
+
+.form-control-search{
+    margin-top: 7px  !important;
+    margin-left: 14px  !important;
+    width: 92% !important;
+    background-color: #ebe2e233 !important;
+    padding-left: 30px;
+}
+.position-relative {
+    position: relative;
+}
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+.product-left-details{
+    font-family: system-ui;
+    letter-spacing:1px;
+    font-size: 14px;
+    margin-left: 0px;
+}
+a:hover {
+    color:#000 !important;
+}
+.product-message{
+    font-family: system-ui;
+    letter-spacing:1px;
+  margin-bottom: 6px;
+}
+
+.product-left-description{
+    font-weight: bolder;
+    font-family: system-ui;
+    letter-spacing:1px;
+    margin-bottom: 4px;
+}
+.custom-select {
+
+    outline: none;
+    border: 1px solid transparent; /* Makes the border transparent */
+    background-color: #fff;        /* Optional: Set background color */
+    padding: 5px;                 /* Optional: Adjust padding */
+}
+
     </style>
 @section('content')
+@php
+// dd('hhh');
+@endphp
     <div class="content-chat"
          style="background-color:#eee;min-height: 500px !important;padding-top:5px;padding-bottom:10px;">
         <div class="container-fluid">
@@ -176,16 +276,18 @@ select::-ms-expand {
                                         <div class="col-md-2 text-center ">
                                             <input type="checkbox" class="hiddencheck" id="check-all" style="margin-left: 5px;margin-top: 14px;">
                                         </div>
-                                        <div class="col-md-10 hiddencheck" style="margin-top: 8px;">Select All</div>
+                                        <div class="col-md-10 hiddencheck" >Select All</div>
                                     </div>
                                 </div>
-                                <div class="col-md-2" style="margin-left: -97px;">
-                                    <select class="form-select" id="filter-dropdown" style="width: 164%; padding: 0; border:transparent !important">
+                                <div class="col-md-2" style="margin-left: -97px;margin-top: 2px;">
+                                    <select class="form-select " id="filter-dropdown" style="width: 164%; padding: 0; border:transparent !important">
                                         <option value="all">All Chats</option>
                                         <option value="favorites">Favourites</option>
                                         <option value="blocked">Blocked</option>
                                     </select>
                                 </div>
+
+                               
                                 <div class="col-md-2 hiddentrash">
                                     <div class="row">
                                         <div class="col-md-12 text-center" style="margin: 9px 0px 0px 137px;">
@@ -200,7 +302,17 @@ select::-ms-expand {
                                         </div>
                                     </div>
                                 </div>
-                            </div>                      
+
+                                
+                            </div> 
+                            
+                            <div class="row">
+                                <div class="col-md-12 position-relative">
+                                  
+                                 <input type="text" name="" id="" placeholder="Search..." class="form-control form-control-search">
+                               
+                                </div>
+                            </div>
                             <div class="chat-users-list" id="chat-users-list">
                                 <div class="chat-scroll">
                                     @foreach($chats as $chat)
@@ -209,33 +321,39 @@ select::-ms-expand {
                                            style="display:flex;"
                                            id="{{ str_replace(' ', '', \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name')). '-' . \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
                                            unread-ids="{{ json_encode($chat->unread_ids) }}" chat-id="{{ $chat->id }}">
-                                           <input type="checkbox" style="width: 27 !important; margin-left:-14px;position: relative; z-index: 10; pointer-events: auto; "
+                                           <input type="checkbox" style="width: 27 !important; margin-left:-18px;position: relative; z-index: 10; margin-top:1.7rem;pointer-events: auto; "
                                               value="{{ $chat->id }}" class="dlt-chat hiddencheck" >
                                             <div class="media-img-wrap flex-shrink-0">
                                                 <div class="avatar">
-                                                    <img
-                                                        src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') ?: 'https://via.placeholder.com/30x30' }}"
-                                                        alt="User Image" style="width:50px"
-                                                        class="avatar-img rounded-circle">
+                                                    <img src="{{asset('images/default/listing.jpg')}}" alt="Car Image" class="product-left-image">
+                                                   
                                                 </div>
                                                 
                                             </div>
                                             <div class="media-body flex-grow-1">
-                                                <div>
-                                                    <div class="user-name">{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }}</div>
-                                                    <div class="user-last-chat">{{ $chat->latest_message }}</div>
+                                                <div class="product-left-details">
+                                                    <div class="product-left-description">FSI Quattro - Sunroof - Full Original Paint...</div>
+                                                    <div class="product-message">{{ $chat->latest_message }}</div>
+                                                     <img
+                                                         src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') ?: 'https://via.placeholder.com/30x30' }}"
+                                                        alt="User Image" style="width:25px"
+                                                        class="avatar-img rounded-circle"> &nbsp;&nbsp;{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }}
+                                                    {{-- <div class="product-location">  <i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  Marina, Dubai, UAE &nbsp;&nbsp;•&nbsp;&nbsp; Oct 19, 2024</div> --}}
                                                 </div>
+                                                {{-- <div>
+                                                    <div class="user-name-left">{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }}</div>
+                                                    <div class="user-last-chat">{{ $chat->latest_message }}</div>
+                                                </div> --}}
                                                 <div>
                                                    
-                                                    <div class="badge bgg-yellow badge-pill unread-count"
-                                                         style="display: {{($login_user_id != $chat->latest_message_sender_id && $chat->unread_count > 0) ? 'block' : 'none'}} ">{{ $chat->unread_count }}</div>
+                                                    <div class="badge bgg-yellow badge-pill unread-count" style="display: {{($login_user_id != $chat->latest_message_sender_id && $chat->unread_count > 0) ? 'block' : 'none'}} ">{{ $chat->unread_count }}</div>
                                                 </div>
-                                                <div style="display:flex; justify-content: flex-end; align-items: center;    margin-top: -10px;  margin-right: -63px;margin-bottom: 25px;">
+                                                <div style="display:flex; justify-content: flex-end; align-items: center;    margin-top: -38px;  margin-right: -69px;margin-bottom: 25px;">
                                                     <button class="btn btn-link favorite-chat" title="{{ $chat->is_favorite ? 'Unfavourite ' : 'Favourite' }}" style="padding: 0px;" data-chat-id="{{ $chat->id }}">
-                                                        <i class="fa fa-heart"  style="color: {{ $chat->is_favorite ? 'red' : 'grey' }};"></i>
+                                                        <i class="fa fa-heart"  style="color: {{ $chat->is_favorite ? 'red' : 'grey' }} !important;"></i>
                                                     </button>
                                                     <button class="btn btn-link block-chat" title="{{ $chat->is_blocked ? 'Unblock' : 'Block ' }}" style="padding: 8px;"  data-chat-id="{{ $chat->id }}">
-                                                        <i class="fa fa-ban"  style="color: {{ $chat->is_blocked ? 'goldenrod' : 'grey' }};"></i>
+                                                        <i class="fa fa-ban"  style="color: {{ $chat->is_blocked ? 'goldenrod' : 'grey' }} !important;"></i>
                                                     </button>
                                                 </div>
                                               
@@ -261,7 +379,7 @@ select::-ms-expand {
                                 <div class="chat-body-div"
                                      id="{{ str_replace(' ', '', \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name')). '-' .\App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}-chat-body-div"
                                      {{-- style="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') == request()->i ? '' : 'display: none' }}"  --}}
-                                     chat-id="{{ $chat->id }}"
+                                     chat-id="{{$chat->id }}"
                                      user="{{ str_replace(' ', '', \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name')) . '-' . \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}">
                                     <div class="chat-header">
                                         <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
@@ -279,29 +397,45 @@ select::-ms-expand {
                                                     </a>
                                                 </div>
                                             </div>
-                                        @php
-                                        // $user_categories = DB::table('user_categories')
-                                        // ->join('categories', 'user_categories.category_id', '=', 'categories.id')
-                                        // ->where('user_categories.user_id', \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id'))
-                                        // ->select('categories.name')
-                                        // ->get();
-                                        // $categoryNames = '';
-                                        // foreach ($user_categories as $key => $category) {
-                                        //     // Append the category name to the string
-                                        //     $categoryNames .= $category->name;
-                                        //     // Add a comma and space if it's not the last category
-                                        //     if ($key != $user_categories->count() - 1) {
-                                        //         $categoryNames .= ', ';
-                                        //     }
-                                        // }
-                                        @endphp
+                                     
                                             <div class="media-body flex-grow-1">
-                                                <div
-                                                    class="user-name">{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }} - {{ $categoryNames ?? ''}} {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'company_name') }}</div>
-                                                {{--                                            <div class="user-status">online</div>--}}
+                                                <div class="user-name">{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }} - {{ $categoryNames ?? ''}} {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'company_name') }}</div>
+                                                <span class="last-seen">
+                                                    @if($chat->other_user->last_seen_at)
+                                                        {{ \Carbon\Carbon::parse($chat->other_user->last_seen_at)->diffForHumans() }}
+                                                    @else
+                                                        <span class="text-muted" style="font-size: 13px;">Last seens: Not available</span>
+                                                    @endif
+                                                </span>
+                                            </div>
+                                           
+                                        </div>
+                                        <div class="dropdown">
+                                            <button class="btn  p-0" type="button" id="userOptionsMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fa fa-ellipsis-v"></i>
+                                            </button>
+                                            
+                                            <!-- Dropdown menu options -->
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userOptionsMenu">
+                                                <a class="dropdown-item" href="#" onclick="blockUser()">Block User</a>
+                                                <a class="dropdown-item report-user-btn" href="#" >Report User</a>
                                             </div>
                                         </div>
+
+                                    
                                     </div>
+                                    {{-- <div class="chat-header"> --}}
+                                    <div class="card-body" style="display: flex;background-color: #eafafe;padding: 0.5rem;">
+                                        <div class="product-image-container">
+                                        <img src="{{asset('images/default/listing.jpg')}}" alt="Car Image" class="product-image">
+                                    </div>
+                                        <div class="product-details">
+                                            <div class="product-description">FSI Quattro - Sunroof - Full Original Paint - Lady Driven - Direct Owner - 2 Keys</div>
+                                            <div class="product-price">AED 69,500</div>
+                                            <div class="product-location">  <i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  Marina, Dubai, UAE &nbsp;&nbsp;•&nbsp;&nbsp; Oct 19, 2024</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 
                                     @if($chat->status == 'accepted')
                                    
@@ -390,10 +524,15 @@ select::-ms-expand {
         </div>
     </div>
 @endsection
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<!-- Include EmojioneArea CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/emojionearea/dist/emojionearea.min.css">
+<script src="https://cdn.jsdelivr.net/npm/emojionearea/dist/emojionearea.min.js"></script>
 
 @section('page_scripts')
     <script type="text/javascript">
-    alert('ss');
+console.log($('.emoji-trigger').length);
 
         // var api_url = "{{ env('API_URL') }}";
         $(document).on('click', '.hiddencheck', function(e) {
@@ -651,8 +790,6 @@ $(document).ready(function() {
 
         $(document).on('click', '.chat-title', function (e) {
             e.preventDefault();
-    
-            alert('ddd');
             //calling function to mark messages as readed
             markMessageAsReaded($(this).attr('chat-id'), $(this));
 
@@ -771,6 +908,12 @@ $(document).ready(function() {
             markMessageAsReaded(chat_id, $('#' + user));
         });
 
+        $(document).on('click', '.report-user-btn', function() {
+            $('#reportUserModal').modal('show');// Show the popup
+});
+$(document).on('click', '.closebtn ', function() {
+            $('#reportUserModal').modal('hide');// Show the popup
+});
         // chat user filter code here
         // Get references to the input and the list
 

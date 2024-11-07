@@ -56,6 +56,9 @@ margin-left: -7px;
         
 
     }
+    .position-550 {
+        left:576px !important ;
+    }
   
     select::-ms-expand {
     display: none; /* Remove the dropdown icon on IE10+ */
@@ -141,9 +144,9 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Mobile:</b></div>
                                     <div class="col-md-8">
-                                        <input name="mobile" id="mobile" type="text"  oninput="validateInputText(this)" class="form-control form-control1" 
+                                        <input name="mobile" id="mobile" type="text"   class="form-control form-control1" 
                                         {{-- placeholder="Please enter a valid Mobile." --}}
-                                         style="border: 1px solid #999;">
+                                         style="border: 1px solid #999;" oninput="validateInputText(this)">
                                     </div>
                                 </div>
                             </div>
@@ -169,7 +172,7 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Date of Birth:</b></div>
                                     <div class="col-md-8">
-                                        <input type="text" name="dob" id="datepicker12" class="form-control datepicker12 form-control1 login-user email"
+                                        <input type="text" name="dob" id="datepicker1" class="form-control datepicker1 form-control1 login-user email"
                                        
                                 
                                         onfocus="this.value=''">
@@ -443,21 +446,19 @@ width: 225px !important;
 @endsection
 
 @section('page_scripts')
-{{-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> --}}
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
-  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script> --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
   {{-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> --}}
     <script >
  
-
+ function validateInputText(input) {
+    // Remove any character that is not a letter (A-Z, a-z) or space
+    input.value = input.value.replace(/[^0-9]/g, '');
+}
 $(document).ready(function(){
    
-    $("#datepicker12").datepicker({
-        format:'dd.mm.yy',
-        changeMonth: true,
-       changeYear: true
-       
-    });
+ 
     $(".country_dropdown_user").select2({
             // templateSelection: formatCountry,
             // templateResult: formatCountry,
