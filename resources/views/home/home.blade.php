@@ -222,7 +222,7 @@
     <section class="business-sale">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
-                <h5 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Business for Sale</b></h5>
+                <h5 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Businesses for Sale</b></h5>
                 <div class="row slider" style="margin-left: -8px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     

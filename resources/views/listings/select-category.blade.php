@@ -28,7 +28,7 @@
                         <div class="col-md-3 " style="margin-bottom:50px;" >
                             <a href="{{env('BASE_URL') . 'listing/select-subcategory/' . $category->id}}" class="text-dark">
                                 <div class="inner-div categoryname" style="text-align:center;box-shadow: 0 2px 8px 0 rgba(0,0,0,.1);
-            transition: background-color .3s;border-radius: 6px;height: 180px;width: 220px;padding-top:38px;">
+                                    transition: background-color .3s;border-radius: 6px;height: 180px;width: 220px;padding-top:38px;">
                                     <img src="{{ $category->image_url }}" alt="" width="60">
                                     <h6 style="margin-top: 10px">{{$category->name}}</h6>
                                 </div>
