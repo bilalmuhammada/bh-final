@@ -164,7 +164,7 @@
     <div class="col-md-6 mx-auto">
          <h3 class="mx-auto text-center">You are almost there!</h3>
         <p class="mx-auto text-center">Provide as much Details & Pictures as possible and set right Price!</p>
-        <p style="margin-top: 8px;">
+        <p style="margin-bottom: -1px;">
             <span class="text-muted">{{ $Categories->name }}</span> ><span
                 class="text-muted">{{ $subcategories->name }}</span>
         </p>

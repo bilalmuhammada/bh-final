@@ -10,7 +10,7 @@
                 <b class="text-muted">{{ $category->name }}</b>
             </li>
         </ul>
-        <ul style="list-style-type:none;" style="border: 1px solid red;padding:;">
+        <ul style="list-style-type:none;font-size:14px;" >
             @foreach($subcategories as $subcategory)
             <li style="width:350px;border-bottom:1px solid #eee;padding:15px;text-decoration: none;width:450px;">
                 <a href="{{env('BASE_URL') . 'listing/' . $category_id . '/listing-title/' . $subcategory->id}}" class="text-dark">{{$subcategory->name}}

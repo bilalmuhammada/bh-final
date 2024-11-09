@@ -483,10 +483,12 @@ a:hover {
                                                 </div> --}}
                                                 <div class="input-group" style="position: relative; width: 93%; height: 42px;">
                                                     <input type="text" class="input-msg-send emoji-trigger form-controls"
-                                                           id="emoji-trigger"
-                                                           data-user-id="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
-                                                           data-chat-id="{{ $chat->id }}"
-                                                           style="border-radius: 30px; width: 100%; padding-right: 50px;">
+    id="emoji-input"
+    data-user-id="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
+    data-chat-id="{{ $chat->id }}"
+    style="border-radius: 30px; width: 100%; padding-right: 50px;">
+
+
                                                    
                                                 </div>
                                                         
@@ -524,15 +526,11 @@ a:hover {
         </div>
     </div>
 @endsection
-<!-- Include jQuery -->
-<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-<!-- Include EmojioneArea CSS and JS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/emojionearea/dist/emojionearea.min.css">
-<script src="https://cdn.jsdelivr.net/npm/emojionearea/dist/emojionearea.min.js"></script>
+<!-- Include Emoji Button library -->
 
 @section('page_scripts')
     <script type="text/javascript">
-console.log($('.emoji-trigger').length);
+      
 
         // var api_url = "{{ env('API_URL') }}";
         $(document).on('click', '.hiddencheck', function(e) {
@@ -540,6 +538,9 @@ console.log($('.emoji-trigger').length);
     e.stopPropagation();  // Prevent the click from triggering the anchor link
 });
 $(document).ready(function () {
+
+
+
     $('.emoji-trigger').emojioneArea({
                 pickerPosition: "bottom",
                 events: {

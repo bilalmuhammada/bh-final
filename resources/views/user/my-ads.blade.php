@@ -74,7 +74,7 @@
                 <a class="nav-link active" data-toggle="tab" href="#all_ads">All Ads - {{ $my_ads->count() }}</a>
             </li> --}}
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#live">Live -
+                <a class="nav-link active" style="margin-left: -16px;" data-toggle="tab" href="#live">Live -
                     {{ $activeListing->total() }}</a>
             </li>
             <li class="nav-item">

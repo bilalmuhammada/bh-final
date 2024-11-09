@@ -12,9 +12,13 @@
          } #email, #password{
             padding: 10px 6px 11px 11px;
          }
-        .toggle-password{
-            top:54% !important;
-         }
+         #login-form .toggle-password {
+            position: absolute;
+            right: 16px;
+            top: 54% !important;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
 </style>
 <div class="modal" id="loginModal" style="border:0px solid red;margin-top:-35px;">
     <div class="modal-dialog modal-sm" style="border:0px solid red; width:380px;">
@@ -31,7 +35,7 @@
                             </h3>
                         </div>
                         <!-- login title finish -->
-                        <form class="login-form" style="width:100%;margin-left: -4px;padding: 1rem;">
+                        <form class="login-form"  id="login-form" style="width:100%;margin-left: -4px;padding: 1rem;">
                             <div class="alert-div" style="display: none">
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <div class="alert-text"></div>

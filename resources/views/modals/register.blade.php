@@ -33,9 +33,9 @@
     .drppading{
         padding-left:6px !important;
     }
-    .toggle-password {
+    #register-form .toggle-password {
             position: absolute;
-            right: 23px;
+            right: 16px;
             top: 36% !important;
             transform: translateY(-50%);
             cursor: pointer;
@@ -63,7 +63,7 @@
          }
          
          
-        #select2-country-container, #select2-cities-container{
+         #register-form #select2-country-container,#register-form #select2-cities-container{
             color: #fff !important;
             /* margin-left: -30px !important; */
         }
@@ -86,7 +86,7 @@
                         <!-- <h1><span>Sign In</span> <span>Post your ad</span></h1> -->
                     </div>
                     <!-- register form title finish -->
-                    <form class="register-form" style="width:100%;margin-left: -4px;" autocomplete="off">
+                    <form class="register-form" id="register-form" style="width:100%;margin-left: -4px;" autocomplete="off">
                         <div class="row">
                             <div class="col">
                                 <div class="alert-div" style="display: none">

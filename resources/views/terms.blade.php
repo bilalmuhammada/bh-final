@@ -13,7 +13,7 @@
     <!-- Terms and Conditions area start -->
     <section class="">
         <div class="container">
-            <div class="row">
+            <div class="row" style="margin-bottom: 3rem;">
                 <div class="col-md-12 col-lg-12 col-xl-12 term-text">
                     <div class="login-header">
                         <a href="{{ env('BASE_URL') }}">
@@ -39,13 +39,15 @@
 
                         <span style="font-weight:800; font-size: 16px;">1.	WHO WE ARE AND HOW TO CONTACT US.</span> <br> <br>
                     <p style="text-align: justify;">
-                        The Platform is operated and owned by BusinessHub ("businesshub", "we", "our", "us").
-
+                        The Platform is operated and owned by <span style="font-weight: 600;"> BusinessHub ("businesshub", "we", "our", "us") </span>.
+                       <br> 
+                       <br> 
+                        To contact us about these Terms of Use or anything else relating to your use of this Platform, please email  <span style="color: blue;"> support@businesshub.at </span>.   
                     </p> 
                     <span style="font-weight:800 ; font-size: 16px;"> 2.	BY USING THE PLATFORM, YOU ACCEPT THESE TERMS OF USE. </span>
                     <br>  <br><p style="text-align: justify;">
 By accessing and continuing to use the Platform, you confirm that you accept these Terms of Use, and acknowledge and agree that these Terms of Use govern and condition your access to, and use of, the Platform and any Content.
-You understand that these Terms of Use constitute a legally binding agreement between you and BusinessHub. <br> <br>
+<br> <br>You understand that these Terms of Use constitute a legally binding agreement between you and BusinessHub. <br> <br>
 If you are using the Platform as a business entity or on behalf of a business entity, you represent that you have the authority to legally bind that entity. <br> <br>
 If you do not agree to be bound by these Terms of Use, you may not access or use the Platform or any Content and should cease to do so immediately. <br> <br>
 
@@ -115,7 +117,7 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
     <br><br>
     Accurate and up-to-date information. If you do create an Account, all the registration information you submit should be truthful and accurate. If, for any reason, any information you submit is or becomes untruthful, inaccurate and/or incomplete, you should update that information to maintain its accuracy.
     <br><br>
-    What to do if you want to delete your Account. You can request the deletion of your Account by emailing support@businesshub.at.
+    What to do if you want to delete your Account. You can request the deletion of your Account by emailing <span style="color: blue;"> support@businesshub.at</span>.
     <br><br>
     You are responsible for your Account. You are responsible for maintaining the confidentiality of your Account log-in information (including your password). Accordingly, you are responsible for all activities that occur under your Account.
     <br><br>

@@ -919,6 +919,11 @@
 
 
 <script>
+
+$(document).on('click', '.nav-item', function() {
+  alert('jj');
+  $('.dropdown-menu').removeClass('show');
+});
     // Function to toggle the dropdown visibility
     function toggleDropdown(element) {
         const dropdownMenu = element.nextElementSibling;

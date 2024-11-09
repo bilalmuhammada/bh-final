@@ -6,7 +6,7 @@
     <!-----------logo-------->
 @include('listing-layout.topbar')
 <!-----------logo end-------->
-    <hr>
+    <hr style="margin: 0;">
     @yield('content')
 </div>
 <!-- Optional JavaScript -->

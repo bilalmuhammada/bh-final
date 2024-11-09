@@ -78,10 +78,10 @@ select>option:hover{
             color: #000 !important
         }
         #sortDropdown{
-            width: 76% !important;
+            width: 100% !important;
             /* font-weight: 600; */
 
-            font-size: 13px;
+            font-size: 15px;
 
         }
         .filter-options-list:hover {
@@ -110,7 +110,7 @@ width: 44% !important;
     margin-left: -24px;
     border: 1px solid rgb(194, 196, 199);
     display: flex !important;
-    width: 77rem !important;
+    width: 76rem !important;
         }
         .form:hover{
             border: 1px solid blue !important;
@@ -243,10 +243,10 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             </a>
             {{-- <div class="col-md-12" style="display: flex;"> --}}
                 <span style="display: flex;">
-                <input type="text" class="form-control filter1" style="border-right: 2px solid #eee;padding: 1px !important; font-size: 13px;" name="min_price" id="min_price" oninput="validatePhoneNumber(this)" placeholder="Min" min="0">
+                <input type="text" class="form-control filter1" style="border-right: 2px solid #eee;padding: 1px !important; font-size: 14px;" name="min_price" id="min_price" oninput="validatePhoneNumber(this)" placeholder="Min" min="0">
                 {{-- <div style="border-left: 1px solid #ccc; height: 100%; margin: 0 10px;"></div> --}}
     
-                <input type="text" class="form-control max_price" style="padding: 0px 0px 0px 5px !important; font-size: 13px; " name="max_price" id="max_price" oninput="validatePhoneNumber(this)" placeholder="Max" min="0">
+                <input type="text" class="form-control max_price" style="padding: 0px 0px 0px 5px !important; font-size: 14px; " name="max_price" id="max_price" oninput="validatePhoneNumber(this)" placeholder="Max" min="0">
             </span>
                 {{-- </div> --}}
         </div>
@@ -264,7 +264,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             </select>
         </div>
     </div>
-    <button class="btn"  style="white-space: nowrap;margin-left:43.6rem;  color: red; border: 1px solid goldenrod ;border-radius: 5px;" type="button"  aria-expanded="false">
+    <button class="btn"  style="white-space: nowrap;margin-left:44.7rem;  color: red; border: 1px solid goldenrod ;border-radius: 5px;" type="button"  aria-expanded="false">
         Search
     </button>
    

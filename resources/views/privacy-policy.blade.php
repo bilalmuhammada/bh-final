@@ -14,7 +14,7 @@
     <!-- Privacy Policy area start -->
     <section class="padtb50">
         <div class="container">
-            <div class="row ">
+            <div class="row " style="margin-bottom: 30px;">
                 <div class="col-md-12 col-lg-12 col-xl-12 term-text">
                     <div class="login-header">
                         <a href="{{ env('BASE_URL') }}">
@@ -62,9 +62,9 @@
 <h5 style="color: #000;font-weight: 900;
     font-size: 16px;">How to Contact Us</h5>
 <p style="text-align: justify; color: #333;">
-    You can contact us by emailing: <a href="mailto:support@businesshub.at" style="color: #000;
-    font-weight: 900;
-    font-size: 16px;">support@businesshub.at</a>.
+    You can contact us by emailing: <a href="mailto:support@businesshub.at" style="color: blue;
+    
+    font-size: 16px; ">support@businesshub.at</a>.
 </p>
 
 <h5 style="color: #000;font-weight: 900;
@@ -83,8 +83,8 @@
 <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
     <thead>
         <tr>
-            <th style="background-color: #f2f2f2; color: #333; padding: 10px; text-align: left;    white-space: nowrap;">Category of Personal Data</th>
-            <th style="background-color: #f2f2f2; color: #333; padding: 10px; text-align: left;    white-space: nowrap;">What This Means</th>
+            <th style="background-color: #f2f2f2; color: blue; padding: 10px; text-align: center;white-space: nowrap;    font-family: system-ui;">Category of Personal Data</th>
+            <th style="background-color: #f2f2f2; color: blue; padding: 10px; text-align: center;white-space: nowrap;    font-family: system-ui;">What This Means</th>
         </tr>
     </thead>
     <tbody>
@@ -138,7 +138,7 @@
 </p>
 
 <h5 style="color: #000;font-weight: 900;
-    font-size: 16px;">Special Categories of Personal Data</h5>
+    font-size: 16px; white-space: nowrap;">Special Categories of Personal Data</h5>
 <p style="color: #333;">
     We do not knowingly collect any ‘special categories of personal data’ about you (this includes, for example, details about your race or ethnicity, religious or philosophical beliefs, political opinions, information about your health, genetic and/or biometric data, and information about criminal offences and convictions).
 </p>
@@ -161,12 +161,12 @@
 <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
     <thead>
         <tr>
-            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #000;
-    font-weight: 900;
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: center; color: blue; font-family: system-ui;
+ 
     font-size: 16px;">Third Party Source</th>
-            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #000;
-    font-weight: 900;
-    font-size: 16px;">Categories of Personal Data</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: center; color: blue;font-family: system-ui;
+ 
+    font-size: 16px; white-space: nowrap;">Categories of Personal Data</th>
         </tr>
     </thead>
     <tbody>
@@ -216,17 +216,17 @@
 <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
     <thead>
         <tr>
-            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #000;
-    font-weight: 900;
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: center; color: blue;
+    font-family: system-ui;
     font-size: 16px;">Purpose</th>
-            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #000;
-    font-weight: 900;
-    font-size: 16px;">Categories of Personal Data</th>
-            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #000;
-    font-weight: 900;
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: center; color: blue;font-family: system-ui;
+    
+    font-size: 16px; white-space: nowrap;">Categories of Personal Data</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: center; color: blue;font-family: system-ui;
+    
     font-size: 16px;">Why We Do This</th>
-            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #000;
-    font-weight: 900;
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: center; color: blue;font-family: system-ui;
+   
     font-size: 16px;">Our Legal Basis</th>
         </tr>
     </thead>
@@ -286,11 +286,11 @@
 <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
     <thead>
         <tr>
-            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #000;
-    font-weight: 900;
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: center; color: blue;
+    
     font-size: 16px;">Recipients</th>
-            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; color: #000;
-    font-weight: 900;
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: center; color: blue;
+    
     font-size: 16px;">Why We Share It</th>
         </tr>
     </thead>

@@ -23,6 +23,9 @@
     color: blue !important;
 
 }
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active{
+    color: blue !important;
+}
 .carousel-item .active{
  border-radius: 50%;
 }
@@ -191,7 +194,7 @@
                     @foreach($categories as $category)
                         <div class="col-md-3 cat mb-4">
                             <div class="subcategory-list">
-                                <img src="{{ $category->image_url  }}" alt="" width="25"  style="margin-top: -11px;">  <b > {{$category->name}}</b>
+                                <img src="{{ $category->image_url  }}" alt="" width="25"  style="margin-top: -11px;">  <b style="font-size: 15px;" > {{$category->name}}</b>
                                 <br>
                                 @foreach($category->sub_categories as $key=>$sub_category)
                                     @if($key >= 5)
@@ -255,7 +258,7 @@
     <section class="business-rent">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
-                <h5 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Business for Rent</b></h5>
+                <h5 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Businesses for Rent</b></h5>
                 <div class="row slider" style="margin-left: -8px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -291,7 +294,7 @@
     <section class="share-sale">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
-                <h5 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Share For Sale</b></h4>
+                <h5 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Shares For Sale</b></h4>
                 <div class="row slider" style="margin-left: -8px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -327,7 +330,7 @@
     <section class="business-idea">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:0px 0px 0px -76px;">
-                <h5 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Business Ideas</b></h4>
+                <h5 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Businesses Ideas</b></h4>
                 <div class="row slider" style="    margin-left: -8px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     

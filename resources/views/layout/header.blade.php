@@ -45,13 +45,17 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/slick.css')}}">
 
     <link rel="stylesheet" href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.19/css/intlTelInput.css"/>
-    
+    <link rel="stylesheet" href="{{ asset('asset/Lobibox/js/emojionearea-master/dist/emojionearea.min.css') }}">
+
     <!-- Lobibox -->
     <link rel="stylesheet" href="{{asset('asset/Lobibox/css/lobibox.css')}}"/>
     <link rel="stylesheet" href="{{ asset('css/chat.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('select2/css/select2.min.css')}}">
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js"  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css"  crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
 </head>
 <style>
     .iti--separate-dial-code .iti__selected-flag {

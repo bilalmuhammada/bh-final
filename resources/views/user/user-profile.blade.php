@@ -35,7 +35,14 @@ margin-left: -7px;
             max-height: 300px !important; /* Example: limit height */
             overflow-y: auto !important;  /* Enable vertical scrolling */
         }
-
+       
+        #profile-form #select2-country-container,#profile-form #select2-cities-container{
+        
+    color: black !important;
+    font-weight: inherit;
+    text-align: center !important;
+}
+           
     input::placeholder{
         font-size: 10px;
         color: blue !important;
@@ -104,7 +111,7 @@ width: 225px !important;
                 </div>
                 <div class="col-md-4"  style="margin-left: 42px;margin-top: -32px;">
                     <div class="row">
-                        <form class="profile-form" style="font-size:12px;">
+                        <form class="profile-form" id="profile-form" style="font-size:12px;">
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;" ><b> First Name:</b></div>
@@ -455,6 +462,21 @@ width: 225px !important;
  function validateInputText(input) {
     // Remove any character that is not a letter (A-Z, a-z) or space
     input.value = input.value.replace(/[^0-9]/g, '');
+}
+
+function togglePassword(fileID) {
+
+const passwordField = document.getElementById(fileID);
+
+const icon = passwordField.nextElementSibling.querySelector(".toggle-password");
+
+if (passwordField.type === "password") {
+    passwordField.type = "text";
+    icon.textContent = "🙈"; // Change the icon
+} else {
+    passwordField.type = "password";
+    icon.textContent = "👁️"; // Change the icon back
+}
 }
 $(document).ready(function(){
    

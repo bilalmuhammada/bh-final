@@ -195,7 +195,7 @@ width: 60rem !important;
                 <div class="row">
                     <div class="col" style="border:0px solid red;">
                         <div class="row" style="margin-top: 12px;">
-                            <h3 style="border:0px solid red;"><b>{{ $ad->title ?? 'Title N?A' }}</b></h3>
+                            <h5 style="border:0px solid red;"><b>{{ $ad->title ?? 'Title N?A' }}</b></h5>
                         </div>
                         <div class="row">
                             <span class="text-muted"
@@ -221,7 +221,7 @@ width: 60rem !important;
                 <div class="row">
                     <div class="col" style="border:0px solid red;">
                         <div class="row">
-                            <h4 style="border:0px solid red;"><b>{{ $ad->title ?? 'Title N?A' }}</b></h4>
+                            <h5 style="border:0px solid red;"><b>{{ $ad->title ?? 'Title N?A' }}</b></h5>
                         </div>
                         <div class="row">
                             <span class="text-muted"
@@ -352,19 +352,19 @@ width: 60rem !important;
                         <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <!---------->
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
-                            <h4><b>Products & Services Offered</b></h4>
+                            <h5><b>Products & Services Offered</b></h>
                             <p style="font-size: 14px; margin-bottom: 7px;">{{ $ad->details->products_and_services_offered ?? '....' }} this is one line</p>
                         </div>
                         <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
-                            <h4><b>Description</b></h4>
+                            <h5><b>Description</b></h4>
                             <p style="font-size: 14px;margin-bottom: 7px;">{{ $ad->description }} this is description</p>
                         
                         </div>
                         <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
                 
-                                <h4><b>Files</b></h4>
+                                <h5><b>Files</b></h4>
                                 <p style="font-size: 14px;">
                                     <embed class="@if(empty($ad->document_listing_approval_status) || $ad->document_listing_approval_status == 'rejected') blur-image @endif" src="https://www.buds.com.ua/images/Lorem_ipsum.pdf"
                                            type="application/pdf" width="180px" height="228px"/>
@@ -385,7 +385,7 @@ width: 60rem !important;
                       
                         <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <div class="col-lg-12 col-md-12 col-12" >
-                            <h4><b>Location</b></h4>
+                            <h5><b>Location</b></h5>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-6">
                                     {{-- <div style="border-radius:5px;"> --}}
@@ -432,7 +432,7 @@ width: 60rem !important;
                             <div class="inner" style="border: 1px solid #eee; border-radius: 5px; padding: 15px;width: 24rem;">
                                 <p class="text-muted" style="font-size: 13px;margin-left: 14px;">Posted by: <b style="color:#000" >{{ ($ad->posted_by == 1) ? "Agent" : "User"  }}</b></p>
  
-                                <div class="profile-image-container" style=" align-items: center; margin-left:8.3rem;margin-top: -11px; font-size: 26px;">
+                                <div class="profile-image-container" style=" align-items: center; margin-left:9rem;margin-top: -11px; font-size: 17px;">
                                       
                                     <b>{{ $ad->created_by_user->name }}</b>
                                     {{-- <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="40" height="40" style="border-radius: 50%; margin-right: 10px;"> --}}
@@ -548,7 +548,7 @@ width: 60rem !important;
                 <!---------------------->
                 {{-- <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;"> --}}
                 <div class="col-lg-12 col-md-12 col-12 similar_ad" style="margin-top: 7px;margin-left: -18px;">
-                    <h4 style="margin-top: 9px;margin-left: 15px;"><b>Similar Ads</b></h4>
+                    <h5 style="margin-top: 9px;margin-left: 15px;"><b>Similar Ads</b></h5>
                     <div class="row">
                         <div class="col-md-9">
                             <div class="slider" style="width: auto;"> <!-- Adjust the width here -->

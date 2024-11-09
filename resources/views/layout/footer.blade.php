@@ -8,7 +8,7 @@
      color: blue !important;
     }
     .m-10{
-        margin: 25px 0px 0px -60px !important;
+        margin: 30px 0px 0px -60px !important;
     }
 </style>
 <footer>

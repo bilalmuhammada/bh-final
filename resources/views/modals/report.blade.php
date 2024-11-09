@@ -95,7 +95,7 @@
                     <div class="col-md-12">
                         <div class="row">
                             <label for=""></label>
-                            <textarea name="description"  class="form-control" placeholder="Describe your Reason"
+                            <textarea name="description"  class="form-control" placeholder="Reason..."
                                       style="border:2px solid #eee;font-size: 14px;border: 2px solid #eee;color:#000" cols="12" rows="2" maxlength="80"
                                       ></textarea>
                         </div>
