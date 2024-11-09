@@ -7,7 +7,7 @@
     
     
     .fa-heart {
-        color: white !important;
+        color: red !important;
     }
     
     .btn-next a.btn {
@@ -1257,10 +1257,10 @@
     }
     
     footer ul li a {
-        font-weight: normal;
-        font-size: 16px;
+        /* font-weight: normal; */
+        font-size: 13px;
         /* color: #0000FF; */
-        color: #212529 !important;
+        color: #000 !important;
     }
     
     footer h2 {

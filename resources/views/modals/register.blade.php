@@ -123,7 +123,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
                                         <input type="text" name="phone" id="phone" class="form-control floating login-user"
-                                               placeholder="Mobile" aria-label="Mobile" aria-describedby="basic-addon1">
+                                               placeholder="Mobile" aria-label="Mobile" aria-describedby="basic-addon1" oninput="validateInput(this)"  >
                                                {{-- <label class="focus-label">Mobile</label> --}}
                                             </div>
                                 </div>
@@ -273,6 +273,11 @@
 </div>
 
 <script>
+function validateInput(input) {
+            
+            // Allow only digits and the '+' sign, and ensure '+' is only at the beginning
+            input.value = input.value.replace(/[^\d+]/g, '').replace(/(?!^)\+/g, '');
+}
       
     function togglePassword() {
 

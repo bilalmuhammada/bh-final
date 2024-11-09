@@ -12,6 +12,13 @@
     input:focus{
         border: 1px solid #1202c9 !important;
     }
+    #profile-form .toggle-password {
+            position: absolute;
+            right: 30px;
+            top: 36% !important;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
      
     .select2-dropdown{
 margin-left: -7px;
@@ -42,6 +49,7 @@ margin-left: -7px;
     font-weight: inherit;
     text-align: center !important;
 }
+
            
     input::placeholder{
         font-size: 10px;
@@ -64,7 +72,7 @@ margin-left: -7px;
 
     }
     .position-550 {
-        left:576px !important ;
+        left:600px !important ;
     }
   
     select::-ms-expand {

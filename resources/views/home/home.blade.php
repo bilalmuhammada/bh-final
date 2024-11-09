@@ -478,6 +478,9 @@
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
+
+
+
     $(document).ready(function(){
     $('.slider').slick({
         infinite: true,

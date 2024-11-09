@@ -131,22 +131,9 @@ width: 60rem !important;
 
 }
 </style>
-{{--        @dd($ad->toArray())--}}
-    <!--------ad area --------->
+
     <section>
-        <!-- <div class="container slider-area"> -->
-        {{-- <div class="cont-w slider-area desktop-view">
-            <div id="demo" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{{ $ad->main_image_url }}" alt="Los Angeles5555" width="100%" height="270px">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{asset('images/hero_image_7.jpeg')}}" alt="Chicago" width="100%" height="270px">
-                    </div>
-                </div>
-            </div>
-        </div> --}}
+     
         <div class="cont-w slider-area desktop-view">
             <div id="demo" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner"  style="border-radius:10px;">
@@ -195,7 +182,7 @@ width: 60rem !important;
                 <div class="row">
                     <div class="col" style="border:0px solid red;">
                         <div class="row" style="margin-top: 12px;">
-                            <h5 style="border:0px solid red;"><b>{{ $ad->title ?? 'Title N?A' }}</b></h5>
+                            <h6 style="border:0px solid red;"><b>{{ $ad->title ?? 'Title N?A' }}</b></h6>
                         </div>
                         <div class="row">
                             <span class="text-muted"
@@ -221,7 +208,7 @@ width: 60rem !important;
                 <div class="row">
                     <div class="col" style="border:0px solid red;">
                         <div class="row">
-                            <h5 style="border:0px solid red;"><b>{{ $ad->title ?? 'Title N?A' }}</b></h5>
+                            <h6 style="border:0px solid red;"><b>{{ $ad->title ?? 'Title N?A' }}</b></h6>
                         </div>
                         <div class="row">
                             <span class="text-muted"
@@ -253,10 +240,7 @@ width: 60rem !important;
                         <a href="{{ env('BASE_URL') . 'home' }}" style="color:#0000FF;font-size:12px;">Home</a>
                         <i class="fa fa-chevron-right" style="font-size:11px;"></i>
                     </div>
-                    {{--                    <div class="cat_btn" style="margin:7px 5px;">--}}
-                    {{--                        <a href="{{ env('BASE_URL') . 'ads/category/' . $ad->category_id}}" style="color:#0000FF;font-size:12px;">{{ $ad->category_name }}</a>--}}
-                    {{--                        <i class="fa fa-chevron-right" style="font-size:11px;"></i>--}}
-                    {{--                    </div>--}}
+                   
                     <div class="cat_btn" style="margin:0px 5px;">
                         <a href="{{ env('BASE_URL') . 'ads/' . $ad->subcategory_id}}"
                            style="color:#0000FF;font-size:12px;">{{ $ad->subcategory_name }}</a>
@@ -352,19 +336,19 @@ width: 60rem !important;
                         <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <!---------->
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
-                            <h5><b>Products & Services Offered</b></h>
+                            <h5><b>Products & Services Offered</b></h5>
                             <p style="font-size: 14px; margin-bottom: 7px;">{{ $ad->details->products_and_services_offered ?? '....' }} this is one line</p>
                         </div>
                         <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
-                            <h5><b>Description</b></h4>
+                            <h5><b>Description</b></h5>
                             <p style="font-size: 14px;margin-bottom: 7px;">{{ $ad->description }} this is description</p>
                         
                         </div>
                         <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
                 
-                                <h5><b>Files</b></h4>
+                                <h5><b>Files</b></h5>
                                 <p style="font-size: 14px;">
                                     <embed class="@if(empty($ad->document_listing_approval_status) || $ad->document_listing_approval_status == 'rejected') blur-image @endif" src="https://www.buds.com.ua/images/Lorem_ipsum.pdf"
                                            type="application/pdf" width="180px" height="228px"/>

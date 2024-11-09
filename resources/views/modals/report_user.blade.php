@@ -7,7 +7,7 @@
     border: 0px solid;
 }
 
-.form-check{
+#report-ad-form1 .form-check{
     padding: 0.3rem 0.3rem 0.4rem 1.5rem !important;
 }
 .report-ad-form {
@@ -44,7 +44,7 @@
 
             <!-- Modal body -->
             <div class="modal-body" style="position:relative;top:-20px;">
-                <form class="report-ad-form">
+                <form class="report-ad-form" id="report-ad-form1">
                     <div class="alert-div" style="display: none;width:13rem; white-space: nowrap;"> 
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             <div class="alert-text"></div>

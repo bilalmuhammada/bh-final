@@ -39,11 +39,11 @@
             </div>
         </div>
     </div>
-    <div class="container mb-30">
+    <div class="container ">
         <div class="col-lg-12 col-md-12 col-12 m-10">
             <div class="row">
                 <div class="col-lg-2 col-md-6 col-12 ">
-                    <h2>Company</h2>
+                    <h5 style="font-size:15px;font-weight: bold;">Company</h5>
                     <ul>
                         <!-- <li>
                             <a href="{{env('BASE_URL') . 'how-it-works?country=' . request()->country . '&city=' . request()->city }}">How It Works</a>
@@ -119,23 +119,23 @@
                     </ul>
                 </div> --}}
                 <div class="col-lg-2 col-md-6 col-12 desktop-view">
-                    <h2 style="text-align:center;border:0px solid red;">Socials</h2>
+                    <h5 style="text-align:center;border:0px solid red;font-size:15px; font-weight: bold;">Socials</h5>
                     <ul style="text-align:center;border:0px solid red;">
                         <li style="margin-bottom: 5px;">
                             <a href="# " target="_blank ">
-                                <img src="{{ asset('images/socialicon/insta.png')}}" alt="" width="30" height="30">
+                                <img src="{{ asset('images/socialicon/insta.png')}}" alt="" width="25" height="25">
                             </a>
                         </li>
                         <li style="margin-bottom: 5px;">
                             <a href="# " target="_blank ">
-                                <img src="{{ asset('images/socialicon/twitter.png')}}" alt="" width="30"
-                                     height="30">
+                                <img src="{{ asset('images/socialicon/twitter.png')}}" alt="" width="25"
+                                     height="25">
                             </a>
                         </li>
                         
                         <li style="margin-bottom: 5px;">
                             <a href="# " target="_blank ">
-                                <img src="{{ asset('images/socialicon/fb.png')}}" alt="" width="30" height="30">
+                                <img src="{{ asset('images/socialicon/fb.png')}}" alt="" width="25" height="25">
                             </a>
                         </li>
                         {{-- <li style="margin-bottom:5px;">
@@ -146,21 +146,21 @@
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-6 col-12 mobile-view">
-                    <h2>Socials</h2>
+                    <h5 style="font-size:15px;">Socials</h5>
                     <ul>
                         <li>
                             <a href="# " target="_blank ">
-                                <img src="{{ asset('images/facebook-svgrepo-com.svg')}}" alt="" width="30" height="30">
+                                <img src="{{ asset('images/facebook-svgrepo-com.svg')}}" alt="" width="25" height="25">
                             </a>
                         </li>
                         <li>
                             <a href="# " target="_blank ">
-                                <img src="{{ asset('images/twitter-color-svgrepo-com.svg')}}" alt="" width="30"
-                                     height="30">
+                                <img src="{{ asset('images/twitter-color-svgrepo-com.svg')}}" alt="" width="25"
+                                     height="25">
                             </a>
                         </li>
                         <a href="# " target="_blank ">
-                            <img src="{{ asset('images/instagram-1-svgrepo-com.svg')}}" alt="" width="30" height="30">
+                            <img src="{{ asset('images/instagram-1-svgrepo-com.svg')}}" alt="" width="25" height="25">
                         </a>
                         {{-- <li>
                             <a href="# " target="_blank ">
@@ -197,34 +197,7 @@
             </div>
         </div>
     </div>
-    <!-----reserve section----->
-    <div class="container">
-        <div class="col-lg-12 col-md-12 mb-12 col-12">
-            <div class="row">
-                <!-- 1 -->
-                <div class="col-lg-3 col-md-6 col-12">
-                    <!-- <div class="logo ">
-                        <a href="{{env('BASE_URL') . 'home'}}"><img src="{{ asset('images/businesshub.png ')}}"
-                                                                    title="businesshub " alt="businesshub "
-                                                                    width="185 "/></a>
-                    </div> -->
-                </div>
-                <!-- 2 -->
-                <div class="col-lg-4 col-md-6 col-4">
-
-                </div>
-                <!-- 3-->
-                <div class="col-lg-5 col-md-6 col-12">
-                    <div class="social-icon-footer text-center">
-                        <!-- <a href="# " target="_blank "> -->
-                        <!-- <img src="{{ asset('images/consumer-protection-badge.png')}}" alt="" width="136" height="136"> -->
-                        <!-- </a> -->
-                    </div>
-                </div>
-                <!-- finish -->
-            </div>
-        </div>
-    </div>
+   
     <!-- footer copyright area start -->
     <div class="container">
         <div class="row">
@@ -232,7 +205,7 @@
                 <div class="logo text-center">
                     <a href="{{env('BASE_URL')}}">
                         <img src="{{asset('images/businesshub.png')}}" title="businesshub" alt="businesshub "
-                             width="185 "/>
+                             width="150 "/>
                     </a>
                 </div>
             </div>
@@ -240,7 +213,7 @@
         <!-- footer copyright area start -->
         <div class="row copyright ">
             <div class="col-lg-12 ">
-                <p style="color:#00498e;text-align:center;">© BusinessHub.com 2024, All Rights Reserved.</p>
+                <p style="color:#00498e;text-align:center;font-size:12px;">© BusinessHub.com 2024, All Rights Reserved.</p>
             </div>
         </div>
         <!-- footer copyright area finish -->

@@ -83,8 +83,8 @@
 <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
     <thead>
         <tr>
-            <th style="background-color: #f2f2f2; color: blue; padding: 10px; text-align: center;white-space: nowrap;    font-family: system-ui;">Category of Personal Data</th>
-            <th style="background-color: #f2f2f2; color: blue; padding: 10px; text-align: center;white-space: nowrap;    font-family: system-ui;">What This Means</th>
+            <th style="border:1px solid #ddd; color: blue; padding: 10px; text-align: center;white-space: nowrap;    font-family: system-ui;">Category of Personal Data</th>
+            <th style="border:1px solid #ddd; color: blue; padding: 10px; text-align: center;white-space: nowrap;    font-family: system-ui;">What This Means</th>
         </tr>
     </thead>
     <tbody>

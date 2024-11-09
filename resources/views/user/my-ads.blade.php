@@ -334,7 +334,7 @@
                                 <div class="col-md-4" style="max-width: 11pc">
                                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
                                         <div >
-                                            <div class="ad-show" style="padding:10px;border-radius:5px;margin-top: 0px;">
+                                            <div class="ad-show" style="padding:10px;border-radius:5px;margin-top: 6px;">
                                                 {{-- <div class="img"> --}}
                                                     <img src="{{ $my_ad->main_image_url  }}" alt="img" height="100" width="120" style="border-radius: 5px;">
                                                 {{-- </div> --}}

@@ -193,7 +193,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
                aria-controls="multiCollapseExample1" style="color:#000;">
                 <div class="col-md-12" style="text-align: center;"><span style="font-size: 14px;"><b>City</b></span></div>
-                <div class="col-md-12" style="margin-top: 12px;" ><span style="font-size: 16px;color:#252525;margin-left: 12px;">{{ $selected_city_name }}</span></div>
+                <div class="col-md-12" style="margin-top: 12px;" ><span style="font-size: 14px;color:#252525;margin-left: 12px;">{{ $selected_city_name }}</span></div>
             </a>
         </div>
 
@@ -382,7 +382,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             <div class="col-lg-12 col-md-12 col-12" style="margin-left: 4rem;">
                 <div class="row" style="margin-left: -137px;">
                     <div class="col-lg-8 col-md-8" style="display: flex;">
-                        <h5 style="white-space: nowrap;"><b> {{ $subcategory_name }} <span class="text-muted">   - {{ $ads->count() }} Ads</span></b>
+                        <h5 style="white-space: nowrap;"><b> {{ $subcategory_name }} </b><span style="color: blue;font-size:14px;">   - {{ $ads->count() }} Ads</span>
                         </h5>
                        
                     

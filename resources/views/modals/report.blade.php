@@ -1,11 +1,14 @@
 <!-- The Modal -->
 
-
 <div class="modal fade" id="reportModal">
     <style>
 .modal-content{
     border: 0px solid;
 }
+#report-ad-form .form-check{
+padding: -1px !important;
+}
+
 .report-ad-form {
             width: 60rem;
             margin-left: 1px;
@@ -29,7 +32,7 @@
             border-top: 0px solid transparent;
         }
         </style>
-    <div class="modal-dialog modal-sm" style="border:0px solid red;width:232px;margin-top:9%;">
+    <div class="modal-dialog modal-sm" i style="border:0px solid red;width:232px;margin-top:9%;">
         <div class="modal-content">
 
             <!-- Modal Header -->
@@ -40,7 +43,7 @@
 
             <!-- Modal body -->
             <div class="modal-body" style="position:relative;top:-20px;">
-                <form class="report-ad-form">
+                <form class="report-ad-form" id="report-ad-form">
                     <div class="alert-div" style="display: none;width:13rem; white-space: nowrap;"> 
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             <div class="alert-text"></div>

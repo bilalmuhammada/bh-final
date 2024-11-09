@@ -34,6 +34,7 @@
    
     
     .dropdown-menu.show {
+        display: none !important;
         min-width: 0rem !important;}
     
     .img-flag{
@@ -891,7 +892,7 @@
                     <div class="row">
                         @php $categories = \App\Helpers\RecordHelper::getCategories(); @endphp
                         @foreach($categories as $category)
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown" onchange="">
                                 <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                    aria-haspopup="true" aria-expanded="false">
                                     {{$category->name}}
@@ -916,14 +917,20 @@
     </div>
     <hr>
 </header>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
+$(document).on('click', '.nav-item.dropdown', function() {
+    // alert('Dropdown clicked!');
+    e.preventDefault(); // Prevent default behavior if the element is a link
 
-$(document).on('click', '.nav-item', function() {
-  alert('jj');
-  $('.dropdown-menu').removeClass('show');
+// Remove 'show' class from the clicked `.nav-item.dropdown` and its associated `.dropdown-menu`
+$(this).removeClass('show');
+$(this).children('.dropdown-menu').removeClass('show');
+
+    // Add custom behavior here
 });
+
     // Function to toggle the dropdown visibility
     function toggleDropdown(element) {
         const dropdownMenu = element.nextElementSibling;

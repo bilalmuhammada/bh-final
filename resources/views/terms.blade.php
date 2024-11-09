@@ -42,7 +42,7 @@
                         The Platform is operated and owned by <span style="font-weight: 600;"> BusinessHub ("businesshub", "we", "our", "us") </span>.
                        <br> 
                        <br> 
-                        To contact us about these Terms of Use or anything else relating to your use of this Platform, please email  <span style="color: blue;"> support@businesshub.at </span>.   
+                        To contact us about these Terms of Use or anything else relating to your use of this Platform, please email  <span style="color: blue;"> support@businesshub.at</span>.   
                     </p> 
                     <span style="font-weight:800 ; font-size: 16px;"> 2.	BY USING THE PLATFORM, YOU ACCEPT THESE TERMS OF USE. </span>
                     <br>  <br><p style="text-align: justify;">
