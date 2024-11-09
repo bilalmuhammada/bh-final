@@ -1183,6 +1183,9 @@ label{
 
                     $('#filtergraph').on('change', function () {
                 filtergraph = $(this).val(); // Get updated filtergraph value
+                if (apexBarChart) {
+        apexBarChart.destroy();
+    }
                 apexBarChart.updateOptions({
                     yaxis: {
                         title: {
