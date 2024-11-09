@@ -134,7 +134,7 @@
         $(".country_dropdown").select2({
             templateSelection: formatCountry,
             templateResult: formatCountry,
-            minimumResultsForSearch: -1
+            // minimumResultsForSearch: -1
         });
       
       });
