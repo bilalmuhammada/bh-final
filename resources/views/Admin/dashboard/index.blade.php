@@ -13,6 +13,9 @@
         margin-left: 4px !important;
 
     }
+    .select2-search__field:focus{
+border: 1px solid blue !important;
+    }
     span.ui-selectmenu-button.ui-button {
   width: 55%;
 }
