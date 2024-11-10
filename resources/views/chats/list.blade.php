@@ -5,6 +5,11 @@ $categories = \App\Helpers\RecordHelper::getCategories();
 $catgories_for_search = $categories->random()->take(5)->get();
 @endphp
 <style> /* Style for the chat users list */
+select {
+   
+    -webkit-appearance: auto !important
+    ;}
+
     .chat-users-list {
         overflow-y: auto;
         max-height: 400px; /* Adjust as needed */
@@ -12,11 +17,25 @@ $catgories_for_search = $categories->random()->take(5)->get();
         /* border: 1px solid #ddd; */
         border-radius: 5px;
     }
+
+
     .btn:focus, .btn.focus {
         box-shadow:none;
     }
-    .dropdown:hover .dropdown-menu{
+    .dropup, .dropright, .dropdown, .dropleft {
+        position:static !important;    }
+    /* .dropdown:hover .dropdown-menu{
         display:none !important;
+    } */
+    .dropdown-menu {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .btn:focus, .btn.focus {
+        box-shadow: none !important;
+    }
+    .dropdown-menu a.dropdown-item:hover{
+        color:blue !important;
     }
     .dropdown-menu a.dropdown-item{
         padding:2px !important;
@@ -33,7 +52,7 @@ $catgories_for_search = $categories->random()->take(5)->get();
         font-family: system-ui;
         letter-spacing:1px;
         font-size: 14px;
-      margin-left: 26px;
+        margin-left: 26px;
     }
     .product-image{
         margin-left: 8px;
@@ -53,7 +72,7 @@ $catgories_for_search = $categories->random()->take(5)->get();
         height: 80px;
     }
     .product-location{
-margin-top: 12px;
+      margin-top: 12px;
     }
     .product-price{
         margin-top: 5px;
@@ -176,7 +195,7 @@ color: goldenrod !important;
         border-radius: 10px;
     }
     .input-msg-send{
-        width: 99% !important;
+        width: 100% !important;
     }
     .emojionearea-editor{
         left: 19px !important;
@@ -209,9 +228,9 @@ select::-ms-expand {
 
 .form-control-search{
     margin-top: 7px  !important;
-    margin-left: 14px  !important;
-    width: 92% !important;
-    background-color: #ebe2e233 !important;
+    margin-left: 10px  !important;
+    width: 94% !important;
+    background-color: #eafafe !important;
     padding-left: 30px;
 }
 .position-relative {
@@ -290,14 +309,14 @@ a:hover {
                                
                                 <div class="col-md-2 hiddentrash">
                                     <div class="row">
-                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 137px;">
+                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 11.4rem;">
                                             <i class="fa fa-trash" style="color: rgb(9, 9, 166);"></i>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-2 edit">
                                     <div class="row">
-                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 90px;">
+                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 11.4rem;">
                                             <i class="fa fa-pencil" id="edit-icon" style="color: rgb(9, 9, 166);"></i>
                                         </div>
                                     </div>
@@ -348,7 +367,7 @@ a:hover {
                                                    
                                                     <div class="badge bgg-yellow badge-pill unread-count" style="display: {{($login_user_id != $chat->latest_message_sender_id && $chat->unread_count > 0) ? 'block' : 'none'}} ">{{ $chat->unread_count }}</div>
                                                 </div>
-                                                <div style="display:flex; justify-content: flex-end; align-items: center;    margin-top: -38px;  margin-right: -69px;margin-bottom: 25px;">
+                                                <div style="display:flex; justify-content: flex-end; align-items: center;    margin-top: -33px;  margin-right: -69px;margin-bottom: 25px;">
                                                     <button class="btn btn-link favorite-chat" title="{{ $chat->is_favorite ? 'Unfavourite ' : 'Favourite' }}" style="padding: 0px;" data-chat-id="{{ $chat->id }}">
                                                         <i class="fa fa-heart"  style="color: {{ $chat->is_favorite ? 'red' : 'grey' }} !important;"></i>
                                                     </button>
@@ -404,14 +423,14 @@ a:hover {
                                                     @if($chat->other_user->last_seen_at)
                                                         {{ \Carbon\Carbon::parse($chat->other_user->last_seen_at)->diffForHumans() }}
                                                     @else
-                                                        <span class="text-muted" style="font-size: 13px;">Last seens: Not available</span>
+                                                        <span class="text-muted" style="font-size: 13px;">Last Seen: Not available</span>
                                                     @endif
                                                 </span>
                                             </div>
                                            
                                         </div>
                                         <div class="dropdown">
-                                            <button class="btn  p-0" type="button" id="userOptionsMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <button class="btn btn-link  p-0" type="button" id="userOptionsMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="fa fa-ellipsis-v"></i>
                                             </button>
                                             
@@ -432,7 +451,7 @@ a:hover {
                                         <div class="product-details">
                                             <div class="product-description">FSI Quattro - Sunroof - Full Original Paint - Lady Driven - Direct Owner - 2 Keys</div>
                                             <div class="product-price">AED 69,500</div>
-                                            <div class="product-location">  <i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  Marina, Dubai, UAE &nbsp;&nbsp;•&nbsp;&nbsp; Oct 19, 2024</div>
+                                            <div class="product-location">  <i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  Marina, Dubai, UAE &nbsp;&nbsp;• Oct 19, 2024</div>
                                         </div>
                                     </div>
                                 </div>
@@ -487,15 +506,13 @@ a:hover {
     data-user-id="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
     data-chat-id="{{ $chat->id }}"
     style="border-radius: 30px; width: 100%; padding-right: 50px;">
-
-
                                                    
                                                 </div>
                                                         
                                                 <button type="button" id="msg-send-btn" class="btn btn-primary msg-send-btn"
                                                 data-user-id="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
                                                 data-chat-id="{{ $chat->id }}"
-                                                style="position: absolute; right: 41px; top: 3px; background-color: transparent; border: none;">
+                                                style="position: absolute; right: 37px; top:9px; background-color: transparent; border: none;">
                                             <i class="fa fa-arrow-circle-up mgn-send-color" aria-hidden="true"
                                                style="font-size: 30px; background-color: none;"></i>
                                         </button>
@@ -526,53 +543,21 @@ a:hover {
         </div>
     </div>
 @endsection
-<!-- Include Emoji Button library -->
+
 
 @section('page_scripts')
     <script type="text/javascript">
       
-
-        // var api_url = "{{ env('API_URL') }}";
-        $(document).on('click', '.hiddencheck', function(e) {
-            
-    e.stopPropagation();  // Prevent the click from triggering the anchor link
-});
-$(document).ready(function () {
-
-
-
-    $('.emoji-trigger').emojioneArea({
-                pickerPosition: "bottom",
-                events: {
-            keyup: function (editor, event) {
-                checkInput();
-                console.log('emoji');
-            },
-         
-            keydown: function (editor, event) {
-                checkInput();
-                if (event.which == 13) {
-                    console.log('enter');
-                 
-               
-                    $('#msg-send-btn').click();  
-                }
-                
-            },
-            
-            change: function (editor, event) {
-                checkInput();
-                console.log('emoji');
-            },
-            paste: function (editor, event) {
-                checkInput();
-                console.log('emoji');
-            }
-            
-        }
-
-            });
+      
         
+        // var api_url = "{{ env('API_URL') }}";
+    $(document).on('click', '.hiddencheck', function(e) {
+        e.stopPropagation();  // Prevent the click from triggering the anchor link
+    });
+$(document).ready(function () {
+   
+
+          
 
     function checkInput() {
         var inputMessage = $('.emojionearea-editor').text().trim();

@@ -44,20 +44,64 @@
     <link rel="stylesheet" type="text/css" href="{{asset('slick/slick-theme.css?v2022')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/slick.css')}}">
 
+    
     <link rel="stylesheet" href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.19/css/intlTelInput.css"/>
-    <link rel="stylesheet" href="{{ asset('asset/Lobibox/js/emojionearea-master/dist/emojionearea.min.css') }}">
-
+   
     <!-- Lobibox -->
     <link rel="stylesheet" href="{{asset('asset/Lobibox/css/lobibox.css')}}"/>
     <link rel="stylesheet" href="{{ asset('css/chat.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('select2/css/select2.min.css')}}">
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js"  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css"  crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('emojionearea-master/dist/emojionearea.min.css') }}">
+    <script src="{{ asset('emojionearea-master/dist/emojionearea.min.js') }}"></script>
     
 </head>
+
+<script>
+ jQuery.noConflict();
+jQuery(document).ready(function($) {
+   
+    $('.emoji-trigger').emojioneArea({
+                pickerPosition: "bottom",
+                events: {
+            keyup: function (editor, event) {
+                checkInput();
+                console.log('emoji');
+            },
+         
+            keydown: function (editor, event) {
+                checkInput();
+                if (event.which == 13) {
+                    console.log('enter');
+                 
+               
+                    $('#msg-send-btn').click();  
+                }
+                
+            },
+            
+            change: function (editor, event) {
+                checkInput();
+                console.log('emoji');
+            },
+            paste: function (editor, event) {
+                checkInput();
+                console.log('emoji');
+            }
+            
+        }
+
+            });
+});
+</script>
+
 <style>
+
+
+
+
     .iti--separate-dial-code .iti__selected-flag {
         background-color: inherit !important;
     }

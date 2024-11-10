@@ -92,7 +92,7 @@
  <style>
     .dataTables_wrapper .dataTables_filter input{
       border: 1px solid #997045;
-        padding: 5px 0px 6px 14px !important; 
+        padding: 5px 12px 6px 14px !important; 
     }
     ::-webkit-scrollbar {
   width: 12px; /* You can adjust this value based on your preference */

@@ -38,7 +38,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Report this User</h4>
+                <h4 class="modal-title">Report User</h4>
                 <button type="button" class="close closebtn" data-dismiss="modal" style="margin-top: -12px;">×</button>
             </div>
 

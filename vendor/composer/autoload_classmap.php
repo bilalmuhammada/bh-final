@@ -12,6 +12,7 @@ return array(
     'App\\Helpers\\RecordHelper' => $baseDir . '/app/Helpers/RecordHelper.php',
     'App\\Helpers\\SiteHelper' => $baseDir . '/app/Helpers/SiteHelper.php',
     'App\\Http\\Controllers\\AdController' => $baseDir . '/app/Http/Controllers/AdController.php',
+    'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
     'App\\Http\\Controllers\\AuthController' => $baseDir . '/app/Http/Controllers/AuthController.php',
     'App\\Http\\Controllers\\CategoryController' => $baseDir . '/app/Http/Controllers/CategoryController.php',
     'App\\Http\\Controllers\\ChatController' => $baseDir . '/app/Http/Controllers/ChatController.php',

@@ -845,7 +845,7 @@ label{
                 </div>
             </div>
         </div> <!-- row -->
-        <div class="row mb-4" style="width: 98%;">
+        <div class="row mb-4" style="width: 98%;margin-top: 14px;">
             <div class="col">
                 <select name="filtergraph" id="filtergraph" class="form-control filtergraph">
                     <option value="sales">Sales</option>

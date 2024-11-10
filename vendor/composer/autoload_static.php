@@ -555,6 +555,7 @@ class ComposerStaticInita3aeb95c7f9ab1cb6eaa038411eea291
         'App\\Helpers\\RecordHelper' => __DIR__ . '/../..' . '/app/Helpers/RecordHelper.php',
         'App\\Helpers\\SiteHelper' => __DIR__ . '/../..' . '/app/Helpers/SiteHelper.php',
         'App\\Http\\Controllers\\AdController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdController.php',
+        'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
         'App\\Http\\Controllers\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoryController.php',
         'App\\Http\\Controllers\\ChatController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChatController.php',
