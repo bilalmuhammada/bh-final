@@ -185,6 +185,10 @@ $second = $parts[1] ?? null;
             templateSelection: formatCountry,
             templateResult: formatCountry,
         });
+        $(".chat").select2({
+           
+            minimumResultsForSearch: -1
+        });
 
         function formatCity(city) {
             if (!city.id) {

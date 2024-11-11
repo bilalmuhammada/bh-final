@@ -264,13 +264,15 @@ a:hover {
     letter-spacing:1px;
     margin-bottom: 4px;
 }
-.custom-select {
 
-    outline: none;
-    border: 1px solid transparent; /* Makes the border transparent */
-    background-color: #fff;        /* Optional: Set background color */
-    padding: 5px;                 /* Optional: Adjust padding */
+ .select2-results__option {
+    padding: 0px 2px 0px 9px !important;
+    font-weight: 100 !important;
 }
+.select2-dropdown, .select2-dropdown--below {
+    width: 97px !important;
+}
+
 
     </style>
 @section('content')
@@ -299,7 +301,7 @@ a:hover {
                                     </div>
                                 </div>
                                 <div class="col-md-2" style="margin-left: -97px;margin-top: 2px;">
-                                    <select class="form-select " id="filter-dropdown" style="width: 164%; padding: 0; border:transparent !important">
+                                    <select class="form-select chat" id="filter-dropdown" style="width: 164%; padding: 0; border:transparent !important">
                                         <option value="all">All Chats</option>
                                         <option value="favorites">Favourites</option>
                                         <option value="blocked">Blocked</option>

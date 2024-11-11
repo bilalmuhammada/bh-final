@@ -137,6 +137,11 @@
             // minimumResultsForSearch: -1
         });
       
+        $(".chat").select2({
+   
+    minimumResultsForSearch: -1
+})
+
       });
         var varyingModal = document.getElementById('varyingModal')
         // alert(varyingModal);
