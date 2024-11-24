@@ -8,7 +8,13 @@
     .select2-container--default .select2-selection--single .select2-selection__rendered {
         line-height: 29px
     }
+    .ui-datepicker {
 
+width:12.5rem !important; 
+}
+.ui-datepicker table {
+    font-size: 0.6rem !important;
+}
     .apexcharts-legend-text{
         margin-left: 4px !important;
 
@@ -16,6 +22,10 @@
     .select2-search__field:focus{
 border: 1px solid blue !important;
     }
+    .select2-search__field{
+border:1px solid #997045 !important;
+}
+
     span.ui-selectmenu-button.ui-button {
   width: 55%;
 }
@@ -32,6 +42,11 @@ ul.ui-menu {
     .select2-container--default .select2-selection--single:hover {
         border: 1px solid blue !important;
     }
+    .select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #fff !important;
+    color: blue !important;
+}
+
     .select2-results__option, .selection {
         text-align: center !important;
     }
@@ -855,45 +870,47 @@ label{
             </div>
             <div class="col">
                
-                    <select class="js-example-basic-single form-select country_dropdown form-control country_id" id="country_id" data-width="100%"
-                            name="country_id">
-                        <option value=""> Country</option>
-                        @foreach($countries as $country)
-                            <option value="{{ $country->id }}" >{{ $country->name }}</option>
-                        @endforeach
-                    </select>
-               
-            </div>
-            <div class="col">
-                
-                <select class="js-example-basic-single form-control form-select city_id" data-width="100%"
-                                        id="city_id"
-                                        name="city_id">
-                                    <option value=""  > City</option>
+                <select class="js-example-basic-single form-select country_dropdown form-control country_id" id="country_id" data-width="100%"
+                        name="country_id">
+                    <option value="0"> All Countries</option>
+                    @foreach($countries as $country)
 
-                                </select>
-            </div>
-                    @php
-                     $currency = \App\Helpers\RecordHelper::getCurrency();
-                    @endphp
-
-            <div class="col">
-                <select name="currency" class="form-control currency_dropdown" name="currency_dropdown" id="" >
-                    <option value="">Currency</option>
-                    @foreach($currency as $currencyn)
-                    <option data-currency-id="{{ $currencyn->currency }}"
-                            {{$currencyn->currency == request()->currency ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" style="margin-bottom: 5px;width: 31px;" value="{{ $currencyn->currency }}"
-                            style="font-size:10px !important;">{{ $currencyn->currency }}</option>
-                @endforeach
+                        <option  {{$country->name == request()->name ? 'selected' : '' }}  data-flag-url="{{ $country->flag_url }}" style="margin-bottom: 5px;width: 31px;" 
+                        value="{{ $country->id }}" >{{ $country->name }}</option>
+                    @endforeach
                 </select>
-            </div>
+           
+        </div>
+        <div class="col">
+                
+            <select class="js-example-basic-single form-control city_dropdown  form-select city_id" data-width="100%"
+                                    id="city_id"
+                                    name="city_id">
+                                <option value=""> All Cities</option>
+
+                            </select>
+        </div>
+                @php
+                 $currency = \App\Helpers\RecordHelper::getCurrency();
+                @endphp
+
+        <div class="col">
+            <select name="currency" class="form-control currency_dropdown" name="currency_dropdown" id="" >
+                <option value="">Currency</option>
+                @foreach($currency as $currencyn)
+                <option data-currency-id="{{ $currencyn->currency }}"
+                        {{$currencyn->currency_symbol == request()->currency ? 'selected' : '' }}  data-flag-url="{{ $currencyn->flag_url }}" style="margin-bottom: 5px;width: 31px;" value="{{ $currencyn->id }}"
+                        style="font-size:10px !important;">{{ $currencyn->currency_short_name }}</option>
+            @endforeach
+            </select>
+        </div>
             <div class="col">
-                <input type="text" class="form-control datepicker1" id="from_date1" placeholder="DD.MM.YYYY"
-                       value="{{ \Carbon\Carbon::now()->startOfYear()->format('d.m.Y') }}">
+                <input type="text" class="form-control datepicker1" id="from_date1" placeholder="Date"
+                       value="">
             </div>
             <div class="col">
                 <input type="text" class="form-control datepicker1" id="to_date1"
-                       placeholder="DD.MM.YYYY" {{ \Carbon\Carbon::now()->endOfYear()->format('d.m.Y') }}>
+                       placeholder="Date">
             </div>
             {{--            <div class="col">--}}
             {{--                <input type="text" placeholder="Search" class="form-control">--}}
@@ -972,9 +989,11 @@ label{
 
         $(document).ready(function () {
             $(".datepicker1").datepicker({
-        dateFormat: "dd-mm-yy",
+        dateFormat: "dd-M-yy",
         changeMonth: true, 
         changeYear: true,
+        yearRange: "2024:+0",
+
 
         });
         $(".datepicker1").change(function() {
@@ -1103,6 +1122,12 @@ label{
 
         $(document).on('change', '#from_date1, #tod_date1, #filtergraph', function () {
             render_monthly_sale_chart();
+            if(filtergraph === 'counts'){
+                $('.currency_dropdown').prop('disabled', true);
+            }else{
+                $('.currency_dropdown').prop('disabled', false);
+            }
+        
         })
 
 
@@ -1114,11 +1139,9 @@ label{
                 data: {
                     from_date: $('#from_date1').val(),
                     to_date: $('#to_date1').val(),
-                     filtergraph: $('#filtergraph').val()
+                    filtergraph: $('#filtergraph').val()
                 },
                 success: function (data) {
-                    console.log(data.filtergraph);
-                  
                     var options = {
                         series: [{
                             name: 'Users',

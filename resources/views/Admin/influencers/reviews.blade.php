@@ -9,13 +9,13 @@
 
 }
     #datatable_filter{
-margin-right: 12rem !important;
+margin-right: 11.3rem !important;
     }
     .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_length {
         padding: 0px !important;
     }
     div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
-    margin-right: 0.667em !important ;
+    margin-right: 0.267em !important ;
 }
     /* The slider (background) */
     .c-slider {
@@ -63,6 +63,13 @@ margin-right: 12rem !important;
     background-color: blue !important;
     color: white !important;
 }
+.table td img, .datepicker table td img {
+        width: 25px !important;
+        height: 25px !important;
+    }
+    table.dataTable tbody th, table.dataTable tbody td {
+        padding: 2px 10px !important;
+    }
 </style>
 @section('content')
 

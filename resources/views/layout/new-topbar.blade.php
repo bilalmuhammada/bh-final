@@ -140,14 +140,14 @@ $second = $parts[1] ?? null;
     @endphp
     <div class="container">
         <!-- topbar start -->
-        @if(request()->path()!=="contact-us" && request()->path()!=="about-us" && request()->path()!=="privacy-policy" && request()->path()!=="terms-of-use" &&  $second !=="plane-ad")
+        @if(request()->path()!=="contact-us" && request()->path()!=="about-us" && request()->path()!=="terms-of-use" &&  $second !=="plane-ad")
         <div class="topbar desktop-view">
             <div class="cont-w">
                 <div class="row">
                     <div class="col-lg-6 col-xl-6 col-md-6">
                         <!-- social icon desktop start -->
-                        <a class="" href="{{env('BASE_URL') . 'home'}}" style="margin-left: -30px;">
-                            <img src="{{asset('images/businesshub-slogan.png')}}" alt="" width="250px" alt="logo">
+                        <a class="" href="{{env('BASE_URL') . 'home'}}" style="margin-left: -4px;">
+                            <img src="{{asset('images/businesshub.png')}}" alt="" width="150px" alt="logo">
                         </a>
                     </div>
                     

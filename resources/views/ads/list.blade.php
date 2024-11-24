@@ -264,7 +264,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             </select>
         </div>
     </div>
-    <button class="btn"  style="white-space: nowrap;margin-left:44.7rem;  color: red; border: 1px solid goldenrod ;border-radius: 5px;" type="button"  aria-expanded="false">
+    <button class="btn"  style="white-space: nowrap;margin-left:44.7rem;  color: blue; border: 1px solid goldenrod ;border-radius: 5px;" type="button"  aria-expanded="false">
         Search
     </button>
    

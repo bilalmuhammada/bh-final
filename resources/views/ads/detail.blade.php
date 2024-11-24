@@ -387,7 +387,7 @@ width: 60rem !important;
                         </div>
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
                         <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
-                        <div style="font-weight: bold;font-size:20px;margin-top: 6px;margin-left: 12px;">
+                        <div style="font-weight: bold;font-size:15px;margin-top: 6px;margin-left: 12px;">
                             Is there an issue?
 
                             @php $report_text = "Report this Ad"; $report_class = "report-ad-btn"; @endphp
@@ -532,7 +532,7 @@ width: 60rem !important;
                 <!---------------------->
                 {{-- <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;"> --}}
                 <div class="col-lg-12 col-md-12 col-12 similar_ad" style="margin-top: 7px;margin-left: -18px;">
-                    <h5 style="margin-top: 9px;margin-left: 15px;"><b>Similar Ads</b></h5>
+                    <h6 style="margin-top: 9px;margin-left: 15px;margin-bottom: 0px;"><b>Similar Ads</b></h6>
                     <div class="row">
                         <div class="col-md-9">
                             <div class="slider" style="width: auto;"> <!-- Adjust the width here -->

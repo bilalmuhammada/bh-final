@@ -35,7 +35,7 @@ th{
     
     padding: 1px 0px 0px 0px !important ;
     /* border-color:#997045 !important; */
-    margin-right: -6.3rem !important;
+    margin-right: -6.7rem !important;
 
 
 }
@@ -53,7 +53,7 @@ th{
         height: 0;
     }
     div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
-    margin-right: 0.667em !important ;
+    margin-right: 0.267em !important ;
 }
     /* The slider (background) */
     .c-slider {
@@ -150,25 +150,7 @@ th{
                             <table id="datatable" class="table">
                                 <thead>
                                 <tr>
-                                    <!-- <th>Sr.No</th>
-                                    <th>Image</th>
-                                    <th>Vendor.Id</th>
-                                    <th>Vendor.Name</th>
-                                    <th>Vendor.Type</th>
-                                    <th>Member.Since</th>
-                                    <th>Number.of.Outlets</th>
-                                    <th>Number.of.Deals</th>
-                                    <th>Pending.Deals</th>
-                                    <th>Amount.Paid</th>
-                                    <th>Country</th>
-                                    <th>City</th>
-                                    <th>Mobile</th>
-                                    <th>Email</th>
-                                    <th>Rating.by.InfluencerPro</th>
-                                    <th>Submitted Files</th>
-                                    <th>Vendor’s.User.Person.Name</th>
-                                    <th>Status</th>
-                                    <th>Action</th> -->
+                                   
                                     
                                     <th>#</th>
                                     <th>ID #</th>

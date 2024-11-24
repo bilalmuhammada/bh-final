@@ -162,6 +162,28 @@ $second = $parts[1] ?? null;
             templateResult: formatCountry,
             minimumResultsForSearch: -1
         });
+
+        $("#registercountry").select2({
+            templateSelection: formatCountry,
+            templateResult: formatCountry,
+            // minimumResultsForSearch: -1
+        });
+        $("#registercountry").on("select2:open", function () {
+    // Select the currently open dropdown and adjust its width
+    $(".select2-container--open").css("width", "200px");
+});
+
+$("#registercities").select2({
+            templateSelection: formatCountry,
+            templateResult: formatCountry,
+            // minimumResultsForSearch: -1
+        });
+        $("#registercities").on("select2:open", function () {
+    // Adjust the width of the currently open dropdown
+    $(".select2-container--open .select2-dropdown--below").css("width", "200px");
+});
+
+
         $(".language_dropdown").select2({
             templateSelection: formatCountry,
             templateResult: formatCountry,

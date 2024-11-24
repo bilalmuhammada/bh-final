@@ -41,8 +41,8 @@
         margin-right: 3px !important;
 
     }
-    .select2-dropdown,.select2-dropdown--below{
-        width: 145px !important;
+   .select2-dropdown,.select2-dropdown--below{
+        width: 145px;
     }
 
     /* start */
@@ -204,7 +204,7 @@
                             {{-- <div class="country" style="border:0px solid green;position:relative;left:-111px;"> --}}
                             <div class="mobile-country desktop-menu-right">
                                
-                                    <select class="form-control country_dropdown1 " name="country_dropdown"  style="width:130px;" id="country_dropdown" >
+                                    <select class="form-control country_dropdown1 " name="country_dropdown"   style="width:130px;" id="country_dropdown" >
                                         @foreach($countries as $country)
                                        
                                             <option
@@ -762,7 +762,7 @@
                                     <a class="register-btn">Register</a>
                            </span>
                         @endif
-                        <span style="padding:13px 15px;text-align:center;font-size:16px !important;">
+                        <span style="padding:18px 15px;text-align:center;font-size:16px !important;">
                             <a class="add-list-button add-listing-btn"
                                style="padding: 11px 20px;border-radius: 6px;">+ Place Your Ad</a>
                         </span>     

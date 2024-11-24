@@ -10,6 +10,22 @@
     .m-10{
         margin: 30px 0px 0px -60px !important;
     }
+    .shaking {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+   }
+ 
+  .shaking:hover {
+    animation: shake 1.5s linear infinite;
+   }
+
+   @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+  }
 </style>
 <footer>
 {{--<div class="marquee" style="background-color: #0000FF;color: white;padding-top: 10px;margin-bottom: 10px;height: 25px;">
@@ -21,7 +37,7 @@
                 <div class="col-lg-4 col-md-6 col-12">
                     <h5>
                         Find amazing Businesses on the go.<br/>
-                        <div style="color:#0000FF;"><b>Download our App Now!</b></div>
+                        <div style="color:#0000FF;margin-top: 6px;"><b>Download our App Now!</b></div>
                     </h5>
                 </div>
                 <div class="col-lg-2 col-md-6 col-6">
@@ -45,18 +61,11 @@
                 <div class="col-lg-2 col-md-6 col-12 ">
                     <h5 style="font-size:15px;font-weight: bold;">Company</h5>
                     <ul>
-                        <!-- <li>
-                            <a href="{{env('BASE_URL') . 'how-it-works?country=' . request()->country . '&city=' . request()->city }}">How It Works</a>
-                        </li> -->
+                       
                         <li>
                             <a href="{{env('BASE_URL') . 'about-us?country=' . request()->country . '&city=' . request()->city }}" class="changeColor">About Us</a>
                         </li>
-                        <!-- <li>
-                            <a href="# ">Advertising</a>
-                        </li> -->
-                        {{-- <li>
-                            <a href="{{env('BASE_URL') . 'subscription'. '/plans' }}">Subscription</a>
-                        </li> --}}
+                      
                         <li>
                             <a href="{{env('BASE_URL') . 'contact-us'}}" class="changeColor">Contact Us</a>
                         </li>
@@ -123,19 +132,19 @@
                     <ul style="text-align:center;border:0px solid red;">
                         <li style="margin-bottom: 5px;">
                             <a href="# " target="_blank ">
-                                <img src="{{ asset('images/socialicon/insta.png')}}" alt="" width="25" height="25">
+                                <img src="{{ asset('images/socialicon/insta.png')}}" class="shaking" alt="" width="25" height="25">
                             </a>
                         </li>
                         <li style="margin-bottom: 5px;">
                             <a href="# " target="_blank ">
-                                <img src="{{ asset('images/socialicon/twitter.png')}}" alt="" width="25"
+                                <img src="{{ asset('images/socialicon/twitter.png')}}"  class="shaking" alt="" width="25"
                                      height="25">
                             </a>
                         </li>
                         
                         <li style="margin-bottom: 5px;">
                             <a href="# " target="_blank ">
-                                <img src="{{ asset('images/socialicon/fb.png')}}" alt="" width="25" height="25">
+                                <img src="{{ asset('images/socialicon/fb.png')}}" class="shaking" alt="" width="25" height="25">
                             </a>
                         </li>
                         {{-- <li style="margin-bottom:5px;">
@@ -162,38 +171,10 @@
                         <a href="# " target="_blank ">
                             <img src="{{ asset('images/instagram-1-svgrepo-com.svg')}}" alt="" width="25" height="25">
                         </a>
-                        {{-- <li>
-                            <a href="# " target="_blank ">
-                                <img src="{{ asset('images/youtube-svgrepo-com.svg')}}" alt="" width="30" height="30">
-                            </a>
-                        </li> --}}
+                       
                     </ul>
                 </div>
-                <!-- <div class="col-lg-2 col-md-6 col-12 ">
-                    <h2>Support</h2>
-                    <ul>
-                        <li>
-                            <a href="{{env('BASE_URL') . 'contact-us'}}" style="cursor:help;">Help</a>
-                        </li>
-                        <li>
-                            <a href="{{env('BASE_URL') . 'contact-us'}}">Contact Us</a>
-                        </li>
-                        <li>
-                            <a href="tel:00000000">Call Us</a>
-                        </li>
-                    </ul>
-                </div> -->
-                <!-- <div class="col-lg-2 col-md-6 col-12 ">
-                    <h2>Languages</h2>
-                    <ul>
-                        <li>
-                            <a href="#">English</a>
-                        </li>
-                        <li>
-                            <a href="#">العربية</a>
-                        </li>
-                    </ul>
-                </div> -->
+               
             </div>
         </div>
     </div>

@@ -1,13 +1,39 @@
 <!-- partial:partials/_footer.html -->
+
+
+<style>
+     .changeColor:hover{
+     color: blue !important;
+    }
+    .m-10{
+        margin: 30px 0px 0px -60px !important;
+    }
+    .shaking {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+   }
+ 
+  .shaking:hover {
+    animation: shake 1.5s linear infinite;
+   }
+
+   @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+  }
+</style>
 <footer class="footer" style="border:0px solid red;    margin-top: 24px;">
     <div class="container mb-30">
         <div class="col-lg-12 col-md-12 col-12 m-10" style="border:0px solid red;">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-12">
-                    <h3>
-                        Find amazing deals on the go.<br/>
-                        <div style="color:#0000FF;"><b>Download the app now!</b></div>
-                    </h3>
+                    <h5>
+                        Find amazing Businesses on the go.<br/>
+                        <div style="color:#0000FF;margin-top: 6px;"><b>Download our App Now!</b></div>
+                    </h5>
                 </div>
                 <div class="col-lg-2 col-md-6 col-6" style="padding-left: 54px;">
                     <img src="{{ asset('images/iphone.png')}}" alt=" " height="80px" width="140px">
@@ -34,27 +60,21 @@
                         <img src="assets/img/logo/Influencers Pro-01-01.png" class="img-fluid" alt="Logo">
                         </a>
                         </div> -->
-                        <h2 class="footer-title">Pages</h2>
+                        <h2 class="footer-title">Company</h2>
                         <ul>
                             <li>
-                                <a href="{{env('BASE_URL') . 'about-us?country=' . request()->country . '&city=' . request()->city }}" class="changeColor"> <i class="fas fa-angle-right me-1"></i>About Us</a>
+                                <a href="{{env('BASE_URL') . 'about-us?country=' . request()->country . '&city=' . request()->city }}" class="changeColor">About Us</a>
                             </li>
-                        
-                            <li><a href="{{ env('BASE_URL') }}/contact-us"><i class="fas fa-angle-right me-1"></i>Contact
-                                    Us</a></li>
-                        
-                        <!-- <li><a href="{{ env('BASE_URL') }}subscriptions"><i class="fas fa-angle-right me-1"></i>Subscription</a>
-                            </li> -->
-                            <li><a href="{{ env('BASE_URL') }}/termcondition"
-                                {{-- data-bs-toggle="modal" data-bs-target="#termsModal" --}}
-                                ><i
-                                       class="fas fa-angle-right me-1"></i>Terms & Conditions</a>
-                           </li>
-                           <li><a href="{{ env('BASE_URL') }}/privacy-policy"
-                                {{-- data-bs-toggle="modal" data-bs-target="#privacyModal" --}}
-                                ><i
-                                       class="fas fa-angle-right me-1"></i>Privacy Policy</a>
-                           </li>
+                          
+                            <li>
+                                <a href="{{env('BASE_URL') . 'contact-us'}}" class="changeColor">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="{{env('BASE_URL') . 'terms-of-use?country=' . request()->country . '&city=' . request()->city }}" class="changeColor">Terms of Use</a>
+                            </li>
+                            <li>
+                                <a href="{{env('BASE_URL') . 'privacy-policy?country=' . request()->country . '&city=' . request()->city }}" class="changeColor">Privacy Policy</a>
+                            </li>
                         </ul>
 
                     </div>
@@ -89,14 +109,14 @@
                     <div class="footer-widget footer-menu">
                         <h2 class="footer-title">Socials</h2>
                         <ul style="margin-left: 14px;">
-                            <li><a href="#" class="icon" target="_blank">
+                            <li style=" margin-bottom: 5px;" ><a href="#" class="icon" target="_blank">
                               
-                                <img src="{{ asset('images/socialicon/insta.png')}}" alt="" width="30" height="30"></a></li>
-                            <li><a href="#" class="icon" target="_blank">
+                                <img src="{{ asset('images/socialicon/insta.png')}}" alt="" class="shaking"width="25" height="25"></a></li>
+                            <li style=" margin-bottom: 5px;"><a href="#" class="icon" target="_blank">
                                 
-                                <img src="{{ asset('images/socialicon/twitter.png')}}" alt="" width="30"
-                                height="30"></a></li>
-                            <li><a href="#" class="icon" target="_blank"><img src="{{ asset('images/socialicon/fb.png')}}" alt="" width="30" height="30"></a></li>
+                                <img src="{{ asset('images/socialicon/twitter.png')}}" alt="" class="shaking" width="25"
+                                height="25"></a></li>
+                            <li style=" margin-bottom: 5px;"><a href="#" class="icon" target="_blank"><img src="{{ asset('images/socialicon/fb.png')}}" alt="" class="shaking" width="25" height="25"></a></li>
                             {{-- <li><a href="#" class="icon" target="_blank"><img
                                         src="{{ asset('assets/img/social-icon/youtube.png') }}" alt="youtube"
                                         width="30"
@@ -104,26 +124,7 @@
                         </ul>
                     </div>
                 </div>
-            <!-- <div class="col-xl-3 col-md-6">
-                    <div class="footer-widget footer-menu">
-                        <h2 class="footer-title">Our Location</h2>
-                        <iframe width="250"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30767360.116125572!2d60.93867314919207!3d19.721934610035287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2s!4v1685620432319!5m2!1sen!2s"
-                                 style="filter: invert(90%) grayscale(1);border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <br>
-                        <span>We accepted : </span>
-                        <img src="{{ asset('assets/img/card.png') }}" alt="cards" width="200" height="55">
-                        <div class="social-icon d-flex"> -->
-                <!-- <span>Follow us on :</span>
-                <ul>
-                <li><a href="#" class="icon" target="_blank"><i class="fab fa-facebook-f"></i> </a></li>
-                <li><a href="#" class="icon" target="_blank"><i class="fab fa-instagram"></i> </a></li>
-                <li><a href="#" class="icon" target="_blank"><i class="fab fa-twitter"></i> </a></li>
-                </ul> -->
-                <!-- </div>
-            </div>
-        </div> -->
+           
             </div>
         </div>
     </div>

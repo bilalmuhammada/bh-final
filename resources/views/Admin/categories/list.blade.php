@@ -30,10 +30,15 @@
     padding: 1px 1.6rem 0px 0px !important ;
     /* border-color:#997045 !important; */
     /* margin-right: 161px !important; */
+    
+    /* border-color:#997045 !important; */
+    margin-right: -0.5rem !important;
+
+
 
 }
 div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
-    margin-right: 0.667em !important ;
+    margin-right: 0.267em !important ;
 
 }
     ::-webkit-scrollbar {
@@ -112,6 +117,14 @@ th{
     .open-popup{
         margin-right: 7px !important;
         color: blue !important;
+    }
+
+    .table td img, .datepicker table td img {
+        width: 25px !important;
+        height: 25px !important;
+    }
+    table.dataTable tbody th, table.dataTable tbody td {
+        padding: 2px 10px !important;
     }
 </style>
 @section('content')

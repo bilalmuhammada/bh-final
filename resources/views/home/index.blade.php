@@ -494,20 +494,6 @@ $countries = \App\Helpers\RecordHelper::getCountries();
     </div>
 </div>
 
-<!-- footer area 4 finish -->
-<!-- <div class="col-xs-12 col-lg-12">
-<div class="container">
-
-    <div class="row" style="border:1px solid red;text-align:center;">
-        <div class="col-xs-3 col-sm-3 btc">
-<a href="">sss</a>
-        </div>
-        <div class="col-xs-6 sm-3 btc">11</div>
-        <div class="col-xs-6 sm-3 btc">11</div>
-        <div class="col-xs-6 sm-3 btc">11</div>
-    </div>
-</div>
-</div> -->
 
 </body>
 <!-- footer area start -->

@@ -16786,7 +16786,7 @@ ul {
 }
 
 .footer-top {
-    padding: 60px 0;
+    padding: 30px 0;
 }
 
 .footer .footer-widget .footer-about-content p {
@@ -16801,7 +16801,7 @@ ul {
     color: #101828;
     font-size: 20px;
     font-weight: 600;
-    margin-bottom: 40px;
+    margin-bottom: 22px;
     position: relative;
     padding-bottom: 10px;
 }
@@ -16833,7 +16833,7 @@ h2.footer-title:before {
 }
 
 .footer .footer-menu ul li {
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .footer .footer-menu ul li:last-child {
@@ -16841,7 +16841,7 @@ h2.footer-title:before {
 }
 
 .footer .footer-menu ul li a {
-    color: #353535;
+    color: #000;
     font-size: 14px;
     font-weight: 500;
     position: relative;
@@ -17107,10 +17107,7 @@ h2.footer-title:before {
     font-weight: 800;
 }
 
-.copyright {
-    padding: 30px 0;
-    border-top: 1px solid #EBEBEB;
-}
+
 
 .copyright-text p,
 .copyright-text p a {

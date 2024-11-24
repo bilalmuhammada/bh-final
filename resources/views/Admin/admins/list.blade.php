@@ -14,7 +14,7 @@
 }
 
 div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
-    margin-right: 0.667em !important ;
+    margin-right: 0.267em !important ;
 }
 .dataTables_filter>input:focus{
    border-color:blue !important; 
@@ -31,11 +31,11 @@ div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
     
     padding: 1px 0px 0px 0px !important ;
     /* border-color:#997045 !important; */
-    margin-right: -83px !important;
+    margin-right: -90px !important;
 
 } 
 ::-webkit-scrollbar {
-  width: 12px; /* You can adjust this value based on your preference */
+  width: 6px; /* You can adjust this value based on your preference */
 }
 
 /* Define the scrollbar thumb */
@@ -118,6 +118,14 @@ div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
     right: 4% !important;
     cursor: pointer !important;
     /* color: lightgray !important; */
+    }
+
+    .table td img, .datepicker table td img {
+        width: 25px !important;
+        height: 25px !important;
+    }
+    table.dataTable tbody th, table.dataTable tbody td {
+        padding: 2px 10px !important;
     }
 </style>
 @section('content')

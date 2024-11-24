@@ -45,9 +45,7 @@
 .slick-slide img{
     width: 100% !important;
 }
-.select2-container--open .select2-dropdown{
-    left: -5px !important ;
-}
+
 </style>
     @php
         $categories = \App\Helpers\RecordHelper::getCategories();
@@ -330,7 +328,7 @@
     <section class="business-idea">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:0px 0px 0px -76px;">
-                <h5 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Businesses Ideas</b></h4>
+                <h5 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Business Ideas</b></h4>
                 <div class="row slider" style="    margin-left: -8px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     

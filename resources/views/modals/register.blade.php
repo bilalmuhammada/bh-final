@@ -4,7 +4,16 @@
 <style>
     .select2-container--default .select2-selection--single .select2-selection__rendered{
         text-align: left !important;
+     
         /* margin-left: -29px !important; */
+    }
+    #select2-registercountry-container{
+color: #fff !important;
+    }
+    #select2-registercities-container
+    {
+color: #fff !important;
+padding-left: 31px;
     }
     select {
     -webkit-appearance: none; /* Safari and Chrome */
@@ -16,7 +25,7 @@
     border: 1px solid #ccc;   /* Optional: adjust border style */
 }
     .position-850{
-        left: 835px !important;
+        left: 850px !important;
 
     }
     .form-focus .focus-label{
@@ -49,6 +58,11 @@
         #first_name,#last_name, #phone,#Email,#password_confirmation,#password{
             padding: 12px 20px 12px 10px;
         }
+        
+        #register-form .select2-container--open{
+            left: -22px !important;
+        }
+
          input::placeholder{
             color: black;
          }
@@ -169,8 +183,8 @@
                                 <div class="col-md-6">
                                     <div class=" " id="form-border" style="  border-radius: 5px;  padding: 5px 20px;
                                     border: 1px solid #A17A4E">
-                                        <select name="country" id="country"
-                                                    class="form-control    language_dropdown login-user"
+                                        <select name="country" id="registercountry"
+                                                    class="form-control     login-user"
                                                     style="width:100%;">
                                                 @if ($cities->count() < 1)
                                                     <option value="" selected>Country</option>
@@ -191,8 +205,8 @@
                                 <div class="col-md-6">
                                     <div class="input-group mb-3 "  id="form-border"  style="border-radius: 5px;   padding: 5px 20px;
                                     border: 1px solid #A17A4E">
-                                        <select name="cities" id="cities"
-                                        class="form-control language_dropdown  login-user"
+                                        <select name="cities" id="registercities"
+                                        class="form-control   login-user"
                                         style="width:100%;color:#fff !important;">
                                     @if ($cities->count() < 1)
                                         <option value="" selected>City</option>

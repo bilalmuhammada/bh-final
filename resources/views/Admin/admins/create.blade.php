@@ -262,43 +262,7 @@ ul.ui-menu {
                             </div>
                             
 
-                            {{-- <div class="mb-3">
-                                <label for="password_influencer" class="form-label">Password</label>
-                                <input type="password" class="form-control" name="password" id="password_influencer"
-                                       autocomplete="off" placeholder="Password">
-                                       <i class="fa fa-eye one" id="togglePassword" style="position: absolute;top: 75%;right: 5%;cursor: pointer;color: lightgray;" onclick="togglePassword('password_influencer')"></i>
-                            </div>
-                            <div class="mb-3">
-                                <label for="confirm_password_infl" class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control" name="confirm_password" id="confirm_password_infl"
-                                       autocomplete="off" placeholder="Confirm Password">
-                                       <i class="fa fa-eye two" id="togglePassword" style="position: absolute;top: 86%;right: 5%;cursor: pointer;color: lightgray;" onclick="togglePassword('confirm_password_infl')"></i>
-                            </div> --}}
-                            <!-- <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Influencer Type</label>
-                                <select class="js-example-basic-single form-select" name="type" data-width="100%">
-                                    <option value="">Select Type</option>
-                                    <option value="BUYER">Buyer</option>
-                                    <option value="SELLER">Seller</option>
-                                </select>
-                            </div> -->
-                            <!-- <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Influencer Image</label>
-                                <input type="file" id="myDropify" name="image"/>
-                            </div> -->
-                            <!-- <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Description</label>
-                                <textarea id="maxlength-textarea" name="description" class="form-control"
-                                          id="defaultconfig-4"
-                                          maxlength="100" rows="8"
-                                          placeholder="This textarea has a limit of 100 chars."></textarea>
-                            </div> -->
-                            <!-- <div class="mb-3">
-                                <div class="form-check form-switch mb-2">
-                                    <input type="checkbox" class="form-check-input" id="formSwitch1" name="status">
-                                    <label class="form-check-label" for="formSwitch1">Active</label>
-                                </div>
-                            </div> -->
+                           
                             <div class="text-center font-bold" style="margin-top: 14px;">
                                 <button type="submit" class="btn btn-primary me-2">Register</button>
                             </div>
@@ -339,9 +303,10 @@ ul.ui-menu {
 $(document).ready(function() {
 
     $(".datepicker1").datepicker({
-    dateFormat: "dd-mm-yy",
+    dateFormat: "dd-M-yy",
     changeMonth:true,
-    changeYear:true
+    changeYear:true,
+    yearRange: "1950:+0",
    
 });
 $(".datepicker1").change(function() {

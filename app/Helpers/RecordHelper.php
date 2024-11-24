@@ -66,9 +66,9 @@ class RecordHelper
     public static function getCurrency()
     {
         
-        $currency = Country::orderBy('sequence')->get();
+        $currency = Country::orderBy('name')->get();
        
-        
+        // $languages = DB::table('languages')->orderBy("name",'ASC')->get();
        
 
         return $currency;

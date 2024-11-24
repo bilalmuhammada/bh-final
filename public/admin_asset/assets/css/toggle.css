@@ -2,7 +2,7 @@
     padding-top: 15px!important;
 }
 .c-toggle {
-    --width: 80px;
+    --width: 50px;
     --height: calc(var(--width) / 3);
 
     position: relative;

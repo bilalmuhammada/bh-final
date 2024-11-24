@@ -38,6 +38,13 @@
     /* color: lightgray !important; */
     }
 
+    .table td img, .datepicker table td img {
+        width: 25px !important;
+        height: 25px !important;
+    }
+    table.dataTable tbody th, table.dataTable tbody td {
+        padding: 2px 10px !important;
+    }
 </style>
 @section('content')
     <div class="page-content">
@@ -279,9 +286,10 @@ function togglePassword(fieldId) {
         }
     $(document).ready(function() {
         $(".datepicker1").datepicker({
-        dateFormat: "dd-mm-yy" ,
+        dateFormat: "dd-M-yy" ,
         changeMonth: true, 
         changeYear: true, 
+        yearRange: "1950:+0",
         });
         $(".datepicker1").change(function() {
     var input = $(this); // Store reference to `this`
