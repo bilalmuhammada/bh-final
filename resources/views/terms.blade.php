@@ -338,7 +338,7 @@ If you do not agree to be bound by these Terms of Use, you may not access or use
 
 <h6 style="font-weight:800; font-size: 16px;">3. PAYMENT OF SUBSCRIPTION FEES</h6>
 <p style="text-align: justify;">
-    By purchasing a subscription for the Feature, you agree to pay all applicable subscription fees to Dubizzle (the "Subscription Fees"), as described at checkout and as may be updated from time to time. The Subscription Fees will be debited using your chosen payment method at the beginning of each Billing Cycle.
+    By purchasing a subscription for the Feature, you agree to pay all applicable subscription fees to BusinessHub (the "Subscription Fees"), as described at checkout and as may be updated from time to time. The Subscription Fees will be debited using your chosen payment method at the beginning of each Billing Cycle.
 </p>
 <p style="text-align: justify;">
     BusinessHub uses a third-party payments processor to process your payment of the Subscription Fees. Please refer to that payments processor’s terms and conditions and privacy policy.
