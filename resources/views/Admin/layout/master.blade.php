@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--begin::Head-->
+@php
+    dd('dd');
+    @endphp
 @include("Admin.layout.header")
 <!--end::Head-->
 <!--begin::Body-->
@@ -14,9 +17,7 @@
         </div>
     </div>
 
-    @php
-    dd('dd');
-    @endphp
+    
     
   @if(session()->get('user'))
     <!-- footer area start -->
