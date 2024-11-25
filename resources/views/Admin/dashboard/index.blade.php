@@ -875,7 +875,7 @@ label{
                     <option value="0"> All Countries</option>
                     @foreach($countries as $country)
 
-                        <option  {{$country->name == request()->name ? 'selected' : '' }}  data-flag-url="{{ $country->flag_url }}" style="margin-bottom: 5px;width: 31px;" 
+                        <option  {{$country->name == request()->name ? 'selected' : '' }}   style="margin-bottom: 5px;width: 31px;" 
                         value="{{ $country->id }}" >{{ $country->name }}</option>
                     @endforeach
                 </select>
@@ -899,7 +899,7 @@ label{
                 <option value="">Currency</option>
                 @foreach($currency as $currencyn)
                 <option data-currency-id="{{ $currencyn->currency }}"
-                        {{$currencyn->currency_symbol == request()->currency ? 'selected' : '' }}  data-flag-url="{{ $currencyn->flag_url }}" style="margin-bottom: 5px;width: 31px;" value="{{ $currencyn->id }}"
+                        {{$currencyn->currency_symbol == request()->currency ? 'selected' : '' }}   style="margin-bottom: 5px;width: 31px;" value="{{ $currencyn->id }}"
                         style="font-size:10px !important;">{{ $currencyn->currency_short_name }}</option>
             @endforeach
             </select>
