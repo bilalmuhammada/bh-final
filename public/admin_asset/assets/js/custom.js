@@ -1,6 +1,6 @@
-$(document).ready(function () {
-    datetimepicker_load();
-})
+// $(document).ready(function () {
+//     datetimepicker_load();
+// })
 
 
 function deleteRecord(url, thisElem) {
