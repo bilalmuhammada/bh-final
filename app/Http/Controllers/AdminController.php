@@ -13,7 +13,7 @@ class AdminController extends Controller
     //
     public function index()
     {
-        dd('ss');
+      
         $users = User::get();
         $countries = Country::all();
 
@@ -24,6 +24,7 @@ class AdminController extends Controller
             'active_users' => $users->where('status', 'active')->count(),
             'inactive_users' => $users->where('status', 'inactive')->count(),
         ];
+        dd('0000');
         return view('Admin.dashboard.index')->with($data);
     }
 
