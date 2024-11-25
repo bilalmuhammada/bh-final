@@ -111,8 +111,8 @@ $second = $parts[1] ?? null;
 <script src="{{ asset('js/alerts.js')}}"></script>
 <script src="{{ asset('js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('select2/js/select2.min.js')}}" type="text/javascript " charset="utf-8 "></script>
-{{-- <script type="text/javascript"
-        src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"></script> --}}
+<script type="text/javascript"
+        src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"></script>
 
 {{--<script src="{{asset('js/map.js?v='.date('ymdhis'))}}"></script>--}}
 

@@ -222,18 +222,18 @@ function getCitiesByCountry(country_id) {
 }
 
 function datetimepicker_load() {
-    // $('.datepicker').datetimepicker({
-    //     format: 'd/m/Y',
-    //     timepicker: false,
-    //     timepickerScrollbar: false,
-    //     scrollInput: false,
-    // });
+    $('.datepicker').datetimepicker({
+        format: 'd/m/Y',
+        timepicker: false,
+        timepickerScrollbar: false,
+        scrollInput: false,
+    });
 
-    // $('.datetimepicker').datetimepicker({
-    //     format: 'd/m/Y H:i',
-    //     timepickerScrollbar: false,
-    //     scrollInput: false,
-    // });
+    $('.datetimepicker').datetimepicker({
+        format: 'd/m/Y H:i',
+        timepickerScrollbar: false,
+        scrollInput: false,
+    });
     // $(document).on('click', '.datepicker', function(){
     //     $(this).datetimepicker({
     //         format: 'd/m/Y',
