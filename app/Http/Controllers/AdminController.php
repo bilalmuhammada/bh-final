@@ -24,7 +24,7 @@ class AdminController extends Controller
             'active_users' => $users->where('status', 'active')->count(),
             'inactive_users' => $users->where('status', 'inactive')->count(),
         ];
-        dd('0000');
+       
         return view('Admin.dashboard.index')->with($data);
     }
 

@@ -1,6 +1,8 @@
 @extends('Admin.layout.master')
 @section('content')
-
+@php
+dd('dddd');
+@endphp
 <style>
     .select2-dropdown{
         border: 1px solid #ffffff00 !important;
