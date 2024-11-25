@@ -377,13 +377,15 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
         </div>
     </section>
     <!---new filter ennded----->
+
+    
     <section>
         <div class="container">
             <div class="col-lg-12 col-md-12 col-12" style="margin-left: 4rem;">
                 <div class="row" style="margin-left: -137px;">
                     <div class="col-lg-8 col-md-8" style="display: flex;">
-                        <h5 style="white-space: nowrap;"><b> {{ $subcategory_name }} </b><span style="color: blue;font-size:14px;">   - {{ $ads->count() }} Ads</span>
-                        </h5>
+                        <h6 style="white-space: nowrap;"><b> {!! $category_name->name !!} </b> > <b> {{ $subcategory_name }} </b><span style="color: blue;font-size:14px;">   - {{ $ads->count() }} Ads</span>
+                        </h6>
                        
                     
                     </div>
@@ -406,7 +408,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                         @foreach($ads as $ad)
                         <div class="row">
                             <!-----content----->
-                            <div class="col-lg-4 col-md-4 col-12" style="margin-top:-5px;">
+                            <div class="col-lg-4 col-md-4 col-12" style="margin-top:-11px;">
                                 <div style="position:absolute;border:0px solid red;width:100%;">
                                     <div class="row">
                                         <!-- Sharing and Favourite buttons -->
@@ -436,7 +438,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                 </a>
                             </div>
                             <div class="col-lg-8 col-md-8 col-12">
-                                <div class="row" style="margin-top: -10px;">
+                                <div class="row" style="margin-top: -12px;">
                                     <div class="col-lg-7 col-md-7 col-7" style="margin-left: -118px">
                                     <h5 style="font-size: 18px;font-weight:700;margin: 0px;">{{ $ad->title ?? 'Heading N/A' }}</h5>
                                     <p style="font-size: 13px;margin-bottom: 6px;">{{ $ad->category_name }} <span style="font-size: 16px;">&#9679;</span> {{ $ad->subcategory_name }}</p>

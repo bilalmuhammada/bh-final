@@ -34,6 +34,7 @@ $second = $parts[1] ?? null;
 @include('layout.footer')
 <!-- footer area end -->
 <!-- jQuery -->
+
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <!-- Popper.js -->
@@ -45,7 +46,8 @@ $second = $parts[1] ?? null;
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
 {{--sweetalert  start--}}
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script> 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet"> 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 {{--Goggle Recaptcha start--}}
 <script src="https://www.google.com/recaptcha/api.js?render={{ env('GOOGLE_RECAPTCHA_KEY') }}"></script>
@@ -102,16 +104,15 @@ $second = $parts[1] ?? null;
 <!-- custom scripts -->
 <script src="{{ asset('des/js/main.js')}}"></script>
 <!---------counter------->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+
 <script src="{{asset('js/authenticate.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
 <script src="{{ asset('js/slick.js')}}"></script>
 <script src="{{ asset('js/alerts.js')}}"></script>
 <script src="{{ asset('js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('select2/js/select2.min.js')}}" type="text/javascript " charset="utf-8 "></script>
-<script type="text/javascript"
-        src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"></script>
+{{-- <script type="text/javascript"
+        src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"></script> --}}
 
 {{--<script src="{{asset('js/map.js?v='.date('ymdhis'))}}"></script>--}}
 
@@ -132,7 +133,7 @@ $second = $parts[1] ?? null;
         };
 
         $(document).ready(function(){
-    $('#datepicker').datepicker({
+    $('.datepicker_register').datepicker({
       format: 'dd-mm-yyyy',
        autoclose: true,
       todayHighlight: true

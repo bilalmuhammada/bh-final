@@ -755,14 +755,14 @@
                                     </span>
                             @endif
                         @if (!session()->has('user'))
-                            <span class="auth" style="padding:13px 15px;text-align:center;font-size:16px !important;font-weight: bold;">
+                            <span class="auth" style="padding:13px 15px;text-align:center;font-size:14px !important;font-weight: bold;">
                             <a class="login-btn">Login</a>
                            </span>
-                            <span class="auth"  style="padding:13px 15px;text-align:center;font-size:16px !important;    font-weight: bold;">
+                            <span class="auth"  style="padding:13px 15px;text-align:center;font-size:14px !important;    font-weight: bold;">
                                     <a class="register-btn">Register</a>
                            </span>
                         @endif
-                        <span style="padding:18px 15px;text-align:center;font-size:16px !important;">
+                        <span style="padding:18px 15px;text-align:center;font-size:14px !important;">
                             <a class="add-list-button add-listing-btn"
                                style="padding: 11px 20px;border-radius: 6px;">+ Place Your Ad</a>
                         </span>     

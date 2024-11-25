@@ -504,7 +504,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                 <div class="logo text-center">
                     <a href="{{env('BASE_URL')}}">
                         <img src="{{asset('images/businesshub.png')}}" title="businesshub" alt="businesshub "
-                             width="185 "/>
+                             width="150 "/>
                     </a>
                 </div>
             </div>
@@ -512,7 +512,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
         <!-- footer copyright area start -->
         <div class="row copyright ">
             <div class="col-lg-12 ">
-                <p style="color:#00498e;text-align:center;">© BusinessHub.com 2024, All Rights Reserved.</p>
+                <p style="color:#00498e;text-align:center; font-size:12px">© BusinessHub.com 2024, All Rights Reserved.</p>
             </div>
         </div>
         <!-- footer copyright area finish -->
@@ -567,6 +567,8 @@ $countries = \App\Helpers\RecordHelper::getCountries();
 
 
         $(".country_dropdown").select2({
+           
+           
             templateSelection: formatCountry,
             templateResult: formatCountry,
             // minimumResultsForSearch: -1

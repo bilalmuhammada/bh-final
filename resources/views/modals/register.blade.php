@@ -165,7 +165,7 @@ padding-left: 31px;
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
 
-                                        <input type="text" name="dob" id="datepicker" style="padding: 12px 20px 12px 10px !important;" class="form-control   login-user email"
+                                        <input type="text" name="dob" id="datepicker_register" style="padding: 12px 20px 12px 10px !important;" class="form-control  datepicker_register  login-user email"
                                                placeholder="Date of Birth" aria-label="Email" aria-describedby="basic-addon1"
                                                onfocus="this.value=''">
 

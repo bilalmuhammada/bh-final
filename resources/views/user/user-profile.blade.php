@@ -76,7 +76,7 @@ margin-left: -7px;
     }
   
     select::-ms-expand {
-    display: none; /* Remove the dropdown icon on IE10+ */
+    /* display: none; Remove the dropdown icon on IE10+ */
 }
 select {
     -webkit-appearance: none;

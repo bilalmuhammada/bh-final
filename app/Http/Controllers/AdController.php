@@ -90,6 +90,8 @@ class AdController extends Controller
                 })
                 ->orderBy('name')->paginate($perPage);
 
+
+                // dd($SubCategory->category);
             $data = [
                 'from' => $request->from ?? false,
                 'to' => $request->to ?? false,

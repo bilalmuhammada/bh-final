@@ -75,8 +75,8 @@
 {{--Datetime picker--}}
 {{--https://xdsoft.net/jqplugins/datetimepicker/--}}
 
- {{-- <link rel="stylesheet" href="{{asset('admin_asset/assets/datetimepicker/build/jquery.datetimepicker.min.css')}}"> --}}
- {{-- <script src="{{asset('admin_asset/assets/datetimepicker/build/jquery.datetimepicker.full.min.js')}}"></script> 
+ <link rel="stylesheet" href="{{asset('admin_asset/assets/datetimepicker/build/jquery.datetimepicker.min.css')}}">
+ <script src="{{asset('admin_asset/assets/datetimepicker/build/jquery.datetimepicker.full.min.js')}}"></script> 
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
