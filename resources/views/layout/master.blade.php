@@ -116,6 +116,8 @@ $second = $parts[1] ?? null;
 
 {{--<script src="{{asset('js/map.js?v='.date('ymdhis'))}}"></script>--}}
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    
 <script>
     //countries dropdown
     $(document).ready(function () {
