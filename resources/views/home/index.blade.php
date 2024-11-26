@@ -28,6 +28,11 @@
     <link rel="stylesheet" type="text/css" href="{{asset('slick/slick.css?v2022')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('slick/slick-theme.css?v2022')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('select2/css/select2.min.css')}}">
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script> --}}
 </head>
 <style>
     .hero-image {
@@ -36,7 +41,9 @@
         min-height: 250px;
         position: relative;
     }
-
+    .select2-container--default .select2-selection--single{
+      border: 0px solid transparent;
+    }
     .hero-text {
         text-align: center;
         position: absolute;
@@ -101,6 +108,9 @@
         margin-top: 15px;
     }
 
+    .select2-selection__arrow {
+    display: block !important;  /* Force the arrow to display */
+}
     .country-divs {
         /* width: 60%; */
         width: 70%;
@@ -218,6 +228,10 @@ a{
     .countrylist:hover{
         /* color: blue; */
         animation: shake 0.5s ease-in-out;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered{
+        color: blue !important;
     }
 
     @keyframes shake {
