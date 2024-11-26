@@ -35,10 +35,10 @@
         <div class="col-lg-12 col-md-12 col-12 m-10">
             <div class="row" style="margin-right: -8.9rem;">
                 <div class="col-lg-4 col-md-6 col-12">
-                    <h5>
+                    <h6>
                         Find amazing Businesses on the go.<br/>
                         <div style="color:#0000FF;margin-top: 6px;"><b>Download our App Now!</b></div>
-                    </h5>
+                    </h6>
                 </div>
                 <div class="col-lg-2 col-md-6 col-6">
                     <img src="{{ asset('images/iphone.png')}}" alt=" " height="80px" width="140px">
@@ -127,7 +127,7 @@
                         @endforeach
                     </ul>
                 </div> --}}
-                <div class="col-lg-2 col-md-6 col-12 desktop-view">
+                <div class="col-lg-3 col-md-8 col-12 desktop-view">
                     <h5 style="text-align:center;border:0px solid red;font-size:15px; font-weight: bold;">Socials</h5>
                     <ul style="text-align:center;border:0px solid red;">
                         <li style="margin-bottom: 5px;">
@@ -154,7 +154,7 @@
                         </li> --}}
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-6 col-12 mobile-view">
+                <div class="col-lg-3 col-md-8 col-12 mobile-view">
                     <h5 style="font-size:15px;">Socials</h5>
                     <ul>
                         <li>
@@ -180,7 +180,7 @@
     </div>
    
     <!-- footer copyright area start -->
-    <div class="container">
+    <div class="container" style="margin-top: 2rem;">
         <div class="row">
             <div class="col-xl-12 col-md-12 col-lg-12 col-12">
                 <div class="logo text-center">
@@ -194,7 +194,7 @@
         <!-- footer copyright area start -->
         <div class="row copyright ">
             <div class="col-lg-12 ">
-                <p style="color:#00498e;text-align:center;font-size:12px;">© BusinessHub.com 2024, All Rights Reserved.</p>
+                <p style="color:#00498e;text-align:center;font-size:12px; margin-top: -10px;">© BusinessHub.com 2024, All Rights Reserved.</p>
             </div>
         </div>
         <!-- footer copyright area finish -->
