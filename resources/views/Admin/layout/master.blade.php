@@ -23,72 +23,64 @@
     @else
     @include('Admin.layout.footer')
     @endif
-    <!-- footer area end -->
-    <!-- core:js -->
-    <script src="{{ asset('admin_asset/assets/vendors/core/core.js')}}"></script>
-    <!-- endinject -->
+   <!-- Core JavaScript (Ensure this is loaded first for any framework dependencies) -->
+<script src="{{ asset('admin_asset/assets/vendors/core/core.js')}}"></script>
 
-    <!-- Plugin js for this page -->
-    <script src="{{ asset('admin_asset/assets/vendors/chartjs/Chart.min.js')}}"></script>
-    <script src="{{ asset('admin_asset/assets/vendors/jquery.flot/jquery.flot.js')}}"></script>
-    <script src="{{ asset('admin_asset/assets/vendors/jquery.flot/jquery.flot.resize.js')}}"></script>
-    <script src="{{ asset('admin_asset/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
-    <script src="{{ asset('admin_asset/assets/vendors/apexcharts/apexcharts.min.js')}}"></script>
-    <!-- End plugin js for this page -->
+<!-- jQuery (Ensure it is loaded before DataTables) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- inject:js -->
-    <script src="{{ asset('admin_asset/assets/vendors/feather-icons/feather.min.js')}}"></script>
-    <script src="{{ asset('admin_asset/assets/js/template.js')}}"></script>
-    <!-- endinject -->
+<!-- DataTables CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
 
-    <!-- Custom js for this page -->
-    <script src="{{ asset('admin_asset/assets/js/dashboard-light.js')}}"></script>
-    <script src="{{ asset('admin_asset/assets/js/datepicker.js')}}"></script>
-    <!-- End custom js for this page -->
+<!-- DataTables JS (Must load after jQuery) -->
+<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
 
-    <!-- Custom js for this page -->
-    <script src="{{ asset('admin_asset/assets/js/data-table.js')}}"></script>
-    <!-- End custom js for this page -->
+<!-- DataTable Initialization (Ensure table ID matches in HTML) -->
+<script>
+    $(document).ready(function () {
+        if ($('#exampleTable').length) {
+            $('#exampleTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+            });
+        }
+    });
+</script>
 
-    <!-- Custom js for this page -->
-    <!-- End custom js for this page -->
-    <script src="{{ asset('admin_asset/assets/js/dropify.js')}}"></script>
-    <script src="{{ asset('admin_asset/assets/vendors/dropify/dist/dropify.min.js')}}"></script>
-    {{--datatable link start--}}
-    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
-    {{--datatable link end--}}
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="{{ asset('admin_asset/assets/js/custom.js')}}"></script>
-    <script src="{{ asset('admin_asset/assets/js/authenticate.js')}}"></script>
-    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-    
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<!-- Plugin JS -->
+<script src="{{ asset('admin_asset/assets/vendors/chartjs/Chart.min.js')}}"></script>
+<script src="{{ asset('admin_asset/assets/vendors/jquery.flot/jquery.flot.js')}}"></script>
+<script src="{{ asset('admin_asset/assets/vendors/jquery.flot/jquery.flot.resize.js')}}"></script>
+<script src="{{ asset('admin_asset/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{ asset('admin_asset/assets/vendors/apexcharts/apexcharts.min.js')}}"></script>
 
-    <!-- jQuery UI CSS (required for styling) -->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<!-- Custom JS -->
+<script src="{{ asset('admin_asset/assets/js/template.js')}}"></script>
+<script src="{{ asset('admin_asset/assets/js/dashboard-light.js')}}"></script>
+<script src="{{ asset('admin_asset/assets/js/data-table.js')}}"></script>
+<script src="{{ asset('admin_asset/assets/js/dropify.js')}}"></script>
+<script src="{{ asset('admin_asset/assets/js/custom.js')}}"></script>
+<script src="{{ asset('admin_asset/assets/js/authenticate.js')}}"></script>
 
-{{--Datetime picker--}}
-{{--https://xdsoft.net/jqplugins/datetimepicker/--}}
-
- <link rel="stylesheet" href="{{asset('admin_asset/assets/datetimepicker/build/jquery.datetimepicker.min.css')}}">
- <script src="{{asset('admin_asset/assets/datetimepicker/build/jquery.datetimepicker.full.min.js')}}"></script> 
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.js"></script> --}}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.css" /> 
-
+<!-- Additional Plugins -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-{{-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> --}}
 
+<!-- DateTime Picker -->
+<link rel="stylesheet" href="{{ asset('admin_asset/assets/datetimepicker/build/jquery.datetimepicker.min.css') }}">
+<script src="{{ asset('admin_asset/assets/datetimepicker/build/jquery.datetimepicker.full.min.js') }}"></script>
+
+ 
  
  <style>
     .dataTables_wrapper .dataTables_filter input{
