@@ -122,6 +122,13 @@ th{
     cursor: pointer !important;
     /* color: lightgray !important; */
     }
+    .table td img, .datepicker table td img {
+        width: 25px !important;
+        height: 25px !important;
+    }
+    table.dataTable tbody th, table.dataTable tbody td {
+        padding: 2px 10px !important;
+    }
 </style>
 @section('content')
     <div class="page-content">
