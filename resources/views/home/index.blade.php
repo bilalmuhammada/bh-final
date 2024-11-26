@@ -301,10 +301,10 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                 </a>
                 </div>
                 </div> -->
-        <div class="col-md-4">
+        <div class="col-md-4" style="margin-left: 3.5rem;">
                     <span style="">
                          <!-- country bar mobile start -->
-                <div class="mobile-country desktop-menu-right" style="margin-top:10px !important;">
+                <div class="mobile-country desktop-menu-right" style="margin-top:16px !important;">
                 <select class="form-control country_dropdown" name="country_dropdown" id="" style="width:140px;">
                 <option value="" selected>All Countries</option>
                 
