@@ -89,7 +89,6 @@ $(document).on('click', '.login-submit-button', function () {
         dataType: "JSON",
         success: function (response) {
 
-            alert(response.status);
             if (response.status) {
 
                 localStorage.setItem('user_token', response.token);
