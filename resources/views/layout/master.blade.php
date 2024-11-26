@@ -118,6 +118,13 @@ $second = $parts[1] ?? null;
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     
+
+
+<style>
+     .select2-container--default .select2-selection--single .select2-selection__rendered{
+        color: blue !important;
+    }
+</style>
 <script>
     //countries dropdown
     $(document).ready(function () {
