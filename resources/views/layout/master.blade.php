@@ -180,7 +180,7 @@ $second = $parts[1] ?? null;
         });
         $("#registercountry").on("select2:open", function () {
     // Select the currently open dropdown and adjust its width
-    $(".select2-container--open").css("width", "200px");
+    $(".select2-container--open").css("width", "150px");
 });
 
 $("#registercities").select2({

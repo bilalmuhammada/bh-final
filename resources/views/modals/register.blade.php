@@ -4,8 +4,12 @@
 <style>
     .select2-container--default .select2-selection--single .select2-selection__rendered{
         text-align: left !important;
-     
+        
+        background-color: transparent !important;
         /* margin-left: -29px !important; */
+    }
+    .select2-container--default .select2-selection--single{
+        background-color: transparent !important;  
     }
     #select2-registercountry-container{
 color: #fff !important;
@@ -24,10 +28,10 @@ padding-left: 31px;
     padding-right: 10px;      /* Optional: adjust padding */
     border: 1px solid #ccc;   /* Optional: adjust border style */
 }
-    .position-850{
+    /* .position-850{
         left: 850px !important;
 
-    }
+    } */
     .form-focus .focus-label{
         top: -10px;
         color: white;
@@ -49,19 +53,17 @@ padding-left: 31px;
             transform: translateY(-50%);
             cursor: pointer;
         }
-        /* .select2-container--default .select2-selection--single .select2-selection__rendered{
-            color: blue !important;
-        } */
+      
         select{
             text-transform:none
         }
         #first_name,#last_name, #phone,#Email,#password_confirmation,#password{
             padding: 12px 20px 12px 10px;
         }
-        
+/*         
         #register-form .select2-container--open{
             left: -22px !important;
-        }
+        } */
 
          input::placeholder{
             color: black;
