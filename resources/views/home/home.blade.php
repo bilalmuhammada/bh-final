@@ -185,14 +185,14 @@
     <section class="list">
         <div class="container">
             <div class="col-md-12 m-10" style="min-width: 92rem;">
-                <h5>
+                <h6>
                     <b style="margin-left: 0rem;">Popular Categories</b>
-                </h5>
+                </h6>
                 <div class="row" style="margin-left: -13px !important;margin-bottom: -10px;">
                     @foreach($categories as $category)
                         <div class="col-md-3 cat mb-4">
                             <div class="subcategory-list">
-                                <img src="{{ $category->image_url  }}" alt="" width="25"  style="margin-top: -11px;">  <b style="font-size: 15px;" > {{$category->name}}</b>
+                                <img src="{{ $category->image_url  }}" alt="" width="25"  style="margin-top: -11px;">  <b style="font-size: 14px;" > {{$category->name}}</b>
                                 <br>
                                 @foreach($category->sub_categories as $key=>$sub_category)
                                     @if($key >= 5)
@@ -220,9 +220,12 @@
     <section class="business-sale">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
-                <h5 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Businesses for Sale</b></h5>
+                <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Businesses for Sale</b></h6>
                 <div class="row slider" style="margin-left: -8px;">
-                    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+                    @php $ads = \App\Helpers\RecordHelper::getAds(); 
+                    
+                    // dd($ads->count());
+                    @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
@@ -256,7 +259,7 @@
     <section class="business-rent">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
-                <h5 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Businesses for Rent</b></h5>
+                <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Businesses for Rent</b></h6>
                 <div class="row slider" style="margin-left: -8px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -292,9 +295,12 @@
     <section class="share-sale">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
-                <h5 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Shares For Sale</b></h4>
+                <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Shares For Sale</b></h4>
                 <div class="row slider" style="margin-left: -8px;">
-                    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+                    @php $ads = \App\Helpers\RecordHelper::getAds();
+                    
+                    
+                    @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
@@ -328,7 +334,7 @@
     <section class="business-idea">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:0px 0px 0px -76px;">
-                <h5 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Business Ideas</b></h4>
+                <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Business Ideas</b></h4>
                 <div class="row slider" style="    margin-left: -8px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -364,7 +370,7 @@
     <section class="investor-required">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
-                <h5 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Investors Required</b></h5>
+                <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Investors Required</b></h6>
                 <div class="row slider" style="    margin-left: -8px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -400,7 +406,7 @@
     <section class="franchise-opp">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
-                <h5 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Franchise Opportunities</b></h5>
+                <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Franchise Opportunities</b></h6>
                 <div class="row slider" style="    margin-left: -8px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
@@ -436,7 +442,7 @@
     <section class="machinery">
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:0px 0px 0px -76px;">
-                <h5 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Machinery & Supplies</b></h5>
+                <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Machinery & Supplies</b></h6>
                 <div class="row slider" style="    margin-left: -8px;">
                     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     

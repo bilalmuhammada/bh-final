@@ -306,10 +306,10 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                          <!-- country bar mobile start -->
                 <div class="mobile-country desktop-menu-right" style="margin-top:16px !important;">
                 <select class="form-control country_dropdown" name="country_dropdown" id="" style="width:140px;">
-                <option value="" selected>All Countries</option>
+                <option value="" selected>All Countries11</option>
                 
                     @foreach($countries as $country)
-                    <option data-flag-url="{{ $country->image_url }}" data-country-id="{{ $country->id }}" value="{{ $country->id }}">&nbsp;{{ $country->nice_name }}</option>
+                    <option data-flag-url="{{ $country->image_url }}" data-country-id="{{ $country->id }}" value="{{ $country->id }}">&nbsp;{{ $country->name }}</option>
                 @endforeach
                </select>
                         </div>
