@@ -174,7 +174,7 @@
     <!-- topbar start -->
   
     <div class="topbar desktop-view">
-        <div class="container-fluid" style="padding:0px 25px; margin-bottom: -11px;">
+        <div class="container-fluid" style="padding:0px 25px; margin-bottom: -3px;">
             <div class="row">
                 <div class="col" style="margin-top: 12px;margin-left:0px;">
                     {{-- <div class="col-lg-1 col-xl-1 col-md-1"> --}}
@@ -755,10 +755,10 @@
                                     </span>
                             @endif
                         @if (!session()->has('user'))
-                            <span class="auth" style="padding:13px 15px;text-align:center;font-size:14px !important;font-weight: bold;">
+                            <span class="auth" style="padding:6px 15px;text-align:center;font-size:14px !important;font-weight: bold;">
                             <a class="login-btn">Login</a>
                            </span>
-                            <span class="auth"  style="padding:13px 15px;text-align:center;font-size:14px !important;    font-weight: bold;">
+                            <span class="auth"  style="padding:6px 15px;text-align:center;font-size:14px !important;    font-weight: bold;">
                                     <a class="register-btn">Register</a>
                            </span>
                         @endif
