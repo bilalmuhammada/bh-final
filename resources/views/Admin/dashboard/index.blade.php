@@ -10,7 +10,7 @@
     }
     .ui-datepicker {
 
-width:12.5rem !important; 
+width:10.5rem !important; 
 }
 .ui-datepicker table {
     font-size: 0.6rem !important;
@@ -48,6 +48,12 @@ ul.ui-menu {
 }
 
     .select2-results__option, .selection {
+        text-align: start !important;
+    }
+    .select2-results__option{
+        padding: 0px !important;
+    }
+    .select2-container .select2-selection--single .select2-selection__rendered {
         text-align: center !important;
     }
     .select2-container .select2-selection--single {
@@ -875,7 +881,7 @@ label{
                     <option value="0"> All Countries</option>
                     @foreach($countries as $country)
 
-                        <option  {{$country->name == request()->name ? 'selected' : '' }}   style="margin-bottom: 5px;width: 31px;" 
+                        <option  {{$country->name == request()->name ? 'selected' : '' }}  data-flag-url="{{ $country->image_url }}"  style="margin-bottom: 5px;width: 31px;" 
                         value="{{ $country->id }}" >{{ $country->name }}</option>
                     @endforeach
                 </select>
@@ -892,6 +898,7 @@ label{
         </div>
                 @php
                  $currency = \App\Helpers\RecordHelper::getCurrency();
+                 
                 @endphp
 
         <div class="col">
@@ -899,7 +906,7 @@ label{
                 <option value="">Currency</option>
                 @foreach($currency as $currencyn)
                 <option data-currency-id="{{ $currencyn->currency }}"
-                        {{$currencyn->currency_symbol == request()->currency ? 'selected' : '' }}   style="margin-bottom: 5px;width: 31px;" value="{{ $currencyn->id }}"
+                        {{$currencyn->currency_symbol == request()->currency ? 'selected' : '' }}   style="margin-bottom: 5px;width: 31px;" data-flag-url="{{ $currencyn->image_url }}"  value="{{ $currencyn->id }}"
                         style="font-size:10px !important;">{{ $currencyn->currency_short_name }}</option>
             @endforeach
             </select>

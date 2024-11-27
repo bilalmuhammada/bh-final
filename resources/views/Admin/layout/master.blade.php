@@ -80,7 +80,11 @@
 <link rel="stylesheet" href="{{ asset('admin_asset/assets/datetimepicker/build/jquery.datetimepicker.min.css') }}">
 <script src="{{ asset('admin_asset/assets/datetimepicker/build/jquery.datetimepicker.full.min.js') }}"></script>
 
- 
+ <!-- Load Select2 JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+<!-- Load Select2 CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
  
  <style>
     .dataTables_wrapper .dataTables_filter input{
@@ -88,7 +92,7 @@
         padding: 5px 12px 6px 10px !important; 
     }
     ::-webkit-scrollbar {
-  width: 12px; /* You can adjust this value based on your preference */
+  width: 6px; /* You can adjust this value based on your preference */
 }
 .dataTables_filter input:focus{
   border: 1px solid blue;
@@ -114,7 +118,7 @@
             var flagUrl = $(country.element).data('flag-url'); // Access the flag-url data attribute
 
             var $country = $(
-                '<img src="' + flagUrl + '" class="img-flag" / style="width:20px;height:13px;margin-top:-5px;"> <span  style="font-size:14px; margin-left: 4px;">' + country.text + '</span>'
+                '<img src="' + flagUrl + '" class="img-flag" / style="width:20px;height:13px;margin-top:-5px;"> <span  style="font-size:14px; margin-left: 7px;">' + country.text + '</span>'
             );
             return $country;
         };

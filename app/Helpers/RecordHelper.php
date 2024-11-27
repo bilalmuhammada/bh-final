@@ -30,7 +30,7 @@ class RecordHelper
 
     public static function getCountriesRegistration()
     {
-        return  DB::table('countries_available')->orderBy("name",'ASC')->get();
+        return  DB::table('countries')->orderBy("name",'ASC')->get();
     }
 
     public static function getnationalities()
