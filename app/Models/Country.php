@@ -9,12 +9,12 @@ class Country extends Model
 {
     use HasFactory;
 
-    protected $appends = [
-        'image_url'
-    ];
+    // protected $appends = [
+    //     'image_url'
+    // ];
 
-    public function getImageUrlAttribute()
-    {
-        return asset('images/flags/' . $this->file_name_flag);
-    }
+    // public function getImageUrlAttribute()
+    // {
+    //     return asset('images/flags/' . $this->file_name_flag);
+    // }
 }

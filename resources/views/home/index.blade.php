@@ -306,7 +306,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                          <!-- country bar mobile start -->
                 <div class="mobile-country desktop-menu-right" style="margin-top:16px !important;">
                 <select class="form-control country_dropdown" name="country_dropdown" id="" style="width:140px;">
-                <option value="" selected>All Countries11</option>
+                <option value="" selected>All Countries</option>
                 
                     @foreach($countries as $country)
                     <option data-flag-url="{{ $country->image_url }}" data-country-id="{{ $country->id }}" value="{{ $country->id }}">&nbsp;{{ $country->name }}</option>
@@ -422,7 +422,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
         <div class="row justify-content-md-center">
             <div class="col-lg-12" style="margin-top: 12px;">
               <div class="row">
-              @foreach($countries as $country)
+              @foreach($countries->take(20) as $country)
                 <div class="col-md-2" style="margin:10px 15px;">
                     <div class="row">
 
@@ -433,9 +433,12 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                             <img src="{{asset('images/businesshub.png')}}" alt="businesshub" title="businesshub" width="60px">
                         </span>
                         <br/>
-                        <span class="spans">{{ $country->nice_name }}</span>
+                        @php
+                        // dd($country->image_url);
+                        @endphp
+                        <span class="spans">{{ $country->name }}</span>
                         <div>
-                            <img src="{{ $country->image_url }} " alt="{{ $country->iso }}" title="{{ $country->iso }}" class="flag2" width="40px">
+                            <img src="{{ $country->image_url }} " alt="{{ $country->iso }}" title="{{ $country->name }}" class="flag2" width="40px">
                         </div>
                     </div>
                     </a>
