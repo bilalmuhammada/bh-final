@@ -211,7 +211,7 @@
                                             {{ $country->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $country->image_url }}"
                                             value="{{ $country->id }}"
                                             style="font-size:8px !important;">
-                                            {{ $country->name }}
+                                            {{ explode(' ', $country->name)[0] }}
                                                
                                             </option>
                                         @endforeach
@@ -271,7 +271,7 @@
                                 <option value="">Currency</option>
                                 @foreach($currency as $currencyn)
                                 <option data-currency-id="{{ $currencyn->currency }}"
-                                        {{$currencyn->currency == request()->currency ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" value="{{ $currencyn->currency_short_name }}"
+                                        {{$currencyn->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" value="{{ $currencyn->currency_short_name }}"
                                         style="font-size:8px !important;">{{ $currencyn->currency_short_name }}</option>
                             @endforeach
                         </select>
@@ -762,7 +762,7 @@
                                     <a class="register-btn">Register</a>
                            </span>
                         @endif
-                        <span style="padding:9px 15px;text-align:center;font-size:14px !important;">
+                        <span style="padding:3px 15px;text-align:center;font-size:14px !important;">
                             <a class="add-list-button add-listing-btn"
                                style="padding: 9px 20px;border-radius: 6px;">+ Place Your Ad</a>
                         </span>     

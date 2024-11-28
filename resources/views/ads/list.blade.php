@@ -110,7 +110,7 @@ width: 44% !important;
     margin-left: -24px;
     border: 1px solid rgb(194, 196, 199);
     display: flex !important;
-    width: 76rem !important;
+    width: 74rem !important;
         }
         .form:hover{
             border: 1px solid blue !important;
@@ -199,9 +199,9 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
 
 
         <div class="col-md-7 border-color" style="border-right: 2px solid #eee; text-align: center;">
-            <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;">Keyword</label>
+            <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px ;   font-size: 14px;">Keyword</label>
             <div class="input-group">
-                <input type="text" class="form-control filter1" id="keyword" style="margin-top: -10px; font-size: 16px;" placeholder="Search anything in {{ $category_name->name }}">
+                <input type="text" class="form-control filter1" id="keyword" style="margin-top: -10px; font-size: 14px;" placeholder="Search anything in {{ $category_name->name }}">
                 <span style="margin-top:0px;font-weight: bolder; color: goldenrod;" id="searchIcon">
                     <i class="fa fa-search"></i> <!-- Bootstrap Icons -->
                 </span>
@@ -223,9 +223,9 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
        
 
         <div class="col-md-7 border-color" style="border-right: 2px solid #eee; text-align: center;">
-            <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px;">Neighborhood</label>
+            <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px;    font-size: 14px;">Neighborhood</label>
             <div class="input-group">
-                <input type="text" class="form-control filter1" style="margin-top: -10px; font-size: 16px;" id="neighborhood" placeholder="Enter location">
+                <input type="text" class="form-control filter1" style="margin-top: -10px; font-size: 14px;" id="neighborhood" placeholder="Enter location">
                 <span class="" id="locationIcon">
                     <i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i> <!-- Bootstrap Icons location marker -->
                 </span>
@@ -251,8 +251,8 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                 {{-- </div> --}}
         </div>
 
-        <div class="col-md-4 border-color" id="filtersAreaw1">
-            <div class="col-md-10" style="text-align: center;">
+        <div class="col-md-5 border-color" id="filtersAreaw1">
+            <div class="col-md-12" style="text-align: center;">
                 <span style="font-size: 14px;"><b>Sort</b></span>
             </div>
             <select class="form-select form-control "  id="sortDropdown" onchange="window.location.href=this.value" >
@@ -264,7 +264,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             </select>
         </div>
     </div>
-    <button class="btn"  style="white-space: nowrap;margin-left:44.7rem;  color: blue; border: 1px solid goldenrod ;border-radius: 5px;" type="button"  aria-expanded="false">
+    <button class="btn"  style="white-space: nowrap;margin-left:46.2rem;  color: blue; border: 1px solid goldenrod ;border-radius: 5px;" type="button"  aria-expanded="false">
         Search
     </button>
    
@@ -384,7 +384,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             <div class="col-lg-12 col-md-12 col-12" style="margin-left: 4rem;">
                 <div class="row" style="margin-left: -137px;">
                     <div class="col-lg-8 col-md-8" style="display: flex;">
-                        <h6 style="white-space: nowrap;"><b> {!! $category_name->name !!} </b> > <b> {{ $subcategory_name }} </b><span style="color: blue;font-size:14px;">   - {{ $ads->count() }} Ads</span>
+                        <h6 style="white-space: nowrap;font-size: 14px;"><b> {!! $category_name->name !!} </b> > <b> {{ $subcategory_name }} </b><span style="color: blue;font-size:14px;">   - {{ $ads->count() }} Ads</span>
                         </h6>
                        
                     

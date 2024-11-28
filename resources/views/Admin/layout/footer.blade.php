@@ -19,21 +19,21 @@
 
    @keyframes shake {
     0% { transform: translateX(0); }
-    25% { transform: translateX(-2px); }
-    50% { transform: translateX(2px); }
-    75% { transform: translateX(-2px); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
     100% { transform: translateX(0); }
   }
 </style>
 <footer class="footer" style="border:0px solid red;    margin-top: 24px;">
     <div class="container mb-30">
-        <div class="col-lg-12 col-md-12 col-12 m-10" style="border:0px solid red;">
+        <div class="col-lg-12 col-md-12 col-12 " style="border:0px solid red;">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-12">
-                    <h5>
+                    <h6>
                         Find amazing Businesses on the go.<br/>
                         <div style="color:#0000FF;margin-top: 6px;"><b>Download our App Now!</b></div>
-                    </h5>
+                    </h6>
                 </div>
                 <div class="col-lg-2 col-md-6 col-6" style="padding-left: 54px;">
                     <img src="{{ asset('images/iphone.png')}}" alt=" " height="80px" width="140px">
@@ -141,10 +141,10 @@
                             <a href="{{ env('BASE_URL') }}" class="menu-logo">
                                 {{-- <img src="{{asset('assets/images/logo/Influencers Pro-01-01.png')}}" alt="logo"> --}}
                                 <img src="{{asset('images/businesshub.png')}}" title="businesshub" alt="businesshub "
-                             width="185 "/>
+                             width="150 "/>
                             </a>
                         </div>
-                        <div class="copyright-text bilal-footer">
+                        <div class="copyright-text bilal-footer" style="margin-top: -12px;">
                             <p style="color:#00498e;text-align:center;">© BusinessHub.com 2024, All Rights Reserved.</p>
                         </div>
                     </div>

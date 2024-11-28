@@ -86,6 +86,14 @@
 <!-- Load Select2 CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
  
+<!-- Dropify CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropify/dist/css/dropify.min.css">
+
+<!-- Dropify JS -->
+<script src="https://cdn.jsdelivr.net/npm/dropify/dist/js/dropify.min.js"></script>
+
+<script src="https://unpkg.com/feather-icons"></script>
+
  <style>
     .dataTables_wrapper .dataTables_filter input{
       border: 1px solid #997045;

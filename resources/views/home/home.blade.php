@@ -19,6 +19,11 @@
     color: goldenrod !important;
 
 }
+.select2-dropdown{
+        border: 1px solid transparent !important;
+        background-color: #fff;
+        color: #000 !important;
+    }
 .show-more-btn1:hover{
     color: blue !important;
 
@@ -218,14 +223,19 @@
         </div>
     </section>
     <section class="business-sale">
+
+        @php $ads = \App\Helpers\RecordHelper::getAds(); 
+                    
+                    // dd($ads->count());
+                    @endphp
+
+
+@if($ads->count()>0)
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Businesses for Sale</b></h6>
                 <div class="row slider" style="margin-left: -8px;">
-                    @php $ads = \App\Helpers\RecordHelper::getAds(); 
                     
-                    // dd($ads->count());
-                    @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
@@ -254,15 +264,19 @@
                 {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
                 <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
             </div>
+
+            @endif
         </div>
     </section>
     <section class="business-rent">
+        @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+    
+@if($ads->count()>0)
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Businesses for Rent</b></h6>
                 <div class="row slider" style="margin-left: -8px;">
-                    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
-    
+                   
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
@@ -285,22 +299,25 @@
                     </div>
                     @endforeach
                 </div>
-    
+   
                 <!-- Custom Arrows -->
                 {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
                 <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
             </div>
         </div>
+        @endif
     </section>
     <section class="share-sale">
+        
+        @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+    
+        
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Shares For Sale</b></h4>
-                <div class="row slider" style="margin-left: -8px;">
-                    @php $ads = \App\Helpers\RecordHelper::getAds();
+                    @if($ads->count()>0)
+                    <div class="row slider" style="margin-left: -8px;">
                     
-                    
-                    @endphp
     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
@@ -324,20 +341,30 @@
                     </div>
                     @endforeach
                 </div>
+                @else
+                <div     style="    margin-left: 1.5rem; margin-top: 1.5rem;">
+
+                    <h6>No Ads </h6>
+                </div>
+                @endif
     
                 <!-- Custom Arrows -->
                 {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
                 <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
             </div>
         </div>
+       
     </section>
     <section class="business-idea">
+        @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+    
+        {{-- @if($ads->count()>0) --}}
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Business Ideas</b></h4>
-                <div class="row slider" style="    margin-left: -8px;">
-                    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
-    
+                    @if($ads->count()>0)
+                    <div class="row slider" style="    margin-left: -8px;">
+                   
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
@@ -360,20 +387,29 @@
                     </div>
                     @endforeach
                 </div>
-    
+                @else
+                <div style="    margin-left: 1.5rem; margin-top: 1.5rem;" >
+
+                    <h6>No Ads</h6>
+                </div>
+                @endif
                 <!-- Custom Arrows -->
                 {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
                 <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
             </div>
         </div>
+      
     </section>
     <section class="investor-required">
+        @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+    
+      
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Investors Required</b></h6>
+                @if($ads->count()>0)
                 <div class="row slider" style="    margin-left: -8px;">
-                    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
-    
+                    
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
@@ -396,20 +432,30 @@
                     </div>
                     @endforeach
                 </div>
+                @else
+                <div style="    margin-left: 1.5rem; margin-top: 1.5rem;" >
+
+                    <h6>No Ads</h6>
+                </div>
+                @endif
+
     
                 <!-- Custom Arrows -->
                 {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
                 <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
             </div>
         </div>
+       
     </section>
     <section class="franchise-opp">
+        @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+    
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Franchise Opportunities</b></h6>
+                @if($ads->count()>0)
                 <div class="row slider" style="    margin-left: -8px;">
-                    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
-    
+                    
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
@@ -432,20 +478,29 @@
                     </div>
                     @endforeach
                 </div>
+                @else
+                <div style="    margin-left: 1.5rem; margin-top: 1.5rem;" >
+
+                    <h6>No Ads</h6>
+                </div>
+                @endif
     
                 <!-- Custom Arrows -->
                 {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
                 <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
             </div>
         </div>
+      
     </section>
     <section class="machinery">
+        @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+    
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Machinery & Supplies</b></h6>
+                @if($ads->count()>0)
                 <div class="row slider" style="    margin-left: -8px;">
-                    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
-    
+                  
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
@@ -468,12 +523,19 @@
                     </div>
                     @endforeach
                 </div>
+                @else
+                <div style="    margin-left: 1.5rem; margin-top: 1.5rem;" >
+
+                    <h6>No Ads</h6>
+                </div>
+                @endif
     
                 <!-- Custom Arrows -->
                 {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
                 <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
             </div>
         </div>
+        
     </section>
    
     

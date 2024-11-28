@@ -247,6 +247,7 @@ a{
         padding: 6px !important;
     }
     .select2-dropdown{
+        border: 1px solid transparent !important;
         background-color: #fff;
         color: #000 !important;
     }
@@ -309,7 +310,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                 <option value="" selected>All Countries</option>
                 
                     @foreach($countries as $country)
-                    <option data-flag-url="{{ $country->image_url }}" data-country-id="{{ $country->id }}" value="{{ $country->id }}">&nbsp;{{ $country->name }}</option>
+                    <option data-flag-url="{{ $country->image_url }}" data-country-id="{{ $country->id }}" value="{{ $country->id }}">&nbsp;{{ explode(' ', $country->name)[0] }}</option>
                 @endforeach
                </select>
                         </div>
@@ -436,7 +437,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                         @php
                         // dd($country->image_url);
                         @endphp
-                        <span class="spans">{{ $country->name }}</span>
+                        <span class="spans">{{ explode(' ', $country->name)[0] }}</span>
                         <div>
                             <img src="{{ $country->image_url }} " alt="{{ $country->iso }}" title="{{ $country->name }}" class="flag2" width="40px">
                         </div>
@@ -467,7 +468,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
            <span>
             <img src="{{asset('images/businesshub.png')}}" alt="businesshub" title="businesshub" width="70px">
             </span></br>
-            <span class="spans">{{ $country->nice_name }}</span>
+            <span class="spans">{{ explode(' ', $country->name)[0] }}</span>
                     <div>
                     <img src="{{ $country->image_url }} " alt="{{ $country->iso }}" title="{{ $country->iso }}" class="flag2" width="40px">
                     </div>
@@ -514,7 +515,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
 </body>
 <!-- footer area start -->
 <footer>
-    <div class="container">
+    <div class="container" style="margin-top: 2rem;">
         <div class="row">
             <div class="col-xl-12 col-md-12 col-lg-12 col-12">
                 <div class="logo text-center">
@@ -528,7 +529,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
         <!-- footer copyright area start -->
         <div class="row copyright ">
             <div class="col-lg-12 ">
-                <p style="color:#00498e;text-align:center; font-size:12px">© BusinessHub.com 2024, All Rights Reserved.</p>
+                <p style="color:#00498e;text-align:center; font-size:12px; margin-top: -10px;">© BusinessHub.com 2024, All Rights Reserved.</p>
             </div>
         </div>
         <!-- footer copyright area finish -->

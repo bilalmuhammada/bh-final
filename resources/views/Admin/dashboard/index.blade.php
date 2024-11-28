@@ -10,7 +10,7 @@
     }
     .ui-datepicker {
 
-width:10.5rem !important; 
+width:12.5rem !important; 
 }
 .ui-datepicker table {
     font-size: 0.6rem !important;
@@ -51,7 +51,7 @@ ul.ui-menu {
         text-align: start !important;
     }
     .select2-results__option{
-        padding: 0px !important;
+        padding: 0px 0px 0px 17px !important;
     }
     .select2-container .select2-selection--single .select2-selection__rendered {
         text-align: center !important;
@@ -1021,22 +1021,22 @@ label{
                     users_counts = response.users_counts;
                     ads_counts = response.ads_counts;
 
-                    $('.total-influencer').html(users_counts.total_Influencer_count);
-                    $('.popular-influencer').html(users_counts.popular_Influencer_count);
-                    $('.pending-influencer').html(users_counts.pending_Influencer_count);
-                    $('.active-influencer').html(users_counts.active_Influencer_count);
-                    $('.block-influencer').html(users_counts.block_Influencer_count);
-                    $('.rated-influencer').html(users_counts.rated_Influencer_count);
-                    $('.favorite-influencer').html(users_counts.favorite_Influencer_count);
+                    $('.total-influencer').html((users_counts.total_Influencer_count).toLocaleString());
+                    $('.popular-influencer').html((users_counts.popular_Influencer_count).toLocaleString());
+                    $('.pending-influencer').html((users_counts.pending_Influencer_count).toLocaleString());
+                    $('.active-influencer').html((users_counts.active_Influencer_count).toLocaleString());
+                    $('.block-influencer').html((users_counts.block_Influencer_count).toLocaleString());
+                    $('.rated-influencer').html((users_counts.rated_Influencer_count).toLocaleString());
+                    $('.favorite-influencer').html((users_counts.favorite_Influencer_count).toLocaleString());
 
 
-                    $('.total-vendor').html(ads_counts.total_post_count);
-                    $('.popular-vendor').html(ads_counts.payment_pending_post_count);
-                    $('.pending-vendor').html(ads_counts.pending_post_count);
-                    $('.active-vendor').html(ads_counts.active_post_count);
-                    $('.block-vendor').html(ads_counts.block_post_count);
-                    $('.rated-vendor').html(ads_counts.draft_post_count);
-                    $('.favorite-vendor').html(ads_counts.rejected_post_count);
+                    $('.total-vendor').html((ads_counts.total_post_count).toLocaleString());
+                    $('.popular-vendor').html((ads_counts.payment_pending_post_count).toLocaleString());
+                    $('.pending-vendor').html((ads_counts.pending_post_count).toLocaleString());
+                    $('.active-vendor').html((ads_counts.active_post_count).toLocaleString());
+                    $('.block-vendor').html((ads_counts.block_post_count).toLocaleString());
+                    $('.rated-vendor').html((ads_counts.draft_post_count).toLocaleString());
+                    $('.favorite-vendor').html((ads_counts.rejected_post_count).toLocaleString());
 
 
                     data = [

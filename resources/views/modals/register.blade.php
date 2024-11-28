@@ -57,7 +57,7 @@ padding-left: 31px;
         select{
             text-transform:none
         }
-        #first_name,#last_name, #phone,#Email,#password_confirmation,#password{
+        #first_name,#last_name, #phone,#Email,#password_confirmation,#password_main{
             padding: 12px 20px 12px 10px;
         }
 /*         
@@ -226,10 +226,10 @@ padding-left: 31px;
 
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
-                                        <input type="password" name="password" id="password" class="form-control login-user floating"
+                                        <input type="password" name="password" id="password_main" class="form-control login-user floating"
                                                placeholder="" aria-label="Password" aria-describedby="basic-addon1">
                                         <div class="input-group-append">
-                                            <span class="toggle-password" onclick="togglePassword()" style="cursor: pointer;">👁️</span>
+                                            <span class="toggle-password" onclick="togglePassword('password_main')" style="cursor: pointer;">👁️</span>
                                         </div>
 
                                         {{-- <label class="focus-label">Password</label> --}}
@@ -237,13 +237,13 @@ padding-left: 31px;
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
-                                        <input type="text" name="password_confirmation" id="password_confirmation"
+                                        <input type="password" name="password_confirmation" id="password_confirmation"
  class="form-control login-user floating"
                                                placeholder="" aria-label="Cpassword"
                                                aria-describedby="basic-addon1">
                                                {{-- <label class="focus-label">Confirm Password</label> --}}
                                                <div class="input-group-append">
-                                                <span class="toggle-password" onclick="togglePassword()" style="cursor: pointer;">👁️</span>
+                                                <span class="toggle-password" onclick="togglePassword('password_confirmation')" style="cursor: pointer;">👁️</span>
                                             </div>
                                     </div>
                                 </div>
@@ -295,19 +295,17 @@ function validateInput(input) {
             input.value = input.value.replace(/[^\d+]/g, '').replace(/(?!^)\+/g, '');
 }
       
-    function togglePassword() {
+function togglePassword(fieldId) {
+    const passwordField = document.getElementById(fieldId);
+    const icon = passwordField.nextElementSibling.querySelector(".toggle-password");
 
-        const passwordField = document.getElementById("password");
-        
-        const icon = document.querySelector(".toggle-password");
-       
-        if (passwordField.type === "password") {
-            passwordField.type = "text";
-            icon.textContent = "🙈"; // Change the icon
-        } else {
-            passwordField.type = "password";
-            icon.textContent = "👁️"; // Change the icon back
-        }
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        icon.textContent = "🙈"; // Change the icon to "hide"
+    } else {
+        passwordField.type = "password";
+        icon.textContent = "👁️"; // Change the icon to "show"
     }
+}
 </script>
 <!-- Register Modal -->
