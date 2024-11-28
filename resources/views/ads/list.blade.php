@@ -209,16 +209,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
         </div>
     
 
-        {{-- <div class="col-md-3" style="border-right:2px solid #eee;" id="catArea">
-            <a data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false"
-               aria-controls="multiCollapseExample2" style="color:#000;">
-                <div class="col-md-12"><span style="font-size: 14px;"><b>Category</b></span></div>
-                <div class="col-md-12"><input class="category-input"
-                                              value="{{ $subcategory_name }}" type="text" readonly
-                                              style="font-size: 11px;color:#000;border:0px; margin-top: 6px;"
-                                              placeholder="Select Category"></div>
-            </a>
-        </div> --}}
+        
 
        
 
@@ -444,7 +435,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                     <p style="font-size: 13px;margin-bottom: 6px;">{{ $ad->category_name }} <span style="font-size: 16px;">&#9679;</span> {{ $ad->subcategory_name }}</p>
                                     <h3 style="font-weight: bold;font-size:18px;">AED {{ \App\Helpers\SiteHelper::priceFormatter($ad->price, request()->currency) }}</h3>
                                     
-                                        <p style="margin-top:5.8rem;font-size: 13px;margin-bottom: 0.4rem;"><i class="fa fa-map-marker" style="color: red;"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span  style="margin-top: 12px;">24 May 2024</span></p>
+                                        <p style="margin-top:5.5rem;font-size: 13px;"><i class="fa fa-map-marker" style="color: red;"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span  style="margin-top: 12px;">24 May 2024</span></p>
                                     
                                     </div>
                                     
@@ -456,7 +447,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                 </div>
                             </div>
                             <!-----content----->
-                            <hr style="width: 69%;margin-top:0px;margin-left: 12px;background:#eee;">
+                            <hr style="width: 69%;margin-top:-14px;margin-left: 12px;background:#eee;">
                         </div>
                     @endforeach
                     {{-- <div class="pagination mt-4">
