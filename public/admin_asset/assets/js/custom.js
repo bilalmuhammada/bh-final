@@ -57,59 +57,7 @@ function initializeDatatable(selector = '#table',type = 'type') {
     data_table = $(selector).DataTable({
          dom: '<"row"<"col-sm-4"l><"col-sm-5 justify-content-end d-flex"B><"col-sm-3 justify-content-end d-flex"f>>tip',
     //    dom:'Bftip',
-    buttons: [
-        {
-            extend: 'excel',
-            text: 'Excel',
-            title: 'BH-Admin-'+ type,
-            filename: 'BH-Admin-' + type,
-        },
-        {
-            extend: 'pdf',
-            text: 'PDF',
-            orientation: 'landscape', // Set landscape orientation for PDF
-            pageSize: 'A4',
-            title: 'BH-Admin-'+ type,
-            filename: 'BH-Admin-' + type,
-            exportOptions: {
-                columns: ':not(.noExport)' // Exclude columns with 'noExport' class
-            },
-            customize: function (doc) {
-                // Set the font size for the document content
-                doc.defaultStyle.fontSize = 8; // Adjust font size here
-                // Optional: Adjust title style
-                doc.styles.tableHeader.fontSize = 8; 
-                doc.styles.title.fontSize = 10;
-               
-                var tableBody = doc.content[1].table.body;
-        var columnWidths = [];
 
-        // Loop over each column in the first row to determine widths
-        tableBody[0].forEach(function (header, columnIndex) {
-            let maxColumnLength = header.text.length; // Start with header length
-
-            // Loop over each row to find the longest content in this column
-            tableBody.forEach(function (row) {
-                if (row[columnIndex] && row[columnIndex].text) {
-                    maxColumnLength = Math.max(maxColumnLength, row[columnIndex].text.length);
-                }
-            });
-
-            // Calculate width based on max content length
-            columnWidths.push(maxColumnLength * 4); // Adjust multiplier for width
-        });
-
-        // Apply calculated widths to table
-        doc.content[1].table.widths = columnWidths;
-            }
-        },
-        {
-            extend: 'print',
-            text: 'Print',
-            title: 'BH-Admin-'+type,
-            filename: 'BH-Admin-' + type,
-        }
-    ],
     responsive: true
         // scrollX: true 
     });

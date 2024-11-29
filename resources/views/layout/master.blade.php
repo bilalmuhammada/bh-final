@@ -127,19 +127,29 @@ $second = $parts[1] ?? null;
 </style>
 <script>
     //countries dropdown
-    $(document).ready(function () {
-        function formatCountry(country) {
+  
+
+
+    function formatCountry(country) {
             if (!country.id) {
                 return country.text;
             }
 
             var flagUrl = $(country.element).data('flag-url'); // Access the flag-url data attribute
-
+            if (!flagUrl) {
+        var $country = $( 
+        '<img src="' + flagUrl + '" class="img-flag" style="width:20px; height:13px;margin-top:-5px; display:none;" />' + 
+        '<span style="font-size:14px; margin-left: 7px;">' + country.text + '</span>'
+    );// Optional default image
+    }else{
             var $country = $(
-                '<span><img src="' + flagUrl + '" class="img-flag" /> ' + country.text + '</span>'
+                '<img src="' + flagUrl + '" class="img-flag" / style="width:20px;height:13px;margin-top:-5px;"> <span  style="font-size:14px; margin-left: 4px;">' + country.text + '</span>'
             );
             return $country;
         };
+      };
+
+
 
         $(document).ready(function(){
     $('.datepicker_register').datepicker({
@@ -166,7 +176,7 @@ $second = $parts[1] ?? null;
     }).on('show', function(e) {
         $('.datepicker').addClass('position-550');
     });
-  });
+ 
         $(".country_dropdown").select2({
             templateSelection: formatCountry,
             templateResult: formatCountry,

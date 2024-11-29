@@ -201,8 +201,8 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
         <div class="col-md-7 border-color" style="border-right: 2px solid #eee; text-align: center;">
             <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px ;   font-size: 14px;">Keyword</label>
             <div class="input-group">
-                <input type="text" class="form-control filter1" id="keyword" style="margin-top: -10px; font-size: 14px;" placeholder="Search anything in {{ $category_name->name }}">
-                <span style="margin-top:0px;font-weight: bolder; color: goldenrod;" id="searchIcon">
+                <input type="text" class="form-control filter1" id="keyword" style="margin-top: -2px; font-size: 13px;" placeholder="Search anything in {{ $category_name->name }}">
+                <span style="margin-top:8px;font-weight: bolder; color: goldenrod;" id="searchIcon">
                     <i class="fa fa-search"></i> <!-- Bootstrap Icons -->
                 </span>
             </div>
@@ -216,9 +216,9 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
         <div class="col-md-7 border-color" style="border-right: 2px solid #eee; text-align: center;">
             <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px;    font-size: 14px;">Neighborhood</label>
             <div class="input-group">
-                <input type="text" class="form-control filter1" style="margin-top: -10px; font-size: 14px;" id="neighborhood" placeholder="Enter location">
+                <input type="text" class="form-control filter1" style="margin-top: -2px; font-size: 13px;" id="neighborhood" placeholder="Enter location">
                 <span class="" id="locationIcon">
-                    <i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i> <!-- Bootstrap Icons location marker -->
+                    <i class="fa fa-map-marker" style="margin-top:8px; color:red;"></i> <!-- Bootstrap Icons location marker -->
                 </span>
             </div>
         </div>
@@ -435,7 +435,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                     <p style="font-size: 13px;margin-bottom: 6px;">{{ $ad->category_name }} <span style="font-size: 16px;">&#9679;</span> {{ $ad->subcategory_name }}</p>
                                     <h3 style="font-weight: bold;font-size:18px;">AED {{ \App\Helpers\SiteHelper::priceFormatter($ad->price, request()->currency) }}</h3>
                                     
-                                        <p style="margin-top:5.5rem;font-size: 13px;"><i class="fa fa-map-marker" style="color: red;"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span  style="margin-top: 12px;">24 May 2024</span></p>
+                                        <p style="margin-top:5.5rem;font-size: 13px; white-space: nowrap;"><i class="fa fa-map-marker" style="color: red;"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span  style="margin-top: 12px;">24 May 2024</span></p>
                                     
                                     </div>
                                     

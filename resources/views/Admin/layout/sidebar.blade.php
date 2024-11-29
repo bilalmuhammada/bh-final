@@ -30,6 +30,11 @@
             width="150 "/>
             <!-- Influencers<span>Pro</span> -->
         </a>
+        <div class="sidebar-toggler not-active">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         
     </div>
     <div class="sidebar-body">

@@ -15,6 +15,10 @@
     /* margin: 0 auto; Optional: Center the slider */
 }
 
+.noAds{
+    margin-left: 0.8rem; margin-top: 1.5rem;
+}
+
 .show-more-btn1{
     color: goldenrod !important;
 
@@ -230,10 +234,11 @@
                     @endphp
 
 
-@if($ads->count()>0)
+
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Businesses for Sale</b></h6>
+                @if($ads->count()>0)
                 <div class="row slider" style="margin-left: -8px;">
                     
     
@@ -259,22 +264,28 @@
                     </div>
                     @endforeach
                 </div>
-    
+                @else
+                <div   class="noAds">
+
+                    <h6>No Ads </h6>
+                </div>
+                @endif
                 <!-- Custom Arrows -->
                 {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
                 <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
             </div>
 
-            @endif
+         
         </div>
     </section>
     <section class="business-rent">
         @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
     
-@if($ads->count()>0)
+
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Businesses for Rent</b></h6>
+                @if($ads->count()>0)
                 <div class="row slider" style="margin-left: -8px;">
                    
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -299,13 +310,16 @@
                     </div>
                     @endforeach
                 </div>
+                @else
+                <div   class="noAds">
+
+                    <h6>No Ads </h6>
+                </div>
+                @endif
    
-                <!-- Custom Arrows -->
-                {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
-                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
             </div>
         </div>
-        @endif
+     
     </section>
     <section class="share-sale">
         
@@ -342,7 +356,7 @@
                     @endforeach
                 </div>
                 @else
-                <div     style="    margin-left: 1.5rem; margin-top: 1.5rem;">
+                <div   class="noAds">
 
                     <h6>No Ads </h6>
                 </div>
@@ -388,7 +402,7 @@
                     @endforeach
                 </div>
                 @else
-                <div style="    margin-left: 1.5rem; margin-top: 1.5rem;" >
+                <div  class="noAds">
 
                     <h6>No Ads</h6>
                 </div>
@@ -433,7 +447,7 @@
                     @endforeach
                 </div>
                 @else
-                <div style="    margin-left: 1.5rem; margin-top: 1.5rem;" >
+                <div  class="noAds">
 
                     <h6>No Ads</h6>
                 </div>
@@ -479,7 +493,7 @@
                     @endforeach
                 </div>
                 @else
-                <div style="    margin-left: 1.5rem; margin-top: 1.5rem;" >
+                <div  class="noAds" >
 
                     <h6>No Ads</h6>
                 </div>
@@ -524,7 +538,7 @@
                     @endforeach
                 </div>
                 @else
-                <div style="    margin-left: 1.5rem; margin-top: 1.5rem;" >
+                <div  class="noAds" >
 
                     <h6>No Ads</h6>
                 </div>

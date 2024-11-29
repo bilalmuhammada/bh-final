@@ -226,8 +226,14 @@ a{
     }
     .countrylist:hover{
         /* color: blue; */
-        animation: shake 0.5s ease-in-out;
+        animation: shake 1.5s linear infinite;
     }
+
+   
+    .countrylist {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+   }
 
     .select2-container--default .select2-selection--single .select2-selection__rendered{
         color: blue !important;
@@ -310,7 +316,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                 <option value="" selected>All Countries</option>
                 
                     @foreach($countries as $country)
-                    <option data-flag-url="{{ $country->image_url }}" data-country-id="{{ $country->id }}" value="{{ $country->id }}">&nbsp;{{ explode(' ', $country->name)[0] }}</option>
+                    <option data-flag-url="{{ $country->image_url }}" data-country-id="{{ $country->id }}" value="{{ $country->id }}">&nbsp;{{ $country->name }}</option>
                 @endforeach
                </select>
                         </div>
@@ -437,7 +443,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                         @php
                         // dd($country->image_url);
                         @endphp
-                        <span class="spans">{{ explode(' ', $country->name)[0] }}</span>
+                        <span class="spans">{{ $country->name}}</span>
                         <div>
                             <img src="{{ $country->image_url }} " alt="{{ $country->iso }}" title="{{ $country->name }}" class="flag2" width="40px">
                         </div>
@@ -559,19 +565,24 @@ $countries = \App\Helpers\RecordHelper::getCountries();
 <script type="text/javascript ">
     var base_url = "{{ env('BASE_URL') }}";
     $(document).ready(function () {
-        function formatCountry (country) {
+        function formatCountry(country) {
             if (!country.id) {
                 return country.text;
             }
 
-            var flagUrl = $(country.element).data('flag-url'); // Access the custom data attribute
-            var country_id = $(country.element).data('country-id'); // Access the custom data attribute
-
+            var flagUrl = $(country.element).data('flag-url'); // Access the flag-url data attribute
+            if (!flagUrl) {
+        var $country = $( 
+        '<img src="' + flagUrl + '" class="img-flag" style="width:20px; height:13px;margin-top:-5px; display:none;" />' + 
+        '<span style="font-size:14px; margin-left: 7px;">' + country.text + '</span>'
+    );// Optional default image
+    }else{
             var $country = $(
-                '<a href="' + base_url + 'home?country=' + country_id + '" style="color:inherit;"><span class="spanz"><img src="' + flagUrl + '" class="img-flag" /> ' + country.text + '</span></a>'
+                '<img src="' + flagUrl + '" class="img-flag" / style="width:20px;height:13px;margin-top:-5px;"> <span  style="font-size:14px; margin-left: 7px;">' + country.text + '</span>'
             );
             return $country;
         };
+      };
 
         $(document).on('change', '.country_dropdown', function () {
             var country_id = $(this).data('country-id');

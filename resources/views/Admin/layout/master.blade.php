@@ -118,18 +118,30 @@
 }
   </style>
     <script>
-       function formatCountry(country) {
-            if (!country.id) {
-                return country.text;
-            }
+     function formatCountry(country) {
+    if (!country.id) {
+        return country.text;
+    }
 
-            var flagUrl = $(country.element).data('flag-url'); // Access the flag-url data attribute
+    var flagUrl = $(country.element).data('flag-url'); // Access the flag-url data attribute
 
-            var $country = $(
-                '<img src="' + flagUrl + '" class="img-flag" / style="width:20px;height:13px;margin-top:-5px;"> <span  style="font-size:14px; margin-left: 7px;">' + country.text + '</span>'
-            );
-            return $country;
-        };
+    // If no flag URL is available, fallback to default image or nothing
+    if (!flagUrl) {
+        var $country = $( 
+        '<img src="' + flagUrl + '" class="img-flag" style="width:20px; height:13px;margin-top:-5px; display:none;" />' + 
+        '<span style="font-size:14px; margin-left: 2px;">' + country.text + '</span>'
+    );// Optional default image
+    }else{
+        var $country = $( 
+        '<img src="' + flagUrl + '" class="img-flag" style="width:20px;height:13px;margin-top:-5px;" />' + 
+        '<span style="font-size:14px; margin-left: 7px;">' + country.text + '</span>'
+    );
+    }
+
+   
+
+    return $country;
+}
 
         $(document).ready(function () {
          $(".currency_dropdown").select2({

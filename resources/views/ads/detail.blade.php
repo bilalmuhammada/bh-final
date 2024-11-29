@@ -336,19 +336,19 @@ width: 60rem !important;
                         <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <!---------->
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
-                            <h5><b>Products & Services Offered</b></h5>
+                            <h6><b>Products & Services Offered</b></h6>
                             <p style="font-size: 14px; margin-bottom: 7px;">{{ $ad->details->products_and_services_offered ?? '....' }} this is one line</p>
                         </div>
                         <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
-                            <h5><b>Description</b></h5>
+                            <h6><b>Description</b></h6>
                             <p style="font-size: 14px;margin-bottom: 7px;">{{ $ad->description }} this is description</p>
                         
                         </div>
                         <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
                 
-                                <h5><b>Files</b></h5>
+                                <h6><b>Files</b></h6>
                                 <p style="font-size: 14px;">
                                     <embed class="@if(empty($ad->document_listing_approval_status) || $ad->document_listing_approval_status == 'rejected') blur-image @endif" src="https://www.buds.com.ua/images/Lorem_ipsum.pdf"
                                            type="application/pdf" width="180px" height="228px"/>
@@ -369,7 +369,7 @@ width: 60rem !important;
                       
                         <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <div class="col-lg-12 col-md-12 col-12" >
-                            <h5><b>Location</b></h5>
+                            <h6><b>Location</b></h5>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-6">
                                     {{-- <div style="border-radius:5px;"> --}}
