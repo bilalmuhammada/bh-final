@@ -130,6 +130,10 @@ width: 60rem !important;
     color: blue !important;
 
 }
+.document-download-request{
+    padding: 0rem 0.75rem !important;
+
+}
 </style>
 
     <section>

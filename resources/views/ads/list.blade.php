@@ -147,6 +147,8 @@ select {
     background-color: transparent;
     padding-right: 20px; /* Add some padding to keep the layout */
 }
+
+
     </style>
     <!--------ad area --------->
     <section>
@@ -192,16 +194,16 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
         <div class="col-md-4 border-color" style="border-right:2px solid #eee;" id="cityArea">
             <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
                aria-controls="multiCollapseExample1" style="color:#000;">
-                <div class="col-md-12" style="text-align: center;"><span style="font-size: 14px;"><b>City</b></span></div>
+                <div class="col-md-12" style="text-align: center;margin-top: 3px;"><span style="font-size: 14px;"><b>City</b></span></div>
                 <div class="col-md-12" style="margin-top: 12px;" ><span style="font-size: 14px;color:#252525;margin-left: 12px;">{{ $selected_city_name }}</span></div>
             </a>
         </div>
 
 
         <div class="col-md-7 border-color" style="border-right: 2px solid #eee; text-align: center;">
-            <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px ;   font-size: 14px;">Keyword</label>
+            <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;font-size: 14px; margin-top: 2px;">Keyword</label>
             <div class="input-group">
-                <input type="text" class="form-control filter1" id="keyword" style="margin-top: -2px; font-size: 13px;" placeholder="Search anything in {{ $category_name->name }}">
+                <input type="text" class="form-control filter1" id="keyword" style="margin-top: -2px; font-size: 14px;" placeholder="Search anything in {{ $category_name->name }}">
                 <span style="margin-top:8px;font-weight: bolder; color: goldenrod;" id="searchIcon">
                     <i class="fa fa-search"></i> <!-- Bootstrap Icons -->
                 </span>
@@ -214,9 +216,9 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
        
 
         <div class="col-md-7 border-color" style="border-right: 2px solid #eee; text-align: center;">
-            <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px;    font-size: 14px;">Neighborhood</label>
+            <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px; font-size: 14px; margin-top: 2px;">Neighborhood</label>
             <div class="input-group">
-                <input type="text" class="form-control filter1" style="margin-top: -2px; font-size: 13px;" id="neighborhood" placeholder="Enter location">
+                <input type="text" class="form-control filter1" style="margin-top: -2px; font-size: 14px;" id="neighborhood" placeholder="Enter location">
                 <span class="" id="locationIcon">
                     <i class="fa fa-map-marker" style="margin-top:8px; color:red;"></i> <!-- Bootstrap Icons location marker -->
                 </span>
@@ -228,7 +230,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
         <div class="col-md-5 border-color" style="border-right:2px solid #eee;" id="priceArea1">
             <a data-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false"
                aria-controls="multiCollapseExample4" style="color:#000;">
-                <div class="col-md-12" style="text-align: center;"><span style="font-size: 14px;"><b>Price</b></span></div>
+                <div class="col-md-12" style="text-align: center;margin-top:2px;"><span style="font-size: 14px;"><b>Price</b></span></div>
              
                 {{-- <div class="col-md-12"><span style="font-size: 11px;color:#000;">{{ $from || $to ? $from . '-' . $to : 'Select'}}</span></div> --}}
             </a>
@@ -243,7 +245,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
         </div>
 
         <div class="col-md-5 border-color" id="filtersAreaw1">
-            <div class="col-md-12" style="text-align: center;">
+            <div class="col-md-12" style="text-align: center; margin-top: 2px;">
                 <span style="font-size: 14px;"><b>Sort</b></span>
             </div>
             <select class="form-select form-control "  id="sortDropdown" onchange="window.location.href=this.value" >

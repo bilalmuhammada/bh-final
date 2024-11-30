@@ -88,6 +88,7 @@
         padding-left: 8px !important;
     }
     .select2-dropdown{
+        border: 1px solid transparent !important;
         background-color: #fff;
         color: #000 !important;
     }
@@ -205,13 +206,15 @@
                             <div class="mobile-country desktop-menu-right">
                                
                                     <select class="form-control country_dropdown1 " name="country_dropdown"   style="width:150px;" id="country_dropdown" >
+                                       
+                                        <option value="">All Countries</option>
                                         @foreach($countries as $country)
                                        
                                             <option
                                             {{ $country->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $country->image_url }}"
                                             value="{{ $country->id }}"
                                             style="font-size:8px !important;">
-                                            {{ explode(' ', $country->name)[0] }}
+                                            {{ $country->name }}
                                                
                                             </option>
                                         @endforeach

@@ -52,14 +52,14 @@
                         <li class="dropdown-item">
                             <a href="{{ env('BASE_URL') }}/edit-profile" class="text-body  text-bold ms-0" >
                                 {{-- <i class="me-2 icon-md" data-feather="edit"></i> --}}
-                                <span>Edit Profile</span>
+                                <span style="font-weight:700;" >Edit Profile</span>
                             </a>
                         </li>
                         
                         <li class="dropdown-item ">
                             <a href="javascript:;" class="text-body  text-bold ms-0 logout-btn">
                                 {{-- <i class="me-2 icon-md" data-feather="log-out"></i> --}}
-                                <span>Log Out</span>
+                                <span style="font-weight:700;">Log Out</span>
                             </a>
                         </li>
                     </ul>
