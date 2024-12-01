@@ -205,7 +205,7 @@
                             {{-- <div class="country" style="border:0px solid green;position:relative;left:-111px;"> --}}
                             <div class="mobile-country desktop-menu-right">
                                
-                                    <select class="form-control country_dropdown1 " name="country_dropdown"   style="width:150px;" id="country_dropdown" >
+                                    <select class="form-control country_dropdown1 " name="country_dropdown"   style="width:165px;" id="country_dropdown" >
                                        
                                         <option value="">All Countries</option>
                                         @foreach($countries as $country)

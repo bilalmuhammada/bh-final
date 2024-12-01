@@ -92,6 +92,14 @@
     margin-left: 43px;
     max-width: 27pc;
 }
+
+.apply-btn
+{
+background-color: #c4bfbf7d;color: white;
+border: 1px solid transparent;
+padding: 0.375rem 0.75rem; border-radius: 0.25rem;}
+
+
   </style>
 @section('content')
 
@@ -105,7 +113,7 @@
             <input type='hidden' name="total" value="5">
             <div class="row" style="margin-left: 8rem !important">
               <div class="col-md-6 package-card" style="max-width: 38pc !important">
-                <h4 class="text-center"> <b>Select a package that works for you</b></h4>
+                <h5 class="text-center"> <b>Select a package that works for you</b></h5>
                 {{-- <div class=""> --}}
                   <hr class="bold-hr">
                   <div class="package-card section-package" style="background-color: #e7f5fb">
@@ -117,9 +125,9 @@
                     <input class="form-check-input" type="checkbox" name="package" id="standard" value="standard" checked>
                     <span style="margin-left: 13px;font-weight: 900">Standard</span><br>
                     <label class="form-check-label" for="standard" style="margin-left: 13px">
-                        Ad will be live for 30 days <span style=" font-weight: 900;
+                        Ad will be live for 30 days and refresh 1 time <span style=" font-weight: 900;
                         color: red;
-                        margin-left: 8pc;"> $ 2</span>
+                        margin-left: 1pc;"> $ 2</span>
                       </label>
                     </div>
                   </div>
@@ -127,9 +135,9 @@
                   <div class="package-card  section-package">
                     <div style=" display: inline-flex
                   
-                  "><h5>Featured Ad</h5>  <span class="badge badge-primary" style="margin-left: 13.66rem;    margin-bottom: 14px;">Featured</span></div>
+                  "><h5>Featured Ad</h5>  <span class="badge badge-primary" style="margin-left: 13.66rem; padding: 5px;    margin-bottom: 14px;">Featured</span></div>
                     
-                    <p  style="font-size: 13px;">Featured Ads appear above  standard Ads</p>
+                    <p  style="font-size: 13px;">Featured Ads will appear above  Standard Ads</p>
                     <div class="form-group package-card ">
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="feature" id="feature3" value="3days" style="margin-left: -30px;margin-top: -6px;">
@@ -171,7 +179,7 @@
                   </div>
 
       <div style="display: grid">
-                <span class="text-center font-weight-bolder">Price are exclusive of VAT</span>
+                <span class="text-center font-weight-bolder">Prices are exclusive of VAT</span>
                  <span class="text-center text-muted " style="margin-top: 8px;font-size: 13px;">Ads Price has been automatically selected <br>based on the posts applied on previous listings generally</span>
         </div>
 
@@ -180,7 +188,7 @@
               <div class="col-md-5" style="margin-left:40px">
               
                 <div class="order-summary">
-                    <h4 class="text-center"><b>Order Summary</b></h4>
+                    <h5 class="text-center" style="margin-bottom: -6px;"><b>Order Summary</b></h5>
                     <hr class="bold-hr">
                   <p>Standard Ad  <span style="font-weight: 900;
                     margin-left: 15rem;">$ 2</span></p>
@@ -188,7 +196,7 @@
                     margin-left: 10.4rem;">$ 2</span></p>
                   <div class="form-group">
                     <input type="text" class="form-control1 text-muted" placeholder="Referral Code" id="discountCode">
-                    <button class="btn apply-btn" style="    background-color: #c4bfbf7d;color: white">Apply</button>
+                    <button class="btn1 apply-btn" >Apply</button>
                   </div>
                   <hr>
                   <p>Subtotal: <span style="margin-left: 17rem;font-weight: 900">$ 2</span> </p>
@@ -212,5 +220,7 @@
        
     </section>
 
-
+    
 @endsection
+
+

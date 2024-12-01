@@ -132,6 +132,7 @@ width: 60rem !important;
 }
 .document-download-request{
     padding: 0rem 0.75rem !important;
+    font-size: 13px;
 
 }
 </style>
@@ -269,7 +270,7 @@ width: 60rem !important;
                                        is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
                                        style="padding:10px 13px;font-size:19px; border-radius:2px;"> </i>&nbsp;
                                     <i class="fa fa-share share-btn" ad-id="{{ $ad->id }}" title="Copy Ad link"
-                                       style="font-size:19px;border-radius:2px;"></i>
+                                       style="font-size:19px;border-radius:2px; color:blue;"></i>
                                 </span>
                             </div>
                             <div class="col-lg-12 col-md-12 col-12">
@@ -359,7 +360,7 @@ width: 60rem !important;
                                     <br/>
                                     <div class="btn-next">
                                         @if(empty($ad->document_listing_approval_status) || $ad->document_listing_approval_status == 'rejected')
-                                            <a href="" class="btn document-download-request">Send Request</a>
+                                            <a href="" class="btn document-download-request">Request Access</a>
                             @elseif($ad->document_listing_approval_status == 'approved')
                                             <a href="#" class="btn download-document">Approved</a>
                                 @else

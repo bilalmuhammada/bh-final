@@ -163,11 +163,11 @@
  </style>
 @section('content')
     <div class="col-md-6 mx-auto">
-        <h3 class="mx-auto text-center">You are almost there!</h3>
-        <p class="mx-auto text-center">Provide as much Details & Pictures as possible and set right Price!</p>
-        <p  style="margin-bottom: -15px;">
-            <span class="text-muted">{{ $Categories->name }}</span> ><span
-                class="text-muted">{{ $subcategories->name }}</span>
+        <h5 class="mx-auto text-center">You are almost there!</h5>
+        <p class="mx-auto text-center" style="font-size: 14px;">Provide as much Details & Pictures as possible and set right Price!</p>
+        <p  style="margin-bottom: 3px; color: blue;">
+            <span class="text-primary">{{ $Categories->name }}</span> ><span
+                class="text-primary">{{ $subcategories->name }}</span>
         </p>
     </div>
     <form class="place-ad-form" enctype="multipart/form-data">
@@ -294,13 +294,13 @@
             <div class="form-group" id="filemoble">
                 <label style="margin-left: 13rem;
                 text-align: center;
-                font-size: 17px;">Do you want to show or hide your Phone Number?</label>
+                font-size: 14px;">Do you want to show or hide your Mobile Number?</label>
                 <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
                     <label class="btn active  btn-show" style="margin-left:17rem !important;background-color: #dadadb">
-                        <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show Phone
+                        <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show 
                     </label>
                     <label class="btn btn-show"  style=" margin-left: 2rem;float: right;background-color: #525252">
-                        <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide Phone
+                        <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide 
                     </label>
                 </div>
             </div>

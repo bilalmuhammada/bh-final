@@ -28,7 +28,7 @@ a.text-dark1:focus, a.text-dark1:hover ,.text-dark1:hover, .text-dark1:hover , .
 </style>
 @section('content')
     <div class="col-md-5 mx-auto text-center" >
-        <h4 style="margin:0;font-size: 1.5rem;font-weight:bold;">Choose the Category of your Business!</h4>
+        <h4 style="margin:0;font-size: 1rem;font-weight:bold;">Choose the Category of your Business!</h4>
     </div>
     <div class="col-md-5 mx-auto  " style="padding-left: 4rem" >
         <ul style="list-style-type:none;margin: 0px;" class="text-dark1">

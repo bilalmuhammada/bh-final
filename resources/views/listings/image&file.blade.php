@@ -1,3 +1,10 @@
+
+<style>
+    .btn.focus, .btn:focus{
+        box-shadow: 0 0 0 0rem rgba(0, 123, 255, .25) !important;
+    }
+     
+</style>
 <div class="col-md-6 mx-auto" style="margin-top:166px;">
     <div class="input--file">
         <i class="fa fa-camera fa-1x"></i>
@@ -23,18 +30,18 @@
         <div class="invalid-feedback image-error" id="fileError">
             Invalid
         </div>
-        <span><b>Add File</b></span>
+        <span><b>Attach all files</b></span>
     </div>
 
 
     <div class="form-group" id="filehide" style="margin-bottom: -21px !important;">
         <label style="text-align: center; margin-left: 16.2rem;font-size: 13px;padding: 7px;">Do you want to Show or Hide your Files?</label>
         <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
-            <label class="btn active  btn-show" style="margin-left:17.8rem !important;background-color: #dadadb">
+            <label class="btn active  btn-show btn-darker" style="margin-left:17.8rem !important;background-color: #dadadb">
                 <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show File
             </label>
             {{-- 525252 --}}
-            <label class="btn btn-show"  style="margin-left: 26px !important; float: right;background-color: #dadadb">
+            <label class="btn btn-show btn-darker-hide"  style="margin-left: 26px !important; float: right;background-color: #dadadb">
                 <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide File
             </label>
         </div>

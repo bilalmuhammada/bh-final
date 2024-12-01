@@ -162,11 +162,11 @@
 
 @section('content')
     <div class="col-md-6 mx-auto">
-         <h3 class="mx-auto text-center">You are almost there!</h3>
-        <p class="mx-auto text-center">Provide as much Details & Pictures as possible and set right Price!</p>
-        <p style="margin-bottom: -1px;">
-            <span class="text-muted">{{ $Categories->name }}</span> ><span
-                class="text-muted">{{ $subcategories->name }}</span>
+         <h5 class="mx-auto text-center" >You are almost there!</h5>
+        <p class="mx-auto text-center" style="font-size: 14px;">Provide as much Details & Pictures as possible and set right Price!</p>
+        <p style="margin-bottom: -1px; color:blue;">
+            <span class="text-primary">{{ $Categories->name }}</span> ><span
+                class="text-primary">{{ $subcategories->name }}</span>
         </p>
     </div>
     <form class="place-ad-form" enctype="multipart/form-data">
@@ -246,11 +246,7 @@
             <label class="focus-label">Premise Status</label>
         </div>         
             </div>
-            {{-- <input type="text" class="form-controlz" name="stock_level" placeholder="Stock Level" style="padding:22px;"
-            required> --}}
-     {{-- <div class="invalid-feedback">
-         Please provide a valid Stock Level.
-     </div> --}}
+          
         </div>
         </div>
     </div>
@@ -359,11 +355,7 @@
 
     </div>
     
-            {{-- <input type="tel" class="form-controlz" name="phone" placeholder="Mobile" style="padding:22px;"
-                   pattern="[0-9]{10}" title="Please enter a valid 10-digit Mobile number" required> --}}
-            {{-- <div class="invalid-feedback">
-                Please provide a valid 10-digit Mobile number.
-            </div> --}}
+         
     </div>
         <div class="col-md-6 mx-auto" >
             <div class="form-group form-focus">

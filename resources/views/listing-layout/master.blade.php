@@ -6,9 +6,14 @@
     <!-----------logo-------->
 @include('listing-layout.topbar')
 <!-----------logo end-------->
-    <hr style="margin: 0;">
+    <hr style="margin: -9px 0px 5px 0px;">
     @yield('content')
 </div>
+<style>
+.darkerbtn {
+  background-color: #7070707d !important;
+}
+</style>
 <!-- Optional JavaScript -->
 @include('listing-layout.footer')
 <script type="text/javascript">
@@ -35,6 +40,27 @@
     }
 
     $(document).ready(function () {
+
+
+        $('.btn-darker').on('click', function () {
+        const inputValue = $(this).val().trim();
+   
+  $('.btn-darker').addClass('darkerbtn');
+
+
+   
+      });
+      
+      $('.btn-darker-hide').on('click', function () {
+        const inputValue = $(this).val().trim();
+   
+  $('.btn-darker-hide').addClass('darkerbtn');
+
+
+   
+      });
+
+
         ajax_setup();
     });
 </script>

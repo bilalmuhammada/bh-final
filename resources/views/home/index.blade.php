@@ -224,16 +224,18 @@ a{
     .select2-container--default .select2-results__option--selected {
         background-color: #fff !important;
     }
-    .countrylist:hover{
-        /* color: blue; */
-        animation: shake 1.5s linear infinite;
-    }
+ 
 
    
     .countrylist {
     display: inline-block;
     transition: transform 0.2s ease-in-out;
    }
+
+   .countrylist:hover{
+        /* color: blue; */
+        animation: shake 1s linear infinite;
+    }
 
     .select2-container--default .select2-selection--single .select2-selection__rendered{
         color: blue !important;
@@ -301,18 +303,12 @@ $countries = \App\Helpers\RecordHelper::getCountries();
 <body style="overflow-x: hidden;">
 <div class="container" >
     <div class="row">
-    <!-- <div class="col-" style="padding:0px 0px 0px 20px;">
-            <div class="logo">
-                <a href="{{env('BASE_URL')}}">
-                    <img src="{{asset('images/businesshub.png')}}" title="businesshub " alt="businesshub" width="185"/>
-                </a>
-                </div>
-                </div> -->
-        <div class="col-md-4" style="margin-left: 3.5rem;">
+  
+        <div class="col-md-3" style="margin-left: 3.5rem;">
                     <span style="">
                          <!-- country bar mobile start -->
                 <div class="mobile-country desktop-menu-right" style="margin-top:16px !important;">
-                <select class="form-control country_dropdown" name="country_dropdown" id="" style="width:140px;">
+                <select class="form-control country_dropdown" name="country_dropdown" id="" style="width:150px;">
                 <option value="" selected>All Countries</option>
                 
                     @foreach($countries as $country)
@@ -323,7 +319,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                         <!-- country bar mobile finish -->
                     </span>
         </div>
-        <div class="col-md-4" style="padding:0px 0px 0px 0px;">
+        <div class="col-md-4" style="padding:0px 0px 0px 50px;">
             <div class="logo text-center">
                 <a href="{{env('BASE_URL')}}">
                     <img src="{{asset('images/businesshub-slogan.png')}}" title="businesshub " alt="businesshub" width="200"/>

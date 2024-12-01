@@ -161,11 +161,11 @@
  </style>
 @section('content')
     <div class="col-md-6 mx-auto">
-         <h3 class="mx-auto text-center">You are almost there!</h3>
-        <p class="mx-auto text-center">Provide as much Details & Pictures as possible and set right Price!</p>
-        <p style="margin-bottom: -15px;">
-            <span class="text-muted">{{ $Categories->name }}</span> ><span
-                class="text-muted">{{ $subcategories->name }}</span>
+         <h5 class="mx-auto text-center">You are almost there!</h5>
+        <p class="mx-auto text-center" style="font-size: 14px;">Provide as much Details & Pictures as possible and set right Price!</p>
+        <p style="margin-bottom: -15px; color:blue; ">
+            <span class="text-primary">{{ $Categories->name }}</span> ><span
+                class="text-primary">{{ $subcategories->name }}</span>
         </p>
     </div>
     <form class="place-ad-form" enctype="multipart/form-data">
@@ -444,17 +444,7 @@
             </div>
         </div>
         
-           {{-- <div class="col-md-6 mx-auto" >
-            <div class="form-group form-focus">
-           <input type="text" class="form-control floating" name="phone" placeholder=""   
-           oninput="validatePhoneNumber(this)"  title="" required>
-                    
-                           <label class="focus-label">Mobile</label>
-                        </div>
-                           <div class="invalid-feedback">
-                        Please provide a valid 10-digit Mobile number.
-                    </div>
-        </div> --}}
+           
         <div class="col-md-6 mx-auto">
             <div class="form-group form-focus">
             <textarea name="description" class="form-control floating" placeholder="" style="height: 200px;"

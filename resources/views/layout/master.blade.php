@@ -124,12 +124,35 @@ $second = $parts[1] ?? null;
      .select2-container--default .select2-selection--single .select2-selection__rendered{
         color: blue !important;
     }
+
+    .disabled {
+  background-color: #7070707d !important;
+}
 </style>
 <script>
     //countries dropdown
   
 
 
+      $(document).ready(function () {
+      $('#discountCode').on('input', function () {
+        const inputValue = $(this).val().trim();
+
+       
+if (inputValue === "") {
+  
+  $('.apply-btn').removeClass('disabled');
+} else {
+   
+  $('.apply-btn').addClass('disabled');
+}
+
+   
+      });
+
+  
+    });
+    
     function formatCountry(country) {
             if (!country.id) {
                 return country.text;

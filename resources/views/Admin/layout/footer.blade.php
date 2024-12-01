@@ -55,11 +55,7 @@
             <div class="row">
                 <div class="col-xl-3 col-md-6">
                     <div class="footer-widget footer-menu">
-                    <!-- <div class="footer-bottom-logo">
-                        <a href="{{ env('BASE_URL') }}" class="menu-logo">
-                        <img src="assets/img/logo/Influencers Pro-01-01.png" class="img-fluid" alt="Logo">
-                        </a>
-                        </div> -->
+                    
                         <h2 class="footer-title">Company</h2>
                         <ul>
                             <li>

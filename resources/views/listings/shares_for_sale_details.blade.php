@@ -162,11 +162,11 @@
  </style>
 @section('content')
     <div class="col-md-6 mx-auto">
-         <h3 class="mx-auto text-center">You are almost there!</h3>
-        <p class="mx-auto text-center">Provide as much Details & Pictures as possible and set right Price!</p>
-        <p style="margin-bottom: -15px;">
-            <span class="text-muted">{{ $Categories->name }}</span> ><span
-                class="text-muted">{{ $subcategories->name }}</span>
+         <h5 class="mx-auto text-center">You are almost there!</h5>
+        <p class="mx-auto text-center" style="font-size: 14px;">Provide as much Details & Pictures as possible and set right Price!</p>
+        <p style="margin-bottom: 3px; color:blue;">
+            <span class="text-primary">{{ $Categories->name }}</span> ><span
+                class="text-primary">{{ $subcategories->name }}</span>
         </p>
     </div>
     <form class="place-ad-form" enctype="multipart/form-data">

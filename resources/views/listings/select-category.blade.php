@@ -1,14 +1,19 @@
 @extends('listing-layout.master')
 
 <style>
-    .categoryname:hover{
-        color: blue;
-        animation: shake 0.5s ease-in-out;
-    }
+    
     a:hover {
         text-decoration: none !important;
     }
 
+    .shaking {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+   }
+ 
+  .categoryname:hover {
+    animation: shake 1.5s linear infinite;
+   }
     @keyframes shake {
   0% { transform: translateX(0); }
   25% { transform: translateX(-5px); }
