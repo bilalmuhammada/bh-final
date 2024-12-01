@@ -151,7 +151,7 @@
  .btn-show{
   
  
-
+    background-color: #dadadb !important;
   text-align: center !important;
  
   /* padding: 1pc 3pc 1pc 3pc !important; */
@@ -166,8 +166,8 @@
         <h5 class="mx-auto text-center">You are almost there!</h5>
         <p class="mx-auto text-center" style="font-size: 14px;">Provide as much Details & Pictures as possible and set right Price!</p>
         <p  style="margin-bottom: 3px; color: blue;">
-            <span class="text-primary">{{ $Categories->name }}</span> ><span
-                class="text-primary">{{ $subcategories->name }}</span>
+            <span style="color:blue;">{{ $Categories->name }}</span> > <span
+            style="color:blue;">{{ $subcategories->name }}</span>
         </p>
     </div>
     <form class="place-ad-form" enctype="multipart/form-data">
@@ -291,15 +291,15 @@
                     <label class="focus-label">WhatsApp</label>
                 </div>
             </div>
-            <div class="form-group" id="filemoble">
-                <label style="margin-left: 13rem;
+            <div class="form-group"  style="margin-bottom: -7px;" id="filemoble">
+                <label style="margin-top: -24px; margin-left: 13rem;
                 text-align: center;
-                font-size: 14px;">Do you want to show or hide your Mobile Number?</label>
+                font-size: 14px;">Do you want to show or hide your Mobile?</label>
                 <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
-                    <label class="btn active  btn-show" style="margin-left:17rem !important;background-color: #dadadb">
+                    <label class="btn active  btn-show btn-darker" style="margin-left:17rem !important;">
                         <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show 
                     </label>
-                    <label class="btn btn-show"  style=" margin-left: 2rem;float: right;background-color: #525252">
+                    <label class="btn btn-show btn-darker-hide"  style=" margin-left: 2rem;float: right;">
                         <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide 
                     </label>
                 </div>

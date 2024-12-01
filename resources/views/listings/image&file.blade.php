@@ -26,11 +26,11 @@
     <div class="input--file">
         <i class="fa fa-camera fa-1x"></i>
         <input type="file" multiple class="form-controlz form-control-file documents"  id="fileInput" name="documents[]"
-               placeholder="Upload Documents" accept=".pdf,.doc" >
+               placeholder="Upload Documents"    accept=".pdf, .doc, .docx, .xls, .xlsx">
         <div class="invalid-feedback image-error" id="fileError">
             Invalid
         </div>
-        <span><b>Attach all files</b></span>
+        <span><b>Add files</b></span>
     </div>
 
 

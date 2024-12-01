@@ -283,7 +283,16 @@ $("#registercities").select2({
         window.location.assign(base_url + 'home/?country=' + {{ request()->country }} + '&city=' + $(this).val());
     });
     $(document).on('change', '.currency_dropdown', function () {
-        window.location.assign(base_url + 'home/?country=' + {{ request()->country }} + '&currency=' + $(this).val());
+
+
+
+   alert(window.location.pathname);
+   const pathname = window.location.pathname;
+
+// Remove the leading slash
+    const pathnameWithoutSlash = pathname.startsWith('/') ? pathname.substring(1) : pathname;
+
+    window.location.assign(base_url + pathnameWithoutSlash + '?currency=' + $(this).val());
     });
 
     $(document).on('change', '.country_dropdown', function () {

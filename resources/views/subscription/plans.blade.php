@@ -19,7 +19,7 @@
     .order-summary {
       border: 1px solid #b9b9b9;
       /* box-shadow: 0px 0px 2px 0px #888; */
-      padding: 25px;
+      padding: 20px;
       border-radius: 5px;
     }
     .form-check-input {
@@ -113,7 +113,7 @@ padding: 0.375rem 0.75rem; border-radius: 0.25rem;}
             <input type='hidden' name="total" value="5">
             <div class="row" style="margin-left: 8rem !important">
               <div class="col-md-6 package-card" style="max-width: 38pc !important">
-                <h5 class="text-center"> <b>Select a package that works for you</b></h5>
+                <h5 class="text-center" style="margin-left: 5px;"> <b>Select a package that works for you</b></h5>
                 {{-- <div class=""> --}}
                   <hr class="bold-hr">
                   <div class="package-card section-package" style="background-color: #e7f5fb">
@@ -124,8 +124,8 @@ padding: 0.375rem 0.75rem; border-radius: 0.25rem;}
                     <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="package" id="standard" value="standard" checked>
                     <span style="margin-left: 13px;font-weight: 900">Standard</span><br>
-                    <label class="form-check-label" for="standard" style="margin-left: 13px">
-                        Ad will be live for 30 days and refresh 1 time <span style=" font-weight: 900;
+                    <label class="form-check-label" for="standard" style="margin-left: 13px; font-size: 12px;">
+                        Ad will be live for 30 days and refresh 1 time <span style=" font-weight: 700;
                         color: red;
                         margin-left: 1pc;"> $ 2</span>
                       </label>
@@ -137,7 +137,7 @@ padding: 0.375rem 0.75rem; border-radius: 0.25rem;}
                   
                   "><h5>Featured Ad</h5>  <span class="badge badge-primary" style="margin-left: 13.66rem; padding: 5px;    margin-bottom: 14px;">Featured</span></div>
                     
-                    <p  style="font-size: 13px;">Featured Ads will appear above  Standard Ads</p>
+                    <p  style="font-size: 11px;">Featured Ads will appear above  Standard Ads</p>
                     <div class="form-group package-card ">
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="feature" id="feature3" value="3days" style="margin-left: -30px;margin-top: -6px;">

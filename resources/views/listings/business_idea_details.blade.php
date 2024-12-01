@@ -165,8 +165,8 @@
          <h5 class="mx-auto text-center" >You are almost there!</h5>
         <p class="mx-auto text-center" style="font-size: 14px;">Provide as much Details & Pictures as possible and set right Price!</p>
         <p style="margin-bottom: -1px; color:blue;">
-            <span class="text-primary">{{ $Categories->name }}</span> ><span
-                class="text-primary">{{ $subcategories->name }}</span>
+            <span style="color:blue;">{{ $Categories->name }}</span> > <span
+                style="color:blue;">{{ $subcategories->name }}</span>
         </p>
     </div>
     <form class="place-ad-form" enctype="multipart/form-data">

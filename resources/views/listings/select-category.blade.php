@@ -12,7 +12,7 @@
    }
  
   .categoryname:hover {
-    animation: shake 1.5s linear infinite;
+    animation: shake 1s linear infinite;
    }
     @keyframes shake {
   0% { transform: translateX(0); }
