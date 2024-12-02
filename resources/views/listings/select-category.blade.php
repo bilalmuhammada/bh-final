@@ -2,17 +2,22 @@
 
 <style>
     
-    a:hover {
-        text-decoration: none !important;
-    }
+    .color-change{
+        color: black;
 
+    }
+    .color-change:hover{
+        color: blue;
+        text-decoration: none;
+
+    }
     .shaking {
     display: inline-block;
     transition: transform 0.2s ease-in-out;
    }
  
   .categoryname:hover {
-    animation: shake 1s linear infinite;
+    animation: shake 1.3s linear infinite;
    }
     @keyframes shake {
   0% { transform: translateX(0); }
@@ -31,7 +36,7 @@
                         @foreach($categories as $category)
                         <!----cat start------>
                         <div class="col-md-3 " style="margin-bottom:50px;" >
-                            <a href="{{env('BASE_URL') . 'listing/select-subcategory/' . $category->id}}" class="text-dark">
+                            <a href="{{env('BASE_URL') . 'listing/select-subcategory/' . $category->id}}"  class="color-change">
                                 <div class="inner-div categoryname" style="text-align:center;box-shadow: 0 2px 8px 0 rgba(0,0,0,.1);
                                     transition: background-color .3s;border-radius: 6px;height: 180px;width: 220px;padding-top:38px;">
                                     <img src="{{ $category->image_url }}" alt="" width="60">

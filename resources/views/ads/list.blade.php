@@ -407,13 +407,13 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                         <!-- Sharing and Favourite buttons -->
                                         <div style="margin-top: 12px; margin-left: 232px;  z-index: 2;">
                                             <span>
-                                                <a><i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}" is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}" style="font-size: 25px;margin-right: 7px; margin-left: 2px; color: white;"></i></a>
+                                                <a><i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}" is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}" style="font-size: 20px;margin-right: 7px; margin-left: 6px; color: white;"></i></a>
                                                 {{-- <a><i class="fa fa-share share-btn" ad-id="{{ $ad->id }}" title="Copy Ad link" style="font-size: 25px; margin-right: 41px;color:white;"></i></a>   --}}
                                             </span>
                                         </div>
                                     </div>
                                     <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:150px; z-index: 2;">
-                                        <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
+                                        <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:12px">1/ {{$ad->count()}}</span>
                                     </div>
                                 </div>
                                 <a href="{{ env('BASE_URL') . 'ads/detail/' . $ad->id }}">
@@ -444,12 +444,12 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                     <div class="col-lg-2 col-md-2 mb-30 col-3">
                                        
                                         
-                                        <button class="btn btn-primary" style="font-size:11px;color:white; font-weight:bold;padding: 2px 6px 1px 6px !important; margin-left:12px;">Featured</button>
+                                        <button class="btn btn-primary" style="font-size:11px;color:white; font-weight:bold;padding: 2px 6px 1px 6px !important; margin-left:2px;">Featured</button>
                                     </div>
                                 </div>
                             </div>
                             <!-----content----->
-                            <hr style="width: 69%;margin-top:-14px;margin-left: 12px;background:#eee;">
+                            <hr style="width: 68%;margin-top:-14px;margin-left: 12px;background:#eee;">
                         </div>
                     @endforeach
                     {{-- <div class="pagination mt-4">

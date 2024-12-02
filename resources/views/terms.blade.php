@@ -16,9 +16,9 @@
             <div class="row" style="margin-bottom: 3rem;">
                 <div class="col-md-12 col-lg-12 col-xl-12 term-text">
                     <div class="login-header">
-                        <a href="{{ env('BASE_URL') }}">
+                        {{-- <a href="{{ env('BASE_URL') }}">
                             <img src="{{asset('images/businesshub.png')}}" alt="" width="150px" alt="logo">
-                        </a>
+                        </a> --}}
                         {{-- <h3 style="margin-top: 20px;">Contact Us</h3> --}}
                         <h1 class="terms-h">Terms of Use</h1>
                        
@@ -412,7 +412,7 @@
 <p>We may amend these Business Account Terms from time to time, with or without notice to you. The new version of these Business Account Terms will be made available on this page.</p>
 
                   
-<h6 style="margin-top: 28px; ">Last Revised Date: <span style="font-weight:800 "> November 1, 2024</span></h6>
+<h6 style="margin-top: 28px; ">Last Revised Date: <span style="font-weight:800 "> December 1, 2024</span></h6>
 
 
                     

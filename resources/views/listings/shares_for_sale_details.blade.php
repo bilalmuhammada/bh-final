@@ -163,8 +163,8 @@
 @section('content')
     <div class="col-md-6 mx-auto">
          <h5 class="mx-auto text-center">You are almost there!</h5>
-        <p class="mx-auto text-center" style="font-size: 14px;">Provide as much Details & Pictures as possible and set right Price!</p>
-        <p style="margin-bottom: 3px; color:blue;">
+        <p class="mx-auto text-center" style="font-size: 14px;margin-bottom:0px;">Provide as much Details & Pictures as possible and set right Price!</p>
+        <p style="margin-bottom: 3px; font-size:14px; color:blue;">
             <span style="color:blue;">{{ $Categories->name }}</span> > <span
             style="color:blue;">{{ $subcategories->name }}</span>
         </p>
@@ -492,7 +492,9 @@
 $(document).on('click', '.place-ad-form-submit', function (e) {
             e.preventDefault();
              var formData = new FormData($('.place-ad-form')[0]);
-// console.log(formData);
+
+             const currency = "{{ request()->currency }}";
+ console.log(currency);
             $.ajax({
                 url: api_url + 'listing/nextsubmit',
                 type: 'POST',
@@ -504,8 +506,11 @@ $(document).on('click', '.place-ad-form-submit', function (e) {
                 console.log(response);
                     if (response.status) {
 
+                    
+
                         setTimeout(function () {
-                            window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
+                            window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}?current=${currency}`);
+                            // window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
                         }, 600);
 
                     } else {

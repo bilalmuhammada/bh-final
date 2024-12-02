@@ -34,7 +34,7 @@ a.text-dark1:focus, a.text-dark1:hover ,.text-dark1:hover, .text-dark1:hover , .
         <ul style="list-style-type:none;margin: 0px;" class="text-dark1">
             <li style="width:350px;border-bottom:1px solid #eee;padding:2px;text-decoration: none;width:456px;"  class="text-dark1">
                 <a href="{{env('BASE_URL') . 'listing/select-category'. ''}}" >...</a> >
-                <span style="color: blue;">{{ $category->name }}</span>
+                <span style="color: blue; font-size:14px;">{{ $category->name }}</span>
             </li>
         </ul>
         <ul style="list-style-type:none; font-size:14px;" >

@@ -268,7 +268,7 @@ width: 60rem !important;
                                 <span style="font-size: 13px;float:right;position:relative;right:30px;cursor:pointer;">
                                     <i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}"
                                        is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
-                                       style="padding:10px 13px;font-size:19px; border-radius:2px;"> </i>&nbsp;
+                                       style="padding:6px 6px;font-size:19px; border-radius:2px;"> </i>&nbsp;
                                     <i class="fa fa-share share-btn" ad-id="{{ $ad->id }}" title="Copy Ad link"
                                        style="font-size:19px;border-radius:2px; color:blue;"></i>
                                 </span>
@@ -550,7 +550,7 @@ width: 60rem !important;
                                             <div class="listing" style="margin-bottom: 12px;">
                                                 <img src="{{ $similar_ad->main_image_url }}" alt="{{ $similar_ad->name }}" title="{{ $similar_ad->name }}" width="170" height="152">
                                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 5.5rem;">
-                                                    <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
+                                                    <i class="fa fa-heart-o" style="color: #fff !important; font-size: 18px;"></i>
                                                 </div>
                                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>

@@ -336,7 +336,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
     <div class="hero-text">
         <p>Welcome to Only-Businesses Focused Worldwide Platform!</p>
 
-        <p class="text-center" style="font-size:14px;margin-top:10px;">Explore our Countries!</p>
+        <p class="text-center" style="font-size:14px;margin-top:10px;">Explore all Countries!</p>
     </div>
 </div>
 <!-- slider start -->
@@ -349,7 +349,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                     <div class="hero-text">
                         <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
                         <p class="text-center" style="font-size:20px;margin-top:30px;">
-                        Explore our Countries!
+                        Explore all Countries!
                         </p>
                     </div>
                 </div>
@@ -365,7 +365,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                     <img src="{{asset('images/slider-images/2.jpeg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text" >
                         <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
+                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
                     </div>
                 </div>
                 <!-- <div class="carousel-item">
@@ -380,7 +380,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                     <img src="{{asset('images/slider-images/3.jpeg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text">
                         <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
+                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
                     </div>
                 </div>
                 <!-- <div class="carousel-item">
@@ -403,35 +403,35 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                     <img src="{{asset('images/slider-images/4.jpeg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text">
                         <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
+                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="{{asset('images/slider-images/5.jpeg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text" >
                         <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
+                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="{{asset('images/slider-images/6.jpeg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text" >
                         <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
+                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="{{asset('images/slider-images/7.jpeg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text" >
                         <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
+                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="{{asset('images/slider-images/8.jpeg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text" >
                         <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore our Countries!</p>
+                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
                     </div>
                 </div>
 

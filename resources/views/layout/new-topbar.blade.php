@@ -130,6 +130,32 @@
             color: goldenrod !important;
 
         }
+
+        .login-btn,.register-btn {
+            color: goldenrod;
+
+        } 
+        .login-btn:hover {
+            color: blue !important ;
+        
+        }
+        .login-btn {
+            color: goldenrod !important;
+           padding: 10px !important;
+            font-weight: 700 !important;
+            cursor: pointer;
+        }
+
+        .register-btn:hover {
+            color: blue !important ;
+        
+        }
+        .register-btn {
+            color: goldenrod !important;
+           padding: 10px !important;
+            font-weight:bold !important;
+            cursor: pointer;
+        }
     /* end */
     </style>
     @php
@@ -140,7 +166,7 @@ $second = $parts[1] ?? null;
     @endphp
     <div class="container">
         <!-- topbar start -->
-        @if(request()->path()!=="contact-us" && request()->path()!=="about-us" && request()->path()!=="terms-of-use" &&  $second !=="plane-ad")
+        @if(request()->path()!=="contact-us" && request()->path()!=="about-us" &&  $second !=="plane-ad")
         <div class="topbar desktop-view">
             <div class="cont-w">
                 <div class="row">
@@ -154,8 +180,8 @@ $second = $parts[1] ?? null;
                     <div class="col-lg-6 col-xl-6 col-md-6" style="margin-top: 17px;">
                         <div style="float:right;margin-right: -45px;">
                             {{-- @if (!session()->has('user')) --}}
-                                <a class="login-btn" style="color:black ;padding: 10px;">Login</a>
-                                <a class="register-btn" style="color:black ;padding: 10px;">Register</a>
+                                <a class="login-btn" >Login</a>
+                                <a class="register-btn">Register</a>
                             {{-- @endif --}}
                             <a class="add-list-button add-listing-btn"
                                style="padding: 11px 20px;border-radius: 6px;">+ Place Your Ad</a>

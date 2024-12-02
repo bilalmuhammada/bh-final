@@ -127,7 +127,7 @@ padding: 0.375rem 0.75rem; border-radius: 0.25rem;}
                     <label class="form-check-label" for="standard" style="margin-left: 13px; font-size: 12px;">
                         Ad will be live for 30 days and refresh 1 time <span style=" font-weight: 700;
                         color: red;
-                        margin-left: 1pc;"> $ 2</span>
+                        margin-left: 4pc;"> $ 2</span>
                       </label>
                     </div>
                   </div>
@@ -142,7 +142,7 @@ padding: 0.375rem 0.75rem; border-radius: 0.25rem;}
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="feature" id="feature3" value="3days" style="margin-left: -30px;margin-top: -6px;">
                         <label class="form-check-label font-weight-bolder" for="feature3" >
-                          Feature your Ad for 5 days   <span style="margin-left:102px;font-weight: bolder">$ 2</span>
+                          Feature your Ad for 5 days   <span style="margin-left:111px;font-weight: bolder">$ 2</span>
                         </label>
                       
                       </div>
@@ -160,7 +160,7 @@ padding: 0.375rem 0.75rem; border-radius: 0.25rem;}
                         <div class="form-check">
                           <input class="form-check-input" type="checkbox" name="feature" id="feature3" value="3days" style="margin-left: -30px;margin-top: -6px;">
                           <label class="form-check-label font-weight-bolder" for="feature3" >
-                            Feature your Ad for 20 days    <span style="margin-left: 96px;font-weight: bolder">$ 2</span>
+                            Feature your Ad for 20 days    <span style="margin-left: 102px;font-weight: bolder">$ 2</span>
                           </label>
                         
                         </div>
@@ -169,7 +169,7 @@ padding: 0.375rem 0.75rem; border-radius: 0.25rem;}
                         <div class="form-check">
                           <input class="form-check-input" type="checkbox" name="feature" id="feature3" value="3days" style="margin-left: -30px;margin-top: -6px;">
                           <label class="form-check-label font-weight-bolder" for="feature3" >
-                            Feature your Ad for 30 days    <span style="margin-left: 96px;font-weight: bolder">$ 2</span>
+                            Feature your Ad for 30 days    <span style="margin-left: 102px;font-weight: bolder">$ 2</span>
                           </label>
                         
                         </div>
@@ -191,9 +191,9 @@ padding: 0.375rem 0.75rem; border-radius: 0.25rem;}
                     <h5 class="text-center" style="margin-bottom: -6px;"><b>Order Summary</b></h5>
                     <hr class="bold-hr">
                   <p>Standard Ad  <span style="font-weight: 900;
-                    margin-left: 15rem;">$ 2</span></p>
+                    margin-left: 15.4rem;">$ 2</span></p>
                   <p>Featured Ad for 7 days  <span style="font-weight: 900;
-                    margin-left: 10.4rem;">$ 2</span></p>
+                    margin-left: 10.8rem;">$ 2</span></p>
                   <div class="form-group">
                     <input type="text" class="form-control1 text-muted" placeholder="Referral Code" id="discountCode">
                     <button class="btn1 apply-btn" >Apply</button>

@@ -22,7 +22,7 @@
                             <img src="{{asset('images/businesshub.png')}}" alt="" width="150px" alt="logo">
                         </a> --}}
                         {{-- <h3 style="margin-top: 20px;">Contact Us</h3> --}}
-                        <h1 class="terms-h">Privacy Policy</h1>
+                        <h1 class="terms-h" style="margin-top: 1.8rem !important;" >Privacy Policy</h1>
                         {{-- <p>Share your mind with us!</p> --}}
                     </div>
                     <h5 style=" color: #000;
@@ -411,7 +411,7 @@
     We reserve the right to update this Privacy Policy at any time, with or without notice to you. Where that is the case, we will update this page to display the revised Privacy Policy and may also under certain circumstances notify you (for example, by email). Any revisions to this Privacy Policy will be effective immediately once posted on this page.
 </p>
 
-<p style="color: #333;">Last Revised Date:<strong> November 1, 2024</strong></p>
+<p style="color: #333;">Last Revised Date:<strong> December 1, 2024</strong></p>
 
 
                     <!-- Privacy Policy text finish -->
