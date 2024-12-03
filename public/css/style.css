@@ -6469,6 +6469,17 @@ border: 1px solid #2d11e7;
     .navbar-brand{
         margin-top: 20px !important;
     }
+    
+.blueGold{
+
+    color: blue !important;
+}
+
+
+.blueGold:hover{
+
+    color: goldenrod !important;
+}
 
     /* chat */
 

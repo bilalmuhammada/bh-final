@@ -131,27 +131,36 @@
 
         }
 
-        .login-btn,.register-btn {
-            color: goldenrod;
-
-        } 
+        
         .login-btn:hover {
-            color: blue !important ;
+            color: goldenrod !important ;
         
         }
         .login-btn {
-            color: goldenrod !important;
+            color: blue !important;
            padding: 10px !important;
             font-weight: 700 !important;
             cursor: pointer;
         }
 
+
+        .dashboard-btn:hover {
+            color: goldenrod !important ;
+        
+        }
+        .dashboard-btn {
+            color: blue !important;
+           padding: 10px !important;
+            font-weight:bold !important;
+            cursor: pointer;
+        }
+
         .register-btn:hover {
-            color: blue !important ;
+            color: goldenrod !important ;
         
         }
         .register-btn {
-            color: goldenrod !important;
+            color: blue !important;
            padding: 10px !important;
             font-weight:bold !important;
             cursor: pointer;
@@ -177,16 +186,20 @@ $second = $parts[1] ?? null;
                         </a>
                     </div>
                     
+                    
+               
                     <div class="col-lg-6 col-xl-6 col-md-6" style="margin-top: 17px;">
                         <div style="float:right;margin-right: -45px;">
-                            {{-- @if (!session()->has('user')) --}}
+                            @if (!session()->has('user'))
                                 <a class="login-btn" >Login</a>
                                 <a class="register-btn">Register</a>
-                            {{-- @endif --}}
+                            @endif
+                            <a class="dashboard-btn"  href="{{env('BASE_URL') . 'home'}}" >Dashboard</a>
                             <a class="add-list-button add-listing-btn"
                                style="padding: 11px 20px;border-radius: 6px;">+ Place Your Ad</a>
                         {{-- </div> --}}
             </div>
+            
                 </div>   
                 </div>
             </div>

@@ -162,8 +162,8 @@
 
 @section('content')
     <div class="col-md-6 mx-auto">
-         <h5 class="mx-auto text-center" >You are almost there!</h5>
-        <p class="mx-auto text-center" style="font-size: 14px;margin-bottom:0px;">Provide as much Details & Pictures as possible and set right Price!</p>
+         <h5 class="mx-auto text-center" style="margin-bottom: 0px;" >You are almost there!</h5>
+        <p class="mx-auto text-center" style="font-size: 14px;margin-bottom:4px;">Provide as much Details & Pictures as possible and set right Price!</p>
         <p style="margin-bottom: -1px; font-size:14px; color:blue;">
             <span style="color:blue;">{{ $Categories->name }}</span> > <span
                 style="color:blue;">{{ $subcategories->name }}</span>

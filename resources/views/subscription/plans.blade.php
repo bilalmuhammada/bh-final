@@ -127,7 +127,7 @@ padding: 0.375rem 0.75rem; border-radius: 0.25rem;}
                     <label class="form-check-label" for="standard" style="margin-left: 13px; font-size: 12px;">
                         Ad will be live for 30 days and refresh 1 time <span style=" font-weight: 700;
                         color: red;
-                        margin-left: 4pc;"> $ 2</span>
+                        margin-left: 4pc; font-size:14px;"> $ 2</span>
                       </label>
                     </div>
                   </div>

@@ -163,8 +163,8 @@
  </style>
 @section('content')
     <div class="col-md-6 mx-auto">
-        <h5 class="mx-auto text-center">You are almost there!</h5>
-        <p class="mx-auto text-center" style="font-size: 14px; margin-bottom:0px;">Provide as much Details & Pictures as possible and set right Price!</p>
+        <h5 class="mx-auto text-center" style="margin-bottom: 0px;">You are almost there!</h5>
+        <p class="mx-auto text-center" style="font-size: 14px; margin-bottom:4px;">Provide as much Details & Pictures as possible and set right Price!</p>
         <p  style="margin-bottom: 3px; font-size:14px; color: blue;">
             <span style="color:blue;">{{ $Categories->name }}</span> > <span
             style="color:blue;">{{ $subcategories->name }}</span>
@@ -292,14 +292,14 @@
                 </div>
             </div>
             <div class="form-group"  style="margin-bottom: -7px;" id="filemoble">
-                <label style="margin-top: -24px; margin-left: 17rem;
+                <label style="margin-top: -20px; margin-left: 17rem;
                 text-align: center;
                 font-size: 14px;">Do you want to show or hide your Mobile?</label>
                 <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
-                    <label class="btn active  btn-show btn-darker" style="margin-left:20.3rem !important;">
+                    <label class="btn active  btn-show btn-mobile" style="margin-left:20.3rem !important;">
                         <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show 
                     </label>
-                    <label class="btn btn-show btn-darker-hide"  style=" margin-left: 1.6rem;float: right;">
+                    <label class="btn btn-show btn-mobile-hide"  style=" margin-left: 1.6rem;float: right;">
                         <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide 
                     </label>
                 </div>

@@ -30,7 +30,7 @@
         <div class="invalid-feedback image-error" id="fileError">
             Invalid
         </div>
-        <span><b>Add files</b></span>
+        <span><b>Add Files</b></span>
     </div>
 
 

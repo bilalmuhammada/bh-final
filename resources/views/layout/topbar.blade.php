@@ -748,12 +748,12 @@
                                             {{session()->get('user')->name}}
                                         </span>
                                         <div class="dropdown-menu" id="dropdownProfile" aria-labelledby="dropdownMenuButton" style="max-width: 106px ;    position: absolute;top: 80% !important;">
-                                            <a class="dropdown-item link" style="font-weight: bolder;padding:6px;"
+                                            <a class="dropdown-item link" style="font-weight: bolder;padding:0px;"
                                                href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">My Profile</a>
                                             {{-- <a class="dropdown-item link"
                                                href="{{ env('BASE_URL') . 'user/ads?country=' . request()->country . '&city=' . request()->city}}">My Ads</a> --}}
 
-                                            <a class="dropdown-item logout-btn"  style="font-weight: bolder;padding:6px;">Sign out</a>
+                                            <a class="dropdown-item logout-btn"  style="font-weight: bolder;padding:0px;">Sign out</a>
                                         </div>
                                     </span>
                             @endif
@@ -765,7 +765,7 @@
                                     <a class="register-btn">Register</a>
                            </span>
                         @endif
-                        <span style="padding:3px 15px;text-align:center;font-size:14px !important;">
+                        <span style="padding:9px 15px;text-align:center;font-size:14px !important;">
                             <a class="add-list-button add-listing-btn"
                                style="padding: 9px 20px;border-radius: 6px;">+ Place Your Ad</a>
                         </span>     

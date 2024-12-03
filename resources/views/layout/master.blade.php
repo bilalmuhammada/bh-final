@@ -285,8 +285,6 @@ $("#registercities").select2({
     $(document).on('change', '.currency_dropdown', function () {
 
 
-
-   alert(window.location.pathname);
    const pathname = window.location.pathname;
 
 // Remove the leading slash

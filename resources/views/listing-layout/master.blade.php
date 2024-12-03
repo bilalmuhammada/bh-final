@@ -42,27 +42,70 @@
     $(document).ready(function () {
 
 
-        $('.btn-darker').on('click', function () {
-        const inputValue = $(this).val().trim();
-   
-  $('.btn-darker').addClass('darkerbtn');
+          
+    $('.btn-mobile').on('click', function (e) {
+        e.preventDefault(); // Prevent any default behavior like radio button interaction
+        // Toggle the darkerbtn class on the label
+        if ($(this).hasClass('darkerbtn')) {
+            $(this).removeClass('darkerbtn');
+        } else {
+            // Remove the darkerbtn class from all labels in case this is a toggle group
+            $('.btn-mobile').removeClass('darkerbtn');
+            // Add the darkerbtn class to the current clicked label
+            $(this).addClass('darkerbtn');
+        }
+    });
 
 
-   
-      });
       
-      $('.btn-darker-hide').on('click', function () {
-        const inputValue = $(this).val().trim();
+    $('.btn-mobile-hide').on('click', function (e) {
+        e.preventDefault(); // Prevent any default behavior like radio button interaction
+        // Toggle the darkerbtn class on the label
+        if ($(this).hasClass('darkerbtn')) {
+            $(this).removeClass('darkerbtn');
+        } else {
+            // Remove the darkerbtn class from all labels in case this is a toggle group
+            $('.btn-mobile-hide').removeClass('darkerbtn');
+            // Add the darkerbtn class to the current clicked label
+            $(this).addClass('darkerbtn');
+        }
+    });
+
+      
    
-  $('.btn-darker-hide').addClass('darkerbtn');
-
-
+    $('.btn-darker').on('click', function (e) {
+        e.preventDefault(); // Prevent any default behavior like radio button interaction
+        // Toggle the darkerbtn class on the label
+        if ($(this).hasClass('darkerbtn')) {
+            $(this).removeClass('darkerbtn');
+        } else {
+            // Remove the darkerbtn class from all labels in case this is a toggle group
+            $('.btn-darker').removeClass('darkerbtn');
+            // Add the darkerbtn class to the current clicked label
+            $(this).addClass('darkerbtn');
+        }
+    });
+    
    
-      });
-
+    $('.btn-darker-hide').on('click', function (e) {
+        e.preventDefault(); // Prevent any default behavior like radio button interaction
+        // Toggle the darkerbtn class on the label
+        if ($(this).hasClass('darkerbtn')) {
+            $(this).removeClass('darkerbtn');
+        } else {
+            // Remove the darkerbtn class from all labels in case this is a toggle group
+            $('.btn-darker-hide').removeClass('darkerbtn');
+            // Add the darkerbtn class to the current clicked label
+            $(this).addClass('darkerbtn');
+        }
+    });
+  
+  
 
         ajax_setup();
     });
+
+
 </script>
 @yield('page_scripts')
 </body>

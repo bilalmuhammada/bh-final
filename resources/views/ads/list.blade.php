@@ -408,12 +408,12 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                         <div style="margin-top: 12px; margin-left: 232px;  z-index: 2;">
                                             <span>
                                                 <a><i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}" is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}" style="font-size: 20px;margin-right: 7px; margin-left: 6px; color: white;"></i></a>
-                                                {{-- <a><i class="fa fa-share share-btn" ad-id="{{ $ad->id }}" title="Copy Ad link" style="font-size: 25px; margin-right: 41px;color:white;"></i></a>   --}}
+                                                
                                             </span>
                                         </div>
                                     </div>
                                     <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:150px; z-index: 2;">
-                                        <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:12px">1/ {{$ad->count()}}</span>
+                                        <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:6px;font-size: 10px;">1/40</span>
                                     </div>
                                 </div>
                                 <a href="{{ env('BASE_URL') . 'ads/detail/' . $ad->id }}">
