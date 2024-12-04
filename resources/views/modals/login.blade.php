@@ -68,7 +68,7 @@
                                        placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
 
                                        <div class="input-group-append">
-                                        <span class="toggle-password" onclick="togglePassword()" style="cursor: pointer;">👁️</span>
+                                        <span class="toggle-password" onclick="togglePassword('password')" style="cursor: pointer;">👁️</span>
                                     </div>
                             </div>
                             <div class="form-group" style="margin-top: -5px; margin-bottom: 2px; margin-left: 89px;color:#A17A4E;">
@@ -135,7 +135,7 @@
     </div>
 </div>
 <script>
-    function togglePassword() {
+    function togglePassword(fieldId) {
 
         const passwordField = document.getElementById("password");
         

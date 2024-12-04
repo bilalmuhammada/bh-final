@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row" style="margin-bottom: 3rem;">
                 <div class="col-md-12 col-lg-12 col-xl-12 term-text">
-                    <div class="login-header">
+                    <div class="login-header" style="margin-left: -45px;width: 104%;">
                         {{-- <a href="{{ env('BASE_URL') }}">
                             <img src="{{asset('images/businesshub.png')}}" alt="" width="150px" alt="logo">
                         </a> --}}

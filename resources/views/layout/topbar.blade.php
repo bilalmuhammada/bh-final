@@ -21,7 +21,7 @@
 <style>
     .dropdown-menu{
         /* width: 14pc !important; */
-        max-height: 4.2rem !important;
+        max-height: 14.2rem !important;
         
         overflow-x: hidden;
     }
@@ -750,7 +750,7 @@
                                             {{session()->get('user')->name}}
                                         </span>
                                         <div class="dropdown-menu" id="dropdownProfile" aria-labelledby="dropdownMenuButton" style="max-width: 106px ;    position: absolute;top: 75% !important;">
-                                            <a class="dropdown-item link" style="font-weight: bolder;padding:0px; margin-top:7px;"
+                                            <a class="dropdown-item link" style="font-weight: bolder;padding:0px; margin-top:7px;  max-height: 4.2rem !important;"
                                                href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">My Profile</a>
                                             {{-- <a class="dropdown-item link"
                                                href="{{ env('BASE_URL') . 'user/ads?country=' . request()->country . '&city=' . request()->city}}">My Ads</a> --}}
@@ -767,9 +767,9 @@
                                     <a class="register-btn">Register</a>
                            </span>
                         @endif
-                        <span style="padding:9px 15px;text-align:center;font-size:14px !important;">
+                        <span style="padding:4px 15px;text-align:center;font-size:14px !important;">
                             <a class="add-list-button add-listing-btn"
-                               style="padding: 9px 20px;border-radius: 6px;">+ Place Your Ad</a>
+                               style="padding: 7px 20px;border-radius: 6px;">+ Place Your Ad</a>
                         </span>     
             </div>
 

@@ -328,7 +328,7 @@
         
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
-                <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Shares For Sale</b></h4>
+                <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Shares for Sale</b></h4>
                     @if($ads->count()>0)
                     <div class="row slider" style="margin-left: -8px;">
                     
