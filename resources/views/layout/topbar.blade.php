@@ -21,11 +21,13 @@
 <style>
     .dropdown-menu{
         /* width: 14pc !important; */
-        max-height: 21rem !important;
+        max-height: 4.2rem !important;
+        
         overflow-x: hidden;
     }
     #dropdownProfile{
-  min-width: 6rem !important;
+        padding: 0px !important;
+  min-width: 4rem !important;
     }
     .colorChange:hover{
         color: blue !important;
@@ -747,13 +749,13 @@
                                               aria-expanded="false">
                                             {{session()->get('user')->name}}
                                         </span>
-                                        <div class="dropdown-menu" id="dropdownProfile" aria-labelledby="dropdownMenuButton" style="max-width: 106px ;    position: absolute;top: 80% !important;">
-                                            <a class="dropdown-item link" style="font-weight: bolder;padding:0px;"
+                                        <div class="dropdown-menu" id="dropdownProfile" aria-labelledby="dropdownMenuButton" style="max-width: 106px ;    position: absolute;top: 75% !important;">
+                                            <a class="dropdown-item link" style="font-weight: bolder;padding:0px; margin-top:7px;"
                                                href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">My Profile</a>
                                             {{-- <a class="dropdown-item link"
                                                href="{{ env('BASE_URL') . 'user/ads?country=' . request()->country . '&city=' . request()->city}}">My Ads</a> --}}
 
-                                            <a class="dropdown-item logout-btn"  style="font-weight: bolder;padding:0px;">Sign out</a>
+                                            <a class="dropdown-item logout-btn"  style="font-weight: bolder;padding:0px; margin-top:5px">Sign Out</a>
                                         </div>
                                     </span>
                             @endif

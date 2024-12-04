@@ -193,10 +193,14 @@ $second = $parts[1] ?? null;
                             @if (!session()->has('user'))
                                 <a class="login-btn" >Login</a>
                                 <a class="register-btn">Register</a>
+                                <a class="add-list-button add-listing-btn"
+                                style="padding: 11px 20px;border-radius: 6px;">+ Place Your Ad</a>
+                                @else
+                                <a class="dashboard-btn"  href="{{env('BASE_URL') . 'home'}}" >Dashboard</a>
+                                <a class="add-list-button add-listing-btn"
+                                   style="padding: 11px 20px;border-radius: 6px;">+ Place Your Ad</a>
                             @endif
-                            <a class="dashboard-btn"  href="{{env('BASE_URL') . 'home'}}" >Dashboard</a>
-                            <a class="add-list-button add-listing-btn"
-                               style="padding: 11px 20px;border-radius: 6px;">+ Place Your Ad</a>
+                        
                         {{-- </div> --}}
             </div>
             
