@@ -260,13 +260,13 @@ width: 60rem !important;
                 <div class="row" style="margin-top: 7px;">
                     <div class="cat_btn" >
                         <a href="{{ env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city }}"
-                           style="color:#0000FF;font-size:12px;">Home</a>
-                        <i class="fa fa-chevron-right" style="font-size:11px;"></i>
+                           style="color:#0000FF;font-size:12px;">{{$ad->category_name }}</a>
+                        <i class="fa fa-chevron-right" style="font-size:8px;color:#0000FF;"></i>
                     </div>
-                    <div class="cat_btn" style="margin:0px 5px;">
+                    <div class="cat_btn" style="margin:0px 3px;">
                         <a href="{{ env('BASE_URL') . 'ads/' . $ad->subcategory_id . '?country=' . request()->country . '&city=' . request()->city }}"
                            style="color:#0000FF;font-size:12px;">{{ $ad->subcategory_name }}</a>
-                        <i class="fa fa-chevron-right" style="font-size:11px;"></i>
+                        {{-- <i class="fa fa-chevron-right" style="font-size:8px;color:#0000FF;"></i> --}}
                     </div>
                 </div>
             </div>
@@ -419,7 +419,7 @@ width: 60rem !important;
                                    z-index: 2; 
                                    display: flex; 
                                    align-items: center;">
-                               <i class="fa fa-image"></i>
+                               <i class="fa fa-image" style="font-size: 12px;"></i>
                                <span style="margin-left: 9px; color: white;">
                                    1 / {{ $ad->attachments->count() }}
                                </span>
@@ -430,6 +430,8 @@ width: 60rem !important;
                                     
                              
                             </div>
+
+                         
                         
                          
                         @if($ad->category_name==="Businesses for Sale")
@@ -463,6 +465,7 @@ width: 60rem !important;
                         @elseif($ad->category_name==="Machinery & Supplies")
                          
                         @include('ads.description_detail.machinarySupplies');
+
                     
                         @endif
 
@@ -682,7 +685,7 @@ width: 60rem !important;
                                                     <i class="fa fa-heart-o" style="color: #fff !important; font-size: 18px;"></i>
                                                 </div>
                                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                    <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1 / {{$similar_ads->count()}}</span>
+                                                    <i class="fa fa-image" style="color:white;font-size: 12px;"></i><span class="text-white" style="margin-left:9px; font-size: 13px;">1 / {{$similar_ads->count()}}</span>
                                                 </div>
                                                 <div class="detail"  style="margin-bottom:8px;margin-left: -3px;">
                                                     <span style="color:#000; display: block;">{{ $similar_ad->title ?? 'Title N/A' }}</span>
