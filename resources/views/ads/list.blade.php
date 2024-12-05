@@ -413,7 +413,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                         </div>
                                     </div>
                                     <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:150px; z-index: 2;">
-                                        <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:6px;font-size: 13px;">1/40</span>
+                                        <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:6px;font-size: 13px;"> 1 / 40</span>
                                     </div>
                                 </div>
                                 <a href="{{ env('BASE_URL') . 'ads/detail/' . $ad->id }}">

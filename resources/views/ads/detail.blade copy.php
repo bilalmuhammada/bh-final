@@ -16,93 +16,6 @@
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-/* start slider css */
-
-.carousel-indicators img {
-            width: 100px;
-        
-            border-radius: 5px !important;
-            display: block;
-        }
-
-        .carousel-item img {
-            margin-top: 12px;
-            border-radius: 10px !important;
-        }
-
-        .carousel-indicators button {
-            width: max-content !important;
-            justify-content: flex-start !;
-        }
-
-        .carousel-indicators {
-            margin-bottom: -10px;
-            position: unset;
-            justify-content: flex-start;
-            margin-left: -1% !important;
-            margin-right: 1% !important;
-            overflow-x: scroll;
-            white-space: nowrap;
-            height: 122px;
-        }
-
-        .carousel-control-next,
-        .carousel-control-prev {
-            border: 0px;
-    background: transparent;
-    height: 10% !important;
-        }
-     
-        a.knsl-btn,
-        .knsl-btn,
-        .knsl-btn:focus,
-        .button,
-        .button:focus,
-        input[type="submit"],
-        input#submit {
-            -webkit-box-shadow: 0 0 0 1px #003c79, 0 2px 48px 0 rgba(0, 0, 0, 0.04) !important;
-            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2), 0 2px 48px 0 rgba(0, 0, 0, 0.04) !important;
-        }
-        .scroll-botton{
-            border: 0px;
-            background: #fff;
-        }
-
-        @media only screen and (max-width: 500px) {
-
-            .carousel-control-next,
-            .carousel-control-prev {
-                height: 75% !important;
-            }
-        }
-
-        .indicator-img {
-    position: relative;
-    /* filter: blur(4px); Default blur */
-    opacity: 0.7; /* Slightly faded with overlay */
-    transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */* Smooth transition */
-}
-
-button.active .indicator-img {
-    filter: none; /* Remove blur for active thumbnail */
-    opacity: 1; /* Fully clear */
-}
-/*         
-        .tumbnailImg{
-            width: 100px;
-             height: 80px; 
-             margin-top: 15px;
-             object-fit: cover;
-              border: 2px solid white;
-               border-radius: 4px;
-
-        } */
-
-        .carousel-control-prev, .carousel-control-next {
-            top:9rem;
-        }
-
-        /* endsider css */
 .approval-status{
     font-size: 16px;
     color: blue;
@@ -346,89 +259,50 @@ width: 60rem !important;
     </section>
 
     <section>
-        <div class="container" style="margin-top:-10px;margin-left: 9.2rem;">
+        <div class="container" style="border:0px solid red;margin-left: 9.2rem;">
             <div class="col-lg-12 col-md-12 col-12" style="border:0px solid red;">
                 <div class="row">
                     <div class="col-lg-9 col-md-9 col-12" style="border:0px solid red;">
                         <div class="row">
                             <!-----content----->
                             <div class="col-lg-12 col-md-12 col-12"
-                                 style="margin-bottom:-30px;width:800px;position:relative;top:20px;z-index:1000;">
+                                 style="margin-bottom:-30px;width:800px;border:0px solid green;position:relative;top:11px;z-index:1000;">
                                 <span style="font-size: 13px;float:right;position:relative;right:30px;cursor:pointer;">
                                     <i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}"
                                        is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
-                                       style="padding:6px 6px;font-size:19px; color: white; border-radius:2px;"> </i>&nbsp;
+                                       style="padding:6px 6px;font-size:19px; border-radius:2px;"> </i>&nbsp;
                                     <i class="fa fa-share share-btn" ad-id="{{ $ad->id }}" title="Copy Ad link"
                                        style="font-size:19px;border-radius:2px; color:blue;"></i>
                                 </span>
                             </div>
                             <div class="col-lg-12 col-md-12 col-12">
-                               
+                                <div class="column small-11 small-centered">
+                                    <div class="cSlider cSlider--single" style="background-color: #eee; margin: 0;">
+                                        @foreach($ad->attachments as $image)
+                                            <div class="cSlider__item" id="slider_main">
+                                                <img src="{{ $image->listing_image_url }}" 
+                                                    alt="Listing Image" 
+                                                    style="width: 100%; height: 320px; object-fit: cover;">
+                                            </div>
+                                        @endforeach
 
-                                <div class="carousel slide" id="carouselDemo" data-bs-wrap="true" data-bs-ride="carousel">
+                                        <div class="col-md-7 col-6" 
+                                            style="margin: 0; position: absolute; top: 18rem; z-index: 2; display: flex; align-items: center;">
+                                            <i class="fa fa-image" style="color: black;"></i>
+                                            <span class="text-black" style="margin-left: 9px;">{{ $ad->images->count() }}</span>
+                                        </div>
+                                    </div>
 
-                                    <!-- Carousel Inner -->
-                                    <div class="carousel-inner">
-                                        @foreach($ad->attachments as $index => $image)
-                                            <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                                                <img src="{{ $image->listing_image_url }}" alt="Listing Image" class="w-100" style="height: 300px; object-fit: cover;">
-                                                {{-- <div class="carousel-caption">
-                                                    <h5>Caption {{ $index + 1 }}</h5>
-                                                    <p>Optional description for slide {{ $index + 1 }}.</p>
-                                                </div> --}}
+                                    <div class="cSlider cSlider--nav">
+                                        @foreach($ad->attachments as $image)
+                                            <div class="cSlider__item" id="slider" style="margin-top:14px !important;">
+                                                <img src="{{ $image->listing_image_url }}" alt="Listing Image11"
+                                                     width="100%" height="300"
+                                                     style="height:60px;border-radius:6px;">
                                             </div>
                                         @endforeach
                                     </div>
-
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDemo" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon"></span>
-                                    </button>
-                            
-                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselDemo" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon"></span>
-                                    </button>
-                                
-                                    <!-- Carousel Indicators -->
-                                    <div class="carousel-indicators">
-                                        @foreach($ad->attachments as $index => $image)
-                                            <button 
-                                                type="button"  style="border: 0px;background: #fff; margin-top: 16px;height: 80px;"
-                                                data-bs-target="#carouselDemo" 
-                                                data-bs-slide-to="{{ $index }}" 
-                                                class="{{ $loop->first ? 'active' : '' }}">
-                                                <img src="{{ $image->listing_image_url }}" alt="Thumbnail {{ $index + 1 }}"   class="indicator-img"  style="width: 100px; height: 80px; object-fit: cover; border-radius: 4px;">
-                                            </button>
-                                        @endforeach
-                                    </div>
-                                   
                                 </div>
-                                
-                            
-
-
-                                <div id="slide-counter" 
-                                class="col-md-7 col-6" 
-                                style="
-                                   position: absolute; 
-                                   color: white; 
-                                   
-                                   width: 90px; 
-                                   border-radius: 9px; 
-                                   margin-left: 10px; 
-                                   top: 17.2rem; 
-                                   z-index: 2; 
-                                   display: flex; 
-                                   align-items: center;">
-                               <i class="fa fa-image"></i>
-                               <span style="margin-left: 9px; color: white;">
-                                   1 / {{ $ad->attachments->count() }}
-                               </span>
-                           </div>
-                       
-                                    {{-- </div> --}}
-
-                                    
-                             
                             </div>
                         
                          
@@ -467,19 +341,19 @@ width: 60rem !important;
                         @endif
 
 
-                        <hr style="border-color: #eee; width: 97%; margin:-9px 0px 0px 12px;">
+                        <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <!---------->
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
                             <h6><b>Products & Services Offered</b></h6>
                             <p style="font-size: 14px; margin-bottom: 7px;">{{ $ad->details->products_and_services_offered ?? '....' }} this is one line</p>
                         </div>
-                        <hr style="border-color: #eee; width: 97%; margin:-9px 0px 0px 12px;">
+                        <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
                             <h6><b>Description</b></h6>
                             <p style="font-size: 14px;margin-bottom: 7px;">{{ $ad->description }} this is description</p>
                         
                         </div>
-                        <hr style="border-color: #eee; width: 97%; margin:-9px 0px 0px 12px;">
+                        <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
                 
                                 <h6><b>Files</b></h6>
@@ -501,7 +375,7 @@ width: 60rem !important;
                             </p>
                         </div>
                       
-                        <hr style="border-color: #eee; width: 97%; margin:-9px 0px 0px 12px;">
+                        <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
                         <div class="col-lg-12 col-md-12 col-12" >
                             <h6><b>Location</b></h5>
                             <div class="row">
@@ -682,7 +556,7 @@ width: 60rem !important;
                                                     <i class="fa fa-heart-o" style="color: #fff !important; font-size: 18px;"></i>
                                                 </div>
                                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                    <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1 / {{$similar_ads->count()}}</span>
+                                                    <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                                 </div>
                                                 <div class="detail"  style="margin-bottom:8px;margin-left: -3px;">
                                                     <span style="color:#000; display: block;">{{ $similar_ad->title ?? 'Title N/A' }}</span>
@@ -743,21 +617,6 @@ width: 60rem !important;
             ]
         });
 });
-
-
-
-
-$(document).ready(function () {
-    const $carousel = $('#carouselDemo');
-    const $counter = $('#slide-counter span');
-    const totalSlides = {{ $ad->attachments->count() }};
-
-    $carousel.on('slid.bs.carousel', function (e) {
-        const currentSlide = $(e.relatedTarget).index() + 1; // Get current slide index (1-based)
-        $counter.text(`${currentSlide} / ${totalSlides}`);
-    });
-});
-
         $(document).ready(function () {
             var latitude = "{{ $ad->latitude ?? 30.777855 }}";
             var longitude = "{{ $ad->longitude ?? 31.7989566 }}";
