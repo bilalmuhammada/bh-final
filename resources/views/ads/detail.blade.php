@@ -26,7 +26,7 @@
         }
 
         .carousel-item img {
-            margin-top: 12px;
+            margin-top: 0px;
             border-radius: 10px !important;
         }
 
@@ -228,7 +228,7 @@ width: 60rem !important;
 
     <section>
      
-        <div class="cont-w slider-area desktop-view">
+        <div class="cont-w slider-area desktop-view" style="margin-top: -8px;">
             <div id="demo" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner"  style="border-radius:10px;">
                     <div class="carousel-item active">
@@ -257,7 +257,7 @@ width: 60rem !important;
     <section>
         <div class="cont-w desktop-view" style="border-bottom:2px solid #eee;">
             <div class="col-lg-12 col-md-12 col-12" style="">
-                <div class="row" style="margin-top: 7px;">
+                <div class="row" style="margin-top: 0px;">
                     <div class="cat_btn" >
                         <a href="{{ env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city }}"
                            style="color:#0000FF;font-size:12px;">{{$ad->category_name }}</a>
@@ -346,14 +346,14 @@ width: 60rem !important;
     </section>
 
     <section>
-        <div class="container" style="margin-top:-10px;margin-left: 9.2rem;">
+        <div class="container" style="margin-left: 9.2rem;">
             <div class="col-lg-12 col-md-12 col-12" style="border:0px solid red;">
                 <div class="row">
                     <div class="col-lg-9 col-md-9 col-12" style="border:0px solid red;">
                         <div class="row">
                             <!-----content----->
                             <div class="col-lg-12 col-md-12 col-12"
-                                 style="margin-bottom:-30px;width:800px;position:relative;top:20px;z-index:1000;">
+                                 style="margin-bottom:-30px;width:800px;position:relative;top:7px;z-index:1000;">
                                 <span style="font-size: 13px;float:right;position:relative;right:30px;cursor:pointer;">
                                     <i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}"
                                        is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
@@ -419,16 +419,13 @@ width: 60rem !important;
                                    z-index: 2; 
                                    display: flex; 
                                    align-items: center;">
-                               <i class="fa fa-image" style="font-size: 12px;"></i>
+                               <i class="fa fa-image" style="font-size: 16px;"></i>
                                <span style="margin-left: 9px; color: white;">
                                    1 / {{ $ad->attachments->count() }}
                                </span>
                            </div>
                        
-                                    {{-- </div> --}}
-
-                                    
-                             
+              
                             </div>
 
                          
@@ -436,35 +433,35 @@ width: 60rem !important;
                          
                         @if($ad->category_name==="Businesses for Sale")
                            
-                        @include('ads.description_detail.business_for_sale');
+                        @include('ads.description_detail.business_for_sale')
                          
                         @elseif($ad->category_name==="Businesses for Rent")
                          
-                        @include('ads.description_detail.business_for_rent');
+                        @include('ads.description_detail.business_for_rent')
                          
 
                         @elseif($ad->category_name==="Shares for Sale")
                          
-                        @include('ads.description_detail.share_for_sale');
+                        @include('ads.description_detail.share_for_sale')
 
                         @elseif($ad->category_name==="Business Ideas")
                          
-                        @include('ads.description_detail.business_idea');
+                        @include('ads.description_detail.business_idea')
 
                         
                         @elseif($ad->category_name==="Investors")
                          
-                        @include('ads.description_detail.investor');
+                        @include('ads.description_detail.investor')
 
                         @elseif($ad->category_name==="Investors Required")
                          
-                        @include('ads.description_detail.investor_required');
+                        @include('ads.description_detail.investor_required')
                         @elseif($ad->category_name==="Franchise Opportunities")
                          
-                        @include('ads.description_detail.franchise_opp');
+                        @include('ads.description_detail.franchise_opp')
                         @elseif($ad->category_name==="Machinery & Supplies")
                          
-                        @include('ads.description_detail.machinarySupplies');
+                        @include('ads.description_detail.machinarySupplies')
 
                     
                         @endif
@@ -547,8 +544,8 @@ width: 60rem !important;
                 </div>
                 <!--  desktop view -->
                 <div class="col-lg-3 col-md-3 col-12 desktop-view">
-                    <div class="row" style="margin-top: -14px;">
-                        <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    <div class="row" style="margin-top: 0px;">
+                        
                         <div class="col-lg-12 col-md-12 col-12">
                             <div class="inner" style="border: 1px solid #eee; border-radius: 5px; padding: 15px;width: 24rem;">
                                 <p class="text-muted" style="font-size: 13px;margin-left: 14px;">Posted by: <b style="color:#000" >{{ ($ad->posted_by == 1) ? "Agent" : "User"  }}</b></p>
