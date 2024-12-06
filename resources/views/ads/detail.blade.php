@@ -415,7 +415,7 @@ width: 60rem !important;
                                    width: 90px; 
                                    border-radius: 9px; 
                                    margin-left: 10px; 
-                                   top: 17.2rem; 
+                                   top: 17rem; 
                                    z-index: 2; 
                                    display: flex; 
                                    align-items: center;">
