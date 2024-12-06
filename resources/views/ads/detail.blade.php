@@ -275,8 +275,8 @@ width: 60rem !important;
             <div class="col-md-12" style="border:0px solid red;">
                 <div class="row">
                     <div class="col" style="border:0px solid red;">
-                        <div class="row" style="margin-top: 12px;">
-                            <h6 style="border:0px solid red;"><b>{{ $ad->title ?? 'Title N?A' }}</b></h6>
+                        <div class="row" style="margin-top: 4px;">
+                            <h6 style="margin-bottom:0px;"><b>{{ $ad->title ?? 'Title N?A' }}</b></h6>
                         </div>
                         <div class="row">
                             <span class="text-muted"
@@ -288,9 +288,9 @@ width: 60rem !important;
                            
                             <div
 
-                                style="font-weight:bold;font-size:25px;text-align:right;border:0px solid red;width:100%;">
+                                style="font-weight:bold;font-size:18px;text-align:right;border:0px solid red;width:100%;">
                                 <a href=""
-                                   style="color: red;font-weight:bold;">{{request()->currency}} {{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
+                                   style="color: red;font-weight:bold;">{{request()->currency}}  &nbsp;{{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
                                 </a></div>
                         </div>
                     </div>
@@ -298,7 +298,7 @@ width: 60rem !important;
             </div>
         </div>
         <div class="container mobile-view">
-            <div class="col-md-12" style="border:0px solid red;">
+            <div class="col-md-12" >
                 <div class="row">
                     <div class="col" style="border:0px solid red;">
                         <div class="row">
@@ -547,7 +547,7 @@ width: 60rem !important;
                     <div class="row" style="margin-top: 0px;">
                         
                         <div class="col-lg-12 col-md-12 col-12">
-                            <div class="inner" style="border: 1px solid #eee; border-radius: 5px; padding: 15px;width: 24rem;">
+                            <div class="inner" style="border: 1px solid #eee; border-radius: 5px; padding: 15px;width: 24.4rem;">
                                 <p class="text-muted" style="font-size: 13px;margin-left: 14px;">Posted by: <b style="color:#000" >{{ ($ad->posted_by == 1) ? "Agent" : "User"  }}</b></p>
  
                                 <div class="profile-image-container" style=" align-items: center; margin-left:9rem;margin-top: -11px; font-size: 17px;">
