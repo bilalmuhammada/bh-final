@@ -51,6 +51,39 @@ function deleteRecord(url, thisElem) {
     })
 }
 
+
+
+function convertToShortMonthFormat(inputDate, separator = '-') {
+    // Check if input is in ISO format
+    let dateObj;
+    if (inputDate.includes('T') || inputDate.includes('Z')) {
+        // Parse ISO string
+        dateObj = new Date(inputDate);
+    } else {
+        // Assume input is in "DD/MM/YYYY" or similar format
+        const [day, month, year] = inputDate.split('/');
+        dateObj = new Date(`${year}-${month}-${day}`);
+    }
+
+    // Check for invalid date
+    if (isNaN(dateObj)) {
+        return 'Invalid Date';
+    }
+
+    // Extract components
+    const day = dateObj.getDate().toString().padStart(2, '0');
+    const month = dateObj.getMonth(); // Zero-based index for months
+    const year = dateObj.getFullYear();
+
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    // Format the output
+    return `${day}${separator}${monthNames[month]}${separator}${year}`;
+}
+
+
+
 var data_table;
 
 function initializeDatatable(selector = '#table',type = 'type') {

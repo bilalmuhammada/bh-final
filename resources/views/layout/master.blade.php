@@ -271,6 +271,7 @@ $("#registercities").select2({
 
         //cities dropdown
         $(".city_dropdown").select2({
+            minimumResultsForSearch: -1
             // templateSelection: formatCity,
             // templateResult: formatCity,
         });

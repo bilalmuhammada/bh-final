@@ -928,7 +928,7 @@ label{
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-baseline mb-2">
-                            <h6 class="card-title mb-0" style="text-align: justify;     text-transform: math-auto !important;  color: blue;font-size: 13px; ">Sales Analytics</h6>
+                            <h6 class="card-title mb-0" style="text-align: justify;     text-transform: math-auto !important;  color: blue;font-size: 13px; ">Analytics</h6>
                             {{--                            <div class="dropdown mb-2">--}}
                             {{--                                <button class="btn p-0" type="button" id="dropdown  MenuButton4"--}}
                             {{--                                        data-bs-toggle="dropdown"--}}

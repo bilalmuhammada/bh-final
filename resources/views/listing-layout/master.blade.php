@@ -13,6 +13,9 @@
 .darkerbtn {
   background-color: #7070707d !important;
 }
+.lobibox-notify .lobibox-close {
+    top:6px !important;
+}
 </style>
 <!-- Optional JavaScript -->
 @include('listing-layout.footer')

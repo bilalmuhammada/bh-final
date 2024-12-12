@@ -243,7 +243,8 @@ div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
 <td> ${value.phone ?? '-'} </td>
 
   <td>${value.gender ?? '-'}</td>
- <td>${value.dob ? new Date(value.dob).toISOString().split('T')[0].split('-').reverse().join('.') : '-'}</td>
+        <td> ${  value.dob !=  null ?  convertToShortMonthFormat(value.dob): '-' } </td>
+
 <td>${ value.age ?? '-'}</td>
 <td>${ value.country_name ?? '-'}</td>
 <td> ${value.position ?? '-'} </td>

@@ -40,7 +40,7 @@
                         <div style="color:#0000FF;margin-top: 6px;"><b>Download our App Now!</b></div>
                     </h6>
                 </div>
-                <div class="col-lg-2 col-md-6 col-6">
+                <div class="col-lg-2 col-md-6 col-6" style="margin-top: -33px;">
                     <img src="{{ asset('images/iphone.png')}}" alt=" " height="80px" width="140px">
                 </div>
                 <div class="col-lg-2 col-md-6 col-6">

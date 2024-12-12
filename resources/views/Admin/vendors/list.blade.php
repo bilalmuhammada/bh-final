@@ -244,7 +244,7 @@ $(document).ready(function() {
                                     <td>${value.phone ?? '-'}</td>
                                     <td> ${value.email ?? '-'}</td>
                                     <td>${value.gender ?? '-'}</td>
-                                 <td>${value.dob ? new Date(value.dob).toISOString().split('T')[0].split('-').reverse().join('.') : '-'}</td>
+                                 <td> ${  value.dob !=  null ?  convertToShortMonthFormat(value.dob): '-' } </td>
 
                                          <td>${value.age ?? '-'}</td>
                                     <td>${value.nationality_id ?? '-'}</td>

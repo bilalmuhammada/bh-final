@@ -25,9 +25,9 @@
     100% { transform: translateX(0); }
   }
 </style>
-<footer class="footer" style="border:0px solid red;    margin-top: 24px;">
+<footer class="footer" style="margin-top: 24px;">
     <div class="container mb-30">
-        <div class="col-lg-12 col-md-12 col-12 " style="border:0px solid red;">
+        <div class="col-lg-12 col-md-12 col-12 " style="margin-top: 43px; ">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-12">
                     <h6>
@@ -35,7 +35,7 @@
                         <div style="color:#0000FF;margin-top: 6px;"><b>Download our App Now!</b></div>
                     </h6>
                 </div>
-                <div class="col-lg-2 col-md-6 col-6" style="padding-left: 54px;">
+                <div class="col-lg-2 col-md-6 col-6" style="padding-left: 54px; margin-top: -33px;">
                     <img src="{{ asset('images/iphone.png')}}" alt=" " height="80px" width="140px">
                 </div>
                 <div class="col-lg-2 col-md-6 col-6" style="padding-left: 26px;">

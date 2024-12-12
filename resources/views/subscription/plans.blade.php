@@ -140,7 +140,7 @@ padding: 0.375rem 0.75rem; border-radius: 0.25rem;}
                     <p  style="font-size: 11px;">Featured Ads will appear above  Standard Ads</p>
                     <div class="form-group package-card ">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="feature" id="feature3" value="3days" style="margin-left: -30px;margin-top: -6px;">
+                        <input class="form-check-input" type="checkbox" name="feature" id="feature3" value="3days" style="margin-left: -30px;margin-top: -6px;" onclick="selectOnlyThis(this)">
                         <label class="form-check-label font-weight-bolder" for="feature3" >
                           Feature your Ad for 5 days   <span style="margin-left:111px;font-weight: bolder">$ 2</span>
                         </label>
@@ -149,7 +149,7 @@ padding: 0.375rem 0.75rem; border-radius: 0.25rem;}
                     </div>
                     <div class="form-group package-card ">
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" name="feature" id="feature3" value="3days" style="margin-left: -30px;margin-top: -6px;">
+                          <input class="form-check-input" type="checkbox" name="feature" id="feature3" value="3days" style="margin-left: -30px;margin-top: -6px;" onclick="selectOnlyThis(this)">
                           <label class="form-check-label font-weight-bolder" for="feature3" >
                             Feature your Ad for 10 days    <span style="margin-left:102px;font-weight: bolder">$ 2</span>
                           </label>
@@ -158,7 +158,7 @@ padding: 0.375rem 0.75rem; border-radius: 0.25rem;}
                       </div>
                       <div class="form-group package-card">
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" name="feature" id="feature3" value="3days" style="margin-left: -30px;margin-top: -6px;">
+                          <input class="form-check-input" type="checkbox" name="feature" id="feature3" value="3days" style="margin-left: -30px;margin-top: -6px;" onclick="selectOnlyThis(this)">
                           <label class="form-check-label font-weight-bolder" for="feature3" >
                             Feature your Ad for 20 days    <span style="margin-left: 102px;font-weight: bolder">$ 2</span>
                           </label>
@@ -167,7 +167,7 @@ padding: 0.375rem 0.75rem; border-radius: 0.25rem;}
                       </div>
                       <div class="form-group package-card">
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" name="feature" id="feature3" value="3days" style="margin-left: -30px;margin-top: -6px;">
+                          <input class="form-check-input" type="checkbox" name="feature" id="feature3" value="3days" style="margin-left: -30px;margin-top: -6px;" onclick="selectOnlyThis(this)">
                           <label class="form-check-label font-weight-bolder" for="feature3" >
                             Feature your Ad for 30 days    <span style="margin-left: 102px;font-weight: bolder">$ 2</span>
                           </label>
@@ -219,7 +219,19 @@ padding: 0.375rem 0.75rem; border-radius: 0.25rem;}
           </div>
        
     </section>
-
+    <script>
+    
+      function selectOnlyThis(checkbox) {
+    
+       
+        const checkboxes = document.querySelectorAll('input[name="feature"]');
+    
+       
+        checkboxes.forEach((cb) => {
+          if (cb !== checkbox) cb.checked = false;
+        });
+      }
+    </script>
     
 @endsection
 

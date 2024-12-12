@@ -201,8 +201,8 @@ div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button{
     <td> <img class="wd-30 ht-30 rounded-circle" src="{{$value->main_image_url}}" alt="Image"></td>
     <td>{{$value->category?->name}}</td>
     <td>{{$value->subcategory?->name}}</td>
-    <td>{{date('d.m.Y', strtotime($value->created_at))}}</td>
-      <td>{{date('d.m.Y', strtotime($value->created_at))}}</td>
+    <td>{{   date('d.M.Y', strtotime($value->created_at))}}</td>
+      <td>{{date('d.M.Y', strtotime($value->created_at))}}</td>
     <td>1</td>
     <td> @php
         $posted = [

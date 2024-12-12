@@ -471,7 +471,7 @@
             <select class="form-controlz country" name="country" placeholder="Select Country" required>
                 <option disabled selected>Country</option>
                     @foreach($countries as $country)
-                        <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
+                        <option value="{{ $country->id }}">{{ $country->name }}</option>
                     @endforeach
             </select>
             <div class="invalid-feedback">
@@ -502,7 +502,9 @@
             <div class="map" id="map"></div>
         </div>
         <div class="col-md-6 mx-auto text-center btn-nexts" style="margin-top: 20px;">
-        <a class="btn place-ad-form-submit">Next</a>
+        {{-- <a class="btn place-ad-form-submit">Next</a> --}}
+
+         <a class="btn place-ad-form-submit">Post</a>
         </div>
     </form>
 
@@ -544,9 +546,10 @@ $(document).on('click', '.place-ad-form-submit', function (e) {
                 console.log(response);
                     if (response.status) {
 
-                        setTimeout(function () {
-                            window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
-                        }, 600);
+                        showAlert("success", "Your Ad is Live!");
+                        // setTimeout(function () {
+                        //     // window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
+                        // }, 600);
 
                     } else {
                         alert(response.message);

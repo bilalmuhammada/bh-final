@@ -506,7 +506,7 @@
             <div class="map" id="map"></div>
         </div>
         <div class="col-md-6 mx-auto text-center btn-nexts" style="margin-top: 20px;">
-        <a class="btn place-ad-form-submit">Next</a>
+        <a class="btn place-ad-form-submit">Post</a>
         </div>
     </form>
 
@@ -543,10 +543,10 @@ $(document).on('click', '.place-ad-form-submit', function (e) {
                 success: function (response) {
                 console.log(response);
                     if (response.status) {
-
-                        setTimeout(function () {
-                            window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
-                        }, 600);
+                        showAlert("success", "Your Ad is Live!");
+                        // setTimeout(function () {
+                        //     window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
+                        // }, 600);
 
                     } else {
                         alert(response.message);

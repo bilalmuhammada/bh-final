@@ -1051,8 +1051,8 @@ fieldset[disabled] .lobibox .lobibox-btn.lobibox-btn-default.active {
   font-size: 32px;
 }
 .lobibox-notify.notify-mini .lobibox-notify-body {
-  margin: 15px 30px 15px 56px;
+  margin: 7px 0px 9px 0px;
 }
 .lobibox-notify.without-icon .lobibox-notify-body {
-  margin-left: 20px;
+  margin-left: 6px;
 }

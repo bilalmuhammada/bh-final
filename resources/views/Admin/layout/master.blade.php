@@ -153,6 +153,12 @@
             templateResult: formatCountry,
             // minimumResultsForSearch: -1
         });
+
+        $(".city_dropdown").select2({
+            // templateSelection: formatCountry,
+            // templateResult: formatCountry,
+            // minimumResultsForSearch: -1
+        });
       
         $(".chat").select2({
    
