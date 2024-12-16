@@ -18,6 +18,7 @@
   border: 1px solid #ccc;    /* adjust as needed */
   padding: 5px;
 }
+
  
  .form-focus .focus-label {
      font-size: 14px;
@@ -173,6 +174,9 @@
     </div>
     <form class="place-ad-form" enctype="multipart/form-data">
         {{-- <input name="listing_id" type="hidden" value="{{$listing->id}}"> --}}
+        <input name="category_id" type="hidden" value="{{ $Categories->id }}">
+        <input name="category_name" type="hidden" value="{{ $Categories->name }}">
+        <input name="subcategory_name" type="hidden" value="{{ $subcategories->name }}">
         <input type='hidden' class='form-control latitude' id='latitude' name='latitude' placeholder='Enter Latitude'>
         <input type='hidden' class='form-control longitude' id='longitude' name='longitude'
                placeholder='Enter Longitude'>
@@ -183,9 +187,9 @@
                    <label class="focus-label">Title</label>
                 </div>
 
-            <div class="invalid-feedback">
+            {{-- <div class="invalid-feedback">
                 Please provide a title.
-            </div>
+            </div> --}}
         </div>
         <div class="col-md-6 mx-auto" >
             <div class="row">
@@ -196,9 +200,9 @@
                            required>
                            <label class="focus-label">Price</label>
                         </div>
-                    <div class="invalid-feedback">
+                    {{-- <div class="invalid-feedback">
                         Please provide a valid price.
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
@@ -206,9 +210,9 @@
                              required>
                              <label class="focus-label">Price Term</label>
                           </div>
-                      <div class="invalid-feedback">
+                      {{-- <div class="invalid-feedback">
                           Please provide a valid Manufactured Year.
-                      </div>
+                      </div> --}}
                   </div>
             </div>
         </div>
@@ -219,9 +223,9 @@
                         <input type="text" class="form-control floating" name="business_model" placeholder=""   required>
                         <label class="focus-label">Business Model</label>
                     </div>
-                <div class="invalid-feedback">
+                {{-- <div class="invalid-feedback">
                     Please provide a valid Model.
-                </div>
+                </div> --}}
             </div>
             <div class="col-md-6">
                 <div class="form-group form-focus">
@@ -244,9 +248,9 @@
                            <input type="text" class="form-control floating" name="established_year" placeholder=""  oninput="validatePhoneNumber(this)" required>
                            <label class="focus-label">Established Year</label>
                        </div>
-                       <div class="invalid-feedback">
+                       {{-- <div class="invalid-feedback">
                            Please provide a valid Established Year.
-                       </div>
+                       </div> --}}
                    </div>
             <div class="col-md-6">
                  <div class="form-group form-focus">
@@ -254,9 +258,9 @@
                         title="" required>
                         <label class="focus-label">Branches</label>
                     </div>
-                <div class="invalid-feedback">
+                {{-- <div class="invalid-feedback">
                     Please provide a valid Premise Size SqM.
-                </div>
+                </div> --}}
             </div>
             <div class="col-md-6">
                 <div class="form-group form-focus">
@@ -264,9 +268,9 @@
                            title="" required>
                            <label class="focus-label">Employees</label>
                        </div>
-                   <div class="invalid-feedback">
+                   {{-- <div class="invalid-feedback">
                        Please provide a valid No of Employees.
-                   </div>
+                   </div> --}}
                </div>
                <div class="col-md-6">
                 <div class="form-group form-focus">
@@ -286,9 +290,9 @@
                         title="Please enter a valid 10-digit  number"   oninput="validatePhoneNumber(this)" required>
                        <label class="focus-label">Premise Size Sq.Ft</label>
                     </div>
-                       <div class="invalid-feedback">
+                       {{-- <div class="invalid-feedback">
                     Please provide a valid 10-digit Mobile number.
-                </div>
+                </div> --}}
             </div>
                    <div class="col-md-6">
                     <div class="form-group form-focus">
@@ -303,26 +307,7 @@
                     </div>
                     </div>
               
-                {{-- <div class="col-md-6">
-                    <select class="form-controlz" name="condition" required>
-                        <option selected disabled>Condition</option>
-                        <option value="Perfect inside and out">Perfect inside and out</option>
-                        <option value="Almost no noticeable problems or flaws">Almost no noticeable problems or flaws</option>
-                        <option value="A bit of wear and tear, but in good working condition">A bit of wear and tear, but in good working condition</option>
-                        <option value="Normal wear and tear for the age of the item, a few problems here and there">Normal wear and tear for the age of the item, a few problems here and there</option>
-                        <option value="Above average wear and tear. The item may need a bit of repair to work properly">Above average wear and tear. The item may need a bit of repair to work properly</option>
-                    </select>
-                </div> --}}
-                {{-- <div class="col-md-6">
-                    <select class="form-controlz" name="usage" required>
-                        <option selected disabled>Usage</option>
-                        <option value="Still in Original packing">Still in Original packing</option>
-                        <option value="Out of original packaging, but only used once">Out of original packaging, but only used once</option>
-                        <option value="Used only a few times">Used only a few times</option>
-                        <option value="Used an average amount, as frequently as would be expected">Used an average amount, as frequently as would be expected</option>
-                        <option value="Used an above average amount since purchased">Used an above average amount since purchased</option>
-                    </select>
-                </div> --}}
+              
             </div>
         </div>
         <div class="col-md-6 mx-auto">
@@ -334,9 +319,9 @@
                            required>
                            <label class="focus-label">Stock Level</label>
                         </div>
-                    <div class="invalid-feedback">
+                    {{-- <div class="invalid-feedback">
                         Please provide a valid Stock Level.
-                    </div>
+                    </div> --}}
                    
                 </div>
                 <div class="col-md-6">
@@ -359,9 +344,9 @@
                            required>
                            <label class="focus-label">Condition                        </label>
                         </div>
-                    <div class="invalid-feedback">
+                    {{-- <div class="invalid-feedback">
                         Please provide a valid Stock Level.
-                    </div>
+                    </div> --}}
                    
                 </div>
                 <div class="col-md-6">
@@ -370,9 +355,9 @@
                            required>
                            <label class="focus-label">Seller Financing                         </label>
                         </div>
-                    <div class="invalid-feedback">
+                    {{-- <div class="invalid-feedback">
                         Please provide a valid Stock Level.
-                    </div>
+                    </div> --}}
                    
                 </div>
                 <div class="col-md-6">
@@ -438,9 +423,9 @@
 
                            <label class="focus-label">Mobile</label>
                         </div>
-                    <div class="invalid-feedback">
+                    {{-- <div class="invalid-feedback">
                         Please provide a valid 10-digit Mobile number.
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
@@ -460,9 +445,9 @@
                       required></textarea>
                       <label class="focus-label">Description</label>
                     </div>
-            <div class="invalid-feedback">
+            {{-- <div class="invalid-feedback">
                 Please provide a description.
-            </div>
+            </div> --}}
         </div>
 
         @include('listings.image&file');
@@ -480,15 +465,15 @@
                     <select class="form-controlz country" name="country" placeholder="Select Country" required>
                         <option selected disabled>Country</option>
                         @foreach($countries as $country)
-                            <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
+                            <option value="{{ $country->id }}">{{ $country->name }}</option>
                         @endforeach
                     </select>
-                    <div class="invalid-feedback">
+                    {{-- <div class="invalid-feedback">
                         Please select a country.
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-md-6">
-                    <select class="form-controlz city" name="city" placeholder="Select City" required>
+                    <select class="form-controlz city" name="city" placeholder="Select City" >
                         <option selected disabled>City</option>
                     </select>
                     <div class="invalid-feedback">
@@ -549,9 +534,10 @@ $(document).on('click', '.place-ad-form-submit', function (e) {
                 console.log(response);
                     if (response.status) {
                         showAlert("success", "Your Ad is Live!");
-                        // setTimeout(function () {
-                        //     window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
-                        // }, 600);
+                        setTimeout(function () {
+                            window.location.assign(base_url + "ads");
+                            // window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
+                        }, 600);
 
                     } else {
                         alert(response.message);

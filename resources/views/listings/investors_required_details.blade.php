@@ -170,6 +170,9 @@
     </div>
     <form class="place-ad-form" enctype="multipart/form-data">
         {{-- <input name="listing_id" type="hidden" value="{{$listing->id}}"> --}}
+        <input name="category_id" type="hidden" value="{{ $Categories->id }}">
+        <input name="category_name" type="hidden" value="{{ $Categories->name }}">
+        <input name="subcategory_name" type="hidden" value="{{ $subcategories->name }}">
         <input type='hidden' class='form-control latitude' id='latitude' name='latitude' placeholder='Enter Latitude'>
         <input type='hidden' class='form-control longitude' id='longitude' name='longitude'
                placeholder='Enter Longitude'>
@@ -475,7 +478,7 @@
             <select class="form-controlz country" name="country" placeholder=" Country" required>
                 <option disabled selected> Country</option>
                 @foreach($countries as $country)
-                    <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
+                    <option value="{{ $country->id }}">{{ $country->name }}</option>
                 @endforeach
             </select>
             <div class="invalid-feedback">
@@ -483,7 +486,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <select class="form-controlz city" name="city" placeholder=" City" required>
+            <select class="form-controlz city" name="city" placeholder=" City" >
                 <option selected disabled>City</option>
             </select>
             <div class="invalid-feedback">
@@ -544,9 +547,10 @@ $(document).on('click', '.place-ad-form-submit', function (e) {
                 console.log(response);
                     if (response.status) {
                         showAlert("success", "Your Ad is Live!");
-                        // setTimeout(function () {
-                        //     window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
-                        // }, 600);
+                        setTimeout(function () {
+                            window.location.assign(base_url + "ads");
+                            // window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
+                        }, 600);
 
                     } else {
                         alert(response.message);

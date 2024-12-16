@@ -4,6 +4,9 @@
      height: 58px;
      position: relative;
  }
+ .form-control.is-invalid, .was-validated .form-control:invalid{
+    display: none !important;
+ }
  select {
   -webkit-appearance: none;  /* for Chrome */
   -moz-appearance: none;     /* for Firefox */
@@ -170,6 +173,7 @@
     </div>
     <form class="place-ad-form" enctype="multipart/form-data" >
         <input name="listing_id" type="hidden" value="">
+        <input name="category_id" type="hidden" value="{{ $Categories->id }}">
         <input name="category_name" type="hidden" value="{{ $Categories->name }}">
         <input name="subcategory_name" type="hidden" value="{{ $subcategories->name }}">
         <input type='hidden' class='form-controlz latitude' id='latitude' name='latitude' placeholder='Enter Latitude'>
@@ -203,9 +207,7 @@
                    title="" required>
                    <label class="focus-label">Sales Revenue  </label>
                </div>
-           {{-- <div class="invalid-feedback">
-               Please provide a valid Business Type.
-           </div> --}}
+       
        </div>
         
         
@@ -291,16 +293,7 @@
             </div>
             </div>
         
-        {{-- <div class="col-md-6">
-             <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="reason_for_sale" placeholder="" 
-                    title="" required>
-                    <label class="focus-label">Reason for Sale</label>
-                </div>
-            <div class="invalid-feedback">
-                Please provide a valid Reason for Sale.
-            </div>
-        </div> --}}
+      
 </div>
 </div>
         <div class="col-md-6 mx-auto">
@@ -330,13 +323,7 @@
         </div>
            
                
-        {{-- <div class="col-md-6">
-            <select class="form-controlz" name="open_for_partnership"  required>
-                <option disabled selected>Open for Partnership</option>
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
-            </select>
-        </div> --}}
+       
             <div class="col-md-6">
                 <div class="form-group form-focus">
                     <input type="text" class="form-control floating"  name="least_amt" placeholder="" 
@@ -479,12 +466,10 @@
             </div>
         </div>
         <div class="col-md-6">
-            <select class="form-controlz city" name="city" placeholder="Select City" required>
+            <select class="form-controlz city" name="city" placeholder="Select City" >
                 <option disabled selected>City</option>
             </select>
-            <div class="invalid-feedback">
-                Please select a city.
-            </div>
+            
         </div>
         </div>
         </div>
@@ -494,9 +479,7 @@
                    required>
                    <label class="focus-label">Location</label>
                 </div>
-            <div class="invalid-feedback">
-                Please provide a location.
-            </div>
+           
         </div>
         <div class="col-md-6 mx-auto">
             <div class="map" id="map"></div>
@@ -547,9 +530,10 @@ $(document).on('click', '.place-ad-form-submit', function (e) {
                     if (response.status) {
 
                         showAlert("success", "Your Ad is Live!");
-                        // setTimeout(function () {
-                        //     // window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
-                        // }, 600);
+                        setTimeout(function () {
+                            window.location.assign(base_url + "ads");
+                            // window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
+                        }, 600);
 
                     } else {
                         alert(response.message);

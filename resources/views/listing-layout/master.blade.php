@@ -16,6 +16,9 @@
 .lobibox-notify .lobibox-close {
     top:6px !important;
 }
+.form-control:invalid , .form-control:valid{
+    background-image: none !important; /* Removes any default invalid icon */
+}
 </style>
 <!-- Optional JavaScript -->
 @include('listing-layout.footer')

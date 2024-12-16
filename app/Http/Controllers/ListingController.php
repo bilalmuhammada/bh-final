@@ -6,6 +6,7 @@ use App\Helpers\RecordHelper;
 use App\Helpers\SiteHelper;
 use App\Models\AdsReported;
 use App\Models\Attachment;
+use App\Models\business_rent;
 use App\Models\BusinessForSaleDetail;
 use App\Models\BusinessIdeaDetail;
 use App\Models\Category;
@@ -179,56 +180,49 @@ class ListingController extends Controller
     
     public function storeAd(Request $request)
     {
+
+        // dd($request->all());
+        // dd('jjjj');
         $Validator = Validator::make($request->all(), [
-            'listing_id' => 'required|exists:listings,id',
-            'title' => 'required',
-            'phone' => 'required|integer',
-            'price' => 'nullable|integer',
-            'investment_amount' => 'nullable|integer',
-            'manufactured_year' => 'nullable|date',
-            'description' => 'required',
-            'country' => 'required|integer',
-            'city' => 'required|integer',
-            'location_name' => 'required',
+            // 'listing_id' => 'required|exists:listings,id',
+            // 'title' => 'required',
+            // 'phone' => 'required|integer',
+            // 'price' => 'nullable|integer',
+            // 'investment_amount' => 'nullable|integer',
+            // 'manufactured_year' => 'nullable|date',
+            // 'description' => 'required',
+            // 'country' => 'required|integer',
+            // 'city' => 'required|integer',
+            // 'location_name' => 'required',
             'images' => 'required|array',
             'images.*' => 'image|max:2048',
         ]);
 
 
-        if ($Validator->fails()) {
-            $error = $Validator->errors()->first();
-            SiteHelper::setAlert('danger', $error);
-            return response()->json([
-                'status' => false,
-                'message' => $error,
-                'errors' => $Validator->errors()
-            ]);
-        }
-
-        Listing::where('id', $request->listing_id)->update([
-            'title' => $request->title,
-            'phone' => $request->phone,
-            'price' => $request->price,
-            'description' => $request->description,
-            'city_id' => $request->city,
-            'country_id' => $request->country,
-            'status' => "pending",
-            'latitude' => $request->latitude,
-            'longitude' => $request->longitude,
-            'location_name' => $request->location_name,
-            'created_by' => Session::get('user')->id,
-        ]);
-
-        $Listing = Listing::find($request->listing_id);
-
-        if($Listing->category_id == 4 || $Listing->category_id == 5) {
-            $Listing->hide_phone = true;
-            $Listing->save();
-        }
+   
 
 
-
-        $this->saveListingAdditionalDetails(Category::find($Listing->category_id)->form_view, $request);
+        $list =  Listing::updateOrCreate(
+            // Condition to find the record
+            ['id' => $request->listing_id],
+            
+            // Fields to update or create
+            [
+                'title' => $request->title,
+                'phone' => $request->phone,
+                'price' => $request->price,
+                'description' => $request->description,
+                'city_id' => $request->city,
+                'country_id' => $request->country,
+                'status' => "pending",
+                'latitude' => $request->latitude,
+                'longitude' => $request->longitude,
+                'location_name' => $request->location_name,
+                'created_by' => Session::get('user')->id,
+            ]
+        );
+        
+        $this->saveListingAdditionalDetails(Category::find($request->category_id)->form_view, $request,$list);
 
         $imgDataArr = SiteHelper::upload_file('uploads/listings', 'images');
 
@@ -239,7 +233,7 @@ class ListingController extends Controller
                     'file_name' => $image['file_name'],
                     'type' => $image['type'],
                     'object' => 'Listing',
-                    'object_id' => $Listing->id,
+                    'object_id' => $list->id,
                     'context' => 'Listing-image',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
@@ -258,7 +252,7 @@ class ListingController extends Controller
                     'file_name' => $image['file_name'],
                     'type' => $image['type'],
                     'object' => 'Listing',
-                    'object_id' => $Listing->id,
+                    'object_id' => $list->id,
                     'context' => 'Listing-document',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
@@ -269,71 +263,218 @@ class ListingController extends Controller
         return response()->json([
             'status' => true,
             'message' => "Add placed successfully",
-            'listing_id' => $Listing->id,
+            'listing_id' => $list->id,
         ]);
     }
 
-    public function saveListingAdditionalDetails($listing_detail_name, $data_arr)
+    public function saveListingAdditionalDetails($listing_detail_name, $data_arr,$list)
     {
+
+    //  dd($data_arr->all());
         switch ($listing_detail_name) {
             case 'business_for_sale_details':
 
                 BusinessForSaleDetail::create([
-                    'listing_id' => $data_arr->listing_id,
+                    'listing_id' => $list->id,
+                    'category_name' => $data_arr->category_name,
+                    'subcategory_name' => $data_arr->subcategory_name,
+                    'latitude' => $data_arr->latitude,
+                    'longitude' => $data_arr->longitude,
+                    'title' => $data_arr->title,
+                    'price' => $data_arr->price,
+                    'sale_revenue' => $data_arr->sale_revenue,
+                    'branches' => $data_arr->branches,
                     'business_type' => $data_arr->business_type,
-                    'trade_licence_type' => $data_arr->trade_licence_type,
+
+
+
+                    'trade_license_type' => $data_arr->trade_license_type,
                     'established_year' => $data_arr->established_year,
                     'lease_term' => $data_arr->lease_term,
-                    'size_sqm' => $data_arr->size_sqm,
+                    'squrft' => $data_arr->squrft,
                     'no_of_employees' => $data_arr->no_of_employees,
-                    'reason_for_sale' => $data_arr->reason_for_sale,
-                    'open_for_partnership' => $data_arr->open_for_partnership,
+                    'reason_sale' => $data_arr->reason_sale,
+                    'premise_status' => $data_arr->premise_status,
+
+                    
+                    'least_amt' => $data_arr->least_amt,
+                    'invt_value' => $data_arr->invt_value,
+                    'selling_fin' => $data_arr->selling_fin,
+                    'supt_traning' => $data_arr->supt_traning,
+                    'posted_by' => $data_arr->posted_by,
+                    'website' => $data_arr->website,
+                    'phone' => $data_arr->phone,
+
+                    'whatsapp' => $data_arr->whatsapp,
                     'products_and_services_offered' => $data_arr->products_and_services_offered,
+                    'description' => $data_arr->description,
+                    'country' => $data_arr->country,
+                    'location_name' => $data_arr->location_name,
+                    'city_ids' => $data_arr->city_ids,
+                    
                 ]);
 
                 return true;
                 break;
+
+                case 'business_idea_details':
+
+                    BusinessIdeaDetail::create([
+                        'listing_id' => $list->id,
+                        'category_name' => $data_arr->category_name,
+                        'subcategory_name' => $data_arr->subcategory_name,
+                        
+                        'latitude' => $data_arr->latitude,
+                        'longitude' => $data_arr->longitude,
+                        'title' => $data_arr->title,
+                        'business_modal' => $data_arr->business_modal,
+                        'investment_amount' => $data_arr->investment_amount,
+    
+    
+    
+                        'trade_licence_type' => $data_arr->trade_licence_type,
+                        'premise_status' => $data_arr->premise_status,
+                        'size_sqm' => $data_arr->size_sqm,
+                        'lease_term' => $data_arr->lease_term,
+                        'branches' => $data_arr->branches,
+                        'no_of_employees' => $data_arr->no_of_employees,
+                        'sale_freq' => $data_arr->sale_freq,
+    
+                        
+                        'expect_sale' => $data_arr->expect_sale,
+                        'expect_roi' => $data_arr->expect_roi,
+                        'contract_term' => $data_arr->contract_term,
+                        'contract_length' => $data_arr->contract_length,
+                        'phone' => $data_arr->phone,
+                        'whatsapp' => $data_arr->whatsapp,
+                        'products_and_services_offered' => $data_arr->products_and_services_offered,
+    
+                        'description' => $data_arr->description,
+                        'country_id' => $data_arr->country_id,
+                       
+                        'city_id' => $data_arr->city_id,
+                        'location_name' => $data_arr->location_name,
+    
+                        
+                    ]);
+    
+                    return true;
+                    break;
+
+                    case 'businesses_for_rent':
+
+                        business_rent::create([
+                                'listing_id' => $list->id,
+                                'category_name' => $data_arr->category_name,
+                                'subcategory_name' => $data_arr->subcategory_name,
+                                
+                                'title' => $data_arr->title,
+                                'price' => $data_arr->price,
+                                'business_status' => $data_arr->business_status,
+                                'established_year' => $data_arr->established_year,
+                                'branches' => $data_arr->branches,
+            
+            
+            
+                                'no_of_employees' => $data_arr->no_of_employees,
+                                'premise_status' => $data_arr->premise_status,
+                                'squrft' => $data_arr->squrft,
+                                'lease_term' => $data_arr->lease_term,
+                                'least_amt' => $data_arr->least_amt,
+                                'invt_value' => $data_arr->invt_value,
+                                'supt_traning' => $data_arr->supt_traning,
+            
+                                
+                                'posted_by' => $data_arr->posted_by,
+                                'website' => $data_arr->website,
+                                'instagram' => $data_arr->instagram,
+                                'phone' => $data_arr->phone,
+                                'whatsapp' => $data_arr->whatsapp,
+                                'description' => $data_arr->description,
+                                'country_id' => $data_arr->country_id,
+            
+                                'city_id' => $data_arr->city_id,
+                                'location_name' => $data_arr->location_name,
+                               
+                                
+                            ]);
+            
+                            return true;
+                            break;
             case 'shares_for_sale_details':
 
                 SharesForSaleDetail::create([
-                    'listing_id' => $data_arr->listing_id,
+                    'listing_id' => $list->id,
+                    'category_name' => $data_arr->category_name,
+                    'subcategory_name' => $data_arr->subcategory_name,
+                    'title' => $data_arr->title,
+                    'share_price' => $data_arr->share_price,
                     'share_amount' => $data_arr->share_amount,
-                    'business_type' => $data_arr->business_type,
-                    'share_percentage' => $data_arr->share_percentage,
+                    'business_modal' => $data_arr->business_modal,
+                    'sale_revenue' => $data_arr->sale_revenue,
+                    'trade_licence' => $data_arr->trade_licence,
                     'established_year' => $data_arr->established_year,
-                    'trade_licence_type' => $data_arr->trade_licence_type,
-                    'lease_term' => $data_arr->lease_term,
-                    'open_for_partnership' => $data_arr->open_for_partnership,
-                    'size_sqm' => $data_arr->size_sqm,
+                    'branches' => $data_arr->branches,
+
+
                     'no_of_employees' => $data_arr->no_of_employees,
+                    'premise_status' => $data_arr->premise_status,
+                    'size_sqm' => $data_arr->size_sqm,
+                    'lease_term' => $data_arr->lease_term,
+                    'lease_amount' => $data_arr->lease_amount,
+
+                    'selling_fin' => $data_arr->selling_fin,
+                    'reason_sale' => $data_arr->reason_sale,
+                    'posted_by' => $data_arr->posted_by,
+                    'website' => $data_arr->website,
+                    'instagram' => $data_arr->instagram,
+
+
+                    'phone' => $data_arr->phone,
+                    'whatsapp' => $data_arr->whatsapp,
                     'products_and_services_offered' => $data_arr->products_and_services_offered,
+                    'description' => $data_arr->description,
+                    'country_id' => $data_arr->country_id,
+
+                    'city_id' => $data_arr->city_id,
+                    'location_name' => $data_arr->location_name,
+                    'latitude' => $data_arr->latitude,
+                    'longitude' => $data_arr->longitude,
+                    
+
                 ]);
 
                 return true;
                 break;
-            case 'business_idea_details':
-
-                BusinessIdeaDetail::create([
-                    'listing_id' => $data_arr->listing_id,
-                    'investment_amount' => $data_arr->investment_amount,
-                    'estimated_sales_in_numbers' => $data_arr->estimated_sales_in_numbers,
-                    'estimated_sales_in_letters' => $data_arr->estimated_sales_in_letters,
-                    'trade_licence_type' => $data_arr->trade_licence_type,
-                    'business_type' => $data_arr->business_type,
-                    'open_for_partnership' => $data_arr->open_for_partnership,
-                    'products_and_services_offered' => $data_arr->products_and_services_offered,
-                ]);
-
-                return true;
-                break;
+            
             case 'investors_details':
 
                 InvestorsDetail::create([
-                    'listing_id' => $data_arr->listing_id,
+                    'listing_id' => $list->id,
+                    'category_name' => $data_arr->category_name,
+                    'subcategory_name' => $data_arr->subcategory_name,
+                    'latitude' => $data_arr->latitude,
+                    'longitude' => $data_arr->longitude,
+
+                    'title' => $data_arr->title,
                     'investment_amount' => $data_arr->investment_amount,
+                    'int_bus_mdl' => $data_arr->int_bus_mdl,
                     'open_to_invest' => $data_arr->open_to_invest,
                     'open_for_partnership' => $data_arr->open_for_partnership,
+
+
+                    'ptn_plan' => $data_arr->ptn_plan,
+                    'communication_pre' => $data_arr->communication_pre,
+                    'phone' => $data_arr->phone,
+                    'whatsapp' => $data_arr->whatsapp,
+                    'show_phone' => $data_arr->show_phone,
+
+
                     'interested_business_types' => $data_arr->interested_business_types,
+                    'description' => $data_arr->description,
+                    'country_id' => $data_arr->country_id,
+                    'city_id' => $data_arr->city_id,
+                    'location_name' => $data_arr->location_name,
                 ]);
 
                 return true;
@@ -341,17 +482,42 @@ class ListingController extends Controller
             case 'investors_required_details':
 
                 InvestorsRequiredDetail::create([
-                    'listing_id' => $data_arr->listing_id,
+                    'listing_id' => $list->id,
+                    'latitude' => $data_arr->latitude,
+                    'longitude' => $data_arr->longitude,
+                    'category_name' => $data_arr->category_name,
+                    'subcategory_name' => $data_arr->subcategory_name,
+                    'title' => $data_arr->title,
                     'required_investment' => $data_arr->required_investment,
-                    'business_type' => $data_arr->business_type,
-                    'reason_for_investment' => $data_arr->reason_for_investment,
-                    'established_year' => $data_arr->established_year,
+                    'sales_revenue' => $data_arr->sales_revenue,
+                    'business_model' => $data_arr->business_model,
                     'trade_licence_type' => $data_arr->trade_licence_type,
-                    'lease_term' => $data_arr->lease_term,
-                    'open_for_partnership' => $data_arr->open_for_partnership,
+                    'established_year' => $data_arr->established_year,
+
+
+                    'branches' => $data_arr->branches,
+                    'employees' => $data_arr->employees,
+                    'premise_status' => $data_arr->premise_status,
                     'size_sqm' => $data_arr->size_sqm,
-                    'no_of_employees' => $data_arr->no_of_employees,
+                    'established_year' => $data_arr->lease_term,
+
+                    'least_amt' => $data_arr->least_amt,
+                    'contract_term' => $data_arr->contract_term,
+                    'contract_period' => $data_arr->contract_period,
+                    'expected_roi' => $data_arr->expected_roi,
+                    'posted_by' => $data_arr->posted_by,
+
+                    'reason_investment' => $data_arr->reason_investment,
+                    'website' => $data_arr->website,
+                    'instagram' => $data_arr->instagram,
+                    'phone' => $data_arr->phone,
+                    'whatsapp' => $data_arr->whatsapp,
+
                     'products_and_services_offered' => $data_arr->products_and_services_offered,
+                    'description' => $data_arr->description,
+                    'country_id' => $data_arr->country_id,
+                    'city_id' => $data_arr->city_id,
+                    'location_name' => $data_arr->location_name,
                 ]);
 
                 return true;
@@ -359,45 +525,84 @@ class ListingController extends Controller
             case 'franchise_opportunities_details':
 
                 FranchiseOpportunitiesDetail::create([
-                    'listing_id' => $data_arr->listing_id,
+                    'listing_id' => $list->id,
+                    'category_name' => $data_arr->category_name,
+                    'subcategory_name' => $data_arr->subcategory_name,
+                    'title' => $data_arr->title,
                     'franchise_fee' => $data_arr->franchise_fee,
-                    'business_type' => $data_arr->business_type,
                     'franchise_fee_term' => $data_arr->franchise_fee_term,
-                    'established_year' => $data_arr->established_year,
+                    'business_type' => $data_arr->business_type,
                     'trade_licence_type' => $data_arr->trade_licence_type,
+                    'established_year' => $data_arr->established_year,
                     'no_of_branches' => $data_arr->no_of_branches,
+
                     'no_of_employees' => $data_arr->no_of_employees,
-                    'size_sqm' => $data_arr->size_sqm,
+                    'premise_status' => $data_arr->premise_status,
+                    'squrft' => $data_arr->squrft,
+                    'lease_term' => $data_arr->lease_term,
+                    'contract_period' => $data_arr->contract_period,
+
+                    
+                    'finance_term' => $data_arr->finance_term,
+                    'posted_by' => $data_arr->posted_by,
+                    'reason_financing' => $data_arr->reason_financing,
+                    'website' => $data_arr->website,
+                    'instagram' => $data_arr->instagram,
+
+                    'phone' => $data_arr->phone,
+                    'whatsapp' => $data_arr->whatsapp,
                     'products_and_services_offered' => $data_arr->products_and_services_offered,
+                    'description' => $data_arr->description,
+                    'country_id' => $data_arr->country_id,
+
+                    'city_id' => $data_arr->city_id,
+                    'location_name' => $data_arr->location_name,
+                
                 ]);
 
                 return true;
                 break;
-            case 'export_import_trade_details':
-
-                ExportImportTradeDetail::create([
-                    'listing_id' => $data_arr->listing_id,
-                    'condition' => $data_arr->condition,
-                    'manufactured_year' => SiteHelper::reformatDateToDbDate($data_arr->manufactured_year),
-                    'usage' => $data_arr->usage,
-                    'model' => $data_arr->model,
-                    'stock_level' => $data_arr->stock_level,
-                    'stock_unit' => $data_arr->stock_unit,
-                    'source' => $data_arr->source,
-                    'trade' => $data_arr->trade,
-                ]);
-
-                return true;
-                break;
+            
             case 'machine_supplies_details':
                 MachineSuppliesDetail::create([
-                    'listing_id' => $data_arr->listing_id,
-                    'condition' => $data_arr->condition,
-                    'manufactured_year' => SiteHelper::reformatDateToDbDate($data_arr->manufactured_year),
-                    'usage' => $data_arr->usage,
-                    'model' => $data_arr->model,
+                    'listing_id' => $list->id,
+                    'category_name' => $data_arr->category_name,
+                   
+                    'subcategory_name' => $data_arr->subcategory_name,
+                    'latitude' => $data_arr->latitude,
+                    'longitude' => $data_arr->longitude,
+                    'title' => $data_arr->title,
+
+                    'price' => $data_arr->price,
+                    'price_term' => $data_arr->price_term,
+                   
+                    'business_model' => $data_arr->business_model,
+                    'trade_licence_type' => $data_arr->trade_licence_type,
+                    'established_year' => $data_arr->established_year,
+                    'branches' => $data_arr->branches,
+                    'no_of_employees' => $data_arr->no_of_employees,
+                    'premise_status' => $data_arr->premise_status,
+                    'squrft' => $data_arr->squrft,
+                    'lease_term' => $data_arr->lease_term,
                     'stock_level' => $data_arr->stock_level,
                     'stock_unit' => $data_arr->stock_unit,
+
+
+                    'condition' => $data_arr->condition,
+                    'seller_financing' => $data_arr->seller_financing,
+                    'export' => $data_arr->export,
+                    'posted_by' => $data_arr->posted_by,
+                    'reason_sale' => $data_arr->reason_sale,
+                    'website' => $data_arr->website,
+                    'instagram' => $data_arr->instagram,
+                    'phone' => $data_arr->phone,
+                    'whatsapp' => $data_arr->whatsapp,
+                    'description' => $data_arr->description,
+
+                    'country_id' => $data_arr->country_id,
+                    'city_id' => $data_arr->city_id,
+                    'location_name' => $data_arr->location_name,
+               
                 ]);
 
                 return true;

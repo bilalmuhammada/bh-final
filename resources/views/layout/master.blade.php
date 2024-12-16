@@ -279,7 +279,10 @@ $("#registercities").select2({
         $(".city_dropdown_register_form").select2();
 
     });
+    $(document).on('change', '.country_dropdown1', function () {
 
+        window.location.assign(base_url + 'home/?country=' +  $(this).val());
+    });
     $(document).on('change', '.city_dropdown', function () {
         window.location.assign(base_url + 'home/?country=' + {{ request()->country }} + '&city=' + $(this).val());
     });

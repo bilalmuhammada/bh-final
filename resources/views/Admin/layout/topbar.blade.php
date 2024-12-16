@@ -49,14 +49,14 @@
                 <div class="dropdown-menu p-0" style="min-width: 5rem;" aria-labelledby="profileDropdown">
                    
                     <ul class="list-unstyled p-12 ">
-                        <li class="dropdown-item">
-                            <a href="{{ env('BASE_URL') }}/edit-profile" class="text-body  text-bold ms-0" >
+                        <li class="dropdown-item" style="margin-top: 6px;">
+                            <a href="{{ env('BASE_URL') }}edit-profile" class="text-body  text-bold ms-0" >
                                 {{-- <i class="me-2 icon-md" data-feather="edit"></i> --}}
                                 <span style="font-weight:700;" >Edit Profile</span>
                             </a>
                         </li>
                         
-                        <li class="dropdown-item ">
+                        <li class="dropdown-item " style="margin-bottom: 3px;">
                             <a href="javascript:;" class="text-body  text-bold ms-0 logout-btn">
                                 {{-- <i class="me-2 icon-md" data-feather="log-out"></i> --}}
                                 <span style="font-weight:700;">Log Out</span>

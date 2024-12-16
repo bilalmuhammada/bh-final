@@ -213,7 +213,6 @@ $(document).on('change', '.images', function (e) {
     $('.images').siblings('.invalid-feedback.image-error').hide();
 
     const files = e.target.files;
-
     for (let i = 0; i < files.length; i++) {
         const file = files[i];
         const reader = new FileReader();
@@ -225,8 +224,32 @@ $(document).on('change', '.images', function (e) {
             const file_name = file.name;
             displayImages(base64Image, file_name);
         };
+
+        // uploadImage(file);
     }
 });
+
+
+function uploadImage(file) {
+    const formData = new FormData();
+    formData.append('image', file);
+
+    $.ajax({
+        url: '/upload-image', // Your backend route
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            console.log(response);
+            alert(`Image "${file.name}" uploaded successfully!`);
+        },
+        error: function (xhr) {
+            console.error(xhr.responseText);
+            alert(`Failed to upload image "${file.name}".`);
+        },
+    });
+}
 
 function displayImages(base64Image, file_name) {
     const imageDisplay = document.getElementById('image-display-div');

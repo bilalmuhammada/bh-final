@@ -207,7 +207,7 @@
                             {{-- <div class="country" style="border:0px solid green;position:relative;left:-111px;"> --}}
                             <div class="mobile-country desktop-menu-right">
                                
-                                    <select class="form-control country_dropdown1 " name="country_dropdown"   style="width:165px;" id="country_dropdown" >
+                                    <select class="form-control country_dropdown1 country_dropdown  " name="country_dropdown"   style="width:165px;" id="country_dropdown" >
                                        
                                         <option value="">All Countries</option>
                                         @foreach($countries as $country)
@@ -769,7 +769,7 @@
                         @endif
                         <span style="padding:4px 15px;text-align:center;font-size:14px !important;">
                             <a class="add-list-button add-listing-btn"
-                               style="padding: 7px 20px;border-radius: 6px;">+ Place Your Ad</a>
+                               style="padding: 7px 8px;border-radius: 6px;">+ Place Your Ad</a>
                         </span>     
             </div>
 
@@ -810,7 +810,7 @@
                         <a class="register-btn" style="padding: 10px;">Register</a>
                     @endif
                     <a class="add-list-button add-listing-btn"
-                       style="padding: 11px 20px;border-radius: 6px;">+ Place Your Ad</a>
+                       style="padding: 11px 8px;border-radius: 6px;">+ Place Your Ad</a>
                 </div>
             </div>
         </div>

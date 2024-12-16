@@ -56,6 +56,7 @@ Route::middleware('check_user_auth')->group(function () {
 
         
 
+        Route::post('/upload-image', [ListingController::class, 'uploadSingle'])->name('upload.single');
 
         Route::get('/select-category', [ListingController::class, 'showSelectCategory']);
         Route::get('/select-subcategory/{category_id}', [ListingController::class, 'showSelectSubcategory']);

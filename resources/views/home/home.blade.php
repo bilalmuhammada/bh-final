@@ -80,18 +80,7 @@
                     <div class="carousel-item">
                         <img src="{{asset('images/slider-images/image5.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;">
                     </div>
-                    <!--<div class="carousel-item">-->
-                    <!--    <img src="{{asset('images/slider-images/image6.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:8px;">-->
-                    <!--</div>-->
-                    <!--<div class="carousel-item">-->
-                    <!--    <img src="{{asset('images/slider-images/image7.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:8px;">-->
-                    <!--</div>-->
-                    {{-- <div class="carousel-item">
-                        <img src="{{asset('images/slider-images/image8.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:8px;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{asset('images/slider-images/image9.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:8px;">
-                    </div> --}}
+                    
                 </div>
             </div>
         </div>

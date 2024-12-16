@@ -17,16 +17,36 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('listing_id')->constrained('listings')->nullable();
-            $table->decimal('investment_amount', 9, 2)->default(0);
-            $table->string('estimated_sales_in_numbers')->nullable();
-            $table->string('estimated_sales_in_letters')->nullable();
+            $table->string('category_name')->nullable();
+            $table->string('subcategory_name')->nullable();
+            $table->decimal('latitude', 10, 8)->nullable();
+            $table->decimal('longitude', 11, 8)->nullable();
+            $table->string('title')->nullable();
+            $table->string('business_modal')->nullable();
+            $table->decimal('investment_amount', 15, 2)->nullable();
             $table->string('trade_licence_type')->nullable();
-            $table->string('business_type')->nullable();
-            $table->boolean('open_for_partnership')->nullable();
+            $table->string('premise_status')->nullable();
+            $table->decimal('size_sqm', 10, 2)->nullable();
+            $table->string('lease_term')->nullable();
+            $table->integer('branches')->nullable();
+            $table->integer('no_of_employees')->nullable();
+            $table->string('sale_freq')->nullable();
+            $table->decimal('expect_sale', 15, 2)->nullable();
+            $table->decimal('expect_roi', 5, 2)->nullable();
+            $table->string('contract_term')->nullable();
+            $table->integer('contract_length')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('whatsapp')->nullable();
             $table->text('products_and_services_offered')->nullable();
-            $table->string('city_ids')->nullable();
-
+            $table->text('description')->nullable();
+            $table->unsignedBigInteger('country_id')->nullable();
+            $table->unsignedBigInteger('city_id')->nullable();
+            $table->string('location_name')->nullable();
             $table->timestamps();
+
+            // Foreign key constraints
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
         });
     }
 

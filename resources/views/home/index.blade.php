@@ -312,7 +312,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                 <option value="" selected>All Countries</option>
                 
                     @foreach($countries as $country)
-                    <option data-flag-url="{{ $country->image_url }}" data-country-id="{{ $country->id }}" value="{{ $country->id }}">&nbsp;{{ $country->name }}</option>
+                    <option data-flag-url="{{ $country->image_url }}" data-country_id="{{ $country->id }}" value="{{ $country->id }}">&nbsp;{{ $country->name }}</option>
                 @endforeach
                </select>
                         </div>
@@ -603,11 +603,15 @@ $countries = \App\Helpers\RecordHelper::getCountries();
       };
 
         $(document).on('change', '.country_dropdown', function () {
-            var country_id = $(this).data('country-id');
-            var $country = $(
-                '<a href="' + base_url + 'home?country=' + country_id + '" style="color:inherit;"><span class="spanz"><img src="' + flagUrl + '" class="img-flag" /> ' + country.text + '</span></a>'
-            );
 
+            var country_id = $(this).val();
+
+         
+
+          
+            // window.location.assign(env('BASE_URL') + 'home?country'= + country_id);
+
+            window.location.assign(base_url+ 'home?country=' + country_id);
 
         });
 

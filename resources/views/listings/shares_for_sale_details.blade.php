@@ -171,9 +171,13 @@
     </div>
     <form class="place-ad-form" enctype="multipart/form-data">
         {{-- <input name="listing_id" type="hidden" value="{{$listing->id}}"> --}}
+        <input name="category_id" type="hidden" value="{{ $Categories->id }}">
+        <input name="category_name" type="hidden" value="{{ $Categories->name }}">
+        <input name="subcategory_name" type="hidden" value="{{ $subcategories->name }}">
         <input type='hidden' class='form-control latitude' id='latitude' name='latitude' placeholder='Enter Latitude'>
         <input type='hidden' class='form-control longitude' id='longitude' name='longitude'
                placeholder='Enter Longitude'>
+              
         <div class="col-md-6 mx-auto" >
             <div class="form-group form-focus">
                 <input type="text" class="form-control floating"  name="title" value="" placeholder=""
@@ -181,9 +185,9 @@
                    <label class="focus-label">Title</label>
                 </div>
 
-            <div class="invalid-feedback">
+            {{-- <div class="invalid-feedback">
                 Please provide a title.
-            </div>
+            </div> --}}
         </div>
         <div class="col-md-6 mx-auto">
         <div class="row">
@@ -220,16 +224,7 @@
                     Please provide a valid Share Amount.
                 </div> --}}
             </div>
-        {{-- <div class="col-md-6">
-        <select class="form-controlz" name="trade_licence_type" required>
-                <option selected disabled>Trade Licence Type</option>
-                    <option value="Mainland">Mainland</option>
-                    <option value="Freezone">Freezone</option>
-                    <option value="Offshore">Offshore</option>
-                    <option value="E-Commerce">E-Commerce</option>
-                    <option value="Private">Private</option>
-            </select>
-        </div> --}}
+        
         <div class="col-md-6">
             <div class="form-group form-focus">
                 <input type="text" class="form-control floating" name="sale_revenue" oninput="validatePhoneNumber(this)" placeholder="" 
@@ -262,9 +257,9 @@
                 <input type="text" class="form-control floating"  name="established_year" oninput="validatePhoneNumber(this)" placeholder=""  required>
                 <label class="focus-label">Established Year</label>
             </div>
-            <div class="invalid-feedback">
+            {{-- <div class="invalid-feedback">
                 Please provide a valid Established Year.
-            </div>
+            </div> --}}
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
@@ -272,9 +267,9 @@
                    title="" required>
                    <label class="focus-label">Branches </label>
                </div>
-           <div class="invalid-feedback">
+           {{-- <div class="invalid-feedback">
                Please provide a valid Premise Size SqM.
-           </div>
+           </div> --}}
        </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
@@ -302,9 +297,7 @@
                     title="" required>
                     <label class="focus-label">Premise Size Sq.Ft</label>
                 </div>
-            <div class="invalid-feedback">
-                Please provide a valid Premise Size SqM.
-            </div>
+            
         </div>
         </div>
     </div>
@@ -436,7 +429,7 @@
             <select class="form-controlz country" name="country" placeholder="Country" required>
                 <option selected disabled>Country</option>
                 @foreach($countries as $country)
-                    <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
+                    <option value="{{ $country->id }}">{{ $country->name }}</option>
                 @endforeach
             </select>
             <div class="invalid-feedback">
@@ -444,7 +437,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <select class="form-controlz city" name="city" placeholder="City" required>
+            <select class="form-controlz city" name="city" placeholder="City" >
                 <option selected disabled>City</option>
             </select>
             <div class="invalid-feedback">
@@ -508,11 +501,10 @@ $(document).on('click', '.place-ad-form-submit', function (e) {
 
                     
                         showAlert("success", "Your Ad is Live!");
-                        // setTimeout(function () {
-                        //     window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}?current=${currency}`);
-                        //     // window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
-                        // }, 600);
-
+                        setTimeout(function () {
+                            window.location.assign(base_url + "ads");
+                            // window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
+                        }, 600);
                     } else {
                         alert(response.message);
                     }
