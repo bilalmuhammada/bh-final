@@ -4,9 +4,7 @@
      height: 58px;
      position: relative;
  }
- .form-control.is-invalid, .was-validated .form-control:invalid{
-    display: none !important;
- }
+ 
  select {
   -webkit-appearance: none;  /* for Chrome */
   -moz-appearance: none;     /* for Firefox */
