@@ -16,7 +16,9 @@ return new class extends Migration
         Schema::create('business_idea_details', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('listing_id')->constrained('listings')->nullable();
+            
+            $table->unsignedBigInteger('listing_id')->nullable();
+
             $table->string('category_name')->nullable();
             $table->string('subcategory_name')->nullable();
             $table->decimal('latitude', 10, 8)->nullable();
