@@ -19,6 +19,24 @@
 .form-control:invalid , .form-control:valid{
     background-image: none !important; /* Removes any default invalid icon */
 }
+
+::-webkit-scrollbar {
+  width: 6px; /* You can adjust this value based on your preference */
+}
+
+
+
+
+/* Define the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #997045;
+  border-radius: 34px;
+}
+
+/* Define the scrollbar track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
 </style>
 <!-- Optional JavaScript -->
 @include('listing-layout.footer')

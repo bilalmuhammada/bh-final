@@ -7,13 +7,13 @@ function configMap(lat, lng, map, location_name = 'lo') {
             color: 'black',
             fontWeight: 'bolder',
             fontSize: '12px',
-            // labelOrigin: new google.maps.Point(0, 100)
+             labelOrigin: new google.maps.Point(0, 100)
         },
-        // icon: {
-        //     url: "https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fa%2Faa%2FGoogle_Maps_icon_%25282020%2529.svg&tbnid=FNWvGE5ZWv-uaM&vet=12ahUKEwimtLzwzriAAxXrmicCHTtgCR0QMygOegUIARCDAg..i&imgrefurl=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AGoogle_Maps_icon_(2020).svg&docid=kjsQ_6FbPdcfSM&w=558&h=800&q=svg%20image%20of%20maps&ved=2ahUKEwimtLzwzriAAxXrmicCHTtgCR0QMygOegUIARCDAg",
-        //     scaledSize: new google.maps.Size(25, 25) // Adjust the size as needed
-        //
-        // },
+        icon: {
+            url: "https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fa%2Faa%2FGoogle_Maps_icon_%25282020%2529.svg&tbnid=FNWvGE5ZWv-uaM&vet=12ahUKEwimtLzwzriAAxXrmicCHTtgCR0QMygOegUIARCDAg..i&imgrefurl=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AGoogle_Maps_icon_(2020).svg&docid=kjsQ_6FbPdcfSM&w=558&h=800&q=svg%20image%20of%20maps&ved=2ahUKEwimtLzwzriAAxXrmicCHTtgCR0QMygOegUIARCDAg",
+            scaledSize: new google.maps.Size(25, 25) // Adjust the size as needed
+        
+        },
         map: map,
 
         // draggable: true, // Set this to true if you want to allow dragging the marker
@@ -108,24 +108,50 @@ function logPlaceDetails(place_id, mapElement, searchInput) {
     service.getDetails({
         placeId: place_id
     }, function (place, status) {
+        if (status !== google.maps.places.PlacesServiceStatus.OK) {
+            console.error("Failed to retrieve place details:", status);
+            return;
+        }
 
-        $('input[name="latitude"]').val(place.geometry.location.lat());
-        $('input[name="longitude"]').val(place.geometry.location.lng());
-        configMap(place.geometry.location.lat(), place.geometry.location.lng());
+        const lat = place.geometry.location.lat();
+        const lng = place.geometry.location.lng();
+        const location = new google.maps.LatLng(lat, lng);
 
-        console.log(place.geometry.location.lat());
-        console.log(place.geometry.location.lng());
+        // Create or reuse the marker
+        var marker = new google.maps.Marker({
+            position: location,
+            map: mapElement,
+            draggable: true,
+            title: "Drag me!", // Tooltip
+            icon: {
+                url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png", // Custom icon
+                scaledSize: new google.maps.Size(32, 32),
+            },
+        });
 
+        // Center the map and zoom in on the marker
+        marker.setPosition(location);
+        mapElement.setCenter(location);
+        mapElement.setZoom(14);
+
+        // Update input fields
+        $('input[name="latitude"]').val(lat);
+        $('input[name="longitude"]').val(lng);
         $(searchInput).parents('tr').find('.location_detail').val(place.formatted_address);
 
+        // Extract and update postal code
         $(place.address_components).each(function (i, p) {
             if (p.types.includes('postal_code')) {
-
                 $(searchInput).parents('tr').find('.postcode').val(p.long_name);
             }
-        })
+        });
+
+        // Log position to console
+        console.log("Latitude:", lat);
+        console.log("Longitude:", lng);
     });
 }
+
 
 
 function initMapUsingLatLong(get_lat, get_lng, mapElement1) {

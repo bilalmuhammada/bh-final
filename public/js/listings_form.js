@@ -49,6 +49,7 @@ function loadMap() {
     var longitude = 55.274288;
     var searchInput = $('.location_name')[0];
 
+
     var myLatlng = new google.maps.LatLng(latitude, longitude);
     var myOptions = {
         zoom: 10,
@@ -63,6 +64,7 @@ function loadMap() {
         searchBox.setBounds(map.getBounds());
         // console.log(map.getBounds());
     });
+
 
     searchBox.addListener('places_changed', () => {
         const places = searchBox.getPlaces();
@@ -99,6 +101,7 @@ function loadMap() {
         title: "Drag me!"
     });
 
+
     marker.addListener('dragend', function (event) {
         $('input[name="latitude"]').val(event.latLng.lat());
         $('input[name="longitude"]').val(event.latLng.lng());
@@ -127,6 +130,7 @@ function loadMap() {
                     const latitude = event.latLng.lat();
                     const longitude = event.latLng.lng();
 
+                
                     // Update the marker position
                     marker.setPosition(event.latLng);
 
