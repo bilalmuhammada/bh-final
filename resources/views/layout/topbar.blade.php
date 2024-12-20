@@ -643,7 +643,7 @@
                                                     @php
                                                     // dd($message->user);
                                                     @endphp
-                                                        <p style="margin-top: 7px;margin-bottom: 8px;">{{ $message->receiver->name }} : <span >{{ $message->message }} </span></p> 
+                                                        <p style="margin-top: 7px;margin-bottom: 8px;">{{ $message->receiver->name  ?? ''}} : <span >{{ $message->message }} </span></p> 
                                                             <p style="font-size: 11px;margin-top:3px; margin-bottom:2px; bold; color: green;" >{{ $message->message_recieved_time_diff }}</p>
                                                        
                                                     </div>
