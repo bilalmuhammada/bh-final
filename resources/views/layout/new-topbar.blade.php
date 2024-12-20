@@ -175,7 +175,7 @@ $second = $parts[1] ?? null;
     @endphp
     <div class="container">
         <!-- topbar start -->
-        @if(request()->path()!=="contact-us" && request()->path()!=="about-us" &&  $second !=="plane-ad")
+        @if(  request()->path()!=="about-us" &&  $second !=="plane-ad")
         <div class="topbar desktop-view">
             <div class="cont-w">
                 <div class="row">
@@ -187,7 +187,7 @@ $second = $parts[1] ?? null;
                     </div>
                     
                     
-               
+               @if(request()->path()!=="contact-us")
                     <div class="col-lg-6 col-xl-6 col-md-6" style="margin-top: 17px;">
                         <div style="float:right;margin-right: -45px;">
                             @if (!session()->has('user'))
@@ -203,6 +203,7 @@ $second = $parts[1] ?? null;
                         
                         {{-- </div> --}}
             </div>
+            @endif
             
                 </div>   
                 </div>

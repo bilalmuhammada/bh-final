@@ -56,12 +56,12 @@ select {
             <div class="container">
                 <div class="row justify-content-md-center mb-20px">
                     <div class="col-md-8 col-lg-8 col-xl-8 about-us-text-area" style="margin-top:54px;">
-                        <div class="ragisterarea" style="margin-top:-30px;">
+                        <div class="ragisterarea" style="margin-top:-50px;">
                             <div class="login-header text-center">
-                                <a href="{{ env('BASE_URL') }}">
+                                {{-- <a href="{{ env('BASE_URL') }}">
                                     <img src="{{asset('images/businesshub-slogan.png')}}" alt="" width="250px" alt="logo">
-                                </a>
-                                <h3 style="margin-top: 20px;">Contact Us</h3>
+                                </a> --}}
+                                <h4>Contact Us</h4>
                                 <p>Share your mind with us!</p>
                             </div>
                             {{-- <form>
@@ -234,7 +234,7 @@ select {
                                     </div>
                                 </div>
                                 <div class="col-md-2" style="text-align: center;
-                                margin-top: 8rem; margin-left: 22rem;">
+                                margin-top: 8.5rem; margin-left: 22rem;">
                                     <button class="btn-block btn-lg t-btn contact-us" type="submit">Submit</button>
                                 </div>
                             </div>

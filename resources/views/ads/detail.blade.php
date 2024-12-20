@@ -759,6 +759,10 @@ $(document).ready(function () {
 });
 
         $(document).ready(function () {
+            var adId = "{{ $ad->id }}";
+          
+            $('.ad-id').val(adId);
+                
             var latitude = "{{ $ad->latitude ?? 30.777855 }}";
             var longitude = "{{ $ad->longitude ?? 31.7989566 }}";
 

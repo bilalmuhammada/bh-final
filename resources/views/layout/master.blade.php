@@ -50,7 +50,7 @@ $second = $parts[1] ?? null;
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet"> 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 {{--Goggle Recaptcha start--}}
-<script src="https://www.google.com/recaptcha/api.js?render={{ env('GOOGLE_RECAPTCHA_KEY') }}"></script>
+{{-- <script src="https://www.google.com/recaptcha/api.js?render={{ env('GOOGLE_RECAPTCHA_KEY') }}"></script> --}}
 {{--slick start--}}
 <script src="{{asset('slick/slick.js?v2022')}}" type="text/javascript " charset="utf-8 "></script>
 {{--slick start--}}
@@ -271,7 +271,7 @@ $("#registercities").select2({
 
         //cities dropdown
         $(".city_dropdown").select2({
-            minimumResultsForSearch: -1
+            // minimumResultsForSearch: -1
             // templateSelection: formatCity,
             // templateResult: formatCity,
         });

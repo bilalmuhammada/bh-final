@@ -201,7 +201,7 @@
         var latitude = 25.197525;
         var longitude = 55.274288;
         var searchInput = $('.location_name')[0];
-
+         alert(searchInput);
         var myLatlng = new google.maps.LatLng(latitude, longitude);
         var myOptions = {
             zoom: 10,

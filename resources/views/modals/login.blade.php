@@ -15,7 +15,7 @@
          #login-form .toggle-password {
             position: absolute;
             right: 16px;
-            top: 54% !important;
+            top: 58% !important;
             transform: translateY(-50%);
             cursor: pointer;
         }

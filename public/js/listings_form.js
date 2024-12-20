@@ -209,6 +209,10 @@ function submitListingForm(form) {
     unblock_page();
 }
 
+
+
+    loadMap();
+
 //starting code to mange images
 
 $(document).on('change', '.images', function (e) {
@@ -351,7 +355,6 @@ $(document).on('change', '.country', function () {
     unblock_page();
 });
 
-loadMap();
 
 $(document).on('click', '.place-ad-form-submit', function (e) {
     e.preventDefault();

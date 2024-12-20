@@ -219,7 +219,7 @@
 
         @php $ads = \App\Helpers\RecordHelper::getAds(); 
                     
-                    // dd($ads->count());
+                
                     @endphp
 
 
@@ -227,7 +227,7 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Businesses for Sale</b></h6>
-                @if($ads->count()>0)
+                @if($ads->where("is_featured", true)->count()>0)
                 <div class="row slider" style="margin-left: -8px;">
                     
     
@@ -274,7 +274,7 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Businesses for Rent</b></h6>
-                @if($ads->count()>0)
+                @if($ads->where("is_featured", true)->count()>0)
                 <div class="row slider" style="margin-left: -8px;">
                    
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -318,7 +318,7 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Shares for Sale</b></h4>
-                    @if($ads->count()>0)
+                    @if($ads->where("is_featured", true)->count()>0)
                     <div class="row slider" style="margin-left: -8px;">
                     
     
@@ -365,7 +365,7 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Business Ideas</b></h4>
-                    @if($ads->count()>0)
+                    @if($ads->where("is_featured", true)->count()>0)
                     <div class="row slider" style="    margin-left: -8px;">
                    
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -410,7 +410,7 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Investors</b></h6>
-                @if($ads->count()>0)
+                @if($ads->where("is_featured", true)->count()>0)
                 <div class="row slider" style="    margin-left: -8px;">
                     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -457,7 +457,7 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Investors Required</b></h6>
-                @if($ads->count()>0)
+                @if($ads->where("is_featured", true)->count()>0)
                 <div class="row slider" style="    margin-left: -8px;">
                     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -503,7 +503,7 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Franchise Opportunities</b></h6>
-                @if($ads->count()>0)
+                @if($ads->where("is_featured", true)->count()>0)
                 <div class="row slider" style="    margin-left: -8px;">
                     
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
@@ -548,7 +548,7 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Machinery & Supplies</b></h6>
-                @if($ads->count()>0)
+                @if($ads->where("is_featured", true)->count()>0)
                 <div class="row slider" style="    margin-left: -8px;">
                   
                     @foreach($ads->where("is_featured", true) as $key=>$featured_ad)

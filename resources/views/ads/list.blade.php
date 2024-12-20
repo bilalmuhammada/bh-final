@@ -1,6 +1,6 @@
 @extends('layout.master')
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+{{-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> --}}
 @section('content')
     <style>
 
@@ -218,10 +218,13 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
         <div class="col-md-7 border-color" style="border-right: 2px solid #eee; text-align: center;">
             <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px; font-size: 14px; margin-top: 2px;">Neighborhood</label>
             <div class="input-group">
-                <input type="text" class="form-control filter1" style="margin-top: -2px; font-size: 14px;" id="neighborhood" placeholder="Enter location">
+                <input type="text" class="form-control filter1 location_name" name="location_name" style="margin-top: -2px; font-size: 14px;" id="location_name" placeholder="Enter location">
                 <span class="" id="locationIcon">
                     <i class="fa fa-map-marker" style="margin-top:8px; color:red;"></i> <!-- Bootstrap Icons location marker -->
                 </span>
+            </div>
+            <div class="col-md-6 mx-auto" style="display: none">
+                <div class="map" id="map"></div>
             </div>
         </div>
 
@@ -475,8 +478,17 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
     </section>
 
 @endsection
+<!-- jQuery first -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<!-- then Popper.js -->
+{{-- <script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"></script> --}}
+<script type="text/javascript"> map_key = "{{env('GOOGLE_MAP_KEY')}}"; </script>
+
 @section('page_scripts')
     <script type="text/javascript">
+ 
+
+
         var city = $('.city-list').attr('city-id');
         var subcategory = $('.subcategory-list').attr('subcategory-id');
         var from_price = $('#from').val();
@@ -495,6 +507,116 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
     }
 
 }
+
+
+function loadMap() {
+    var latitude = 25.197525;
+    var longitude = 55.274288;
+    var searchInput = $('.location_name')[0];
+
+
+    var myLatlng = new google.maps.LatLng(latitude, longitude);
+    var myOptions = {
+        zoom: 10,
+        center: myLatlng
+    }
+
+    var map = new google.maps.Map(document.getElementById("map"), myOptions);
+    var geocoder = new google.maps.Geocoder();
+    const searchBox = new google.maps.places.SearchBox(searchInput);
+
+    map.addListener('bounds_changed', () => {
+        searchBox.setBounds(map.getBounds());
+        // console.log(map.getBounds());
+    });
+
+
+    searchBox.addListener('places_changed', () => {
+        const places = searchBox.getPlaces();
+        if (places.length == 0) {
+            return;
+        }
+
+        var place_id = places[0].place_id;
+
+        logPlaceDetails(place_id, map, searchInput)
+
+        const bounds = new google.maps.LatLngBounds();
+        places.forEach((place) => {
+            if (!place.geometry || !place.geometry.location) {
+                console.log('Returned place contains no geometry');
+                return;
+            }
+
+
+            if (place.geometry.viewport) {
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+        });
+
+        map.fitBounds(bounds);
+    });
+
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        draggable: true,
+        title: "Drag me!"
+    });
+
+
+    marker.addListener('dragend', function (event) {
+        $('input[name="latitude"]').val(event.latLng.lat());
+        $('input[name="longitude"]').val(event.latLng.lng());
+        console.log(event.latLng.lat() + ' ' + event.latLng.lng());
+        geocoder.geocode({
+            'latLng': event.latLng
+        }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (results[0]) {
+                    $('.location_name').val(results[0].formatted_address);
+                    console.log(results[0].formatted_address);
+                }
+            }
+        });
+    });
+
+
+    // Inside the event listener for map click
+    google.maps.event.addListener(map, 'click', function (event) {
+        geocoder.geocode({
+            'location': event.latLng
+        }, function (results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+                if (results[0]) {
+                    const locationName = results[0].formatted_address;
+                    const latitude = event.latLng.lat();
+                    const longitude = event.latLng.lng();
+
+                
+                    // Update the marker position
+                    marker.setPosition(event.latLng);
+
+                    // Update the input fields
+                    $('input[name="latitude"]').val(latitude);
+                    $('input[name="longitude"]').val(longitude);
+
+                    // Update the location name input
+                    $('.location_name').val(locationName);
+
+                    // Log the information
+                    console.log(locationName);
+                    console.log(latitude + ' ' + longitude);
+                }
+            } else {
+                console.error('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    });
+}
+loadMap();
 
         $(document).ready(function () {
             $("#cityArea a").click(function () {

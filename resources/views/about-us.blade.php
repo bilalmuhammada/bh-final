@@ -22,8 +22,12 @@
                     
                     <div class="col-md-8 col-lg-8 col-xl-8" style="margin-bottom: 1rem;margin-left: 11rem;margin-top: 3rem;">
                         <div class="logo" style="text-align:center;">
+                            <a class="" href="{{env('BASE_URL') . 'home'}}" style="margin-left: -4px;">
+                               
+                         
                     <img src="{{asset('images/businesshub-slogan.png')}}" alt="" width="250px" alt="logo">
-                    </div>
+                </a>
+                </div>
                       
                         <p style="text-align:justify; margin-top: 38px;">
                             BusinessHub is the world’s first & premier marketplace exclusively focused on Businesses-Only! 

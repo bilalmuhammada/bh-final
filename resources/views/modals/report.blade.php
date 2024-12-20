@@ -46,13 +46,13 @@ padding: -1px !important;
                 <form class="report-ad-form" id="report-ad-form">
                     <div class="alert-div" style="display: none;width:13rem; white-space: nowrap;"> 
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <div class="alert-text"></div>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <div class="alert-text" style="font-size: 12px;"></div>
+                            {{-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
-                            </button>
+                            </button> --}}
                         </div>
                     </div>
-                    <input type="hidden" name="ad_id" class="ad-id" id="ad-id">
+                    <input type="hidden" name="ad_id" class="ad-id" id="ad-id" >
                     <!-- Default radio -->
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="report_reason" id="reason1" value="Spam"/>
@@ -99,7 +99,7 @@ padding: -1px !important;
                         <div class="row">
                             <label for=""></label>
                             <textarea name="description"  class="form-control" placeholder="Reason..."
-                                      style="border:2px solid #eee;font-size: 14px;border: 2px solid #eee;color:#000" cols="12" rows="2" maxlength="80"
+                                      style="border:2px solid #eee;font-size: 14px;border: 1px solid #eee;color:#000" cols="12" rows="2" maxlength="80"
                                       ></textarea>
                         </div>
                     </div>

@@ -1,6 +1,7 @@
 // const { size } = require("lodash");
 
 function configMap(lat, lng, map, location_name = 'lo') {
+   
     var marker = new google.maps.Marker({
         label: {
             text: location_name,
@@ -16,12 +17,13 @@ function configMap(lat, lng, map, location_name = 'lo') {
         },
         map: map,
 
-        // draggable: true, // Set this to true if you want to allow dragging the marker
+         draggable: true, // Set this to true if you want to allow dragging the marker
     });
     marker.setPosition({lat: Number(lat), lng: Number(lng)});
 }
 
 function initMap(mapElement, searchInput, get_lat = 31.411930, get_lng = 73.108050) {
+
     const map = new google.maps.Map(mapElement, {
         center: {lat: Number(get_lat), lng: Number(get_lng)},
         zoom: 11,
@@ -104,7 +106,8 @@ function initMap(mapElement, searchInput, get_lat = 31.411930, get_lng = 73.1080
 
 function logPlaceDetails(place_id, mapElement, searchInput) {
     var service = new google.maps.places.PlacesService(mapElement);
-
+    
+    
     service.getDetails({
         placeId: place_id
     }, function (place, status) {
@@ -129,11 +132,18 @@ function logPlaceDetails(place_id, mapElement, searchInput) {
             },
         });
 
+
+
         // Center the map and zoom in on the marker
         marker.setPosition(location);
         mapElement.setCenter(location);
         mapElement.setZoom(14);
 
+
+       
+        
+        // Set the boundary on the map
+        boundary.setMap(mapElement);
         // Update input fields
         $('input[name="latitude"]').val(lat);
         $('input[name="longitude"]').val(lng);
@@ -149,6 +159,7 @@ function logPlaceDetails(place_id, mapElement, searchInput) {
         // Log position to console
         console.log("Latitude:", lat);
         console.log("Longitude:", lng);
+        console.log("Lonbbbbgitude:", lng);
     });
 }
 
