@@ -45,6 +45,7 @@ Route::post('/listing/search', [SearchController::class, 'search']);
 Route::post('/listing/filter', [SearchController::class, 'filter']);
 
 Route::post('/get-countries', [ListingController::class, 'getCountries']);
+Route::post('/get-city-countries', [ListingController::class, 'get_city_Countries']);
 Route::post('/get-cities', [ListingController::class, 'getCities']);
 
 Route::post('ads/download-document-request', [AdController::class, 'downloadDocumentRequest']);

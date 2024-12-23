@@ -11,12 +11,17 @@
     .select2-container--default .select2-selection--single{
         background-color: transparent !important;  
     }
-    #select2-registercountry-container{
-color: #fff !important;
+    
+    #select2-register_cities-container{
+color: #ffffff !important;
     }
+    #select2-register_country-container{
+color: #ffffff !important;
+    }
+
     #select2-registercities-container
     {
-color: #fff !important;
+color: #000000 !important;
 padding-left: 31px;
     }
     select {
@@ -177,18 +182,20 @@ padding-left: 31px;
                                     </div>
                                 </div>
                                 
-                               
-
-                               
+                               @php
+                                $cities = \App\Helpers\RecordHelper::getCities(request()->country);
+   
+                                $countries = \App\Helpers\RecordHelper::getCountries();
+                               @endphp
 
                                 <div class="col-md-6">
                                     <div class=" " id="form-border" style="  border-radius: 5px;  padding: 5px 20px;
                                     border: 1px solid #A17A4E">
-                                        <select name="country" id="registercountry"
-                                                    class="form-control     login-user"
+                                        <select name="country" id="register_country"
+                                                    class="form-control  country_id   login-user"
                                                     style="width:100%;">
                                              
-                                                @foreach(getCountries() as $country)
+                                                @foreach($countries as $country)
                                                
                                                     <option
                                                         {{-- {{ $country->id == request()->country ? 'selected' : '' }} --}}
@@ -204,7 +211,7 @@ padding-left: 31px;
                                 <div class="col-md-6">
                                     <div class="input-group mb-3 "  id="form-border"  style="border-radius: 5px;   padding: 5px 20px;
                                     border: 1px solid #A17A4E">
-                                        <select name="cities" id="registercities"
+                                        <select name="cities" id="register_cities"
                                         class="form-control   login-user"
                                         style="width:100%;color:#fff !important;">
                                     @if ($cities->count() < 1)
@@ -304,5 +311,6 @@ function togglePassword(fieldId) {
         icon.textContent = "👁️"; // Change the icon to "show"
     }
 }
+
 </script>
 <!-- Register Modal -->

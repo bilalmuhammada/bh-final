@@ -10,6 +10,7 @@ use App\Models\business_rent;
 use App\Models\BusinessForSaleDetail;
 use App\Models\BusinessIdeaDetail;
 use App\Models\Category;
+use App\Models\city;
 use App\Models\Country;
 use App\Models\ExportImportTradeDetail;
 use App\Models\Favourite;
@@ -858,6 +859,17 @@ class ListingController extends Controller
             'data' => RecordHelper::getCities($request->country)
         ]);
     }
+
+    public function get_city_Countries(Request $request)
+    {
+        $country_id= city::orderBy('name')->where('country_id',$request->country_id)->get();
+        return response()->json([
+            'status' => true,
+            'data' =>  $country_id
+
+        ]);
+    }
+
 
     public function getCountries()
     {

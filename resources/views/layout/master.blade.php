@@ -6,9 +6,7 @@
 <!--begin::Body-->
 
 @php
-  $cities = \App\Helpers\RecordHelper::getCities(request()->country);
-   
-    $countries = \App\Helpers\RecordHelper::getCountries();
+
 // dd($countries);
 $url = request()->path();
 $parts = explode('/', $url);
@@ -178,7 +176,43 @@ if (inputValue === "") {
         };
       };
 
+      $(document).on('change', '.country_id', function () {
+    var country_id = $(this).val();
+   
+    if (country_id) {
+        getCitiesByCountry(country_id);
+    }
+});
 
+function getCitiesByCountry(country_id) {
+
+// alert(country_id);
+$.ajax({
+    url: api_url + 'get-city-countries',
+    type: "POST",
+    dataType: "json",
+    data: {
+        "country_id": country_id
+    },
+    success: function (response) {
+        if (response.data.length > 0) {
+            console.log( response.data);
+            var states = response.data;
+            $("#register_cities").empty();
+           
+            $("#register_cities").append('<option hidden selected disable value=""> </option>');
+
+            if (states) {
+                $.each(states, function (index, value) {
+                    $("#register_cities").append('<option value="' + value.id + '">' + value.name + '</option>');
+                });
+            }
+        } else {
+            $("#register_cities").empty();
+        }
+    }
+});
+}
 
         $(document).ready(function(){
     $('.datepicker_register').datepicker({
@@ -212,22 +246,22 @@ if (inputValue === "") {
             minimumResultsForSearch: -1
         });
 
-        $("#registercountry").select2({
-            templateSelection: formatCountry,
-            templateResult: formatCountry,
-            // minimumResultsForSearch: -1
+        $("#register_country").select2({
+            // templateSelection: formatCountry,
+            // templateResult: formatCountry,
+            // // minimumResultsForSearch: -1
         });
-        $("#registercountry").on("select2:open", function () {
+        $("#register_country").on("select2:open", function () {
     // Select the currently open dropdown and adjust its width
     $(".select2-container--open").css("width", "150px");
 });
 
-$("#registercities").select2({
-            templateSelection: formatCountry,
-            templateResult: formatCountry,
-            // minimumResultsForSearch: -1
+$("#register_cities").select2({
+            // templateSelection: formatCountry,
+            // templateResult: formatCountry,
+            //  minimumResultsForSearch: -1
         });
-        $("#registercities").on("select2:open", function () {
+        $("#register_cities").on("select2:open", function () {
     // Adjust the width of the currently open dropdown
     $(".select2-container--open .select2-dropdown--below").css("width", "200px");
 });
