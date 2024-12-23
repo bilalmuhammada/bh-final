@@ -53,6 +53,11 @@ class AdController extends Controller
             'message' => 'No Record Found'
         ]);
     }
+
+    public function getcategoriesLike(Request $request){
+
+        dd('hh');
+    }
     
     public function showAds(Request $request,$subcategory_id = false)
     {

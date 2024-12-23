@@ -78,10 +78,10 @@ Route::post('/popular-ads', [AdController::class, 'getPopularAds']);
     });
 
     Route::prefix('/user-notifications')->group(function () {
-        Route::post("/", 'App\Http\Controllers\App\UserNotificationController@all');
-        Route::post("/show", 'App\Http\Controllers\App\UserNotificationController@show');
-        Route::post("/mark-as-read-single", 'App\Http\Controllers\App\UserNotificationController@markAsReadSingle');
-        Route::post("/mark-as-read-all", 'App\Http\Controllers\App\UserNotificationController@markAsReadAll');
+        Route::post("/", 'App\Http\Controllers\UserNotificationController@all');
+        Route::post("/show", 'App\Http\Controllers\UserNotificationController@show');
+        Route::post("/mark-as-read-single", 'App\Http\Controllers\UserNotificationController@markAsReadSingle');
+        Route::post("/mark-as-read-all", 'App\Http\Controllers\UserNotificationController@markAsReadAll');
     });
 
     Route::prefix('app/')->group(function () {
@@ -101,6 +101,8 @@ Route::post('/popular-ads', [AdController::class, 'getPopularAds']);
     Route::post('/verify-email-code', [AuthController::class, 'verifyEmailCode']);
     Route::post('/update-profile', [UserController::class, 'updateProfile']);
 
+
+   
     Route::post('/dashboard', [AdminController::class, 'dashboard']);
     Route::get('get-chart-data', [AdminController::class, 'getChartData']);
 Route::middleware('auth:sanctum')->group(function () {
@@ -124,12 +126,7 @@ Route::middleware('auth:sanctum')->group(function () {
     //     Route::post('/delete-account', [UserController::class, 'deleteAccount']);
     // });
 
-    // Route::prefix('/user-notifications')->group(function () {
-    //     Route::post("/", 'App\Http\Controllers\App\UserNotificationController@all');
-    //     Route::post("/show", 'App\Http\Controllers\App\UserNotificationController@show');
-    //     Route::post("/mark-as-read-single", 'App\Http\Controllers\App\UserNotificationController@markAsReadSingle');
-    //     Route::post("/mark-as-read-all", 'App\Http\Controllers\App\UserNotificationController@markAsReadAll');
-    // });
+  
 
     // Route::prefix('app/')->group(function () {
     //     Route::prefix('chats/')->group(function () {

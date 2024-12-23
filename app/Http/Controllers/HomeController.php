@@ -49,7 +49,15 @@ class HomeController extends Controller
         return view('home.innerPages.notifications');
         // ->with($data);
     }
-    
+
+    public function getcategoriesLike(Request $request)
+    {
+        $category_id = $request->get('category_id');
+        $keyword = $request->get('keyword', '');
+        return response()->json(\App\Helpers\RecordHelper::getSubCategories($category_id, $keyword));
+   
+    }
+
 
 
 }

@@ -84,6 +84,8 @@ padding-left: 31px;
             /* margin-left: -30px !important; */
         }
 </style>
+
+
 <div class="modal" id="registerModal" style="border:0px solid red;margin-top:-60px;">
     <div class="modal-dialog" style="border:0px solid red; width:500px;">
         <div class="modal-content" style="background-color: rgba(33, 34, 35, .90) !important;border-radius:10px;">
@@ -177,10 +179,7 @@ padding-left: 31px;
                                 
                                
 
-                                @php
-                                $countries = \App\Helpers\RecordHelper::getCountriesRegistration();
-                                $cities = \App\Helpers\RecordHelper::getCities(request()->country);
-                            @endphp
+                               
 
                                 <div class="col-md-6">
                                     <div class=" " id="form-border" style="  border-radius: 5px;  padding: 5px 20px;
@@ -188,13 +187,11 @@ padding-left: 31px;
                                         <select name="country" id="registercountry"
                                                     class="form-control     login-user"
                                                     style="width:100%;">
-                                                @if ($cities->count() < 1)
-                                                    <option value="" selected>Country</option>
-                                                @endif
-                                                @foreach($countries as $country)
+                                             
+                                                @foreach(getCountries() as $country)
                                                
                                                     <option
-                                                        {{ $country->id == request()->country ? 'selected' : '' }}
+                                                        {{-- {{ $country->id == request()->country ? 'selected' : '' }} --}}
                                                          {{-- data1-flag-url1="{{ $country->image_url }}" --}}
                                                         value="{{ $country->id }}"
                                                         style="font-size:8px !important;"> {{ $country->name }}</option>

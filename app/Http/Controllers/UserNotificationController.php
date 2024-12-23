@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\App;
-
+// namespace App\Http\Controllers\App;
+namespace App\Http\Controllers;
 use App\Models\UserNotification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;

@@ -8,6 +8,12 @@
 select{
     text-transform: none !important;
 }
+#clearButton {
+    padding: 0 10px;
+    font-size: 16px;
+    color: red;
+    cursor: pointer;
+}
 select>option:hover{
     color: blue;
     background-color: transparent !important;
@@ -203,10 +209,17 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
         <div class="col-md-7 border-color" style="border-right: 2px solid #eee; text-align: center;">
             <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;font-size: 14px; margin-top: 2px;">Keyword</label>
             <div class="input-group">
-                <input type="text" class="form-control filter1" id="keyword" style="margin-top: -2px; font-size: 14px;" placeholder="Search anything in {{ $category_name->name }}">
+                <input type="text" class="form-control filter1 keyword_search" id="keyword" style="margin-top: -2px; font-size: 14px;" placeholder="Search anything in {{ $category_name->name }}">
                 <span style="margin-top:8px;font-weight: bolder; color: goldenrod;" id="searchIcon">
                     <i class="fa fa-search"></i> <!-- Bootstrap Icons -->
                 </span>
+                <button type="button" id="clearButton" class="btn btn-outline-secondary" style="display: none;">
+                    ×
+                </button>
+
+                <ul id="subcategoryDropdown" class="dropdown-menu" style="display: none;max-height: 11.2rem !important; position: absolute; z-index: 1000; width: 100%;">
+                    <!-- Subcategories will be appended here dynamically -->
+                </ul>
             </div>
         </div>
     
@@ -218,11 +231,18 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
         <div class="col-md-7 border-color" style="border-right: 2px solid #eee; text-align: center;">
             <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px; font-size: 14px; margin-top: 2px;">Neighborhood</label>
             <div class="input-group">
-                <input type="text" class="form-control filter1 location_name" name="location_name" style="margin-top: -2px; font-size: 14px;" id="location_name" placeholder="Enter location">
+                <input type="text" 
+                       class="form-control filter1 location_name" 
+                       name="location_name" 
+                       style="margin-top: -2px; font-size: 14px;" 
+                       id="location_name" 
+                       placeholder="Enter location">
                 <span class="" id="locationIcon">
-                    <i class="fa fa-map-marker" style="margin-top:8px; color:red;"></i> <!-- Bootstrap Icons location marker -->
+                    <i class="fa fa-map-marker" style="margin-top:8px; color:red;"></i>
                 </span>
+                
             </div>
+            
             <div class="col-md-6 mx-auto" style="display: none">
                 <div class="map" id="map"></div>
             </div>
@@ -677,6 +697,59 @@ loadMap();
             subcategory = $(this).attr('subcategory-id');
             window.location.assign(base_url + "ads/" + subcategory +"?country=" + {{ request()->country }} + "&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city);
         });
+
+
+
+
+$(document).ready(function () {
+    const dropdown = $('#subcategoryDropdown');
+    const keywordInput = $('.keyword_search');
+
+    // Show dropdown when input gains focus or starts typing
+    keywordInput.on('focus input', function () {
+        const keyword = $(this).val();
+
+        
+        const category_id = '{{ $category_id }}';
+
+        alert
+        if (keyword.length > 0) {
+            $.ajax({
+                url: 'lisiting_get_subcategories',
+                type: 'GET',
+                data: { category_id: category_id, keyword: keyword },
+                success: function (data) {
+                    dropdown.empty(); // Clear existing items
+                    if (data.length > 0) {
+                        data.forEach(function (subcategory) {
+                            const item = $('<li>')
+                                .addClass('dropdown-item')
+                                .text(subcategory.name)
+                                .on('click', function () {
+                                    keywordInput.val(subcategory.name);
+                                    dropdown.hide();
+                                });
+                            dropdown.append(item);
+                        });
+                        dropdown.show();
+                    } else {
+                        dropdown.hide();
+                    }
+                },
+            });
+        } else {
+            dropdown.hide();
+        }
+    });
+
+    // Hide the dropdown when clicking outside of it
+    $(document).on('click', function (e) {
+        if (!$(e.target).closest('#keyword, #subcategoryDropdown').length) {
+            dropdown.hide();
+        }
+    });
+});
+
 
     </script>
 @endsection

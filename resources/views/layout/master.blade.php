@@ -6,7 +6,10 @@
 <!--begin::Body-->
 
 @php
-
+  $cities = \App\Helpers\RecordHelper::getCities(request()->country);
+   
+    $countries = \App\Helpers\RecordHelper::getCountries();
+// dd($countries);
 $url = request()->path();
 $parts = explode('/', $url);
 $first = $parts[0] ?? null;  
@@ -21,6 +24,9 @@ $second = $parts[1] ?? null;
 @endif
 @yield('content')
 <!-- modals start -->
+
+
+
 @include('modals.login')
 @include('modals.forgot-password')
 @include('modals.register')

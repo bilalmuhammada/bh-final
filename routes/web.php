@@ -21,15 +21,19 @@ use App\Http\Controllers\PlanController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+    
 
 Route::get('auth/google', [AuthController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [AuthController::class, 'handleGoogleCallback']);
+
 
 Route::get('123', function () {
     Artisan::call('cache:clear');
     Artisan::call('config:clear');
     Artisan::call('view:clear');
 });
+
+Route::get('/ads/lisiting_get_subcategories', [HomeController::class, 'getcategoriesLike']);
 
 Route::get('/ads/{subcategory_id?}', [AdController::class, 'showAds']);
 Route::get('/ads/detail/{ad_id}', [AdController::class, 'showAdDetail']);
@@ -52,9 +56,9 @@ Route::middleware('check_user_auth')->group(function () {
         Route::get('/searches', [UserController::class, 'mySearches']);
     });
 
-    Route::prefix('/listing')->group(function() {
 
-        
+
+    Route::prefix('/listing')->group(function() {
 
         Route::post('/upload-image', [ListingController::class, 'uploadSingle'])->name('upload.single');
 
@@ -148,6 +152,8 @@ Route::get('/investors-form', function(){
 Route::get('/investors-required-form', function(){
     return view('listings-cat-forms.investors-required');
 });
+
+
 Route::get('/franchise-opportunities-form', function(){
     return view('listings-cat-forms.franchise-opportunities');
 });
@@ -199,6 +205,8 @@ Route::middleware('check_user_auth')->group(function () {
         Route::get('/transactions', [UserController::class, 'transactions']);
         Route::get('/reportUser', [UserController::class, 'reportUser']);
     });
+
+   
 
      Route::prefix('/post')->group(function () {
         Route::get('/reportpost', [AdController::class, 'reportedUser']);

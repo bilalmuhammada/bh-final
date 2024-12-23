@@ -61,7 +61,7 @@ select {
                                 {{-- <a href="{{ env('BASE_URL') }}">
                                     <img src="{{asset('images/businesshub-slogan.png')}}" alt="" width="250px" alt="logo">
                                 </a> --}}
-                                <h4>Contact Us</h4>
+                                <h4 style="font-weight: bold;">Contact Us</h4>
                                 <p>Share your mind with us!</p>
                             </div>
                             {{-- <form>

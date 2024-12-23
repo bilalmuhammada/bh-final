@@ -181,7 +181,7 @@ $second = $parts[1] ?? null;
                 <div class="row">
                     <div class="col-lg-6 col-xl-6 col-md-6">
                         <!-- social icon desktop start -->
-                        <a class="" href="{{env('BASE_URL') . 'home'}}" style="margin-left: -4px;">
+                        <a class="" href="{{env('BASE_URL') . 'home'}}" style="margin-left: -47px;">
                             <img src="{{asset('images/businesshub.png')}}" alt="" width="150px" alt="logo">
                         </a>
                     </div>

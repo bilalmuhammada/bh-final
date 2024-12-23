@@ -20,7 +20,7 @@
                             <img src="{{asset('images/businesshub.png')}}" alt="" width="150px" alt="logo">
                         </a> --}}
                         {{-- <h3 style="margin-top: 20px;">Contact Us</h3> --}}
-                        <h1 class="terms-h "  >Terms of Use</h1>
+                        <h1 class="terms-h "   >Terms of Use</h1>
                        
                         <p style="text-align: justify;">
                             BusinessHub Platform Terms of Use ("Terms of Use") tell you the rules for using the platform available at www.businesshub.at and through any BusinessHub mobile application available from time to time (collectively, the "Platform"), as well as any information, content or materials published on, or available via, the Platform (collectively, the "Content").
