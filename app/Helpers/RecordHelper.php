@@ -97,12 +97,20 @@ class RecordHelper
         return SubCategory::where('category_id', $category_id)->orderBy('sequence')->get();
     }
 
-    public static function getSubCategoriesLike($category_id, $keyword = null)
+    public static function getSubCategoriesLike($category_id=null, $keyword = null)
 {
-    $query = SubCategory::where('category_id', $category_id);
+
+    
+    if ($category_id === null) {
+        $query = SubCategory::query(); // Use query builder
+    } else {
+        $query = SubCategory::where('category_id', $category_id);
+    }
+    
     if ($keyword) {
         $query->where('name', 'LIKE', '%' . $keyword . '%');
     }
+    
     return $query->get();
 }
     public static function getAdsBySubcategory($subcategory_id)

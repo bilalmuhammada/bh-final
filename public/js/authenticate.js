@@ -1,8 +1,8 @@
 //submitting register form
 $(document).on('click', '.register-button', function () {
-    grecaptcha.ready(function () {
-        grecaptcha.execute(GOOGLE_RECAPTCHA_KEY).then(function (token) {
-            $('#g-recaptcha-response').val(token);
+    // grecaptcha.ready(function () {
+    //     grecaptcha.execute(GOOGLE_RECAPTCHA_KEY).then(function (token) {
+    //         $('#g-recaptcha-response').val(token);
             $.ajax({
                 url: api_url + 'register',
                 data: $('.register-form').serialize(),
@@ -15,11 +15,11 @@ $(document).on('click', '.register-button', function () {
                         $('#loginModal').modal('show');
                     } else {
 
-                        $('.alert-text').text(response.message);
+                        $('.alert-text-register').text(response.message);
                         $('.alert-div').show();
 
                         setTimeout(function () {
-                            $('.alert-text').text('');
+                            $('.alert-text-register').text('');
                             $('.alert-div').hide();
                         }, 7000);
                     }
@@ -29,8 +29,8 @@ $(document).on('click', '.register-button', function () {
                 }
             });
         });
-    });
-});
+//     });
+// });
 
 $(document).on('click', '.close-signup-btn', function () {
     $('#registerModal').modal('hide');

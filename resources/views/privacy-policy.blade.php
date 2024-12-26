@@ -17,14 +17,14 @@
         <div class="container">
             <div class="row " style="margin-bottom: 30px;">
                 <div class="col-md-12 col-lg-12 col-xl-12 term-text">
-                    <div class="login-header">
+                    <div class="login-header" style="margin-left: -45px;width: 104%;">
                         {{-- <a href="{{ env('BASE_URL') }}">
                             <img src="{{asset('images/businesshub.png')}}" alt="" width="150px" alt="logo">
                         </a> --}}
                         {{-- <h3 style="margin-top: 20px;">Contact Us</h3> --}}
                         <h1 class="terms-h" style="margin-top: 1.8rem !important;" >Privacy Policy</h1>
                         {{-- <p>Share your mind with us!</p> --}}
-                    </div>
+              
                     <h5 style=" color: #000;
     font-weight: 900;
     font-size: 16px;">What Privacy Policy Covers</h5>
@@ -415,6 +415,8 @@
 
 
                     <!-- Privacy Policy text finish -->
+                </div>
+               
                 </div>
             </div>
         </div>

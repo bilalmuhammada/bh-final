@@ -42,17 +42,17 @@ class AuthController extends Controller
             'password' => 'required|min:6|confirmed',
             'country' => 'required|exists:countries,id',
             'city' => 'nullable|exists:cities,id',
-            'g-recaptcha-response' => ['', function ($attribute, $value, Closure $fail) {
-                $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
-                    'secret' => env('GOOGLE_RECAPTCHA_SECRET'),
-                    'response' => $value,
-                    'remoteip' => \request()->ip()
-                ]);
+            // 'g-recaptcha-response' => ['', function ($attribute, $value, Closure $fail) {
+            //     $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
+            //         'secret' => env('GOOGLE_RECAPTCHA_SECRET'),
+            //         'response' => $value,
+            //         'remoteip' => \request()->ip()
+            //     ]);
 
-                if (!$g_response->json('success')) {
-                    $fail('The ' . $attribute . ' is invalid.');
-                }
-            }]
+            //     if (!$g_response->json('success')) {
+            //         $fail('The ' . $attribute . ' is invalid.');
+            //     }
+            // }]
         ]);
 
         if ($validator->fails()) {

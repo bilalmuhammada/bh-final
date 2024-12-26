@@ -213,9 +213,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                 <span style="margin-top:8px;font-weight: bolder; color: goldenrod;" id="searchIcon">
                     <i class="fa fa-search"></i> <!-- Bootstrap Icons -->
                 </span>
-                <button type="button" id="clearButton" class="btn btn-outline-secondary" style="display: none;">
-                    ×
-                </button>
+                
 
                 <ul id="subcategoryDropdown" class="dropdown-menu" style="display: none;max-height: 11.2rem !important; position: absolute; z-index: 1000; width: 100%;">
                     <!-- Subcategories will be appended here dynamically -->
@@ -262,7 +260,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                 <input type="text" class="form-control filter1" style="border-right: 2px solid #eee;padding: 1px !important; font-size: 14px;" name="min_price" id="min_price" oninput="validatePhoneNumber(this)" placeholder="Min" min="0">
                 {{-- <div style="border-left: 1px solid #ccc; height: 100%; margin: 0 10px;"></div> --}}
     
-                <input type="text" class="form-control max_price" style="padding: 0px 0px 0px 5px !important; font-size: 14px; " name="max_price" id="max_price" oninput="validatePhoneNumber(this)" placeholder="Max" min="0">
+                <input type="text" class="form-control max_price" style="padding: 0px 0px 0px 5px !important; font-size: 13px; " name="max_price" id="max_price" oninput="validatePhoneNumber(this)" placeholder="Max" min="0">
             </span>
                 {{-- </div> --}}
         </div>
@@ -271,7 +269,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             <div class="col-md-12" style="text-align: center; margin-top: 2px;">
                 <span style="font-size: 14px;"><b>Sort</b></span>
             </div>
-            <select class="form-select form-control "  id="sortDropdown" onchange="window.location.href=this.value" >
+            <select class="form-select form-control "style="font-size: 13px;"  id="sortDropdown" onchange="window.location.href=this.value" >
                 <option class="option" value="?sort=newest" {{ request()->sort == 'newest' ? 'selected' : '' }}>Post: New to Old</option>
                 <option class="option" value="?sort=oldest" {{ request()->sort == 'oldest' ? 'selected' : '' }}>Post: Old to New</option>
                 <option class="option" value="?sort=price_high" {{ request()->sort == 'price_high' ? 'selected' : '' }}>Price: High to Low</option>
@@ -712,7 +710,7 @@ $(document).ready(function () {
         
         const category_id = '{{ $category_id }}';
 
-        alert
+    
         if (keyword.length > 0) {
             $.ajax({
                 url: 'lisiting_get_subcategories',

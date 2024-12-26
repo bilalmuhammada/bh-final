@@ -54,7 +54,9 @@ class HomeController extends Controller
     {
         $category_id = $request->get('category_id');
         $keyword = $request->get('keyword', '');
-        return response()->json(\App\Helpers\RecordHelper::getSubCategories($category_id, $keyword));
+
+        // dd(  $category_id );
+        return response()->json(\App\Helpers\RecordHelper::getSubCategoriesLike($category_id, $keyword));
    
     }
 

@@ -116,9 +116,12 @@
                                     <!-- searchbar start -->
                                     <div class="input-group search-box-area search-w" style="border:0px solid red;">
                                         <input name="key_words" type="search"
-                                               class="form-control searbox-input category-search-box"
+                                               class="form-control keyword_search searbox-input category-search-box"
                                                placeholder="Search in All" aria-label="Search"
                                                aria-describedby="search-addon">
+                                               <ul id="subcategoryDropdown" class="dropdown-menu" style="display: none;">
+                                                <!-- Subcategories will be appended here dynamically -->
+                                            </ul>
                                         <input name="category_id" type="hidden" class="category-search-category-id">
                                         <input name="country" type="hidden" class="country" value="{{ request()->country }}">
                                         <input name="city" type="hidden" class="city" value="{{ request()->city }}">
@@ -651,6 +654,8 @@
             //setting attribute to search in relevent category
             $('.category-search-category-id').val(thisElem.attr('category-id'))
 
+            
+
         });
 
         // $(document).on('click', '.category-search-btn', function (e) {
@@ -694,5 +699,56 @@
             a.collapse('show');
             // hidden-div
         });
+
+
+        $(document).ready(function () {
+    const dropdown = $('#subcategoryDropdown');
+    const keywordInput = $('.keyword_search');
+    const categoryId = $('.category-search')
+
+    // Show dropdown when input gains focus or starts typing
+    keywordInput.on('input', function () {
+        const keyword = $(this).val();
+
+        
+        const category_id =$('.category-search-category-id').val();
+
+      
+        if (keyword.length > 0) {
+            $.ajax({
+                url: '/ads/lisiting_get_subcategories',
+                type: 'GET',
+                data: { category_id: category_id, keyword: keyword },
+                success: function (data) {
+                    dropdown.empty(); // Clear existing items
+                    if (data.length > 0) {
+                        data.forEach(function (subcategory) {
+                            const item = $('<li>')
+                                .addClass('dropdown-item')
+                                .text(subcategory.name)
+                                .on('click', function () {
+                                    keywordInput.val(subcategory.name);
+                                    dropdown.hide();
+                                });
+                            dropdown.append(item);
+                        });
+                        dropdown.show();
+                    } else {
+                        dropdown.hide();
+                    }
+                },
+            });
+        } else {
+            dropdown.hide();
+        }
+    });
+
+    // Hide the dropdown when clicking outside of it
+    $(document).on('click', function (e) {
+        if (!$(e.target).closest('#keyword, #subcategoryDropdown').length) {
+            dropdown.hide();
+        }
+    });
+});
     </script>
 @endsection

@@ -353,14 +353,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                         </p>
                     </div>
                 </div>
-                <!-- <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Chicago" width="100%" height="auto">
-                    <div class="hero-text">
-                        <p class="main">Welcome to the World's #1 <br/>online business website!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Which country would you like
-                            to explore?</p>
-                    </div>
-                </div> -->
+               
                 <div class="carousel-item">
                     <img src="{{asset('images/slider-images/2.jpeg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text" >
@@ -368,14 +361,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                         <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
                     </div>
                 </div>
-                <!-- <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/image4.jpg')}}" alt="New York" width="100%" height="auto">
-                    <div class="hero-text">
-                        <p class="main">Welcome to the World's #1 <br/>online business website!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Which country would you like
-                            to explore?</p>
-                    </div>
-                </div> -->
+                
                 <div class="carousel-item">
                     <img src="{{asset('images/slider-images/3.jpeg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text">
@@ -383,22 +369,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                         <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
                     </div>
                 </div>
-                <!-- <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/image 6.jpg')}}" alt="New York" width="100%" height="auto">
-                    <div class="hero-text">
-                        <p class="main">Welcome to the World's #1 <br/>online business website!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Which country would you like
-                            to explore?</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/image 7.jpg')}}" alt="New York" width="100%" height="auto">
-                    <div class="hero-text">
-                        <p class="main">Welcome to the World's #1 <br/>online business website!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Which country would you like
-                            to explore?</p>
-                    </div>
-                </div> -->
+               
                 <div class="carousel-item">
                     <img src="{{asset('images/slider-images/4.jpeg')}}" alt="New York" width="100%" height="450px">
                     <div class="hero-text">
