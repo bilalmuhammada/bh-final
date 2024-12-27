@@ -315,6 +315,11 @@ $("#register_cities").select2({
             // templateSelection: formatCity,
             // templateResult: formatCity,
         });
+        $(".city_dropdown_list").select2({
+            // minimumResultsForSearch: -1
+            // templateSelection: formatCity,
+            // templateResult: formatCity,
+        });
 
         $(".city_dropdown_register_form").select2();
 

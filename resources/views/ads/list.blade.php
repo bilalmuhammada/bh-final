@@ -84,7 +84,7 @@ select>option:hover{
             color: #000 !important
         }
         #sortDropdown{
-            width: 64% !important;
+            width: 70% !important;
             /* font-weight: 600; */
 
             font-size: 15px;
@@ -201,7 +201,15 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
                aria-controls="multiCollapseExample1" style="color:#000;">
                 <div class="col-md-12" style="text-align: center;margin-top: 3px;"><span style="font-size: 14px;"><b>City</b></span></div>
-                <div class="col-md-12" style="margin-top: 12px;" ><span style="font-size: 14px;color:#252525;margin-left: 12px;">{{ $selected_city_name }}</span></div>
+                <div class="col-md-12" style="margin-top: 8px;" > <select class="form-control city_dropdown_list1" name="city_dropdown" id="" 
+                    style="text-align:center;background-color:transparent !important; font-size:13px;">
+                    <option value="">All </option>
+                @foreach($cities_for_filter as $city)
+                    <option data-city-id="{{ $city->id }}"
+                            {{ $city->id == request()->city ? 'selected' : '' }} value="{{ $city->id }}"
+                            style="font-size:8px !important;">{{ $city->name }}</option>
+                @endforeach
+            </select></div>
             </a>
         </div>
 
