@@ -110,7 +110,7 @@ padding-left: 31px;
                     </div>
                     <!-- register form title finish -->
                     <form class="register-form" id="register-form" style="width:100%;margin-left: -4px;" autocomplete="off">
-                        <div class="alert-div" style="display: none;margin-left: 12px; width: 94%;">
+                        <div class="alert-div" style="display: none;margin-left: 17px; width: 93%;">
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <div class="alert-text-register" style="font-size: 14px;"></div>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">

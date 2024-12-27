@@ -54,11 +54,7 @@ class AdController extends Controller
         ]);
     }
 
-    public function getcategoriesLike(Request $request){
-
-        dd('hh');
-    }
-    
+   
     public function showAds(Request $request,$subcategory_id = false)
     {
         $data = [];

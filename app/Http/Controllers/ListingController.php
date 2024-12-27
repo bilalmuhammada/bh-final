@@ -210,15 +210,19 @@ class ListingController extends Controller
             // Fields to update or create
             [
                 'title' => $request->title,
+                'category_id' => $request->category_id,
+                'subcategory_id' => $request->subcategory_id,
+                'name' => $request->name,
                 'phone' => $request->phone,
                 'price' => $request->price,
                 'description' => $request->description,
                 'city_id' => $request->city,
                 'country_id' => $request->country,
                 'status' => "pending",
+                'is_featured' => 1,
+                "hide_phone" => false,
                 'latitude' => $request->latitude,
                 'longitude' => $request->longitude,
-                'location_name' => $request->location_name,
                 'created_by' => Session::get('user')->id,
             ]
         );

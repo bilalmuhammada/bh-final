@@ -84,7 +84,7 @@ select>option:hover{
             color: #000 !important
         }
         #sortDropdown{
-            width: 100% !important;
+            width: 64% !important;
             /* font-weight: 600; */
 
             font-size: 15px;
@@ -194,7 +194,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
     @endphp
     <section class="desktop-view">
         <div class="container" style=" max-width: 80rem;">
-            {{-- <div class="col-lg-12 col-xl-12 col-12 col-md-12"> --}}
+            
                 <form class="form" >
     <div class="row" style="display: flex; flex-wrap: nowrap;">
         <div class="col-md-4 border-color" style="border-right:2px solid #eee;" id="cityArea">
@@ -216,7 +216,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                 
 
                 <ul id="subcategoryDropdown" class="dropdown-menu" style="display: none;max-height: 11.2rem !important; position: absolute; z-index: 1000; width: 100%;">
-                    <!-- Subcategories will be appended here dynamically -->
+                   
                 </ul>
             </div>
         </div>
@@ -253,16 +253,16 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                aria-controls="multiCollapseExample4" style="color:#000;">
                 <div class="col-md-12" style="text-align: center;margin-top:2px;"><span style="font-size: 14px;"><b>Price</b></span></div>
              
-                {{-- <div class="col-md-12"><span style="font-size: 11px;color:#000;">{{ $from || $to ? $from . '-' . $to : 'Select'}}</span></div> --}}
+                
             </a>
-            {{-- <div class="col-md-12" style="display: flex;"> --}}
+            
                 <span style="display: flex;">
                 <input type="text" class="form-control filter1" style="border-right: 2px solid #eee;padding: 1px !important; font-size: 14px;" name="min_price" id="min_price" oninput="validatePhoneNumber(this)" placeholder="Min" min="0">
-                {{-- <div style="border-left: 1px solid #ccc; height: 100%; margin: 0 10px;"></div> --}}
+                
     
                 <input type="text" class="form-control max_price" style="padding: 0px 0px 0px 5px !important; font-size: 13px; " name="max_price" id="max_price" oninput="validatePhoneNumber(this)" placeholder="Max" min="0">
             </span>
-                {{-- </div> --}}
+                
         </div>
 
         <div class="col-md-5 border-color" id="filtersAreaw1">
@@ -441,7 +441,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                     <div class="swiper-container" style="height:180px;width:16pc;">
                                         <div class="swiper-wrapper">
                                             <!-- Static image for now -->
-                                            <div class="swiper-slide" style="background-image:url({{ $ad->main_image_url }});"></div>
+                                            <div class="swiper-slide" style="background-image:url({{ $ad->main_image_url }});height: 100%;width: 100%;"></div>
                                         </div>
                                         <!-- Add Pagination if needed -->
                                         <div class="swiper-pagination"></div>

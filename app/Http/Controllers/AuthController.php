@@ -38,10 +38,13 @@ class AuthController extends Controller
         $validator = Validator::make($request->all(), [
             'first_name' => 'required',
             'last_name' => 'required',
+            'phone' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'gender' => 'required',
+            'dob' => 'required',
             'country' => 'required|exists:countries,id',
             'city' => 'nullable|exists:cities,id',
+            'password' => 'required|min:6|confirmed',
             // 'g-recaptcha-response' => ['', function ($attribute, $value, Closure $fail) {
             //     $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
             //         'secret' => env('GOOGLE_RECAPTCHA_SECRET'),

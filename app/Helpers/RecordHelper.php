@@ -102,7 +102,7 @@ class RecordHelper
 
     
     if ($category_id === null) {
-        $query = SubCategory::query(); // Use query builder
+        $query =   SubCategory::select('name')->groupBy('name'); // Use query builder
     } else {
         $query = SubCategory::where('category_id', $category_id);
     }

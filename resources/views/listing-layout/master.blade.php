@@ -75,6 +75,7 @@
         } else {
             // Remove the darkerbtn class from all labels in case this is a toggle group
             $('.btn-mobile').removeClass('darkerbtn');
+            $('.btn-mobile-hide').removeClass('darkerbtn');
             // Add the darkerbtn class to the current clicked label
             $(this).addClass('darkerbtn');
         }
@@ -90,6 +91,7 @@
         } else {
             // Remove the darkerbtn class from all labels in case this is a toggle group
             $('.btn-mobile-hide').removeClass('darkerbtn');
+            $('.btn-mobile').removeClass('darkerbtn');
             // Add the darkerbtn class to the current clicked label
             $(this).addClass('darkerbtn');
         }
@@ -105,6 +107,7 @@
         } else {
             // Remove the darkerbtn class from all labels in case this is a toggle group
             $('.btn-darker').removeClass('darkerbtn');
+            $('.btn-darker-hide').removeClass('darkerbtn');
             // Add the darkerbtn class to the current clicked label
             $(this).addClass('darkerbtn');
         }
@@ -119,6 +122,7 @@
         } else {
             // Remove the darkerbtn class from all labels in case this is a toggle group
             $('.btn-darker-hide').removeClass('darkerbtn');
+            $('.btn-darker').removeClass('darkerbtn');
             // Add the darkerbtn class to the current clicked label
             $(this).addClass('darkerbtn');
         }

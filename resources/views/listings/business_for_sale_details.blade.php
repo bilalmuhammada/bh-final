@@ -173,6 +173,7 @@
         <input name="listing_id" type="hidden" value="">
         <input name="category_id" type="hidden" value="{{ $Categories->id }}">
         <input name="category_name" type="hidden" value="{{ $Categories->name }}">
+        <input name="subcategory_id" type="hidden" value="{{ $subcategories->id }}">
         <input name="subcategory_name" type="hidden" value="{{ $subcategories->name }}">
         <input type='hidden' class='form-controlz latitude' id='latitude' name='latitude' placeholder='Enter Latitude'>
         <input type='hidden' class='form-controlz longitude' id='longitude' name='longitude'

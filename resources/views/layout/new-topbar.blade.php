@@ -191,10 +191,16 @@ $second = $parts[1] ?? null;
                     <div class="col-lg-6 col-xl-6 col-md-6" style="margin-top: 17px;">
                         <div style="float:right;margin-right: -45px;">
                             @if (!session()->has('user'))
-                                <a class="login-btn" >Login</a>
-                                <a class="register-btn">Register</a>
-                                <a class="add-list-button add-listing-btn"
-                                style="padding: 11px 8px;border-radius: 6px;">+ Place Your Ad</a>
+                            <span class="auth" style="text-align:center;font-size:14px !important;font-weight: bold;">
+                                <a class="login-btn">Login</a>
+                               </span>
+                                <span class="auth"  style="text-align:center;font-size:14px !important;    font-weight: bold;">
+                                        <a class="register-btn">Register</a>
+                               </span>
+                                <span style="padding:4px 15px;text-align:center;font-size:14px !important;">
+                                    <a class="add-list-button add-listing-btn"
+                                       style="padding: 7px 8px;border-radius: 6px;">+ Place Your Ad</a>
+                                </span> 
                                 @else
                                 <a class="dashboard-btn"  href="{{env('BASE_URL') . 'home'}}" >Dashboard</a>
                                 <a class="add-list-button add-listing-btn"
