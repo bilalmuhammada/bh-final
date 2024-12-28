@@ -176,13 +176,13 @@ $second = $parts[1] ?? null;
     <div class="container">
         <!-- topbar start -->
         @if(  request()->path()!=="about-us" &&  $second !=="plane-ad")
-        <div class="topbar desktop-view">
+        <div class="topbar desktop-view" style="margin-top: 12px;">
             <div class="cont-w">
                 <div class="row">
                     <div class="col-lg-6 col-xl-6 col-md-6">
                         <!-- social icon desktop start -->
                         <a class="" href="{{env('BASE_URL') . 'home'}}" style="margin-left: -47px;">
-                            <img src="{{asset('images/businesshub.png')}}" alt="" width="150px" alt="logo">
+                            <img src="{{asset('images/businesshub.png')}}" alt="" width="150px" class="shaking" alt="logo">
                         </a>
                     </div>
                     

@@ -183,7 +183,7 @@
                     {{-- <div class="col-lg-1 col-xl-1 col-md-1"> --}}
                         <!-- social icon desktop start -->
                         <a class="" href="{{env('BASE_URL') . 'home'}}" >
-                            <img src="{{asset('images/businesshub.png')}}" alt="" width="120px" alt="logo">
+                            <img src="{{asset('images/businesshub.png')}}" alt="" width="120px" class="shaking" alt="logo">
                         </a>
                     </div>
                     @php
@@ -196,7 +196,7 @@
                     
                 {{-- </div> --}}
                 @if($second!=="profile")
-                <div class="col-lg-4 col-xl-4 col-md-4" style="border:0px solid red;margin-right:-1.4rem;">
+                <div class="col-lg-4 col-xl-5 col-md-8" style="border:0px solid red;margin-right:-1.4rem;">
                     <!-- <div class="col-md-4"> -->
                     <span style="position:relative;top:20px;border:0px solid red;background-color:inherit !important;">
                     <!-- country bar mobile start -->
@@ -291,7 +291,7 @@
     </div>
     @endif
     <!-----icons---bar---->
-    <div class="col-md-7 col-xl-7 col-md-9" style="border:0px solid red;">
+    <div class="col-md-7 col-xl-6 col-md-9" style="border:0px solid red;">
         <div class="social-icon float-right text-dark">
             <div class="row align-middle" style="font-size: 11px;color:black;margin-right: 1.5rem;border:0px solid red;">
                 @if (session()->has('user'))  <span style="padding:13px 15px 0px 15px;text-align:center;"> 

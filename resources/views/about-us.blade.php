@@ -20,12 +20,12 @@
                 <div class="row ">
                    
                     
-                    <div class="col-md-8 col-lg-8 col-xl-8" style="margin-bottom: 1rem;margin-left: 11rem;margin-top: 3rem;">
+                    <div class="col-md-8 col-lg-8 col-xl-8" style="margin-bottom: 1rem;margin-left: 11rem;margin-top: 2rem;">
                         <div class="logo" style="text-align:center;">
                             <a class="" href="{{env('BASE_URL') . 'home'}}" style="margin-left: -4px;">
                                
                          
-                    <img src="{{asset('images/businesshub-slogan.png')}}" alt="" width="250px" alt="logo">
+                    <img src="{{asset('images/businesshub-slogan.png')}}" alt="" width="250px" class="shaking" alt="logo">
                 </a>
                 </div>
                       
@@ -48,7 +48,7 @@ Either, you are looking to Buy, Sell or Rent Businesses, Company Shares, Innovat
                         
                               
                     {{-- </p> --}}
-                    <b class="joinnow">  <a class="register-btn">Join BusinessHub Now! </a></b>
+                    <b class="joinnow">  <a class="register-btn" style="margin-left: 9px;">Join BusinessHub Now! </a></b>
                 </div>
                 <!-- about us text finish -->
             </div>

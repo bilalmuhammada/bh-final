@@ -136,7 +136,7 @@
                         <div class="footer-bottom-logo">
                             <a href="{{ env('BASE_URL') }}" class="menu-logo">
                                 {{-- <img src="{{asset('assets/images/logo/Influencers Pro-01-01.png')}}" alt="logo"> --}}
-                                <img src="{{asset('images/businesshub.png')}}" title="businesshub" alt="businesshub "
+                                <img src="{{asset('images/businesshub.png')}}" title="businesshub"  class="shaking" alt="businesshub "
                              width="150 "/>
                             </a>
                         </div>

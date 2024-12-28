@@ -322,7 +322,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
         <div class="col-md-4" style="padding:0px 0px 0px 50px;">
             <div class="logo text-center">
                 <a href="{{env('BASE_URL')}}">
-                    <img src="{{asset('images/businesshub-slogan.png')}}" title="businesshub " alt="businesshub" width="200"/>
+                    <img src="{{asset('images/businesshub-slogan.png')}}" title="businesshub " class="countrylist" alt="businesshub" width="200"/>
                 </a>
             </div>
         </div>
@@ -515,7 +515,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
             <div class="col-xl-12 col-md-12 col-lg-12 col-12">
                 <div class="logo text-center">
                     <a href="{{env('BASE_URL')}}">
-                        <img src="{{asset('images/businesshub.png')}}" title="businesshub" alt="businesshub "
+                        <img src="{{asset('images/businesshub.png')}}" title="businesshub" class="countrylist" alt="businesshub "
                              width="150 "/>
                     </a>
                 </div>

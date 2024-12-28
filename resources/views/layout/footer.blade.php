@@ -41,16 +41,16 @@
                     </h6>
                 </div>
                 <div class="col-lg-2 col-md-6 col-6" style="margin-top: -33px;">
-                    <img src="{{ asset('images/iphone.png')}}" alt=" " height="80px" width="120px">
+                    <img src="{{ asset('images/iphone.png')}}" alt=" " height="80px" class="shaking" width="100px">
                 </div>
                 <div class="col-lg-2 col-md-6 col-6">
-                    <img src="{{ asset('images/google-play-store.png')}}" alt=" " height="45px">
+                    <img src="{{ asset('images/google-play-store.png')}}" alt=" " class="shaking" height="45px">
                 </div>
                 <div class="col-lg-2 col-md-6 col-6">
-                    <img src="{{ asset('images/apple-store.png')}}" alt=" " height="45px">
+                    <img src="{{ asset('images/apple-store.png')}}" alt=" " class="shaking" height="45px">
                 </div>
                 <div class="col-lg-2 col-md-6 col-6">
-                    <img src="{{ asset('images/huawei-app-gallery.png')}}" alt=" " height="45px">
+                    <img src="{{ asset('images/huawei-app-gallery.png')}}" alt=" "  class="shaking" height="45px">
                 </div>
             </div>
         </div>
@@ -159,7 +159,7 @@
                     <ul>
                         <li>
                             <a href="# " target="_blank ">
-                                <img src="{{ asset('images/facebook-svgrepo-com.svg')}}" alt="" width="25" height="25">
+                                <img src="{{ asset('images/facebook-svgrepo-com.svg')}}" alt="" c width="25" height="25">
                             </a>
                         </li>
                         <li>
@@ -185,7 +185,7 @@
             <div class="col-xl-12 col-md-12 col-lg-12 col-12">
                 <div class="logo text-center">
                     <a href="{{env('BASE_URL')}}">
-                        <img src="{{asset('images/businesshub.png')}}" title="businesshub" alt="businesshub "
+                        <img src="{{asset('images/businesshub.png')}}" title="businesshub" class="shaking" alt="businesshub "
                              width="150 "/>
                     </a>
                 </div>
