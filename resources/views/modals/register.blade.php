@@ -141,7 +141,7 @@ padding-left: 31px;
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
-                                        <input type="text" name="phone" id="phone" class="form-control floating login-user"
+                                        <input type="text" name="mobile" id="phone" class="form-control floating login-user"
                                                placeholder="Mobile" aria-label="Mobile" aria-describedby="basic-addon1" oninput="validateInput(this)"  >
                                                {{-- <label class="focus-label">Mobile</label> --}}
                                             </div>
@@ -190,7 +190,7 @@ padding-left: 31px;
                                         <select name="country" id="register_country"
                                                     class="form-control  country_id   login-user"
                                                     style="width:100%;">
-                                             
+                                                    <option value="" selected>All Countries</option>
                                                 @foreach($countries as $country)
                                                
                                                     <option
