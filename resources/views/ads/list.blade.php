@@ -202,7 +202,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                aria-controls="multiCollapseExample1" style="color:#000;">
                 <div class="col-md-12" style="text-align: center;margin-top: 3px;"><span style="font-size: 14px;"><b>City</b></span></div>
                 <div class="col-md-12" style="margin-top: 8px;" > <select class="form-control city_dropdown_list1" name="city_dropdown" id="" 
-                    style="text-align:center;background-color:transparent !important; font-size:13px;">
+                    style="text-align:center;background-color:transparent !important; font-size:13px; width: 90% !important;">
                     <option value="">All </option>
                 @foreach($cities_for_filter as $city)
                     <option data-city-id="{{ $city->id }}"
@@ -292,110 +292,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
    
 </form>
 
-            {{-- </div> --}}
-            <!----------->
-            {{-- <div class="row">
-                <div class="col">
-                    <div class="collapse multi-collapse multiCollapse" id="multiCollapseExample1"
-                         style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;width:240px;position:absolute;z-index:999;background-color: white;width:100%;">
-                        <!-- <div class="card card-body"> -->
-                        <div style="max-height: 170px !important;  overflow-y: scroll;">
-                            <p city-id="" class="city-list filter-options-list">All</p>
-                            @foreach($cities_for_filter as $city)
-                                <p city-id="{{ $city->id }}" class="city-list filter-options-list">
-                                    {{ $city->name }}
-                                </p>
-                            @endforeach
-                        </div>
-                       
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="collapse multi-collapse multiCollapse" id="multiCollapseExample2"
-                         style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;position:absolute;z-index:1;background-color: white;width:100%;">
-                        <div style="max-height: 170px !important;  overflow-y: scroll;">
-                            @foreach($subcategories_for_filter as $subcategory)
-                                <p subcategory-id="{{ $subcategory->id }}" class="subcategory-list filter-options-list">
-                                    {{ $subcategory->name }}
-                                </p>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="collapse multi-collapse multiCollapse" id="multiCollapseExample4"
-                         style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;position:absolute;z-index:1;background-color: white;width:100%;">
-                        <div style="padding: 10px;">
-                            <div class="col-md-12 mx-auto">
-                                <div class="row ">
-                                    <div class="col-md-6">
-                                        <label for="" style="font-size: 13px;">Min</label><br/>
-                                        <input type="number" placeholder="0" value="{{ $from }}" id="from"
-                                               style="width: 140px;border:1px solid #eee;padding:25px !important;"
-                                               class="form-control">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="" style="font-size: 13px;">Max</label><br/>
-                                        <input type="number" placeholder="Any" value="{{ $to }}" id="to"
-                                               style="width: 140px;border:1px solid #eee;padding:25px !important;"
-                                               class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <!----buttons----->
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-5 mx-auto" style="margin-top: 20px;margin-bottom:20px;">
-                                        <a class="btn form-control cancel-btn"
-                                           style="border:1px solid #0000FF;color:#0000FF;font-size:13px;">Cancel</a>
-                                    </div>
-                                    <div class="col-md-7 mx-auto" style="margin-top: 20px;margin-bottom:20px;">
-                                        <a class="btn form-control apply-price-filter-btn"
-                                           style="background: #0000FF;color:#fff;font-size:13px;">Apply </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!----buttons----->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="collapse multi-collapse multiCollapse" id="multiCollapseExample5"
-                         style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;position:absolute;z-index:1;background-color: white;width:100%;">
-                        <div style="padding: 10px;max-height: 220px !important;  overflow-y: scroll;">
-
-                            <div class="col-md-12 mx-auto" style="margin-top: 10px;">
-                                <h6 style="font-weight: bold;">Keyword</h6>
-                                <input type="text" class="form-control keyword-input" value="{{ $keyword }}"
-                                       placeholder=" Enter Keywords"
-                                       style="padding: 15px;border:1px solid #eee;border-radius:3px;">
-                            </div>
-                            <hr>
-                            <!----buttons----->
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-5 mx-auto" style="margin-top: 20px;margin-bottom:20px;">
-                                        <a class="btn form-control cancel-btn"
-                                           style="border:1px solid #0000FF;color:#0000FF;font-size:11px;">Cancel</a>
-                                    </div>
-                                    <div class="col-md-7 mx-auto" style="margin-top: 20px;margin-bottom:20px;">
-                                        <a class="btn form-control apply-keyword-filter-btn"
-                                           style="background: #0000FF;color:#fff;font-size:11px;">Apply </a>
-                                    </div>
-                                </div>
-                            </div>
-                          
-                            <!----buttons----->
-                        </div>
-                    </div>
-                </div>
-                
-
-            </div> --}}
-            <!----------->
+          
         </div>
     </section>
     <!---new filter ennded----->

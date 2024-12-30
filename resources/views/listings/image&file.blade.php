@@ -38,11 +38,11 @@
         <label style="text-align: center; margin-left: 16.2rem;font-size: 13px;padding: 7px;">Do you want to Show or Hide your Files?</label>
         <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
             <label class="btn active  btn-show btn-darker" style="margin-left:17.8rem !important;background-color: #dadadb">
-                <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show File
+                <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show
             </label>
             {{-- 525252 --}}
             <label class="btn btn-show btn-darker-hide"  style="margin-left: 26px !important; float: right;background-color: #dadadb">
-                <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide File
+                <input type="radio" name="options" id="hidePhone" autocomplete="off" > Hide
             </label>
         </div>
     </div>

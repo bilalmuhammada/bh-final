@@ -130,11 +130,6 @@
     margin: 0px auto;
 }
 
-/* .packages:hover {
-    background-color: #0504aa;
-    color: white;
-    /* transform: scale(1.1); */
-} */
 
 
 </style>

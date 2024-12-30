@@ -378,7 +378,7 @@
                                         <!---------inner area---->
                                         @else
                                           
-                                        <div style="      margin-top: 15px;   font-weight: 700;   min-width: 500px;" class="notification-heading"><h4 class="menu-title">Notification </h4><h6 style="font-size: 16px; margin-right: 66px" class="menu-title pull-right">Mark All as read</h6>
+                                        {{-- <div style="      margin-top: 15px;   font-weight: 700;   min-width: 500px;" class="notification-heading"><h4 class="menu-title">Notification </h4><h6 style="font-size: 16px; margin-right: 66px" class="menu-title pull-right">Mark All as read</h6>
                                         </div>
                                         <hr style="    width: 80%;">
                                         <li class="divider"></li>
@@ -392,34 +392,7 @@
                                                   <a class="dropdown-item" href="#">Remove Notifications</a>
                                                 </div>
                                               </div>
-                                           {{-- <div class="notification-item">
-                                            <div class="row">
-                                              
-                                                <div class="col-md-9" style="white-space: nowrap;display: ruby;">
-                                                    <h1 class="item-title" style="margin-bottom: 10px;">Mobile Request</h1>
-                                                    <p style="margin-top: 5px;margin-left:143px ;margin-bottom: unset; color: black; font-size: 0.9em;">7 days ago </p>
-                                                </div>
-
-                                               
-                                            </div> --}}
-                                            {{-- <div class="row">
-                                              
-                                            <div class="col-md-12" style="padding: unset;display: contents;">
-                                                <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; margin-left: 30px;">
-                                                    <img style="width: 100%; height: 100%; object-fit: cover;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
-                                                </div>
-                                                <p style="margin: 11px; font-weight: bold;">Khan</p>
-                                                <br>
-                                                
-                                            </div>
-                                            <div style=" color: white;
-                                                  margin-top: 10px;
-                                                  margin-left: 160px;">
-                                                <a class="btn btn-success btn-sm badge bg-success">Approve </a>
-                                                <a class="btn btn-danger btn-sm badge bg-danger" style="margin-left: 5px;">Reject </a>
-                                            </div>
-                                        </div> --}}
-                                           
+                                          
 
                                           </div>
                                           <hr>
@@ -469,50 +442,14 @@
                                        <hr>
                                         <li class="divider"></li>
                                         <div class="notification-footer" style="text-align: center;"><h4 class="menu-title" style="color: red;
-                                            margin: 12px;">   <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal">View all Notifications </a></h4></div>
+                                            margin: 12px;">   <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal">View all Notifications77 </a></h4></div> --}}
                                       </ul>
-                                        @endif
+                                 @endif
                                 </div>
                             </span>
                             
 
-                            {{-- <span style="padding:13px 15px 0px 15px;text-align:center;">
-                                <a type="button" id="searches" data-toggle="dropdown" aria-haspopup="true"
-                                   aria-expanded="false">
-                                    {{-- <img src="{{ asset('images/my-searches-selected.svg')}}" width="17" height="17"> --}}
-                                    {{-- <div> --}}
-                                        {{-- <span style="color: #000;font-size: 16px; ">My Searches</span> --}}
-                                    {{-- </div> --}}
-                                {{-- </a> --}} 
-                                {{-- <div class="dropdown-menu" aria-labelledby="searches"
-                                     style="padding: 10px;width:auto;">
-                                    @if (session()->has('user') && count($my_searches) > 0)
-                                        <div class="row">
-                                            <div class="col-lg-12 col-sm-12 col-12">
-                                                </i> <span>My Searches</span>
-                                            </div>
-                                        </div>
-                                        @foreach($my_searches as $search)
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-lg-8 col-sm-7 col-7">
-                                                    <p style="font-size: 13px;">{{ $search->key_words }} <br/>
-                                                    <span style="font-size: 11px;"
-                                                          class="text-success">Saved On: {{ \Carbon\Carbon::parse($search->created_at)->format('M d') }}</span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    @else
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
-                                                <span>Nothing to show</span>
-                                            </div>
-                                        </div>
-                                    @endif
-                                </div>
-                            </span> --}}
+                         
                         
                               <span style="padding:13px 15px 0px 15px;text-align:center;">
                                 <a type="button" id="favorite" data-toggle="dropdown" aria-haspopup="true"

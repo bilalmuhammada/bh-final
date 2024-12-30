@@ -227,7 +227,7 @@ function getCitiesByState(state_id) {
 
 function getCitiesByCountry(country_id) {
 
-    // alert(country_id);
+    //  alert(country_id);
     $.ajax({
         url: api_url + 'get-cities-by-country',
         type: "POST",
