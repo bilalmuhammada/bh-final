@@ -200,7 +200,7 @@ $.ajax({
             var states = response.data;
             $("#register_cities").empty();
            
-            $("#register_cities").append('<option hidden selected disable value=""> </option>');
+            $("#register_cities").append('<option selected disable value=""> All Cities </option>');
 
             if (states) {
                 $.each(states, function (index, value) {

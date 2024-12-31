@@ -210,9 +210,9 @@ padding-left: 31px;
                                         <select name="cities" id="register_cities"
                                         class="form-control   login-user"
                                         style="width:100%;color:#fff !important;">
-                                    @if ($cities->count() < 1)
+                                    
                                         <option value="" selected>City</option>
-                                    @endif
+                               
                                     @foreach($cities as $city)
                                         <option
                                             {{ $city->id == request()->city ? 'selected' : '' }} data-flag-url="{{ $city->image_url }}"

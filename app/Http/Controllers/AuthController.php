@@ -41,21 +41,30 @@ class AuthController extends Controller
             'mobile' => 'required',
             'email' => 'required|email|unique:users',
             'gender' => 'required',
-            'dob' => 'required',
+            'dob' => ['required', 'date', 'before:' . now()->subYears(18)->format('Y-m-d')],
             'country' => 'required|exists:countries,id',
             'city' => 'nullable|exists:cities,id',
             'password' => 'required|min:6|confirmed',
-            // 'g-recaptcha-response' => ['', function ($attribute, $value, Closure $fail) {
-            //     $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
-            //         'secret' => env('GOOGLE_RECAPTCHA_SECRET'),
-            //         'response' => $value,
-            //         'remoteip' => \request()->ip()
-            //     ]);
-
-            //     if (!$g_response->json('success')) {
-            //         $fail('The ' . $attribute . ' is invalid.');
-            //     }
-            // }]
+           
+        ]
+        , [
+            // Custom messages
+            'first_name.required' => 'First name is required.',
+            'last_name.required' => 'Last name is required.',
+            'mobile.required' => 'Mobile number is required.',
+            'email.required' => 'Email is required.',
+            'email.email' => 'Please enter a valid email address.',
+            'email.unique' => 'This email address is already in use.',
+            'gender.required' => 'Gender is required.',
+            'dob.required' => 'Date of birth is required.',
+            'dob.date' => 'The date of birth must be a valid date.',
+            'dob.before' => 'You must be at least 18 years old.',
+            'country.required' => 'Country is required.',
+            'country.exists' => 'The selected country is invalid.',
+            'city.exists' => 'The selected city is invalid.',
+            'password.required' => 'Password is required.',
+            'password.min' => 'Password must be at least 6 characters.',
+            'password.confirmed' => 'Passwords do not match.',
         ]);
 
         if ($validator->fails()) {
