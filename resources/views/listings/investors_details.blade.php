@@ -299,7 +299,7 @@
                 text-align: center;
                 font-size: 14px;">Do you want to show or hide your Mobile?</label>
                 <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
-                    <label class="btn active  btn-show btn-mobile" style="margin-left:20.3rem !important;">
+                    <label class="btn active  btn-show btn-mobile" style="margin-left:20.8rem !important;">
                         <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show 
                     </label>
                     <label class="btn btn-show btn-mobile-hide"  style=" margin-left: 1.6rem;float: right;">
