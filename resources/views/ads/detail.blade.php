@@ -299,7 +299,7 @@ width: 60rem !important;
         </div>
         <div class="container mobile-view">
             <div class="col-md-12" >
-                <div class="row" style="margin-top:12px;">
+                <div class="row" >
                     <div class="col" style="border:0px solid red;">
                         <div class="row">
                             <h6 style="border:0px solid red;"><b>{{ $ad->title ?? 'Title N?A' }}</b></h6>
@@ -544,7 +544,7 @@ width: 60rem !important;
                 </div>
                 <!--  desktop view -->
                 <div class="col-lg-3 col-md-3 col-12 desktop-view">
-                    <div class="row" style="margin-top: 0px;">
+                    <div class="row" style="margin-top: 11px;">
                         
                         <div class="col-lg-12 col-md-12 col-12">
                             <div class="inner" style="border: 1px solid #eee; border-radius: 5px; padding: 15px;width: 24.4rem;">
