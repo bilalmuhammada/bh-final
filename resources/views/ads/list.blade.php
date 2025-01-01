@@ -202,7 +202,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                aria-controls="multiCollapseExample1" style="color:#000;">
                 <div class="col-md-12" style="text-align: center;margin-top: 3px;"><span style="font-size: 14px;"><b>City</b></span></div>
                 <div class="col-md-12" style="margin-top: 8px;" > <select class="form-control city_dropdown_list1" name="city_dropdown" id="" 
-                    style="text-align:center;background-color:transparent !important; font-size:13px; width: 90% !important;">
+                    style="text-align:center;background-color:transparent !important; font-size:13px; width: 109% !important;">
                     <option value="">All </option>
                 @foreach($cities_for_filter as $city)
                     <option data-city-id="{{ $city->id }}"

@@ -185,15 +185,14 @@ class ListingController extends Controller
         // dd($request->all());
         // dd('jjjj');
         $Validator = Validator::make($request->all(), [
-            // 'listing_id' => 'required|exists:listings,id',
-            // 'title' => 'required',
-            // 'phone' => 'required|integer',
-            // 'price' => 'nullable|integer',
-            // 'investment_amount' => 'nullable|integer',
-            // 'manufactured_year' => 'nullable|date',
-            // 'description' => 'required',
-            // 'country' => 'required|integer',
-            // 'city' => 'required|integer',
+            'listing_id' => 'required|exists:listings,id',
+            'title' => 'required',
+            'phone' => 'required|integer',
+            'price' => 'nullable|integer',
+            
+            'description' => 'required',
+            'latitude' => 'required|integer',
+            'longitude' => 'required|integer',
             // 'location_name' => 'required',
             'images' => 'required|array',
             'images.*' => 'image|max:2048',
