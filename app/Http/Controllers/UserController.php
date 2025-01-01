@@ -129,16 +129,23 @@ class UserController extends Controller
         $User = User::find(Auth::id() ?? Session::get('user')->id);
 
         if (!empty($User)) {
-            $User->name = $request->name;
+            $User->name = $request->first_name.' '.$request->last_name;
+            $User->first_name = $request->first_name;
+            $User->last_name = $request->last_name;
             $User->dob = Carbon::parse($request->dob)->format('Y-m-d');
             $User->gender = $request->gender;
-//            $User->address = $request->address;
-//            $User->nationality = $request->nationality;
+            $User->phone = $request->mobile;
+            $User->email = $request->email;
+            $User->country_id = $request->country;
+            $User->city_id = $request->cities;
+
             $User->offers_and_bargains = 0;
             $User->weekly_newsletter = 0;
+
             if ($request->offers_and_bargains == 'on') {
                 $User->offers_and_bargains = 1;
             }
+
             if ($request->weekly_newsletter == 'on') {
                 $User->weekly_newsletter = 1;
             }
@@ -146,12 +153,12 @@ class UserController extends Controller
             $User->save();
 
             $img_response = [];
-
+  
             //calling function update img
-            if (!empty($request->image)) {
-                $img_response = $this->updateProfileImage($request->image);
-            }
-
+            // if (!empty($request->image)) {
+            //     $img_response = $this->updateProfileImage($request->image);
+            // }
+           
             Session::forget('user');
             Session::put('user', $User);
 
@@ -163,7 +170,7 @@ class UserController extends Controller
             ]);
         } else {
             return response()->json([
-                'status' => FALSE,
+                'status' => false,
                 'message' => 'Error'
             ]);
         }

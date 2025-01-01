@@ -353,7 +353,7 @@ width: 60rem !important;
                         <div class="row">
                             <!-----content----->
                             <div class="col-lg-12 col-md-12 col-12"
-                                 style="margin-bottom:-30px;width:800px;position:relative;top:7px;z-index:1000;">
+                                 style="margin-bottom:-19px;width:800px;position:relative;top:16px;z-index:1000;">
                                 <span style="font-size: 13px;float:right;position:relative;right:30px;cursor:pointer;">
                                     <i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}"
                                        is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"

@@ -147,7 +147,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // Route::post('/update-profile', [UserController::class, 'updateProfile']);
 });
 
-Route::post('/user-data', [UserController::class, 'detail']);
+Route::post('/', [UserController::class, 'detail']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::prefix('/listing')->group(function () {

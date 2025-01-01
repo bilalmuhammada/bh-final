@@ -31,7 +31,7 @@
 {{--<div class="marquee" style="background-color: #0000FF;color: white;padding-top: 10px;margin-bottom: 10px;height: 25px;">
         <marquee behavior="" direction=""><h5><b><i><span>BusinessHub</span> </i> </b></h5></marquee>
     </div>--}}
-    <div class="container mb-30" style="margin-top:15px;">
+    <div class="container mb-30" style="margin-top:3.5rem;">
         <div class="col-lg-12 col-md-12 col-12 m-10">
             <div class="row" style="margin-right: -8.9rem;">
                 <div class="col-lg-4 col-md-6 col-12">
@@ -41,7 +41,7 @@
                     </h6>
                 </div>
                 <div class="col-lg-2 col-md-6 col-6" style="margin-top: -33px;">
-                    <img src="{{ asset('images/iphone.png')}}" alt=" " height="80px" class="shaking" width="100px">
+                    <img src="{{ asset('images/iphone.png')}}" alt=" " height="80px" width="100px">
                 </div>
                 <div class="col-lg-2 col-md-6 col-6">
                     <img src="{{ asset('images/google-play-store.png')}}" alt=" " class="shaking" height="45px">
@@ -128,8 +128,8 @@
                     </ul>
                 </div> --}}
                 <div class="col-lg-3 col-md-8 col-12 desktop-view">
-                    <h5 style="text-align:center;border:0px solid red;font-size:15px; font-weight: bold;">Socials</h5>
-                    <ul style="text-align:center;border:0px solid red;">
+                    <h5 style="text-align:center;font-size:15px; font-weight: bold;">Socials</h5>
+                    <ul style="text-align:center;>
                         <li style="margin-bottom: 5px;">
                             <a href="# " target="_blank ">
                                 <img src="{{ asset('images/socialicon/insta.png')}}" class="shaking" alt="" width="25" height="25">

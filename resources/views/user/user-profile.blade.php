@@ -92,6 +92,9 @@ select {
     #ui-datepicker-div{
 width: 225px !important;
   }
+  #select2-register_cities-container{
+    color: black !important;
+  }
   .ui-state-default  {
         border: 0px !important;
     background-color: white !important; /* Change this to the desired color */
@@ -126,7 +129,7 @@ width: 225px !important;
                                 
                                     <div class="col-md-8">
                                     {{-- <p>{{session()->get('user')->name}}</p> --}}
-                                         <input type="text" class="form-control form-control1" name="name" id="name" value="{{session()->get('user')->name}}" style="border: 1px solid rgb(153, 153, 153);">
+                                         <input type="text" class="form-control form-control1" name="first_name" id="name" value="{{session()->get('user')->first_name}}" style="border: 1px solid rgb(153, 153, 153);">
                                     </div>
                                     
                                 </div>
@@ -135,9 +138,12 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;" ><b> Last Name:</b></div>
                                 
+                                    @php
+                                    // dd(session()->get('user'));
+                                    @endphp
                                     <div class="col-md-8">
                                     {{-- <p>{{session()->get('user')->name}}</p> --}}
-                                         <input type="text" class="form-control form-control1" name="name" id="name" value="{{session()->get('user')->name}}" style="border: 1px solid rgb(153, 153, 153);">
+                                         <input type="text" class="form-control form-control1" name="last_name" id="name" value="{{session()->get('user')->last_name}}" style="border: 1px solid rgb(153, 153, 153);">
                                     </div>
                                     
                                 </div>
@@ -149,8 +155,8 @@ width: 225px !important;
                                         <select name="gender" id="gender" type="text" class="form-control form-control1"
                                                 style="border:1px solid #999;">
                                             <option value="" selected hidden disabled></option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
+                                            <option value="male" @if(session()->get('user')->gender=='male') 'selected' @endif>Male</option>
+                                            <option value="female" @if(session()->get('user')->gender=='female') 'selected' @endif>Female</option>
                                         </select>
                                     </div>
                                 </div>
@@ -203,8 +209,8 @@ width: 225px !important;
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Location:</b></div>
                                     <div class="col-md-4">
                                         <div class="input-group mb-3 countryfield" >
-                                            <select name="country" id="country"
-                                                        class="form-control form-control1 country_dropdown_user login-user"
+                                            <select name="country" id="country_id"
+                                                        class="form-control form-control1 country_id country_dropdown_user login-user"
                                                         style="width:100%;">
                                                     @if ($cities->count() < 1)
                                                         <option value="" selected>Country</option>
@@ -222,12 +228,10 @@ width: 225px !important;
                                        <div class="col-md-4">
                                         <div class="input-group mb-3 countryfield" 
                                         >
-                                            <select name="cities" id="cities"
+                                            <select name="cities" id="profile_cities"
                                             class="form-control form-control1 country_dropdown_user login-user"
                                             style="width:100%;">
-                                        @if ($cities->count() < 1)
-                                            <option value="" selected>City</option>
-                                        @endif
+                                       
                                         @foreach($cities as $city)
                                             <option
                                                 {{ $city->id == request()->city ? 'selected' : '' }}
@@ -545,7 +549,6 @@ document.getElementById('profile_image').addEventListener('change', function() {
                 }
             });
         });
-
         // $(document).on('click', '.verify-account-btn', function () {
         //     $.ajax({
         //         url: api_url + 'verify-email',
@@ -580,9 +583,9 @@ document.getElementById('profile_image').addEventListener('change', function() {
                 success: function (response) {
                     if (response.status) {
                         showAlert("success", response.message);
-                        setTimeout(function () {
-                            window.location.assign(window.location.href);
-                        }, 600);
+                        // setTimeout(function () {
+                        //     window.location.assign(window.location.href);
+                        // }, 600);
                     } else {
                         showAlert("error", response.message);
                     }

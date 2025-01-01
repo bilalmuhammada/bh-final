@@ -201,14 +201,19 @@ $.ajax({
             $("#register_cities").empty();
            
             $("#register_cities").append('<option selected disable value=""> All Cities </option>');
+            $("#profile_cities").empty();
+           
+           $("#profile_cities").append('<option selected disable value=""> All Cities </option>');
 
             if (states) {
                 $.each(states, function (index, value) {
                     $("#register_cities").append('<option value="' + value.id + '">' + value.name + '</option>');
+                    $("#profile_cities").append('<option value="' + value.id + '">' + value.name + '</option>');
                 });
             }
         } else {
             $("#register_cities").empty();
+            $("#profile_cities").empty();
         }
     }
 });
@@ -266,6 +271,15 @@ $("#register_cities").select2({
     $(".select2-container--open .select2-dropdown--below").css("width", "200px");
 });
 
+$("#profile_cities").select2({
+            // templateSelection: formatCountry,
+            // templateResult: formatCountry,
+            //  minimumResultsForSearch: -1
+        });
+        $("#profile_cities").on("select2:open", function () {
+    // Adjust the width of the currently open dropdown
+    $(".select2-container--open .select2-dropdown--below").css("width", "200px");
+});
 
         $(".language_dropdown").select2({
             templateSelection: formatCountry,
