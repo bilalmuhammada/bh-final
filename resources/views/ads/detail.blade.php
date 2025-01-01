@@ -257,7 +257,7 @@ width: 60rem !important;
     <section>
         <div class="cont-w desktop-view" style="border-bottom:2px solid #eee;">
             <div class="col-lg-12 col-md-12 col-12" style="">
-                <div class="row" style="margin-top: 0px;">
+                <div class="row" style="margin-top: 8px;">
                     <div class="cat_btn" >
                         <a href="{{ env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city }}"
                            style="color:#0000FF;font-size:12px;">{{$ad->category_name }}</a>
@@ -275,7 +275,7 @@ width: 60rem !important;
             <div class="col-md-12" style="border:0px solid red;">
                 <div class="row">
                     <div class="col" style="border:0px solid red;">
-                        <div class="row" style="margin-top: 4px;">
+                        <div class="row" style="margin-top: 12px;">
                             <h6 style="margin-bottom:0px;"><b>{{ $ad->title ?? 'Title N?A' }}</b></h6>
                         </div>
                         <div class="row">
