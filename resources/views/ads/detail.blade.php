@@ -284,7 +284,7 @@ width: 60rem !important;
                         </div>
                     </div>
                     <div class="col" style="text-align:right;">
-                        <div class="row text-right" style="border:0px solid red;">
+                        <div class="row text-right" style="margin-top:12px;">
                            
                             <div
 
@@ -299,7 +299,7 @@ width: 60rem !important;
         </div>
         <div class="container mobile-view">
             <div class="col-md-12" >
-                <div class="row">
+                <div class="row" style="margin-top:12px;">
                     <div class="col" style="border:0px solid red;">
                         <div class="row">
                             <h6 style="border:0px solid red;"><b>{{ $ad->title ?? 'Title N?A' }}</b></h6>
