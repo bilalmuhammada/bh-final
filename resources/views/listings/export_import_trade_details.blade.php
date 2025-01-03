@@ -391,7 +391,7 @@ $(document).on('click', '.place-ad-form-submit', function (e) {
                         // }, 600);
 
                     } else {
-                        alert(response.message);
+                        showAlert("error", response.message);
                     }
                 },
                 error: function (response) {

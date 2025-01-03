@@ -116,10 +116,10 @@ button.active .indicator-img {
     margin-left: 21px;
 }
 .lobibox-notify-success{
-        width: 80px !important
+        width: 100px !important
     }
     .lobibox-notify-error{
-        width: 80px !important
+        width: 100px !important
     }
 /* Ensure spacing between radio buttons and labels */
 .popup-container label {
@@ -508,7 +508,7 @@ width: 60rem !important;
                                 <div class="col-lg-6 col-md-6 col-6">
                                     {{-- <div style="border-radius:5px;"> --}}
                                         <h6 style="text-align: left;font-size:13px;font-weight:bold;">
-                                          <i class="fa fa-map-marker text-danger"></i>   <span style="margin-left: 9px;">{{ $ad->location_name }} This is location</span>
+                                          <i class="fa fa-map-marker text-danger"></i>   <span style="margin-left: 9px;">{{ $ad->location_name }} </span>
                                         </h6>
                                     {{-- </div> --}}
                                 </div>
@@ -591,23 +591,40 @@ width: 60rem !important;
                                     @endif --}}
                 
                                     <p class="phone-approval-status" style="display: none">Waiting for phone no approval</p>
-                                    <button class="btn" style="border: 1px solid red; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
+                                    <button class="btn callbutton"  onclick="showPopup()" style="border: 1px solid red; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
                                         <img src="{{ asset('images/socialicon/call.svg') }}" alt="Call Icon" style="height: 23px;margin-top: -6px; margin-right: 4px;">
 
                                     </button>
+                                    <div id="callPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border: 1px solid red; padding: 15px; border-radius: 5px; z-index: 1000;">
+                                        <p style="margin: 0; font-size: 18px; color: red;">📞 {!!$ad->phone !!}</p>
+                                        <button onclick="hidePopup()" style="margin-top: 10px; padding: 5px 10px; border: none; background: red; color: white; border-radius: 3px; cursor: pointer;">Close</button>
+                                    </div>
+                                    
+                                    <!-- Overlay -->
+                                    <div id="popupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="hidePopup()"></div>
+                                    
                                     <button class="btn" style="border: 1px solid #0088eb; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
                                         <img src="{{ asset('images/socialicon/chat.png')}}" alt="Chat Icon" style="height: 30px; margin-top: -4px; margin-right: 1px;">
                                     </button>
          
-                                    <button class="btn" style="border: 1px solid #32d951; margin-right: 9px; white-space: nowrap; height: 36px;width: 60px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
+                                    <button class="btn" onclick="showWhatsAppPopup()" style="border: 1px solid #32d951; margin-right: 9px; white-space: nowrap; height: 36px;width: 60px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
                                         <img src="{{ asset('images/socialicon/whatsapp.png')}}" alt="WhatsApp Icon" style="height: 45px; margin-top: -12px; margin-left: -5px;">
                                     </button>
-                                    <button class="btn" style="border: 1px solid #fab005; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
+
+                                    <div id="callPopupwhats" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border: 1px solid #32d951; padding: 15px; border-radius: 5px; z-index: 1000; text-align: center;">
+                                        <p style="margin: 0; font-size: 18px; color: #32d951;">📞 {!! $ad->phone !!}</p>
+                                        <button onclick="redirectToWhatsApp()" style="margin-top: 10px; padding: 5px 10px; border: none; background: #32d951; color: white; border-radius: 3px; cursor: pointer;">Message on WhatsApp</button>
+                                        <button onclick="hidePopup()" style="margin-top: 10px; padding: 5px 10px; border: none; background: red; color: white; border-radius: 3px; cursor: pointer;">Close</button>
+                                    </div>
+                                    
+                                    <!-- Overlay -->
+                                    <div id="popupOverlaywhats" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="hidePopup()"></div>
+                                    
+                                    <button class="btn" onclick="redirectToEmail()" style="border: 1px solid #fab005; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
                                         <img src="{{ asset('images/socialicon/email.png')}}" title="Email" alt="WhatsApp Icon" style="height: 25px; margin-right: 2px;margin-top: -4px;">
                                     </button>
                                     
-                                    {{-- <a href="#" class="btn btn-sm start-chat" user-id="{{ $ad->created_by_user->id }}">Chatww</a> --}}
-                                    {{-- <a href="#" class="btn btn-sm start-call" user-id="{{ $ad->created_by_user->id }}">Call</a> --}}
+                               
                                 </div>
                             </div>
                         </div>
@@ -744,10 +761,43 @@ width: 60rem !important;
         });
 });
 
+function showPopup() {
+        document.getElementById('callPopup').style.display = 'block';
+        document.getElementById('popupOverlay').style.display = 'block';
+    }
 
+    function hidePopup() {
+        document.getElementById('callPopup').style.display = 'none';
+        document.getElementById('popupOverlay').style.display = 'none';
+    }
 
+    const phoneNumber = {!! json_encode($ad->phone) !!}; // Ensure this is safely rendered from the server
 
+function showWhatsAppPopup() {
+    document.getElementById('callPopupwhats').style.display = 'block';
+    document.getElementById('popupOverlaywhats').style.display = 'block';
+}
+function hidePopup() {
+        document.getElementById('callPopupwhats').style.display = 'none';
+        document.getElementById('popupOverlaywhats').style.display = 'none';
+    }
+
+    function redirectToEmail() {
+        const emailAddress = {!! json_encode($ad->created_by_user->email) !!}; // Replace with your dynamic email variable if applicable
+        const subject = "Subject here"; // Customize or make dynamic
+        const body = "Body content here"; // Customize or make dynamic
+
+        const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoLink;
+    }
+function redirectToWhatsApp() {
+    const whatsappLink = `https://wa.me/${phoneNumber}`;
+    window.open(whatsappLink, '_blank');
+}
 $(document).ready(function () {
+ 
+
+
     const $carousel = $('#carouselDemo');
     const $counter = $('#slide-counter span');
     const totalSlides = {{ $ad->attachments->count() }};

@@ -143,7 +143,7 @@ function logPlaceDetails(place_id, mapElement, searchInput) {
        
         
         // Set the boundary on the map
-        boundary.setMap(mapElement);
+      
         // Update input fields
         $('input[name="latitude"]').val(lat);
         $('input[name="longitude"]').val(lng);

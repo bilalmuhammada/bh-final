@@ -182,10 +182,9 @@ class ListingController extends Controller
     public function storeAd(Request $request)
     {
 
-        // dd($request->all());
         // dd('jjjj');
         $Validator = Validator::make($request->all(), [
-            'listing_id' => 'required|exists:listings,id',
+           
             'title' => 'required',
             'phone' => 'required|integer',
             'price' => 'nullable|integer',
@@ -199,7 +198,12 @@ class ListingController extends Controller
         ]);
 
 
-   
+     if ($Validator->fails()) {
+            return response()->json([
+                'status' => FALSE,
+                'message' => $Validator->errors()->first()
+            ]);
+        }
 
 
         $list =  Listing::updateOrCreate(

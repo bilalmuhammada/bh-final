@@ -46,6 +46,7 @@ function getCitiesByCountry(country_id) {
 }
 
 function loadMap() {
+
     var latitude = 25.197525;
     var longitude = 55.274288;
     var searchInput = $('.location_name')[0];
@@ -102,7 +103,8 @@ function loadMap() {
         title: "Drag me!"
     });
 
-
+    $('input[name="latitude"]').val(latitude);
+    $('input[name="longitude"]').val(longitude);
     marker.addListener('dragend', function (event) {
         $('input[name="latitude"]').val(event.latLng.lat());
         $('input[name="longitude"]').val(event.latLng.lng());

@@ -44,7 +44,7 @@
                     <img src="{{ asset('images/iphone.png')}}" alt=" " height="80px" width="100px">
                 </div>
                 <div class="col-lg-2 col-md-6 col-6">
-                    <img src="{{ asset('images/google-play-store.png')}}" alt=" " class="shaking" height="45px">
+                    <img src="{{ asset('images/google-play-store.png')}}" alt=" " style="margin-left: -14px;" class="shaking" height="45px">
                 </div>
                 <div class="col-lg-2 col-md-6 col-6">
                     <img src="{{ asset('images/apple-store.png')}}" alt=" " class="shaking" height="45px">

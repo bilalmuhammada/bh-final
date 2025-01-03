@@ -506,7 +506,7 @@ $(document).on('click', '.place-ad-form-submit', function (e) {
                             // window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
                         }, 600);
                     } else {
-                        alert(response.message);
+                        showAlert("error", response.message);
                     }
                 },
                 error: function (response) {

@@ -56,10 +56,10 @@ margin-left: -7px;
         color: blue !important;
     }
     .lobibox-notify-success{
-        width: 150px !important
+        width: 180px !important
     }
     .lobibox-notify-error{
-        width: 150px !important
+        width: 180px !important
     }
     .form-control{
         /* width:100%; */

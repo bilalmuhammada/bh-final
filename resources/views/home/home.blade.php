@@ -230,11 +230,14 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Businesses for Sale</b></h6>
-                @if($ads->where("is_featured", true)->count()>0)
+                @if($ads->where("category_id", 1)->count()>0)
                 <div class="row slider" style="margin-left: -8px;">
                     
     
-                    @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
+                    @foreach($ads->where("category_id", 1) as $key=>$featured_ad)
+                    @php
+                    $business_for_sale_details= DB::table('business_for_sale_details')->where('listing_id', $featured_ad->id)->first();
+                  @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                             <div class="listing">
@@ -246,9 +249,9 @@
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                 </div>
                                 <div class="detail" style="padding: 12px;margin-left: -13px;">
-                                    <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
-                                    <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <span style="color:#000; display: block; margin-bottom: 2px;">{!!$business_for_sale_details->title !!} {{$key}}</span>
+                                    <span style="color:#999; display: block; margin-bottom: 5px;">{!!$business_for_sale_details->location_name !!}</span>
+                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> AED {!!$business_for_sale_details->price !!}</b></h5>
                                 </div>
                                 
                             </div>
@@ -277,10 +280,14 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Businesses for Rent</b></h6>
-                @if($ads->where("is_featured", true)->count()>0)
+                @if($ads->where("category_id", 7)->count()>0)
+
                 <div class="row slider" style="margin-left: -8px;">
                    
-                    @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
+                    @foreach($ads->where("category_id", 7) as $key=>$featured_ad)
+                    @php
+                    $business_rents= DB::table('business_rents')->where('listing_id', $featured_ad->id)->first();
+                  @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                             <div class="listing ">
@@ -292,9 +299,9 @@
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                 </div>
                                 <div class="detail" style="padding: 12px;margin-left: -13px;">
-                                    <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
-                                    <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <span style="color:#000; display: block; margin-bottom: 2px;">{!!$business_rents->title !!}{{$key}}</span>
+                                    <span style="color:#999; display: block; margin-bottom: 5px;">{!!$business_rents->location_name !!}</span>
+                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> AED {!!$business_rents->price !!}</b></h5>
                                 </div>
                                 
                             </div>
@@ -321,11 +328,14 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Shares for Sale</b></h4>
-                    @if($ads->where("is_featured", true)->count()>0)
+                    @if($ads->where("category_id", 2)->count()>0)
                     <div class="row slider" style="margin-left: -8px;">
                     
     
-                    @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
+                    @foreach($ads->where("category_id", 2) as $key=>$featured_ad)
+                    @php
+                    $shares_for_sale_details= DB::table('shares_for_sale_details')->where('listing_id', $featured_ad->id)->first();
+                  @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                             <div class="listing">
@@ -337,9 +347,9 @@
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                 </div>
                                 <div class="detail" style="padding: 12px;margin-left: -13px;">
-                                    <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
-                                    <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <span style="color:#000; display: block; margin-bottom: 2px;">{!!$shares_for_sale_details->title !!}{{$key}}</span>
+                                    <span style="color:#999; display: block; margin-bottom: 5px;">{!!$shares_for_sale_details->location_name !!}</span>
+                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> AED {!!$shares_for_sale_details->price !!}</b></h5>
                                 </div>
                                 
                             </div>
@@ -368,10 +378,13 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Business Ideas</b></h4>
-                    @if($ads->where("is_featured", true)->count()>0)
+                    @if($ads->where("category_id", 3)->count()>0)
                     <div class="row slider" style="    margin-left: -8px;">
                    
-                    @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
+                    @foreach($ads->where("category_id", 3) as $key=>$featured_ad)
+                    @php
+                    $business_idea_details= DB::table('business_idea_details')->where('listing_id', $featured_ad->id)->first();
+                  @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                             <div class="listing">
@@ -383,9 +396,9 @@
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                 </div>
                                 <div class="detail" style="padding: 12px;margin-left: -13px;">
-                                    <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
-                                    <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <span style="color:#000; display: block; margin-bottom: 2px;">{!!$shares_for_sale_details->title !!} {{$key}}</span>
+                                    <span style="color:#999; display: block; margin-bottom: 5px;">{!!$shares_for_sale_details->location_name !!}</span>
+                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED {!!$shares_for_sale_details->price !!}</b></h5>
                                 </div>
                                 
                             </div>
@@ -413,10 +426,14 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Investors</b></h6>
-                @if($ads->where("is_featured", true)->count()>0)
+                @if($ads->where("category_id", 4)->count()>0)
                 <div class="row slider" style="    margin-left: -8px;">
                     
-                    @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
+                    @foreach($ads->where("category_id", 4) as $key=>$featured_ad)
+
+                    @php
+                    $business_for_sale_details= DB::table('investors_details')->where('listing_id', $featured_ad->id)->first();
+                  @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                             <div class="listing">
@@ -428,9 +445,9 @@
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                 </div>
                                 <div class="detail" style="padding: 12px;margin-left: -13px;">
-                                    <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
-                                    <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <span style="color:#000; display: block; margin-bottom: 2px;">{!!$shares_for_sale_details->title !!} {{$key}}</span>
+                                    <span style="color:#999; display: block; margin-bottom: 5px;">{!!$shares_for_sale_details->location_name !!}</span>
+                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED {!!$shares_for_sale_details->price !!}</b></h5>
                                 </div>
                                 
                             </div>
@@ -460,10 +477,13 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Investors Required</b></h6>
-                @if($ads->where("is_featured", true)->count()>0)
+                @if($ads->where("category_id", 5)->count()>0)
                 <div class="row slider" style="    margin-left: -8px;">
                     
-                    @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
+                    @foreach($ads->where("category_id", 5) as $key=>$featured_ad)
+                    @php
+                    $business_for_sale_details= DB::table('investors_required_details')->where('listing_id', $featured_ad->id)->first();
+                  @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                             <div class="listing">
@@ -475,9 +495,9 @@
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                 </div>
                                 <div class="detail" style="padding: 12px;margin-left: -13px;">
-                                    <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
-                                    <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <span style="color:#000; display: block; margin-bottom: 2px;">{!!$shares_for_sale_details->title !!} {{$key}}</span>
+                                    <span style="color:#999; display: block; margin-bottom: 5px;">{!!$shares_for_sale_details->location_name !!}</span>
+                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED {!!$shares_for_sale_details->price !!}</b></h5>
                                 </div>
                                 
                             </div>
@@ -506,10 +526,13 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Franchise Opportunities</b></h6>
-                @if($ads->where("is_featured", true)->count()>0)
+                @if($ads->where("category_id", 6)->count()>0)
                 <div class="row slider" style="    margin-left: -8px;">
                     
-                    @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
+                    @foreach($ads->where("category_id", 6) as $key=>$featured_ad)
+                    @php
+                    $business_for_sale_details= DB::table('franchise_opportunities_details')->where('listing_id', $featured_ad->id)->first();
+                  @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                             <div class="listing">
@@ -521,9 +544,9 @@
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                 </div>
                                 <div class="detail" style="padding: 12px;margin-left: -13px;">
-                                    <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
-                                    <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <span style="color:#000; display: block; margin-bottom: 2px;">{!!$shares_for_sale_details->title !!} {{$key}}</span>
+                                    <span style="color:#999; display: block; margin-bottom: 5px;">{!!$shares_for_sale_details->location_name !!}</span>
+                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED {!!$shares_for_sale_details->price !!}</b></h5>
                                 </div>
                                 
                             </div>
@@ -551,10 +574,16 @@
         <div class="container">
             <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:0px 0px 0px -76px;">
                 <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Machinery & Supplies</b></h6>
-                @if($ads->where("is_featured", true)->count()>0)
+                @if($ads->where("category_id", 8)->count()>0)
                 <div class="row slider" style="    margin-left: -8px;">
                   
-                    @foreach($ads->where("is_featured", true) as $key=>$featured_ad)
+
+
+                    @foreach($ads->where("category_id", 8) as $key=>$featured_ad)
+                    @php
+                    $machine_supplies_details= DB::table('machine_supplies_details')->where('listing_id', $featured_ad->id)->first();
+                  @endphp
+                   
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
                             <div class="listing">
@@ -566,9 +595,9 @@
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                 </div>
                                 <div class="detail" style="padding: 12px;margin-left: -13px;">
-                                    <span style="color:#000; display: block; margin-bottom: 2px;">2 Beds . 2 Baths {{$key}}</span>
-                                    <span style="color:#999; display: block; margin-bottom: 5px;">Al Quoz 4, Al Quoz</span>
-                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED 73,988</b></h5>
+                                    <span style="color:#000; display: block; margin-bottom: 2px;">{!!$machine_supplies_details->title !!}{{$key}}</span>
+                                    <span style="color:#999; display: block; margin-bottom: 5px;">{!!$machine_supplies_details->location_name !!}</span>
+                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED {!!$machine_supplies_details->price !!}</b></h5>
                                 </div>
                                 
                             </div>
