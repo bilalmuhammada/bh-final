@@ -43,7 +43,7 @@ class AuthController extends Controller
             'gender' => 'required',
             'dob' => ['required', 'date', 'before:' . now()->subYears(18)->format('Y-m-d')],
             'country' => 'required|exists:countries,id',
-            'city' => 'nullable|exists:cities,id',
+            'city' => 'nullable|required|exists:cities,id',
             'password' => 'required|min:6|confirmed',
            
         ]
@@ -62,9 +62,10 @@ class AuthController extends Controller
             'country.required' => 'Country is required.',
             'country.exists' => 'The selected country is invalid.',
             'city.exists' => 'The selected city is invalid.',
+            'city.required' => 'City is required.',
             'password.required' => 'Password is required.',
             'password.min' => 'Password must be at least 6 characters.',
-            'password.confirmed' => 'Passwords do not match.',
+            'password.confirmed' => 'Confirm password does not match.',
         ]);
 
         if ($validator->fails()) {

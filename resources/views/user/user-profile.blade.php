@@ -86,6 +86,10 @@ select {
     background-color: transparent;
     padding-right: 20px; /* Add some padding to keep the layout */
 }
+#change-photo-link:hover{
+    color:#A17A4E !important;
+}
+
     input{
         border: 1px solid #A17A4E !important;
     }
@@ -107,7 +111,7 @@ width: 225px !important;
     <!-- form content start -->
     <div class="cont-w" style="margin-bottom:30px;">
     <div class="col-md-12" style="margin-left:42px;">
-        <span style="font-size: 12px ;"><a href="{{ env('BASE_URL') . 'home'}}">Home</a>>Profile</span>
+        <span style="font-size: 12px ; color:007bff;"><a href="{{ env('BASE_URL') . 'home'}}">Home</a> > Profile</span>
 
         {{-- <h4><b>My Profile</b></h4> --}}
         <h6 style="font-size:12px;font-weight: bolder;">Welcome, {{ session()->get('user')->name }}!</h6>
@@ -116,7 +120,7 @@ width: 225px !important;
             <div class="row">
                 <div class="col-md-2" style="border: 0px solid red;text-align:center;">
                     <img id="profile-image" class="display-profile-img" src="{{session()->get('user')->image_url}}" alt="img" width="120" height="120" style="border-radius: 5%; border: 0px solid red;">
-                    <a href="#" id="change-photo-link" style="display: flex; margin-left: 43px; margin-top: 5px;">Change Photo</a>
+                    <a href="#" id="change-photo-link"  style="display: flex; margin-left: 43px; margin-top: 5px;font-size:14px;">Change Photo</a>
                     <input type="file" name="profile_image" id="profile_image" class="form-control-file" accept="image/*" style="border: 1px solid #999; border-radius: 2px; display: none;">
                     <input type="hidden" name="image" class="base64-Image-name">
                 </div>

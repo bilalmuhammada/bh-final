@@ -276,7 +276,7 @@
                                 <option value="">Currency</option>
                                 @foreach($currency as $currencyn)
                                 <option data-currency-id="{{ $currencyn->currency }}"
-                                        {{$currencyn->id == request()->country || $currencyn->currency_short_name ==  request()->currency ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" value="{{ $currencyn->currency_short_name }}"
+                                        {{ $currencyn->currency_short_name ==  request()->currency ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" value="{{ $currencyn->currency_short_name }}"
                                         style="font-size:8px !important;">{{ $currencyn->currency_short_name }}</option>
                             @endforeach
                         </select>

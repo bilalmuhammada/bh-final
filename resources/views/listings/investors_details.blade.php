@@ -193,7 +193,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <input type="text" class="form-control floating" name="investment_amount" placeholder="" oninput="validatePhoneNumber(this)"
+                    <input type="number" class="form-control floating" name="investment_amount" placeholder="" 
                             required>
                            <label class="focus-label">Investment Amount</label>
                         </div>
@@ -276,7 +276,7 @@
             <div class="row">
                 <div class="col-md-6" >
                     <div class="form-group form-focus">
-                    <input type="text" class="form-control floating mobile" name="phone" placeholder=""   oninput="validatePhoneNumber(this)" 
+                    <input type="number" class="form-control floating mobile" name="phone" placeholder=""  
                            pattern="[0-9]{10}" title="Please enter a valid 10-digit Mobile  number" required>
                            <label class="focus-label">Mobile</label>
                         </div>
@@ -290,14 +290,14 @@
                
                 <div class="col-md-6" >
                 <div class="form-group form-focus">
-                    <input type="text" class="form-control floating" oninput="validatePhoneNumber(this)"  name="whatsapp" required>
+                    <input type="number" class="form-control floating"   name="whatsapp" required>
                     <label class="focus-label">WhatsApp</label>
                 </div>
             </div>
             <div class="form-group"  style="margin-bottom: -7px;" id="filemoble">
                 <label style="margin-top: -20px; margin-left: 17rem;
                 text-align: center;
-                font-size: 14px;">Do you want to show or hide your Mobile?</label>
+                font-size: 14px;">Do you want to Show or Hide your Mobile?</label>
                 <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
                     <label class="btn active  btn-show btn-mobile" style="margin-left:20.8rem !important;">
                         <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show 

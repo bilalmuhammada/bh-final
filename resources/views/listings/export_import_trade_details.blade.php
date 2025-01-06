@@ -191,7 +191,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <input type="text" class="form-control floating" name="price" oninput="validatePhoneNumber(this)" placeholder=""   
+                    <input type="number" class="form-control floating" name="price"  placeholder=""   
                            required>
                              
                    <label class="focus-label">Price</label>
@@ -202,7 +202,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <input type="text" class="form-control floating" name="manufactured_year" oninput="validatePhoneNumber(this)" placeholder="Manufactured Year"    required>
+                    <input type="number" class="form-control floating" name="manufactured_year"  placeholder="Manufactured Year"    required>
                     <label class="focus-label">Manufactured Year</label>
                 </div>
                     <div class="invalid-feedback">
@@ -240,7 +240,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="stock_level" oninput="validatePhoneNumber(this)" placeholder="Stock Level"   
+                <input type="number" class="form-control floating" name="stock_level"  placeholder="Stock Level"   
                            required>
                            <label class="focus-label">Stock Level</label>
                         </div>
@@ -289,8 +289,8 @@
         </div>
            <div class="col-md-6 mx-auto" style="margin-top: 20px;">
             <div class="form-group form-focus">
-           <input type="text" class="form-control floating" name="phone" placeholder=""   
-           oninput="validatePhoneNumber(this)"  title="" required>
+           <input type="number" class="form-control floating" name="phone" placeholder=""   
+             title="" required>
                     
                            <label class="focus-label">Mobile</label>
                         </div>

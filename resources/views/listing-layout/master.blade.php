@@ -32,9 +32,16 @@
 .lobibox-notify .lobibox-close {
     top:6px !important;
 }
-.form-control:invalid , .form-control:valid{
-    background-image: none !important; /* Removes any default invalid icon */
+/* .form-control:invalid , .form-control:valid{
+    background-image: none !important;
+} */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
+
+
 
 ::-webkit-scrollbar {
   width: 6px; /* You can adjust this value based on your preference */

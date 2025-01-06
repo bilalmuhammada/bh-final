@@ -207,7 +207,7 @@
 
             
     <div class="form-group form-focus">
-        <input type="text" class="form-control floating" name="investment_amount" oninput="validatePhoneNumber(this)">
+        <input type="number" class="form-control floating" name="investment_amount" >
         <label class="focus-label">Investment Required</label>
     </div>
             {{-- <input type="text" class="form-controlz" name="investment_amount" placeholder="Investment Required" style="padding:22px;" required> --}}
@@ -255,7 +255,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group form-focus">
-                    <input type="text" class="form-control floating"  oninput="validatePhoneNumber(this)" name="size_sqm" placeholder="" 
+                    <input type="number" class="form-control floating"   name="size_sqm" placeholder="" 
                         title="" required>
                         <label class="focus-label">Premise Size Sq.Ft</label>
                     </div>
@@ -276,7 +276,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                       <input type="text" class="form-control floating" name="branches"  oninput="validatePhoneNumber(this)" placeholder="" 
+                       <input type="number" class="form-control floating" name="branches"   placeholder="" 
                            title="" required>
                            <label class="focus-label">Branches </label>
                        </div>
@@ -286,7 +286,7 @@
                </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                           <input type="text" class="form-control floating" name="no_of_employees"  oninput="validatePhoneNumber(this)" placeholder="" 
+                           <input type="number" class="form-control floating" name="no_of_employees"   placeholder="" 
                                title="" required>
                                <label class="focus-label">Employees </label>
                            </div>
@@ -342,14 +342,14 @@
                     </div>
                     <div class="col-md-6 " >
                         <div class="form-group form-focus">
-                            <input type="text" class="form-control floating" oninput="validatePhoneNumber(this)"  name="phone" required>
+                            <input type="number" class="form-control floating"  name="phone" required>
                             <label class="focus-label">Mobile</label>
                         </div>
                            
                     </div>
                     <div class="col-md-6" >
                         <div class="form-group form-focus">
-                            <input type="text" class="form-control floating" oninput="validatePhoneNumber(this)"  name="whatsapp" placeholder="" required>
+                            <input type="number" class="form-control floating"   name="whatsapp" placeholder="" required>
                             <label class="focus-label">WhatsApp</label>
                     </div>
         </div>

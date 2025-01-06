@@ -193,7 +193,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <input type="text" class="form-control floating" name="franchise_fee" oninput="validatePhoneNumber(this)" placeholder="" 
+                    <input type="number" class="form-control floating" name="franchise_fee" placeholder="" 
                            required>
                            <label class="focus-label">Franchise Fee</label>
                         </div>
@@ -248,7 +248,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <input type="text" class="form-control floating" name="established_year"  oninput="validatePhoneNumber(this)" placeholder="" 
+                    <input type="number" class="form-control floating" name="established_year"   placeholder="" 
                            required>
                            <label class="focus-label">Established Year</label>
                         </div>
@@ -258,7 +258,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <input type="text" class="form-control floating" name="no_of_branches"  oninput="validatePhoneNumber(this)" placeholder=""
+                    <input type="number" class="form-control floating" name="no_of_branches"  placeholder=""
                            title="" required>
                            <label class="focus-label">Branches </label>
                         </div>
@@ -273,7 +273,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <input type="text" class="form-control floating" oninput="validatePhoneNumber(this)" name="no_of_employees" placeholder="" 
+                    <input type="number" class="form-control floating"  name="no_of_employees" placeholder="" 
                            title="" required>
                            <label class="focus-label">Employees</label>
                         </div>
@@ -294,9 +294,9 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group form-focus">
-                            <input type="text" class="form-control floating"  name="squrft" placeholder="" 
+                            <input type="number" class="form-control floating"  name="squrft" placeholder="" 
                             {{-- pattern="\d{10}"  --}}
-                            title="Please enter a valid 10-digit  number"   oninput="validatePhoneNumber(this)" required>
+                            title="Please enter a valid 10-digit  number"  required>
                            <label class="focus-label">Premise Size Sq.Ft</label>
                         </div>
                            <div class="invalid-feedback">
@@ -383,9 +383,9 @@
                     
                     <div class="col-md-6">
                         <div class="form-group form-focus">
-                            <input type="text" class="form-control floating"  name="phone" placeholder="" 
+                            <input type="number" class="form-control floating"  name="phone" placeholder="" 
                             {{-- pattern="\d{10}"  --}}
-                            title="Please enter a valid 10-digit  number"   oninput="validatePhoneNumber(this)" required>
+                            title="Please enter a valid 10-digit  number"    required>
                            <label class="focus-label">Mobile</label>
                         </div>
                            <div class="invalid-feedback">
@@ -394,7 +394,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="text" class="form-control floating"  name="whatsapp"  oninput="validatePhoneNumber(this)" placeholder="" 
+                        <input type="number" class="form-control floating"  name="whatsapp"   placeholder="" 
                         {{-- pattern="\d{10}"  --}}
                         title=""   required>
                        <label class="focus-label">WhatsApp</label>

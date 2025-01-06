@@ -595,31 +595,26 @@ width: 60rem !important;
                                         <img src="{{ asset('images/socialicon/call.svg') }}" alt="Call Icon" style="height: 23px;margin-top: -6px; margin-right: 4px;">
 
                                     </button>
-                                    <div id="callPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border: 1px solid red; padding: 15px; border-radius: 5px; z-index: 1000;">
-                                        <p style="margin: 0; font-size: 18px; color: red;">📞 {!!$ad->phone !!}</p>
-                                        <button onclick="hidePopup()" style="margin-top: 10px; padding: 5px 10px; border: none; background: red; color: white; border-radius: 3px; cursor: pointer;">Close</button>
+                                    <div id="callPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 15px; border-radius: 5px; z-index: 1000;">
+                                        <p style="margin: 0; font-size: 18px; color: red;"> <img src="{{ asset('images/socialicon/call.svg') }}" alt="Call Icon" style="height: 23px;margin-top: -6px; margin-right: 4px;"> {!!$ad->phone !!}</p>
+                                        {{-- <button onclick="hidePopup()" style="margin-top: 10px; padding: 5px 10px; border: none; background: red; color: white; border-radius: 3px; cursor: pointer;">Close</button> --}}
                                     </div>
                                     
                                     <!-- Overlay -->
                                     <div id="popupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="hidePopup()"></div>
                                     
-                                    <button class="btn" style="border: 1px solid #0088eb; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
-                                        <img src="{{ asset('images/socialicon/chat.png')}}" alt="Chat Icon" style="height: 30px; margin-top: -4px; margin-right: 1px;">
+                                    <button  class="btn" style="border: 1px solid #0088eb; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;"  onclick="window.location.href='{{ env('BASE_URL') . 'chats?user_id=' . $ad->created_by_user->id }}';" 
+                                        type="button" 
+                                        aria-expanded="false">
+                                        <img src="{{ asset('images/socialicon/chat.png') }}" alt="Chat Icon" style="height: 30px; margin-top: -4px; margin-right: 1px;">
                                     </button>
-         
-                                    <button class="btn" onclick="showWhatsAppPopup()" style="border: 1px solid #32d951; margin-right: 9px; white-space: nowrap; height: 36px;width: 60px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
+
+                                    <button class="btn" onclick="redirectToWhatsApp()" style="border: 1px solid #32d951; margin-right: 9px; white-space: nowrap; height: 36px;width: 60px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
                                         <img src="{{ asset('images/socialicon/whatsapp.png')}}" alt="WhatsApp Icon" style="height: 45px; margin-top: -12px; margin-left: -5px;">
                                     </button>
 
-                                    <div id="callPopupwhats" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border: 1px solid #32d951; padding: 15px; border-radius: 5px; z-index: 1000; text-align: center;">
-                                        <p style="margin: 0; font-size: 18px; color: #32d951;">📞 {!! $ad->phone !!}</p>
-                                        <button onclick="redirectToWhatsApp()" style="margin-top: 10px; padding: 5px 10px; border: none; background: #32d951; color: white; border-radius: 3px; cursor: pointer;">Message on WhatsApp</button>
-                                        <button onclick="hidePopup()" style="margin-top: 10px; padding: 5px 10px; border: none; background: red; color: white; border-radius: 3px; cursor: pointer;">Close</button>
-                                    </div>
-                                    
-                                    <!-- Overlay -->
-                                    <div id="popupOverlaywhats" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="hidePopup()"></div>
-                                    
+                                   
+                                   
                                     <button class="btn" onclick="redirectToEmail()" style="border: 1px solid #fab005; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
                                         <img src="{{ asset('images/socialicon/email.png')}}" title="Email" alt="WhatsApp Icon" style="height: 25px; margin-right: 2px;margin-top: -4px;">
                                     </button>

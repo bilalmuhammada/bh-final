@@ -181,6 +181,7 @@
             </div>
         </div>
     </section>
+
     <!-- searchbar mobile finish  -->
     <!-- Categories area start -->
     <section class="list">
@@ -239,7 +240,7 @@
                     $business_for_sale_details= DB::table('business_for_sale_details')->where('listing_id', $featured_ad->id)->first();
                   @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
+                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . request()->currency}}">
                             <div class="listing">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
@@ -251,7 +252,7 @@
                                 <div class="detail" style="padding: 12px;margin-left: -13px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">{!!$business_for_sale_details->title !!} {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">{!!$business_for_sale_details->location_name !!}</span>
-                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> AED {!!$business_for_sale_details->price !!}</b></h5>
+                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;">   {{request()->currency}} {!!$business_for_sale_details->price !!}</b></h5>
                                 </div>
                                 
                             </div>
@@ -289,7 +290,7 @@
                     $business_rents= DB::table('business_rents')->where('listing_id', $featured_ad->id)->first();
                   @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
+                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . request()->currency}}">
                             <div class="listing ">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
@@ -337,7 +338,7 @@
                     $shares_for_sale_details= DB::table('shares_for_sale_details')->where('listing_id', $featured_ad->id)->first();
                   @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
+                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . request()->currency}}">
                             <div class="listing">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
@@ -386,7 +387,7 @@
                     $business_idea_details= DB::table('business_idea_details')->where('listing_id', $featured_ad->id)->first();
                   @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
+                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . request()->currency}}">
                             <div class="listing">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
@@ -435,7 +436,7 @@
                     $business_for_sale_details= DB::table('investors_details')->where('listing_id', $featured_ad->id)->first();
                   @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
+                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . request()->currency}}">
                             <div class="listing">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
@@ -485,7 +486,7 @@
                     $business_for_sale_details= DB::table('investors_required_details')->where('listing_id', $featured_ad->id)->first();
                   @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
+                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . request()->currency}}">
                             <div class="listing">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">

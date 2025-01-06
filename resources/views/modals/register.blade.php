@@ -227,7 +227,7 @@ padding-left: 31px;
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
                                         <input type="password" name="password" id="password_main" class="form-control login-user floating"
-                                               placeholder="" aria-label="Password" aria-describedby="basic-addon1">
+                                               placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                                         <div class="input-group-append">
                                             <span class="toggle-password" onclick="togglePassword('password_main')" style="cursor: pointer;">👁️</span>
                                         </div>
@@ -239,7 +239,7 @@ padding-left: 31px;
                                     <div class="form-group form-focus">
                                         <input type="password" name="password_confirmation" id="password_confirmation"
  class="form-control login-user floating"
-                                               placeholder="" aria-label="Cpassword"
+                                               placeholder="Confirm Password" aria-label="Cpassword"
                                                aria-describedby="basic-addon1">
                                                {{-- <label class="focus-label">Confirm Password</label> --}}
                                                <div class="input-group-append">

@@ -158,9 +158,7 @@ select {
     </style>
     <!--------ad area --------->
     <section>
-        {{-- @php
-        dd('jj');
-        @endphp --}}
+       
         <!-- <div class="container slider-area"> -->
         <div class="cont-w slider-area desktop-view">
             <div id="demo" class="carousel slide" data-ride="carousel">
@@ -278,11 +276,11 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                 <span style="font-size: 14px;"><b>Sort</b></span>
             </div>
             <select class="form-select form-control "style="font-size: 13px;"  id="sortDropdown" onchange="window.location.href=this.value" >
-                <option class="option" value="?sort=newest" {{ request()->sort == 'newest' ? 'selected' : '' }}>Post: New to Old</option>
-                <option class="option" value="?sort=oldest" {{ request()->sort == 'oldest' ? 'selected' : '' }}>Post: Old to New</option>
-                <option class="option" value="?sort=price_high" {{ request()->sort == 'price_high' ? 'selected' : '' }}>Price: High to Low</option>
-                <option  class="option" value="?sort=price_low" {{ request()->sort == 'price_low' ? 'selected' : '' }}>Price: Low to High</option>
-                <option  class="option" value="?sort=nearest" {{ request()->sort == 'nearest' ? 'selected' : '' }}>Nearest First</option>
+                <option class="option" value="?sort=newest" {{ request()->sort == 'newest' ? 'selected' : '' }}>Date: New - Old</option>
+                <option class="option" value="?sort=oldest" {{ request()->sort == 'oldest' ? 'selected' : '' }}>Date: Old - New</option>
+                <option class="option" value="?sort=price_high" {{ request()->sort == 'price_high' ? 'selected' : '' }}>Price: Low - High</option>
+                <option  class="option" value="?sort=price_low" {{ request()->sort == 'price_low' ? 'selected' : '' }}> Price: High - Low </option>
+                <option  class="option" value="?sort=nearest" {{ request()->sort == 'nearest' ? 'selected' : '' }}>Location: Nearest First</option>
             </select>
         </div>
     </div>

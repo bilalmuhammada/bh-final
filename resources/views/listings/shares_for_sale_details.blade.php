@@ -194,7 +194,7 @@
 
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="share_price" oninput="validatePhoneNumber(this)" placeholder=""
+                <input type="number" class="form-control floating "    name="share_price"  placeholder=""
                     title="" required>
                     <label class="focus-label">Share Price</label>
                 </div>
@@ -204,7 +204,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating" oninput="validatePhoneNumber(this)"  name="share_amount" placeholder=""  required>
+                <input type="number" class="form-control floating"  name="share_amount" placeholder=""  required>
                 <label class="focus-label">Share Percentage</label>
             </div>
             {{-- <div class="invalid-feedback">
@@ -227,7 +227,7 @@
         
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="sale_revenue" oninput="validatePhoneNumber(this)" placeholder="" 
+                <input type="number" class="form-control floating" name="sale_revenue"  placeholder="" 
                     title="" required>
                     <label class="focus-label">Sale Revenue</label>
                 </div>
@@ -254,7 +254,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating"  name="established_year" oninput="validatePhoneNumber(this)" placeholder=""  required>
+                <input type="number" class="form-control floating"  name="established_year" placeholder=""  required>
                 <label class="focus-label">Established Year</label>
             </div>
             {{-- <div class="invalid-feedback">
@@ -263,7 +263,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-               <input type="text" class="form-control floating" name="branches"  oninput="validatePhoneNumber(this)" placeholder="" 
+               <input type="number" class="form-control floating" name="branches"  placeholder="" 
                    title="" required>
                    <label class="focus-label">Branches </label>
                </div>
@@ -273,7 +273,7 @@
        </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                   <input type="text" class="form-control floating" name="no_of_employees"  oninput="validatePhoneNumber(this)" placeholder="" 
+                   <input type="number" class="form-control floating" name="no_of_employees"  placeholder="" 
                        title="" required>
                        <label class="focus-label">Employees </label>
                    </div>
@@ -293,7 +293,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating"  oninput="validatePhoneNumber(this)" name="size_sqm" placeholder="" 
+                <input type="number" class="form-control floating"   name="size_sqm" placeholder="" 
                     title="" required>
                     <label class="focus-label">Premise Size Sq.Ft</label>
                 </div>
@@ -315,7 +315,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating"  oninput="validatePhoneNumber(this)" name="lease_amount" placeholder="" 
+                <input type="number" class="form-control floating"   name="lease_amount" placeholder="" 
                     title="" required>
                     <label class="focus-label">Lease Amount</label>
                 </div>
@@ -376,8 +376,8 @@
         
         <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="text" class="form-control floating" name="phone" placeholder="" 
-                  oninput="validatePhoneNumber(this)"  title="Please enter a valid 10-digit Mobile number" required>
+                        <input type="number" class="form-control floating" name="phone" placeholder="" 
+                   title="Please enter a valid 10-digit Mobile number" required>
                    <label class="focus-label">Mobile</label>
                 </div>
             {{-- <div class="invalid-feedback">
@@ -386,8 +386,8 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="text" class="form-control floating" name="whatsapp" placeholder="" 
-          oninput="validatePhoneNumber(this)"  title="Please enter a valid 10-digit Mobile number" required>
+                <input type="number" class="form-control floating" name="whatsapp" placeholder="" 
+  title="Please enter a valid 10-digit Mobile number" required>
            <label class="focus-label">WhatsApp</label>
         </div>
     {{-- <div class="invalid-feedback">
@@ -470,18 +470,8 @@
     <script type="text/javascript" src="{{ asset('js/listings_form.js') }}"></script>
 
     <script>
- function validatePhoneNumber(input) {
-    // Remove any non-digit characters
-    input.value = input.value.replace(/\D/g, '');
-    
-    // Check if the input length is exactly 10 digits
-    if (input.value.length !== 10) {
-        input.setCustomValidity('Please enter a valid 10-digit number');
-    } else {
-        input.setCustomValidity('');
-    }
 
-}
+
 $(document).on('click', '.place-ad-form-submit', function (e) {
             e.preventDefault();
              var formData = new FormData($('.place-ad-form')[0]);
