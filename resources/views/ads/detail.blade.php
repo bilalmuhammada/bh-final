@@ -700,7 +700,7 @@ width: 60rem !important;
                                                 <div class="detail"  style="margin-bottom:8px;margin-left: -3px;">
                                                     <span style="color:#000; display: block;">{{ $similar_ad->title ?? 'Title N/A' }}</span>
                                                     <span style="color:#999; display: block; font-size:8px; " >{{ $similar_ad->category_name}} > {{$similar_ad->subcategory_name }}</span>
-                                                    <h5 style="font-size: 14px;margin-bottom: -10px;"><b style="color: red;">{{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}</b></h5>
+                                                    <h5 style="font-size: 14px;margin-bottom: -10px;"><b style="color: red;"> {{request()->currency}}  {{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}</b></h5>
                                                 </div>
                                             </div>
                                         </a>
