@@ -783,6 +783,8 @@ class ListingController extends Controller
 
     public function removeFromFavourites($listing_id)
     {
+
+
         $validation_arr = [
             'listing_id' => $listing_id,
         ];
@@ -799,11 +801,13 @@ class ListingController extends Controller
             ]);
         }
 
+      
         $Favourite = Favourite::where([
             'listing_id' => $listing_id,
-            'user_id' => Auth::id(),
+            'user_id' => Session::get('user')->id,
         ])->first();
 
+        //  dd( );
         if (!empty($Favourite)) {
             $Favourite->delete();
 

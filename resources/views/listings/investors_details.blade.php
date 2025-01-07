@@ -418,7 +418,7 @@ $(document).on('click', '.place-ad-form-submit', function (e) {
                         }, 600);
 
                     } else {
-                        showAlert("error", response.message);
+                        // showAlert("error", response.message);
                     }
                 },
                 error: function (response) {

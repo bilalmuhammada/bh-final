@@ -201,11 +201,14 @@ $(document).on('click', '.reset-password-submit', function () {
 $(document).on('click', '.favourite-btn', function () {
     var thisElem = $(this);
 
+    // alert(thisElem.attr('ad-id'));
     if (!checkIfUserLoggedIn()) {
 
         $('#loginModal').modal('show');
         return ;
     }
+
+alert(thisElem.attr('is-favourite'));
 
     if (thisElem.attr('is-favourite') === '1') {
         $.ajax({

@@ -190,7 +190,7 @@ padding-left: 31px;
                                         <select name="country" id="register_country"
                                                     class="form-control  country_id   login-user"
                                                     style="width:100%;">
-                                                    <option value="" selected>All Countries</option>
+                                                    <option value="" selected>Countries</option>
                                                 @foreach($countries as $country)
                                                
                                                     <option

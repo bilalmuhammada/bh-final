@@ -280,7 +280,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                 <option class="option" value="?sort=oldest" {{ request()->sort == 'oldest' ? 'selected' : '' }}>Date: Old - New</option>
                 <option class="option" value="?sort=price_high" {{ request()->sort == 'price_high' ? 'selected' : '' }}>Price: Low - High</option>
                 <option  class="option" value="?sort=price_low" {{ request()->sort == 'price_low' ? 'selected' : '' }}> Price: High - Low </option>
-                <option  class="option" value="?sort=nearest" {{ request()->sort == 'nearest' ? 'selected' : '' }}>Location: Nearest First</option>
+                <option  class="option" value="?sort=nearest" {{ request()->sort == 'nearest' ? 'selected' : '' }}>Location: Near - Far</option>
             </select>
         </div>
     </div>
@@ -358,7 +358,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                 <div class="row" style="margin-top: -12px;">
                                     <div class="col-lg-7 col-md-7 col-7" style="margin-left: -118px">
                                     <h5 style="font-size: 18px;font-weight:700;margin: 0px;">{{ $ad->title ?? 'Heading N/A' }}</h5>
-                                    <p style="font-size: 13px;margin-bottom: 6px;">{{ $ad->category_name }} <span style="font-size: 16px;">&#9679;</span> {{ $ad->subcategory_name }}</p>
+                                    <p style="font-size: 13px;margin-bottom: 6px;">{{ $ad->category_name }} <span style="font-size: 16px;"> > </span> {{ $ad->subcategory_name }}</p>
                                     <h3 style="font-weight: bold;font-size:18px;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price, request()->currency) }}</h3>
                                     
                                         <p style="margin-top:5.5rem;font-size: 13px; white-space: nowrap;"><i class="fa fa-map-marker" style="color: red;"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span  style="margin-top: 12px;">24 May 2024</span></p>

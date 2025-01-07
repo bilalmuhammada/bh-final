@@ -3,15 +3,15 @@
     select{
         text-transform: none !important;
     }
-    .countryfield:focus{
+    .countryfield:hover{
         border: 1px solid #1202c9;
     }
     .countryfield{
         border: 1px solid #A17A4E;
     }
-    input:focus{
+    /* input:hover{
         border: 1px solid #1202c9 !important;
-    }
+    } */
     #profile-form .toggle-password {
             position: absolute;
             right: 30px;
@@ -87,7 +87,7 @@ select {
     padding-right: 20px; /* Add some padding to keep the layout */
 }
 #change-photo-link:hover{
-    color:#A17A4E !important;
+    color:goldenrod !important;
 }
 
     input{
@@ -216,9 +216,9 @@ width: 225px !important;
                                             <select name="country" id="country_id"
                                                         class="form-control form-control1 country_id country_dropdown_user login-user"
                                                         style="width:100%;">
-                                                    @if ($cities->count() < 1)
+                                                    {{-- @if ($cities->count() < 1)
                                                         <option value="" selected>Country</option>
-                                                    @endif
+                                                    @endif --}}
                                                     @foreach($countries as $country)
                                                         <option
                                                             {{ $country->id == request()->country ? 'selected' : '' }} 

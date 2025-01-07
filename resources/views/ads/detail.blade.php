@@ -358,6 +358,7 @@ width: 60rem !important;
                                     <i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}"
                                        is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
                                        style="padding:6px 6px;font-size:19px; color: white; border-radius:2px;"> </i>&nbsp;
+                                   
                                     <i class="fa fa-share share-btn" ad-id="{{ $ad->id }}" title="Copy Ad link"
                                        style="font-size:19px;border-radius:2px; color:blue;"></i>
                                 </span>
@@ -698,7 +699,7 @@ width: 60rem !important;
                                                 </div>
                                                 <div class="detail"  style="margin-bottom:8px;margin-left: -3px;">
                                                     <span style="color:#000; display: block;">{{ $similar_ad->title ?? 'Title N/A' }}</span>
-                                                    <span style="color:#999; display: block;">{{ $similar_ad->subcategory_name }}</span>
+                                                    <span style="color:#999; display: block; font-size:8px; " >{{ $similar_ad->category_name}} > {{$similar_ad->subcategory_name }}</span>
                                                     <h5 style="font-size: 14px;margin-bottom: -10px;"><b style="color: red;">{{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}</b></h5>
                                                 </div>
                                             </div>
@@ -756,6 +757,7 @@ width: 60rem !important;
         });
 });
 
+
 function showPopup() {
         document.getElementById('callPopup').style.display = 'block';
         document.getElementById('popupOverlay').style.display = 'block';
@@ -766,16 +768,18 @@ function showPopup() {
         document.getElementById('popupOverlay').style.display = 'none';
     }
 
+ 
+
     const phoneNumber = {!! json_encode($ad->phone) !!}; // Ensure this is safely rendered from the server
 
-function showWhatsAppPopup() {
-    document.getElementById('callPopupwhats').style.display = 'block';
-    document.getElementById('popupOverlaywhats').style.display = 'block';
-}
-function hidePopup() {
-        document.getElementById('callPopupwhats').style.display = 'none';
-        document.getElementById('popupOverlaywhats').style.display = 'none';
-    }
+// function showWhatsAppPopup() {
+//     document.getElementById('callPopupwhats').style.display = 'block';
+//     document.getElementById('popupOverlaywhats').style.display = 'block';
+// }
+// function hidePopup() {
+//         document.getElementById('callPopupwhats').style.display = 'none';
+//         document.getElementById('popupOverlaywhats').style.display = 'none';
+//     }
 
     function redirectToEmail() {
         const emailAddress = {!! json_encode($ad->created_by_user->email) !!}; // Replace with your dynamic email variable if applicable
@@ -791,6 +795,21 @@ function redirectToWhatsApp() {
 }
 $(document).ready(function () {
  
+    $('.share-btn').on('click', function () {
+            // Get the ad ID
+            const adId = $(this).attr('ad-id');
+
+            // Construct the ad link (replace with your actual link logic)
+            const adLink = `${window.location.origin}/ad/${adId}`;
+
+            // Copy the ad link to the clipboard
+            navigator.clipboard.writeText(adLink).then(() => {
+                alert('Ad link copied to clipboard: ' + adLink);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+                alert('Failed to copy the ad link. Please try again.');
+            });
+        });
 
 
     const $carousel = $('#carouselDemo');

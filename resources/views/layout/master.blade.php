@@ -204,10 +204,10 @@ $.ajax({
             var states = response.data;
             $("#register_cities").empty();
            
-            $("#register_cities").append('<option selected disable value=""> All Cities </option>');
+            $("#register_cities").append('<option selected disable value="">City </option>');
             $("#profile_cities").empty();
            
-           $("#profile_cities").append('<option selected disable value=""> All Cities </option>');
+           $("#profile_cities").append('<option selected disable value="">City </option>');
 
             if (states) {
                 $.each(states, function (index, value) {
