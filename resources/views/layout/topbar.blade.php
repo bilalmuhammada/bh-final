@@ -138,7 +138,7 @@
         }
         .select2-selection__rendered {
             /* padding-left: 16px !important; */
-            font-size: 14px !important;}
+            font-size: 11px !important;}
 
 
         .auth{
@@ -684,7 +684,7 @@
                                         <span class="colorChange" style="width:;display:inline;border:0px solid red;" type="button"
                                               id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                               aria-expanded="false">
-                                            {{session()->get('user')->name}}
+                                            {{session()->get('user')->first_name}} {{session()->get('user')->last_name}}
                                         </span>
                                         <div class="dropdown-menu" id="dropdownProfile" aria-labelledby="dropdownMenuButton" style="max-width: 106px ;    position: absolute;top: 75% !important;">
                                             <a class="dropdown-item link" style="font-weight: bolder;padding:0px; margin-top:7px;  max-height: 4.2rem !important;"

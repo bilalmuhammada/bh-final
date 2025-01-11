@@ -71,6 +71,7 @@ margin-left: -7px;
         
 
     }
+  
     .position-550 {
         left:600px !important ;
     }
@@ -114,7 +115,7 @@ width: 225px !important;
         <span style="font-size: 12px ; color:007bff;"><a href="{{ env('BASE_URL') . 'home'}}">Home</a> > Profile</span>
 
         {{-- <h4><b>My Profile</b></h4> --}}
-        <h6 style="font-size:12px;font-weight: bolder;">Welcome, {{ session()->get('user')->name }}!</h6>
+        <h6 style="font-size:12px;font-weight: bolder;">Welcome, {{ session()->get('user')->first_name }} {{ session()->get('user')->last_name}}!</h6>
         </div>
         <div class="col-md-12 desktop-view">
             <div class="row">

@@ -44,10 +44,9 @@ class AuthController extends Controller
             'dob' => ['required', 'date', 'before:' . now()->subYears(18)->format('Y-m-d')],
             'country' => 'required|exists:countries,id',
             'cities' => 'nullable|required',
-            'password' => 'required|min:6|confirmed',
-           
+            'password' => 'required|min:6|confirmed',       
         ]
-        , [
+        ,[
             // Custom messages
             'first_name.required' => 'First name is required.',
             'last_name.required' => 'Last name is required.',
@@ -65,7 +64,7 @@ class AuthController extends Controller
             'cities.required' => 'City is required.',
             'password.required' => 'Password is required.',
             'password.min' => 'Password must be at least 6 characters.',
-            'password.confirmed' => 'Confirm password does not match.',
+            'password.confirmed' => 'Confirm Password does not match.',
         ]);
 
         if ($validator->fails()) {

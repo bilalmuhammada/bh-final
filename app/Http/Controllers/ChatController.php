@@ -16,6 +16,8 @@ class ChatController extends Controller
     public function index(Request $request)
     {  
         
+
+        // dd($request->all());
         
         if($request->i){
         Chat::updateOrCreate(
@@ -68,6 +70,25 @@ class ChatController extends Controller
         ]);
     }
 
+
+    public function toggleFavorite(Request $request)
+    {
+
+        $chat = Chat::findOrFail($request->chat_id);
+        $chat->is_favorite = !$chat->is_favorite;
+        $chat->save();
+        return response()->json(['is_favorite' => $chat->is_favorite]);
+    }
+
+    public function toggleBlock(Request $request)
+    {
+
+      
+        $chat = Chat::findOrFail($request->chat_id);
+        $chat->is_blocked = !$chat->is_blocked;
+        $chat->save();
+        return response()->json(['is_blocked' => $chat->is_blocked]);
+    }
     public function getAcceptedUserForChat(Request $request)
     {
         $chats = Chat::with(['messages'])
@@ -84,6 +105,7 @@ class ChatController extends Controller
 
     public function initiateChat(Request $request)
     {
+        // dd($request->user_id);
         if (!empty($request->user_id)) {
             //check already chat initlized
             $ChatExist = Chat::where('second_user_id', $request->user_id)->where('first_user_id', SiteHelper::getLoginUserId())->first();

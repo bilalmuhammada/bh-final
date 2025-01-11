@@ -604,7 +604,7 @@ width: 60rem !important;
                                     <!-- Overlay -->
                                     <div id="popupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="hidePopup()"></div>
                                     
-                                    <button  class="btn" style="border: 1px solid #0088eb; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;"  onclick="window.location.href='{{ env('BASE_URL') . 'chats?user_id=' . $ad->created_by_user->id }}';" 
+                                    <button  class="btn start-chat" user-id="{{ $ad->created_by_user->id }}"   style="border: 1px solid #0088eb; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;"
                                         type="button" 
                                         aria-expanded="false">
                                         <img src="{{ asset('images/socialicon/chat.png') }}" alt="Chat Icon" style="height: 30px; margin-top: -4px; margin-right: 1px;">
@@ -699,7 +699,7 @@ width: 60rem !important;
                                                 </div>
                                                 <div class="detail"  style="margin-bottom:8px;margin-left: -3px;">
                                                     <span style="color:#000; display: block;">{{ $similar_ad->title ?? 'Title N/A' }}</span>
-                                                    <span style="color:#999; display: block; font-size:8px; " >{{ $similar_ad->category_name}} > {{$similar_ad->subcategory_name }}</span>
+                                                    <span style="color:#999; display: block; font-size:15px; " >{{ $similar_ad->category_name}} > {{$similar_ad->subcategory_name }}</span>
                                                     <h5 style="font-size: 14px;margin-bottom: -10px;"><b style="color: red;"> {{request()->currency}}  {{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}</b></h5>
                                                 </div>
                                             </div>
@@ -849,6 +849,11 @@ $(document).ready(function () {
         $(document).on('click', '.start-chat', function (e) {
             e.preventDefault();
 
+            if (!checkIfUserLoggedIn()) {
+
+$('#loginModal').modal('show');
+return ;
+}
             var user_id = $(this).attr('user-id');
             $.ajax({
                 url: api_url + 'chats/initiate',
@@ -858,7 +863,7 @@ $(document).ready(function () {
                 },
                 success: function (response) {
                     if (response.status) {
-                        window.location.href = base_url + 'chats?u=' + user_id;
+                        window.location.href = base_url + 'chats?user_id=' + user_id;
                     } else {
                         showAlert('error', 'Try again');
                     }

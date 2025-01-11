@@ -294,6 +294,10 @@ $(document).on('click', '.report-ad-btn', function () {
 //report ad submit
 $(document).on('click', '.report-ad-submit-btn', function () {
 
+
+
+
+     
     $.ajax({
         url: api_url + 'listing/report-ad',
         type: 'post',
@@ -327,7 +331,7 @@ $(document).on('click', '.report-ad-submit-btn', function () {
             $('.alert-text').text("Login");
             $('.alert-div').show();
 
-            $('#loginModal').modal('show');
+            // $('#loginModal').modal('show');
 
             setTimeout(function () {
                 $('.alert-text').text('');

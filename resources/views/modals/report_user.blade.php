@@ -53,7 +53,7 @@
                             </button>
                         </div>
                     </div>
-                    <input type="hidden" name="ad_id" class="ad-id_user" id="ad-id_user" >
+                    <input type="hidden" name="ad_id" class="ad-id" id="ad-id_user" >
                     <!-- Default radio -->
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="report_reason" id="reason1" value="Scam"/>
@@ -92,6 +92,7 @@
                         <input class="form-check-input" type="radio" name="report_reason" id="reason5" value="other"/>
                         <label class="form-check-label" for="reason5">Other </label>
                     </div>
+                    <input type="hidden" name="formtype" value="reportuser">
                     <!-- textarea -->
                     <div class="col-md-12">
                         <div class="row">

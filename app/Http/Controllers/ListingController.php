@@ -736,9 +736,9 @@ class ListingController extends Controller
     public function reportAd(Request $request)
     {
 
-        // dd($request->all());
+        //  dd($request->all());
         $Validator = Validator::make($request->all(), [
-            'ad_id' => 'required|exists:listings,id',
+            'ad_id' => 'required',
             'report_reason' => 'required',
             'description' => 'required',
         ]);

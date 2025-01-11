@@ -438,7 +438,9 @@ a:hover {
                                             
                                             <!-- Dropdown menu options -->
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userOptionsMenu">
-                                                <a class="dropdown-item" href="#" onclick="blockUser()">Block User</a>
+                                                
+                                                {{-- <a class="dropdown-item report-user-btn" data-bs-toggle="modal" data-bs-target="#reportUserModal" href="#">Report User</a> --}}
+                                                <a class="dropdown-item block-chat " data-chat-id="{{ $chat->id }}" >Block User</a>
                                                 <a class="dropdown-item report-user-btn" href="#" >Report User</a>
                                             </div>
                                         </div>
@@ -506,7 +508,7 @@ a:hover {
                                                     <input type="text" class="input-msg-send emoji-trigger form-controls"
     id="emoji-input"
     data-user-id="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
-    data-chat-id="{{ $chat->id }}"
+    data-chat-id="{{ $chat->id }}" @if($chat->is_blocked == 1) disabled @endif 
     style="border-radius: 30px; width: 100%; padding-right: 50px;">
                                                    
                                                 </div>
@@ -612,7 +614,54 @@ $(document).ready(function () {
         });
 
 
+
+
+
 $(document).ready(function() {
+
+        // $('.block-chat').on('click', function() {
+        //     var button = $(this);
+        //     var chatId = button.data('chat-id');
+
+        //     $.ajax({
+        //         url: "{{ route('chat.block') }}",
+        //         method: "POST",
+        //         data: {
+        //             _token: "{{ csrf_token() }}",
+        //             chat_id: chatId
+        //         },
+        //         success: function(response) {
+        //             var emojioneArea = $('.emojionearea.emojionearea-inline');
+        //             var emojioneEditor = $('.emojionearea-editor');
+        //             if (response.is_blocked) {
+        //                 show_error_message('User Blocked')
+        //                 button.find('i').css('color', 'goldenrod');
+        //                 if (emojioneArea.length > 0) {
+        //                         emojioneArea.css({
+        //                             'background': '#8080803d',
+        //                             'cursor': 'not-allowed',
+        //                             'pointer-events': 'none'
+        //                         });
+        //                         emojioneEditor.attr('contenteditable', 'false');
+        //                     }
+        //             } else {
+        //                 show_success_message('User Unblocked');
+        //                 if (emojioneArea.length > 0) {
+        //                     emojioneArea.css({
+        //                         'background': '',
+        //                         'cursor': '',
+        //                         'pointer-events': ''
+        //                     });
+        //                     emojioneEditor.attr('contenteditable', 'true');
+        //                 }
+
+        //                 button.find('i').css('color', 'grey');
+        //             }
+        //         }
+        //     });
+        // });
+
+
 
  $('.hiddentrash .fa-trash').on('click', function() {
         if (!$('input[type="checkbox"]').is(':checked')) {
@@ -664,9 +713,29 @@ $(document).ready(function() {
                 },
                 success: function(response) {
                     if (response.is_blocked) {
+                        var emojioneArea = $('.emojionearea.emojionearea-inline');
+                        var emojioneEditor = $('.emojionearea-editor');
+                        showAlert('error','User Blocked');
                         button.find('i').css('color', 'goldenrod');
+                        if (emojioneArea.length > 0) {
+                                emojioneArea.css({
+                                    'background': '#8080803d',
+                                    'cursor': 'not-allowed',
+                                    'pointer-events': 'none'
+                                });
+                                emojioneEditor.attr('contenteditable', 'false');
+                        }
                     } else {
+                        showAlert('success','User Unblocked');
                         button.find('i').css('color', 'grey');
+                        if (emojioneArea.length > 0) {
+                                emojioneArea.css({
+                                    'background': '',
+                                    'cursor': '',
+                                    'pointer-events': ''
+                                });
+                            emojioneEditor.attr('contenteditable', 'false');
+                        }
                     }
                 }
             });
@@ -693,7 +762,9 @@ $(document).ready(function() {
 
 
         $(document).ready(function () {
-
+            var button = $('.block-chat');
+            var chatId = button.data('chat-id');
+            $('.ad-id').val(chatId);
 
 
             $('.hiddencheck').hide()
