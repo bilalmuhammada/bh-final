@@ -295,7 +295,7 @@
                 </div>
             </div>
             <div class="form-group"  style="margin-bottom: -7px;" id="filemoble">
-                <label style="margin-top: -20px; margin-left: 17rem;
+                <label style="margin-top: -16px; margin-left: 17rem;
                 text-align: center;
                 font-size: 14px;">Do you want to Show or Hide your Mobile?</label>
                 <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
