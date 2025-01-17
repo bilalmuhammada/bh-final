@@ -30,7 +30,17 @@ class AdminController extends Controller
 
 
 
+    public function setcurrency(Request $request)
+    {
+        $request->validate([
+            'currency' => 'required|string',
+        ]);
 
+       
+        session(['app_currency' => $request->currency]);
+
+        return response()->json(['success' => true]);
+    }
     public function dashboard()
     {
         return response()->json([

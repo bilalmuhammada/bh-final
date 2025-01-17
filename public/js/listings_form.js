@@ -19,6 +19,7 @@ function unblock_page(selector = '.container-fluid') {
 
 function getCitiesByCountry(country_id) {
 
+    
     $.ajax({
         url: api_url + 'get-cities',
         type: 'POST',
@@ -29,7 +30,7 @@ function getCitiesByCountry(country_id) {
         success: function (response) {
             if (response.status) {
                 var options = '';
-                options += `<option value="" selected></option>`;
+                options += `<option hidden disable selected></option>`;
                 $.each(response.data, function (key, city) {
                     options += `<option value="${city.id}">${city.name}</option>`;
                 });

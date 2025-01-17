@@ -179,12 +179,16 @@ Route::prefix('/admins')->group(function() {
 
 Route::get('/login', [AuthController::class, 'index']);
 
+Route::post('/set-currency', [AdminController::class, 'setcurrency'])->name('set.currency');
+
 Route::middleware('check_user_auth')->group(function () {
 
     Route::prefix('/admin')->group(function () {
         Route::get('/', [AdminController::class, 'Adminindex']);
         Route::get('/create', [AdminController::class, 'create']);
     });
+
+
 
      Route::get('/dashboard', [AdminController::class, 'index']);
 

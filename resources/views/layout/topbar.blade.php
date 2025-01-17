@@ -138,7 +138,7 @@
         }
         .select2-selection__rendered {
             /* padding-left: 16px !important; */
-            font-size: 11px !important;}
+            font-size: 15px !important;}
 
 
         .auth{
@@ -158,6 +158,7 @@
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <script type="text/javascript">
         function translateLanguage() {
@@ -172,7 +173,11 @@
                 }
             }
 
-        }
+
+      
+
+
+        
     </script>  
     <!-- topbar start -->
   
@@ -267,7 +272,7 @@
             </div>
                 <div id="google_translate_element" style="display: none;"></div>
 
-
+        
 
                 
                     {{-- <div class="country" style="border:0px solid red;position:relative;left:-184px;"> --}}
@@ -276,7 +281,7 @@
                                 <option value="">Currency</option>
                                 @foreach($currency as $currencyn)
                                 <option data-currency-id="{{ $currencyn->currency }}"
-                                        {{ $currencyn->currency_short_name ==  request()->currency ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" value="{{ $currencyn->currency_short_name }}"
+                                        {{ $currencyn->currency_short_name ==  session('app_currency', 'default_currency') ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" value="{{ $currencyn->currency_short_name }}"
                                         style="font-size:8px !important;">{{ $currencyn->currency_short_name }}</option>
                             @endforeach
                         </select>

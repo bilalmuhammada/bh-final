@@ -199,18 +199,18 @@
                                 @foreach($category->sub_categories as $key=>$sub_category)
                                     @if($key >= 5)
                                         <div class="collapse hidden-div">
-                                            <a href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city.'&currency=' . request()->currency}}">{{$sub_category->name}}</a>
+                                            <a href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city.'&currency=' . session('app_currency', 'default_currency')}}">{{$sub_category->name}}</a>
                                             <br>
                                         </div>
                                     @else
                                     <span class="external">
-                                        <a href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city.'&currency=' . request()->currency}}">{{$sub_category->name}}</a>
+                                        <a href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city.'&currency=' . session('app_currency', 'default_currency')}}">{{$sub_category->name}}</a>
                                     </span>
                                         <br>
                                     @endif
                                 @endforeach
                                 @if (count($category->sub_categories) >= 4)
-                                    <a href="{{env('BASE_URL') . 'ads/?country=' . request()->country . '&city=' . request()->city.'&currency=' . request()->currency}}" class="show-more-btn1">All in {{$category->name}}</a>
+                                    <a href="{{env('BASE_URL') . 'ads/?country=' . request()->country . '&city=' . request()->city.'&currency=' . session('app_currency', 'default_currency')}}" class="show-more-btn1">All in {{$category->name}}</a>
                                 @endif
                             </div>
                         </div>
@@ -240,7 +240,7 @@
                     $business_for_sale_details= DB::table('business_for_sale_details')->where('listing_id', $featured_ad->id)->first();
                   @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . request()->currency}}">
+                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
                             <div class="listing">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
@@ -252,7 +252,7 @@
                                 <div class="detail" style="padding: 12px;margin-left: -13px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">{!!$business_for_sale_details->title !!} {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">{!!$business_for_sale_details->location_name !!}</span>
-                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;">   {{request()->currency}} {!!$business_for_sale_details->price !!}</b></h5>
+                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;">   {{session('app_currency', 'default_currency')}} {!!$business_for_sale_details->price !!}</b></h5>
                                 </div>
                                 
                             </div>
@@ -290,7 +290,7 @@
                     $business_rents= DB::table('business_rents')->where('listing_id', $featured_ad->id)->first();
                   @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . request()->currency}}">
+                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
                             <div class="listing ">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
@@ -302,7 +302,7 @@
                                 <div class="detail" style="padding: 12px;margin-left: -13px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">{!!$business_rents->title !!}{{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">{!!$business_rents->location_name !!}</span>
-                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> AED {!!$business_rents->price !!}</b></h5>
+                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$business_rents->price !!}</b></h5>
                                 </div>
                                 
                             </div>
@@ -338,7 +338,7 @@
                     $shares_for_sale_details= DB::table('shares_for_sale_details')->where('listing_id', $featured_ad->id)->first();
                   @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . request()->currency}}">
+                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
                             <div class="listing">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
@@ -350,7 +350,7 @@
                                 <div class="detail" style="padding: 12px;margin-left: -13px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">{!!$shares_for_sale_details->title !!}{{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">{!!$shares_for_sale_details->location_name !!}</span>
-                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> AED {!!$shares_for_sale_details->price !!}</b></h5>
+                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$shares_for_sale_details->price !!}</b></h5>
                                 </div>
                                 
                             </div>
@@ -387,7 +387,7 @@
                     $business_idea_details= DB::table('business_idea_details')->where('listing_id', $featured_ad->id)->first();
                   @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . request()->currency}}">
+                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
                             <div class="listing">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
@@ -399,7 +399,7 @@
                                 <div class="detail" style="padding: 12px;margin-left: -13px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">{!!$shares_for_sale_details->title !!} {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">{!!$shares_for_sale_details->location_name !!}</span>
-                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED {!!$shares_for_sale_details->price !!}</b></h5>
+                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$shares_for_sale_details->price !!}</b></h5>
                                 </div>
                                 
                             </div>
@@ -436,7 +436,7 @@
                     $business_for_sale_details= DB::table('investors_details')->where('listing_id', $featured_ad->id)->first();
                   @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . request()->currency}}">
+                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
                             <div class="listing">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
@@ -448,7 +448,7 @@
                                 <div class="detail" style="padding: 12px;margin-left: -13px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">{!!$shares_for_sale_details->title !!} {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">{!!$shares_for_sale_details->location_name !!}</span>
-                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED {!!$shares_for_sale_details->price !!}</b></h5>
+                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$shares_for_sale_details->price !!}</b></h5>
                                 </div>
                                 
                             </div>
@@ -486,7 +486,7 @@
                     $business_for_sale_details= DB::table('investors_required_details')->where('listing_id', $featured_ad->id)->first();
                   @endphp
                     <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . request()->currency}}">
+                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
                             <div class="listing">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
@@ -498,7 +498,7 @@
                                 <div class="detail" style="padding: 12px;margin-left: -13px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">{!!$shares_for_sale_details->title !!} {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">{!!$shares_for_sale_details->location_name !!}</span>
-                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED {!!$shares_for_sale_details->price !!}</b></h5>
+                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$shares_for_sale_details->price !!}</b></h5>
                                 </div>
                                 
                             </div>
@@ -547,7 +547,7 @@
                                 <div class="detail" style="padding: 12px;margin-left: -13px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">{!!$shares_for_sale_details->title !!} {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">{!!$shares_for_sale_details->location_name !!}</span>
-                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED {!!$shares_for_sale_details->price !!}</b></h5>
+                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$shares_for_sale_details->price !!}</b></h5>
                                 </div>
                                 
                             </div>
@@ -598,7 +598,7 @@
                                 <div class="detail" style="padding: 12px;margin-left: -13px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">{!!$machine_supplies_details->title !!}{{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">{!!$machine_supplies_details->location_name !!}</span>
-                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> AED {!!$machine_supplies_details->price !!}</b></h5>
+                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$machine_supplies_details->price !!}</b></h5>
                                 </div>
                                 
                             </div>

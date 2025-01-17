@@ -11,6 +11,9 @@ class HomeController extends Controller
 {
     public function index()
     {
+        session()->forget('app_currency');
+        session(['app_currency' => 'USD']);
+       
         return view('home.index');
     }
 

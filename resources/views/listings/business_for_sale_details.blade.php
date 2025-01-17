@@ -448,25 +448,28 @@
             </div>
         </div>
 
-        @include('listings.image&file');
+        @include('listings.image&file')
 
     
         <div class="col-md-6 mx-auto" style="margin-bottom: 20px;">
             <div class="row">
         <div class="col-md-6">
-            <select class="form-controlz country" name="country" placeholder="Select Country" required>
-                <option disabled selected>Country</option>
-                    @foreach($countries as $country)
+            <select class="form-controlz form-control floating country" name="country" required>
+                <option disabled selected hidden ></option>
+                    @foreach($countries as $country) 
                         <option value="{{ $country->id }}">{{ $country->name }}</option>
                     @endforeach
             </select>
-            <div class="invalid-feedback">
+            {{-- <div class="invalid-feedback">
                 Please select a country.
-            </div>
+            </div> --}}
         </div>
         <div class="col-md-6">
-            <select class="form-controlz city" name="city" placeholder="Select City" >
-                <option disabled selected>City</option>
+            <select class="form-controlz form-control floating" name="city"  required>
+          
+                
+                <option disabled selected hidden></option>
+           
             </select>
             
         </div>

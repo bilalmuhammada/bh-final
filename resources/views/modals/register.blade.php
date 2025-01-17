@@ -237,8 +237,7 @@ padding-left: 31px;
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
-                                        <input type="password" name="password_confirmation" id="password_confirmation"
- class="form-control login-user floating"
+                                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control login-user floating"
                                                placeholder="Confirm Password" aria-label="Cpassword"
                                                aria-describedby="basic-addon1">
                                                {{-- <label class="focus-label">Confirm Password</label> --}}

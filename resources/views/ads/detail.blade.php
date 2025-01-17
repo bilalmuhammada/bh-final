@@ -290,7 +290,7 @@ width: 60rem !important;
 
                                 style="font-weight:bold;font-size:18px;text-align:right;border:0px solid red;width:100%;">
                                 <a href=""
-                                   style="color: red;font-weight:bold;">{{request()->currency}}  &nbsp;{{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
+                                   style="color: red;font-weight:bold;">{{session('app_currency', 'default_currency')}}  &nbsp;{{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
                                 </a></div>
                         </div>
                     </div>
@@ -353,7 +353,7 @@ width: 60rem !important;
                         <div class="row">
                             <!-----content----->
                             <div class="col-lg-12 col-md-12 col-12"
-                                 style="margin-bottom:-19px;width:800px;position:relative;top:16px;z-index:1000;">
+                                 style="margin-bottom:-19px;width:800px;position:relative;top:16px;z-index:600;">
                                 <span style="font-size: 13px;float:right;position:relative;right:30px;cursor:pointer;">
                                     <i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}"
                                        is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
@@ -602,7 +602,7 @@ width: 60rem !important;
                                     </div>
                                     
                                     <!-- Overlay -->
-                                    <div id="popupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="hidePopup()"></div>
+                                    <div id="popupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; " onclick="hidePopup()"></div>
                                     
                                     <button  class="btn start-chat" user-id="{{ $ad->created_by_user->id }}"   style="border: 1px solid #0088eb; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;"
                                         type="button" 
@@ -700,7 +700,7 @@ width: 60rem !important;
                                                 <div class="detail"  style="margin-bottom:8px;margin-left: -3px;">
                                                     <span style="color:#000; display: block;">{{ $similar_ad->title ?? 'Title N/A' }}</span>
                                                     <span style="color:#999; display: block; font-size:10px; " >{{ $similar_ad->category_name}} > {{$similar_ad->subcategory_name }}</span>
-                                                    <h5 style="font-size: 14px;margin-bottom: -10px;"><b style="color: red;"> {{request()->currency}} &nbsp;  {{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}</b></h5>
+                                                    <h5 style="font-size: 14px;margin-bottom: -10px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} &nbsp;  {{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}</b></h5>
                                                 </div>
                                             </div>
                                         </a>

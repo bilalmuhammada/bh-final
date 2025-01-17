@@ -8,7 +8,7 @@
 <div class="col-md-6 mx-auto" style="margin-top:166px;">
     <div class="input--file">
         <i class="fa fa-camera fa-1x"></i>
-        <input type="file" multiple class="form-controlz form-control-file images" name="images[]"
+        <input type="file" multiple class="form-controlz form-control floating form-control-file images" name="images[]"
                placeholder="Upload Images" accept="image/*">
         <div class="invalid-feedback image-error">
             Please upload at least one image.
@@ -25,7 +25,7 @@
 <div class="col-md-6 mx-auto" style="margin-top:-7px;margin-bottom: 14px;">
     <div class="input--file">
         <i class="fa fa-camera fa-1x"></i>
-        <input type="file" multiple class="form-controlz form-control-file documents"  id="fileInput" name="documents[]"
+        <input type="file" multiple class="form-controlz form-control-file  documents"  id="fileInput" name="documents[]"
                placeholder="Upload Documents"    accept=".pdf, .doc, .docx, .xls, .xlsx">
         <div class="invalid-feedback image-error" id="fileError">
             Invalid
@@ -50,7 +50,7 @@
 
 
 
-<div class="col-md-4 mx-auto" style="margin-bottom: -19px; margin-left: 24rem !important;max-width: 53% !important;">
+<div class="col-md-4 mx-auto" style="margin-bottom: 11px; margin-left: 24rem !important;max-width: 53% !important;">
     <div id="document-display-div" style="display: flex; flex-wrap: wrap"></div>
 </div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastedjs/dist/toasted.min.css">

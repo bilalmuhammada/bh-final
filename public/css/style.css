@@ -7043,7 +7043,7 @@ border: 1px solid #2d11e7;
 }
 
 .chat-cont-right .chat-body .media.sent .media-body .msg-box:first-child:before {
-    border-bottom: 7px solid #d8f9ff;
+    border-bottom: 9px solid #d8f9ff;
     border-left: 15px solid #d8f9ff;
     border-top: 15px solid transparent;
     border-right: 15px solid transparent;

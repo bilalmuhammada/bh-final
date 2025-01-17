@@ -113,18 +113,28 @@ class UserController extends Controller
     {
 
         //  dd($request->all());
-        // $validator = Validator::make($request->all(), [
-        //     'dob' => 'required|date',
-        //     'gender' => 'required',
-        //     'nationality' => 'required',
-        // ]);
+        $validator = Validator::make($request->all(), [
+            
+            'first_name' => 'required',
+            'last_name'=>'required',
+            'dob' => 'required',
+            'country'=>'required',
+            
+            'gender' => 'required',
+            'mobile'=>'required',
+            'email' => 'required',
+            'cities'=>'required',
+            'password' => 'required',
+            'password' => 'required',
+        ]);
 
-        // if ($validator->fails()) {
-        //     return response()->json([
-        //         'status' => FALSE,
-        //         'message' => $validator->errors()->first()
-        //     ]);
-        // }
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => FALSE,
+                'message' => $validator->errors()->first(),
+                'errors' => $validator->errors()
+            ]);
+        }
 
         $User = User::find(Auth::id() ?? Session::get('user')->id);
 

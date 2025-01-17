@@ -371,6 +371,8 @@
         });
 
         $(document).on('click', '.update-profile-submit-btn', function () {
+
+        
             $.ajax({
                 url: api_url + 'update-profile',
                 data: $('.profile-form').serialize(),

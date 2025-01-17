@@ -351,14 +351,38 @@ $("#profile_cities").select2({
     });
     $(document).on('change', '.currency_dropdown', function () {
 
+        const selectedCurrency = $(this).val();
+        fetch('admins/set-currency', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        },
+        body: JSON.stringify({ currency: selectedCurrency }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Reload the page with the currency query parameter
+                const currentUrl = new URL(window.location.href);
+                currentUrl.searchParams.set('currency', selectedCurrency);
+                window.location.assign(currentUrl.toString());
+            } else {
+                console.error('Error storing currency:', data.message);
+            }
+        })
+        .catch(error => {
+            console.error('AJAX error:', error);
+        });
+//       const pathname = window.location.pathname;
 
-   const pathname = window.location.pathname;
+// // Remove the leading slash
+//     const pathnameWithoutSlash = pathname.startsWith('/') ? pathname.substring(1) : pathname;
 
-// Remove the leading slash
-    const pathnameWithoutSlash = pathname.startsWith('/') ? pathname.substring(1) : pathname;
+//     window.location.assign(base_url + pathnameWithoutSlash + '?currency=' + $(this).val());
+   
 
-    window.location.assign(base_url + pathnameWithoutSlash + '?currency=' + $(this).val());
-    });
+});
 
     $(document).on('change', '.country_dropdown', function () {
       

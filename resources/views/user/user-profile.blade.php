@@ -12,6 +12,9 @@
     /* input:hover{
         border: 1px solid #1202c9 !important;
     } */
+    #select2-country_id-container{
+  font-size: 11px !important;
+    }
     #profile-form .toggle-password {
             position: absolute;
             right: 30px;
@@ -131,9 +134,7 @@ width: 225px !important;
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;" ><b> First Name:</b></div>
-                                
                                     <div class="col-md-8">
-                                    {{-- <p>{{session()->get('user')->name}}</p> --}}
                                          <input type="text" class="form-control form-control1" name="first_name" id="name" value="{{session()->get('user')->first_name}}" style="border: 1px solid rgb(153, 153, 153);">
                                     </div>
                                     
@@ -142,10 +143,6 @@ width: 225px !important;
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;" ><b> Last Name:</b></div>
-                                
-                                    @php
-                                    // dd(session()->get('user'));
-                                    @endphp
                                     <div class="col-md-8">
                                     {{-- <p>{{session()->get('user')->name}}</p> --}}
                                          <input type="text" class="form-control form-control1" name="last_name" id="name" value="{{session()->get('user')->last_name}}" style="border: 1px solid rgb(153, 153, 153);">
@@ -503,6 +500,14 @@ $(document).ready(function(){
             // templateResult: formatCountry,
             // minimumResultsForSearch: -1
         });
+
+        $(".country_dropdown_user").on("select2:open", function () {
+    $(".select2-results__option").css("font-size", "11px"); // Dropdown options
+    $(".select2-container--default .select2-selection--single").css("font-size", "11px !important"); // Selected option
+});
+$(".country_dropdown_user").on("select2:select", function (e) {
+    $(".select2-selection--single").css("font-size", "11px"); // Selected option display
+});
 });
 
 
@@ -550,7 +555,7 @@ document.getElementById('profile_image').addEventListener('change', function() {
                     }
                 },
                 error: function (response) {
-                    showAlert("error", "Server Error");
+                    // showAlert("error", "Server Error");
                 }
             });
         });
@@ -580,6 +585,7 @@ document.getElementById('profile_image').addEventListener('change', function() {
         });
 
         $(document).on('click', '.update-profile-submit-btn', function () {
+          var form=  $('#profile-form')[0]
             $.ajax({
                 url: api_url + 'update-profile',
                 data: $('.profile-form').serialize(),
@@ -592,7 +598,22 @@ document.getElementById('profile_image').addEventListener('change', function() {
                         //     window.location.assign(window.location.href);
                         // }, 600);
                     } else {
-                        showAlert("error", response.message);
+                        var errors = response.errors;
+                        console.log(errors);
+                        for (var fieldName in errors) {
+
+                              
+
+
+                           
+
+var errorElement = $(form).find('[name="' + fieldName + '"]');
+
+errorElement.addClass('was-validated')
+errorElement.addClass('is-invalid')
+errorElement.siblings('.invalid-feedback').html(errors[fieldName]);
+}
+                        // showAlert("error", response.message);
                     }
                 },
                 error: function (response) {

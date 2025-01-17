@@ -266,14 +266,14 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                 <input type="text" class="form-control filter1" style="border-right: 2px solid #eee;padding: 1px !important; font-size: 14px;" name="min_price" id="min_price" oninput="validatePhoneNumber(this)" placeholder="Min" min="0">
                 
     
-                <input type="text" class="form-control max_price" style="padding: 0px 0px 0px 5px !important; font-size: 13px;width: 46.5% !important; " name="max_price" id="max_price" oninput="validatePhoneNumber(this)" placeholder="Max" min="0">
+                <input type="text" class="form-control max_price" style="padding: 0px 0px 0px 5px !important; font-size: 14px;width: 49.5% !important; " name="max_price" id="max_price" oninput="validatePhoneNumber(this)" placeholder="Max" min="0">
             </span>
                 
         </div>
 
         <div class="col-md-5 border-color" id="filtersAreaw1">
             <div class="col-md-12" style="text-align: center; margin-top: 2px;">
-                <span style="font-size: 14px;"><b>Sort</b></span>
+                <span style="font-size: 15px;"><b>Sort</b></span>
             </div>
             <select class="form-select form-control "style="font-size: 13px;"  id="sortDropdown" onchange="window.location.href=this.value" >
                 <option class="option" value="?sort=newest" {{ request()->sort == 'newest' ? 'selected' : '' }}>Date: New - Old</option>
@@ -359,7 +359,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                     <div class="col-lg-7 col-md-7 col-7" style="margin-left: -118px">
                                     <h5 style="font-size: 18px;font-weight:700;margin: 0px;">{{ $ad->title ?? 'Heading N/A' }}</h5>
                                     <p style="font-size: 13px;margin-bottom: 6px;">{{ $ad->category_name }} <span style="font-size: 14px;"> > </span> {{ $ad->subcategory_name }}</p>
-                                    <h3 style="font-weight: bold;font-size:18px;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price, request()->currency) }}</h3>
+                                    <h3 style="font-weight: bold;font-size:18px;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price, session('app_currency', 'default_currency')) }}</h3>
                                     
                                         <p style="margin-top:5.5rem;font-size: 13px; white-space: nowrap;"><i class="fa fa-map-marker" style="color: red;"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span  style="margin-top: 12px;">24 May 2024</span></p>
                                     
