@@ -316,6 +316,7 @@ $(document).on('click', '.report-ad-submit-btn', function () {
                 showAlert('success', "Ad Reported Successfully!");
 
             } else {
+              
                 $('.alert-text').text(response.message);
                 $('.alert-div').show();
 

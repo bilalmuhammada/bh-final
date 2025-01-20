@@ -588,17 +588,7 @@ $(document).ready(function () {
      });
     
      
-//         $(document).on('input keyup emoji-trigger.change', '.emojionearea-editor', function(e) { 
-//     var inputMessage = $('.emojionearea-editor').text().trim();
-//     var hasImg = $('.emojionearea-editor').find('img').length > 0;
 
-//     if (inputMessage === '' && !hasImg) {
-//         // If there's no text and no emojis
-//         $('.msg-send-btn').prop('disabled', true);
-//     } else {
-//         $('.msg-send-btn').prop('disabled', false);
-//     }
-// });
 
 
             $('.gallerys').magnificPopup({
@@ -722,7 +712,7 @@ $(document).ready(function() {
                     if (response.is_blocked) {
                         var emojioneArea = $('.emojionearea.emojionearea-inline');
                         var emojioneEditor = $('.emojionearea-editor');
-                        showAlert('error','User Blocked');
+                        // showAlert('error','User Blocked');
                         button.find('i').css('color', 'goldenrod');
                         if (emojioneArea.length > 0) {
                                 emojioneArea.css({
@@ -733,7 +723,7 @@ $(document).ready(function() {
                                 emojioneEditor.attr('contenteditable', 'false');
                         }
                     } else {
-                        showAlert('success','User Unblocked');
+                        // showAlert('success','User Unblocked');
                         button.find('i').css('color', 'grey');
                         if (emojioneArea.length > 0) {
                                 emojioneArea.css({
