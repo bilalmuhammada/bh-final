@@ -10,6 +10,13 @@ select {
     -webkit-appearance: auto !important
     ;}
 
+
+
+
+    #select2-filter-dropdown-container{
+
+        font-size: 13px !important;
+    }
     .chat-users-list {
         overflow-y: auto;
         max-height: 400px; /* Adjust as needed */
