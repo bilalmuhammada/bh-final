@@ -194,9 +194,9 @@
 
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="number" class="form-control floating "    name="share_price"  placeholder=""
+                <input type="number" class="form-control floating " onwheel="this.blur()"   name="share_price"  placeholder=""
                     title="" required>
-                    <label class="focus-label">Share Price</label>
+                    <label class="focus-label">Share Price-USD</label>
                 </div>
             {{-- <div class="invalid-feedback">
                 Please provide a valid Business Type.
@@ -204,8 +204,8 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="number" class="form-control floating"  name="share_amount" placeholder=""  required>
-                <label class="focus-label">Share Percentage</label>
+                <input type="number" class="form-control floating" onwheel="this.blur()"    name="share_amount" placeholder=""  required>
+                <label class="focus-label">Share Percentage-%</label>
             </div>
             {{-- <div class="invalid-feedback">
                 Please provide a valid Share Amount.
@@ -227,9 +227,9 @@
         
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="number" class="form-control floating" name="sale_revenue"  placeholder="" 
+                <input type="number" class="form-control floating" onwheel="this.blur()"   name="sale_revenue"  placeholder="" 
                     title="" required>
-                    <label class="focus-label">Sale Revenue</label>
+                    <label class="focus-label">Sale Revenue-USD</label>
                 </div>
             {{-- <div class="invalid-feedback">
                 Please provide a valid Share Percentage .
@@ -240,8 +240,9 @@
     <div class="col-md-6 mx-auto" >
         <div class="row">
         <div class="col-md-6">
-        <select class="form-controlz" name="trade_licence" required>
-            <option selected disabled>Trade Licence</option>
+            <div class="form-group form-focus">
+        <select class="form-controlz form-control floating" name="trade_licence" required>
+            <option selected disabled hidden></option>
             <option value="e-commerce">E-Commerce</option>
             <option value="freezone">Freezone</option>
             <option value="freelance">Freelance</option>
@@ -251,10 +252,12 @@
             <option value="private">Private</option>
                     
             </select>
+            <label class="focus-label">Trade Licence</label>
         </div>
+    </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="number" class="form-control floating"  name="established_year" placeholder=""  required>
+                <input type="number" class="form-control floating" onwheel="this.blur()"   name="established_year" placeholder=""  required>
                 <label class="focus-label">Established Year</label>
             </div>
             {{-- <div class="invalid-feedback">
@@ -263,7 +266,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-               <input type="number" class="form-control floating" name="branches"  placeholder="" 
+               <input type="number" class="form-control floating" onwheel="this.blur()"   name="branches"  placeholder="" 
                    title="" required>
                    <label class="focus-label">Branches </label>
                </div>
@@ -273,7 +276,7 @@
        </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                   <input type="number" class="form-control floating" name="no_of_employees"  placeholder="" 
+                   <input type="number" class="form-control floating" onwheel="this.blur()"  name="no_of_employees"  placeholder="" 
                        title="" required>
                        <label class="focus-label">Employees </label>
                    </div>
@@ -283,17 +286,18 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-            <select class="form-controlz" name="premise_status" required>
-                        <option disabled selected>Premise Status        </option>
+            <select class="form-controlz form-control floating" name="premise_status" required>
+                        <option disabled selected hidden> </option>
                         <option value="own">Owned</option>
                         <option value="rent">Rented</option>
                         <option value="not_reg">Not Registered</option>
                 </select>
+                <label class="focus-label">Premise Status</label>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="number" class="form-control floating"   name="size_sqm" placeholder="" 
+                <input type="number" class="form-control floating" onwheel="this.blur()"     name="size_sqm" placeholder="" 
                     title="" required>
                     <label class="focus-label">Premise Size Sq.Ft</label>
                 </div>
@@ -306,18 +310,21 @@
         <div class="row">
        
         <div class="col-md-6">
-        <select class="form-controlz" name="lease_term" required>
-                    <option selected disabled>Lease Term</option>
+        <div class="form-group form-focus">
+        <select class="form-controlz form-control floating" name="lease_term" required>
+                    <option selected disabled hidden></option>
                     <option value="Annual">Annual</option>
                     <option value="Monthly">Monthly</option>
                     <option value="Yearly">Yearly</option>
             </select>
+            <label class="focus-label">Lease Term</label>
         </div>
+    </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="number" class="form-control floating"   name="lease_amount" placeholder="" 
+                <input type="number" class="form-control floating" onwheel="this.blur()"    name="lease_amount" placeholder="" 
                     title="" required>
-                    <label class="focus-label">Lease Amount</label>
+                    <label class="focus-label">Lease Amount-USD</label>
                 </div>
             </div>
         </div>
@@ -345,13 +352,16 @@
            </div>  
         
         <div class="col-md-6">
-            <select class="form-controlz" name="posted_by"  required>
-                <option disabled selected>Posted By</option>
+            <div class="form-group form-focus">
+            <select class="form-controlz form-control floating" name="posted_by"  required>
+                <option disabled selected></option>
                     <option value="1">Agent</option>
                     <option value="0">Broker</option>
                     <option value="2">Owner</option>
                     <option value="3">Staff</option>
             </select>
+            <label class="focus-label">Posted By</label>
+        </div>
         </div>
 
       
@@ -376,7 +386,7 @@
         
         <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" name="phone" placeholder="" 
+                        <input type="number" class="form-control floating" onwheel="this.blur()"   name="phone" placeholder="" 
                    title="Please enter a valid 10-digit Mobile number" required>
                    <label class="focus-label">Mobile</label>
                 </div>
@@ -386,7 +396,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="number" class="form-control floating" name="whatsapp" placeholder="" 
+                <input type="number" class="form-control floating"  onwheel="this.blur()"   name="whatsapp" placeholder="" 
   title="Please enter a valid 10-digit Mobile number" required>
            <label class="focus-label">WhatsApp</label>
         </div>
@@ -426,23 +436,22 @@
         <div class="col-md-6 mx-auto">
             <div class="row">
         <div class="col-md-6">
-            <select class="form-controlz country" name="country" placeholder="Country" required>
-                <option selected disabled>Country</option>
+            <select class="form-controlz form-control country" name="country" placeholder="Country" required>
+                <option selected disabled hidden></option>
                 @foreach($countries as $country)
                     <option value="{{ $country->id }}">{{ $country->name }}</option>
                 @endforeach
             </select>
-            <div class="invalid-feedback">
-                Please select a country.
-            </div>
+            
         </div>
         <div class="col-md-6">
-            <select class="form-controlz city" name="city" placeholder="City" >
-                <option selected disabled>City</option>
+            <select class="form-controlz form-control floating" name="city"  required>
+          
+                
+                <option disabled selected hidden></option>
+           
             </select>
-            <div class="invalid-feedback">
-                Please select a city.
-            </div>
+            
         </div>
         </div>
         </div>

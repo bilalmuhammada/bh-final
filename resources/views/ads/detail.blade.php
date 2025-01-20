@@ -63,6 +63,42 @@
             -webkit-box-shadow: 0 0 0 1px #003c79, 0 2px 48px 0 rgba(0, 0, 0, 0.04) !important;
             box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2), 0 2px 48px 0 rgba(0, 0, 0, 0.04) !important;
         }
+
+        .share-btn{
+            font-size:19px;border-radius:2px; color:blue;
+        }
+
+        .share-btn:hover{
+           color:goldenrod;
+        }
+
+        .notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    display: none;
+    z-index: 1000;
+}
+
+.notification.visible {
+    display: block;
+    animation: fadeOut 2s ease forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
         .scroll-botton{
             border: 0px;
             background: #fff;
@@ -290,7 +326,7 @@ width: 60rem !important;
 
                                 style="font-weight:bold;font-size:18px;text-align:right;border:0px solid red;width:100%;">
                                 <a href=""
-                                   style="color: red;font-weight:bold;">{{session('app_currency', 'default_currency')}}  &nbsp;{{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
+                                   style="color: red;font-weight:bold;">{{session('app_currency', 'default_currency')}}  {{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
                                 </a></div>
                         </div>
                     </div>
@@ -360,7 +396,9 @@ width: 60rem !important;
                                        style="padding:6px 6px;font-size:19px; color: white; border-radius:2px;"> </i>&nbsp;
                                    
                                     <i class="fa fa-share share-btn" ad-id="{{ $ad->id }}" title="Copy Ad link"
-                                       style="font-size:19px;border-radius:2px; color:blue;"></i>
+                                       ></i>
+                                       <div id="notification" class="notification hidden">Ad link copied to clipboard!</div>
+
                                 </span>
                             </div>
                             <div class="col-lg-12 col-md-12 col-12">
@@ -420,8 +458,8 @@ width: 60rem !important;
                                    z-index: 2; 
                                    display: flex; 
                                    align-items: center;">
-                               <i class="fa fa-image" style="font-size: 16px;"></i>
-                               <span style="margin-left: 9px; color: white;">
+                               {{-- <i class="fa fa-image" style="font-size: 16px;"></i> --}}
+                               <span style="color: white;">
                                    1 / {{ $ad->attachments->count() }}
                                </span>
                            </div>
@@ -695,12 +733,13 @@ width: 60rem !important;
                                                     <i class="fa fa-heart-o" style="color: #fff !important; font-size: 18px;"></i>
                                                 </div>
                                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                    <i class="fa fa-image" style="color:white;font-size: 12px;"></i><span class="text-white" style="margin-left:9px; font-size: 13px;">1 / {{$similar_ads->count()}}</span>
+                                                    {{-- <i class="fa fa-image" style="color:white;font-size: 12px;"></i> --}}
+                                                    <span class="text-white" style=" font-size: 13px;">1 / {{$similar_ads->count()}}</span>
                                                 </div>
                                                 <div class="detail"  style="margin-bottom:8px;margin-left: -3px;">
                                                     <span style="color:#000; display: block;">{{ $similar_ad->title ?? 'Title N/A' }}</span>
                                                     <span style="color:#999; display: block; font-size:10px; " >{{ $similar_ad->category_name}} > {{$similar_ad->subcategory_name }}</span>
-                                                    <h5 style="font-size: 14px;margin-bottom: -10px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} &nbsp;  {{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}</b></h5>
+                                                    <h5 style="font-size: 14px;margin-bottom: -10px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}</b></h5>
                                                 </div>
                                             </div>
                                         </a>
@@ -804,7 +843,15 @@ $(document).ready(function () {
 
             // Copy the ad link to the clipboard
             navigator.clipboard.writeText(adLink).then(() => {
-                alert('Ad link copied to clipboard: ' + adLink);
+                // alert('Ad link copied to clipboard: ' + adLink);
+
+                const notification = $('#notification');
+        notification.text('Ad link copied to clipboard!');
+        notification.addClass('visible');
+
+        setTimeout(() => {
+            notification.removeClass('visible');
+        }, 2000);
             }).catch(err => {
                 console.error('Failed to copy text: ', err);
                 alert('Failed to copy the ad link. Please try again.');

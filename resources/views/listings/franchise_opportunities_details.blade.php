@@ -434,23 +434,19 @@
         <div class="col-md-6 mx-auto">
             <div class="row">
                 <div class="col-md-6">
-                    <select class="form-controlz country" name="country" placeholder="Select Country" required>
-                        <option disabled selected> Country</option>
+                    <select class="form-controlz form-control floating country" name="country" placeholder="Select Country" required>
+                        <option disabled selected hidden> </option>
                         @foreach($countries as $country)
                             <option value="{{ $country->id }}">{{ $country->name }}</option>
                         @endforeach
                     </select>
-                    <div class="invalid-feedback">
-                        Please select a country.
-                    </div>
+                    
                 </div>
                 <div class="col-md-6">
-                    <select class="form-controlz city" name="city" placeholder="Select City" >
-                        <option selected disabled>City</option>
+                    <select class="form-controlz  form-control floating city" name="city" required >
+                        <option selected disabled hidden></option>
                     </select>
-                    <div class="invalid-feedback">
-                        Please select a city.
-                    </div>
+                   
                 </div>
             </div>
         </div>

@@ -196,9 +196,9 @@
            
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating"  name="price" placeholder=""  
+                        <input type="number" class="form-control floating"  onwheel="this.blur()" name="price" placeholder=""  
                            required>
-                           <label class="focus-label">Price</label>
+                           <label class="focus-label">Price-USD</label>
                         </div>
                     {{-- <div class="invalid-feedback">
                         Please provide a valid price.
@@ -208,7 +208,7 @@
                     <div class="form-group form-focus">
                   <input type="text" class="form-control floating" name="price_term"   placeholder=""  
                              required>
-                             <label class="focus-label">Price Term</label>
+                             <label class="focus-label">Payment Term</label>
                           </div>
                       {{-- <div class="invalid-feedback">
                           Please provide a valid Manufactured Year.
@@ -245,7 +245,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                           <input type="number" class="form-control floating" name="established_year" placeholder=""   required>
+                           <input type="number" class="form-control floating"  onwheel="this.blur()" name="established_year" placeholder=""   required>
                            <label class="focus-label">Established Year</label>
                        </div>
                        {{-- <div class="invalid-feedback">
@@ -254,7 +254,7 @@
                    </div>
             <div class="col-md-6">
                  <div class="form-group form-focus">
-                    <input type="number" class="form-control floating" name="branches"   placeholder="" 
+                    <input type="number" class="form-control floating"  onwheel="this.blur()" name="branches"   placeholder="" 
                         title="" required>
                         <label class="focus-label">Branches</label>
                     </div>
@@ -264,7 +264,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group form-focus">
-                       <input type="number" class="form-control floating" name="no_of_employees"   placeholder="" 
+                       <input type="number" class="form-control floating"  onwheel="this.blur()" name="no_of_employees"   placeholder="" 
                            title="" required>
                            <label class="focus-label">Employees</label>
                        </div>
@@ -285,7 +285,7 @@
                    </div>
                    <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating"  name="squrft" placeholder="" 
+                        <input type="number" class="form-control floating"   onwheel="this.blur()" name="squrft" placeholder="" 
                         {{-- pattern="\d{10}"  --}}
                         title="Please enter a valid 10-digit  number"    required>
                        <label class="focus-label">Premise Size Sq.Ft</label>
@@ -315,7 +315,7 @@
             
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating"  name="stock_level" placeholder=""  
+                        <input type="number" class="form-control floating"  onwheel="this.blur()" name="stock_level" placeholder=""  
                            required>
                            <label class="focus-label">Stock Level</label>
                         </div>
@@ -326,7 +326,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <select class="form-control floating" name="stock_unit" required>
+                    <select class="form-control form-controlz floating" name="stock_unit" required>
                         <option selected disabled hidden></option>
                         
                         <option value="kg">Kg</option>
@@ -418,7 +418,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group form-focus">
-                    <input type="number" class="form-control floating"name="phone" placeholder=""  
+                    <input type="number" class="form-control floating"  onwheel="this.blur()" name="phone" placeholder=""  
          title="Please enter a valid 10-digit Mobile number" required>
 
                            <label class="focus-label">Mobile</label>
@@ -429,7 +429,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating"  name="whatsapp"    placeholder="" 
+                        <input type="number" class="form-control floating"  onwheel="this.blur()" name="whatsapp"    placeholder="" 
                         {{-- pattern="\d{10}"  --}}
                         title=""   required>
                        <label class="focus-label">WhatsApp</label>
@@ -462,8 +462,8 @@
         <div class="col-md-6 mx-auto">
             <div class="row">
                 <div class="col-md-6">
-                    <select class="form-controlz country" name="country" placeholder="Select Country" required>
-                        <option selected disabled>Country</option>
+                    <select class="form-controlz  form-control country" name="country"  required>
+                        <option selected disabled hidden></option>
                         @foreach($countries as $country)
                             <option value="{{ $country->id }}">{{ $country->name }}</option>
                         @endforeach
@@ -473,12 +473,10 @@
                     </div> --}}
                 </div>
                 <div class="col-md-6">
-                    <select class="form-controlz city" name="city" placeholder="Select City" >
-                        <option selected disabled>City</option>
+                    <select class="form-controlz form-control city" name="city" required >
+                        <option selected disabled hidden></option>
                     </select>
-                    <div class="invalid-feedback">
-                        Please select a city.
-                    </div>
+                    
                 </div>
             </div>
         </div>

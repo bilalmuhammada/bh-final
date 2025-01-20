@@ -193,9 +193,9 @@
 
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <input type="number" class="form-control floating" name="investment_amount" placeholder="" 
+                    <input type="number" class="form-control floating" onwheel="this.blur()"   name="investment_amount" placeholder="" 
                             required>
-                           <label class="focus-label">Investment Amount</label>
+                           <label class="focus-label">Investment Amount-USD</label>
                         </div>
                     {{-- <div class="invalid-feedback">
                         Please provide a valid Investment Amount.
@@ -276,7 +276,7 @@
             <div class="row">
                 <div class="col-md-6" >
                     <div class="form-group form-focus">
-                    <input type="number" class="form-control floating mobile" name="phone" placeholder=""  
+                    <input type="number" class="form-control floating mobile" name="phone" onwheel="this.blur()"   placeholder=""  
                            pattern="[0-9]{10}" title="Please enter a valid 10-digit Mobile  number" required>
                            <label class="focus-label">Mobile</label>
                         </div>
@@ -290,7 +290,7 @@
                
                 <div class="col-md-6" >
                 <div class="form-group form-focus">
-                    <input type="number" class="form-control floating"   name="whatsapp" required>
+                    <input type="number" class="form-control floating" onwheel="this.blur()"    name="whatsapp" required>
                     <label class="focus-label">WhatsApp</label>
                 </div>
             </div>
@@ -340,24 +340,20 @@
         <div class="col-md-6 mx-auto" style="margin-bottom: 22px;">
             <div class="row">
                 <div class="col-md-6">
-                    <select class="form-controlz country" name="country" placeholder="Select Country" required>
-                        <option disabled selected>Country</option>
+                    <select class="form-controlz country  form-control floating" name="country" placeholder="Select Country" required>
+                        <option disabled selected hidden></option>
                         @foreach($countries as $country)
                             <option value="{{ $country->id }}">{{ $country->name }}</option>
                         @endforeach
                     </select>
-                    <div class="invalid-feedback">
-                        Please select a country.
-                    </div>
+                  
                 </div>
                 <div class="col-md-6">
 
-                    <select class="form-controlz city" name="city" placeholder="Select City" >
-                        <option selected disabled>City</option>
+                    <select class="form-controlz city form-control floating" name="city" required >
+                        <option selected disabled hidden></option>
                     </select>
-                    <div class="invalid-feedback">
-                        Please select a city.
-                    </div>
+                    
                 </div>
             </div>
         </div>

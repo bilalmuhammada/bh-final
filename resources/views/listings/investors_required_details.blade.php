@@ -202,9 +202,9 @@
         </div> --}}
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="number" class="form-control floating"name="required_investment"  placeholder="" required>
+                <input type="number" class="form-control floating"name="required_investment"  onwheel="this.blur()"  placeholder="" required>
             
-                <label class="focus-label">Investment Required</label>
+                <label class="focus-label">Investment Required-USD</label>
             </div>
                 <div class="invalid-feedback">
                 Please provide a valid Required Investment.
@@ -212,9 +212,9 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-               <input type="number" class="form-control floating" name="sale_revenue"   placeholder="" 
+               <input type="number" class="form-control floating" name="sale_revenue" onwheel="this.blur()"    placeholder="" 
                    title="" required>
-                   <label class="focus-label">Sales Revenue  </label>
+                   <label class="focus-label">Sales Revenue/EBITDA-USD  </label>
                </div>
            {{-- <div class="invalid-feedback">
                Please provide a valid Business Type.
@@ -266,7 +266,7 @@
         <div class="row">
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="number" class="form-control floating" name="established_year"  placeholder=""  required>
+                <input type="number" class="form-control floating" name="established_year"  onwheel="this.blur()"  placeholder=""  required>
                 <label class="focus-label">Established Year</label>
                         </div>
             {{-- <div class="invalid-feedback">
@@ -275,7 +275,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="number" class="form-control floating" name="branches"  placeholder="" 
+                <input type="number" class="form-control floating" name="branches"  onwheel="this.blur()"  placeholder="" 
                     title="" required>
                     <label class="focus-label">Branches </label>
                         </div>
@@ -285,7 +285,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="number" class="form-control floating" name="employee"  placeholder="" 
+                <input type="number" class="form-control floating" name="employee" onwheel="this.blur()"   placeholder="" 
                     title="" required>
                     <label class="focus-label">Employees </label>
                         </div>
@@ -310,7 +310,7 @@
         <div class="row">
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="number" class="form-control floating" name="size_sqm" placeholder="" 
+                <input type="number" class="form-control floating" name="size_sqm" onwheel="this.blur()"  placeholder="" 
                     title="" required>
                     <label class="focus-label">Premise Size Sq.Ft</label>
                         </div>
@@ -333,10 +333,10 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="number" class="form-control floating"  name="least_amt" placeholder="" 
+                <input type="number" class="form-control floating"  name="least_amt" onwheel="this.blur()"  placeholder="" 
                 {{-- pattern="\d{10}"  --}}
                 title="Please enter a valid 10-digit  number" required>
-               <label class="focus-label">Least Amount</label>
+               <label class="focus-label">Lease Amount-USD</label>
             </div>
                <div class="invalid-feedback">
             Please provide a valid 10-digit Mobile number.
@@ -371,7 +371,7 @@
 
             <div class="col-md-6">
                 <div class="form-group form-focus">
-                    <input type="text" class="form-control floating"  name="expect_roi" placeholder="" 
+                    <input type="text" class="form-control floating"  name="expect_roi" onwheel="this.blur()"  placeholder="" 
                     {{-- pattern="\d{10}"  --}}
                     title="Please enter a valid 10-digit  number"    required>
                    <label class="focus-label">Expected ROI %</label>
@@ -396,7 +396,7 @@
                 <input type="text" class="form-control floating"  name="reason_invst" placeholder="" 
                 {{-- pattern="\d{10}"  --}}
                 title=""   required>
-               <label class="focus-label">Reason For Investment</label>
+               <label class="focus-label">Reason for Investment</label>
             </div>
                
         </div>
@@ -421,7 +421,7 @@
         
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="number" class="form-control floating"  name="phone" placeholder="" 
+                <input type="number" class="form-control floating" onwheel="this.blur()"   name="phone" placeholder="" 
                 {{-- pattern="\d{10}"  --}}
                 title="Please enter a valid 10-digit  number"    required>
                <label class="focus-label">Mobile</label>
@@ -432,7 +432,7 @@
     </div>
     <div class="col-md-6">
         <div class="form-group form-focus">
-            <input type="number" class="form-control floating"  name="whatsapp"  placeholder="" 
+            <input type="number" class="form-control floating" onwheel="this.blur()"  name="whatsapp"  placeholder="" 
             {{-- pattern="\d{10}"  --}}
             title=""   required>
            <label class="focus-label">WhatsApp</label>
@@ -475,29 +475,25 @@
         <div class="col-md-6 mx-auto">
             <div class="row">
         <div class="col-md-6">
-            <select class="form-controlz country" name="country" placeholder=" Country" required>
-                <option disabled selected> Country</option>
+            <select class="form-controlz country form-control floating" name="country" placeholder=" Country" required>
+                <option disabled selected hidden> </option>
                 @foreach($countries as $country)
                     <option value="{{ $country->id }}">{{ $country->name }}</option>
                 @endforeach
             </select>
-            <div class="invalid-feedback">
-                Please select a country.
-            </div>
+           
         </div>
         <div class="col-md-6">
-            <select class="form-controlz city" name="city" placeholder=" City" >
-                <option selected disabled>City</option>
+            <select class="form-controlz city form-control floating" name="city" required >
+                <option selected disabled hidden></option>
             </select>
-            <div class="invalid-feedback">
-                Please select a city.
-            </div>
+            
         </div>
         </div>
         </div>
         <div class="col-md-6 mx-auto" style="margin-top: 20px;">
             <div class="form-group form-focus">
-            <input type="text" class="form-controlz location_name" name="location_name" placeholder=""
+            <input type="text" class="form-controlz location_name form-control floating" name="location_name" placeholder=""
                    required>
                    <label class="focus-label">Location</label>
                         </div>

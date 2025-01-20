@@ -207,8 +207,8 @@
 
             
     <div class="form-group form-focus">
-        <input type="number" class="form-control floating" name="investment_amount" >
-        <label class="focus-label">Investment Required</label>
+        <input type="number" class="form-control floating"  onwheel="this.blur()" name="investment_amount" >
+        <label class="focus-label">Investment Required-USD</label>
     </div>
             {{-- <input type="text" class="form-controlz" name="investment_amount" placeholder="Investment Required" style="padding:22px;" required> --}}
             <div class="invalid-feedback">
@@ -222,7 +222,7 @@
         <div class="col-md-6">
             <div class="form-group form-focus">
                 <select class="form-controlz form-control floating" name="trade_licence_type" required>
-                   <option selected disabled hidden>Trade Licence</option>
+                   <option selected disabled hidden></option>
                    <option value="e-commerce">E-Commerce</option>
                    <option value="freezone">Freezone</option>
                    <option value="freelance">Freelance</option>
@@ -255,7 +255,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group form-focus">
-                    <input type="number" class="form-control floating"   name="size_sqm" placeholder="" 
+                    <input type="number" class="form-control floating" onwheel="this.blur()"    name="size_sqm" placeholder="" 
                         title="" required>
                         <label class="focus-label">Premise Size Sq.Ft</label>
                     </div>
@@ -276,7 +276,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                       <input type="number" class="form-control floating" name="branches"   placeholder="" 
+                       <input type="number" class="form-control floating" onwheel="this.blur()"  name="branches"   placeholder="" 
                            title="" required>
                            <label class="focus-label">Branches </label>
                        </div>
@@ -286,7 +286,7 @@
                </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                           <input type="number" class="form-control floating" name="no_of_employees"   placeholder="" 
+                           <input type="number" class="form-control floating" onwheel="this.blur()"  name="no_of_employees"   placeholder="" 
                                title="" required>
                                <label class="focus-label">Employees </label>
                            </div>
@@ -310,7 +310,7 @@
                         <div class="form-group form-focus">
                                <input type="text" class="form-control floating" name="expect_sale"   placeholder="" 
                                    title="" required>
-                                   <label class="focus-label">Expected Sales</label>
+                                   <label class="focus-label">Expected Sales Revenue/EBITDA -USD</label>
                                </div>
                     </div>
         
@@ -342,14 +342,14 @@
                     </div>
                     <div class="col-md-6 " >
                         <div class="form-group form-focus">
-                            <input type="number" class="form-control floating"  name="phone" required>
+                            <input type="number" class="form-control floating" onwheel="this.blur()"  name="phone" required>
                             <label class="focus-label">Mobile</label>
                         </div>
                            
                     </div>
                     <div class="col-md-6" >
                         <div class="form-group form-focus">
-                            <input type="number" class="form-control floating"   name="whatsapp" placeholder="" required>
+                            <input type="number" class="form-control floating"  onwheel="this.blur()"  name="whatsapp" placeholder="" required>
                             <label class="focus-label">WhatsApp</label>
                     </div>
         </div>
@@ -384,23 +384,21 @@
         <div class="col-md-6 mx-auto" style="margin-bottom: 20px;">
             <div class="row">
         <div class="col-md-6">
-            <select class="form-controlz country" name="country" required>
-                <option disabled selected>Country</option>
+            <select class="form-controlz country form-control " name="country" required>
+                <option disabled selected hidden></option>
                 @foreach($countries as $country)
                     <option value="{{ $country->id }}">{{ $country->name }}</option>
                 @endforeach
             </select>
-            <div class="invalid-feedback">
-                Please select a country.
-            </div>
+            
         </div>
         <div class="col-md-6">
-            <select class="form-controlz city" name="city" >
-                <option selected disabled>City</option>
+            <select class="form-controlz form-control floating" name="city"  required>
+          
+                
+                <option disabled selected hidden></option>
+           
             </select>
-            <div class="invalid-feedback">
-                Please select a city.
-            </div>
         </div>
         </div>
         </div>

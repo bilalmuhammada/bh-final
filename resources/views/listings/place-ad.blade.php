@@ -127,8 +127,8 @@
             <div id="image-display-div" class="row"></div>
         </div>
         <div class="col-md-4 mx-auto" style="margin-top: 20px;">
-            <select class="form-control country" name="country" placeholder="Select Country" required>
-                <option selected disabled>Country</option>
+            <select class="form-control country" name="country" required>
+                <option selected disabled hidden></option>
                 @foreach($countries as $country)
                     <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
                 @endforeach
@@ -138,12 +138,10 @@
             </div>
         </div>
         <div class="col-md-4 mx-auto" style="margin-top: 20px;">
-            <select class="form-control city" name="city" placeholder="City" required>
-                <option selected disabled>Select a country to see relevent cities</option>
+            <select class="form-control city" name="city"  required>
+                <option selected disabled hidden></option>
             </select>
-            <div class="invalid-feedback">
-                Please select a city.
-            </div>
+           
         </div>
         <div class="col-md-4 mx-auto" style="margin-top: 20px;">
             <input type="text" class="form-control location_name" name="location_name" placeholder="Location Type"

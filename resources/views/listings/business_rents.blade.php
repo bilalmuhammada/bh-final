@@ -195,10 +195,10 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                    <input type="number" class="form-control floating" name="price"  placeholder=""   
+                    <input type="number" class="form-control floating"  onwheel="this.blur()"  name="price"  placeholder=""   
                            required>
                              
-                   <label class="focus-label">Price</label>
+                   <label class="focus-label">Price-USD</label>
                 </div>
                     <div class="invalid-feedback">
                         Please provide a valid price.
@@ -207,7 +207,7 @@
                 <div class="col-md-6">
                     <div class="form-group form-focus">
                         <select class="form-controlz  form-control floating"  name="business_status"  required>
-                        <option disabled selected hidden>Business Status</option>
+                        <option disabled selected hidden></option>
                             <option value="1">Operating</option>
                             <option value="0">Closed</option>
                             <option value="2">Temporary Closed</option>
@@ -231,7 +231,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                           <input type="number" class="form-control floating" name="established_year" placeholder=""   required>
+                           <input type="number" class="form-control floating"  onwheel="this.blur()"  name="established_year" placeholder=""   required>
                            <label class="focus-label">Established Year</label>
                        </div>
                        <div class="invalid-feedback">
@@ -261,7 +261,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                       <input type="number" class="form-control floating" name="branches"   placeholder="" 
+                       <input type="number" class="form-control floating"  onwheel="this.blur()"  name="branches"   placeholder="" 
                            title="" required>
                            <label class="focus-label">Branches </label>
                        </div>
@@ -275,7 +275,7 @@
             <div class="row">
             <div class="col-md-6">
              <div class="form-group form-focus">
-                    <input type="number" class="form-control floating" name="no_of_employees"   placeholder="" 
+                    <input type="number" class="form-control floating"  onwheel="this.blur()"  name="no_of_employees"   placeholder="" 
                         title="" required>
                         <label class="focus-label">Employees</label>
                     </div>
@@ -303,7 +303,7 @@
                
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating"  name="squrft" placeholder="" 
+                        <input type="number" class="form-control floating"  onwheel="this.blur()"   name="squrft" placeholder="" 
                         {{-- pattern="\d{10}"  --}}
                         title="Please enter a valid 10-digit  number"    required>
                        <label class="focus-label">Premise Size Sq.Ft</label>
@@ -328,10 +328,10 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating"  name="least_amt" placeholder="" 
+                        <input type="number" class="form-control floating"  onwheel="this.blur()"   name="least_amt" placeholder="" 
                         {{-- pattern="\d{10}"  --}}
                         title="Please enter a valid 10-digit  number"    required>
-                       <label class="focus-label">Least Amount</label>
+                       <label class="focus-label">Lease Amount-USD</label>
                     </div>
                        <div class="invalid-feedback">
                     Please provide a valid 10-digit Mobile number.
@@ -339,10 +339,10 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group form-focus">
-                    <input type="number" class="form-control floating"  name="invt_value" placeholder="" 
+                    <input type="number" class="form-control floating"  onwheel="this.blur()"   name="invt_value" placeholder="" 
                     {{-- pattern="\d{10}"  --}}
                     title="Please enter a valid 10-digit  number"    required>
-                   <label class="focus-label">Inventory Value</label>
+                   <label class="focus-label">Inventory Value-USD</label>
                 </div>
                    <div class="invalid-feedback">
                 Please provide a valid 10-digit Mobile number.
@@ -368,7 +368,7 @@
                         <input type="text" class="form-control floating"  name="selling_fin" placeholder="" 
                         {{-- pattern="\d{10}"  --}}
                         title=""   required>
-                       <label class="focus-label">Seller Financing
+                       <label class="focus-label">Renter Financing
                     </label>
                     </div>
                       
@@ -427,7 +427,7 @@
             
             <div class="col-md-6">
                 <div class="form-group form-focus">
-                    <input type="number" class="form-control floating"  name="phone" placeholder="" 
+                    <input type="number" class="form-control floating"  onwheel="this.blur()"   name="phone" placeholder="" 
                     {{-- pattern="\d{10}"  --}}
                     title="Please enter a valid 10-digit  number"    required>
                    <label class="focus-label">Mobile</label>
@@ -438,7 +438,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group form-focus">
-                <input type="number" class="form-control floating"  name="whatsapp" placeholder="" 
+                <input type="number" class="form-control floating"  onwheel="this.blur()"  name="whatsapp" placeholder="" 
                 {{-- pattern="\d{10}"  --}}
                 title=""   required>
                <label class="focus-label">WhatsApp</label>
@@ -466,23 +466,22 @@
         <div class="col-md-6 mx-auto" >
             <div class="row">
                 <div class="col-md-6">
-                    <select class="form-controlz country" name="country" placeholder="Select Country" required>
-                        <option disabled selected>Country</option>
+                    <select class="form-controlz form-control floating country" name="country" placeholder="Select Country" required>
+                        <option disabled selected hidden></option>
                         @foreach($countries as $country)
                             <option value="{{ $country->id }}">{{ $country->name }}</option>
                         @endforeach
                     </select>
-                    <div class="invalid-feedback">
-                        Please select a country.
-                    </div>
+                  
                 </div>
                 <div class="col-md-6">
-                    <select class="form-controlz city" name="city" placeholder="Select City" >
-                        <option selected disabled>City</option>
+                    <select class="form-controlz form-control floating" name="city"  required>
+          
+                
+                        <option disabled selected hidden></option>
+                   
                     </select>
-                    <div class="invalid-feedback">
-                        Please select a city.
-                    </div>
+                 
                 </div>
             </div>
         </div>
@@ -524,6 +523,9 @@
 
 $(document).on('click', '.place-ad-form-submit', function (e) {
             e.preventDefault();
+
+
+        
              var formData = new FormData($('.place-ad-form')[0]);
             $.ajax({
                 url: api_url + 'listing/nextsubmit',

@@ -240,7 +240,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                        name="location_name" 
                        style="margin-top: -2px; font-size: 14px;" 
                        id="location_name" 
-                       placeholder="Enter location">
+                       placeholder="Enter Location">
                 <span class="" id="locationIcon">
                     <i class="fa fa-map-marker" style="margin-top:8px; color:red;"></i>
                 </span>
@@ -276,6 +276,9 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                 <span style="font-size: 15px;"><b>Sort</b></span>
             </div>
             <select class="form-select form-control "style="font-size: 13px;"  id="sortDropdown" onchange="window.location.href=this.value" >
+                
+                <option class="option"  selected value=""></option>
+               
                 <option class="option" value="?sort=newest" {{ request()->sort == 'newest' ? 'selected' : '' }}>Date: New - Old</option>
                 <option class="option" value="?sort=oldest" {{ request()->sort == 'oldest' ? 'selected' : '' }}>Date: Old - New</option>
                 <option class="option" value="?sort=price_high" {{ request()->sort == 'price_high' ? 'selected' : '' }}>Price: Low - High</option>
@@ -337,7 +340,8 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                                         </div>
                                     </div>
                                     <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:155px; z-index: 2;">
-                                        <i class="fa fa-image" style="color:white;font-size: 13px;"></i><span class="text-white" style="margin-left:6px;font-size: 13px;"> 1 / 40</span>
+                                        {{-- <i class="fa fa-image" style="color:white;font-size: 13px;"></i> --}}
+                                        <span class="text-white" style="font-size: 13px;"> 1 / 40</span>
                                     </div>
                                 </div>
                                 <a href="{{ env('BASE_URL') . 'ads/detail/' . $ad->id }}">
@@ -357,7 +361,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                             <div class="col-lg-8 col-md-8 col-12">
                                 <div class="row" style="margin-top: -12px;">
                                     <div class="col-lg-7 col-md-7 col-7" style="margin-left: -118px">
-                                    <h5 style="font-size: 18px;font-weight:700;margin: 0px;">{{ $ad->title ?? 'Heading N/A' }}</h5>
+                                    <h5 style="font-size: 18px;font-weight:700;margin: 0px 0px 5px 0px;">{{ $ad->title ?? 'Heading N/A' }}</h5>
                                     <p style="font-size: 13px;margin-bottom: 6px;">{{ $ad->category_name }} <span style="font-size: 14px;"> > </span> {{ $ad->subcategory_name }}</p>
                                     <h3 style="font-weight: bold;font-size:18px;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price, session('app_currency', 'default_currency')) }}</h3>
                                     
