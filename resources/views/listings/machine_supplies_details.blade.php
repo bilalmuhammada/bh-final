@@ -10,14 +10,14 @@
     box-shadow: 0 0 0 .2rem rgb(255 255 255 / 25%) !important; 
     }
 
-    select {
-  -webkit-appearance: none;  /* for Chrome */
-  -moz-appearance: none;     /* for Firefox */
+    /* select {
+  -webkit-appearance: none;  
+  -moz-appearance: none;     
   appearance: none;
-  background: transparent;   /* optional: makes background transparent */
-  border: 1px solid #ccc;    /* adjust as needed */
+  background: transparent;   
+  border: 1px solid #ccc;   
   padding: 5px;
-}
+} */
 
  
  .form-focus .focus-label {
@@ -198,7 +198,7 @@
                     <div class="form-group form-focus">
                         <input type="number" class="form-control floating"  onwheel="this.blur()" name="price" placeholder=""  
                            required>
-                           <label class="focus-label">Price-USD</label>
+                           <label class="focus-label">Price - USD</label>
                         </div>
                     {{-- <div class="invalid-feedback">
                         Please provide a valid price.
@@ -394,7 +394,7 @@
                     <input type="text" class="form-control floating"  name="reason_sale" placeholder="" 
                     {{-- pattern="\d{10}"  --}}
                     title=""   required>
-                   <label class="focus-label">Reason For Sale</label>
+                   <label class="focus-label">Reason for Sale</label>
                 </div>
                    
             </div>

@@ -140,11 +140,11 @@
  }
 
  select {
-  -webkit-appearance: none;  /* for Chrome */
-  -moz-appearance: none;     /* for Firefox */
+  /* -webkit-appearance: none; 
+  -moz-appearance: none;     
   appearance: none;
-  background: transparent;   /* optional: makes background transparent */
-  border: 1px solid #ccc;    /* adjust as needed */
+  background: transparent;    */
+  border: 1px solid blue;    
   padding: 5px;
 }
  
@@ -195,7 +195,7 @@
                     <div class="form-group form-focus">
                     <input type="number" class="form-control floating" onwheel="this.blur()"   name="investment_amount" placeholder="" 
                             required>
-                           <label class="focus-label">Investment Amount-USD</label>
+                           <label class="focus-label">Investment Amount - USD</label>
                         </div>
                     {{-- <div class="invalid-feedback">
                         Please provide a valid Investment Amount.

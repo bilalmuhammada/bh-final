@@ -136,14 +136,14 @@
      /* transform: scale(1.1); */
  }
  
- select {
-  -webkit-appearance: none;  /* for Chrome */
-  -moz-appearance: none;     /* for Firefox */
+ /* select {
+  -webkit-appearance: none;  
+  -moz-appearance: none;    
   appearance: none;
-  background: transparent;   /* optional: makes background transparent */
-  border: 1px solid #ccc;    /* adjust as needed */
+  background: transparent;   
+  border: 1px solid #ccc;    
   padding: 5px;
-}
+} */
  .btn-show{
   
  
@@ -358,7 +358,7 @@
                             <input type="text" class="form-control floating"  name="reason_financing" placeholder="" 
                             {{-- pattern="\d{10}"  --}}
                             title=""   required>
-                           <label class="focus-label">Reason For Financing</label>
+                           <label class="focus-label">Reason for Franchising</label>
                         </div>
                            
                     </div>

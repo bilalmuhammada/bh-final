@@ -95,14 +95,14 @@
      width: 0;
  }
  
- select {
-  -webkit-appearance: none;  /* for Chrome */
-  -moz-appearance: none;     /* for Firefox */
+ /* select {
+  -webkit-appearance: none; 
+  -moz-appearance: none;    
   appearance: none;
-  background: transparent;   /* optional: makes background transparent */
-  border: 1px solid #ccc;    /* adjust as needed */
+  background: transparent;   
+  border: 1px solid #ccc;    
   padding: 5px;
-}
+} */
  .form-focus .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
      border-color: transparent transparent #ccc;
      border-width: 0 6px 6px;
@@ -204,7 +204,7 @@
             <div class="form-group form-focus">
                 <input type="number" class="form-control floating"name="required_investment"  onwheel="this.blur()"  placeholder="" required>
             
-                <label class="focus-label">Investment Required-USD</label>
+                <label class="focus-label">Investment Required - USD</label>
             </div>
                 <div class="invalid-feedback">
                 Please provide a valid Required Investment.
@@ -214,7 +214,7 @@
             <div class="form-group form-focus">
                <input type="number" class="form-control floating" name="sale_revenue" onwheel="this.blur()"    placeholder="" 
                    title="" required>
-                   <label class="focus-label">Sales Revenue/EBITDA-USD  </label>
+                   <label class="focus-label">Sales Revenue/EBITDA - USD  </label>
                </div>
            {{-- <div class="invalid-feedback">
                Please provide a valid Business Type.
@@ -336,7 +336,7 @@
                 <input type="number" class="form-control floating"  name="least_amt" onwheel="this.blur()"  placeholder="" 
                 {{-- pattern="\d{10}"  --}}
                 title="Please enter a valid 10-digit  number" required>
-               <label class="focus-label">Lease Amount-USD</label>
+               <label class="focus-label">Lease Amount - USD</label>
             </div>
                <div class="invalid-feedback">
             Please provide a valid 10-digit Mobile number.

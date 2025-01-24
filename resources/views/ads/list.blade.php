@@ -277,9 +277,9 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             </div>
             <select class="form-select form-control "style="font-size: 13px;"  id="sortDropdown" onchange="window.location.href=this.value" >
                 
-                <option class="option"  selected value=""></option>
+                {{-- <option class="option"  selected value=""></option> --}}
                
-                <option class="option" value="?sort=newest" {{ request()->sort == 'newest' ? 'selected' : '' }}>Date: New - Old</option>
+                <option class="option" selected value="?sort=newest" {{ request()->sort == 'newest' ? 'selected' : '' }}>Date: New - Old</option>
                 <option class="option" value="?sort=oldest" {{ request()->sort == 'oldest' ? 'selected' : '' }}>Date: Old - New</option>
                 <option class="option" value="?sort=price_high" {{ request()->sort == 'price_high' ? 'selected' : '' }}>Price: Low - High</option>
                 <option  class="option" value="?sort=price_low" {{ request()->sort == 'price_low' ? 'selected' : '' }}> Price: High - Low </option>

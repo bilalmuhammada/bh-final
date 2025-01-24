@@ -83,14 +83,14 @@
      right: 7px;
  }
  
- select {
-  -webkit-appearance: none;  /* for Chrome */
-  -moz-appearance: none;     /* for Firefox */
+ /* select {
+  -webkit-appearance: none;  
+  -moz-appearance: none;    
   appearance: none;
-  background: transparent;   /* optional: makes background transparent */
-  border: 1px solid #ccc;    /* adjust as needed */
+  background: transparent;   
+  border: 1px solid #ccc;    
   padding: 5px;
-}
+} */
 
  .form-focus .select2-container--default .select2-selection--single .select2-selection__arrow b {
      border-color: #ccc transparent transparent;
@@ -196,7 +196,7 @@
             <div class="form-group form-focus">
                 <input type="number" class="form-control floating " onwheel="this.blur()"   name="share_price"  placeholder=""
                     title="" required>
-                    <label class="focus-label">Share Price-USD</label>
+                    <label class="focus-label">Share Price - USD</label>
                 </div>
             {{-- <div class="invalid-feedback">
                 Please provide a valid Business Type.
@@ -347,7 +347,7 @@
                 <input type="text" class="form-control floating"  name="reason_sale" placeholder="" 
                 {{-- pattern="\d{10}"  --}}
                 title=""   required>
-               <label class="focus-label">Reason For Sale</label>
+               <label class="focus-label">Reason for Sale</label>
             </div>
            </div>  
         

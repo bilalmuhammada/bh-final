@@ -138,7 +138,7 @@
         }
         .select2-selection__rendered {
             /* padding-left: 16px !important; */
-            font-size: 15px !important;}
+            font-size: 14px !important;}
 
 
         .auth{
@@ -306,7 +306,7 @@
                                    aria-expanded="false">
                                     {{-- <img src="{{ asset('images/my-notifications.svg')}}" width="17" height="17"> --}}
                                     <div>
-                                        <span class="colorChange" style="color: #000;font-size:16px;">Notification</span>
+                                        <span class="colorChange" style="color: #000;font-size:14px;">Notification</span>
                                     </div>
                                 </a>
                                 <div class="dropdown-menu"  id="notifications" aria-labelledby="notifications"
@@ -460,7 +460,7 @@
                                 <a type="button" id="favorite" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">
                                     {{-- <img src="{{ asset('images/my-favorites.svg')}}" width="17" height="17"> --}}
-                                    <div><span class="colorChange" style="color: #000; font-size: 16px; ">Favorites</span></div>
+                                    <div><span class="colorChange" style="color: #000; font-size: 14px; ">Favorites</span></div>
                                 </a>
                                 {{-- <div class="dropdown-menu" aria-labelledby="favorite"
                                      style="padding: 10px;width:250px;">
@@ -560,7 +560,7 @@
                                    aria-haspopup="true"
                                    aria-expanded="false">
                                     {{-- <img src="{{ asset('images/my-chats.svg')}}" width="17" height="17"> --}}
-                                    <div><span  class="colorChange" style="color: #000;font-size: 16px;">Chat</span></div>
+                                    <div><span  class="colorChange" style="color: #000;font-size: 14px;">Chat</span></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="chat" style="padding: 10px;width:auto;">
                                     @if (session()->has('user') && count($chats) > 0)
@@ -628,7 +628,7 @@
                         type="button" 
                         id="ads"
                         class="colorChange" 
-                        style="color: #000; font-size: 16px;"
+                        style="color: #000; font-size: 14px;"
                         aria-haspopup="true"
                         aria-expanded="false">
                          My Ads

@@ -27,14 +27,14 @@
      color: #000;
      margin-bottom: 0;
  }
- select {
-  -webkit-appearance: none;  /* for Chrome */
-  -moz-appearance: none;     /* for Firefox */
+ /* select {
+  -webkit-appearance: none;  
+  -moz-appearance: none;     
   appearance: none;
-  background: transparent;   /* optional: makes background transparent */
-  border: 1px solid #ccc;    /* adjust as needed */
+  background: transparent;   
+  border: 1px solid #ccc;   
   padding: 5px;
-}
+} */
  .form-focus.focused .focus-label {
      opacity: 1;
      top: -18px;
@@ -208,7 +208,7 @@
             
     <div class="form-group form-focus">
         <input type="number" class="form-control floating"  onwheel="this.blur()" name="investment_amount" >
-        <label class="focus-label">Investment Required-USD</label>
+        <label class="focus-label">Investment Required - USD</label>
     </div>
             {{-- <input type="text" class="form-controlz" name="investment_amount" placeholder="Investment Required" style="padding:22px;" required> --}}
             <div class="invalid-feedback">
@@ -310,7 +310,7 @@
                         <div class="form-group form-focus">
                                <input type="text" class="form-control floating" name="expect_sale"   placeholder="" 
                                    title="" required>
-                                   <label class="focus-label">Expected Sales Revenue/EBITDA -USD</label>
+                                   <label class="focus-label">Expected Sales Revenue/EBITDA - USD</label>
                                </div>
                     </div>
         

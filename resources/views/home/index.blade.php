@@ -495,7 +495,9 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                         <b>{{$category->name}}</b>
                         <br>
                         @foreach($category->sub_categories->take(5) as $key=>$sub_category)
-                            <a link="{{env('BASE_URL') . 'ads/' . $sub_category->id}}" class="cf subcategory-name">{{$sub_category->name}}</a>
+                        
+                            <a link="{{env('BASE_URL') . 'home/' }}" class="cf subcategory-name">{{$sub_category->name}}</a>
+                            {{-- <a link="{{env('BASE_URL') . 'ads/' . $sub_category->id}}" class="cf subcategory-name">{{$sub_category->name}}</a> --}}
                             <br>
                         @endforeach
                     </div>

@@ -64,14 +64,14 @@
      color: #8d13ff;
  }
  
- select {
-  -webkit-appearance: none;  /* for Chrome */
-  -moz-appearance: none;     /* for Firefox */
+ /* select {
+  -webkit-appearance: none;  
+  -moz-appearance: none;    
   appearance: none;
-  background: transparent;   /* optional: makes background transparent */
-  border: 1px solid #ccc;    /* adjust as needed */
+  background: transparent;  
+  border: 1px solid #ccc;    
   padding: 5px;
-}
+} */
  .form-focus.select-focus .focus-label {
      opacity: 1;
      font-weight: 300;
@@ -198,7 +198,7 @@
                     <input type="number" class="form-control floating"  onwheel="this.blur()"  name="price"  placeholder=""   
                            required>
                              
-                   <label class="focus-label">Price-USD</label>
+                   <label class="focus-label">Price - USD</label>
                 </div>
                     <div class="invalid-feedback">
                         Please provide a valid price.
@@ -331,7 +331,7 @@
                         <input type="number" class="form-control floating"  onwheel="this.blur()"   name="least_amt" placeholder="" 
                         {{-- pattern="\d{10}"  --}}
                         title="Please enter a valid 10-digit  number"    required>
-                       <label class="focus-label">Lease Amount-USD</label>
+                       <label class="focus-label">Lease Amount - USD</label>
                     </div>
                        <div class="invalid-feedback">
                     Please provide a valid 10-digit Mobile number.
@@ -342,7 +342,7 @@
                     <input type="number" class="form-control floating"  onwheel="this.blur()"   name="invt_value" placeholder="" 
                     {{-- pattern="\d{10}"  --}}
                     title="Please enter a valid 10-digit  number"    required>
-                   <label class="focus-label">Inventory Value-USD</label>
+                   <label class="focus-label">Inventory Value - USD</label>
                 </div>
                    <div class="invalid-feedback">
                 Please provide a valid 10-digit Mobile number.
@@ -402,7 +402,7 @@
                     <input type="text" class="form-control floating"  name="reason_sale" placeholder="" 
                     {{-- pattern="\d{10}"  --}}
                     title=""   required>
-                   <label class="focus-label">Reason For Sale</label>
+                   <label class="focus-label">Reason for Sale</label>
                 </div>
                    
             </div>
