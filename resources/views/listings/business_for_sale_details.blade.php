@@ -6,17 +6,27 @@
  }
  
  select {
-  /* -webkit-appearance: none;  
+  -webkit-appearance: none;  
  
   -moz-appearance: none;     
   
   appearance: none;
   background: transparent;   
  
-  border: 1px solid #ccc;    /* adjust as needed */
+  border: 1px solid #ccc;    /* adjust as needed
   /* padding: 5px;  */
   
 }
+select::after {
+      content: "▼"; /* Custom arrow symbol */
+      position: absolute;
+      top: 50%;
+      right: 15px; /* Position the arrow on the right */
+      transform: translateY(-50%);
+      pointer-events: none; /* Make it unclickable */
+      font-size: 14px;
+      color: #555;
+    }
  .floating:focus{
         border: 1px solid blue !important;
     box-shadow: 0 0 0 .2rem rgb(255 255 255 / 25%) !important; 

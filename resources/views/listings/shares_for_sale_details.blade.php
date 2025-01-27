@@ -205,7 +205,7 @@
         <div class="col-md-6">
             <div class="form-group form-focus">
                 <input type="number" class="form-control floating" onwheel="this.blur()"    name="share_amount" placeholder=""  required>
-                <label class="focus-label">Share Percentage-%</label>
+                <label class="focus-label">Share Percentage %</label>
             </div>
             {{-- <div class="invalid-feedback">
                 Please provide a valid Share Amount.
@@ -229,7 +229,7 @@
             <div class="form-group form-focus">
                 <input type="number" class="form-control floating" onwheel="this.blur()"   name="sale_revenue"  placeholder="" 
                     title="" required>
-                    <label class="focus-label">Sale Revenue-USD</label>
+                    <label class="focus-label">Sale Revenue - USD</label>
                 </div>
             {{-- <div class="invalid-feedback">
                 Please provide a valid Share Percentage .
@@ -324,7 +324,7 @@
             <div class="form-group form-focus">
                 <input type="number" class="form-control floating" onwheel="this.blur()"    name="lease_amount" placeholder="" 
                     title="" required>
-                    <label class="focus-label">Lease Amount-USD</label>
+                    <label class="focus-label">Lease Amount - USD</label>
                 </div>
             </div>
         </div>

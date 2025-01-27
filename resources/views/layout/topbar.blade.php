@@ -184,7 +184,7 @@
     <div class="topbar desktop-view">
         <div class="container-fluid" style="padding:0px 25px; margin-bottom: -3px;">
             <div class="row">
-                <div class="col" style="margin-top: 12px;margin-left:0px;">
+                <div class="col" style="margin-top: 5px;margin-left:0px;">
                     {{-- <div class="col-lg-1 col-xl-1 col-md-1"> --}}
                         <!-- social icon desktop start -->
                         <a class="" href="{{env('BASE_URL') . 'home'}}" >
@@ -203,7 +203,7 @@
                 @if($second!=="profile")
                 <div class="col-lg-4 col-xl-5 col-md-8" style="border:0px solid red;margin-right:-1.4rem;">
                     <!-- <div class="col-md-4"> -->
-                    <span style="position:relative;top:20px;border:0px solid red;background-color:inherit !important;">
+                    <span style="position:relative;top:12px;border:0px solid red;background-color:inherit !important;">
                     <!-- country bar mobile start -->
                         <div class="mobile-country desktop-menu-right">
                             <div class="row">
@@ -297,7 +297,7 @@
     @endif
     <!-----icons---bar---->
     <div class="col-md-7 col-xl-6 col-md-9" style="border:0px solid red;">
-        <div class="social-icon float-right text-dark">
+        <div class="social-icon float-right text-dark" style="margin-top: 0px;">
             <div class="row align-middle" style="font-size: 11px;color:black;margin-right: 1.5rem;border:0px solid red;">
                 @if (session()->has('user'))  <span style="padding:13px 15px 0px 15px;text-align:center;"> 
                                 <a type="button" id="notifications"
@@ -678,8 +678,8 @@
                                 </div> --}}
                             </span>
                             @endif
-                @if (session()->has('user'))
-                    <span style="padding:10px 15px;text-align:center;font-size:16px !important;">
+                      @if (session()->has('user'))
+                            <span style="padding:10px 15px;text-align:center;font-size:16px !important;">
                                 <a class="link"
                                    href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">
                                     <img src="{{session()->get('user')->image_url}}" alt="img" width="30" height="30"

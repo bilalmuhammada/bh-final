@@ -164,7 +164,7 @@ class ListingController extends Controller
         $Categories = Category::where('id',$category_id)->first();
         $subcategories = SubCategory::where('id',$subcategory_id)->first();;
         $view_name = Category::find($category_id)->form_view;
-// dd('ddd');
+//  dd($subcategories);
         $data = [
              'Categories' => $Categories,
              'subcategories' => $subcategories,

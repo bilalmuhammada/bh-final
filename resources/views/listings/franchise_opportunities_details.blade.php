@@ -164,7 +164,7 @@
         <p class="mx-auto text-center" style="font-size: 14px; margin-bottom:4px;">Provide as much Details & Pictures as possible and set right Price!</p>
         <p style="margin-bottom: 3px; font-size:14px; color:blue;">
             <span  style="color:blue;">{{ $Categories->name }}</span> > <span
-                 style="color:blue;">{{ $subcategories->subcategory_name }}</span>
+                 style="color:blue;">{{ $subcategories->name }}</span>
         </p>
     </div>
     <form class="place-ad-form" enctype="multipart/form-data">
@@ -195,7 +195,7 @@
                     <div class="form-group form-focus">
                     <input type="number" class="form-control floating" onwheel="this.blur()"   name="franchise_fee" placeholder="" 
                            required>
-                           <label class="focus-label">Franchise Fee</label>
+                           <label class="focus-label">Franchise Fee - USD</label>
                         </div>
                     <div class="invalid-feedback">
                         Please provide a valid Franchise Fee.
