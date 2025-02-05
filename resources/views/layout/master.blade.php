@@ -169,12 +169,12 @@ if (inputValue === "") {
             var flagUrl = $(country.element).data('flag-url'); // Access the flag-url data attribute
             if (!flagUrl) {
         var $country = $( 
-        '<img src="' + flagUrl + '" class="img-flag" style="width:20px; height:13px;margin-top:-2px; display:none;" />' + 
+        '<img src="' + flagUrl + '" class="img-flag" style="width:20px; height:13px; display:none;" />' + 
         '<span style="font-size:14px; margin-left: 2px;">' + country.text + '</span>'
     );// Optional default image
     }else{
             var $country = $(
-                '<img src="' + flagUrl + '" class="img-flag" / style="width:20px;height:13px;margin-top:-2px;"> <span  style="font-size:14px; margin-left: 2px;white-space:nowrap; ">' + country.text + '</span>'
+                '<img src="' + flagUrl + '" class="img-flag" / style="width:20px;height:13px;"> <span  style="font-size:14px; margin-left: 2px;white-space:nowrap; ">' + country.text + '</span>'
             );
             return $country;
         };
