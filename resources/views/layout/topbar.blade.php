@@ -299,7 +299,7 @@
     <div class="col-md-7 col-xl-6 col-md-9" style="border:0px solid red;">
         <div class="social-icon float-right text-dark" style="margin-top: 7px;">
             <div class="row align-middle" style="font-size: 11px;color:black;margin-right: 1.5rem;border:0px solid red;">
-                @if (session()->has('user'))  <span style="padding:13px 15px 0px 15px;text-align:center;"> 
+                @if (session()->has('user'))  <span style="padding:8px 15px 0px 15px;text-align:center;"> 
                                 <a type="button" id="notifications"
                                    data-toggle="dropdown"
                                    aria-haspopup="true"
@@ -456,7 +456,7 @@
 
                          
                         
-                              <span style="padding:13px 15px 0px 15px;text-align:center;">
+                              <span style="padding:8px 15px 0px 15px;text-align:center;">
                                 <a type="button" id="favorite" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">
                                     {{-- <img src="{{ asset('images/my-favorites.svg')}}" width="17" height="17"> --}}
@@ -554,7 +554,7 @@
                                     @endif
                                 </div>
                             </span>
-                           <span style="padding:13px 15px 0px 15px;text-align:center;">
+                           <span style="padding:8px 15px 0px 15px;text-align:center;">
                                 <a type="button" id="chat"
                                    data-toggle="dropdown"
                                    aria-haspopup="true"
@@ -622,7 +622,7 @@
                                 </div>
                             </span>
                             
-                <span style="padding:13px 15px 0px 15px;text-align:center;">
+                <span style="padding:8px 15px 0px 15px;text-align:center;">
 
                     <a href="{{ env('BASE_URL') . 'user/ads?country=' . request()->get('country') . '&city=' . request()->get('city') }}" 
                         type="button" 
