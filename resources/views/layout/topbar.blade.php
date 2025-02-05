@@ -679,7 +679,7 @@
                             </span>
                             @endif
                       @if (session()->has('user'))
-                            <span style="padding:10px 15px;text-align:center;font-size:16px !important;">
+                            <span style="padding:1px 15px;text-align:center;font-size:16px !important;">
                                 <a class="link"
                                    href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">
                                     <img src="{{session()->get('user')->image_url}}" alt="img" width="30" height="30"
