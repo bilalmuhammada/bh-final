@@ -297,7 +297,7 @@
     @endif
     <!-----icons---bar---->
     <div class="col-md-7 col-xl-6 col-md-9" style="border:0px solid red;">
-        <div class="social-icon float-right text-dark" style="margin-top: 0px;">
+        <div class="social-icon float-right text-dark" style="margin-top: 7px;">
             <div class="row align-middle" style="font-size: 11px;color:black;margin-right: 1.5rem;border:0px solid red;">
                 @if (session()->has('user'))  <span style="padding:13px 15px 0px 15px;text-align:center;"> 
                                 <a type="button" id="notifications"
