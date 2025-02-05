@@ -844,7 +844,7 @@
                                    aria-haspopup="true" aria-expanded="false">
                                     {{$category->name}}
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="subcategorydropdown">
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="subcategorydropdown" style="margin-left: 8px;">
                                     @foreach($category->sub_categories as $sub_category)
                                         <a class="dropdown-item link"
                                            href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city }}">{{$sub_category->name}}</a>
