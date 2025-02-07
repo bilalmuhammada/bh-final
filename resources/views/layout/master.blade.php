@@ -174,7 +174,7 @@ if (inputValue === "") {
     );// Optional default image
     }else{
             var $country = $(
-                '<img src="' + flagUrl + '" class="img-flag" / style="width:20px;height:13px;"> <span  style="font-size:14px; margin-left: 2px;white-space:nowrap; ">' + country.text + '</span>'
+                '<img src="' + flagUrl + '" class="img-flag" style="width:20px;height:13px;"> <span  style="font-size:14px; margin-left: 2px;white-space:nowrap; ">' + country.text + '</span>'
             );
             return $country;
         };
