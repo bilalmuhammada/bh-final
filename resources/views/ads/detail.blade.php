@@ -1,6 +1,4 @@
 @extends('layout.master')
-
-
 @section('content')
 <style>
 /* Center and style the popup container */
@@ -749,15 +747,11 @@ width: 60rem !important;
                         </div>
                     </div>
                 </div>
-                
-                {{-- <hr style="border-color: #eee; width: 95%; margin:12px 0px 0px 12px;"> --}}
             </div>
         </div>
         </div>
     </section>
     <!--------ad show------------->
-
-
 @endsection
 @section('page_scripts')
     <script type="text/javascript">
@@ -798,6 +792,11 @@ width: 60rem !important;
 
 
 function showPopup() {
+    if (!checkIfUserLoggedIn()) {
+
+$('#loginModal').modal('show');
+return ;
+}
         document.getElementById('callPopup').style.display = 'block';
         document.getElementById('popupOverlay').style.display = 'block';
     }
@@ -811,16 +810,14 @@ function showPopup() {
 
     const phoneNumber = {!! json_encode($ad->phone) !!}; // Ensure this is safely rendered from the server
 
-// function showWhatsAppPopup() {
-//     document.getElementById('callPopupwhats').style.display = 'block';
-//     document.getElementById('popupOverlaywhats').style.display = 'block';
-// }
-// function hidePopup() {
-//         document.getElementById('callPopupwhats').style.display = 'none';
-//         document.getElementById('popupOverlaywhats').style.display = 'none';
-//     }
+
 
     function redirectToEmail() {
+        if (!checkIfUserLoggedIn()) {
+
+$('#loginModal').modal('show');
+return ;
+}
         const emailAddress = {!! json_encode($ad->created_by_user->email) !!}; // Replace with your dynamic email variable if applicable
         const subject = "Subject here"; // Customize or make dynamic
         const body = "Body content here"; // Customize or make dynamic
@@ -829,6 +826,12 @@ function showPopup() {
         window.location.href = mailtoLink;
     }
 function redirectToWhatsApp() {
+
+    if (!checkIfUserLoggedIn()) {
+
+$('#loginModal').modal('show');
+return ;
+}
     const whatsappLink = `https://wa.me/${phoneNumber}`;
     window.open(whatsappLink, '_blank');
 }

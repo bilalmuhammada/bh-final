@@ -184,7 +184,7 @@
     <div class="topbar desktop-view">
         <div class="container-fluid" style="padding:0px 25px; margin-bottom: -3px;">
             <div class="row">
-                <div class="col" style="margin-top: 5px;margin-left:0px;">
+                <div class="col" style="margin-top: 3px;margin-left:0px;">
                     {{-- <div class="col-lg-1 col-xl-1 col-md-1"> --}}
                         <!-- social icon desktop start -->
                         <a class="" href="{{env('BASE_URL') . 'home'}}" >
@@ -683,9 +683,9 @@
                                 <a class="link"
                                    href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">
                                     <img src="{{session()->get('user')->image_url}}" alt="img" width="30" height="30"
-                                         style="border-radius: 50%;border:0px solid red;">
+                                         style="border-radius: 50%;border:0px solid red; margin-right: 6px;">
                                 </a>
-                                <span class="dropdown">
+                                <span class="dropdown" style="margin-top: 6px;">
                                         <span class="colorChange" style="width:;display:inline;border:0px solid red;" type="button"
                                               id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                               aria-expanded="false">
