@@ -172,6 +172,7 @@
                     googleTranslateCombo.dispatchEvent(new Event('change'));
                 }
             }
+        }
 
 
       
@@ -255,13 +256,13 @@
                 <div class="mobile-country desktop-menu-right">
                                
                     <select class="form-control language_dropdown " name="language_dropdown"  style="width:130px;" id="language_dropdown" onchange="translateLanguage()">>
-                        <option selected value="">Language</option>
+                     
                         
                         @foreach($language as $language1)
                        
                             <option
                             {{ $language1->id == request()->language ? 'selected' : '' }}  data-flag-url="{{ $language1->flag_image_url }}"
-                            value="{{ $language1->prefix }}"
+                            value="{{ $language1->prefix }}"  {{ $language1->id == 131 ? 'selected' : '' }}
                             style="font-size:8px !important;">
                             {{ $language1->name }}
                                
