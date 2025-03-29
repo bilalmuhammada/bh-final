@@ -61,12 +61,12 @@ jQuery(document).ready(function($) {
                 pickerPosition: "bottom",
                 events: {
             keyup: function (editor, event) {
-                // checkInput();
+                checkInput();
                 console.log('emoji');
             },
          
             keydown: function (editor, event) {
-                // checkInput();
+                checkInput();
                 if (event.which == 13) {
                     console.log('enter');
                  
@@ -77,11 +77,11 @@ jQuery(document).ready(function($) {
             },
             
             change: function (editor, event) {
-                // checkInput();
+                checkInput();
                 console.log('emoji');
             },
             paste: function (editor, event) {
-                // checkInput();
+                checkInput();
                 console.log('emoji');
             }
             

@@ -144,6 +144,8 @@ class ChatController extends Controller
             'sended_at' => Carbon::now()
         ]);
 
+        
+
         return response()->json([
             'status' => true,
             'message' => "Message Sent Successfully",
@@ -174,6 +176,8 @@ class ChatController extends Controller
             ->orWhere('second_user_id', SiteHelper::getLoginUserId())
             ->get();
 
+
+             
         foreach ($chats as $chat) {
             if ($chat->messages) {
                 foreach ($chat->messages as $message) {
@@ -182,6 +186,7 @@ class ChatController extends Controller
             }
         }
 
+    
         return response()->json([
             'status' => true,
             'data' => $chats,

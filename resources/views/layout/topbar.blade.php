@@ -45,10 +45,12 @@
     }
    .select2-dropdown,.select2-dropdown--below{
         width: 145px;
+        border-radius: 0.5rem;
     }
 
     /* start */
 .select2-search__field{
+    border-radius: 0.5rem;
     border-color: #997045 !important;
         }
         .select2-search__field:hover{
@@ -65,6 +67,7 @@
             max-height: 171px !important;
         }
         #subcategorydropdown{
+            border-radius: 1rem !important;
             max-height: 20rem !important;
 
         }
@@ -90,6 +93,7 @@
         padding-left: 8px !important;
     }
     .select2-dropdown{
+        border-radius: 0.5rem;
         border: 1px solid transparent !important;
         background-color: #fff;
         color: #000 !important;

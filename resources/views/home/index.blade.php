@@ -57,6 +57,7 @@
         font-size: 25px;
     }
     .select2-search__field{
+        border-radius: 0.5rem;
         padding-left: 8px !important;
     }
 
@@ -255,6 +256,8 @@ a{
         padding: 6px !important;
     }
     .select2-dropdown{
+
+        border-radius:0.5rem; 
         border: 1px solid transparent !important;
         background-color: #fff;
         color: #000 !important;

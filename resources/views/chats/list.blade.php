@@ -376,7 +376,7 @@ a:hover {
                                                    
                                                     <div class="badge bgg-yellow badge-pill unread-count" style="display: {{($login_user_id != $chat->latest_message_sender_id && $chat->unread_count > 0) ? 'block' : 'none'}} ">{{ $chat->unread_count }}</div>
                                                 </div>
-                                                <div style="display:flex; justify-content: flex-end; align-items: center;    margin-top: -6px;  margin-right: -69px;margin-bottom: 25px;">
+                                                <div style="display:flex; justify-content: flex-end; align-items: center;    margin-top: -58px;  margin-right: -6rem;margin-bottom: 25px;">
                                                     <button class="btn btn-link favorite-chat" title="{{ $chat->is_favorite ? 'Unfavourite ' : 'Favourite' }}" style="padding: 0px;" data-chat-id="{{ $chat->id }}">
                                                         <i class="fa fa-heart"  style="color: {{ $chat->is_favorite ? 'red' : 'grey' }} !important;"></i>
                                                     </button>
@@ -565,25 +565,28 @@ a:hover {
     $(document).on('click', '.hiddencheck', function(e) {
         e.stopPropagation();  // Prevent the click from triggering the anchor link
     });
-$(document).ready(function () {
-   
-
-          
 
     function checkInput() {
         var inputMessage = $('.emojionearea-editor').text().trim();
        var hasImg = $('.emojionearea-editor').find('img').length > 0;
     // var hasImg = emojioneAreaInstance.editor.find('img').length > 0;
     
-    // alert(hasImg);
+  
     if (inputMessage === '' && !hasImg) {
         $('.msg-send-btn').prop('disabled', true);
     } else {
         $('.msg-send-btn').prop('disabled', false);
     }
 }
+$(document).ready(function () {
+ 
+
+   
+
     $('.msg-send-btn').prop('disabled', true);
     $(document).on('click', '.msg-send-btn', function(e) {
+
+       
         $('.msg-send-btn').prop('disabled', true);
      });
     
@@ -609,7 +612,64 @@ $(document).ready(function () {
 
            
         });
-        $(document).ready(function () {
+
+ $(document).ready(function () {
+
+
+      // Toggle block
+    $('.block-chat').on('click', function() {
+
+    var button = $(this);
+    var chatId = button.data('chat-id');
+
+
+
+$.ajax({
+    url: "{{ route('chat.block') }}",
+    method: "POST",
+    data: {
+        _token: "{{ csrf_token() }}",
+        chat_id: chatId
+    },
+    success: function(response) {
+        var emojioneArea = $('.emojionearea.emojionearea-inline');
+        var emojioneEditor = $('.emojionearea-editor');
+        if (response.is_blocked) {
+            // show_error_message('User Blocked')
+            button.find('i').css('color', 'goldenrod');
+            if (emojioneArea.length > 0) {
+                    emojioneArea.css({
+                        'background': '#fdeaea',
+                        'cursor': 'not-allowed',
+                        'pointer-events': 'none'
+                    });
+                    emojioneEditor.attr('contenteditable', 'false');
+            }
+        } else {
+            // show_success_message('User Unblocked');
+            button.find('i').css('color', 'grey');
+            if (emojioneArea.length > 0) {
+                emojioneArea.css({
+                    'background': '',
+                    'cursor': '',
+                    'pointer-events': ''
+                });
+
+                
+                emojioneEditor.attr('contenteditable', 'true');
+            }
+           
+           
+        }
+    }
+});
+});
+
+
+
+//fiter dropdown
+
+
             var button = $('.block-chat');
             var chatId = button.data('chat-id');
             $('.ad-id').val(chatId);
@@ -708,10 +768,11 @@ $(document).ready(function () {
 
         $(document).on('click', '.msg-send-btn', function () {
             
+         
             thisElem = $(this);
           
             var message = $(thisElem).parents('.chat-footer').find('.input-msg-send');
-        
+           
             send_new_message(message, thisElem);
         });
 
@@ -734,7 +795,7 @@ $(document).ready(function () {
                         $(message).val('');
                         $('.emojionearea-editor').html('');
                     }
-                    $(selector).find('.unread-count').css('display', 'none');
+                    // $(selector).find('.unread-count').css('display', 'none');
                 },
                 error: function (response) {
                     console.log('error');
@@ -744,13 +805,14 @@ $(document).ready(function () {
 
         setInterval(function () {
 
-            // alert('sss');
+             
             $.ajax({
                 url: api_url + 'chats/get-new-messages',
                 method: 'GET',
                 success: function (response) {
                     if (response.status) {
                         $(response.data).each(function (i, chat) {
+                    
                             if (chat.messages.length > 0) {
                                 $(chat.messages).each(function (i, msg) {
                                     send_msg_body(msg, '', false, $('#' + chat.other_user.name + '-' + chat.other_user.id + '-chat-body-div'), chat);

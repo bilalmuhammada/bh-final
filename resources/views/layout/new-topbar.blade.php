@@ -35,6 +35,7 @@
 
     /* start */
 .select2-search__field{
+    border-radius: 0.5rem;
     border-color: #997045 !important;
         }
         .select2-search__field:hover{
