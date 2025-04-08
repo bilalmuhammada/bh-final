@@ -28,7 +28,7 @@
             left: 10px;
             background-color: white;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 0.3rem;
             width: 150px;
             display: none; /* Initially hidden */
             z-index: 1000;

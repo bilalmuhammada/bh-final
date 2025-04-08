@@ -25,7 +25,7 @@
 
         .carousel-item img {
             margin-top: 0px;
-            border-radius: 10px !important;
+            border-radius: 0.3rem !important;
         }
 
         .carousel-indicators button {
@@ -264,7 +264,7 @@ width: 60rem !important;
      
         <div class="cont-w slider-area desktop-view" style="margin-top: -8px;">
             <div id="demo" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner"  style="border-radius:10px;">
+                <div class="carousel-inner"  style="border-radius:0.3rem;">
                     <div class="carousel-item active">
                         <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;">
                     </div>
@@ -599,7 +599,7 @@ width: 60rem !important;
                                     <div class="profile-image-container" style="display: flex; align-items: center;margin-left:7.2rem;margin-top:10px;">
                                                   
                                         {{-- <b>{{ $ad->created_by_user->name }}</b> --}}
-                                        <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="150" height="135" style="border-radius: 5%;">
+                                        <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="150" height="135" style="border-radius:0.3rem;">
                                     </div>
                                 
                                  @else
@@ -608,7 +608,7 @@ width: 60rem !important;
                                             <div class="profile-image-container" style="display: flex; align-items: center;margin-left:7.2rem;margin-top:10px;">
                                               
                                                 {{-- <b>{{ $ad->created_by_user->name }}</b> --}}
-                                                <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="150" height="135" style="border-radius: 5%;">
+                                                <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="150" height="135" style="border-radius: 0.3rem;">
                                             </div>
                                             @endif 
                                     </div>
@@ -628,11 +628,11 @@ width: 60rem !important;
                                     @endif --}}
                 
                                     <p class="phone-approval-status" style="display: none">Waiting for phone no approval</p>
-                                    <button class="btn callbutton"  onclick="showPopup()" style="border: 1px solid red; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
+                                    <button class="btn callbutton"  onclick="showPopup()" style="border: 1px solid red; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 0.3rem; color: red;" type="button" aria-expanded="false">
                                         <img src="{{ asset('images/socialicon/call.svg') }}" alt="Call Icon" style="height: 23px;margin-top: -6px; margin-right: 4px;">
 
                                     </button>
-                                    <div id="callPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 15px; border-radius: 5px; z-index: 1000;">
+                                    <div id="callPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 15px; border-radius: 0.3rem; z-index: 1000;">
                                         <p style="margin: 0; font-size: 18px; color: red;"> <img src="{{ asset('images/socialicon/call.svg') }}" alt="Call Icon" style="height: 23px;margin-top: -6px; margin-right: 4px;"> {!!$ad->phone !!}</p>
                                         {{-- <button onclick="hidePopup()" style="margin-top: 10px; padding: 5px 10px; border: none; background: red; color: white; border-radius: 3px; cursor: pointer;">Close</button> --}}
                                     </div>
@@ -640,19 +640,19 @@ width: 60rem !important;
                                     <!-- Overlay -->
                                     <div id="popupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; " onclick="hidePopup()"></div>
                                     
-                                    <button  class="btn start-chat" user-id="{{ $ad->created_by_user->id }}"   style="border: 1px solid #0088eb; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;"
+                                    <button  class="btn start-chat" user-id="{{ $ad->created_by_user->id }}"   style="border: 1px solid #0088eb; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 0.3rem; color: red;"
                                         type="button" 
                                         aria-expanded="false">
                                         <img src="{{ asset('images/socialicon/chat.png') }}" alt="Chat Icon" style="height: 30px; margin-top: -4px; margin-right: 1px;">
                                     </button>
 
-                                    <button class="btn" onclick="redirectToWhatsApp()" style="border: 1px solid #32d951; margin-right: 9px; white-space: nowrap; height: 36px;width: 60px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
+                                    <button class="btn" onclick="redirectToWhatsApp()" style="border: 1px solid #32d951; margin-right: 9px; white-space: nowrap; height: 36px;width: 60px; border-radius: 0.3rem; color: red;" type="button" aria-expanded="false">
                                         <img src="{{ asset('images/socialicon/whatsapp.png')}}" alt="WhatsApp Icon" style="height: 45px; margin-top: -12px; margin-left: -5px;">
                                     </button>
 
                                    
                                    
-                                    <button class="btn" onclick="redirectToEmail()" style="border: 1px solid #fab005; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button" aria-expanded="false">
+                                    <button class="btn" onclick="redirectToEmail()" style="border: 1px solid #fab005; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 0.3rem; color: red;" type="button" aria-expanded="false">
                                         <img src="{{ asset('images/socialicon/email.png')}}" title="Email" alt="WhatsApp Icon" style="height: 25px; margin-right: 2px;margin-top: -4px;">
                                     </button>
                                     

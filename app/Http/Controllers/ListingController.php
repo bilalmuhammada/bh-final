@@ -865,6 +865,8 @@ class ListingController extends Controller
             ]);
         }
 
+// dd($request->country);
+    
         return response()->json([
             'status' => true,
             'data' => RecordHelper::getCities($request->country)

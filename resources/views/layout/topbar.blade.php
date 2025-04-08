@@ -45,12 +45,12 @@
     }
    .select2-dropdown,.select2-dropdown--below{
         width: 145px;
-        border-radius: 0.5rem;
+        border-radius: 0.3rem;
     }
 
     /* start */
 .select2-search__field{
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
     border-color: #997045 !important;
         }
         .select2-search__field:hover{
@@ -67,7 +67,7 @@
             max-height: 171px !important;
         }
         #subcategorydropdown{
-            border-radius: 1rem !important;
+            border-radius: 0.3rem !important;
             max-height: 20rem !important;
 
         }
@@ -93,7 +93,7 @@
         padding-left: 8px !important;
     }
     .select2-dropdown{
-        border-radius: 0.5rem;
+        border-radius: 0.3rem;
         border: 1px solid transparent !important;
         background-color: #fff;
         color: #000 !important;
@@ -716,7 +716,7 @@
                         @endif
                         <span style="padding:4px 15px;text-align:center;font-size:14px !important;">
                             <a class="add-list-button add-listing-btn"
-                               style="padding: 7px 8px;border-radius: 6px;">+ Place Your Ad</a>
+                               style="padding: 7px 8px;border-radius: 0.3rem;">+ Place Your Ad</a>
                         </span>     
             </div>
 
@@ -757,7 +757,7 @@
                         <a class="register-btn" style="padding: 10px;">Register</a>
                     @endif
                     <a class="add-list-button add-listing-btn"
-                       style="padding: 11px 8px;border-radius: 6px;">+ Place Your Ad</a>
+                       style="padding: 11px 8px;border-radius: 0.3rem;">+ Place Your Ad</a>
                 </div>
             </div>
         </div>

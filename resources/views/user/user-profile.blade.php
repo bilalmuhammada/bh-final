@@ -123,9 +123,9 @@ width: 225px !important;
         <div class="col-md-12 desktop-view">
             <div class="row">
                 <div class="col-md-2" style="border: 0px solid red;text-align:center;">
-                    <img id="profile-image" class="display-profile-img" src="{{session()->get('user')->image_url}}" alt="img" width="120" height="120" style="border-radius: 5%; border: 0px solid red;">
+                    <img id="profile-image" class="display-profile-img" src="{{session()->get('user')->image_url}}" alt="img" width="120" height="120" style="border-radius: 0.3rem; border: 0px solid red;">
                     <a href="#" id="change-photo-link"  style="display: flex; margin-left: 43px; margin-top: 5px;font-size:14px;">Change Photo</a>
-                    <input type="file" name="profile_image" id="profile_image" class="form-control-file" accept="image/*" style="border: 1px solid #999; border-radius: 2px; display: none;">
+                    <input type="file" name="profile_image" id="profile_image" class="form-control-file" accept="image/*" style="border: 1px solid #999; border-radius: 0.3rem; display: none;">
                     <input type="hidden" name="image" class="base64-Image-name">
                 </div>
                 <div class="col-md-4"  style="margin-left: 42px;margin-top: -32px;">
@@ -309,7 +309,7 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-12 text-left">
                                         <a class="btn add-list-button update-profile-btn update-profile-submit-btn"
-                                                style="padding: 8px;font-size:15px;border-radius:8px;margin-left: 15rem;">Update 
+                                                style="padding: 8px;font-size:15px;border-radius:0.3rem;margin-left: 15rem;">Update 
                                         </a>
                                     </div>
                                 </div>

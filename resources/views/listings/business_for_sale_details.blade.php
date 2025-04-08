@@ -479,7 +479,7 @@ select::after {
             </div> --}}
         </div>
         <div class="col-md-6">
-            <select class="form-controlz form-control floating" name="city"  required>
+            <select class="form-controlz city form-control floating" name="city"  required>
           
                 
                 <option disabled selected hidden></option>

@@ -64,7 +64,7 @@
         <!-- <div class="container slider-area"> -->
         <div class="cont-w slider-area desktop-view" style="border:0px solid red;margin-top:-12px;">
             <div id="demo" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner" style="border-radius:10px;">
+                <div class="carousel-inner" style="border-radius:0.3rem;">
                     <div class="carousel-item active">
                         <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;">
                     </div>

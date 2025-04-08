@@ -194,7 +194,7 @@
         /* opacity: 0.5; */
         /* padding: 30px 50px; */
         padding-top: 20px;
-        border-radius: 10px;
+        border-radius: 0.3rem;
         -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
         -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
         box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
@@ -371,18 +371,18 @@
         background: #f7f7f7;
         /* float: left; */
         /* width: 100%; */
-        border-radius: 10px;
+        border-radius: 0.3rem;
         border: 1px solid #999;
     }
     
     .listing {
         width: 230px;
         padding: 7px;
-        border-radius: 10px;
+        border-radius:0.3rem;
     }
     
     .listing img {
-        border-radius: 10px;
+        border-radius: 0.3rem;
     }
     
      .business-sale .listing:hover {

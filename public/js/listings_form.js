@@ -355,6 +355,8 @@ $(document).on('click', '.remove-document', function (e) {
 
 $(document).on('change', '.country', function () {
     block_page();
+
+    alert($(this).val());
     getCitiesByCountry($(this).val());
     unblock_page();
 });

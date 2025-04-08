@@ -112,7 +112,7 @@ width: 44% !important;
         }
         .form{
             
-    border-radius: 10px;
+    border-radius: 0.3rem;
     margin-left: -24px;
     border: 1px solid rgb(194, 196, 199);
     display: flex !important;
@@ -164,19 +164,19 @@ select {
             <div id="demo" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                        <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:0.3rem;">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                        <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:0.3rem;">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                        <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:0.3rem;">
                     </div>
                     <div class="carousel-item">
-                      <img src="{{asset('images/slider-images/image3.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                      <img src="{{asset('images/slider-images/image3.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:0.3rem;">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{asset('images/slider-images/image4.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:10px;">
+                        <img src="{{asset('images/slider-images/image4.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:0.3rem;">
                     </div>
                 </div>
             </div>
@@ -310,7 +310,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
                     
                     </div>
                     <div class="col-lg-4 col-md-4">
-                        <button class="btn"  style="border: 1px solid goldenrod ;float: right; white-space: nowrap; height: 36px; border-radius: 5px; color: red;" type="button"  aria-expanded="false">
+                        <button class="btn"  style="border: 1px solid goldenrod ;float: right; white-space: nowrap; height: 36px; border-radius: 0.3rem; color: red;" type="button"  aria-expanded="false">
                             Clear Search
                         </button>
                     </div>

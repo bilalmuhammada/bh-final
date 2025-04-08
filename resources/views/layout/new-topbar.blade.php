@@ -35,7 +35,7 @@
 
     /* start */
 .select2-search__field{
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
     border-color: #997045 !important;
         }
         .select2-search__field:hover{
@@ -200,13 +200,13 @@ $second = $parts[1] ?? null;
                                </span>
                                 <span style="padding:4px 15px;text-align:center;font-size:14px !important;">
                                     <a class="add-list-button add-listing-btn"
-                                       style="padding: 7px 8px;border-radius: 6px;">+ Place Your Ad</a>
+                                       style="padding: 7px 8px;border-radius: 0.3rem;">+ Place Your Ad</a>
                                 </span> 
                             @else
                                 <a class="dashboard-btn"  href="{{env('BASE_URL') . 'home'}}" >Dashboard</a>
                                 <span style="padding:4px 15px;text-align:center;font-size:14px !important;">
                                     <a class="add-list-button add-listing-btn"
-                                       style="padding: 7px 8px;border-radius: 6px;">+ Place Your Ad</a>
+                                       style="padding: 7px 8px;border-radius: 0.3rem;">+ Place Your Ad</a>
                                 </span> 
                             @endif
                         

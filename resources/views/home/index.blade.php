@@ -57,7 +57,7 @@
         font-size: 25px;
     }
     .select2-search__field{
-        border-radius: 0.5rem;
+        border-radius: 0.3rem;
         padding-left: 8px !important;
     }
 
@@ -154,7 +154,7 @@
         width:100%;
         text-align: center;
         background: rgb(241, 227, 164, .7);
-        border-radius: 6px;
+        border-radius: 0.3rem;
     }
 
     .main-div-mobile {
@@ -257,7 +257,7 @@ a{
     }
     .select2-dropdown{
 
-        border-radius:0.5rem; 
+        border-radius:0.3rem; 
         border: 1px solid transparent !important;
         background-color: #fff;
         color: #000 !important;
