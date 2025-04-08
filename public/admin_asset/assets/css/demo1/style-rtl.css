@@ -25176,7 +25176,7 @@ div.table-responsive > div.dataTables_wrapper > div.row > div[class^=col-]:last-
 .select2-container--default .select2-selection--single,
 .select2-container--default .select2-selection--multiple {
   border: 1px solid #e9ecef;
-  border-radius: 0.25rem;
+  border-radius: 0.3rem;
 }
 .select2-container--focus.select2-container--default .select2-selection--single, .select2-container--focus.select2-container--default .select2-selection--multiple {
   border: 1px solid #cbd1db;
@@ -25184,7 +25184,7 @@ div.table-responsive > div.dataTables_wrapper > div.row > div[class^=col-]:last-
 
 .select2-dropdown {
   border: 1px solid #cbd1db;
-  border-radius: 0.25rem;
+  border-radius: 0.3rem;
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {

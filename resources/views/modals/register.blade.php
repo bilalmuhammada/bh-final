@@ -93,7 +93,7 @@ padding-left: 31px;
 
 <div class="modal" id="registerModal" style="border:0px solid red;margin-top:-60px;">
     <div class="modal-dialog" style="border:0px solid red; width:500px;">
-        <div class="modal-content" style="background-color: rgba(33, 34, 35, .90) !important;border-radius:10px;">
+        <div class="modal-content" style="background-color: rgba(33, 34, 35, .90) !important;border-radius:0.3rem;">
         
 
             <!-- Modal body -->

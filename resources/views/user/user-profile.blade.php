@@ -7,6 +7,7 @@
         border: 1px solid #1202c9;
     }
     .countryfield{
+        border-radius: 0.3rem;
         border: 1px solid #A17A4E;
     }
     /* input:hover{
@@ -110,6 +111,8 @@ width: 225px !important;
   .lobibox-notify .lobibox-icon {
     display: none !important;
 }
+
+
 </style>
 @section('content')
     <!-- form content start -->
@@ -317,7 +320,7 @@ width: 225px !important;
                         </form>
                     </div>
                 </div>
-                <div class="col-md-5" style="box-shadow: #eef0f1 0 0 20px; margin-left: 53px; border: 1px solid #eef0f1;height:130px;padding:10px; ">
+                <div class="col-md-5" style="box-shadow: #eef0f1 0 0 20px; margin-left: 53px; border: 1px solid #eef0f1;height:130px;padding:10px;  border-radius:0.3rem;">
                     <div class="row">
                         <div class="col-md-3" style="border: 0px solid red;">
                             <div class="inner-content text-center" style="padding: 10px;">

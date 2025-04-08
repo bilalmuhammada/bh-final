@@ -129,7 +129,7 @@
                 </div> --}}
                 <div class="col-lg-3 col-md-8 col-12 desktop-view">
                     <h5 style="text-align:center;font-size:15px; font-weight: bold;">Socials</h5>
-                    <ul style="text-align:center;">
+                    <ul style="text-align:center;margin-top: 15px;" >
                         <li style="margin-bottom: 5px;">
                             <a href="# " target="_blank ">
                                 <img src="{{ asset('images/socialicon/insta.png')}}" class="shaking" alt="" width="25" height="25">

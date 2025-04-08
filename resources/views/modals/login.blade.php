@@ -22,7 +22,7 @@
 </style>
 <div class="modal" id="loginModal" style="border:0px solid red;margin-top:-35px;">
     <div class="modal-dialog modal-sm" style="border:0px solid red; width:380px;">
-        <div class="modal-content" style="background-color: rgba(33, 34, 35, .90) !important;border-radius:10px;">
+        <div class="modal-content" style="background-color: rgba(33, 34, 35, .90) !important;border-radius:0.3rem;">
             <div class="modal-body">
                 <!-- login area start -->
                 <div class="">

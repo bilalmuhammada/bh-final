@@ -3493,7 +3493,7 @@ border: 1px solid #2d11e7;
         /* border-right: 1px solid #A17A4E;
         border-bottom: 1px solid #A17A4E; */
         /* border-left: 0px; */
-        border-radius: 6px;
+        border-radius: 0.3rem;
         font-size: 14px;
         line-height: 18px;
         height: auto;

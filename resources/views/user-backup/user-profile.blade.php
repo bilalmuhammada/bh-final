@@ -168,7 +168,7 @@
                     </div>
                 </div>
                 <div class="col-md-5"
-                     style="box-shadow: #eef0f1 0 0 20px;border: 1px solid #eef0f1;height:150px;padding:10px;">
+                     style="box-shadow: #eef0f1 0 0 20px;border: 1px solid #eef0f1;height:150px;padding:10px; border-radius: 0.3rem;">
                     <div class="row">
                         <div class="col-md-4" style="border: 0px solid red;">
                             <div class="inner-content text-center" style="padding: 10px;">
