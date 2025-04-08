@@ -57,7 +57,7 @@ class RecordHelper
         }
 
         $cities = city::where('country_id', $country_id)->orderBy('sequence')->get();
-        dd($cities,'hh');
+        // dd($cities,'hh');
         if ($cities->count() > 22) {
             return $cities->take(22);
         }
