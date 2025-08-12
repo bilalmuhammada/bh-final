@@ -127,6 +127,7 @@ $second = $parts[1] ?? null;
 <style>
      .select2-container--default .select2-selection--single .select2-selection__rendered{
         color: blue !important;
+        padding-left:13px !important;
     }
 
     .disabled {
@@ -174,7 +175,7 @@ if (inputValue === "") {
     );// Optional default image
     }else{
             var $country = $(
-                '<img src="' + flagUrl + '" class="img-flag" style="width:20px;height:13px;"> <span  style="font-size:14px; margin-left: 2px;white-space:nowrap; ">' + country.text + '</span>'
+                '<img src="' + flagUrl + '" class="img-flag" style="width:20px;height:13px;margin-left:1px; "> <span  style="font-size:14px; margin-left: 2px;white-space:nowrap; ">' + country.text + '</span>'
             );
             return $country;
         };

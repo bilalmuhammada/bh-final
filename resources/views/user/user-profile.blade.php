@@ -112,6 +112,10 @@ width: 225px !important;
     display: none !important;
 }
 
+#select2-profile_cities-container{
+    font-size:11px !important;
+
+}
 
 </style>
 @section('content')
@@ -121,13 +125,13 @@ width: 225px !important;
         <span style="font-size: 12px ; color:007bff;"><a href="{{ env('BASE_URL') . 'home'}}">Home</a> > Profile</span>
 
         {{-- <h4><b>My Profile</b></h4> --}}
-        <h6 style="font-size:12px;font-weight: bolder;">Welcome, {{ session()->get('user')->first_name }} {{ session()->get('user')->last_name}}!</h6>
+        <h6 style="font-size:12px;font-weight: bolder;margin-left:12px; "> Hey,{{ session()->get('user')->first_name }} {{ session()->get('user')->last_name}}!</h6>
         </div>
         <div class="col-md-12 desktop-view">
             <div class="row">
                 <div class="col-md-2" style="border: 0px solid red;text-align:center;">
                     <img id="profile-image" class="display-profile-img" src="{{session()->get('user')->image_url}}" alt="img" width="120" height="120" style="border-radius: 0.3rem; border: 0px solid red;">
-                    <a href="#" id="change-photo-link"  style="display: flex; margin-left: 43px; margin-top: 5px;font-size:14px;">Change Photo</a>
+                    <a href="#" id="change-photo-link"  style="display: flex; margin-left: 51px; margin-top: 5px;font-size:14px;">Change Photo</a>
                     <input type="file" name="profile_image" id="profile_image" class="form-control-file" accept="image/*" style="border: 1px solid #999; border-radius: 0.3rem; display: none;">
                     <input type="hidden" name="image" class="base64-Image-name">
                 </div>
@@ -324,14 +328,14 @@ width: 225px !important;
                     <div class="row">
                         <div class="col-md-3" style="border: 0px solid red;">
                             <div class="inner-content text-center" style="padding: 10px;">
-                                <h6><b>My Ads</b></h6>
+                                <h6><b>Ads</b></h6>
                                 <h6><b style="color: blue">{{ \App\Helpers\RecordHelper::getAdsByUserId(session()->get('user')->id)->count() }}</b></h6>
                                 <p style="font-size: 16px;color: goldenrod;">Live</p>
                             </div>
                         </div>
                         <div class="col-md-3" style="border-left: 2px solid #eee;border-right: 2px solid #eee;">
                             <div class="inner-content text-center" style="padding: 10px;">
-                                <h6><b>Notification</b></h6>
+                                <h6><b>Notifications</b></h6>
                                 <h6><b style="color: blue">0</b></h6>
                                 <p style="font-size: 16px;color: goldenrod;">New</p>
                             </div>
@@ -345,7 +349,7 @@ width: 225px !important;
                         </div>
                         <div class="col-md-3">
                             <div class="inner-content text-center" style="padding: 10px;">
-                                <h6><b>Chat</b></h6>
+                                <h6><b>Chats</b></h6>
                                 <h6><b style="color: blue">0</b></h6>
                                 <p style="font-size: 16px;color: goldenrod; ">Unread</p>
                             </div>
@@ -478,7 +482,7 @@ width: 225px !important;
  
  function validateInputText(input) {
     // Remove any character that is not a letter (A-Z, a-z) or space
-    input.value = input.value.replace(/[^0-9]/g, '');
+    input.value = input.value.replace(/[^0-9@#$%&_\+]/g, '');
 }
 
 function togglePassword(fileID) {
