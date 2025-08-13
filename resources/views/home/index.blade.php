@@ -422,7 +422,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
         <div class="row justify-content-md-center">
             <div class="col-lg-12" style="margin-top: 12px;">
               <div class="row">
-              @foreach($countries->whereBetween('priority', [11, 30]) as $country)
+              @foreach($countries->whereBetween('priority', [11, 30])->sortBy('priority') as $country)
 
                 <div class="col-md-2" style="margin:10px 15px;">
                     <div class="row">

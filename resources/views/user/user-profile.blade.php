@@ -125,7 +125,7 @@ width: 225px !important;
         <span style="font-size: 12px ; color:007bff;"><a href="{{ env('BASE_URL') . 'home'}}">Home</a> > Profile</span>
 
         {{-- <h4><b>My Profile</b></h4> --}}
-        <h6 style="font-size:12px;font-weight: bolder;margin-left:12px; "> Hey,{{ session()->get('user')->first_name }} {{ session()->get('user')->last_name}}!</h6>
+        <h6 style="font-size:12px;font-weight: bolder; "> Hey, {{ session()->get('user')->first_name }}</h6>
         </div>
         <div class="col-md-12 desktop-view">
             <div class="row">
@@ -157,6 +157,8 @@ width: 225px !important;
                                     
                                 </div>
                             </div>
+
+                     
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Gender:</b></div>
@@ -164,8 +166,8 @@ width: 225px !important;
                                         <select name="gender" id="gender" type="text" class="form-control form-control1"
                                                 style="border:1px solid #999;">
                                             <option value="" selected hidden disabled></option>
-                                            <option value="male" @if(session()->get('user')->gender=='male') 'selected' @endif>Male</option>
-                                            <option value="female" @if(session()->get('user')->gender=='female') 'selected' @endif>Female</option>
+                                            <option value="male" @if(session()->get('user')->gender=='male') selected @endif>Male</option>
+                                            <option value="female" @if(session()->get('user')->gender=='female') selected @endif>Female</option>
                                         </select>
                                     </div>
                                 </div>
@@ -174,7 +176,7 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Mobile:</b></div>
                                     <div class="col-md-8">
-                                        <input name="mobile" id="mobile" type="text"   class="form-control form-control1" 
+                                        <input name="mobile" id="mobile" type="text"  value="{{ (int) session()->get('user')->phone}}"  class="form-control form-control1" 
                                         {{-- placeholder="Please enter a valid Mobile." --}}
                                          style="border: 1px solid #999;" oninput="validateInputText(this)">
                                     </div>
@@ -184,7 +186,7 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Email:</b></div>
                                     <div class="col-md-8">
-                                        <input name="email" id="email" type="text" 
+                                        <input name="email" id="email" type="text"  value="{{session()->get('user')->email}}"
                                         {{-- placeholder="Please provide a valid Email."  --}}
                                          class="form-control form-control1" style="border: 1px solid #999;">
                                     </div>
@@ -202,7 +204,7 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Date of Birth:</b></div>
                                     <div class="col-md-8">
-                                        <input type="text" name="dob" id="datepicker1" class="form-control datepicker1 form-control1 login-user email"
+                                        <input type="text" name="dob" id="datepicker1" value="{{ \Carbon\Carbon::parse(session()->get('user')->dob)->format('d.m.Y') }}" class="form-control datepicker1 form-control1 login-user email"
                                        
                                 
                                         onfocus="this.value=''">
