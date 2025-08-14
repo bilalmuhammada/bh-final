@@ -135,6 +135,8 @@ class AuthController extends Controller
             $token = $User->createToken($User->name)->plainTextToken;
             Session::put('user_token', $token);
 
+
+            dd($token);
             return response()->json([
                 'status' => TRUE,
                 'code' => 200,
