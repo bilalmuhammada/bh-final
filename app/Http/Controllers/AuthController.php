@@ -136,7 +136,7 @@ class AuthController extends Controller
             Session::put('user_token', $token);
 
 
-            dd($token);
+           
             return response()->json([
                 'status' => TRUE,
                 'code' => 200,
