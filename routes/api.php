@@ -103,9 +103,9 @@ Route::post('/popular-ads', [AdController::class, 'getPopularAds']);
     Route::post('/update-profile', [UserController::class, 'updateProfile']);
 
 
-   
-    Route::post('/dashboard', [AdminController::class, 'dashboard']);
     Route::get('get-chart-data', [AdminController::class, 'getChartData']);
+    Route::post('/dashboard', [AdminController::class, 'dashboard']);
+   
 Route::middleware('auth:sanctum')->group(function () {
     
     // Route::prefix('/search')->group(function () {
