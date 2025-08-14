@@ -38,6 +38,7 @@ $(document).on('click', '.register-button', function () {
 //submitting login form
 $(document).on('click', '.login-submit-button', function () {
     
+    alert(api_url);
     $.ajax({
         url: api_url + 'login',
         data: $('.login-form').serialize(),
