@@ -177,7 +177,7 @@ Route::post('/chat/block', [\App\Http\Controllers\ChatController::class,'toggleB
 
 Route::prefix('/admins')->group(function() {
 
-Route::post('/login', [AuthController::class, 'index']);
+Route::get('/login', [AuthController::class, 'index']);
 
 Route::post('/set-currency', [AdminController::class, 'setcurrency'])->name('set.currency');
 
