@@ -83,7 +83,6 @@ $(document).on('change', '#country', function () {
 //submitting login form
 $(document).on('click', '.login-submit-button', function () {
 
-    alert("dd");
     $.ajax({
         url: api_url + 'login',
         data: $('.login-form').serialize(),
