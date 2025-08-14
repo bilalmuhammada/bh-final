@@ -38,7 +38,7 @@ $(document).on('click', '.register-button', function () {
 //submitting login form
 $(document).on('click', '.login-submit-button', function () {
     
-    alert(api_url);
+   
     $.ajax({
         url: api_url + 'login',
         data: $('.login-form').serialize(),
@@ -46,7 +46,7 @@ $(document).on('click', '.login-submit-button', function () {
         dataType: "JSON",
         success: function (response) {
             if (response.status) {
-                alert(response.status);
+                
                 window.location.assign(base_url + 'admins/dashboard');
             } else {
                 Swal.fire({
