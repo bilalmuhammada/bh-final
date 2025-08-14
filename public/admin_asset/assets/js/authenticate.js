@@ -37,7 +37,7 @@ $(document).on('click', '.register-button', function () {
 
 //submitting login form
 $(document).on('click', '.login-submit-button', function () {
-    alert("ddd");
+    alert("ddd33");
     $.ajax({
         url: api_url + 'login',
         data: $('.login-form').serialize(),
