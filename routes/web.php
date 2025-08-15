@@ -183,10 +183,10 @@ Route::post('/set-currency', [AdminController::class, 'setcurrency'])->name('set
 
 Route::middleware('check_user_auth')->group(function () {
 
-   // Route::prefix('/admin')->group(function () {
+    Route::prefix('/admin')->group(function () {
         Route::get('/', [AdminController::class, 'Adminindex']);
         Route::get('/create', [AdminController::class, 'create']);
-   // });
+   });
 
 
 
