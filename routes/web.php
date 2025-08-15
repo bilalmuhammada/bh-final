@@ -182,7 +182,7 @@ Route::get('/login', [AuthController::class, 'index']);
 Route::get('/dashboard', [AdminController::class, 'index']);
 Route::post('/set-currency', [AdminController::class, 'setcurrency'])->name('set.currency');
 
-//Route::middleware('check_user_auth')->group(function () {
+Route::middleware('auth')->group(function () {
 
 
 // Route::prefix('/categories')->group(function () {
@@ -233,7 +233,7 @@ Route::post('/set-currency', [AdminController::class, 'setcurrency'])->name('set
    
 
 });
-//});
+});
 
 // endlogin
 
