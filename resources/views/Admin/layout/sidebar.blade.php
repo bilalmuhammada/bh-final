@@ -47,7 +47,7 @@
             </li>
            
             <li class="nav-item @if (isset($menu) && $menu == 'categories') {{ 'active'}} @endif">
-                <a href="{{ env('BASE_URL') . '/categories'}}" class="nav-link">
+                <a href="{{ env('BASE_URL') . 'admins/categories'}}" class="nav-link">
                     <i class="link-icon" data-feather="layers"></i>
                     <span class="link-title">Categories</span>
                 </a>
