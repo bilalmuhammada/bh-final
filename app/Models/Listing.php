@@ -81,7 +81,7 @@ class Listing extends Model
 
     public function getCategoryNameAttribute()
     {
-        return $this->category->name ?? ''; 
+        return $this->category->name ?? 1; 
     }
 
     public function getSubcategoryNameAttribute()
