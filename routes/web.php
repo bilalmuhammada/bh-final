@@ -165,6 +165,7 @@ Route::get('/machinery-supplies-form', function(){
 });
 
 //chat route start here
+
 Route::get('/chats/', [\App\Http\Controllers\ChatController::class, 'index']);
 Route::post('/chat/favorite',[\App\Http\Controllers\ChatController::class,'toggleFavorite'])->name('chat.favorite');
 Route::post('/chat/block', [\App\Http\Controllers\ChatController::class,'toggleBlock'])->name('chat.block');
@@ -183,6 +184,36 @@ Route::post('/set-currency', [AdminController::class, 'setcurrency'])->name('set
 
 Route::middleware('check_user_auth')->group(function () {
 
+
+// Route::prefix('/categories')->group(function () {
+    Route::get('/categories', [CategoryController::class, 'index']);
+         
+    // });
+
+    Route::prefix('/user')->group(function () {
+        Route::get('/', [UserController::class, 'index']);
+        
+        Route::get('/create', [UserController::class, 'create']);
+        Route::get('/transactions', [UserController::class, 'transactions']);
+        Route::get('/reportUser', [UserController::class, 'reportUser']);
+    });
+
+
+    Route::prefix('/post')->group(function () {
+        Route::get('/reportpost', [AdController::class, 'reportedUser']);
+         Route::get('/', [AdController::class, 'index']);
+    //     Route::get('/create', [InfluencerController::class, 'create']);
+    //     Route::get('/transactions', [InfluencerController::class, 'transactions']);
+    //     Route::get('/reviews', [InfluencerController::class, 'reviews']);
+     });
+
+    Route::get('/faqs', function () {
+        return view('faq')->with(['menu' => 'faqs']);
+    });
+
+    Route::get('/change-password', [AuthController::class, 'resetPassword']);
+
+
     Route::prefix('/admin')->group(function () {
         Route::get('/', [AdminController::class, 'Adminindex']);
         Route::get('/create', [AdminController::class, 'create']);
@@ -197,34 +228,10 @@ Route::middleware('check_user_auth')->group(function () {
     //     Route::get('/create', [AdminController::class, 'create']);
     // });
 
-    // Route::prefix('/categories')->group(function () {
-         Route::get('/categories', [CategoryController::class, 'index']);
-         
-    // });
-
-    Route::prefix('/user')->group(function () {
-        Route::get('/', [UserController::class, 'index']);
-        
-        Route::get('/create', [UserController::class, 'create']);
-        Route::get('/transactions', [UserController::class, 'transactions']);
-        Route::get('/reportUser', [UserController::class, 'reportUser']);
-    });
+    
 
    
 
-     Route::prefix('/post')->group(function () {
-        Route::get('/reportpost', [AdController::class, 'reportedUser']);
-         Route::get('/', [AdController::class, 'index']);
-    //     Route::get('/create', [InfluencerController::class, 'create']);
-    //     Route::get('/transactions', [InfluencerController::class, 'transactions']);
-    //     Route::get('/reviews', [InfluencerController::class, 'reviews']);
-     });
-
-    Route::get('/faqs', function () {
-        return view('faq')->with(['menu' => 'faqs']);
-    });
-
-    Route::get('/change-password', [AuthController::class, 'resetPassword']);
 });
 });
 
