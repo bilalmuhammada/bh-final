@@ -164,7 +164,7 @@ width: 225px !important;
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Gender:</b></div>
                                     <div class="col-md-8">
                                         <select name="gender" id="gender" type="text" class="form-control form-control1"
-                                                style="border:1px solid #999;">
+                                                style="border:1px solid #A17A4E;">
                                             <option value="" selected hidden disabled></option>
                                             <option value="male" @if(session()->get('user')->gender=='male') selected @endif>Male</option>
                                             <option value="female" @if(session()->get('user')->gender=='female') selected @endif>Female</option>

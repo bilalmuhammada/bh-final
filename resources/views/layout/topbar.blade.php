@@ -689,7 +689,7 @@
                                 <a class="link"
                                    href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">
                                     <img src="{{session()->get('user')->image_url}}" alt="img" width="30" height="30"
-                                         style="border-radius: 50%;border:0px solid red; margin-right: 6px; ">
+                                         style="border-radius: 50%;border:0px solid red; margin-right: 6px; margin-bottom:6px;">
                                 </a>
                                 <span class="dropdown" style="margin-top: 6px;">
                                         <span class="colorChange" style="width:;display:inline;border:0px solid red;" type="button"
