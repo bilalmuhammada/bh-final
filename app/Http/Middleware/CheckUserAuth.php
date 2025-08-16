@@ -19,9 +19,8 @@ class CheckUserAuth
         if (!session()->has('user')) {
             return redirect('home');
 
-            dd("dd");
         }
-        dd("123");
+       
         return $next($request);
     }
 }

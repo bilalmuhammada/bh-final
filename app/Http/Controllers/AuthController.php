@@ -99,6 +99,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         
+        
         if ($request->isMethod('get')) {
             return response()->json([
                 'status' => false,
@@ -120,6 +121,7 @@ class AuthController extends Controller
 
         $User = User::where('email', $request->email)->first();
 
+       
         // check if User exist or not
         if (!$User) {
             return response()->json([

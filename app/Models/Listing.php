@@ -128,7 +128,7 @@ class Listing extends Model
 
     public function getDetailsAttribute()
     {
-       dd($this->category_id);
+       
         $table = Category::find($this->category_id)->form_view;
      
         $Detail = DB::table($table)->where('listing_id', $this->id)->first();

@@ -92,6 +92,12 @@ Route::middleware('check_user_auth')->group(function () {
     // });
 });
 
+
+Route::get('/chats/', [\App\Http\Controllers\ChatController::class, 'index']);
+Route::post('/chat/favorite',[\App\Http\Controllers\ChatController::class,'toggleFavorite'])->name('chat.favorite');
+Route::post('/chat/block', [\App\Http\Controllers\ChatController::class,'toggleBlock'])->name('chat.block');
+
+
 Route::get('/about-us',function(){
  return view('about-us');
 });
@@ -166,9 +172,9 @@ Route::get('/machinery-supplies-form', function(){
 
 //chat route start here
 
-Route::get('/chats/', [\App\Http\Controllers\ChatController::class, 'index']);
-Route::post('/chat/favorite',[\App\Http\Controllers\ChatController::class,'toggleFavorite'])->name('chat.favorite');
-Route::post('/chat/block', [\App\Http\Controllers\ChatController::class,'toggleBlock'])->name('chat.block');
+
+
+
 
 
 
@@ -179,11 +185,11 @@ Route::post('/chat/block', [\App\Http\Controllers\ChatController::class,'toggleB
 Route::prefix('/admins')->group(function() {
 
 Route::get('/login', [AuthController::class, 'index']);
-Route::get('/dashboard', [AdminController::class, 'index']);
+
 Route::post('/set-currency', [AdminController::class, 'setcurrency'])->name('set.currency');
 
-//Route::middleware('check_user_auth')->group(function () {
-
+Route::middleware("check_user_auth")->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'index']);
 
 // Route::prefix('/categories')->group(function () {
     Route::get('/categories', [CategoryController::class, 'index']);
@@ -233,7 +239,7 @@ Route::post('/set-currency', [AdminController::class, 'setcurrency'])->name('set
    
 
 });
-//});
+});
 
 // endlogin
 
