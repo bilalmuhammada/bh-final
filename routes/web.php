@@ -195,6 +195,9 @@ Route::middleware("check_user_auth")->group(function () {
     Route::get('/categories', [CategoryController::class, 'index']);
          
     // });
+    Route::get('/edit-profile', function(){
+        return view('admin.auth.edit-profile');
+    });
 
     Route::prefix('/user')->group(function () {
         Route::get('/', [UserController::class, 'index']);

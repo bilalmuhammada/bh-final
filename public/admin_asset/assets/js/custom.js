@@ -229,7 +229,7 @@ function getCitiesByCountry(country_id) {
 
     //  alert(country_id);
     $.ajax({
-        url: api_url + 'get-cities-by-country',
+        url: api_url + 'get-city-countries',
         type: "POST",
         dataType: "json",
         data: {

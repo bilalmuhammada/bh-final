@@ -144,7 +144,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // Route::post('/update-password', [AuthController::class, 'updatePassword']);
     // Route::post('/verify-email', [AuthController::class, 'generateEmailVerificationcode']);
     // Route::post('/verify-email-code', [AuthController::class, 'verifyEmailCode']);
-    // Route::post('/update-profile', [UserController::class, 'updateProfile']);
+    // Route::post('/update-profile', [UserController::class, 'updateile']);
 });
 
 Route::post('/', [UserController::class, 'detail']);

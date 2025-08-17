@@ -370,6 +370,24 @@ class UserController extends Controller
         ]);
     }
     
+    public function show($id)
+    {
+        $user = User::find($id);
+    
+        if (!$user) {
+            return response()->json([
+                'status' => false,
+                'message' => 'User not found',
+            ], 404);
+        }
+    
+        return response()->json([
+            'status' => true,
+            'data' => $user,
+        ]);
+    }
+    
+
     public function deleteAccount()
     {
         $User = User::find(Auth::id());
