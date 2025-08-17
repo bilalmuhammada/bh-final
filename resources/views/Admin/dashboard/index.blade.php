@@ -51,7 +51,7 @@ ul.ui-menu {
         text-align: start !important;
     }
     .select2-results__option{
-        padding: 0px 0px 0px 17px !important;
+        padding: 0px 0px 5px 17px !important;
     }
     .select2-container .select2-selection--single .select2-selection__rendered {
         text-align: center !important;
