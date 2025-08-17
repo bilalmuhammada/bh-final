@@ -155,6 +155,28 @@ color: white;
 label{
     color: blue;
 }
+.shaking {
+    
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+   }
+      .shaking:hover {
+    animation: shake 2s linear infinite;
+   }
+
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+
+  /* For single select */
+.select2-container--default .select2-selection--single:hover {
+  border-color: blue !important;
+}
+
 </style>
 
 @php
@@ -210,7 +232,7 @@ label{
                 <div class="row flex-grow-1">
                     <label for="" style="font-size: 17px !important;font-weight: bold;">Users</label>
                     <div class="col-md-3 topcard grid-margin stretch-card" style="width: 16% !important;">
-                        <div class="card">
+                        <div class="card shaking">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
                                     <h6 class="card-title mb-0">Total</h6>
@@ -246,7 +268,7 @@ label{
 
                     {{--  --}}
                     <div class="col-md-3  topcard grid-margin stretch-card">
-                        <div class="card">
+                        <div class="card shaking">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
                                     <h6 class="card-title mb-0">Active</h6>
@@ -281,7 +303,7 @@ label{
                     </div>
                     <!-------->
                     <div class="col-md-3 topcard grid-margin stretch-card">
-                        <div class="card">
+                        <div class="card shaking">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
                                     <h6 class="card-title mb-0">Blocked </h6>
@@ -353,7 +375,7 @@ label{
 
                   
                     <div class="col-md-3 topcard grid-margin stretch-card">
-                        <div class="card">
+                        <div class="card shaking">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
                                     <h6 class="card-title mb-0">Deleted</h6>
@@ -388,7 +410,7 @@ label{
                     </div>
                     <!----------------------->
                     <div class="col-md-3 topcard grid-margin stretch-card">
-                        <div class="card">
+                        <div class="card shaking">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
                                     <h6 class="card-title mb-0">Popular</h6>
@@ -460,7 +482,7 @@ label{
 
                     <!----------------------->
                     <div class="col-md-3 topcard grid-margin stretch-card">
-                        <div class="card">
+                        <div class="card shaking">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
                                     <h6 class="card-title mb-0">Active Today</h6>
@@ -498,7 +520,7 @@ label{
                     
                     <label for="" style="font-size: 17px !important;font-weight: bold;">Ads</label>
                     <div class="col-md-3 grid-margin stretch-card">
-                        <div class="card">
+                        <div class="card shaking">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
                                     <h6 class="card-title mb-0">Total</h6>
@@ -532,7 +554,7 @@ label{
                         </div>
                     </div>
                     <div class="col-md-3 grid-margin stretch-card">
-                        <div class="card">
+                        <div class="card shaking">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
                                     <h6 class="card-title mb-0">Active</h6>
@@ -567,7 +589,7 @@ label{
                     </div>
                       <!----------------------->
                       <div class="col-md-3 grid-margin stretch-card">
-                        <div class="card">
+                        <div class="card shaking">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
                                     <h6 class="card-title mb-0">Pending</h6>
@@ -601,7 +623,7 @@ label{
                         </div>
                     </div>
                     <div class="col-md-3 grid-margin stretch-card">
-                        <div class="card">
+                        <div class="card shaking">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
                                     <h6 class="card-title mb-0">Blocked</h6>
@@ -637,7 +659,7 @@ label{
                     <!----------------------->
                     <!----------------------->
                     <div class="col-md-3 grid-margin stretch-card">
-                        <div class="card">
+                        <div class="card shaking">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
                                     <h6 class="card-title mb-0">Expired</h6>
@@ -778,7 +800,7 @@ label{
                         </div>
                     </div> -->
                     <div class="col-md-3 grid-margin stretch-card">
-                        <div class="card">
+                        <div class="card shaking">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
                                     <h6 class="card-title mb-0">Posted Today</h6>

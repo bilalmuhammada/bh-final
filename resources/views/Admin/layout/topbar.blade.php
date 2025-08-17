@@ -50,7 +50,7 @@
                    
                     <ul class="list-unstyled p-12 ">
                         <li class="dropdown-item" style="margin-top: 6px;">
-                            <a href="{{ env('BASE_URL') }}edit-profile" class="text-body  text-bold ms-0" >
+                            <a href="{{ env('BASE_URL') }}admins/edit-profile" class="text-body  text-bold ms-0" >
                                 {{-- <i class="me-2 icon-md" data-feather="edit"></i> --}}
                                 <span style="font-weight:700;" >Edit Profile</span>
                             </a>
