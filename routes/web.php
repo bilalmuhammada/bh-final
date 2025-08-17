@@ -196,7 +196,7 @@ Route::middleware("check_user_auth")->group(function () {
          
     // });
     Route::get('/edit-profile', function(){
-        return view('admin.auth.edit-profile');
+        return view('Admin.auth.edit-profile');
     });
 
     Route::prefix('/user')->group(function () {
