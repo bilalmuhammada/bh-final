@@ -30,7 +30,7 @@ function getCitiesByCountry(country_id) {
         success: function (response) {
             if (response.status) {
                 var options = '';
-                options += `<option hidden disable selected></option>`;
+                options += `<option  selected>Please Select City</option>`;
                 $.each(response.data, function (key, city) {
                     options += `<option value="${city.id}">${city.name}</option>`;
                 });
@@ -324,7 +324,7 @@ function displayDocs(base64Image, file_name) {
 
     const imgHtml = `
                         <div class="col-md-3" >
-                            <div class="image-gallery" style="margin-bottom:-13px;">
+                            <div class="image-gallery" style="margin-bottom:-29px;">
                               <div class="image-container">
                                 <img class="form-image img-thumbnail" src="${base64Image}" />
                                 <i class="fa fa-close remove-document" file-name="${file_name}"></i>
@@ -356,7 +356,7 @@ $(document).on('click', '.remove-document', function (e) {
 $(document).on('change', '.country', function () {
     block_page();
 
-    alert($(this).val());
+    
     getCitiesByCountry($(this).val());
     unblock_page();
 });

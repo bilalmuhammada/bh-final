@@ -17,7 +17,7 @@
     </div>
    
 </div>
-<div class="col-md-4" style="margin-top:30px; margin-left: 24rem !important; max-width: 53% !important;">
+<div class="col-md-4" style="margin-top:30px; margin-left: 29rem !important; max-width: 53% !important;">
 
     <div id="image-display-div" style="display: flex; flex-wrap: wrap;"></div>
 </div>
@@ -34,7 +34,7 @@
     </div>
 
 
-    <div class="form-group" id="filehide" style="margin-bottom: -21px !important;">
+    <div class="form-group" id="filehide" style="margin-bottom: -29px !important;">
         <label style="text-align: center; margin-left: 17.2rem;font-size: 13px;padding: 7px;">Do you want to Show or Hide your Files?</label>
         <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
             <label class="btn active  btn-show btn-darker" style="margin-left:19.8rem !important;background-color: #dadadb">
@@ -50,7 +50,7 @@
 
 
 
-<div class="col-md-4 mx-auto" style="margin-bottom: 11px; margin-left: 24rem !important;max-width: 53% !important;">
+<div class="col-md-4 mx-auto" style="margin-bottom: 11px; margin-left: 29rem !important;max-width: 53% !important;">
     <div id="document-display-div" style="display: flex; flex-wrap: wrap"></div>
 </div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastedjs/dist/toasted.min.css">

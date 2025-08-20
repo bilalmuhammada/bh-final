@@ -281,7 +281,7 @@ a{
         background-color:rgba(0, 0, 255, .3) !important;
     }
     .flag2{
-        margin-left: -8px;
+        
         width:40px;
        height:25px;
     }

@@ -568,6 +568,7 @@ $(document).ready(function() {
 
                             if (states) {
                                 $.each(states, function (index, value) {
+                                    $("#city_id").append('<option value="" Selected>' + "Please Select City"+ '</option>');
                                     $("#city_id").append('<option value="' + value.id + '">' + value.name + '</option>');
                                     $("#brand_city_id").append('<option value="' + value.id + '">' + value.name + '</option>');
                                 });

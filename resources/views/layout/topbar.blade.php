@@ -312,7 +312,7 @@
                                    aria-expanded="false">
                                     {{-- <img src="{{ asset('images/my-notifications.svg')}}" width="17" height="17"> --}}
                                     <div>
-                                        <span class="colorChange" style="color: #000;font-size:14px;">Notification</span>
+                                        <span class="colorChange" style="color: #000;font-size:14px;">Notifications</span>
                                     </div>
                                 </a>
                                 <div class="dropdown-menu"  id="notifications" aria-labelledby="notifications"
@@ -389,7 +389,7 @@
                                         <!---------inner area---->
                                         @else
                                           
-                                        {{-- <div style="      margin-top: 15px;   font-weight: 700;   min-width: 500px;" class="notification-heading"><h4 class="menu-title">Notification </h4><h6 style="font-size: 16px; margin-right: 66px" class="menu-title pull-right">Mark All as read</h6>
+                                        {{-- <div style="      margin-top: 15px;   font-weight: 700;   min-width: 500px;" class="notification-heading"><h4 class="menu-title">Notifications </h4><h6 style="font-size: 16px; margin-right: 66px" class="menu-title pull-right">Mark All as read</h6>
                                         </div>
                                         <hr style="    width: 80%;">
                                         <li class="divider"></li>
@@ -453,7 +453,7 @@
                                        <hr>
                                         <li class="divider"></li>
                                         <div class="notification-footer" style="text-align: center;"><h4 class="menu-title" style="color: red;
-                                            margin: 12px;">   <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal">View all Notifications77 </a></h4></div> --}}
+                                            margin: 12px;">   <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal">View all Notifications </a></h4></div> --}}
                                       </ul>
                                  @endif
                                 </div>
@@ -566,7 +566,7 @@
                                    aria-haspopup="true"
                                    aria-expanded="false">
                                     {{-- <img src="{{ asset('images/my-chats.svg')}}" width="17" height="17"> --}}
-                                    <div><span  class="colorChange" style="color: #000;font-size: 14px;">Chat</span></div>
+                                    <div><span  class="colorChange" style="color: #000;font-size: 14px;">Chats</span></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="chat" style="padding: 10px;width:auto;">
                                     @if (session()->has('user') && count($chats) > 0)

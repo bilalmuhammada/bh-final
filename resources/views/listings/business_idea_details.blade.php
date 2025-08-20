@@ -156,6 +156,13 @@
   border-radius: 5px !important;
 }
  
+.menucolor{
+    color:blue;
+ }
+ .menucolor:hover{
+    color:goldenrod;
+ }
+
  
  </style>
  
@@ -165,7 +172,7 @@
          <h5 class="mx-auto text-center" style="margin-bottom: 0px;" >You are almost there!</h5>
         <p class="mx-auto text-center" style="font-size: 14px;margin-bottom:4px;">Provide as much Details & Pictures as possible and set right Price!</p>
         <p style="margin-bottom: -1px; font-size:14px; color:blue;">
-            <span style="color:blue;">{{ $Categories->name }}</span> > <span
+            <span class="menucolor">{{ $Categories->name }}</span> > <span
                 style="color:blue;">{{ $subcategories->name }}</span>
         </p>
     </div>

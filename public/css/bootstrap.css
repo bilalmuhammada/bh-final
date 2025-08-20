@@ -159,7 +159,7 @@ a {
 }
 
 a:hover {
-    color: #0056b3;
+    color: goldenrod;
     text-decoration: none;
 }
 
@@ -2578,8 +2578,8 @@ textarea.form-control {
 }
 
 .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
-    border-color: #dc3545;
-    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+     /* border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25); */ 
 }
 
 .was-validated textarea.form-control:invalid, textarea.form-control.is-invalid {
@@ -4454,7 +4454,7 @@ input[type="button"].btn-block {
 
 .nav-link {
     display: block;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 1rem;
 }
 
 .nav-link:hover, .nav-link:focus {

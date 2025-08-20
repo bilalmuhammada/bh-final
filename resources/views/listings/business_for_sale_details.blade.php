@@ -171,6 +171,13 @@ select::after {
     border-radius: 5px !important;
  }
  
+ .menucolor{
+    color:blue;
+ }
+ .menucolor:hover{
+    color:goldenrod;
+ }
+
  
  </style>
 @section('content')
@@ -179,7 +186,7 @@ select::after {
          <h5 class="mx-auto text-center" style="margin-bottom: 0px;">You are almost there!</h5>
         <p class="mx-auto text-center" style="font-size: 14px; margin-bottom: 4px;">Provide as much Details & Photos as possible and set right Price!</p>
         <p style="margin-bottom: 3px;font-size: 14px; color:blue;">
-            <span  style="color:blue;" >{{ $Categories->name }}</span> > <span
+            <span class="menucolor" >{{ $Categories->name }}</span> > <span
                  style="color:blue;">{{ $subcategories->name }}</span>
         </p>
     </div>
@@ -469,8 +476,10 @@ select::after {
             <div class="row">
         <div class="col-md-6">
             <select class="form-controlz form-control floating country" name="country" required>
-                <option disabled selected hidden ></option>
+            {{--  <option disabled selected hidden ></option> --}}
+                <Option selected>Please Select Country</Option>
                     @foreach($countries as $country) 
+                        
                         <option value="{{ $country->id }}">{{ $country->name }}</option>
                     @endforeach
             </select>

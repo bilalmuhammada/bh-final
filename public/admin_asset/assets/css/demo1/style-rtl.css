@@ -4090,7 +4090,7 @@ div.tox .btn-group-vertical > .btn-group:not(:first-child) > .tox-button,
 
 .nav-link {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 1rem;
   color: #6571ff;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }

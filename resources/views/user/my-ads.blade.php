@@ -63,39 +63,42 @@
           margin-top: 16px; 
           height: 36px;
     }
+    .navColor{
+        color: blue;
+    }
 
 </style>
 @section('content')
     <div class="cont-w">
         <h5 style="font-weight: bold;">My Ads</h5>
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs" style="font-size:12px;width: 65.5%;">
+        <ul class="nav nav-tabs" style="font-size:12px;width: 46.5%;">
             {{-- <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#all_ads">All Ads - {{ $my_ads->count() }}</a>
+                <a class="nav-link navColor active" data-toggle="tab" href="#all_ads">All Ads - {{ $my_ads->count() }}</a>
             </li> --}}
             <li class="nav-item">
-                <a class="nav-link active" style="margin-left: -16px;" data-toggle="tab" href="#live">Live -
+                <a class="nav-link navColor active" style="margin-left: -16px;" data-toggle="tab" href="#live">Live -
                     {{ $activeListing->total() }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#draft">Drafts -
+                <a class="nav-link navColor" data-toggle="tab" href="#draft">Drafts -
                     {{ $draftListing->total() }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#payment_pending">Payment Pending - 
+                <a class="nav-link navColor" data-toggle="tab" href="#payment_pending">Payment Pending - 
                     {{ $payment_pendingtListing->total() }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#under_review">Under Review
+                <a class="nav-link navColor" data-toggle="tab" href="#under_review">Under Review
                     - {{ $pendingListing->total() }} </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#rejected">Rejected
+                <a class="nav-link navColor" data-toggle="tab" href="#rejected">Rejected
                      - {{ $rejectedListing->total() }} </a>
             </li>
            
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#expired">Expired
+                <a class="nav-link navColor" data-toggle="tab" href="#expired">Expired
                      - {{ $expiredListing->total() }} </a>
             </li>
         </ul>
