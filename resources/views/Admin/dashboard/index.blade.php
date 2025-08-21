@@ -92,7 +92,7 @@ font-weight:bold !important;
     
    border: 1px solid #e8e8e8 !important;
     background-color: #fff !important;
-    box-shadow: 0px 4px 4px rgba(204, 204, 204, 0.25) !important;
+    box-shadow: 0px 14px 14px rgba(204, 204, 204, 0.25) !important;
 /* margin-bottom: 30px; */
 }
 .topcard{
@@ -166,9 +166,9 @@ label{
 
   @keyframes shake {
     0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
     100% { transform: translateX(0); }
   }
 

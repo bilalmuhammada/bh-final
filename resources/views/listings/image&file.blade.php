@@ -34,7 +34,7 @@
     </div>
 
 
-    <div class="form-group" id="filehide" style="margin-bottom: -29px !important;">
+    <div class="form-group" id="filehide" style="margin-bottom: -21px !important;">
         <label style="text-align: center; margin-left: 17.2rem;font-size: 13px;padding: 7px;">Do you want to Show or Hide your Files?</label>
         <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
             <label class="btn active  btn-show btn-darker" style="margin-left:19.8rem !important;background-color: #dadadb">

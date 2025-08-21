@@ -80,7 +80,7 @@
                                     <input type="password" name="password"class="form-control floating password login-user" id="userPassword" autocomplete="current-password" 
                                     {{-- placeholder="Password" --}}
                                     >
-                                    {{-- <i class="fa fa-eye" id="togglePassword" onclick="togglePassword()"></i> --}}
+                                  
                                     <div class="input-group-append">
                                         <span class="toggle-password" onclick="togglePassword('userPassword')" style="cursor: pointer;">👁️</span>
                                     </div>
@@ -89,6 +89,7 @@
                                     </div>
                                     <label class="focus-label">Password</label>
                                 </div>
+                                
                                 <div class="form-group" style="margin-top: 15px;">
                                     <input type="checkbox" name="rem_password" >
                                     <label class="custom_check" style="font-size: 10px !important;margin-left: -25px;">
