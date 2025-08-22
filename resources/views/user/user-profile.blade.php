@@ -268,7 +268,7 @@ width: 225px !important;
                             </div>
                             <div class="col-md-12">
                                 <div class="row">
-                                    <div class="col-md-4" style="margin-top: 10px;"><b>Password:</b></div>
+                                    <div class="col-md-4" style="margin-top: 10px;"><b>Change Password:</b></div>
                                     <div class="col-md-8">
                                         <input name="password" id="password" type="password" class="form-control form-control1"
                                          {{-- placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" --}}
@@ -529,12 +529,49 @@ document.getElementById('change-photo-link').addEventListener('click', function(
 
 document.getElementById('profile_image').addEventListener('change', function() {
     var file = this.files[0];
-    var reader = new FileReader();
+    if (!file) return;
 
+    var reader = new FileReader();
+   
     reader.onload = function(e) {
+        // Preview the image
         var imgElement = document.getElementById('profile-image');
         imgElement.src = e.target.result;
+
+        // Optional: store base64 in hidden input
         document.querySelector('.base64-Image-name').value = e.target.result;
+
+        // Prepare FormData for AJAX
+        var formData = new FormData();
+        formData.append('_token', '{{ csrf_token() }}'); // Laravel CSRF
+        formData.append('profile_image', file); // the actual file
+
+        // Optionally, send other profile fields too
+        formData.append('first_name', $('#name').val());
+        formData.append('email', $('#email').val());
+
+        // AJAX request to update profile
+        $.ajax({
+            url: api_url + 'update-image', // your profile update route
+            type: 'POST',
+            data: formData,
+            dataType: 'JSON',
+            processData: false, // required for FormData
+            contentType: false, // required for FormData
+            success: function(response) {
+                if (response.status) {
+                    showAlert("success", response.message);
+                    if (response.image_url) {
+                        $('#profile-image').attr('src', response.image_url);
+                    }
+                } else {
+                    console.log("Validation errors:", response.errors);
+                }
+            },
+            error: function(xhr) {
+                showAlert("error", "Error updating profile image");
+            }
+        });
     };
 
     reader.readAsDataURL(file);
@@ -596,7 +633,12 @@ document.getElementById('profile_image').addEventListener('change', function() {
         });
 
         $(document).on('click', '.update-profile-submit-btn', function () {
-          var form=  $('#profile-form')[0]
+          
+
+          var form = $('#profile-form')[0]; // get form DOM element
+    var formData = new FormData(form); 
+    
+
             $.ajax({
                 url: api_url + 'update-profile',
                 data: $('.profile-form').serialize(),

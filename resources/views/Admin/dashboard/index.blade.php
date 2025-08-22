@@ -51,6 +51,7 @@ ul.ui-menu {
         text-align: start !important;
     }
     .select2-results__option{
+        font-size: 14px;
         padding: 0px 0px 5px 17px !important;
     }
     .select2-container .select2-selection--single .select2-selection__rendered {
@@ -155,15 +156,22 @@ color: white;
 label{
     color: blue;
 }
-.shaking {
+
+.shaking:hover h4,
+.shaking:hover p,
+.shaking:hover span,
+.shaking:hover h6 {
+    color: blue !important;
+}
+.shaking , .apexcharts-legend-series{
     
     display: inline-block;
     transition: transform 0.2s ease-in-out;
    }
-      .shaking:hover {
+      .shaking:hover ,.apexcharts-legend-series:hover {
+        
     animation: shake 2s linear infinite;
    }
-
   @keyframes shake {
     0% { transform: translateX(0); }
     25% { transform: translateX(-10px); }
@@ -1183,7 +1191,7 @@ label{
                         }, 
                      {
                             name: 'Total',
-                        data: [60, 80, 88, 80, 99, 98, 100, 120]
+                           data: [60, 80, 88, 80, 99, 98, 100, 120]
                          }
                     ],
                         chart: {

@@ -102,6 +102,8 @@ Route::post('/popular-ads', [AdController::class, 'getPopularAds']);
     Route::post('/verify-email-code', [AuthController::class, 'verifyEmailCode']);
     Route::post('/update-profile', [UserController::class, 'updateProfile']);
 
+    Route::post('/update-image', [UserController::class, 'updateProfileImage']);
+
 
     Route::get('get-chart-data', [AdminController::class, 'getChartData']);
     Route::post('/dashboard', [AdminController::class, 'dashboard']);
