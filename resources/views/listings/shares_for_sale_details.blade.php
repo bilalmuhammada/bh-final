@@ -438,13 +438,13 @@
         
 
 
-        @include('listings.image&file');
+        @include('listings.image&file')
   
         <div class="col-md-6 mx-auto">
             <div class="row">
         <div class="col-md-6">
             <select class="form-controlz form-control country" name="country" placeholder="Country" required>
-                <option selected disabled hidden></option>
+            <Option selected>Country</Option>
                 @foreach($countries as $country)
                     <option value="{{ $country->id }}">{{ $country->name }}</option>
                 @endforeach

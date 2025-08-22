@@ -227,7 +227,7 @@ function getCitiesByState(state_id) {
 
 function getCitiesByCountry(country_id) {
 
-    //  alert(country_id);
+    
     $.ajax({
         url: api_url + 'get-city-countries',
         type: "POST",
@@ -240,7 +240,7 @@ function getCitiesByCountry(country_id) {
                 var states = response.data;
                 $("#city_id").empty();
                
-                $("#city_id").append('<option value=""> All Cities</option>');
+                $("#city_id").append('<option value="">City</option>');
 
                 if (states) {
                     $.each(states, function (index, value) {

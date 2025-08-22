@@ -476,8 +476,8 @@ select::after {
             <div class="row">
         <div class="col-md-6">
             <select class="form-controlz form-control floating country" name="country" required>
-            {{--  <option disabled selected hidden ></option> --}}
-                <Option selected>Please Select Country</Option>
+            
+                <Option selected>Country</Option>
                     @foreach($countries as $country) 
                         
                         <option value="{{ $country->id }}">{{ $country->name }}</option>

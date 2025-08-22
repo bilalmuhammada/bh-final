@@ -30,7 +30,7 @@ function getCitiesByCountry(country_id) {
         success: function (response) {
             if (response.status) {
                 var options = '';
-                options += `<option  selected>Please Select City</option>`;
+                options += `<option  selected>City</option>`;
                 $.each(response.data, function (key, city) {
                     options += `<option value="${city.id}">${city.name}</option>`;
                 });

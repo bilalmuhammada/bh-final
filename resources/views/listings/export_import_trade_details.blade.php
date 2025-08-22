@@ -323,7 +323,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <select class="form-controlz country" name="country" placeholder="Select Country" required>
-                        <option disabled selected>Country</option>
+                    <Option selected>Country</Option>
                         @foreach($countries as $country)
                             <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
                         @endforeach
