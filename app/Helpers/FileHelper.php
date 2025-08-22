@@ -10,7 +10,9 @@ class FileHelper
         $error = [];
         $upload_data = [];
 
+       
         if (!empty($attachments)) {
+
             foreach ($attachments as $file) {
                 if (!empty($file)) {
                     $file_name = time() . $i . '.jpg';
@@ -31,6 +33,7 @@ class FileHelper
     {
         $base64Image = explode(";base64,", $image);
         $explodeImage = explode("image/", $base64Image[0]);
+      
         $imageType = $explodeImage[1];
         $image_base64 = base64_decode($base64Image[1]);
         $file_name = uniqid() . '.'.$imageType;

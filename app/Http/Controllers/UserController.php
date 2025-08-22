@@ -112,7 +112,7 @@ class UserController extends Controller
     public function updateProfile(Request $request)
     {
 
-        //  dd($request->all());
+       
         $validator = Validator::make($request->all(), [
             
             'first_name' => 'required',
@@ -186,33 +186,82 @@ class UserController extends Controller
         }
     }
 
-    public function updateProfileImage($image)
+    public function updateProfileImage(Request $request)
+
     {
+
+    
         $User = User::with(['attachment'])->find(Auth::id() ?? Session::get('user')->id);
 
+       
         if (!empty($User)) {
-            $path = public_path('uploads/users/profile-images/');
-            $response = FileHelper::uploadFile($image, $path);
-            if ($response['status']) {
+           
+           
+            // Check if a profile image is uploaded
+    if ($request->hasFile('profile_image')) {
+        $file = $request->file('profile_image');
 
-                Attachment::updateORCreate([
+        // Ensure only a single file
+        if ($file && $file->isValid()) {
+            $path = public_path('uploads/users/profile-images/');
+            
+            // Create folder if it doesn't exist
+            if (!file_exists($path)) {
+                mkdir($path, 0755, true);
+            }
+
+            // Generate unique file name
+            $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
+            
+            // Move file to the desired folder
+            $file->move($path, $fileName);
+
+            // Save/update in attachments table
+            Attachment::updateOrCreate(
+                [
                     'object' => 'User',
                     'object_id' => $User->id,
                     'context' => 'profile-image'
-                ],[
-                    'name' => $response['file_name'],
-                    'file_name' => $response['file_name'],
-                    'type' => $response['type'],
-                ]);
-            }
+                ],
+                [
+                    'name' => $fileName,
+                    'file_name' => $fileName,
+                    'type' => $file->getClientOriginalExtension(),
+                ]
+            );
+        }
+    }
 
-            $new_user_data = User::find(Auth::id() ?? Session::get('user')->id);
+    $new_user_data = User::find(Auth::id() ?? Session::get('user')->id);
+    $User->image_url = asset('uploads/users/profile-images/' . $fileName);
+            session(['user' => $User]);
+    return [
+        'status' => true,
+        'message' => 'Updated',
+        
+        'image_url' => session('user')->image_url
+    ];
+           
+           
+           
+           
+            //$path = public_path('uploads/users/profile-images/');
+            //$response = FileHelper::uploadFile($request->profile_image, $path);
+            //if ($response['status']) {
 
-            return [
-                'status' => true,
-                'message' => 'Updated',
-                'image_url' => $new_user_data->image_url
-            ];
+               // Attachment::updateORCreate(['object' => 'User','object_id' => $User->id,'context' => 'profile-image'],['name' => $response['file_name'], 'file_name' => $response['file_name'], 'type' => $response['type'],]);
+           
+           
+           
+           
+           
+           
+           
+            //}
+
+            // $new_user_data = User::find(Auth::id() ?? Session::get('user')->id);
+
+            // return [  'status' => true, 'message' => 'Updated',  'image_url' => $new_user_data->image_url];
         }
     }
 
