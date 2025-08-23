@@ -561,16 +561,18 @@
                                 </div>
                             </span>
                            <span style="padding:8px 15px 0px 15px;text-align:center;">
-                                <a type="button" id="chat"
-                                   data-toggle="dropdown"
-                                   aria-haspopup="true"
-                                   aria-expanded="false">
+                                <a
+                                
+                                href="{{ env('BASE_URL') . 'chats?country=' . request()->country . '&city=' . request()->city}}"  
+                                   >
                                     {{-- <img src="{{ asset('images/my-chats.svg')}}" width="17" height="17"> --}}
-                                    <div><span  class="colorChange" style="color: #000;font-size: 14px;">Chats</span></div>
+                                    <div><span  class="colorChange" style="color: #000;font-size: 14px;">   Chats  </span></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="chat" style="padding: 10px;width:auto;">
-                                    @if (session()->has('user') && count($chats) > 0)
-                                        <!---------inner area------------>
+                                    @if (session()->has('user'))
+                                        <!---------inner area  type="button" id="chat" data-toggle="dropdown"
+                                   aria-haspopup="true"
+                                   aria-expanded="false"------------>
                                             <div class="row">
                                             <div class="col-lg-12 col-sm-12 col-12">
                                                 </i> <span style="color: #000;margin-left: 3px;">Chats</span>

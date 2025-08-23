@@ -276,10 +276,16 @@ a:hover {
     padding: 0px 2px 0px 9px !important;
     font-weight: 100 !important;
 }
-.select2-dropdown, .select2-dropdown--below {
+/*.select2-dropdown, .select2-dropdown--below {
     width: 97px !important;
+} 
+*/
+.colorchangecompany:hover ,
+.colorchangecompany:hover span 
+{
+    color: blue !important;
+    text-decoration: none; /* optional, to remove underline */
 }
-
 
     </style>
 @section('content')
@@ -376,7 +382,7 @@ a:hover {
                                                    
                                                     <div class="badge bgg-yellow badge-pill unread-count" style="display: {{($login_user_id != $chat->latest_message_sender_id && $chat->unread_count > 0) ? 'block' : 'none'}} ">{{ $chat->unread_count }}</div>
                                                 </div>
-                                                <div style="display:flex; justify-content: flex-end; align-items: center;    margin-top: -58px;  margin-right: -6rem;margin-bottom: 25px;">
+                                                <div style="display:flex; justify-content: flex-end; align-items: center;    margin-top: -31px;  margin-right: -4rem;margin-bottom: 25px;">
                                                     <button class="btn btn-link favorite-chat" title="{{ $chat->is_favorite ? 'Unfavourite ' : 'Favourite' }}" style="padding: 0px;" data-chat-id="{{ $chat->id }}">
                                                         <i class="fa fa-heart"  style="color: {{ $chat->is_favorite ? 'red' : 'grey' }} !important;"></i>
                                                     </button>
@@ -427,7 +433,7 @@ a:hover {
                                             </div>
                                      
                                             <div class="media-body flex-grow-1">
-                                                <div class="user-name">{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }} - {{ $categoryNames ?? ''}} {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'company_name') }}</div>
+                                                <div class="user-name colorchangecompany"> {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }}  - {{ $categoryNames ?? ''}} {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'company_name') }}</div>
                                                 <span class="last-seen">
                                                     @if($chat->other_user->last_seen_at)
                                                         {{ \Carbon\Carbon::parse($chat->other_user->last_seen_at)->diffForHumans() }}
@@ -616,6 +622,43 @@ $(document).ready(function () {
  $(document).ready(function () {
 
 
+    $('#filter-dropdown').on('change', function() {
+        var filterValue = $(this).val();
+
+        if (filterValue === 'all') {
+            $('.chat-title').show(); // Show all chats
+        } else if (filterValue === 'favorites') {
+            $('.chat-title').hide(); // Hide all chats
+            $('.favorite').show();   // Show only favorite chats
+        } else if (filterValue === 'blocked') {
+            $('.chat-title').hide(); // Hide all chats
+            $('.blocked').show();    // Show only blocked chats
+        }
+    });
+
+
+    $('.favorite-chat').on('click', function() {
+            var button = $(this);
+            var chatId = button.data('chat-id');
+
+            $.ajax({
+                url: "{{ route('chat.favorite') }}",
+                method: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    chat_id: chatId
+                },
+                success: function(response) {
+
+                     alert(response.is_favorite);
+                    if (response.is_favorite) {
+                        button.find('i').css('color', 'red');
+                    } else {
+                        button.find('i').css('color', 'grey');
+                    }
+                }
+            });
+    });
       // Toggle block
     $('.block-chat').on('click', function() {
 

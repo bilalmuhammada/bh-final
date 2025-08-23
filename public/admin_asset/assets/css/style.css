@@ -13672,7 +13672,7 @@ label.file-upload input[type="file"] {
 }
 
 .chat-window .chat-scroll {
-    min-height: calc(100vh - 328px);
+    min-height: calc(104vh - 328px);
     max-height: calc(100vh - 328px);
     overflow-y: auto;
 }

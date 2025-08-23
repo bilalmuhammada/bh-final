@@ -7,7 +7,7 @@
     
     
     .fa-heart {
-        color: red !important;
+        color: red ;
     }
     
     .btn-next a.btn {
@@ -6582,7 +6582,7 @@ border: 1px solid #2d11e7;
     }
     
     .chat-window .chat-scroll {
-        min-height: calc(100vh - 328px);
+        min-height: calc(104vh - 328px);
         max-height: calc(100vh - 328px);
         overflow-y: auto;
     }
