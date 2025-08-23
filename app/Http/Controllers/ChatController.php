@@ -17,7 +17,6 @@ class ChatController extends Controller
     {  
         
 
-        // dd($request->all());
         
         if($request->i){
         Chat::updateOrCreate(

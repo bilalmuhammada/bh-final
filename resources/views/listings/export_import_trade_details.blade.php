@@ -317,7 +317,7 @@
             </div>
         </div>
 
-        @include('listings.image&file');
+        @include('listings.image&file')
    
         <div class="col-md-6 mx-auto">
             <div class="row">
