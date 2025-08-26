@@ -22,7 +22,7 @@
      transform-origin: left top;
      transition: 240ms;
      left: 12px;
-     top: -3px;
+     top: -6px;
      z-index: 1;
      color: #000;
      margin-bottom: 0;
@@ -171,7 +171,9 @@
          <h5 class="mx-auto text-center" style="margin-bottom: 0px;">You are almost there!</h5>
         <p class="mx-auto text-center" style="font-size: 14px;margin-bottom:4px;">Provide as much Details & Pictures as possible and set right Price!</p>
         <p style="margin-bottom: -15px; font-size:14px; color:blue;">
-            <span  class="menucolor">{{ $listing->category_name }}</span> > <span
+            <span  class="menucolor"> <a href="javascript:history.back()"  style="color: inherit; text-decoration: none;">
+            {{ $Categories->name }}
+        </a> </span> > <span
                  style="color:blue;">{{ $listing->subcategory_name }}</span>
         </p>
     </div>
@@ -322,7 +324,7 @@
         <div class="col-md-6 mx-auto">
             <div class="row">
                 <div class="col-md-6">
-                    <select class="form-controlz country" name="country" placeholder="Select Country" required>
+                    <select class="form-controlz country" name="country" style=" font-size: 0.9rem;"  required>
                     <Option selected>Country</Option>
                         @foreach($countries as $country)
                             <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
@@ -333,8 +335,8 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <select class="form-controlz city" name="city" placeholder="Select City" required>
-                        <option selected disabled>City</option>
+                    <select class="form-controlz city" name="city"  style=" font-size: 0.9rem;"  required>
+                        <option selected >City</option>
                     </select>
                     <div class="invalid-feedback">
                         Please select a city.

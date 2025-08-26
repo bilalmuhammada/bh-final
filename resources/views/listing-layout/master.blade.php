@@ -27,7 +27,7 @@
     100% { transform: translateX(0); }
   }
 .darkerbtn {
-  background-color:rgba(87, 87, 87, 0.36) !important;
+  background-color:rgba(62, 60, 60, 0.74) !important;
 }
 .lobibox-notify .lobibox-close {
     top:6px !important;

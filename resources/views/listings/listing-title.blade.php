@@ -22,7 +22,7 @@
     transform-origin: left top;
     transition: 240ms;
     left: 12px;
-    top: -3px;
+    top: -6px;
     z-index: 1;
     color: #000;
     margin-bottom: 0;

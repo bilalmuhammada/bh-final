@@ -124,8 +124,7 @@ class UserController extends Controller
             'mobile'=>'required',
             'email' => 'required',
             'cities'=>'required',
-            'password' => 'required',
-            'password' => 'required',
+            
         ]);
 
         if ($validator->fails()) {
