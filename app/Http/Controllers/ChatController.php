@@ -17,21 +17,23 @@ class ChatController extends Controller
     {  
         
 
+
         
+    
         if($request->i){
         Chat::updateOrCreate(
             ['second_user_id'=>$request->i],
-            ['first_user_id'=>session()->get('User')['id'],'status'=> 'accepted', 'initiated_by'=>session()->get('User')['id']]
+            ['first_user_id'=>session()->get('user')['id'],'status'=> 'accepted', 'initiated_by'=>session()->get('user')['id']]
         );
-    }
+        }
       
-        $chats = Chat::with(['messages'])
+        $chats = Chat::with(['messages',"ad"])
             ->where('first_user_id', SiteHelper::getLoginUserId())
             ->orWhere('second_user_id', SiteHelper::getLoginUserId());
 
     //   dd();
-        if ($request->i) {
-                $chats = $chats->where('second_user_id', '=', $request->i);
+        if ($request->user_id) {
+                $chats = $chats->where('second_user_id', '=', $request->user_id);
         } 
         // dd( $chats );
 
@@ -107,14 +109,16 @@ class ChatController extends Controller
         // dd($request->user_id);
         if (!empty($request->user_id)) {
             //check already chat initlized
-            $ChatExist = Chat::where('second_user_id', $request->user_id)->where('first_user_id', SiteHelper::getLoginUserId())->first();
+            $ChatExist = Chat::where('second_user_id', $request->user_id)->where('ad_id', $request->user_ad)->where('first_user_id', SiteHelper::getLoginUserId())->first();
 
+            
             if (empty($ChatExist)) {
                 $Chat = Chat::create([
                     'status' => 'accepted',
                     'second_user_id' => $request->user_id,
                     'first_user_id' => SiteHelper::getLoginUserId(),
                     'initiated_by' => SiteHelper::getLoginUserId(),
+                    'ad_id' => $request->user_ad
                 ]);
             }
 

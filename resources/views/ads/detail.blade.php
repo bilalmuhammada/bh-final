@@ -640,7 +640,7 @@ width: 60rem !important;
                                     <!-- Overlay -->
                                     <div id="popupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; " onclick="hidePopup()"></div>
                                     
-                                    <button  class="btn start-chat" user-id="{{ $ad->created_by_user->id }}"   style="border: 1px solid #0088eb; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 0.3rem; color: red;"
+                                    <button  class="btn start-chat" user-id="{{ $ad->created_by_user->id }}"   user-ad="{{ $ad->id}}" style="border: 1px solid #0088eb; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 0.3rem; color: red;"
                                         type="button" 
                                         aria-expanded="false">
                                         <img src="{{ asset('images/socialicon/chat.png') }}" alt="Chat Icon" style="height: 30px; margin-top: -4px; margin-right: 1px;">
@@ -905,15 +905,18 @@ $('#loginModal').modal('show');
 return ;
 }
             var user_id = $(this).attr('user-id');
+            var user_ad = $(this).attr('user-ad');
+            
             $.ajax({
                 url: api_url + 'chats/initiate',
                 method: 'POST',
                 data: {
                     user_id: user_id,
+                    user_ad: user_ad,
                 },
                 success: function (response) {
                     if (response.status) {
-                        window.location.href = base_url + 'chats?user_id=' + user_id;
+                        window.location.href = base_url + 'chats?user_id=' + user_id + '&user_ad=' + user_ad;
                     } else {
                         showAlert('error', 'Try again');
                     }

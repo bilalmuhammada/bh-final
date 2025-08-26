@@ -88,4 +88,8 @@ class Chat extends Model
             'is_readed' => false
         ])->pluck('id');
     }
+
+    public function ad() {
+        return $this->belongsTo(Listing::class);
+    }
 }

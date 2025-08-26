@@ -65,7 +65,8 @@ select {
         margin-left: 8px;
 
         border-radius: 7px;
-        width: 16vh;
+        width: 90px;
+        width: 100px;
 
     }
     .hiddencheck{
@@ -75,12 +76,10 @@ select {
     .product-left-image{
         margin-left: 2px;
         border-radius: 5px;
-        width: 80px;
-        height: 80px;
+        width: 90px;
+        height: 100px;
     }
-    .product-location{
-      margin-top: 12px;
-    }
+    
     .product-price{
         margin-top: 5px;
         font-weight: 900;
@@ -324,14 +323,14 @@ a:hover {
                                
                                 <div class="col-md-2 hiddentrash">
                                     <div class="row">
-                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 11.4rem;">
+                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 14rem;">
                                             <i class="fa fa-trash" style="color: rgb(9, 9, 166);"></i>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-2 edit">
                                     <div class="row">
-                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 11.4rem;">
+                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 14rem;">
                                             <i class="fa fa-pencil" id="edit-icon" style="color: rgb(9, 9, 166);"></i>
                                         </div>
                                     </div>
@@ -359,40 +358,63 @@ a:hover {
                                               value="{{ $chat->id }}" class="dlt-chat hiddencheck" >
                                             <div class="media-img-wrap flex-shrink-0">
                                                 <div class="avatar">
-                                                    <img src="{{asset('images/default/listing.jpg')}}" alt="Car Image" class="product-left-image">
+                                                    <img src="{{$chat->ad->main_image_url ??  'https://via.placeholder.com/30x30'}}" alt="Car Image" class="product-left-image">
                                                    
                                                 </div>
                                                 
                                             </div>
                                             <div class="media-body flex-grow-1">
                                                 <div class="product-left-details">
-                                                    <div class="product-left-description">FSI Quattro - Sunroof - Full Original Paint...</div>
+                                                    <div class="product-left-description">{{$chat->ad->title}}</div>
                                                     <div class="product-message">{{ $chat->latest_message }}</div>
+                                                    <div class="product-location">  <i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  {{$chat->ad->location_name ?? "No Location"}}  </div>
+                                                
+                                                
                                                      <img
                                                          src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') ?: 'https://via.placeholder.com/30x30' }}"
                                                         alt="User Image" style="width:25px"
                                                         class="avatar-img rounded-circle"> &nbsp;&nbsp;{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }}
-                                                    {{-- <div class="product-location">  <i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  Marina, Dubai, UAE &nbsp;&nbsp;•&nbsp;&nbsp; Oct 19, 2024</div> --}}
-                                                </div>
-                                                {{-- <div>
+                                                    
+                                                 </div>
+                                              <!--<div>
                                                     <div class="user-name-left">{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }}</div>
                                                     <div class="user-last-chat">{{ $chat->latest_message }}</div>
-                                                </div> --}}
-                                                <div>
+                                                </div> -->
+                                                <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 3rem; margin-top: 5px;">
+
+<!-- Top: Icons -->
+                                                <div style="display: flex; gap: 8px;">
+                                                    <button class="btn btn-link favorite-chat" 
+                                                            title="{{ $chat->is_favorite ? 'Unfavourite' : 'Favourite' }}" 
+                                                            style="padding: 0;" 
+                                                            data-chat-id="{{ $chat->id }}">
+                                                        <i class="fa fa-heart" style="color: {{ $chat->is_favorite ? 'red' : 'grey' }} !important;"></i>
+                                                    </button>
+
+                                                    <button class="btn btn-link block-chat" 
+                                                            title="{{ $chat->is_blocked ? 'Unblock' : 'Block' }}" 
+                                                            style="padding: 0;" 
+                                                            data-chat-id="{{ $chat->id }}">
+                                                        <i class="fa fa-ban" style="color: {{ $chat->is_blocked ? 'goldenrod' : 'grey' }} !important;"></i>
+                                                    </button>
+                                                </div>
+
+                                                <!-- Bottom: Time & Unread badge -->
+                                                <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #666;">
+                                                    <div class="badge bgg-yellow badge-pill unread-count" 
+                                                        style="display: {{ ($login_user_id != $chat->latest_message_sender_id && $chat->unread_count > 0) ? 'block' : 'none' }};">
+                                                        {{ $chat->unread_count }}
+                                                    </div>
+
+                                                    <span>{{ $chat->latest_message_recieved_time_diff }}</span>
+                                                </div>
+
+                                                </div>
+
                                                    
-                                                    <div class="badge bgg-yellow badge-pill unread-count" style="display: {{($login_user_id != $chat->latest_message_sender_id && $chat->unread_count > 0) ? 'block' : 'none'}} ">{{ $chat->unread_count }}</div>
-                                                </div>
-                                                <div style="display:flex; justify-content: flex-end; align-items: center;    margin-top: -31px;  margin-right: -4rem;margin-bottom: 25px;">
-                                                    <button class="btn btn-link favorite-chat" title="{{ $chat->is_favorite ? 'Unfavourite ' : 'Favourite' }}" style="padding: 0px;" data-chat-id="{{ $chat->id }}">
-                                                        <i class="fa fa-heart"  style="color: {{ $chat->is_favorite ? 'red' : 'grey' }} !important;"></i>
-                                                    </button>
-                                                    <button class="btn btn-link block-chat" title="{{ $chat->is_blocked ? 'Unblock' : 'Block ' }}" style="padding: 8px;"  data-chat-id="{{ $chat->id }}">
-                                                        <i class="fa fa-ban"  style="color: {{ $chat->is_blocked ? 'goldenrod' : 'grey' }} !important;"></i>
-                                                    </button>
-                                                </div>
                                               
                                             </div>
-                                            <div class="last-chat-time block" style="margin-top: 26px;">{{ $chat->latest_message_recieved_time_diff }}</div>
+                                           
                                           
                                         </a>
                                       
@@ -404,16 +426,17 @@ a:hover {
                             
                         </div>
 
+                     
+
                         <div class="chat-cont-right">
                         
                            
-                         
                             @foreach($chats as $key => $chat)
-                           
+                              
                                 <div class="chat-body-div"
-                                     id="{{ str_replace(' ', '', \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name')). '-' .\App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}-chat-body-div"
-                                     {{-- style="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') == request()->i ? '' : 'display: none' }}"  --}}
-                                     chat-id="{{$chat->id }}"
+                                     id="{{ str_replace(' ', '', \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name')). '-' . \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}-chat-body-div"
+                                     style="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') == request()->i ? '' : 'display: none' }}" 
+                                     chat-id="{{ $chat->id }}"
                                      user="{{ str_replace(' ', '', \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name')) . '-' . \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}">
                                     <div class="chat-header">
                                         <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
@@ -431,46 +454,38 @@ a:hover {
                                                     </a>
                                                 </div>
                                             </div>
-                                     
+                                      
                                             <div class="media-body flex-grow-1">
-                                                <div class="user-name colorchangecompany"> {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }}  - {{ $categoryNames ?? ''}} {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'company_name') }}</div>
-                                                <span class="last-seen">
-                                                    @if($chat->other_user->last_seen_at)
-                                                        {{ \Carbon\Carbon::parse($chat->other_user->last_seen_at)->diffForHumans() }}
-                                                    @else
-                                                        <span class="text-muted" style="font-size: 13px;">Last Seen: Not available</span>
-                                                    @endif
-                                                </span>
+                                                <div class="user-name colorchangecompany">  {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }} - <span > {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'company_name') }} </span> </div>
+                                               
                                             </div>
-                                           
                                         </div>
+
                                         <div class="dropdown">
-                                            <button class="btn btn-link  p-0" type="button" id="userOptionsMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <button class="btn btn-link" type="button" id="userOptionsMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="fa fa-ellipsis-v"></i>
                                             </button>
                                             
                                             <!-- Dropdown menu options -->
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userOptionsMenu">
-                                                
-                                                {{-- <a class="dropdown-item report-user-btn" data-bs-toggle="modal" data-bs-target="#reportUserModal" href="#">Report User</a> --}}
-                                                <a class="dropdown-item block-chat " data-chat-id="{{ $chat->id }}" >Block User</a>
-                                                <a class="dropdown-item report-user-btn" href="#" >Report User</a>
+                                                <a class="dropdown-item block-chat "    data-chat-id="{{ $chat->id }}" href="#" >Block User</a>
+                                                <a class="dropdown-item report-user-btn" data-bs-toggle="modal" data-bs-target="#reportUserModal" href="#">Report User</a>
                                             </div>
                                         </div>
-
-                                    
                                     </div>
-                                    {{-- <div class="chat-header"> --}}
-                                    <div class="card-body" style="display: flex;background-color: #eafafe;padding: 0.5rem;">
+                                    <div class="chat-header" style="background-color: #eafafe;height:7rem;">
+                                    <a href="{{ env('BASE_URL') }}ads/detail/{{ $chat->ad->id }}"  style="text-decoration: none; color: inherit; display: flex;">
+                                   
                                         <div class="product-image-container">
-                                        <img src="{{asset('images/default/listing.jpg')}}" alt="Car Image" class="product-image">
+                                        <img src="{{$chat->ad->main_image_url ??  'https://via.placeholder.com/30x30'}}" alt="Car Image" class="product-image">
                                     </div>
                                         <div class="product-details">
-                                            <div class="product-description">FSI Quattro - Sunroof - Full Original Paint - Lady Driven - Direct Owner - 2 Keys</div>
-                                            <div class="product-price">AED 69,500</div>
-                                            <div class="product-location">  <i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  Marina, Dubai, UAE &nbsp;&nbsp;• Oct 19, 2024</div>
+                                            <div class="product-description">{{$chat->ad->title}}</div>
+                                            <div class="product-price">AED {{$chat->ad->price}}</div>
+                                            <div class="product-location">  <i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i> {{$chat->ad->location_name}} • {{ \Carbon\Carbon::parse($chat->ad->created_at)->format('d-M-Y') }}</div>
                                         </div>
-                                    </div>
+                                    
+                                    </a>
                                 </div>
                                 
                                     @if($chat->status == 'accepted')
@@ -479,14 +494,14 @@ a:hover {
                                             <div class="chat-scroll">
                                                 <ul class="list-unstyled message-body" style="font-weight: 300;">
                                                     @foreach($chat->sorted_messages as $date => $sorted_messages)
-                                                        <div class="text-center fw-bolds " style="font-size:12px;">{{ $date}}</div>
+                                                        <div class="text-center fw-bolds " style="font-size:12px;">    {{ \Carbon\Carbon::parse($date)->format('d-M-Y') }}</div>
                                                         @foreach($sorted_messages as $date => $message)
                                                       
                                                             <li class="media {{ $message->message_position == 'right' ? 'sent' : 'received' }} d-flex">
                                                                 <div class="avatar flex-shrink-0">
                                                                     <img
                                                                         src="{{ $message->message_position == 'right' ? session()->get('user')['image_url'] : \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') }}"
-                                                                        alt="User Image" style="width:25px;"
+                                                                        alt="User Image" width="30px" height="30px"
                                                                         class="avatar-img rounded-circle">
                                                                 </div>
                                                                 <div class="media-body flex-grow-1">
@@ -510,26 +525,26 @@ a:hover {
                                             </div>
                                         </div>
                                         <div class="chat-footer">
-                                            <div class="input-group" style="margin-left: 12px;" >
+                                            <div class="input-group" style="margin-left: 17px;" >
                                                 {{-- <div class="avatar" style="padding:4px;">
                                                     <img
-                                                        src="{{ getSafeValueFromObject($chat->other_user, 'image_url') }}"
+                                                        src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') }}"
                                                         alt="User Image"
                                                         class="avatar-img rounded-circle">
                                                 </div> --}}
                                                 <div class="input-group" style="position: relative; width: 93%; height: 42px;">
                                                     <input type="text" class="input-msg-send emoji-trigger form-controls"
-    id="emoji-input"
-    data-user-id="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
-    data-chat-id="{{ $chat->id }}" @if($chat->is_blocked == 1) disabled @endif 
-    style="border-radius: 30px; width: 100%; padding-right: 50px;">
+                                                           id="emoji-trigger" 
+                                                           data-user-id="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
+                                                           data-chat-id="{{ $chat->id }}"  data-chat-block="{{$chat->is_blocked}}"    style="border-radius: 30px; width: 100%; padding-right: 50px;"
+                                                           >
                                                    
                                                 </div>
                                                         
                                                 <button type="button" id="msg-send-btn" class="btn btn-primary msg-send-btn"
                                                 data-user-id="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
                                                 data-chat-id="{{ $chat->id }}"
-                                                style="position: absolute; right: 37px; top:9px; background-color: transparent; border: none;">
+                                                style="position: absolute; right: 41px; top: 12px; background-color: transparent; border: none;">
                                             <i class="fa fa-arrow-circle-up mgn-send-color" aria-hidden="true"
                                                style="font-size: 30px; background-color: none;"></i>
                                         </button>
@@ -543,7 +558,7 @@ a:hover {
                                                         Accept
                                                     </button>
                                                 </div>
-                                                <div class="col-md-6 col-12">
+                                                <di_v class="col-md-6 col-12">
                                                     <button class="btn btn-danger reject" chat-id="{{ $chat->id }}">
                                                         Reject
                                                     </button>
@@ -584,9 +599,16 @@ a:hover {
         $('.msg-send-btn').prop('disabled', false);
     }
 }
+$(document).on("click", "#userOptionsMenu", function() {
+
+$(".dropdown-menu-right").toggleClass("show");
+});
 $(document).ready(function () {
  
-
+    $(".chat").select2({
+           
+           minimumResultsForSearch: -1
+       });
    
 
     $('.msg-send-btn').prop('disabled', true);
@@ -611,7 +633,7 @@ $(document).ready(function () {
         // alert('ssss');
             @if(request()->i)
             $('.chat-body-div').css('display', 'none');
-            $('.chat-with-user-{{ request()->i }}').click();
+            $('.chat-with-user-{{ request()->user_id }}').click();
             @endif
             ajax_setup();
 
@@ -650,7 +672,7 @@ $(document).ready(function () {
                 },
                 success: function(response) {
 
-                     alert(response.is_favorite);
+                     
                     if (response.is_favorite) {
                         button.find('i').css('color', 'red');
                     } else {
@@ -783,6 +805,7 @@ $.ajax({
 
         function markMessageAsReaded(id, selector) {
             
+        
             $.ajax({
                 url: api_url + 'chats/mark-as-read',
                 method: 'POST',
@@ -838,7 +861,7 @@ $.ajax({
                         $(message).val('');
                         $('.emojionearea-editor').html('');
                     }
-                    // $(selector).find('.unread-count').css('display', 'none');
+                     $(selector).find('.unread-count').css('display', 'none');
                 },
                 error: function (response) {
                     console.log('error');
