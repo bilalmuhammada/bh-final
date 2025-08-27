@@ -351,9 +351,7 @@ a:hover {
                                     @foreach($chats as $chat)
 
 
-                                    @php
-                                                    dd($chat); 
-                                                    @endphp
+                                  
                                         <a href="javascript:void(0);"
                                            class="media chat-title @if($chat->is_blocked) blocked @endif @if($chat->is_favorite) favorite @endif @if(\App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') == request()->i) chat-with-user-{{ request()->i }} @endif"
                                            style="display:flex;"

@@ -135,9 +135,7 @@ Route::get('/my-favourites', [HomeController::class, 'favourite']);
 Route::get('/my-ads', function(){
     return view('home.innerPages.ads');
 });
-//Route::get('/chats', function(){
-   // return view('home.innerPages.chats');
-//});
+
 Route::get('/chat-new', function(){
     return view('chat-new');
 });
