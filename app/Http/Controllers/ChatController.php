@@ -17,8 +17,7 @@ class ChatController extends Controller
     {  
         
 
-dd("ss");
-        
+
     
         if($request->i){
         Chat::updateOrCreate(
@@ -45,7 +44,7 @@ dd("ss");
 
         $chats = $chats->orderBy('created_at','desc')
         ->get();
-    //    dd( $chats,session()->get('role'));
+      dd( $chats,session()->get('role'));
         foreach ($chats as $chat) {
             $groupedMessages = [];
             if ($chat->messages) {
