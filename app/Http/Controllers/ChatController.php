@@ -17,7 +17,7 @@ class ChatController extends Controller
     {  
         
 
-
+dd("ss");
         
     
         if($request->i){
