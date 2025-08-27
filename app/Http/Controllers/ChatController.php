@@ -44,7 +44,7 @@ class ChatController extends Controller
 
         $chats = $chats->orderBy('created_at','desc')
         ->get();
-      dd( $chats,session()->get('role'));
+      
         foreach ($chats as $chat) {
             $groupedMessages = [];
             if ($chat->messages) {
@@ -63,7 +63,7 @@ class ChatController extends Controller
             }
         }
 
-       
+        dd( $chats);
         return view('chats.list')->with([
             'chats' => $chats,
             'login_user_id' => SiteHelper::getLoginUserId()
