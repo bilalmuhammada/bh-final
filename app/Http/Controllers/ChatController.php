@@ -63,7 +63,7 @@ class ChatController extends Controller
             }
         }
 
-        dd( $chats);
+       
         return view('chats.list')->with([
             'chats' => $chats,
             'login_user_id' => SiteHelper::getLoginUserId()
