@@ -351,7 +351,9 @@ a:hover {
                                     @foreach($chats as $chat)
 
 
-
+                                    @php
+                                                    dd($chat); 
+                                                    @endphp
                                         <a href="javascript:void(0);"
                                            class="media chat-title @if($chat->is_blocked) blocked @endif @if($chat->is_favorite) favorite @endif @if(\App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') == request()->i) chat-with-user-{{ request()->i }} @endif"
                                            style="display:flex;"
@@ -372,9 +374,7 @@ a:hover {
                                                     <div class="product-message">{{ $chat->latest_message }}</div>
                                                     <div class="product-location">  <i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  {{$chat->ad->location_name ?? "No Location"}}  </div>
                                                 
-                                                    @php
-                                                    dd($chat); 
-                                                    @endphp
+                                                    
                                                 
                                                      <img
                                                          src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') ?: 'https://via.placeholder.com/30x30' }}"
