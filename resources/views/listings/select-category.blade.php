@@ -13,24 +13,23 @@
     }
     .shaking {
     display: inline-block;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.5s ease-in-out;
    }
  
   .categoryname:hover {
-    animation: shake 1.3s linear infinite;
+    animation: shake1 1.3s linear infinite;
    }
-    @keyframes shake {
+    @keyframes shake1 {
   0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
+  25% { transform: translateX(-25px); }
+  50% { transform: translateX(25px); }
+  75% { transform: translateX(-25px); }
   100% { transform: translateX(0); }
 }
 </style>
 @section('content')
     <div class="col-md-12 mx-auto" style="width:70rem;margin-top:100px;">
-        <div class="row mx-auto">
-            <div class="mx-auto">
+        <div class="row mx-auto">        
                 <div class="col-md-12">
                     <div class="row">
                         @foreach($categories as $category)
@@ -47,8 +46,7 @@
                         <!----cat  end------>
                         @endforeach
                     </div>
-                </div>
-            </div>
+                </div> 
         </div>
     </div>
 @endsection

@@ -480,7 +480,7 @@ select::after {
         <div class="col-md-6 mx-auto" style="margin-bottom: 20px;">
             <div class="row">
         <div class="col-md-6">
-            <select class="form-control floating country" name="country" style="font-size: 0.9rem;" required>
+            <select class="form-control floating country" name="country" style="font-size: 0.9rem;color:#000;" required>
             
                 <Option selected>Country</Option>
                     @foreach($countries as $country) 
@@ -493,7 +493,7 @@ select::after {
             </div> --}}
         </div>
         <div class="col-md-6">
-            <select class=" city form-control floating" name="city" style=" font-size: 0.9rem;" required>
+            <select class=" city form-control floating" name="city" style=" font-size: 0.9rem; color:#000;" required>
           
                 
                 <option selected >City</option>

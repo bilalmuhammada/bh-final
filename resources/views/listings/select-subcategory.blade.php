@@ -24,7 +24,12 @@ a.text-dark1:focus, a.text-dark1:hover ,.text-dark1:hover, .text-dark1:hover , .
    
 
    
-
+    .selection{
+       color:#0000ff;
+    }
+    .selection:hover{
+       color:goldenrod;
+    }
 </style>
 @section('content')
     <div class="col-md-5 mx-auto text-center" >
@@ -33,7 +38,7 @@ a.text-dark1:focus, a.text-dark1:hover ,.text-dark1:hover, .text-dark1:hover , .
     <div class="col-md-5 mx-auto  " style="padding-left: 4rem" >
         <ul style="list-style-type:none;margin: 0px;" class="text-dark1">
             <li style="width:350px;border-bottom:1px solid #eee;padding:2px;text-decoration: none;width:456px;"  class="text-dark1">
-                <a href="{{env('BASE_URL') . 'listing/select-category'. ''}}" style="color:  #6EC1E4;" >...</a> >
+                <a href="{{env('BASE_URL') . 'listing/select-category'. ''}}" class="selection" " >Selections</a> >
                 <span style="color: blue; font-size:14px;">{{ $category->name }}</span>
             </li>
         </ul>

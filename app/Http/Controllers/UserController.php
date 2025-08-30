@@ -113,6 +113,7 @@ class UserController extends Controller
     {
 
        
+       
         $validator = Validator::make($request->all(), [
             
             'first_name' => 'required',
@@ -135,6 +136,8 @@ class UserController extends Controller
             ]);
         }
 
+
+    
         $User = User::find(Auth::id() ?? Session::get('user')->id);
 
         if (!empty($User)) {
@@ -231,9 +234,14 @@ class UserController extends Controller
         }
     }
 
+
+
     $new_user_data = User::find(Auth::id() ?? Session::get('user')->id);
     $User->image_url = asset('uploads/users/profile-images/' . $fileName);
-            session(['user' => $User]);
+    $User->refresh();
+    session()->put('user', $User);
+    session()->save();  
+
     return [
         'status' => true,
         'message' => 'Updated',

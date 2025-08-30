@@ -240,7 +240,7 @@ function getCitiesByCountry(country_id) {
                 var states = response.data;
                 $("#city_id").empty();
                
-                $("#city_id").append('<option value="">City</option>');
+                $("#city_id").append('<option value="">All Cities</option>');
 
                 if (states) {
                     $.each(states, function (index, value) {

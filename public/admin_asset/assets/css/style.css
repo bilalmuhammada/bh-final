@@ -256,7 +256,7 @@ input[type=password] {
     border-color: #E7E8EA;
     /* color: #353535; */
     color: black;
-    font-size: 15px;
+    font-size: 14px;
     min-height: 46px;
     padding: 6px 15px;
     border: 1px solid #997045 !important;
@@ -265,7 +265,7 @@ input[type=password] {
     border-color: #E7E8EA;
     /* color: #353535; */
     color: #999;
-    font-size: 15px;
+    font-size: 14px;
     min-height: 46px;
     padding: 6px 15px;
     border: 1px solid #997045 !important;

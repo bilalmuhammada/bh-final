@@ -324,7 +324,7 @@
         <div class="col-md-6 mx-auto">
             <div class="row">
                 <div class="col-md-6">
-                    <select class="form-controlz country" name="country" style=" font-size: 0.9rem;"  required>
+                    <select class="form-controlz country" name="country" style=" font-size: 0.9rem;color:#000;"  required>
                     <Option selected>Country</Option>
                         @foreach($countries as $country)
                             <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
@@ -335,7 +335,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <select class="form-controlz city" name="city"  style=" font-size: 0.9rem;"  required>
+                    <select class="form-controlz city" name="city"  style=" font-size: 0.9rem;color:#000;"  required>
                         <option selected >City</option>
                     </select>
                     <div class="invalid-feedback">

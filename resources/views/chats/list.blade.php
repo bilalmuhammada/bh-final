@@ -58,14 +58,14 @@ select {
     .product-details{
         font-family: system-ui;
         letter-spacing:1px;
-        font-size: 14px;
-        margin-left: 26px;
+        font-size: 10px;
+        margin-left: 18px;
     }
     .product-image{
-        margin-left: 8px;
+        
 
         border-radius: 7px;
-        width: 90px;
+        height: 50px;
         width: 100px;
 
     }
@@ -76,8 +76,8 @@ select {
     .product-left-image{
         margin-left: 2px;
         border-radius: 5px;
-        width: 90px;
-        height: 100px;
+        width: 85px;
+        height: 80px;
     }
     
     .product-price{
@@ -323,7 +323,7 @@ a:hover {
                                
                                 <div class="col-md-2 hiddentrash">
                                     <div class="row">
-                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 12.6rem;">
+                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 12rem;">
                                             <i class="fa fa-trash" style="color: rgb(9, 9, 166);"></i>
                                         </div>
                                     </div>
@@ -370,21 +370,21 @@ a:hover {
                                                 <div class="product-left-details">
                                                     <div class="product-left-description">{{$chat->ad->title}}</div>
                                                     <div class="product-message">{{ $chat->latest_message }}</div>
-                                                    <div class="product-location">  <i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  {{$chat->ad->location_name ?? "No Location"}}  </div>
+                                                    <div class="product-location">   </div>
                                                 
                                                     
                                                 
                                                      <img
                                                          src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') ?: 'https://via.placeholder.com/30x30' }}"
                                                         alt="User Image" style="width:25px"
-                                                        class="avatar-img rounded-circle"> &nbsp;&nbsp;{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }}
+                                                        class="avatar-img rounded-circle"> &nbsp;&nbsp;{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }} &nbsp;&nbsp;<i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  {{$chat->ad->location_name ?? "No Location"}} 
                                                     
                                                  </div>
                                               <!--<div>
                                                     <div class="user-name-left">{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }}</div>
                                                     <div class="user-last-chat">{{ $chat->latest_message }}</div>
                                                 </div> -->
-                                                <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 3rem; margin-top: 5px;">
+                                                <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2rem; margin-top: 6px;">
 
 <!-- Top: Icons -->
                                                 <div style="display: flex; gap: 8px;">
@@ -477,7 +477,7 @@ a:hover {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="chat-header" style="background-color: #eafafe;height:7rem;">
+                                    <div class="chat-header" style="background-color: #fff;height:4rem; margin-top:7px;">
                                     <a href="{{ env('BASE_URL') }}ads/detail/{{ $chat->ad->id }}"  style="text-decoration: none; color: inherit; display: flex;">
                                    
                                         <div class="product-image-container">

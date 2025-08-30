@@ -393,7 +393,7 @@
         <div class="col-md-6 mx-auto" style="margin-bottom: 20px;">
             <div class="row">
         <div class="col-md-6">
-            <select class="country form-control " name="country" style=" font-size: 0.9rem;"  required>
+            <select class="country form-control " name="country" style=" font-size: 0.9rem;color:#000;"  required>
                 <Option selected>Country</Option>
                 @foreach($countries as $country)
                     <option value="{{ $country->id }}">{{ $country->name }}</option>
@@ -402,7 +402,7 @@
             
         </div>
         <div class="col-md-6">
-            <select class="city form-control floating" name="city" style=" font-size: 0.9rem;"  required>
+            <select class="city form-control floating" name="city" style=" font-size: 0.9rem;color:#000;"  required>
           
                 
                 <option selected>City</option>
