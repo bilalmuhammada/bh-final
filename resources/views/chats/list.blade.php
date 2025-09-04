@@ -58,15 +58,15 @@ select {
     .product-details{
         font-family: system-ui;
         letter-spacing:1px;
-        font-size: 10px;
+        font-size: 18px;
         margin-left: 18px;
     }
     .product-image{
         
 
         border-radius: 7px;
-        height: 50px;
-        width: 100px;
+        height: 132px;
+        width: 214px;
 
     }
     .hiddencheck{
@@ -82,6 +82,7 @@ select {
     
     .product-price{
         margin-top: 5px;
+        margin-bottom: 3rem;
         font-weight: 900;
 
     }
@@ -144,7 +145,7 @@ select {
     .chat-title:not(:last-child) {
         border-bottom: 1px solid #ddd;
         padding-bottom: 10px;
-        margin-bottom: 10px;
+       
     }
 
     
@@ -272,7 +273,7 @@ a:hover {
 }
 
  .select2-results__option {
-    padding: 0px 2px 0px 9px !important;
+    padding: 0px 2px 0px 5px !important;
     font-weight: 100 !important;
 }
 /*.select2-dropdown, .select2-dropdown--below {
@@ -377,7 +378,8 @@ a:hover {
                                                      <img
                                                          src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') ?: 'https://via.placeholder.com/30x30' }}"
                                                         alt="User Image" style="width:25px"
-                                                        class="avatar-img rounded-circle"> &nbsp;&nbsp;{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }} &nbsp;&nbsp;<i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  {{$chat->ad->location_name ?? "No Location"}} 
+                                                        class="avatar-img rounded-circle"> &nbsp;&nbsp; <span> {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }} </span>  &nbsp;&nbsp;<i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  <span>  {{ \Illuminate\Support\Str::limit($chat->ad->location_name ?? 'No Location', 4, '..') }}
+                                                        </span>
                                                     
                                                  </div>
                                               <!--<div>
@@ -477,7 +479,7 @@ a:hover {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="chat-header" style="background-color: #fff;height:4rem; margin-top:7px;">
+                                    <div class="chat-header" style="background-color: #fff;height:9rem; margin-top:7px;">
                                     <a href="{{ env('BASE_URL') }}ads/detail/{{ $chat->ad->id }}"  style="text-decoration: none; color: inherit; display: flex;">
                                    
                                         <div class="product-image-container">
@@ -647,7 +649,18 @@ $(document).ready(function () {
 
  $(document).ready(function () {
 
-
+    $('.hiddentrash .fa-trash').on('click', function() {
+        if (!$('input[type="checkbox"]').is(':checked')) {
+            // Code to return to edit mode or perform your specific action
+              $('.edit').show()
+            $('.hiddencheck').hide();
+            $('.hiddentrash').hide();
+            console.log('Edit mode activated');
+            // Your edit mode logic here
+        }else{
+       
+        }
+    });
     $('#filter-dropdown').on('change', function() {
         var filterValue = $(this).val();
 

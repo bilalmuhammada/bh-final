@@ -899,12 +899,10 @@ label{
         <div class="row mb-4" style="width: 98%;margin-top: 14px;">
             <div class="col">
                 <select name="filtergraph" id="filtergraph" class="form-control filtergraph">
-                    <option value="saleads">Sales - Ads</option>
-                    <option value="saleuser">Sales - Users</option>
-                    <option value="saletotal">Sales - Total</option>
-                    <option value="countads" >Counts - Ads</option>
-                    <option value="countuser" >Counts - Users</option>
-                    <option value="countotal">Counts - Total</option>
+                    <option value="sale">Sales </option>
+                    
+                   
+                    <option value="count">Counts</option>
                     
                 </select>
             </div>
@@ -1180,12 +1178,9 @@ function render_monthly_sale_chart() {
 
     // Decide Y-axis title based on filter
     
-    var yAxisTitle = (filterValue === "saleads") ? "Sales - Ads"
-                   : (filterValue === "saleuser") ? "Sales - Users"
-                   : (filterValue === "saletotal") ? "Sales - Total"
-                   : (filterValue === "countads") ? "Counts - Ads"
-                   : (filterValue === "countuser") ? "Counts - Users"
-                   : (filterValue === "countotal") ? "Counts - Total"
+    var yAxisTitle = (filterValue === "sale") ? "Sales"
+                  
+                   : (filterValue === "count") ? "Counts"
                    : "";
 
     $.ajax({

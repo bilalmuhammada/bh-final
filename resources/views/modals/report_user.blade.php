@@ -10,6 +10,8 @@
 #report-ad-form1 .form-check{
     padding: 0.3rem 0.3rem 0.4rem 1.5rem !important;
 }
+
+
 .report-ad-form {
             width: 60rem;
             margin-left: 1px;
@@ -22,6 +24,9 @@
             color: blue;
             font-size: 20px;
         }
+        .colorchange:focus{
+            border: 1px solid goldenrod !important;
+        }
         .form-control {
             margin-top: 7px;
     margin-left: 1px;
@@ -31,6 +36,9 @@
             margin-right:22px;
             margin-top: -2.5rem;
             border-top: 0px solid transparent;
+        }
+        .form-check-input{
+            margin-top: 0.1rem !important;
         }
         </style>
     <div class="modal-dialog modal-sm" style="border:0px solid red;width:232px;margin-top:9%;">
@@ -97,8 +105,8 @@
                     <div class="col-md-12">
                         <div class="row">
                             <label for=""></label>
-                            <textarea name="description"  class="form-control" placeholder="Reason..."
-                                      style="border:2px solid #eee;font-size: 14px;border: 1px solid #eee;color:#000" cols="12" rows="2" maxlength="80"
+                            <textarea name="description"  class="form-control colorchange" placeholder="Reason..."
+                                      style="border:2px solid #eee;font-size: 14px;border: 1px solid blue;color:#000" cols="12" rows="2" maxlength="80"
                                       ></textarea>
                         </div>
                     </div>
