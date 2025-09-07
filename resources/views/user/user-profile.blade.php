@@ -121,10 +121,11 @@ width: 225px !important;
 @section('content')
     <!-- form content start -->
 
+
     <div class="cont-w" style="margin-bottom:30px;">
     <div class="col-md-12" style="margin-left:42px;">
     <span style="font-size: 12px ; color: #0000ff;">
-  <a href="{{ url('home') . '?country=' . request()->country_id }}" style="color: inherit; text-decoration: none;">Home</a> > Profile
+  <a href="{{ url('home') . '?country=' . request()->country }}" style="color: inherit; text-decoration: none;">Home</a> > Profile
 </span>
 
         {{-- <h4><b>My Profile</b></h4> --}}
