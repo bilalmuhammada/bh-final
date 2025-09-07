@@ -123,7 +123,7 @@ width: 225px !important;
 
     <div class="cont-w" style="margin-bottom:30px;">
     <div class="col-md-12" style="margin-left:42px;">
-        <span style="font-size: 12px ; color: #0000ff;"><a href="{{ env('BASE_URL') . 'home'}}" style="color: inherit; text-decoration: none;">Home</a> > Profile</span>
+        <span style="font-size: 12px ; color: #0000ff;"><a href="{{ url('/home') }}" style="color: inherit; text-decoration: none;">Home</a> > Profile</span>
 
         {{-- <h4><b>My Profile</b></h4> --}}
         <h6 style="font-size:12px;font-weight: bolder; "> Hey, {{ session()->get('user')->first_name }}</h6>

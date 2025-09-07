@@ -17,13 +17,13 @@
    }
  
   .categoryname:hover {
-    animation: shake1 1.3s linear infinite;
+    animation: shake1 2s linear infinite;
    }
     @keyframes shake1 {
   0% { transform: translateX(0); }
-  25% { transform: translateX(-10px); }
-  50% { transform: translateX(10px); }
-  75% { transform: translateX(-10px); }
+  25% { transform: translateX(-20px); }
+  50% { transform: translateX(20px); }
+  75% { transform: translateX(-20px); }
   100% { transform: translateX(0); }
 }
 </style>
