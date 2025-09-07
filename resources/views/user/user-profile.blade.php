@@ -585,29 +585,31 @@ document.getElementById('profile_image').addEventListener('change', function() {
         var base65Image = '';
         // fetching user data
         $(document).ready(function () {
-            $.ajax({
-                url: api_url + 'user-data',
-                type: 'post',
-                dataType: "JSON",
-                success: function (response) {
-                    if (response.status) {
-                        $('#gender').val(response.user.gender);
-                        $('#dob').val(response.user.dob);
-                        if (response.user.weekly_newsletter === 1) {
-                            $('#weekly_newsletter').prop('checked', true);
-                        }
-                        if (response.user.offers_and_bargains === 1) {
-                            $('#offers_and_bargains').prop('checked', true);
-                        }
-                    } else {
-                        showAlert("error", response.message);
-                    }
-                },
-                error: function (response) {
+          //  $.ajax({
+            //    url: api_url + 'user-data',
+               //   type: 'post',
+               //   dataType: "JSON",
+                //  success: function (response) {
+                //      if (response.status) {
+                 //         $('#gender').val(response.user.gender);
+                  //        $('#dob').val(response.user.dob);
+                  //        if (response.user.weekly_newsletter === 1) {
+                  //            $('#weekly_newsletter').prop('checked', true);
+                  //        }
+                   //       if (response.user.offers_and_bargains === 1) {
+                    //          $('#offers_and_bargains').prop('checked', true);
+                  //        }
+                   //   } else {
+                    //      showAlert("error", response.message);
+                 //     }
+               //   },
+               //   error: function (response) {
                     // showAlert("error", "Server Error");
-                }
-            });
+                //  }
+            //  });
         });
+
+
         // $(document).on('click', '.verify-account-btn', function () {
         //     $.ajax({
         //         url: api_url + 'verify-email',
