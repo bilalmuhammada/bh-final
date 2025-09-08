@@ -93,7 +93,7 @@ Route::middleware('check_user_auth')->group(function () {
 });
 
 
-Route::get('/chats/', [\App\Http\Controllers\ChatController::class, 'index']);
+Route::get('/chat/', [\App\Http\Controllers\ChatController::class, 'index'])->name('chats');
 Route::post('/chat/favorite',[\App\Http\Controllers\ChatController::class,'toggleFavorite'])->name('chat.favorite');
 Route::post('/chat/block', [\App\Http\Controllers\ChatController::class,'toggleBlock'])->name('chat.block');
 

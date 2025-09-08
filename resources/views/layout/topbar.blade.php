@@ -561,12 +561,9 @@
                                 </div>
                             </span>
                            <span style="padding:8px 15px 0px 15px;text-align:center;">
-                                <a
-                                
-                                href="{{ env('BASE_URL') . 'chats?country=' . request()->country . '&city=' . request()->city}}"  
-                                   >
-                                    Chats 
-                                </a>
+                           <a href="{{ route('chats', ['country' => request()->country, 'city' => request()->city]) }}">
+    <span class="colorChange" style="color: #000; font-size: 14px;">Chats</span>
+</a>
                                 <div class="dropdown-menu" aria-labelledby="chat" style="padding: 10px;width:auto;">
                                     @if (session()->has('user'))
                                         <!---------inner area  type="button" id="chat" data-toggle="dropdown"
