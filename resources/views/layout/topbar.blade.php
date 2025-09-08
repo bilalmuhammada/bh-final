@@ -29,7 +29,7 @@
         padding: 0px !important;
   min-width: 4rem !important;
     }
-    .colorChange:hover{
+    .colorChange_top:hover{
         color: blue !important;
 
     }
@@ -312,7 +312,7 @@
                                    aria-expanded="false">
                                     {{-- <img src="{{ asset('images/my-notifications.svg')}}" width="17" height="17"> --}}
                                     <div>
-                                        <span class="colorChange" style="color: #000;font-size:14px;">Notifications</span>
+                                        <span class="colorChange_top" style="color: #000;font-size:14px;">Notifications</span>
                                     </div>
                                 </a>
                                 <div class="dropdown-menu"  id="notifications" aria-labelledby="notifications"
@@ -466,7 +466,7 @@
                                 <a type="button" id="favorite" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">
                                     {{-- <img src="{{ asset('images/my-favorites.svg')}}" width="17" height="17"> --}}
-                                    <div><span class="colorChange" style="color: #000; font-size: 14px; ">Favorites</span></div>
+                                    <div><span class="colorChange_top" style="color: #000; font-size: 14px; ">Favorites</span></div>
                                 </a>
                                 {{-- <div class="dropdown-menu" aria-labelledby="favorite"
                                      style="padding: 10px;width:250px;">
@@ -562,7 +562,7 @@
                             </span>
                            <span style="padding:8px 15px 0px 15px;text-align:center;">
                            <a href="{{ route('chats', ['country' => request()->country, 'city' => request()->city]) }}">
-    <span class="colorChange" style="color: #000; font-size: 14px;">Chats</span>
+    <span class="colorChange_top" style="color: #000; font-size: 14px;">Chats</span>
 </a>
                                 <div class="dropdown-menu" aria-labelledby="chat" style="padding: 10px;width:auto;">
                                     @if (session()->has('user'))
@@ -631,7 +631,7 @@
                     <a href="{{ env('BASE_URL') . 'user/ads?country=' . request()->get('country') . '&city=' . request()->get('city') }}" 
                         type="button" 
                         id="ads"
-                        class="colorChange" 
+                        class="colorChange_top" 
                         style="color: #000; font-size: 14px;"
                         aria-haspopup="true"
                         aria-expanded="false">
@@ -690,7 +690,7 @@
                                          style="border-radius: 50%;border:0px solid red; margin-right: 6px; margin-bottom:6px;">
                                 </a>
                                 <span class="dropdown" style="margin-top: 6px;">
-                                        <span class="colorChange" style="width:;display:inline;border:0px solid red;" type="button"
+                                        <span class="colorChange_top" style="width:;display:inline;border:0px solid red;" type="button"
                                               id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                               aria-expanded="false">
                                             {{session()->get('user')->first_name}} {{session()->get('user')->last_name}}
