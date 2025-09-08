@@ -29,7 +29,7 @@ select {
     .btn:focus, .btn.focus {
         box-shadow:none;
     }
-    .dropup, .dropright, .dropdown, .dropleft {
+   /* .dropup, .dropright, .dropdown, .dropleft {
         position:static !important;    }
     /* .dropdown:hover .dropdown-menu{
         display:none !important;
