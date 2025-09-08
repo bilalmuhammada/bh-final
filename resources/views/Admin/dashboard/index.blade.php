@@ -15,10 +15,6 @@ width:12.5rem !important;
 .ui-datepicker table {
     font-size: 0.6rem !important;
 }
-    .apexcharts-legend-text{
-        margin-left: 4px !important;
-
-    }
     .select2-search__field:focus{
 border: 1px solid blue !important;
     }
@@ -174,9 +170,9 @@ label{
    }
   @keyframes shake {
     0% { transform: translateX(0); }
-    25% { transform: translateX(-10px); }
-    50% { transform: translateX(10px); }
-    75% { transform: translateX(-10px); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
     100% { transform: translateX(0); }
   }
 
