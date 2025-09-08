@@ -404,7 +404,7 @@ a:hover {
                                                         <i class="fa fa-ban" style="color: {{ $chat->is_blocked ? 'goldenrod' : 'grey' }} !important;"></i>
                                                     </button>
                                                 </div>
-
+                                                @php dd($chat); @endphp
                                                 <!-- Bottom: Time & Unread badge -->
                                                 <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #666;">
                                                     <div class="badge bgg-yellow badge-pill unread-count" 
@@ -416,7 +416,7 @@ a:hover {
                                                 </div>
 
                                                 </div>
-                                                @php dd($chat); @endphp
+                                               
                                                    
                                               
                                             </div>
