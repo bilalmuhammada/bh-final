@@ -563,10 +563,9 @@
                            <span style="padding:8px 15px 0px 15px;text-align:center;">
                                 <a
                                 
-                                href="{{ env('BASE_URL') . 'chats?country=' . request()->country . '&city=' . request()->city}}"  
+                                href="{{ rtrim(env('BASE_URL') . 'chats?country=' . request()->country . '&city=' . request()->city)}}"  
                                    >
-                                    {{-- <img src="{{ asset('images/my-chats.svg')}}" width="17" height="17"> --}}
-                                    <div><span  class="colorChange" style="color: #000;font-size: 14px;">   Chats  </span></div>
+                                    <span  class="colorChange" style="color: #000;font-size: 14px;">   Chats </span>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="chat" style="padding: 10px;width:auto;">
                                     @if (session()->has('user'))
