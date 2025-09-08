@@ -378,15 +378,12 @@ a:hover {
                                                      <img
                                                          src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') ?: 'https://via.placeholder.com/30x30' }}"
                                                         alt="User Image" style="width:25px"
-                                                        class="avatar-img rounded-circle"> &nbsp;&nbsp; <span> {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') ?? " "}} </span>  &nbsp;&nbsp;<i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  <span>  {{ \Illuminate\Support\Str::limit($chat->ad->location_name ?? 'No Location', 4, '..') }}
+                                                        class="avatar-img rounded-circle"> &nbsp;&nbsp; <span> {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') ?? " "}} </span>  &nbsp;&nbsp;<i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  <span> 
                                                         </span>
                                                     
                                                  </div>
-                                                 @php dd($chat,"sss"); @endphp
-                                              <!--<div>
-                                                    <div class="user-name-left">{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }}</div>
-                                                    <div class="user-last-chat">{{ $chat->latest_message }}</div>
-                                                </div> -->
+                                          
+                                              
                                                 <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2rem; margin-top: 6px;">
 
 <!-- Top: Icons -->
