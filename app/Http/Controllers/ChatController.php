@@ -18,6 +18,8 @@ class ChatController extends Controller
         
 
 
+        dd("dd");
+
     
         if($request->i){
         Chat::updateOrCreate(
