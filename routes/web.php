@@ -54,6 +54,8 @@ Route::middleware('check_user_auth')->group(function () {
         Route::get('/ads', [UserController::class, 'myAds']);
         Route::get('/change-password', [AuthController::class, 'changePassword']);
         Route::get('/searches', [UserController::class, 'mySearches']);
+
+       Route::get('/chat', [\App\Http\Controllers\ChatController::class, 'index'])->name('chats');
     });
 
 
@@ -93,7 +95,6 @@ Route::middleware('check_user_auth')->group(function () {
 });
 
 
-Route::get('/user/chat/', [\App\Http\Controllers\ChatController::class, 'index'])->name('chats');
 Route::post('/chat/favorite',[\App\Http\Controllers\ChatController::class,'toggleFavorite'])->name('chat.favorite');
 Route::post('/chat/block', [\App\Http\Controllers\ChatController::class,'toggleBlock'])->name('chat.block');
 
