@@ -563,9 +563,9 @@
                            <span style="padding:8px 15px 0px 15px;text-align:center;">
                                 <a
                                 
-                                href="{{ rtrim(env('BASE_URL') . 'chats?country=' . request()->country . '&city=' . request()->city)}}"  
+                                href="{{ env('BASE_URL') . 'chats?country=' . request()->country . '&city=' . request()->city}}"  
                                    >
-                                    <span  class="colorChange" style="color: #000;font-size: 14px;">   Chats </span>
+                                    Chats 
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="chat" style="padding: 10px;width:auto;">
                                     @if (session()->has('user'))
