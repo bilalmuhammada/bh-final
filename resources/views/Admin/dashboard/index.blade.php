@@ -1199,15 +1199,15 @@ const year = 2025;
             var options = {
                 series: [
                     {
-                        name: (filterValue.includes("sales") ? "Sales - " : "Counts - ") + "Ads",
+                        name: (filterValue.includes("sale") ? "Sales - " : "Counts - ") + "Ads",
                         data: [30, 40, 35, 50, 49, 60, 70, 91],
                         color: '#32CD32'
                     }, {
-                        name: (filterValue.includes("sales") ? "Sales - " : "Counts - ") + "Users",
+                        name: (filterValue.includes("sale") ? "Sales - " : "Counts - ") + "Users",
                         data: [30, 40, 35, 50, 49, 60, 70, 91],
                         color: '#0000ff'
                     }, {
-                        name: (filterValue.includes("sales") ? "Sales - " : "Counts - ") + "Total",
+                        name: (filterValue.includes("sale") ? "Sales - " : "Counts - ") + "Total",
                         data: [30, 40, 35, 50, 49, 60, 70, 91],
                         color: '#DAA520'
                     }
