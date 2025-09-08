@@ -389,6 +389,7 @@ a:hover {
                                                 <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2rem; margin-top: 6px;">
 
 <!-- Top: Icons -->
+@php dd($chat); @endphp
                                                 <div style="display: flex; gap: 8px;">
                                                     <button class="btn btn-link favorite-chat" 
                                                             title="{{ $chat->is_favorite ? 'Unfavourite' : 'Favourite' }}" 
@@ -404,7 +405,7 @@ a:hover {
                                                         <i class="fa fa-ban" style="color: {{ $chat->is_blocked ? 'goldenrod' : 'grey' }} !important;"></i>
                                                     </button>
                                                 </div>
-                                                @php dd($chat); @endphp
+                                               
                                                 <!-- Bottom: Time & Unread badge -->
                                                 <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #666;">
                                                     <div class="badge bgg-yellow badge-pill unread-count" 
