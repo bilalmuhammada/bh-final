@@ -369,16 +369,16 @@ a:hover {
                                             </div>
                                             <div class="media-body flex-grow-1">
                                                 <div class="product-left-details">
-                                                    <div class="product-left-description">{{$chat->ad->title}}</div>
-                                                    <div class="product-message">{{ $chat->latest_message }}</div>
+                                                    <div class="product-left-description">{{$chat->ad->title ?? " "}}</div>
+                                                    <div class="product-message">{{ $chat->latest_message ?? " " }}</div>
                                                     <div class="product-location">   </div>
                                                 
                                                     
-                                                 
+                                                    @php dd($chat,"sss"); @endphp
                                                      <img
                                                          src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') ?: 'https://via.placeholder.com/30x30' }}"
                                                         alt="User Image" style="width:25px"
-                                                        class="avatar-img rounded-circle"> &nbsp;&nbsp; <span> {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }} </span>  &nbsp;&nbsp;<i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  <span>  {{ \Illuminate\Support\Str::limit($chat->ad->location_name ?? 'No Location', 4, '..') }}
+                                                        class="avatar-img rounded-circle"> &nbsp;&nbsp; <span> {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') ?? " "}} </span>  &nbsp;&nbsp;<i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  <span>  {{ \Illuminate\Support\Str::limit($chat->ad->location_name ?? 'No Location', 4, '..') }}
                                                         </span>
                                                     
                                                  </div>
@@ -389,7 +389,7 @@ a:hover {
                                                 <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2rem; margin-top: 6px;">
 
 <!-- Top: Icons -->
-@php dd($chat); @endphp
+
                                                 <div style="display: flex; gap: 8px;">
                                                     <button class="btn btn-link favorite-chat" 
                                                             title="{{ $chat->is_favorite ? 'Unfavourite' : 'Favourite' }}" 
