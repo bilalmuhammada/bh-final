@@ -35,7 +35,7 @@ class ChatController extends Controller
         if ($request->user_id) {
                 $chats = $chats->where('second_user_id', '=', $request->user_id);
         } 
-          dd( $chats );
+   
 
         if (session()->get('role') == 'vendor') {
             $chats = $chats->where('status', '=', 'accepted');
@@ -64,7 +64,7 @@ class ChatController extends Controller
             }
         }
 
-       
+       dd($chats);
         return view('chats.list')->with([
             'chats' => $chats,
             'login_user_id' => SiteHelper::getLoginUserId()
