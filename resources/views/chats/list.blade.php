@@ -378,7 +378,7 @@ a:hover {
                                                      <img
                                                          src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') ?: 'https://via.placeholder.com/30x30' }}"
                                                         alt="User Image" style="width:25px"
-                                                        class="avatar-img rounded-circle"> &nbsp;&nbsp; <span> {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') ?? " "}} </span>  &nbsp;&nbsp;<i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  <span>  {{ \Illuminate\Support\Str::limit(data_get($chat, 'ad.location_name', 'No Location'), 4, '..') }}
+                                                        class="avatar-img rounded-circle"> &nbsp;&nbsp; <span> {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') ?? " "}} </span>  &nbsp;&nbsp;<i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  <span>  {{ $chat->ad->location_name ? substr($chat->ad->location_name, 0, 4) . (strlen($chat->ad->location_name) > 4 ? '..' : '') : 'No Location' }}
 
                                                         </span>
                                                     
