@@ -374,7 +374,7 @@ a:hover {
                                                     <div class="product-location">   </div>
                                                 
                                                     
-                                                    @php dd($chat,"sss"); @endphp
+                                                    
                                                      <img
                                                          src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') ?: 'https://via.placeholder.com/30x30' }}"
                                                         alt="User Image" style="width:25px"
@@ -382,6 +382,7 @@ a:hover {
                                                         </span>
                                                     
                                                  </div>
+                                                 @php dd($chat,"sss"); @endphp
                                               <!--<div>
                                                     <div class="user-name-left">{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }}</div>
                                                     <div class="user-last-chat">{{ $chat->latest_message }}</div>
