@@ -60,7 +60,7 @@ margin-left: -7px;
         color: blue !important;
     }
     .lobibox-notify-success{
-        width: 180px !important
+        width: 180px;
     }
     .lobibox-notify-error{
         width: 180px !important
@@ -336,7 +336,7 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-12 text-left">
                                         <a class="btn add-list-button update-profile-btn update-profile-submit-btn"
-                                                style="padding: 8px;font-size:15px;border-radius:0.3rem;margin-left: 15rem;">Update 
+                                                style="padding: 8px;font-size:15px;border-radius:0.3rem;margin-left: 15rem;">Update
                                         </a>
                                     </div>
                                 </div>
@@ -585,7 +585,7 @@ document.getElementById('profile_image').addEventListener('change', function() {
                 }
             },
             error: function(xhr) {
-                showAlert("error", "Error updating profile image");
+                showAlert("error", "Error");
             }
         });
     };

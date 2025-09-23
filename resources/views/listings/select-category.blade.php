@@ -13,7 +13,7 @@
     }
     .shaking {
     display: inline-block;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.25s ease-in-out;
    }
  
   .categoryname:hover {
@@ -21,9 +21,9 @@
    }
     @keyframes shake1 {
   0% { transform: translateX(0); }
-  25% { transform: translateX(-20px); }
-  50% { transform: translateX(20px); }
-  75% { transform: translateX(-20px); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
   100% { transform: translateX(0); }
 }
 </style>
