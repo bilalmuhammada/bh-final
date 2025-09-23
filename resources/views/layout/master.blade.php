@@ -127,7 +127,7 @@ $second = $parts[1] ?? null;
 <style>
      .select2-container--default .select2-selection--single .select2-selection__rendered{
         color: blue !important;
-        padding-left:13px !important;
+        padding-left:11px !important;
     }
 
     .disabled {

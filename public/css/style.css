@@ -6595,7 +6595,7 @@ border: 1px solid #2d11e7;
         background: #fff;
         /* box-shadow: 0px 4px 4px #f5f8ff; */
         /* margin: 10px; */
-        padding: 4px 15px;
+        padding: 4px 0px 4px 21px;
         transition: all 0.2s ease 0s;
     }
     
@@ -6662,7 +6662,7 @@ border: 1px solid #2d11e7;
     }
     
     .chat-cont-left .chat-users-list a.media:hover {
-        background-color: rgb(238, 255, 255);;
+        background-color:#eafafe;
     }
     
     .chat-cont-left .chat-users-list a.media.read-chat .media-body>div:last-child .last-chat-time {
@@ -6689,7 +6689,8 @@ border: 1px solid #2d11e7;
         align-items: center;
         background: #fff;
         border: 1px solid #F4EEFF;
-        box-shadow: 0px 4px 4px #F5F8FF;
+        border-right: none;
+        box-shadow: 0px 0px 0px #F5F8FF;
         border-radius: 5px;
         display: -webkit-box;
         display: -ms-flexbox;

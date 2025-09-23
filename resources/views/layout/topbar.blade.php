@@ -715,7 +715,7 @@
                         @endif
                         <span style="padding:4px 15px;text-align:center;font-size:14px !important;">
                             <a class="add-list-button add-listing-btn"
-                               style="padding: 7px 8px;border-radius: 0.3rem;">+ Place Your Ad</a>
+                               style="padding: 7px 8px;border-radius: 0.3rem;color: #fff !important;">+ Place Your Ad</a>
                         </span>     
             </div>
 
@@ -756,7 +756,7 @@
                         <a class="register-btn" style="padding: 10px;">Register</a>
                     @endif
                     <a class="add-list-button add-listing-btn"
-                       style="padding: 11px 8px;border-radius: 0.3rem;">+ Place Your Ad</a>
+                       style="padding: 11px 8px;border-radius: 0.3rem;color: #fff !important;">+ Place Your Ad</a>
                 </div>
             </div>
         </div>

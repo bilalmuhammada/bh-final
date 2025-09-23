@@ -6,12 +6,12 @@ $(document).ready(function () {
     });
 });
 
-function showAlert(type = 'success', msg = 'Notification', delay = 1000) {
+function showAlert(type = 'success', msg = 'Notification', delay = 144000) {
     Lobibox.notify(type, {
         size: 'mini',
         msg: msg,
         icon: false,
-        width: 135,
+        width: 105,
         position: 'top right', // Notification position
         delay:delay,
 

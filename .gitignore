@@ -5,7 +5,8 @@ yarn-error.log
 
 public/index.php
 
-
+/storage/
+/storage/framework/sessions
 # Laravel 4 specific
 bootstrap/compiled.php
 app/storage/

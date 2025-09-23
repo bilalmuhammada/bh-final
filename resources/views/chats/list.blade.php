@@ -56,22 +56,25 @@ select {
     }
 
     .product-details{
-        font-family: system-ui;
+       
         letter-spacing:1px;
-        font-size: 18px;
+        font-size: 15px;
         margin-left: 18px;
     }
     .product-image{
         
 
         border-radius: 7px;
-        height: 132px;
-        width: 214px;
+        height: 87px;
+        margin-top: 4px;
+        width: 136px;
 
     }
     .hiddencheck{
+        
+        font-size: 12px;
         margin-left: -19px;
-        margin-top: 9px;
+        margin-top: 12px;
     }
     .product-left-image{
         margin-left: 2px;
@@ -81,9 +84,11 @@ select {
     }
     
     .product-price{
-        margin-top: 5px;
-        margin-bottom: 3rem;
-        font-weight: 900;
+        margin-bottom: 18px;
+       
+        font-weight: 600;
+    color: black;
+        
 
     }
     .emojionearea.focused {
@@ -193,7 +198,9 @@ color: goldenrod !important;
         align-items: center;
         margin-top: 5px;
     }
-    
+    .bg-color:hover{
+        background-color: #eafafe !important;
+    }
     .unread-count {
         background-color: #ffc107;
         color: #333;
@@ -232,12 +239,15 @@ select::-ms-expand {
     margin-left: 25px;
 
 }
+input.form-control-search:focus {
+  border-color: goldenrod !important;
 
+} 
 .form-control-search{
     margin-top: 7px  !important;
     margin-left: 10px  !important;
-    width: 94% !important;
-    background-color: #eafafe !important;
+    width: 93% !important;
+    border:1px solid #000fff !important;
     padding-left: 30px;
 }
 .position-relative {
@@ -272,26 +282,87 @@ a:hover {
     margin-bottom: 4px;
 }
 
+.product-description{
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 6px;
+
+}
+.dropdown:hover .dropdown-menu {
+    display: none !important; /* Prevent dropdown from showing on hover */
+}
  .select2-results__option {
     padding: 0px 2px 0px 5px !important;
     font-weight: 100 !important;
 }
-/*.select2-dropdown, .select2-dropdown--below {
-    width: 97px !important;
-} 
-*/
+.dropdown:hover .dropdown-menu {
+    display: none !important; /* Prevent dropdown from showing on hover */
+}
+.dropdown:hover .dropdown-menu {
+    display: block !important; /* This makes the dropdown show on hover */
+}
 .colorchangecompany:hover ,
 .colorchangecompany:hover span 
 {
     color: blue !important;
     text-decoration: none; /* optional, to remove underline */
 }
+/* Container */
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown menu */
+.custom-dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  font-size: 13px;
+  top: 100%;
+  min-width: 78px;
+ 
+ 
+  z-index: 1000;
+}
+
+/* Show menu */
+.custom-dropdown-menu.show {
+  display: block;
+}
+
+/* Dropdown items */
+.custom-dropdown-menu a {
+  display: block;
+ 
+  color: #333;
+  text-decoration: none;
+}
+
+.custom-dropdown-menu a:hover {
+    background: #ffff;
+    color: #000fff !important;
+}
+
+/* Button styling */
+#userOptionsMenu {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+#userOptionsMenu:hover,
+#userOptionsMenu:focus {
+  color: inherit;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+}
 
     </style>
 @section('content')
-@php
-// dd('hhh');
-@endphp
+
     <div class="content-chat"
          style="background-color:#eee;min-height: 500px !important;padding-top:5px;padding-bottom:10px;">
         <div class="container-fluid">
@@ -324,7 +395,7 @@ a:hover {
                                
                                 <div class="col-md-2 hiddentrash">
                                     <div class="row">
-                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 12rem;">
+                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 11.6rem;">
                                             <i class="fa fa-trash" style="color: rgb(9, 9, 166);"></i>
                                         </div>
                                     </div>
@@ -462,33 +533,40 @@ a:hover {
                                             </div>
                                       
                                             <div class="media-body flex-grow-1">
-                                                <div class="user-name colorchangecompany">  {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }} - <span > {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'company_name') }} </span> </div>
+                                                <div class="user-name colorchangecompany">  {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }} </span> </div>
                                                
                                             </div>
                                         </div>
 
-                                        <div class="dropdown">
-                                            <button class="btn btn-link" type="button" id="userOptionsMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fa fa-ellipsis-v"></i>
-                                            </button>
-                                            
-                                            <!-- Dropdown menu options -->
-                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userOptionsMenu">
-                                                <a class="dropdown-item block-chat "    data-chat-id="{{ $chat->id }}" href="#" >Block User</a>
-                                                <a class="dropdown-item report-user-btn" data-bs-toggle="modal" data-bs-target="#reportUserModal" href="#">Report User</a>
-                                            </div>
-                                        </div>
+                                        <div class="custom-dropdown">
+  <button id="userOptionsMenu">
+    <i class="fa fa-ellipsis-v"></i>
+  </button>
+
+  <div class="custom-dropdown-menu" id="optionsMenu">
+    <a href="#" class="block-chat" data-chat-id="{{ $chat->id }}">Block User</a>
+    <a href="#" class="report-user-btn" data-bs-toggle="modal" data-bs-target="#reportUserModal">Report User</a>
+  </div>
+</div>
+
                                     </div>
-                                    <div class="chat-header" style="background-color: #fff;height:9rem; margin-top:7px;">
+                                    <div class="chat-header bg-color" style="background-color: #fff;height:6.5rem; margin-top:11px;width: 70%; ">
                                     <a href="{{ env('BASE_URL') }}ads/detail/{{ $chat->ad->id }}"  style="text-decoration: none; color: inherit; display: flex;">
                                    
                                         <div class="product-image-container">
                                         <img src="{{$chat->ad->main_image_url ??  'https://via.placeholder.com/30x30'}}" alt="Car Image" class="product-image">
                                     </div>
                                         <div class="product-details">
-                                            <div class="product-description">{{$chat->ad->title}}</div>
-                                            <div class="product-price">AED {{$chat->ad->price}}</div>
-                                            <div class="product-location">  <i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i> {{$chat->ad->location_name}} • {{ \Carbon\Carbon::parse($chat->ad->created_at)->format('d-M-Y') }}</div>
+                                        <div class="product-description" id="productDescription" style="margin-bottom: 10px;white-space: nowrap;">{{$chat->ad->title}}</div> <!-- Added spacing below title -->
+                                        <div class="product-price" style="margin-bottom: 18px;">AED {{$chat->ad->price}}</div> <!-- Added spacing below price -->
+
+                                        <div class="product-location">
+                                            <i class="fa fa-map-marker" style="margin-top: 0px; color: red;"></i>
+                                            <span>{{ $chat->ad->location_name }}</span>
+                                            <span style="margin:0px 0px 9px 11px; color:red">•</span> <!-- Increased spacing between location and date -->
+                                            <span>{{ \Carbon\Carbon::parse($chat->ad->created_at)->format('d-M-Y') }}</span>
+                                        </div>
+                                       
                                         </div>
                                     
                                     </a>
@@ -550,7 +628,7 @@ a:hover {
                                                 <button type="button" id="msg-send-btn" class="btn btn-primary msg-send-btn"
                                                 data-user-id="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
                                                 data-chat-id="{{ $chat->id }}"
-                                                style="position: absolute; right: 41px; top: 12px; background-color: transparent; border: none;">
+                                                style="position: absolute; right: 36px; top: 9px; background-color: transparent; border: none;">
                                             <i class="fa fa-arrow-circle-up mgn-send-color" aria-hidden="true"
                                                style="font-size: 30px; background-color: none;"></i>
                                         </button>
@@ -581,6 +659,12 @@ a:hover {
         </div>
     </div>
 @endsection
+<!-- Magnific Popup CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+
+<!-- Magnific Popup JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
 
 @section('page_scripts')
@@ -592,6 +676,19 @@ a:hover {
     $(document).on('click', '.hiddencheck', function(e) {
         e.stopPropagation();  // Prevent the click from triggering the anchor link
     });
+
+    const btn = document.getElementById('userOptionsMenu');
+const menu = document.getElementById('optionsMenu');
+
+btn.addEventListener('click', function(e) {
+  e.stopPropagation();
+  menu.classList.toggle('show');
+});
+
+// Close dropdown if clicked outside
+document.addEventListener('click', function() {
+  menu.classList.remove('show');
+});
 
     function checkInput() {
         var inputMessage = $('.emojionearea-editor').text().trim();
@@ -610,6 +707,12 @@ $(document).on("click", "#userOptionsMenu", function() {
 $(".dropdown-menu-right").toggleClass("show");
 });
 $(document).ready(function () {
+        const productDescription = $('#productDescription');
+        if (productDescription.text().length > 40) {
+            productDescription.css('font-size', '11px'); // Decrease font size
+        } else {
+            productDescription.css('font-size', '15px'); // Default font size
+        }
  
     $(".chat").select2({
            
@@ -627,14 +730,7 @@ $(document).ready(function () {
      
 
 
-
-            $('.gallerys').magnificPopup({
-                type: 'image',
-                delegate: 'a',
-                gallery: {
-                    enable: true
-                }
-            });
+ 
         
         // alert('ssss');
             @if(request()->i)
@@ -648,6 +744,13 @@ $(document).ready(function () {
         });
 
  $(document).ready(function () {
+    $('.gallerys').magnificPopup({
+    delegate: 'a', // child items selector
+    type: 'image',
+    gallery: {
+        enabled: true
+    }
+});
 
     $('.hiddentrash .fa-trash').on('click', function() {
         if (!$('input[type="checkbox"]').is(':checked')) {
