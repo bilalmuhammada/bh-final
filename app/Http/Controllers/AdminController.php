@@ -13,12 +13,12 @@ class AdminController extends Controller
     //
     public function index()
     {
-      
+        dd("dd");
         $users = User::get();
         $countries = Country::all();
 
 
-        dd( $users );
+       
         $data = [
             'countries'=> $countries,
             'menu' => 'dashboard',
