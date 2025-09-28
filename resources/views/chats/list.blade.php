@@ -44,9 +44,10 @@ select {
     .dropdown-menu a.dropdown-item:hover{
         color:blue !important;
     }
+    /* 
     .dropdown-menu a.dropdown-item{
-        padding:2px !important;
-    }
+        padding:2px ;
+    }*/
     .emojionearea .emojionearea-button>div, .emojionearea .emojionearea-picker .emojionearea-wrapper:after{
         filter: sepia(22%) saturate(904%) hue-rotate(12deg) !important;
     }
@@ -65,8 +66,8 @@ select {
         
 
         border-radius: 7px;
-        height: 87px;
-        margin-top: 4px;
+        height: 70px;
+        margin-top: 2px;
         width: 136px;
 
     }
@@ -77,14 +78,15 @@ select {
         margin-top: 12px;
     }
     .product-left-image{
+        margin-top: 7px;
         margin-left: 2px;
         border-radius: 5px;
         width: 85px;
-        height: 80px;
+        height: 70px;
     }
     
     .product-price{
-        margin-bottom: 18px;
+        margin-bottom: 15px;
        
         font-weight: 600;
     color: black;
@@ -245,7 +247,7 @@ input.form-control-search:focus {
 } 
 .form-control-search{
     margin-top: 7px  !important;
-    margin-left: 10px  !important;
+    margin-left: 11px  !important;
     width: 93% !important;
     border:1px solid #000fff !important;
     padding-left: 30px;
@@ -265,6 +267,12 @@ input.form-control-search:focus {
     letter-spacing:1px;
     font-size: 14px;
     margin-left: 0px;
+}
+#userOptionsMenu:hover{
+    color: #000fff;
+}
+#userOptionsMenu{
+    color: goldenrod;
 }
 a:hover {
     color:#000 !important;
@@ -388,6 +396,7 @@ a:hover {
                                     <select class="form-select chat" id="filter-dropdown" style="width: 164%; padding: 0; border:transparent !important">
                                         <option value="all">All Chats</option>
                                         <option value="favorites">Favourites</option>
+                                        <option value="unread">Unread</option>
                                         <option value="blocked">Blocked</option>
                                     </select>
                                 </div>
@@ -458,7 +467,6 @@ a:hover {
                                               
                                                 <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2rem; margin-top: 6px;">
 
-<!-- Top: Icons -->
 
                                                 <div style="display: flex; gap: 8px;">
                                                     <button class="btn btn-link favorite-chat" 
@@ -543,14 +551,14 @@ a:hover {
     <i class="fa fa-ellipsis-v"></i>
   </button>
 
-  <div class="custom-dropdown-menu" id="optionsMenu">
+  <div class="custom-dropdown-menu" id="optionsMenu"  >
     <a href="#" class="block-chat" data-chat-id="{{ $chat->id }}">Block User</a>
     <a href="#" class="report-user-btn" data-bs-toggle="modal" data-bs-target="#reportUserModal">Report User</a>
   </div>
 </div>
 
                                     </div>
-                                    <div class="chat-header bg-color" style="background-color: #fff;height:6.5rem; margin-top:11px;width: 70%; ">
+                                    <div class="chat-header bg-color" style="background-color: #fff;height:5rem; margin-top:13px;width: 70%; ">
                                     <a href="{{ env('BASE_URL') }}ads/detail/{{ $chat->ad->id }}"  style="text-decoration: none; color: inherit; display: flex;">
                                    
                                         <div class="product-image-container">
@@ -558,7 +566,7 @@ a:hover {
                                     </div>
                                         <div class="product-details">
                                         <div class="product-description" id="productDescription" style="margin-bottom: 10px;white-space: nowrap;">{{$chat->ad->title}}</div> <!-- Added spacing below title -->
-                                        <div class="product-price" style="margin-bottom: 18px;">AED {{$chat->ad->price}}</div> <!-- Added spacing below price -->
+                                        <div class="product-price" style="margin-bottom: 0px;">AED {{$chat->ad->price}}</div> <!-- Added spacing below price -->
 
                                         <div class="product-location">
                                             <i class="fa fa-map-marker" style="margin-top: 0px; color: red;"></i>
@@ -748,7 +756,7 @@ $(document).ready(function () {
     delegate: 'a', // child items selector
     type: 'image',
     gallery: {
-        enabled: true
+        enabled: false
     }
 });
 
@@ -767,6 +775,8 @@ $(document).ready(function () {
     $('#filter-dropdown').on('change', function() {
         var filterValue = $(this).val();
 
+        
+
         if (filterValue === 'all') {
             $('.chat-title').show(); // Show all chats
         } else if (filterValue === 'favorites') {
@@ -776,8 +786,12 @@ $(document).ready(function () {
             $('.chat-title').hide(); // Hide all chats
             $('.blocked').show();    // Show only blocked chats
         }
+        else if (filterValue === 'unread') {
+            $('.chat-title').hide(); // Hide all chats
+            $('.unread').show();    // Show only blocked chats
+        }
+        
     });
-
 
     $('.favorite-chat').on('click', function() {
             var button = $(this);

@@ -157,10 +157,10 @@
   border-radius: 5px !important;
 }
 .menucolor{
-    color:blue;
+    color:goldenrod;
  }
  .menucolor:hover{
-    color:goldenrod;
+    color:#000fff;
  }
 
  

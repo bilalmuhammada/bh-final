@@ -174,7 +174,7 @@ a{
 
     .main-div .spans {
 
-        margin-left: -11px;
+    
         margin-top: -10px;
         font-weight: bold;
         text-align:center;

@@ -25,7 +25,7 @@
             font-size: 20px;
         }
         .colorchange:focus{
-            border: 1px solid goldenrod !important;
+            border: 1px solid #000fff  !important;
         }
         .form-control {
             margin-top: 7px;
@@ -106,7 +106,7 @@
                         <div class="row">
                             <label for=""></label>
                             <textarea name="description"  class="form-control colorchange" placeholder="Reason..."
-                                      style="border:2px solid #eee;font-size: 14px;border: 1px solid blue;color:#000" cols="12" rows="2" maxlength="80"
+                                      style="border:2px solid #eee;font-size: 14px;border: 1px solid goldenrod; color:#000" cols="12" rows="2" maxlength="80"
                                       ></textarea>
                         </div>
                     </div>

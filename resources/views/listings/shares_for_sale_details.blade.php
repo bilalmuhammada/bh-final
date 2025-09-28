@@ -160,11 +160,12 @@
   border-radius: 5px !important;
 }
 .menucolor{
-    color:blue;
- }
- .menucolor:hover{
     color:goldenrod;
  }
+ .menucolor:hover{
+    color:#000fff;
+ }
+
 
  </style>
 @section('content')

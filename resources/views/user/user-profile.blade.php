@@ -24,6 +24,10 @@
             cursor: pointer;
         }
      
+        .lobibox-notify-msg{
+            margin-top: 12px;
+        }
+       
     .select2-dropdown{
 margin-left: -7px;
     }
@@ -92,7 +96,7 @@ select {
     padding-right: 20px; /* Add some padding to keep the layout */
 }
 #change-photo-link:hover{
-    color:goldenrod !important;
+    color:#000fff !important;
 }
 
     input{
@@ -118,7 +122,7 @@ width: 225px !important;
 }
 .changecolor {
     font-size: 12px;
-    color: #0000ff;
+    color: goldenrod;
 }
 
 .changecolor a {
@@ -127,7 +131,7 @@ width: 225px !important;
 }
 
 .changecolor a:hover {
-    color: goldenrod !important;
+    color: #0000ff !important;
 }
 
 
@@ -149,7 +153,7 @@ width: 225px !important;
             <div class="row">
                 <div class="col-md-2" style="border: 0px solid red;text-align:center;">
                     <img id="profile-image" class="display-profile-img" src="{{session()->get('user')->image_url}}" alt="img" width="120" height="120" style="border-radius: 0.3rem; border: 0px solid red;">
-                    <a href="#" id="change-photo-link"  style="display: flex; margin-left: 51px; margin-top: 5px;font-size:14px; color: #0000ff;">Change Photo</a>
+                    <a href="#" id="change-photo-link"  style="display: flex; margin-left: 51px; margin-top: 5px;font-size:14px; color: goldenrod;">Change Photo</a>
                     <input type="file" name="profile_image" id="profile_image" class="form-control-file" accept="image/*" style="border: 1px solid #999; border-radius: 0.3rem; display: none;">
                     <input type="hidden" name="image" class="base64-Image-name">
                 </div>
@@ -574,12 +578,17 @@ document.getElementById('profile_image').addEventListener('change', function() {
             dataType: 'JSON',
             processData: false, // required for FormData
             contentType: false, // required for FormData
-            success: function(response) {
+           success: function(response) {
                 if (response.status) {
                     showAlert("success", response.message);
                     if (response.image_url) {
                         $('#profile-image').attr('src', response.image_url);
                     }
+                    setTimeout(function() {
+                     location.reload();
+                    }, 2000); 
+
+
                 } else {
                     console.log("Validation errors:", response.errors);
                 }
@@ -623,7 +632,7 @@ document.getElementById('profile_image').addEventListener('change', function() {
                 //  }
             //  });
         });
-
+ 
 
         // $(document).on('click', '.verify-account-btn', function () {
         //     $.ajax({

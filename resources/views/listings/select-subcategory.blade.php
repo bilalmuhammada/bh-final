@@ -25,10 +25,10 @@ a.text-dark1:focus, a.text-dark1:hover ,.text-dark1:hover, .text-dark1:hover , .
 
    
     .selection{
-       color:#0000ff;
+       color:goldenrod;
     }
     .selection:hover{
-       color:goldenrod;
+       color:0000ff;
     }
 </style>
 @section('content')

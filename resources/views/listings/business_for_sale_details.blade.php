@@ -172,10 +172,10 @@ select::after {
  }
  
  .menucolor{
-    color:blue;
+    color:goldenrod;
  }
  .menucolor:hover{
-    color:goldenrod;
+    color:#000fff;
  }
 
  

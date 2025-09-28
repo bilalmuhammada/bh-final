@@ -6,7 +6,7 @@ $(document).ready(function () {
     });
 });
 
-function showAlert(type = 'success', msg = 'Notification', delay = 144000) {
+function showAlert(type = 'success', msg = 'Notification', delay = 1000) {
     Lobibox.notify(type, {
         size: 'mini',
         msg: msg,
