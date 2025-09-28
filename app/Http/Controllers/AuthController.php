@@ -143,7 +143,7 @@ class AuthController extends Controller
             Session::put('user_token', $token);
 
     
-           
+           dd(Session::all(),$User);
             return response()->json([
                 'status' => TRUE,
                 'code' => 200,

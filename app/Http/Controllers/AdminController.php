@@ -43,7 +43,7 @@ class AdminController extends Controller
     }
     public function dashboard()
     {
-        dd("ddd");
+       
         return response()->json([
             'status' => true,
             'ads_counts' => $this->getPostData(),
