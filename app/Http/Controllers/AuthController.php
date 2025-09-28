@@ -144,6 +144,7 @@ class AuthController extends Controller
 
     
            
+            dd("ss");
             return response()->json([
                 'status' => TRUE,
                 'code' => 200,
