@@ -17,6 +17,8 @@ class AdminController extends Controller
         $users = User::get();
         $countries = Country::all();
 
+
+        dd( $users );
         $data = [
             'countries'=> $countries,
             'menu' => 'dashboard',
