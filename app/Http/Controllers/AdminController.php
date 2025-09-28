@@ -14,6 +14,8 @@ class AdminController extends Controller
     public function index()
     {
         
+
+        dd('here');
         $users = User::get();
         $countries = Country::all();
 

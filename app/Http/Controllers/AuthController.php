@@ -144,7 +144,7 @@ class AuthController extends Controller
 
     
            
-            dd("ss");
+         
             return response()->json([
                 'status' => TRUE,
                 'code' => 200,
@@ -153,6 +153,8 @@ class AuthController extends Controller
                 'user' => $User,
                 'role_key' => Role::firstWhere('id', $User->role_id)->role_key,
             ]);
+
+       
         } else {
             return response()->json([
                 'code' => 404,
