@@ -27,6 +27,7 @@ class AuthController extends Controller
     public function index()
     {
       
+        dd(Session::all());
         if (Session::has('user')) {
            
             return redirect('/dashboard');
@@ -139,7 +140,7 @@ class AuthController extends Controller
             $token = $User->createToken($User->name)->plainTextToken;
             Session::put('user_token', $token);
 
-      dd( $User);
+    
            
             return response()->json([
                 'status' => TRUE,
