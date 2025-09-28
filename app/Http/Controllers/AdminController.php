@@ -15,7 +15,7 @@ class AdminController extends Controller
     {
         
 
-        dd('here');
+       
         $users = User::get();
         $countries = Country::all();
 
