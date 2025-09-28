@@ -186,9 +186,9 @@ Route::prefix('/admins')->group(function() {
 Route::get('/login', [AuthController::class, 'index']);
 
 Route::post('/set-currency', [AdminController::class, 'setcurrency'])->name('set.currency');
-
+Route::get('/dashboard', [AdminController::class, 'index']);
 Route::middleware("check_user_auth")->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'index']);
+ //   Route::get('/dashboard', [AdminController::class, 'index']);
 
 // Route::prefix('/categories')->group(function () {
     Route::get('/categories', [CategoryController::class, 'index']);
