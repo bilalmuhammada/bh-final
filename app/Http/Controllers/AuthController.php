@@ -29,7 +29,9 @@ class AuthController extends Controller
       
         
         if (Session::has('user')) {
-           dd(Session::has('user'));
+
+            
+
             return redirect('/dashboard');
         }
         return view('Admin.auth.login');
