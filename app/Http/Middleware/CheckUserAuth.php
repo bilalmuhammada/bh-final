@@ -17,7 +17,7 @@ class CheckUserAuth
     public function handle(Request $request, Closure $next)
     {
 
-        dd("dd");
+        dd(!session()->has('user'));
         if (!session()->has('user')) {
             return redirect('home');
 
