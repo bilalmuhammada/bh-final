@@ -452,7 +452,7 @@ a:hover {
                                
                                 <div class="col-md-2 hiddentrash">
                                     <div class="row">
-                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 11.6rem;">
+                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 12.4rem;">
                                             <i class="fa fa-trash" style="color: rgb(9, 9, 166);"></i>
                                         </div>
                                     </div>
