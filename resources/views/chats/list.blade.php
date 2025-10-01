@@ -516,7 +516,7 @@ a:hover {
                                                  </div>
                                           
                                               
-                                                <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2rem; margin-top: 6px;">
+                                                <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2rem;margin-left:7px; margin-top: 6px;">
 
 
                                                 <div style="display: flex; gap: 8px;">
