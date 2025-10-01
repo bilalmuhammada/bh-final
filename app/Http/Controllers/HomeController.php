@@ -14,6 +14,8 @@ class HomeController extends Controller
         session()->forget('app_currency');
         session(['app_currency' => 'USD']);
        
+
+        dd("ggg");
         return view('home.index');
     }
 

@@ -71,12 +71,19 @@ select {
         width: 136px;
 
     }
-    .hiddencheck{
-        
-        font-size: 12px;
-        margin-left: -19px;
-        margin-top: 12px;
-    }
+    .hiddencheck {
+    margin: 0;
+}
+
+.col-md-2 {
+    display: flex;
+    justify-content: center;
+}
+
+.col-md-10 {
+    display: flex;
+    align-items: center;
+}
     .product-left-image{
         margin-top: 7px;
         margin-left: 2px;
@@ -360,12 +367,52 @@ a:hover {
   cursor: pointer;
 }
 
+
 #userOptionsMenu:hover,
 #userOptionsMenu:focus {
   color: inherit;
   background: transparent;
   outline: none;
   box-shadow: none;
+}
+
+
+
+.hiddencheck-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7px;
+    white-space: nowrap;
+}
+
+.hiddencheck {
+    margin-right: 5px;
+}
+
+.hiddencheck-label {
+    font-size: 14px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    margin-top: 1.7rem;
+    box-sizing: border-box;
+}
+
+.dlt-chat {
+    width: 13px;
+  position: relative;
+  transform: translateX(-10px); /* same as left:-18px but cross-browser */
+  cursor: pointer;
+      
+}
+#checkbox{
+    margin-top: 7px;margin-left: 12px;
+
 }
 
     </style>
@@ -385,21 +432,22 @@ a:hover {
                         <div class="chat-cont-left">
                             <div class="row" style="padding:5px 8px;">
                                 <div class="col-md-6">
-                                    <div class="row">
-                                        <div class="col-md-2 text-center ">
-                                            <input type="checkbox" class="hiddencheck" id="check-all" style="margin-left: 5px;margin-top: 14px;">
-                                        </div>
-                                        <div class="col-md-10 hiddencheck" >Select All</div>
+                                    <div class="row align-items-center"  id="checkbox">
+                                        
+                                            <input type="checkbox" class="hiddencheck" id="check-all" >
+                                            <span style="font-size: 13px;">Select All</span>
+                                      
+                                        
                                     </div>
                                 </div>
-                                <div class="col-md-2" style="margin-left: -97px;margin-top: 2px;">
-                                    <select class="form-select chat" id="filter-dropdown" style="width: 164%; padding: 0; border:transparent !important">
-                                        <option value="all">All Chats</option>
-                                        <option value="favorites">Favourites</option>
-                                        <option value="unread">Unread</option>
-                                        <option value="blocked">Blocked</option>
-                                    </select>
-                                </div>
+                                    <div class="col-md-2" style="margin-left: -97px;margin-top: 2px;">
+                                            <select class="form-select chat" id="filter-dropdown" style="width: 164%; padding: 0; border:transparent !important">
+                                                <option value="all">All Chats</option>
+                                                <option value="favorites">Favourites</option>
+                                                <option value="unread">Unread</option>
+                                                <option value="blocked">Blocked</option>
+                                            </select>
+                                        </div>
 
                                
                                 <div class="col-md-2 hiddentrash">
@@ -438,8 +486,11 @@ a:hover {
                                            style="display:flex;"
                                            id="{{ str_replace(' ', '', \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name')). '-' . \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
                                            unread-ids="{{ json_encode($chat->unread_ids) }}" chat-id="{{ $chat->id }}">
-                                           <input type="checkbox" style="width: 27 !important; margin-left:-18px;position: relative; z-index: 10; margin-top:1.7rem;pointer-events: auto; "
-                                              value="{{ $chat->id }}" class="dlt-chat hiddencheck" >
+                                           <div class="checkbox-container">
+                                                <input type="checkbox" 
+                                                    value="{{ $chat->id }}" 
+                                                    class="dlt-chat hiddencheck">
+                                            </div>
                                             <div class="media-img-wrap flex-shrink-0">
                                                 <div class="avatar">
                                                     <img src="{{$chat->ad->main_image_url ??  'https://via.placeholder.com/30x30'}}" alt="Car Image" class="product-left-image">
@@ -547,15 +598,15 @@ a:hover {
                                         </div>
 
                                         <div class="custom-dropdown">
-  <button id="userOptionsMenu">
-    <i class="fa fa-ellipsis-v"></i>
-  </button>
+                                            <button id="userOptionsMenu">
+                                                <i class="fa fa-ellipsis-v"></i>
+                                            </button>
 
-  <div class="custom-dropdown-menu" id="optionsMenu"  >
-    <a href="#" class="block-chat" data-chat-id="{{ $chat->id }}">Block User</a>
-    <a href="#" class="report-user-btn" data-bs-toggle="modal" data-bs-target="#reportUserModal">Report User</a>
-  </div>
-</div>
+                                            <div class="custom-dropdown-menu" id="optionsMenu"  >
+                                                <a href="#" class="block-chat" data-chat-id="{{ $chat->id }}">Block User</a>
+                                                <a href="#" class="report-user-btn" data-bs-toggle="modal" data-bs-target="#reportUserModal">Report User</a>
+                                            </div>
+                                            </div>
 
                                     </div>
                                     <div class="chat-header bg-color" style="background-color: #fff;height:5rem; margin-top:13px;width: 70%; ">
