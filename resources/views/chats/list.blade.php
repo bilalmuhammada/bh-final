@@ -255,7 +255,7 @@ input.form-control-search:focus {
 .form-control-search{
     margin-top: 7px  !important;
     margin-left: 21px  !important;
-    width: 92% !important;
+    width: 90% !important;
     border:1px solid #000fff !important;
     padding-left: 30px;
 }
