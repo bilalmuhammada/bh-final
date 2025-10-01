@@ -68,7 +68,7 @@ select {
         border-radius: 7px;
         height: 70px;
         margin-top: 2px;
-        width: 136px;
+        width: 85px;
 
     }
     .hiddencheck {
