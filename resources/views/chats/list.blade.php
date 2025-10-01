@@ -68,7 +68,7 @@ select {
         border-radius: 7px;
         height: 70px;
         margin-top: 2px;
-        width: 85px;
+        width: 85spx;
 
     }
     .hiddencheck {
@@ -516,7 +516,7 @@ a:hover {
                                                  </div>
                                           
                                               
-                                                <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2rem; margin-top: 6px;">
+                                                <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2rem;margin-right: 5px; margin-top: 6px;">
 
 
                                                 <div style="display: flex; gap: 8px;">
