@@ -305,7 +305,7 @@ a:hover {
 }
 
 .product-description{
-    font-weight: 600;
+    font-weight: 500;
     color: #000;
     margin-bottom: 6px;
 
@@ -796,7 +796,7 @@ $(document).ready(function () {
         if (productDescription.text().length > 40) {
             productDescription.css('font-size', '11px'); // Decrease font size
         } else {
-            productDescription.css('font-size', '15px'); // Default font size
+            productDescription.css('font-size', '14px'); // Default font size
         }
  
     $(".chat").select2({
