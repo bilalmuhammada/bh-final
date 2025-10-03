@@ -604,15 +604,30 @@ a:hover {
                                                
                                             </div>
                                         </div>
+                                        @php
+                                                $existingReport = \App\Models\AdsReported::where('reported_by', session()->get('user')['id'])
+                                                    ->where('listing_id', $chat->id)
+                                                    ->first();
+
+
+                                                   
+                                             @endphp
 
                                         <div class="custom-dropdown">
                                             <button id="userOptionsMenu">
                                                 <i class="fa fa-ellipsis-v"></i>
                                             </button>
 
+                                            
                                             <div class="custom-dropdown-menu" id="optionsMenu"  >
                                                 <a href="#" class="block-chat" data-chat-id="{{ $chat->id }}">Block User</a>
-                                                <a href="#" class="report-user-btn" data-bs-toggle="modal" data-bs-target="#reportUserModal">Report User</a>
+                                                <a href="#" class="report-user-btn" data-bs-toggle="modal" data-bs-target="#reportUserModal">  
+                                                @if($existingReport)
+                                                        Reported User
+                                                    @else
+                                                        Report User
+                                                    @endif
+                                                </a>
                                             </div>
                                             </div>
 
@@ -771,7 +786,9 @@ document.addEventListener('click', function() {
 }
 $(document).on("click", "#userOptionsMenu", function() {
 
-$(".dropdown-menu-right").toggleClass("show");
+
+$(".custom-dropdown-menu").addClass("show");
+$(".custom-dropdown-menu").css("display", "block");
 });
 $(document).ready(function () {
         const productDescription = $('#productDescription');
@@ -1140,6 +1157,7 @@ $.ajax({
         });
 
         $(document).on('click', '.report-user-btn', function() {
+           
             $('#reportUserModal').modal('show');// Show the popup
 });
 $(document).on('click', '.closebtn ', function() {

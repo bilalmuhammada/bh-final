@@ -143,7 +143,7 @@ width: 225px !important;
     <div class="cont-w" style="margin-bottom:30px;">
     <div class="col-md-12" style="margin-left:42px;">
     <span class="changecolor" >
-  <a href="{{ url('home') . '?country=' . request()->country }}" >Home</a> > Profile
+  <a href="{{ url('home') . '?country=' . request()->country }}" >Home</a> <span style="color:#0000FF"> > Profile</span>
 </span>
 
         {{-- <h4><b>My Profile</b></h4> --}}

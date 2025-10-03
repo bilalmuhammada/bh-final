@@ -22,7 +22,7 @@
         }
         .modal-title{
             color: blue;
-            font-size: 20px;
+            font-size: 15px;
         }
         .colorchange:focus{
             border: 1px solid goldenrod  !important;
@@ -46,8 +46,8 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Report User</h4>
-                <button type="button" class="close closebtn" data-dismiss="modal" style="margin-top: -12px;">×</button>
+                <h4 class="modal-title" style="margin-left: 23px;">Report User</h4>
+                <button type="button" class="close closebtn" data-dismiss="modal" style="margin-top: -16px;    font-size: 18px;">×</button>
             </div>
 
             <!-- Modal body -->
