@@ -144,6 +144,11 @@ select {
   width: 12px; /* You can adjust this value based on your preference */
 }
 
+
+
+.select2-dropdown {
+    z-index: 9999 !important;
+}
 /* Define the scrollbar thumb */
 ::-webkit-scrollbar-thumb {
   background-color: #997045;
@@ -236,6 +241,7 @@ color: goldenrod !important;
     border-color: #80bdff;
 }
 
+
 /* Customize the dropdown arrow */
 select::-ms-expand {
     display: none;
@@ -276,10 +282,10 @@ input.form-control-search:focus {
     margin-left: 0px;
 }
 #userOptionsMenu:hover{
-    color: #000fff;
+    color: goldenrod;
 }
 #userOptionsMenu{
-    color: goldenrod;
+    color: #000fff;
 }
 a:hover {
     color:#000 !important;
@@ -348,6 +354,8 @@ a:hover {
 
 /* Dropdown items */
 .custom-dropdown-menu a {
+
+    white-space: nowrap;
   display: block;
  
   color: #333;
@@ -441,7 +449,7 @@ a:hover {
                                     </div>
                                 </div>
                                     <div class="col-md-2" style="margin-left: -97px;margin-top: 2px;">
-                                            <select class="form-select chat" id="filter-dropdown" style="width: 164%; padding: 0; border:transparent !important">
+                                            <select class="form-select chat" id="filter-dropdown" style="width: 164%; ;">
                                                 <option value="all">All Chats</option>
                                                 <option value="favorites">Favourites</option>
                                                 <option value="unread">Unread</option>
@@ -459,7 +467,7 @@ a:hover {
                                 </div>
                                 <div class="col-md-2 edit">
                                     <div class="row">
-                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 11.6rem;">
+                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 12rem;">
                                             <i class="fa fa-pencil" id="edit-icon" style="color: rgb(9, 9, 166);"></i>
                                         </div>
                                     </div>
@@ -775,7 +783,8 @@ $(document).ready(function () {
  
     $(".chat").select2({
            
-           minimumResultsForSearch: -1
+        minimumResultsForSearch: Infinity, 
+            
        });
    
 
@@ -887,6 +896,7 @@ $.ajax({
         if (response.is_blocked) {
             // show_error_message('User Blocked')
             button.find('i').css('color', 'goldenrod');
+            button.text('Unblock User ');
             if (emojioneArea.length > 0) {
                     emojioneArea.css({
                         'background': '#fdeaea',
@@ -898,6 +908,7 @@ $.ajax({
         } else {
             // show_success_message('User Unblocked');
             button.find('i').css('color', 'grey');
+            button.text('Block User ');
             if (emojioneArea.length > 0) {
                 emojioneArea.css({
                     'background': '',
