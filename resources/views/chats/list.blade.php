@@ -547,7 +547,7 @@ a:hover {
                                                 <!-- Bottom: Time & Unread badge -->
                                                 <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #666;">
                                                     <div class="badge bgg-yellow badge-pill unread-count" 
-                                                        style="display: {{ ($login_user_id != $chat->latest_message_sender_id && $chat->unread_count > 0) ? 'block' : 'none' }};">
+                                                        style="display: {{ ($login_user_id != $chat->latest_message_sender_id && $chat->unread_count > 0) ? 'block' : 'none' }};border-radius: 30px;">
                                                         {{ $chat->unread_count }}
                                                     </div>
 
