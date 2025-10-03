@@ -276,7 +276,9 @@ input.form-control-search:focus {
     color: #aaa;
 }
 .product-left-details{
-    font-family: system-ui;
+    
+    color: #000;
+    font-weight: 500;
     letter-spacing:1px;
     font-size: 14px;
     margin-left: 0px;
@@ -291,14 +293,13 @@ a:hover {
     color:#000 !important;
 }
 .product-message{
-    font-family: system-ui;
+    
     letter-spacing:1px;
   margin-bottom: 6px;
 }
 
 .product-left-description{
-    font-weight: bolder;
-    font-family: system-ui;
+    
     letter-spacing:1px;
     margin-bottom: 4px;
 }
