@@ -282,7 +282,7 @@ input.form-control-search:focus {
     margin-left: 0px;
 }
 #userOptionsMenu:hover{
-    color: goldenrod;
+    color: goldenrod !important;
 }
 #userOptionsMenu{
     color: #000fff;
