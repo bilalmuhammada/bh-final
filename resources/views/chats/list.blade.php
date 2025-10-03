@@ -59,7 +59,7 @@ select {
     .product-details{
        
         letter-spacing:1px;
-        font-size: 15px;
+        font-size: 14px;
         margin-left: 18px;
     }
     .product-image{
@@ -95,7 +95,7 @@ select {
     .product-price{
         margin-bottom: 15px;
        
-        font-weight: 600;
+        font-weight: 500;
     color: black;
         
 
@@ -640,7 +640,7 @@ a:hover {
                                         <img src="{{$chat->ad->main_image_url ??  'https://via.placeholder.com/30x30'}}" alt="Car Image" class="product-image">
                                     </div>
                                         <div class="product-details">
-                                        <div class="product-description" id="productDescription" style="margin-bottom: 10px;white-space: nowrap;">{{$chat->ad->title}}</div> <!-- Added spacing below title -->
+                                        <div class="product-description" id="productDescription" style="margin-bottom: 8px;white-space: nowrap;">{{$chat->ad->title}}</div> <!-- Added spacing below title -->
                                         <div class="product-price" style="margin-bottom: 0px;">AED {{$chat->ad->price}}</div> <!-- Added spacing below price -->
 
                                         <div class="product-location">
