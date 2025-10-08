@@ -25,12 +25,12 @@
             font-size: 15px;
         }
         .colorchange:focus{
-            border: 1px solid goldenrod  !important;
+            border: 1px solid #000fff  !important;
         }
         .form-control {
             margin-top: 7px;
-    margin-left: 1px;
-    width: 21.5%;
+            margin-left: 1px;
+            width: 21.5%;
         }
         .modal-footer {
             margin-right:22px;
@@ -46,7 +46,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title" style="margin-left: 23px;">Report User</h4>
+                <h4 class="modal-title" style="margin-left: 43px;">Report User</h4>
                 <button type="button" class="close closebtn" data-dismiss="modal" style="margin-top: -16px;    font-size: 18px;">×</button>
             </div>
 
@@ -106,7 +106,7 @@
                         <div class="row">
                             <label for=""></label>
                             <textarea name="description"  class="form-control colorchange" placeholder="Reason..."
-                                      style="border:2px solid #eee;font-size: 14px;border: 1px solid #000fff; color:#000" cols="12" rows="2" maxlength="80"
+                                      style="border:2px solid #eee;font-size: 14px;border: 1px solid goldenrod; color:#000" cols="12" rows="2" maxlength="80"
                                       ></textarea>
                         </div>
                     </div>

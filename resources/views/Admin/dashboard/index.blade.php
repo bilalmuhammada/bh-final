@@ -1158,8 +1158,15 @@ label{
 
         $(document).on('change', '#from_date1, #tod_date1, #filtergraph', function () {
             render_monthly_sale_chart();
-            if(filtergraph === 'counts'){
+
+
+            var filtergraph = $('#filtergraph').val();
+            if(filtergraph === 'count'){
                 $('.currency_dropdown').prop('disabled', true);
+                $('.currency_dropdown').val(null).trigger('change'); 
+
+
+
             }else{
                 $('.currency_dropdown').prop('disabled', false);
             }

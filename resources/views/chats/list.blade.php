@@ -58,6 +58,8 @@ select {
 
     .product-details{
        
+
+        text-decoration: none;
         letter-spacing:1px;
         font-size: 14px;
         margin-left: 18px;
@@ -93,9 +95,9 @@ select {
     }
     
     .product-price{
-        margin-bottom: 15px;
        
-        font-weight: 500;
+       
+        font-weight: 600;
     color: black;
         
 
@@ -255,14 +257,14 @@ select::-ms-expand {
 
 }
 input.form-control-search:focus {
-  border-color: goldenrod !important;
+  border-color: #000fff !important;
 
 } 
 .form-control-search{
     margin-top: 7px  !important;
     margin-left: 21px  !important;
     width: 90% !important;
-    border:1px solid #000fff !important;
+    border:1px solid goldenrod !important;
     padding-left: 30px;
 }
 .position-relative {
@@ -284,10 +286,10 @@ input.form-control-search:focus {
     margin-left: 0px;
 }
 #userOptionsMenu:hover{
-    color: goldenrod !important;
+    color: #000fff !important;
 }
 #userOptionsMenu{
-    color: #000fff;
+    color: goldenrod;
 }
 a:hover {
     color:#000 !important;
@@ -299,13 +301,13 @@ a:hover {
 }
 
 .product-left-description{
-    
+    font-weight: 600;
     letter-spacing:1px;
     margin-bottom: 4px;
 }
 
 .product-description{
-    font-weight: 500;
+    font-weight: 600;
     color: #000;
     margin-bottom: 6px;
 
@@ -385,6 +387,11 @@ a:hover {
   box-shadow: none;
 }
 
+.form-control-search::placeholder {
+    color: #999;
+    font-size: 12px;
+    opacity: 1; /* Firefox */
+}
 
 
 .hiddencheck-container {
@@ -461,15 +468,15 @@ a:hover {
                                
                                 <div class="col-md-2 hiddentrash">
                                     <div class="row">
-                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 11.6rem;">
-                                            <i class="fa fa-trash" style="color: rgb(9, 9, 166);"></i>
+                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 183px;">
+                                            <i class="fa fa-trash" style="color: rgb(9, 9, 166);font-size: 15px;"></i>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-2 edit">
                                     <div class="row">
-                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 12rem;">
-                                            <i class="fa fa-pencil" id="edit-icon" style="color: rgb(9, 9, 166);"></i>
+                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 182px;">
+                                            <i class="fa fa-pencil" id="edit-icon" style="color: rgb(9, 9, 166);font-size: 15px;"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -640,7 +647,7 @@ a:hover {
                                         <img src="{{$chat->ad->main_image_url ??  'https://via.placeholder.com/30x30'}}" alt="Car Image" class="product-image">
                                     </div>
                                         <div class="product-details">
-                                        <div class="product-description" id="productDescription" style="margin-bottom: 8px;white-space: nowrap;">{{$chat->ad->title}}</div> <!-- Added spacing below title -->
+                                        <div class="product-description" id="productDescription" style="margin-bottom: 7px;white-space: nowrap;">{{$chat->ad->title}}</div> <!-- Added spacing below title -->
                                         <div class="product-price" style="margin-bottom: 0px;">AED {{$chat->ad->price}}</div> <!-- Added spacing below price -->
 
                                         <div class="product-location">
