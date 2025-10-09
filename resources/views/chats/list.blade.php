@@ -157,6 +157,10 @@ select {
   border-radius: 34px;
 }
 
+.fa-trash:hover, .fa-pencil:hover{
+   color: goldenrod!important;
+}
+
 
 /* Define the scrollbar track */
 ::-webkit-scrollbar-track {
