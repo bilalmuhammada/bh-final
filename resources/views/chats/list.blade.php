@@ -721,7 +721,7 @@ a:hover {
                                                 data-chat-id="{{ $chat->id }}"
                                                 style="position: absolute; right: 36px; top: 9px; background-color: transparent; border: none;">
                                             <i class="fa fa-arrow-circle-up mgn-send-color" aria-hidden="true"
-                                               style="font-size: 30px; background-color: none;"></i>
+                                               style="font-size: 33px; background-color: none;"></i>
                                         </button>
                                             </div>
                                         </div>
