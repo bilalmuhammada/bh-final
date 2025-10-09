@@ -629,7 +629,7 @@ a:hover {
 
                                             
                                             <div class="custom-dropdown-menu" id="optionsMenu"  >
-                                                <a href="#" class="block-chat" data-chat-id="{{ $chat->id }}">Block User</a>
+                                                <a href="#" class="block-chat   block_user" data-chat-id="{{ $chat->id }}">Block User</a>
                                                 <a href="#" class="report-user-btn" data-bs-toggle="modal" data-bs-target="#reportUserModal">  
                                                 @if($existingReport)
                                                         Reported User
@@ -919,10 +919,12 @@ $.ajax({
     success: function(response) {
         var emojioneArea = $('.emojionearea.emojionearea-inline');
         var emojioneEditor = $('.emojionearea-editor');
+
+        var report_user = $('.block_user');
         if (response.is_blocked) {
             // show_error_message('User Blocked')
             button.find('i').css('color', 'goldenrod');
-            button.text('Unblock User ');
+            report_user.text('Unblock User ');
             if (emojioneArea.length > 0) {
                     emojioneArea.css({
                         'background': '#fdeaea',
@@ -934,7 +936,7 @@ $.ajax({
         } else {
             // show_success_message('User Unblocked');
             button.find('i').css('color', 'grey');
-            button.text('Block User ');
+            report_user.text('Block User ');
             if (emojioneArea.length > 0) {
                 emojioneArea.css({
                     'background': '',
