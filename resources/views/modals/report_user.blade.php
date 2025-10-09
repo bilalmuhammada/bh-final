@@ -55,7 +55,7 @@
                 <form class="report-ad-form" id="report-ad-form1">
                     <div class="alert-div" style="display: none;width:13rem; font-size:12px; white-space: nowrap;"> 
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <div class="alert-text"></div>
+                            <div class="alert-text" style="font-size: 10px;"></div>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true" style="font-size: 12px;">&times;</span>
                             </button>
