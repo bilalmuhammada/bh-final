@@ -87,7 +87,7 @@ select {
     align-items: center;
 }
     .product-left-image{
-        margin-top: 7px;
+        margin-top: 4px;
         margin-left: 2px;
         border-radius: 5px;
         width: 85px;
