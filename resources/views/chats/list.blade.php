@@ -436,7 +436,7 @@ a:hover {
 @section('content')
 
     <div class="content-chat"
-         style="background-color:#eee;min-height: 500px !important;padding-top:5px;padding-bottom:10px;">
+         style="background-color:#eee;min-height: 500px !important;padding-top:5px;padding-bottom:5px;">
         <div class="container-fluid">
             <div class="row">
                 <!-- <div style="padding-bottom:2px;"><button class="btn btn-danger" id="deleteSelected"><i class="fa fa-trash"></i></button>
