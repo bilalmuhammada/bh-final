@@ -342,7 +342,7 @@ a:hover {
 .custom-dropdown-menu {
   display: none;
   position: absolute;
-  right: 0;
+  right: 10;
   font-size: 13px;
   top: 100%;
   min-width: 78px;
