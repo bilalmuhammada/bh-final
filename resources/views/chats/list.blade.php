@@ -117,7 +117,7 @@ select {
 }
 
     .emojionearea.emojionearea-inline>.emojionearea-editor{
-    top: 5px !important;
+    top: 3px !important;
     
     }
     .chat-scroll {
@@ -266,6 +266,7 @@ input.form-control-search:focus {
     width: 90% !important;
     border:1px solid goldenrod !important;
     padding-left: 30px;
+    font-size: 10px !important;
 }
 .position-relative {
     position: relative;
@@ -286,10 +287,10 @@ input.form-control-search:focus {
     margin-left: 0px;
 }
 #userOptionsMenu:hover{
-    color: #000fff !important;
+    color: goldenrod !important;
 }
 #userOptionsMenu{
-    color: goldenrod;
+    color: #000fff !important;
 }
 a:hover {
     color:#000 !important;
