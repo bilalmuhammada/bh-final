@@ -213,7 +213,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
 
 
         <div class="col-md-7 border-color" style="border-right: 2px solid #eee; text-align: center;">
-            <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;font-size: 14px; margin-top: 2px;">Keyword44</label>
+            <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;font-size: 14px; margin-top: 2px;">Keyword</label>
             <div class="input-group">
                 <input type="text" class="form-control filter1 keyword_search" id="keyword" style="margin-top: -2px; font-size: 14px;" placeholder="Search anything in {{ $category_name->name }}">
                 <span style="margin-top:8px;font-weight: bolder; color: goldenrod;" id="searchIcon">
@@ -304,7 +304,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             <div class="col-lg-12 col-md-12 col-12" style="margin-left: 4rem;">
                 <div class="row" style="margin-left: -137px;">
                     <div class="col-lg-8 col-md-8" style="display: flex;">
-                        <h6 style="white-space: nowrap;font-size: 14px;"><b> {!! $category_name->name !!} </b> > <b> {{ $subcategory_name }} </b><span style="color: blue;font-size:14px;">   - {{ $ads->count() }} Ads</span>
+                        <h6 style="white-space: nowrap;font-size: 14px;"> <a href="javascript:history.back()"  style="color: inherit; text-decoration: none;"><b> {!! $category_name->name !!} </b> > </a> <b> {{ $subcategory_name }} </b><span style="color: blue;font-size:14px;">   - {{ $ads->count() }} Ads</span>
                         </h6>
                        
                     
