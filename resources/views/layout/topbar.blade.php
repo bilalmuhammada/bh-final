@@ -52,6 +52,10 @@
         border-color: #000fff transparent transparent transparent !important;
         
     }
+    .select2-container--default .select2-selection--single .select2-selection__arrow b:hover {
+        border-color: goldenrod transparent transparent transparent !important;
+        
+    }
     /* start */
 .select2-search__field{
     border-radius: 0.3rem;
