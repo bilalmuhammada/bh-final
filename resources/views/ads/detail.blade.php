@@ -385,7 +385,7 @@ width: 60rem !important;
     </section>
 
     <section>
-        <div class="container" style="margin-left: 18.6rem;">
+        <div class="container" >
             <div class="col-lg-12 col-md-12 col-12" style="border:0px solid red;">
                 <div class="row">
                     <div class="col-lg-9 col-md-9 col-12" style="border:0px solid red;">
