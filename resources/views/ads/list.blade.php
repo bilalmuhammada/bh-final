@@ -275,7 +275,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             <div class="col-md-12" style="text-align: center; margin-top: 2px;">
                 <span style="font-size: 15px;"><b>Sort</b></span>
             </div>
-            <select class="form-select form-control "style="font-size: 13px;"  id="sortDropdown" onchange="window.location.href=this.value" >
+            <select class="form-select form-control "style="font-size: 13px;"  id="sortDropdown" onchange="" >
                 
                 {{-- <option class="option"  selected value=""></option> --}}
                
