@@ -222,6 +222,8 @@ class AdController extends Controller
             ]);
         }
 
+
+        dd(RecordHelper::getAdsBySubcategory($subcategory_id));
         return RecordHelper::getAdsBySubcategory($subcategory_id);
     }
 
