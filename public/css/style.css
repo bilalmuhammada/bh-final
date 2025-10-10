@@ -2558,7 +2558,7 @@ border: 1px solid #2d11e7;
 
 
 .select2-container--default .select2-selection--single .select2-selection__arrow b{
-    border-color: #0000ff transparent transparent transparent;
+    border-color: #0000ff transparent transparent transparent !important;
 }
 .form-focus .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
     border-color: transparent transparent #ccc;
