@@ -257,6 +257,11 @@ width: 60rem !important;
 
 }
 
+.colbtn a:hover{
+    color: goldenrod !important;
+
+}
+
 
 </style>
 
@@ -292,9 +297,9 @@ width: 60rem !important;
         <div class="cont-w desktop-view" style="border-bottom:2px solid #eee;">
             <div class="col-lg-12 col-md-12 col-12" style="">
                 <div class="row" style="margin-top: 8px;">
-                    <div class="cat_btn" >
+                    <div class="cat_btn  colbtn" >
                         <a href="{{ env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city }}"
-                           style="color:#0000FF;font-size:12px;">{{$ad->category_name }}</a>
+                           style="color:#0000FF;font-size:12px;"  >{{$ad->category_name }}</a>
                         <i class="fa fa-chevron-right" style="font-size:8px;color:#0000FF;"></i>
                     </div>
                     <div class="cat_btn" style="margin:0px 3px;">

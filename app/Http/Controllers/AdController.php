@@ -61,38 +61,41 @@ class AdController extends Controller
         if ($subcategory_id) {
             // dd($subcategory_id);
 
-            $SubCategory = SubCategory::with(['category'])->find($subcategory_id);
-            $perPage = 20;
-            $price_from = $request->from;
-            $price_to = $request->to;
-            $keyword = $request->keyword;
-            $country_id = $request->country;
-            $city_id = $request->city;
+            $SubCategory = SubCategory::with('category')->find($subcategory_id);
 
-            $ads = Listing::with([
-                'attachments',
-                'created_by_user'
-            ])
-                ->where('subcategory_id', $subcategory_id)
-                ->when($price_from, function ($listing) use ($price_from) {
-                    $listing->where('price', '>=', $price_from);
-                })
-                ->when($price_to, function ($listing) use ($price_to) {
-                    $listing->where('price', '<=', $price_to);
-                })
-                ->when($keyword, function ($listing) use ($keyword) {
-                    $listing->where('title', 'like', '%' . $keyword . '%');
-                })
-                ->when($country_id, function ($Listing) use ($country_id) {
-                    $Listing->where('country_id', $country_id);
-                })
-                ->when($city_id, function ($Listing) use ($city_id) {
-                    $Listing->where('city_id', $city_id);
-                })
-                ->orderBy('name')->paginate($perPage);
+$perPage     = 20;
+$price_from  = $request->from;
+$price_to    = $request->to;
+$keyword     = $request->keyword;
+
+$city_id     = $request->city;
+$sortOrder   = $request->sortOrder ?? 'asc'; // Default sorting order
+$sortBy      = $request->sortBy ?? 'name';   // Default sorting field
 
 
-                // dd($SubCategory->category);
+
+$ads = Listing::with(['attachments', 'created_by_user'])
+    ->where('subcategory_id', $subcategory_id) // Always filter by subcategory
+    
+    ->when($price_from !== null && $price_from !== '', function ($query) use ($price_from) {
+        $query->where('price', '>=', $price_from);
+    })
+    ->when($price_to !== null && $price_to !== '', function ($query) use ($price_to) {
+        $query->where('price', '<=', $price_to);
+    })
+    ->when($keyword !== null && $keyword !== '', function ($query) use ($keyword) {
+        $query->where('title', 'like', '%' . $keyword . '%');
+    })
+   
+    ->when($city_id !== null && $city_id !== '', function ($query) use ($city_id) {
+        $query->where('city_id', $city_id);
+    })
+
+    ->orderBy('name', 'asc')
+    ->paginate($perPage);
+
+
+         
             $data = [
                 'from' => $request->from ?? false,
                 'to' => $request->to ?? false,
@@ -208,7 +211,7 @@ class AdController extends Controller
     public function adsBySubcategoryId($subcategory_id)
     {
 
-        dd($subcategory_id);
+      
         $validation_arr = [
             'subcategory_id' => $subcategory_id
         ];
