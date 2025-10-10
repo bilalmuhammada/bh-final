@@ -207,6 +207,8 @@ class AdController extends Controller
 
     public function adsBySubcategoryId($subcategory_id)
     {
+
+        dd($subcategory_id);
         $validation_arr = [
             'subcategory_id' => $subcategory_id
         ];
@@ -223,7 +225,7 @@ class AdController extends Controller
         }
 
 
-        dd(RecordHelper::getAdsBySubcategory($subcategory_id));
+       
         return RecordHelper::getAdsBySubcategory($subcategory_id);
     }
 
