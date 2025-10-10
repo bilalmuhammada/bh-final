@@ -304,7 +304,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
             <div class="col-lg-12 col-md-12 col-12" style="margin-left: 4rem;">
                 <div class="row" style="margin-left: -137px;">
                     <div class="col-lg-8 col-md-8" style="display: flex;">
-                        <h6 style="white-space: nowrap;font-size: 14px;"> <a href="javascript:history.back()"  style="color: inherit; text-decoration: none;"><b> {!! $category_name->name !!} </b> > </a> <b> {{ $subcategory_name }} </b><span style="color: blue;font-size:14px;">   - {{ $ads->count() }} Ads</span>
+                        <h6 style="white-space: nowrap;font-size: 14px;"> <a href="{{ url('/home') }}"  style="color: inherit; text-decoration: none;"><b> {!! $category_name->name !!} </b> > </a> <b> {{ $subcategory_name }} </b><span style="color: blue;font-size:14px;">   - {{ $ads->count() }} Ads</span>
                         </h6>
                        
                     
