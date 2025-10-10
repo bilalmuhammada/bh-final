@@ -213,7 +213,7 @@ $category_name=  DB::table('categories')->where('id',$category_id)->first();
 
 
         <div class="col-md-7 border-color" style="border-right: 2px solid #eee; text-align: center;">
-            <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;font-size: 14px; margin-top: 2px;">Keyword</label>
+            <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;font-size: 14px; margin-top: 2px;">Keyword44</label>
             <div class="input-group">
                 <input type="text" class="form-control filter1 keyword_search" id="keyword" style="margin-top: -2px; font-size: 14px;" placeholder="Search anything in {{ $category_name->name }}">
                 <span style="margin-top:8px;font-weight: bolder; color: goldenrod;" id="searchIcon">
