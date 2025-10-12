@@ -36,8 +36,11 @@
    
     
     .dropdown-menu.show {
-        display: none !important;
-        min-width: 0rem !important;}
+        
+        min-width: 0rem !important;
+        top: 12px !important;
+        left: -12px !important;}
+
     
     .img-flag{
         margin-right: 3px !important;
@@ -313,12 +316,13 @@
     <div class="col-md-7 col-xl-6 col-md-9" style="border:0px solid red;">
         <div class="social-icon float-right text-dark" style="margin-top: 7px;">
             <div class="row align-middle" style="font-size: 11px;color:black;margin-right: 1.5rem;border:0px solid red;">
-                @if (session()->has('user'))  <span style="padding:8px 15px 0px 15px;text-align:center;"> 
+                @if (session()->has('user'))  
+                <span style="padding:8px 15px 0px 15px;text-align:center;"> 
                                 <a type="button" id="notifications"
                                    data-toggle="dropdown"
                                    aria-haspopup="true"
                                    aria-expanded="false">
-                                    {{-- <img src="{{ asset('images/my-notifications.svg')}}" width="17" height="17"> --}}
+                                   
                                     <div>
                                         <span class="colorChange_top" style="color: #000;font-size:14px;">Notifications</span>
                                     </div>
@@ -339,7 +343,7 @@
                                             
                                             <div class="notifications-wrapper">
                                                 
-                                            
+                                           
                                                 
                                                
                                                 <div class="content" href="#" >
@@ -348,13 +352,13 @@
                                                             <!-- Three dots icon with dropdown -->
                                                             
                                                     
-                                                            <div class="col-md-2">
+                                                            <div class="col-md-3">
                                                                 <div style="width:80px; height:80px; border-radius:10%; overflow: hidden; margin-left: 2px;">
                                                                     <img style="width: 100%; height: 100%; object-fit: cover;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
                                                                 </div>
                                                             </div>
                                                     
-                                                            <div class="col-md-7" style="white-space: nowrap; margin-left: 15px;">
+                                                            <div class="col-md-6" style="white-space: nowrap;">
                                                                 <span style="font-weight: bold;">Congrats, your ads is live!</span>
                                                                 <br>
                                                                 <span>Your ad placed in 46 is now live call..</span>
@@ -364,12 +368,17 @@
                                                             </div>
                                                             <div class="col-md-1" style="position: absolute; top: 10px; left: -8px;">
                                                                 <div class="dropdown">
-                                                                    <button class="btn btn-link" type="button" onclick="toggleDropdown(this)" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: 25rem;margin-top: -14px;">
-                                                                        <i class="fa fa-ellipsis-h"></i> <!-- Font Awesome three dots icon -->
+                                                                    <!-- Button -->
+                                                                    <button class="btn btn-link" type="button" 
+                                                                            onclick="toggleDropdown(this, event)" 
+                                                                            style="margin-left: 23rem; margin-top: -14px;">
+                                                                        <i class="fa fa-ellipsis-h"></i>
                                                                     </button>
-                                                                    <div class="dropdown-menu-custom">
-                                                                        <a href="#" onclick="markAsRead(this)">Mark as Read</a>
-                                                                        <a href="#" onclick="removeNotification(this)">Remove Notification</a>
+
+                                                                    <!-- Custom dropdown menu -->
+                                                                    <div class="dropdown-menu-custom" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid #ccc; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); min-width: 140px; z-index: 1000;">
+                                                                        <a href="#" style="font-size: 12px;" onclick="markAsRead(this)">Mark as Read</a>
+                                                                        <a href="#" style="font-size: 12px;" onclick="removeNotification(this)">Remove Notification</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -388,9 +397,10 @@
                                             </div>
                                             
                                             @endforeach
-                                            <li class="divider"></li>
+                                          
+                                          <hr>   
                                             <div class="notification-footer" style="text-align: center;"><h4 class="menu-title" style="color: red;font-size: 1rem !important;
-                                                margin: 0px;">   <a class="content" href="{{ env('BASE_URL').'notifications'}}" 
+                                               ">   <a class="content" href="{{ env('BASE_URL').'notifications'}}" 
                                             {{-- data-bs-toggle="modal" data-bs-target="#phoneRequestModal"  --}}
                                             style="color: red;"
                                             >View all Notifications </a></h4></div>
@@ -465,9 +475,14 @@
                                       </ul>
                                  @endif
                                 </div>
-                            </span>
+                </span>
                             
 
+
+
+
+
+                
                          
                         
                               <span style="padding:8px 15px 0px 15px;text-align:center;">
@@ -568,72 +583,43 @@
                                     @endif
                                 </div>
                             </span>
-                           <span style="padding:8px 15px 0px 15px;text-align:center;">
-                           <a href="{{ route('chats', ['country' => request()->country, 'city' => request()->city]) }}">
-    <span class="colorChange_top" style="color: #000; font-size: 14px;">Chats</span>
-</a>
-                                <div class="dropdown-menu" aria-labelledby="chat" style="padding: 10px;width:auto;">
-                                    @if (session()->has('user'))
-                                        <!---------inner area  type="button" id="chat" data-toggle="dropdown"
-                                   aria-haspopup="true"
-                                   aria-expanded="false"------------>
-                                            <div class="row">
-                                            <div class="col-lg-12 col-sm-12 col-12">
-                                                </i> <span style="color: #000;margin-left: 3px;">Chats</span>
-                                            </div>
-                                        </div>
-                                            <hr style="width: 25.9rem;margin: 4px;">
-                                            @foreach ($chats as $message)
-
-
-                                            <div class="row" style="padding:11px 0px 0px 12px;">
-                                                    <div class="col-lg-2 col-sm-4 col-4">
-                                                        <img width="100" height="100"
-                                                             src="{{ $message->user->image_url ?? "https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg"}}"
-                                                             alt="img" style="width:80px;height:80px;border-radius:50px;margin-top:-3px;"/>
-                                                    </div>
-                                                    <div class="col-lg-7 col-sm-6 col-6" style="margin-left: 12px;">
-                                                        <span style="font-weight: bold;">This is Title of Selling </span><br/>
-                                                    @php
-                                                    // dd($message->user);
-                                                    @endphp
-                                                        <p style="margin-top: 7px;margin-bottom: 8px;">{{ $message->receiver->name  ?? ''}} : <span >{{ $message->message }} </span></p> 
-                                                            <p style="font-size: 11px;margin-top:3px; margin-bottom:2px; bold; color: green;" >{{ $message->message_recieved_time_diff }}</p>
-                                                       
-                                                    </div>
-                                                    <div class="col-lg-3 col-sm-2 col-2" style="margin-left: -28px;margin-top: -3px;">
-                                                        <img width="100" height="100"
-                                                             src="{{ $message->user->image_url ?? "https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg"}}"
-                                                             alt="img" style="width:80px;height:80px;border-radius:10%;"/>
-                                                    </div>
-                                            </div>
-                                            <hr style="width: 25.9rem;margin: 6px">
-                                            @endforeach
-                                            
-                                            <div class="row">
-                                            <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
-                                                {{-- <a href="{{ env('BASE_URL') . 'chats?country=' . request()->country . '&city=' . request()->city}}"
-                                                   class="btn btn-primary btn-block link"
-                                                   style="font-size: 13px;">View all Chats</a> --}}
-
-                                                   {{-- <li class="divider"></li> --}}
-                                                   <div class="notification-footer">
-                                                    <h4 class="menu-title" style="color: red;font-size: 1rem !important;
-                                                   margin:0px;">   <a class="content" href="{{ env('BASE_URL') . 'chats?country=' . request()->country . '&city=' . request()->city}}"  style="color: red;">View all Chats </a></h4></div>
-                                            </div>
-                                        </div>
-                                            <!---------inner area------------>
-                                        @else
-                                            <hr>
-                                            <div class="row">
-                                            <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
-                                                <span>Nothing to show</span>
-                                            </div>
-                                        </div>
-                                        @endif
-                                </div>
-                            </span>
                             
+                            
+                            
+                            <span class="dropdown" style="position: relative; padding: 8px 15px; text-align: center;">
+    <!-- Toggle -->
+    <span class="colorChange_top dropdown-toggle" id="chatDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer; color: #000; font-size: 14px;">
+        Chats
+    </span>
+
+    <!-- Dropdown menu -->
+    <span class="dropdown-menu p-3" aria-labelledby="chatDropdown" style="min-width: 300px; max-width: 400px;">
+        @if(session()->has('user'))
+            @forelse($chats as $message)
+                <span class="d-flex align-items-start mb-3">
+                    <img src="{{ $message->user->image_url ?? 'https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg' }}" class="rounded-circle" width="60" height="60">
+                    <span class="flex-grow-1 ms-3">
+                        <span class="fw-bold">This is Title of Selling</span>
+                        <p class="mb-1">{{ $message->receiver->name ?? '' }}: {{ $message->message }}</p>
+                        <p class="text-success small mb-0">{{ $message->message_recieved_time_diff }}</p>
+                    </span>
+                   
+                </span>
+                <hr>
+            @empty
+                <span class="text-center py-2 d-block">No chats available</span>
+            @endforelse
+
+            <span class="text-center d-block mt-2">
+                <a href="{{ env('BASE_URL') . 'chats?country=' . request()->country . '&city=' . request()->city }}" class="text-danger fw-bold">
+                    View all Chats
+                </a>
+            </span>
+        @else
+            <span class="text-center d-block py-3">Nothing to show</span>
+        @endif
+    </span>
+</span>               
                 <span style="padding:8px 15px 0px 15px;text-align:center;">
 
                     <a href="{{ env('BASE_URL') . 'user/ads?country=' . request()->get('country') . '&city=' . request()->get('city') }}" 
@@ -891,24 +877,32 @@ $(this).children('.dropdown-menu').removeClass('show');
 });
 
     // Function to toggle the dropdown visibility
-    function toggleDropdown(element) {
-        const dropdownMenu = element.nextElementSibling;
-        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-    }
+   
 
-    // Function to mark the notification as read
-    function markAsRead(element) {
-        alert('Marked as read!');
-        const dropdownMenu = element.parentElement;
-        dropdownMenu.style.display = 'none'; // Close the dropdown
-    }
 
-    // Function to remove the notification
-    function removeNotification(element) {
-        const notificationItem = element.closest('.notification-item');
-        notificationItem.remove(); // Remove the entire notification
-    }
+    function toggleDropdown(element, event) {
+    // Stop click from bubbling to parent notification dropdown
+    event.stopPropagation();
 
+    const dropdownMenu = element.nextElementSibling;
+
+    // Close other three-dots menus
+    document.querySelectorAll('.dropdown-menu-custom').forEach(menu => {
+        if (menu !== dropdownMenu) menu.style.display = 'none';
+    });
+
+    // Toggle this menu
+    dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+}
+
+// Example actions
+function markAsRead(el){
+    el.closest('.notification-item').style.background = '#fff';
+}
+
+function removeNotification(el){
+    el.closest('.notification-item').remove();
+}
     // Close dropdown if clicked outside
     window.onclick = function(event) {
         if (!event.target.matches('.dropdown-toggle-custom')) {

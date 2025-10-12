@@ -177,6 +177,9 @@ class RecordHelper
     public static function getNotifications()
     {
         $user_id = Auth::id() ?? Session::get('user')->id;
+       
+
+
         return UserNotification::where('user_id', $user_id)->latest()->get();
     }
 
