@@ -300,6 +300,13 @@ a{
   border-radius: 20px !important;       /* roundness of the scroll thumb */
   border: 0px solid orange !important;  /* creates padding around scroll thumb */
 }
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b{
+    border-color: blue transparent transparent transparent !important;
+}
+.select2-container--default .select2-selection--single:hover .select2-selection__arrow b {
+    border-color: goldenrod transparent transparent transparent !important;
+}
 </style>
 @php
 $countries = \App\Helpers\RecordHelper::getCountries();
