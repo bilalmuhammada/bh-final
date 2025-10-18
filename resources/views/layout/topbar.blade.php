@@ -10,6 +10,7 @@
         $notifications = \App\Helpers\RecordHelper::getNotifications();
         $my_searches = \App\Helpers\RecordHelper::getSearches()->take(2);
         $favourite_ads = \App\Helpers\RecordHelper::getFavouriteAds()->take(4);
+      
         $chats = \App\Helpers\RecordHelper::getUnreadMessages();
         //  dd($chats );
         $my_ads_for_topbar = \App\Helpers\RecordHelper::getAdsByUserId(session()->get('user')->id)->take(2);
@@ -164,6 +165,137 @@
             color: goldenrod !important;
 
         }
+
+        /* Favorite ads styling */
+.favorite-item {
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+.favorite-item:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+/* Image */
+.fav-img-wrapper {
+    width: 70px;
+    height: 70px;
+    margin-top: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: inline-block;
+    background: #f1f1f1;
+}
+
+.fav-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.favorite-item:hover .fav-img {
+    transform: scale(1.05);
+}
+
+/* Title */
+.fav-title {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.3;
+    color: #212529;
+}
+
+/* Meta info */
+.fav-meta {
+    color: #000;
+    font-size: 11px;
+}
+
+/* Card hover effect */
+.hover-card {
+    border: 1px solid #e9ecef;
+}
+
+.hover-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+/* Chat Dropdown Base */
+
+
+/* Chat Text */
+
+/* Chat Dropdown Toggle */
+.chat-toggle {
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.chat-toggle:hover {
+    color: #0d6efd; /* Primary blue */
+}
+
+/* Dropdown Menu */
+.chat-menu {
+    min-width: 320px;
+    max-width: 380px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #e9ecef;
+}
+
+/* Chat Item */
+.chat-item {
+    background-color: #f8f9fa;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.chat-item:hover {
+    background-color: #e9ecef;
+    transform: translateY(-1px);
+}
+
+/* Avatar */
+.chat-avatar-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.chat-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Chat Text */
+.chat-title {
+    font-size: 13px;
+}
+
+.chat-message {
+    font-size: 12px;
+}
+
+.chat-time {
+    font-size: 11px;
+}
+
+/* Hover card effect */
+.hover-card {
+    border-radius: 8px;
+}
+
+/* View all link */
+.view-all-link:hover {
+    text-decoration: underline;
+}
+
+
         
     /* end */
 </style>
@@ -485,141 +617,155 @@
                 
                          
                         
-                              <span style="padding:8px 15px 0px 15px;text-align:center;">
-                                <a type="button" id="favorite" data-toggle="dropdown" aria-haspopup="true"
-                                   aria-expanded="false">
-                                    {{-- <img src="{{ asset('images/my-favorites.svg')}}" width="17" height="17"> --}}
-                                    <div><span class="colorChange_top" style="color: #000; font-size: 14px; ">Favorites</span></div>
-                                </a>
-                                {{-- <div class="dropdown-menu" aria-labelledby="favorite"
-                                     style="padding: 10px;width:250px;">
-                                    @if (session()->has('user') && count($favourite_ads) > 0)
-                                        <div class="row">
-                                            <div class="col-lg-12 col-sm-12 col-12">
-                                                </i> <span>Favorites</span>
-                                            </div>
-                                        </div> --}}
-                                        {{-- @foreach($favourite_ads as $favourite_ads) --}}
-                                            {{-- <hr>
-                                            <div class="row">
-                                                <div class="col-lg-2 col-sm-4 col-4"> --}}
-                                                    {{-- <img width="100" height="100"
-                                                         src="https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg"
-                                                         alt="img" style="width:40px;height:40px;border-radius:50px;"/> --}}
-                                                {{-- </div>
-                                                <div class="col-lg-8 col-sm-7 col-7">
-                                                    <a class="link"
-                                                       href="{{ env('BASE_URL') . 'ads/detail/' . $favourite_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
-                                                        <p style="font-size: 13px;">{{ $favourite_ad->name }} <br/><span
-                                                                style="font-size: 11px;">{{ \App\Helpers\SiteHelper::priceFormatter($favourite_ad->price) }}</span></p>
-                                                    </a>
-                                                </div>
-                                            </div> --}}
-                                        {{-- @endforeach --}}
-                                     <div class="dropdown-menu"  id="notifications" aria-labelledby="notifications"
-                                     style="padding: 10px;width:auto; border-radius: 12px;top: 61px !important; border: 1px solid rgb(146 146 146) !important; top: 30px;">
-                                    @if (session()->has('user') && count($favourite_ads) > 0)
-                                        <!---------inner area----->
-                                            <div class="row">
-                                            <div class="col-lg-12 col-sm-12 col-12">
-                                               <span style="font-weight: bold;margin-left: 11px;">Favorites {{count($favourite_ads)}} </span>
-                                               {{-- <span style="float: right;margin-right: 12px;">Mark all as Read </span> --}}
-                                            </div>
-                                        </div>
-                                            <hr>
-                                            @foreach($favourite_ads as $favourite_ads)
-                                               
-                                            
-                                            <div class="notifications-wrapper">
-                                                
-                                            
-                                                
-                                               
-                                                <div class="content" href="#" >
-                                                    <div class="notification-item">
-                                                        <div class="row" style="background: aliceblue; position: relative;">
-                                                            <!-- Three dots icon with dropdown -->
-                                                            
-                                                    
-                                                            <div class="col-md-2">
-                                                                <div style="width:80px; height:80px; border-radius:10%; overflow: hidden; margin-left: 2px;">
-                                                                    <img style="width: 100%; height: 100%; object-fit: cover;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
-                                                                </div>
-                                                            </div>
-                                                    
-                                                            <div class="col-md-7" style="white-space: nowrap; margin-left: 15px;">
-                                                                <span style="font-weight: bold;">Car Chip Tuning Garage for Sale</span>
-                                                                <br>
-                                                                <span>AED 649,990 | in Dubai</span>
-                                                                <br>
-                                                                <p style="margin: 9px 0px 0px 0px;">10 min ago</p>
-                                                               
-                                                            </div>
-                                                           
-                                                        </div>
-                                                    </div>
-                                                    
+                <span style="padding:8px 15px 0px 15px; text-align:center;">
+    <a type="button" id="favorite" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div>
+            <span class="colorChange_top" style="color:#000; font-size:14px;">Favorites</span>
+        </div>
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="favorite" style="padding:10px; width:250px; border-radius:12px; ">
+        @if (session()->has('user') && count($favourite_ads) > 0)
+            <div class="row">
+                <div class="col-12">
+                    <span style="font-weight:bold;">Favorites </span><span style="color: #000fff;">{{ count($favourite_ads) }}</span>
+                </div>
+            </div>
+            
+
+            @foreach($favourite_ads as $favourite_ad)
+    <div class="favorite-item row align-items-center border rounded shadow-sm hover-card">
+        
+        <!-- Image -->
+        <div class=" col-md-4 text-center">
+            <div class="fav-img-wrapper">
+                <img src="{{ $favourite_ad->main_image_url ?? 'https://via.placeholder.com/80x80?text=Ad' }}" 
+                     alt="{{ $favourite_ad->title }}" 
+                     class="fav-img">
+            </div>
+        </div>
+
+        <!-- Details -->
+        <div class="col-md-8 ">
+            <a href="{{ env('BASE_URL') . 'ads/detail/' . $favourite_ad->id . '?country=' . request()->country . '&city=' . request()->city }}"
+               class="fav-link text-decoration-none text-dark d-block">
+
+                <!-- Title -->
+                <p class="mb-1 fw-semibold fav-title">
+                    {{ Str::limit($favourite_ad->title, 50) }}
+                </p>
+
+                <!-- Category & Price -->
+                <div class="d-flex justify-content-between align-items-center ">
+                    <span class=" fw-bold small text-black " style="margin-bottom: -5px; color:#000" >
+                        {{ $favourite_ad->category->name ?? 'General' }} 
+                        > 
+                        {{ $favourite_ad->subcategory->name ?? 'General' }}
+                    </span>
+                    <span class="fw-bold text-success small" >
+                        {{ \App\Helpers\SiteHelper::priceFormatter($favourite_ad->price) }}
+                    </span>
+                </div>
+
+                <!-- Location / Time -->
+                <span class="fav-meta" style="color:#000">
+                    {{ $favourite_ad->location ?? 'Dubai' }} · 10 min ago
+                                        </span>
+            </a>
+        </div>
+    </div>
+@endforeach
+
+            <div class="text-center" style="margin-top:10px;">
+                <a href="{{ env('BASE_URL') . 'ads' }}" style="color:red; font-size:1rem; text-decoration:none;">
+                    View all Favorites
+                </a>
+            </div>
+        @else
+            <hr>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <span>Nothing to show</span>
+                </div>
+            </div>
+        @endif
+    </div>
+</span>
+                            
+                            
+<span style="padding:8px 15px 0px 15px; text-align:center;">
+    <!-- Toggle -->
+    <a class="chat-toggle d-inline-block" id="chatDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="colorChange_top" style="color:#000; font-size:14px; font-weight:500;">Chats</span>
+    </a>
+
+    <!-- Dropdown Menu -->
+    <div class="dropdown-menu chat-menu " aria-labelledby="chatDropdown" style="min-width: 300px;padding: 10px; ">
+        @if(session()->has('user'))
+            <!-- Header -->
+            <div class="mb-2">
+                <span class="fw-bold">Chats </span>
+                <span style="color:#000fff;">{{ count($chats) }}</span>
+            </div>
+
+            <!-- Chat List -->
+            @forelse($chats as $message)
+                <a href="{{ env('BASE_URL') . 'chats/detail/' . $message->id . '?country=' . request()->country . '&city=' . request()->city }}"
+                   class="d-flex align-items-center text-decoration-none text-dark ">
+
+                    <!-- Avatar -->
+                    <div class="me-2" style="margin-right: 12px;">
+                        <img src="{{ $message->user->image_url ?? 'https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg' }}" 
+                             alt="User Avatar"
+                             class="rounded-circle"
+                             width="45" height="45">
+                    </div>
+
+                    <!-- Chat Info -->
+                    <div class="flex-grow-1" style="line-height:normal;">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold small chat-title" style="font-weight: 600; font-size: 13px;">
+                               
                                 
-                                                
-                                              
-                                               
-                                            </div>
-                                            
-                                            </div>
-                                            
-                                            @endforeach
-                                            <li class="divider"></li>
-                                            <div class="notification-footer" style="text-align: center;"><h4 class="menu-title" style="color: red;font-size: 1rem !important;
-                                            margin: 0px;">   <a class="content" href="{{ env('BASE_URL').'ads'}}"
-                                            {{-- data-bs-toggle="modal" data-bs-target="#phoneRequestModal"  --}}
-                                            style="color: red;">View all Favourites </a></h4></div>
-                                    @else
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
-                                                <span>Nothing to show</span>
-                                            </div>
-                                        </div>
-                                    @endif
-                                </div>
+                            {{ Str::limit($message->message, 50) }}
+                                
                             </span>
                             
-                            
-                            
-                            <span class="dropdown" style="position: relative; padding: 8px 15px; text-align: center;">
-    <!-- Toggle -->
-    <span class="colorChange_top dropdown-toggle" id="chatDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer; color: #000; font-size: 14px;">
-        Chats
-    </span>
+                        </div>
 
-    <!-- Dropdown menu -->
-    <span class="dropdown-menu p-3" aria-labelledby="chatDropdown" style="min-width: 300px; max-width: 400px;">
-        @if(session()->has('user'))
-            @forelse($chats as $message)
-                <span class="d-flex align-items-start mb-3">
-                    <img src="{{ $message->user->image_url ?? 'https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg' }}" class="rounded-circle" width="60" height="60">
-                    <span class="flex-grow-1 ms-3">
-                        <span class="fw-bold">This is Title of Selling</span>
-                        <p class="mb-1">{{ $message->receiver->name ?? '' }}: {{ $message->message }}</p>
-                        <p class="text-success small mb-0">{{ $message->message_recieved_time_diff }}</p>
-                    </span>
-                   
-                </span>
-                <hr>
+                        <div class="small text-muted">
+                        
+                        <span class="chat-time mb-0">
+                            {{ $message->receiver->name ?? 'Unknown' }}
+                            </span>
+                        </div>
+                        <div class="small text-muted">
+                        
+                        <p class=" text-success small mb-0" style="font-size: 8px;">
+                                {{ $message->message_recieved_time_diff }}
+                            </p>
+                        </div>
+                    </div>
+                </a>
             @empty
-                <span class="text-center py-2 d-block">No chats available</span>
+                <span class="text-center d-block py-2 text-muted">No chats available</span>
             @endforelse
 
-            <span class="text-center d-block mt-2">
-                <a href="{{ env('BASE_URL') . 'chats?country=' . request()->country . '&city=' . request()->city }}" class="text-danger fw-bold">
+            <!-- Footer -->
+            <div class="text-center mt-2">
+                <a href="{{ env('BASE_URL') . 'chats?country=' . request()->country . '&city=' . request()->city }}" 
+                   class="fw-bold text-danger text-decoration-none">
                     View all Chats
                 </a>
-            </span>
+            </div>
         @else
-            <span class="text-center d-block py-3">Nothing to show</span>
+            <span class="text-center d-block py-3 text-muted">Nothing to show</span>
         @endif
-    </span>
-</span>               
+    </div>
+</span>
+
+
+             
                 <span style="padding:8px 15px 0px 15px;text-align:center;">
 
                     <a href="{{ env('BASE_URL') . 'user/ads?country=' . request()->get('country') . '&city=' . request()->get('city') }}" 
