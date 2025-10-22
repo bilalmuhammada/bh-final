@@ -37,6 +37,9 @@ $(document).on('click', '.register-btn', function () {
     $('#registerModal').modal('show');
 });
 
+$(document).on('click', '.register-submit', function () {
+    $('#verifyOtpModal').modal('show');
+});
 
 function convertToShortMonthFormat(inputDate, separator = '-') {
     // Check if input is in ISO format

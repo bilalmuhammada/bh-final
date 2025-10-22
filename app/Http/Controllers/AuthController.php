@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\RegistrationMail;
+use Illuminate\Support\Facades\Mail;
 use Laravel\Socialite\Facades\Socialite;
+
 
 //use Laravel\Socialite\Facades\Socialite;
 
@@ -80,7 +83,7 @@ class AuthController extends Controller
         }
 
         $role_id = Role::firstWhere('role_key', $request->role)->id ?? 1;
-
+        $otp = rand(100000, 999999);
         $User = User::create([
             'role_id' => $role_id,
             'name' => $request->first_name . " " . $request->last_name,
@@ -90,14 +93,63 @@ class AuthController extends Controller
             'phone' => $request->mobile,
             'country_id' => $request->country,
             'city_id' => $request->city,
+            'email_verification_code' => $otp,
+            
             'password' => Hash::make($request->password),
         ]);
 
+   
+
+    // Send Email
+    $details = [
+        'name' => $request->first_name . " " . $request->last_name,
+        'otp' => $otp,
+    ];
+
+    Mail::to($User->email)->send(new RegistrationMail($details));
+
         return response()->json([
             'status' => TRUE,
+            'email' => $request->email,
             'message' => 'User registered successfully'
         ]);
     }
+
+    public function verifyOtp(Request $request)
+{
+    
+    $validator = Validator::make($request->all(), [
+        'email' => 'required|email|exists:users,email',
+        'otp' => 'required|numeric',
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json([
+            'status' => false,
+            'message' => $validator->errors()->first()
+        ]);
+    }
+
+    $user = User::where('email', $request->email)->first();
+
+    if (!$user || $user->email_verification_code !== $request->otp) {
+        return response()->json([
+            'status' => false,
+            'message' => 'Invalid OTP or email.'
+        ]);
+    }
+
+    // Update user as verified
+    $user->update([
+        'email_verified_at' => now(),
+        'email_verification_code' => null,
+    ]);
+
+    return response()->json([
+        'status' => true,
+        'message' => 'Email verified successfully!',
+    ]);
+}
 
     public function login(Request $request)
     {

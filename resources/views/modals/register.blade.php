@@ -266,10 +266,11 @@ padding-left: 31px;
                         <!-- Register button start -->
                         <div class="register-button-area"
                              style="border:0px solid red;text-align:center;margin-top: -15px;margin-bottom: 26px;">
-                            <a class="btn register-button" style="color: #FFFF;margin-top: 13px;">Register </a>
+                            <a class="btn register-button   " style="color: #FFFF;margin-top: 13px;">Register </a>
+                            
                         </div>
                         <div class="Forgot" style="font-size: 12px;text-align: left; margin-top: -10px;">
-                            <a  class="show-forgot-btn" id="colorTowhite" style="margin-left: 13px;color:#0070cc;" > Forgot Password? </a>
+                            <a  class="show-forgot-btn" id="colorTowhite" style="margin-left: 13px;color:#0070cc;" > Forgot Password? </a><a  class="register-submit" id="colorTowhite" style="margin-left: 13px;color:#0070cc;" > Verifyotp </a>
                            <span style="float: right;margin-right: 13px;">Already on BusinessHub? <a  class="login-btn" style="color:#0070cc;" id="colorTowhite" >&nbsp; Click Here </a></span>
                                
                            </div>

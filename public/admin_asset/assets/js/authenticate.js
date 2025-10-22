@@ -10,6 +10,8 @@ $(document).on('click', '.register-button', function () {
                 dataType: "JSON",
                 success: function (response) {
                     if (response.status) {
+                        $('#verify_email').val(response.email); 
+
                         Swal.fire({
                             title: 'Success!',
                             text: response.message,

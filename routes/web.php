@@ -76,6 +76,8 @@ Route::middleware('check_user_auth')->group(function () {
  
     });
 
+    
+
     Route::get('/checkout',  [PlanController::class,'showPlans'])->name('checkout');
     Route::any('/session',  [PlanController::class,'session'])->name('session');
     // Route::get('/success',  [PlanController::class,'success'])->name('success');
@@ -93,7 +95,7 @@ Route::middleware('check_user_auth')->group(function () {
     //     Route::get('/checkout', [PlanController::class, 'checkout']);
     // });
 });
-
+Route::post('/verify-otp', [AuthController::class, 'verifyOtp']);
 
 Route::post('/chat/favorite',[\App\Http\Controllers\ChatController::class,'toggleFavorite'])->name('chat.favorite');
 Route::post('/chat/block', [\App\Http\Controllers\ChatController::class,'toggleBlock'])->name('chat.block');

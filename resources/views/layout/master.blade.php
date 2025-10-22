@@ -28,6 +28,7 @@ $second = $parts[1] ?? null;
 @include('modals.login')
 @include('modals.forgot-password')
 @include('modals.register')
+@include('modals.verifyotpmodel')
 @include('modals.report')
 @include('modals.report_user')
 @include('modals.phone-request')
