@@ -68,22 +68,24 @@
 
    <h4 style="font-weight:bold;margin-left:-9px;">Notification</h4>
     @foreach($notifications as $notification)
-    <div class="notification-item" style="position: relative; padding:10px 10px 0px 10px;">
+    <div class="notification-item" style="position: relative; padding:0px 10px 0px 10px;">
     <div class="row" style="border-bottom:1px solid #eee">
         <!-- Image Section -->
         <div class="col-md-1">
-            <div style="width:80px; height:80px; border-radius:10%; overflow: hidden;margin-left: -15px;">
+            <div style="width:80px; height:75px; margin-top:6px; border-radius:10%; overflow: hidden;margin-left: -15px;">
                 <img style="width: 100%; height: 100%; object-fit: cover;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
             </div>
         </div>
 
         <!-- Text Section -->
         <div class="col-md-7" style="white-space: nowrap; margin-left: -14px;">
-            <span style="font-weight: bold;">Congrats, your ad is live!</span>
+            <span style="font-weight: bold;">{{$notification->title}}</span>
             <br>
-            <span>Your ad placed in 46 is now live call..</span>
+            <span>{{$notification->message}}</span>
             <br>
-            <p style="padding: 0px;">10 min ago</p>
+            <p style="padding: 0px; margin: 0px;">
+    {{ \Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
+</p>
         </div>
 
         <!-- Dropdown Section -->
@@ -93,9 +95,9 @@
             </div>
 
             <!-- Custom dropdown menu -->
-            <div class="dropdown-menu-custom" style="position: absolute; background-color: white; border: 1px solid #ccc; border-radius: 5px; width: 170px; top: 35px; right: 10px; display: none;">
+            <div class="dropdown-menu-custom" style="position: absolute; background-color: white; border: 1px solid #ccc; border-radius: 5px; width: 170px; top: 35px; left: -50px; display: none;">
                 <a href="#" onclick="markAsRead(this)" style="display: block; padding: 10px; text-decoration: none; color: #333;">Mark as Read</a>
-                <a href="#" onclick="removeNotification(this)" style="display: block; padding: 10px; text-decoration: none; color: #333;">Remove Notification</a>
+               <!--   // <a href="#" onclick="removeNotification(this)" style="display: block; padding: 10px; text-decoration: none; color: #333;">Remove Notification</a>-->
             </div>
         </div>
     </div>

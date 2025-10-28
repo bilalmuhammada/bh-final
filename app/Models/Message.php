@@ -29,6 +29,10 @@ class Message extends Model
             return 'left';
         }
     }
+    public function chat()
+    {
+        return $this->belongsTo(Chat::class);
+    }
 
     public function getSendedAtFormattedAttribute()
     {

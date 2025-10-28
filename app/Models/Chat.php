@@ -68,6 +68,8 @@ class Chat extends Model
         ])->count();
     }
 
+    
+
     public function getLatestMessageRecievedTimeDiffAttribute()
     {
         $Message = Message::where('chat_id', $this->id)->latest()->first();

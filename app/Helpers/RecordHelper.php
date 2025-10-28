@@ -185,7 +185,7 @@ class RecordHelper
 
     public static function getUnreadMessages()
     {
-        $Messages = \App\Models\Message::with('receiver')->where('receiver_id', \App\Helpers\SiteHelper::getLoginUserId())->where('is_readed', 0)->get();
+        $Messages = \App\Models\Message::with('receiver','chat.ad')->where('receiver_id', \App\Helpers\SiteHelper::getLoginUserId())->where('is_readed', 0)->get();
 
         return $Messages;
     }
