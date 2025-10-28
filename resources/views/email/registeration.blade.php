@@ -8,18 +8,18 @@
     <div style="max-width: 600px; background: #ffffff; margin: 40px auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); overflow: hidden;">
         
         <!-- HEADER -->
-        <div style="background: #3B82F6; color: #fff; text-align: center; padding: 30px 20px;">
+        <div style=" color: #fff; text-align: center; padding: 30px 20px;">
             <a href="{{ env('BASE_URL') . 'home' }}" style="text-decoration: none;">
                 <img src="{{ asset('images/businesshub.png') }}" alt="BusinessHub Logo" width="120" style="display:block; margin:0 auto 10px auto;">
             </a>
-            <h1 style="margin: 0; font-size: 24px;">Welcome to {{ config('app.name') }}</h1>
+            
         </div>
 
         <!-- CONTENT -->
         <div style="padding: 30px 40px; text-align: center;">
             <h2 style="color: #111; margin-top: 0;">Hey {{ $details['name'] }},</h2>
             <p style="font-size: 16px; line-height: 1.5; margin-bottom: 20px;">
-                Welcome to <strong>{{ config('app.name') }}</strong>! Please verify your email using the OTP below:
+                Welcome to <strong>BusinessHub</strong>! Please verify your email using the OTP below:
             </p>
 
             <div style="display: inline-block; background: #f3f4f6; color: #111; font-weight: bold; letter-spacing: 3px; font-size: 20px; padding: 12px 20px; border-radius: 6px; margin: 20px 0;">

@@ -203,7 +203,7 @@
 /* Title */
 .fav-title {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.3;
     color: #212529;
 }
@@ -490,14 +490,13 @@
                                                                 </div>
                                                             </div>
                                                     
-                                                            <div class="col-md-6" style="white-space: nowrap;">
-                                                                <span style="font-weight: bold;">Congrats, your ads is live!</span>
-                                                                <br>
-                                                                <span>Your ad placed in 46 is now live call..</span>
-                                                                <br>
-                                                                <p style="margin: 9px 0px 0px 0px;">10 min ago</p>
-                                                               
-                                                            </div>
+                                                            <div class="col-md-6" style="width: 300px; white-space: normal;">
+  <span style="font-weight: bold;">{{$notification->title}}</span><br>
+  <span>{{$notification->message}}</span><br>
+  <p style="margin: 9px 0 0 0;">
+    {{ \Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
+  </p>
+</div>
                                                             <div class="col-md-1" style="position: absolute; top: 10px; left: -8px;">
                                                                 <div class="dropdown">
                                                                     <!-- Button -->
@@ -539,71 +538,17 @@
                                         <!---------inner area---->
                                         @else
                                           
-                                        {{-- <div style="      margin-top: 15px;   font-weight: 700;   min-width: 500px;" class="notification-heading"><h4 class="menu-title">Notifications </h4><h6 style="font-size: 16px; margin-right: 66px" class="menu-title pull-right">Mark All as read</h6>
-                                        </div>
-                                        <hr style="    width: 80%;">
-                                        <li class="divider"></li>
-                                       <div class="notifications-wrapper">
-                                         <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal">
-                                            <div class="dropdown" style="float:right;">
-                                                <i style="color: black;" class="fa fa-ellipsis-h" data-toggle="dropdown"></i>
-                                                <div class="dropdown-menu" style="   left: -140px;;
-                                                ">
-                                                  <a class="dropdown-item" href="#">Mark as Read</a>
-                                                  <a class="dropdown-item" href="#">Remove Notifications</a>
-                                                </div>
-                                              </div>
-                                          
-
-                                          </div>
-                                          <hr>
-                                           
-                                        </a>
                                        
-                                        <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal">
-                                            <div class="dropdown" style="float:right;">
-                                                <i style="color: black;" class="fa fa-ellipsis-h" data-toggle="dropdown"></i>
-                                                <div class="dropdown-menu" style="   left: -140px;;
-                                                ">
-                                                  <a class="dropdown-item" href="#">Mark as Read</a>
-                                                  <a class="dropdown-item" href="#">Remove Notifications</a>
-                                                </div>
-                                              </div>
-                                           <div class="notification-item">
-                                            <div class="row">
-                                              
-                                                <div class="col-md-9" style="white-space: nowrap;display: ruby;">
-                                                    <h1 class="item-title" style="margin-bottom: 10px;">File Request</h1>
-                                                    <p style="margin-top: 5px;margin-left:170px ;margin-bottom: unset; color: black; font-size: 0.9em;">7 days ago </p>
-                                                </div>
-
-                                               
+                                       
+                                         <div class="row">
+                                            <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
+                                                <span>Nothing to show</span>
                                             </div>
-                                            <div class="row">
-                                              
-                                            <div class="col-md-12" style="padding: unset;display: contents;">
-                                                <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; margin-left: 30px;">
-                                                    <img style="width: 100%; height: 100%; object-fit: cover;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
-                                                </div>
-                                                <p style="margin: 11px; font-weight: bold;">Rustum</p>
-                                                <br>
-                                                
                                             </div>
-                                            <div style=" color: white;
-                                            margin-top: 10px;
-                                            margin-left: 145px;">
-                                                <a class="btn btn-success btn-sm badge bg-success">Approve </a>
-                                                <a class="btn btn-danger btn-sm badge bg-danger" style="margin-left: 5px;">Reject </a>
-                                            </div>
-                                        </div>
-                                           </div>
-                                           
-                                        </a>
-                                       </div>
                                        <hr>
-                                        <li class="divider"></li>
-                                        <div class="notification-footer" style="text-align: center;"><h4 class="menu-title" style="color: red;
-                                            margin: 12px;">   <a class="content" href="#" data-bs-toggle="modal" data-bs-target="#phoneRequestModal">View all Notifications </a></h4></div> --}}
+                                      
+                                        <div class="notification-footer" style="text-align: center;"><h4 class="menu-title" 
+                                            >   <a class="content" href="#" data-bs-toggle="modal" style="font-size: 15px; color: red;font-weight: 600;" data-bs-target="#phoneRequestModal">View all Notifications </a></h4></div> 
                                       </ul>
                                  @endif
                                 </div>
@@ -657,12 +602,12 @@
 
                 <!-- Category & Price -->
                 <div class="d-flex justify-content-between align-items-center ">
-                    <span class=" fw-bold small text-black " style="margin-bottom: -5px; color:#000" >
+                    <span class=" fw-bold  text-black " style="margin-bottom: -5px; color:#000; font-size:70%;" >
                         {{ $favourite_ad->category->name ?? 'General' }} 
                         > 
                         {{ $favourite_ad->subcategory->name ?? 'General' }}
                     </span>
-                    <span class="fw-bold text-success small" >
+                    <span class="fw-bold text-success " style=" font-size:70%;" >
                         {{ \App\Helpers\SiteHelper::priceFormatter($favourite_ad->price) }}
                     </span>
                 </div>
@@ -692,7 +637,7 @@
     </div>
 </span>
                             
-                            
+                   
 <span style="padding:8px 15px 0px 15px; text-align:center;">
     <!-- Toggle -->
     <a class="chat-toggle d-inline-block" id="chatDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -707,7 +652,7 @@
                 <span class="fw-bold">Chats </span>
                 <span style="color:#000fff;">{{ count($chats) }}</span>
             </div>
-
+            
             <!-- Chat List -->
             @forelse($chats as $message)
                 <a href="{{ env('BASE_URL') . 'chats/detail/' . $message->id . '?country=' . request()->country . '&city=' . request()->city }}"
@@ -727,7 +672,7 @@
                             <span class="fw-bold small chat-title" style="font-weight: 600; font-size: 13px;">
                                
                                 
-                            {{ Str::limit($message->message, 50) }}
+                            {{ Str::limit($message->chat->ad->title, 50) }}
                                 
                             </span>
                             
@@ -736,7 +681,7 @@
                         <div class="small text-muted">
                         
                         <span class="chat-time mb-0">
-                            {{ $message->receiver->name ?? 'Unknown' }}
+                            {{ $message->message ?? 'Unknown' }}
                             </span>
                         </div>
                         <div class="small text-muted">
@@ -745,6 +690,14 @@
                                 {{ $message->message_recieved_time_diff }}
                             </p>
                         </div>
+                    </div>
+
+                   
+                    <div class="me-2" style="margin-left: 50px;">
+                        <img src="{{ $message->chat->ad->main_image_url ?? 'https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg' }}" 
+                             alt="User Avatar" 
+                             
+                             width="65" height="65" style="border-radius: 15px;">
                     </div>
                 </a>
             @empty
