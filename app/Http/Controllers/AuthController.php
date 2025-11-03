@@ -105,7 +105,9 @@ class AuthController extends Controller
         'name' => $request->first_name . " " . $request->last_name,
         'otp' => $otp,
     ];
-
+    Session::put('otp_email', $request->email);
+    Session::put('otp_code', $otp);
+    Session::put('otp_username', $request->first_name." ".$request->last_name);
     Mail::to($User->email)->send(new RegistrationMail($details));
 
         return response()->json([
@@ -119,9 +121,12 @@ class AuthController extends Controller
 {
     
     $validator = Validator::make($request->all(), [
-        'email' => 'required|email|exists:users,email',
+       
         'otp' => 'required|numeric',
     ]);
+    $storedOtp = Session::get('otp_code');
+    $email = Session::get('otp_email');
+
 
     if ($validator->fails()) {
         return response()->json([
@@ -130,7 +135,7 @@ class AuthController extends Controller
         ]);
     }
 
-    $user = User::where('email', $request->email)->first();
+    $user = User::where('email', $email)->first();
 
     if (!$user || $user->email_verification_code !== $request->otp) {
         return response()->json([
@@ -144,13 +149,33 @@ class AuthController extends Controller
         'email_verified_at' => now(),
         'email_verification_code' => null,
     ]);
+    Session::forget(['otp_code', 'otp_email']);
 
     return response()->json([
         'status' => true,
         'message' => 'Email verified successfully!',
     ]);
 }
+public function resend()
+{
+    $email = Session::get('otp_email');
+    
+    $otp_username = Session::get('otp_username');
+    if (!$email) {
+        return redirect()->route('login')->with('error', 'Session expired. Please log in again.');
+    }
+  
+    $otp = rand(100000, 999999);
+    Session::put('otp_code', $otp);
+    $details = [
+        'name' => $otp_username,
+        'otp' => $otp,
+    ];
+    // Send OTP via email
+    Mail::to($email)->send(new RegistrationMail($details));
 
+    return redirect()->back()->with('success', 'A new OTP has been sent to your email.');
+}
     public function login(Request $request)
     {
         
