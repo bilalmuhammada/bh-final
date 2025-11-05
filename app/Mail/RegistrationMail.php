@@ -35,7 +35,7 @@ class RegistrationMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'BusinessHub - User Registration',
+            subject: 'User Registration OTP',
         );
     }
 
