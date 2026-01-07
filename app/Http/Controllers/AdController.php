@@ -24,22 +24,23 @@ class AdController extends Controller
             'created_by_user'
         ])
             ->orderBy('name')->get();
-       
+
         $data = [
-      
+
             'ads' => $ads
         ];
         $countries = Country::all();
-        return view('Admin.influencers.list')->with(['menu' => 'post', 'countries' => $countries,'data'=>$ads]);
+        return view('Admin.influencers.list')->with(['menu' => 'post', 'countries' => $countries, 'data' => $ads]);
     }
 
-    public function reportedUser(){
-    
+    public function reportedUser()
+    {
+
         return view('Admin.influencers.reviews');
     }
     public function reviews(Request $request)
     {
-       
+
         $adsreport = AdsReported::with(['listing'])->get();
         if ($adsreport->isNotEmpty()) {
             return response()->json([
@@ -54,8 +55,8 @@ class AdController extends Controller
         ]);
     }
 
-   
-    public function showAds(Request $request,$subcategory_id = false)
+
+    public function showAds(Request $request, $subcategory_id = false)
     {
         $data = [];
         if ($subcategory_id) {
@@ -63,39 +64,39 @@ class AdController extends Controller
 
             $SubCategory = SubCategory::with('category')->find($subcategory_id);
 
-$perPage     = 20;
-$price_from  = $request->from;
-$price_to    = $request->to;
-$keyword     = $request->keyword;
+            $perPage     = 10;
+            $price_from  = $request->from;
+            $price_to    = $request->to;
+            $keyword     = $request->keyword;
 
-$city_id     = $request->city;
-$sortOrder   = $request->sortOrder ?? 'asc'; // Default sorting order
-$sortBy      = $request->sortBy ?? 'name';   // Default sorting field
-
-
-
-$ads = Listing::with(['attachments', 'created_by_user'])
-    ->where('subcategory_id', $subcategory_id) // Always filter by subcategory
-    
-    ->when($price_from !== null && $price_from !== '', function ($query) use ($price_from) {
-        $query->where('price', '>=', $price_from);
-    })
-    ->when($price_to !== null && $price_to !== '', function ($query) use ($price_to) {
-        $query->where('price', '<=', $price_to);
-    })
-    ->when($keyword !== null && $keyword !== '', function ($query) use ($keyword) {
-        $query->where('title', 'like', '%' . $keyword . '%');
-    })
-   
-    ->when($city_id !== null && $city_id !== '', function ($query) use ($city_id) {
-        $query->where('city_id', $city_id);
-    })
-
-    ->orderBy('name', 'asc')
-    ->paginate($perPage);
+            $city_id     = $request->city;
+            $sortOrder   = $request->sortOrder ?? 'asc'; // Default sorting order
+            $sortBy      = $request->sortBy ?? 'name';   // Default sorting field
 
 
-         
+
+            $ads = Listing::with(['attachments', 'created_by_user'])
+                ->where('subcategory_id', $subcategory_id) // Always filter by subcategory
+
+                ->when($price_from !== null && $price_from !== '', function ($query) use ($price_from) {
+                    $query->where('price', '>=', $price_from);
+                })
+                ->when($price_to !== null && $price_to !== '', function ($query) use ($price_to) {
+                    $query->where('price', '<=', $price_to);
+                })
+                ->when($keyword !== null && $keyword !== '', function ($query) use ($keyword) {
+                    $query->where('title', 'like', '%' . $keyword . '%');
+                })
+
+                ->when($city_id !== null && $city_id !== '', function ($query) use ($city_id) {
+                    $query->where('city_id', $city_id);
+                })
+
+                ->orderBy('name', 'asc')
+                ->paginate($perPage)->appends($request->all());
+
+
+
             $data = [
                 'from' => $request->from ?? false,
                 'to' => $request->to ?? false,
@@ -108,11 +109,10 @@ $ads = Listing::with(['attachments', 'created_by_user'])
                 'subcategory_name' => $SubCategory->name,
                 'ads' => $ads
             ];
-          
+
             return view('ads.list')->with($data);
-        }
-        else{           
-            
+        } else {
+
             $SubCategory = SubCategory::with(['category'])->get(); // This returns a collection of SubCategories
 
             $price_from = $request->from;
@@ -120,8 +120,8 @@ $ads = Listing::with(['attachments', 'created_by_user'])
             $keyword = $request->keyword;
             $country_id = $request->country;
             $city_id = $request->city;
-            
-            $perPage = 2;
+
+            $perPage = 10;
 
             $ads = Listing::with([
                 'attachments',
@@ -142,12 +142,18 @@ $ads = Listing::with(['attachments', 'created_by_user'])
                 ->when($city_id, function ($listing) use ($city_id) {
                     $listing->where('city_id', $city_id);
                 })
+                ->when($request->type == 'favourite', function ($listing) {
+                    $user_id = \App\Helpers\SiteHelper::getLoginUserId();
+                    $listing->whereHas('favourites', function ($query) use ($user_id) {
+                        $query->where('user_id', $user_id);
+                    });
+                })
                 ->orderBy('name')
-                ->paginate($perPage); // Use pagination
-            
+                ->paginate($perPage)->appends($request->all()); // Use pagination
+
             // Safely accessing category details from the first SubCategory, assuming there are multiple
             $firstSubCategory = $SubCategory->first(); // Access the first item in the collection if available
-            
+
             $data = [
                 'from' => $request->from ?? false,
                 'to' => $request->to ?? false,
@@ -157,32 +163,32 @@ $ads = Listing::with(['attachments', 'created_by_user'])
                 'category_id' => $firstSubCategory?->category?->id ?? false,
                 'category_name' => $firstSubCategory?->category?->name ?? false,
                 'subcategory_name' => $firstSubCategory?->name ?? false, // If only one is required
-               'subcategory_id' => $subcategory_id ?? 0,
+                'subcategory_id' => $subcategory_id ?? 0,
+                'type' => $request->type ?? false,
                 'ads' => $ads
             ];
-            
+
             return view('ads.list')->with($data);
-            
-        }            
+        }
     }
 
 
 
     public function getAllyAds(Request $request)
     {
-        
+
         $ads = Listing::with([
             'attachments',
             'created_by_user'
         ])
             ->orderBy('name')->get();
-       
+
         $data = [
-      
+
             'ads' => $ads
         ];
-        
-      
+
+
         return response()->json([
             'status' => true,
             'ads' => $data
@@ -211,7 +217,7 @@ $ads = Listing::with(['attachments', 'created_by_user'])
     public function adsBySubcategoryId($subcategory_id)
     {
 
-      
+
         $validation_arr = [
             'subcategory_id' => $subcategory_id
         ];
@@ -228,7 +234,7 @@ $ads = Listing::with(['attachments', 'created_by_user'])
         }
 
 
-       
+
         return RecordHelper::getAdsBySubcategory($subcategory_id);
     }
 
@@ -301,5 +307,4 @@ $ads = Listing::with(['attachments', 'created_by_user'])
             'data' => RecordHelper::getDownloadRequests($ListingUserApproval->type)
         ]);
     }
-
 }

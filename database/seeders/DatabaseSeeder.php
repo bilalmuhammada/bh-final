@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SubCategorySeeder::class);
         $this->call(AttachmentSeeder::class);
         $this->call(PlanSeeder::class);
+        $this->call(ListingSeeder::class);
     }
 }
