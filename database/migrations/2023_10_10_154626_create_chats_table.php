@@ -21,7 +21,9 @@ return new class extends Migration
             $table->foreignId('first_user_id')->constrained('users');
             $table->foreignId('second_user_id')->constrained('users');
             $table->foreignId('initiated_by')->constrained('users');
-
+            $table->foreignId('ad_id')->nullable()->constrained('listings');
+            $table->boolean('is_favorite')->default(0);
+            $table->boolean('is_blocked')->default(0);
 
             $table->softDeletes();
             $table->timestamps();

@@ -30,22 +30,22 @@ class RecordHelper
 
     public static function getCountriesRegistration()
     {
-        
-        return  DB::table('countries')->orderBy("name",'ASC')->get();
+
+        return  DB::table('countries')->orderBy("name", 'ASC')->get();
     }
 
     public static function getnationalities()
     {
-        $nationalities = DB::table('nationalities')->orderBy("name",'ASC')->get();
-    
-    
+        $nationalities = DB::table('nationalities')->orderBy("name", 'ASC')->get();
+
+
         return $nationalities;
     }
     public static function getlanguge()
     {
-        $languages = DB::table('languages')->orderBy("name",'ASC')->get();
-    
-    
+        $languages = DB::table('languages')->orderBy("name", 'ASC')->get();
+
+
         return $languages;
     }
 
@@ -66,19 +66,19 @@ class RecordHelper
     }
     public static function getCurrency()
     {
-        
+
         $currency = Country::orderBy('name')->get();
-       
+
         // $languages = DB::table('languages')->orderBy("name",'ASC')->get();
-       
+
 
         return $currency;
     }
-    
+
     public static function getSafeValueFromObject($object, $index, $default = '')
     {
-        
-    //   dd($object);
+
+        //   dd($object);
         // Check if the object is null or not an object
         if (empty($object) || !is_object($object)) {
             return $default;
@@ -97,22 +97,22 @@ class RecordHelper
         return SubCategory::where('category_id', $category_id)->orderBy('sequence')->get();
     }
 
-    public static function getSubCategoriesLike($category_id=null, $keyword = null)
-{
+    public static function getSubCategoriesLike($category_id = null, $keyword = null)
+    {
 
-    
-    if ($category_id === null) {
-        $query =   SubCategory::select('name')->groupBy('name'); // Use query builder
-    } else {
-        $query = SubCategory::where('category_id', $category_id);
+
+        if ($category_id === null) {
+            $query =   SubCategory::select('name')->groupBy('name'); // Use query builder
+        } else {
+            $query = SubCategory::where('category_id', $category_id);
+        }
+
+        if ($keyword) {
+            $query->where('name', 'LIKE', '%' . $keyword . '%');
+        }
+
+        return $query->get();
     }
-    
-    if ($keyword) {
-        $query->where('name', 'LIKE', '%' . $keyword . '%');
-    }
-    
-    return $query->get();
-}
     public static function getAdsBySubcategory($subcategory_id)
     {
         $country_id = request()->country;
@@ -130,7 +130,7 @@ class RecordHelper
         $country_id = request()->country;
         $city_id = request()->city;
 
-        return Listing::with(['attachments', 'created_by_user'])->where('subcategory_id', $subcategory_id)->when($country_id, function ($Listing) use ($country_id) {
+        return Listing::with(['attachments', 'created_by_user'])->where('category_id', $Category_id)->when($country_id, function ($Listing) use ($country_id) {
             $Listing->where('country_id', $country_id);
         })->when($city_id, function ($Listing) use ($city_id) {
             $Listing->where('city_id', $city_id);
@@ -144,11 +144,11 @@ class RecordHelper
 
     public static function getAdsByUserId($user_id)
     {
-        
+
         return Listing::with(['attachments', 'created_by_user'])->where('created_by', $user_id)->orderBy('name')->get();
     }
 
-   
+
     public static function getSearches()
     {
         return Search::where('searched_by', Auth::id() ?? Session::get('user')->id)->orderBy('created_at')->get();
@@ -177,15 +177,27 @@ class RecordHelper
     public static function getNotifications()
     {
         $user_id = Auth::id() ?? Session::get('user')->id;
-       
 
+        $notifications = UserNotification::where('user_id', $user_id)->latest()->get();
 
-        return UserNotification::where('user_id', $user_id)->latest()->get();
+        return $notifications;
     }
 
-    public static function getUnreadMessages()
+    public static function getLatestChats()
     {
-        $Messages = \App\Models\Message::with('receiver','chat.ad')->where('receiver_id', \App\Helpers\SiteHelper::getLoginUserId())->where('is_readed', 0)->get();
+        $userId = \App\Helpers\SiteHelper::getLoginUserId();
+
+
+        // Get the latest message from each chat the user is part of
+        $Messages = \App\Models\Message::with('receiver', 'sender', 'chat.ad')
+            ->whereHas('chat', function ($query) use ($userId) {
+                $query->where('first_user_id', $userId)
+                    ->orWhere('second_user_id', $userId);
+            })
+            ->whereHas('chat.ad')
+            ->latest()
+            ->get()
+            ->unique('chat_id');
 
         return $Messages;
     }

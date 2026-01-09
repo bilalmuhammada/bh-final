@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AttachmentSeeder::class);
         $this->call(PlanSeeder::class);
         $this->call(ListingSeeder::class);
+        $this->call(ChatSeeder::class);
     }
 }

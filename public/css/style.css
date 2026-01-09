@@ -484,7 +484,8 @@
     
     .cont-w {
         margin: -10px auto;
-        width: 1300px;
+        max-width: 1300px;
+        width: 100%;
     }
     
     .slider-heading {

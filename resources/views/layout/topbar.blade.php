@@ -14,7 +14,7 @@ $all_favourites = \App\Helpers\RecordHelper::getFavouriteAds();
 $favourite_ads_count = $all_favourites->count();
 $favourite_ads = $all_favourites->take(3);
 
-$chats = \App\Helpers\RecordHelper::getUnreadMessages();
+$chats = \App\Helpers\RecordHelper::getLatestChats();
 // dd($chats );
 $my_ads_for_topbar = \App\Helpers\RecordHelper::getAdsByUserId(session()->get('user')->id)->take(2);
 }
@@ -25,7 +25,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 <style>
     .dropdown-menu {
         /* width: 14pc !important; */
-        max-height: 14.2rem !important;
+        max-height: 15rem !important;
 
         overflow-x: hidden;
     }
@@ -40,6 +40,10 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
     }
 
+    .btn:focus {
+        outline: none;
+        box-shadow: none;
+    }
 
     .dropdown-menu.show {
 
@@ -99,6 +103,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     }
 
     .dropdown-menu {
+        padding: 0px !important;
         max-height: 20rem;
         /* Adjust as needed */
         overflow-y: auto;
@@ -150,19 +155,25 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         font-size: 20px;
     }
 
+    .fa-ellipsis-h {
+        color: blue;
+
+    }
+
+    .fa-ellipsis-h:hover {
+        color: goldenrod;
+    }
+
     /* Custom dropdown menu */
     .dropdown-menu-custom {
         position: absolute;
-        top: 2px;
-        /* Adjust distance from the icon */
-        left: 16rem;
         background-color: white;
         border: 1px solid #ccc;
-        border-radius: 5px;
-        /* width: 150px; */
+        border-radius: 0.3rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         display: none;
-        /* Initially hidden */
         z-index: 1000;
+        min-width: 150px;
     }
 
     /* Dropdown items */
@@ -191,6 +202,11 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     .auth:hover {
         color: goldenrod !important;
 
+    }
+
+    .view-all-link:hover {
+        color: blue !important;
+        /* Light Blue */
     }
 
     /* Favorite ads styling */
@@ -326,6 +342,16 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
 
 
+    .badge-premium-green {
+        margin-left: 2px;
+        background-color: #dcfce7 !important;
+        color: #166534 !important;
+        font-size: 10px !important;
+        padding: 3px 6px !important;
+        font-weight: 700 !important;
+        border-radius: 50px !important;
+    }
+
     /* end */
 </style>
 <header>
@@ -428,7 +454,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
                                 <div class="mobile-country desktop-menu-right">
 
-                                    <select class="form-control language_dropdown " name="language_dropdown" style="width:130px;" id="language_dropdown" onchange="translateLanguage()">>
+                                    <select class="form-control language_dropdown " name="language_dropdown" style="width:130px;" id="language_dropdown" onchange="translateLanguage()">
 
 
                                         @foreach($language as $language1)
@@ -480,86 +506,59 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                                     aria-haspopup="true"
                                     aria-expanded="false">
 
-                                    <div>
+                                    <div class="position-relative d-inline-block">
                                         <span class="colorChange_top" style="color: #000;font-size:14px;">Notifications</span>
+                                        @if(count($notifications) > 0)
+                                        <span class="position-absolute top-0 start-100 translate-middle badge badge-premium-green">
+                                            {{ count($notifications) }}
+                                        </span>
+                                        @endif
                                     </div>
                                 </a>
                                 <div class="dropdown-menu" id="notifications" aria-labelledby="notifications"
-                                    style="padding: 10px;width:auto; border-radius: 12px;">
+                                    style="padding: 0; width:400px; border-radius: 0.3rem; max-height: none; overflow: visible; background-color: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border:none;">
                                     @if (session()->has('user') && count($notifications) > 0)
-                                    <!---------inner area----->
-                                    <div class="row">
-                                        <div class="col-lg-12 col-sm-12 col-12">
-                                            <span style="font-weight: bold;margin-left: 11px;">Notifications </span>
-                                            <span style="float: right;margin-right: 12px;">Mark all as Read </span>
-                                        </div>
+                                    <!-- Header -->
+                                    <div class="px-2 py-2 border-bottom d-flex justify-content-between align-items-center " style="border-top-left-radius: 0.3rem; border-top-right-radius: 0.3rem;">
+                                        <h6 class="mb-0 fw-bold" style="color: #333;">Notifications</h6>
+                                        <span class="badge badge-premium-green">{{ count($notifications) }} New</span>
                                     </div>
-                                    <hr>
-                                    @foreach($notifications as $notification)
+                                    <div class="list-group list-group-flush">
+                                        @foreach($notifications as $notification)
+                                        <div class="list-group-item list-group-item-action border-bottom p-0" style="background-color: aliceblue;">
+                                            <div class="d-flex align-items-center pl-2 pr-2 position-relative">
+                                                <!-- Image -->
+                                                <div style="flex-shrink: 0; width: 50px; height: 56px; border-radius: 2px; overflow: hidden; background: #fff;">
+                                                    <img style="width: 100%; height: 100%; object-fit: cover;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
+                                                </div>
 
+                                                <!-- Content -->
+                                                <div class="ms-3 flex-grow-1 ml-2" style="line-height: 1.3;">
+                                                    <h6 class="mb-1 text-dark fw-bold" style="font-size: 14px;font-weight: 600;">{{$notification->title}}</h6>
+                                                    <p class="mb-1 text-muted small text-truncate" style="max-width: 200px;">{{$notification->message}}</p>
+                                                    <small class="text-muted" style="font-size: 10px;">{{ \Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}</small>
+                                                </div>
 
-                                    <div class="notifications-wrapper">
-
-
-
-
-                                        <div class="content" href="#">
-                                            <div class="notification-item">
-                                                <div class="row" style="background: aliceblue; position: relative;">
-                                                    <!-- Three dots icon with dropdown -->
-
-
-                                                    <div class="col-md-3">
-                                                        <div style="width:80px; height:80px; border-radius:10%; overflow: hidden; margin-left: 2px;">
-                                                            <img style="width: 100%; height: 100%; object-fit: cover;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-6" style="width: 300px; white-space: normal;">
-                                                        <span style="font-weight: bold;">{{$notification->title}}</span><br>
-                                                        <span>{{$notification->message}}</span><br>
-                                                        <p style="margin: 9px 0 0 0;">
-                                                            {{ \Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-md-1" style="position: absolute; top: 10px; left: -8px;">
-                                                        <div class="dropdown">
-                                                            <!-- Button -->
-                                                            <button class="btn btn-link" type="button"
-                                                                onclick="toggleDropdown(this, event)"
-                                                                style="margin-left: 23rem; margin-top: -14px;">
-                                                                <i class="fa fa-ellipsis-h"></i>
-                                                            </button>
-
-                                                            <!-- Custom dropdown menu -->
-                                                            <div class="dropdown-menu-custom" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid #ccc; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); min-width: 140px; z-index: 1000;">
-                                                                <a href="#" style="font-size: 12px;" onclick="markAsRead(this)">Mark as Read</a>
-                                                                <a href="#" style="font-size: 12px;" onclick="removeNotification(this)">Remove Notification</a>
-                                                            </div>
-                                                        </div>
+                                                <!-- Action -->
+                                                <div class="dropdown ms-2" style="position: relative;">
+                                                    <button class="btn btn-link p-0 text-muted" type="button" onclick="toggleDropdown(this, event)">
+                                                        <i class="fa fa-ellipsis-h"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu-custom" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid #ccc; border-radius: 0.3rem; box-shadow: 0 2px 8px rgba(0,0,0,0.15); min-width: 140px; z-index: 1000;">
+                                                        <a href="#" class="px-1 py-1 d-block text-dark text-decoration-none small " onclick="markAsRead(this)">Mark as Read</a>
+                                                        <a href="#" class="px-1 py-1 d-block text-dark text-decoration-none small" style="color: red !important;" onclick="removeNotification(this)">Remove Notification</a>
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <!-- Add necessary JS -->
-
-
-                                            <!-- Add Bootstrap and Font Awesome if not already included -->
-
-
-
                                         </div>
-
+                                        @endforeach
                                     </div>
 
-                                    @endforeach
-
-                                    <hr>
-                                    <div class="notification-footer" style="text-align: center;">
-                                        <h4 class="menu-title" style="color: red;font-size: 1rem !important;
-                                               "> <a class="content" href="{{ env('BASE_URL').'notifications'}}"
-                                                {{-- data-bs-toggle="modal" data-bs-target="#phoneRequestModal"  --}}
-                                                style="color: red;">View all Notifications </a></h4>
+                                    <!-- Footer -->
+                                    <div class="pb-2 pt-2 text-center border-top" style="border-bottom-left-radius: 0.3rem; border-bottom-right-radius: 0.3rem;">
+                                        <a href="{{ env('BASE_URL').'notifications'}}" class="fw-bold text-decoration-none d-block transition-all hover-scale text-center view-all-link" style="font-size: 14px; color: red;">
+                                            View all Notifications
+                                        </a>
                                     </div>
                                     <!---------inner area---->
                                     @else
@@ -591,17 +590,22 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
                             <span style="padding:8px 15px 0px 15px; text-align:center;">
                                 <a type="button" id="favorite" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <div>
+                                    <div class="position-relative d-inline-block">
                                         <span class="colorChange_top" style="color:#000; font-size:14px;">Favorites</span>
+                                        @if(count($favourite_ads) > 0)
+                                        <span class="position-absolute top-0 start-100 translate-middle badge badge-premium-green">
+                                            {{ count($favourite_ads) }}
+                                        </span>
+                                        @endif
                                     </div>
                                 </a>
 
-                                <div class="dropdown-menu" aria-labelledby="favorite" style="padding:0; width:350px; border-radius:12px; max-height: none; overflow: visible; background-color: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border:none;">
+                                <div class="dropdown-menu" aria-labelledby="favorite" style="padding:0; width:350px; border-radius:0.3rem; max-height: none; overflow: visible; background-color: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border:none;">
                                     @if (session()->has('user') && count($favourite_ads) > 0)
                                     <!-- Header -->
-                                    <div class="px-3 py-2 border-bottom">
-                                        <span class="fw-bold text-dark" style="font-size: 14px;">Favorites</span>
-                                        <span class="badge bg-primary text-white rounded-pill ms-2" style="font-size: 11px;">{{ $favourite_ads_count }}</span>
+                                    <div class="px-2 py-2 border-bottom d-flex justify-content-between align-items-center " style="border-top-left-radius: 0.3rem; border-top-right-radius: 0.3rem;">
+                                        <h6 class="mb-0 fw-bold" style="color: #333; margin-left: 4px;">Favorites</h6>
+                                        <span class="badge badge-premium-green" style="margin-right: 4px;">{{ count($favourite_ads) }} New</span>
                                     </div>
 
                                     <!-- Items -->
@@ -611,7 +615,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                                             class="list-group-item list-group-item-action  border-bottom d-flex align-items-center" style="background-color: aliceblue; padding: 0.15rem 0.75rem 0.15rem 0.75rem !important;">
 
                                             <!-- Image -->
-                                            <div style="flex-shrink: 0; width: 50px; height: 50px; border-radius: 8px; overflow: hidden; background: #fff;">
+                                            <div style="flex-shrink: 0; width: 50px; height: 50px; border-radius: 2px; overflow: hidden; background: #fff;">
                                                 <img src="{{ $favourite_ad->main_image_url ?? 'https://via.placeholder.com/80x80?text=Ad' }}"
                                                     alt="{{ $favourite_ad->title }}"
                                                     style="width: 100%; height: 100%; object-fit: cover;">
@@ -636,8 +640,8 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                                     </div>
 
                                     <!-- Footer -->
-                                    <div class="text-center p-2 bg-light" style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
-                                        <a href="{{ env('BASE_URL') . 'ads?type=favourite' }}" class="text-decoration-none fw-bold" style="font-size: 13px; color: red;">
+                                    <div class="text-center p-2" style="border-bottom-left-radius: 0.3rem; border-bottom-right-radius: 0.3rem;">
+                                        <a href="{{ env('BASE_URL') . 'ads?type=favourite' }}" class="text-decoration-none fw-bold d-block text-center view-all-link" style="font-size: 13px; color: red;">
                                             View all Favorites
                                         </a>
                                     </div>
@@ -651,84 +655,103 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
 
 
-                            <span style="padding:8px 15px 0px 15px; text-align:center;">
+                            <span class="dropdown-container" style="padding:8px 15px 0px 15px; text-align:center;">
                                 <!-- Toggle -->
-                                <a class="chat-toggle d-inline-block" id="chatDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="chat-toggle d-inline-block position-relative" id="chatDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
                                     <span class="colorChange_top" style="color:#000; font-size:14px; font-weight:500;">Chats</span>
+                                    @if(count($chats) > 0)
+                                    <span class="position-absolute top-0 start-100 translate-middle badge badge-premium-green">
+                                        {{ count($chats) }}
+                                    </span>
+                                    @endif
                                 </a>
 
                                 <!-- Dropdown Menu -->
-                                <div class="dropdown-menu chat-menu " aria-labelledby="chatDropdown" style="min-width: 300px;padding: 10px; ">
+                                <div class="dropdown-menu chat-menu dropdown-menu-end border-0 shadow-lg" aria-labelledby="chatDropdown" style="min-width: 380px; border-radius: 0.3rem; background: #fff; max-height: none !important; overflow: visible !important;">
                                     @if(session()->has('user'))
                                     <!-- Header -->
-                                    <div class="mb-2">
-                                        <span class="fw-bold">Chats </span>
-                                        <span style="color:#000fff;">{{ count($chats) }}</span>
+                                    <div class="px-2 py-2 border-bottom d-flex justify-content-between align-items-center " style="border-top-left-radius: 0.3rem; border-top-right-radius: 0.3rem;">
+                                        <h6 class="mb-0 fw-bold" style="color: #333;">Messages</h6>
+                                        <span class="badge badge-premium-green">{{ count($chats) }} New</span>
                                     </div>
 
                                     <!-- Chat List -->
-                                    @forelse($chats as $message)
-                                    <a href="{{ env('BASE_URL') . 'chats/detail/' . $message->id . '?country=' . request()->country . '&city=' . request()->city }}"
-                                        class="d-flex align-items-center text-decoration-none text-dark ">
+                                    <div class="message-list">
+                                        @forelse($chats->take(3) as $message)
+                                        <a href="{{ route('chats') . '/detail/' . $message->id . '?country=' . request()->country . '&city=' . request()->city }}"
+                                            class="d-flex align-items-center pr-2 pl-2 pt-0 pb-0 text-decoration-none border-bottom transition-all"
+                                            style="border-bottom: 1px solid #f0f0f0 !important; background-color: aliceblue;">
 
-                                        <!-- Avatar -->
-                                        <div class="me-2" style="margin-right: 12px;">
-                                            <img src="{{ $message->user->image_url ?? 'https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg' }}"
-                                                alt="User Avatar"
-                                                class="rounded-circle"
-                                                width="45" height="45">
-                                        </div>
-
-                                        <!-- Chat Info -->
-                                        <div class="flex-grow-1" style="line-height:normal;">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span class="fw-bold small chat-title" style="font-weight: 600; font-size: 13px;">
-
-
-                                                    {{ Str::limit($message->chat->ad->title, 50) }}
-
-                                                </span>
-
+                                            <!-- User Avatar -->
+                                            <div class="position-relative me-4">
+                                                <img src="{{ $message->chat->other_user->image_url ?? 'https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg' }}"
+                                                    alt="User Avatar"
+                                                    class="rounded-circle shadow-sm"
+                                                    width="60" height="60" style="object-fit: cover;">
                                             </div>
 
-                                            <div class="small text-muted">
-
-                                                <span class="chat-time mb-0">
-                                                    {{ $message->message ?? 'Unknown' }}
-                                                </span>
-                                            </div>
-                                            <div class="small text-muted">
-
-                                                <p class=" text-success small mb-0" style="font-size: 8px;">
-                                                    {{ $message->message_recieved_time_diff }}
+                                            <!-- Content -->
+                                            <div class="flex-grow-1 overflow-hidden" style="padding: 0.10rem 1.50rem 0.10rem 0.50rem;">
+                                                <h6 class="mb-0 text-black fw-bold text-truncate" style="font-size: 16px;">
+                                                    {{ Str::limit($message->chat->ad->title ?? 'Untitled Ad', 35) }}
+                                                </h6>
+                                                <p class="mb-1 text-muted text-truncate" style="font-size: 14px;">
+                                                    {{ $message->message ?? 'Click to view message' }}
                                                 </p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span class="fw-bold text-primary" style="font-size: 12px;">{{ $message->chat->other_user->first_name ?? 'User' }} {{ $message->chat->other_user->last_name ?? '' }}</span>
+                                                    <small class="text-muted" style="font-size: 10px; white-space: nowrap;">
+                                                        {{ $message->message_recieved_time_diff }}
+                                                    </small>
+                                                </div>
                                             </div>
+
+                                            <!-- Ad Thumbnail -->
+                                            <div class="ms-3 flex-shrink-0">
+                                                <img src="{{ $message->chat->ad->main_image_url ?? 'https://via.placeholder.com/45' }}"
+                                                    alt="Ad Image"
+                                                    class="rounded"
+                                                    width="60" height="60" style="object-fit: cover;">
+                                            </div>
+                                        </a>
+                                        @empty
+                                        <div class="pb-1 pt-1 text-center">
+                                            <div class="mb-3">
+                                                <i class="fa fa-comments-o text-muted" style="font-size: 40px; opacity: 0.3;"></i>
+                                            </div>
+                                            <p class="text-muted small mb-0">No new messages yet</p>
                                         </div>
-
-
-                                        <div class="me-2" style="margin-left: 50px;">
-                                            <img src="{{ $message->chat->ad->main_image_url ?? 'https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg' }}"
-                                                alt="User Avatar"
-
-                                                width="65" height="65" style="border-radius: 15px;">
-                                        </div>
-                                    </a>
-                                    @empty
-                                    <span class="text-center d-block py-2 text-muted">No chats available</span>
-                                    @endforelse
+                                        @endforelse
+                                    </div>
 
                                     <!-- Footer -->
-                                    <div class="text-center mt-2">
-                                        <a href="{{ env('BASE_URL') . 'chats?country=' . request()->country . '&city=' . request()->city }}"
-                                            class="fw-bold text-danger text-decoration-none">
+                                    <div class=" text-center border-top p-2" style="border-bottom-left-radius: 0.3rem; border-bottom-right-radius: 0.3rem;">
+                                        <a href="{{ route('chats') . '?country=' . request()->country . '&city=' . request()->city }}"
+                                            class="fw-bold text-decoration-none d-block transition-all hover-scale text-center view-all-link" style="font-size: 13px; color: red;">
                                             View all Chats
                                         </a>
                                     </div>
                                     @else
-                                    <span class="text-center d-block py-3 text-muted">Nothing to show</span>
+                                    <div class="px-3 py-4 text-center">
+                                        <p class="text-muted small mb-0">Please login to see chats</p>
+                                    </div>
                                     @endif
                                 </div>
                             </span>
+
+                            <style>
+                                .hover-scale:hover {
+                                    transform: scale(1.02);
+                                }
+
+                                .transition-all {
+                                    transition: all 0.2s ease-in-out;
+                                }
+
+                                .primary-soft-bg {
+                                    background-color: #e7f1ff;
+                                }
+                            </style>
 
 
 

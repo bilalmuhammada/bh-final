@@ -37,11 +37,12 @@
             margin-bottom: -10px;
             position: unset;
             justify-content: flex-start;
-            margin-left: -1% !important;
-            margin-right: 1% !important;
-            overflow-x: scroll;
+            margin-left: -5px !important;
+            margin-right: 0px !important;
+            overflow-x: auto;
             white-space: nowrap;
             height: 122px;
+            padding-left: 0;
         }
 
         .carousel-control-next,
@@ -198,8 +199,8 @@ button.active .indicator-img {
 
 
     .slick-slide{
-        width: 285px !important;
-        margin: 0px -30px !important;
+        /* width: 285px !important; */
+        margin: 0px 5px;
     }
     .slick-slide img {
     width: 100% !important;
@@ -214,7 +215,7 @@ button.active .indicator-img {
     .listing {
         padding: 7px 7px 7px 7px !important;
         /* margin-left: -63px; */
-        width: 200px !important
+        width: 100% !important
     }
     
     #slider{
@@ -223,7 +224,7 @@ button.active .indicator-img {
     }
     
     #slider_main{
-width: 60rem !important;
+        width: 100% !important;
     }
 .slick-prev {
     opacity: 0.5;
@@ -263,7 +264,170 @@ width: 60rem !important;
 }
 
 
+
+    .similar_ad {
+        margin-left: -2px;
+        background: #fdfdfd;
+        padding-bottom: 30px;
+        border-radius: 12px;
+    }
+
+    .similar_ad h6 {
+        font-family: 'Outfit', sans-serif;
+        font-size: 20px;
+        color: #1a1a1a;
+    }
+
+    .similar-listing-card {
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        margin: 10px 0px;
+        border: 1px solid #f0f0f0;
+        position: relative;
+        width: 190px; /* Added as requested */
+    }
+
+    .similar-listing-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        border-color: #0088eb;
+    }
+
+    .similar-listing-image {
+        position: relative;
+        height: 160px;
+        overflow: hidden;
+    }
+
+    .similar-listing-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .similar-listing-card:hover .similar-listing-image img {
+        transform: scale(1.05);
+    }
+
+    .similar-listing-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%);
+    }
+
+    .similar-listing-heart {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 3;
+    }
+
+    .similar-listing-heart i {
+        color: #fff;
+        font-size: 16px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    .similar-listing-heart i:hover {
+        color: #ff3131;
+    }
+
+    .similar-listing-count {
+        position: absolute;
+        bottom: 8px;
+        left: 10px;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 500;
+        background: rgba(0,0,0,0.4);
+        padding: 2px 8px;
+        border-radius: 10px;
+        backdrop-filter: blur(4px);
+    }
+
+    .similar-listing-details {
+        padding: 12px;
+    }
+
+    .similar-listing-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 4px;
+        text-decoration: none !important;
+    }
+
+    .similar-listing-category {
+        font-size: 11px;
+        color: #888;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .similar-listing-price {
+        font-size: 16px;
+        font-weight: 700;
+        color: #ff3131;
+        margin: 0;
+    }
+
+    .slick-prev, .slick-next {
+        width: 45px !important;
+        height: 45px !important;
+        background: #fff !important;
+        border-radius: 50% !important;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.1) !important;
+        z-index: 10 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        border: 1px solid #f0f0f0 !important;
+    }
+
+    .slick-prev:before, .slick-next:before {
+        display: none !important;
+    }
+
+    .slick-prev:hover, .slick-next:hover {
+        background: #0088eb !important;
+        transform: scale(1.1);
+        box-shadow: 0 10px 20px rgba(0, 136, 235, 0.3) !important;
+        border-color: #0088eb !important;
+    }
+
+    .slick-prev i, .slick-next i {
+        color: #1a1a1a !important; /* Dark grey by default */
+        font-size: 18px !important;
+        transition: color 0.3s ease !important;
+    }
+
+    .slick-prev:hover i, .slick-next:hover i {
+        color: #fff !important; 
+    }
+
+    .slick-prev {
+        left: -20px !important;
+    }
+
+    .slick-next {
+        right: -20px !important;
+    }
 </style>
+
 
     <section>
      
@@ -385,29 +549,27 @@ width: 60rem !important;
     </section>
 
     <section>
-        <div class="container"  style="    margin-left: 53px;">
-            <div class="col-lg-12 col-md-12 col-12" style="border:0px solid red;">
+        <div class="cont-w desktop-view">
+            <div class="col-lg-12 col-md-12 col-12" style="margin-top: 12px; padding: 0px;">
                 <div class="row">
-                    <div class="col-lg-9 col-md-9 col-12" style="border:0px solid red;">
+                    <div class="col-lg-9 col-md-9 col-12" >
                         <div class="row">
                             <!-----content----->
-                            <div class="col-lg-12 col-md-12 col-12"
-                                 style="margin-bottom:-19px;width:800px;position:relative;top:16px;z-index:600;">
-                                <span style="font-size: 13px;float:right;position:relative;right:30px;cursor:pointer;">
-                                    <i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}"
-                                       is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
-                                       style="padding:6px 6px;font-size:19px; color: white; border-radius:2px;"> </i>&nbsp;
-                                   
-                                    <i class="fa fa-share share-btn" ad-id="{{ $ad->id }}" title="Copy Ad link"
-                                       ></i>
-                                       <div id="notification" class="notification hidden">Ad link copied to clipboard!</div>
-
-                                </span>
-                            </div>
                             <div class="col-lg-12 col-md-12 col-12">
                                
 
-                                <div class="carousel slide" id="carouselDemo" data-bs-wrap="true" data-bs-ride="carousel">
+                                <div class="carousel slide" id="carouselDemo" data-bs-wrap="true" data-bs-ride="carousel" style="position: relative;">
+                                    <div style="position: absolute; top: 10px; right: 10px; z-index: 10;">
+                                        <span style="font-size: 13px; cursor:pointer;">
+                                            <i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}"
+                                               is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
+                                               style="padding:6px 6px;font-size:19px; color: #fff; text-shadow: 0 0 3px rgba(0,0,0,0.5);"> </i>&nbsp;
+                                           
+                                            <i class="fa fa-share share-btn" ad-id="{{ $ad->id }}" title="Copy Ad link" style="color: #fff; text-shadow: 0 0 3px rgba(0,0,0,0.5);"></i>
+                                               <div id="notification" class="notification hidden">Ad link copied to clipboard!</div>
+        
+                                        </span>
+                                    </div>
 
                                     <!-- Carousel Inner -->
                                     <div class="carousel-inner">
@@ -509,19 +671,19 @@ width: 60rem !important;
                         @endif
 
 
-                        <hr style="border-color: #eee; width: 97%; margin:-9px 0px 0px 12px;">
+                        <hr style="border-color: #eee; width: 100%; margin: 10px 0;">
                         <!---------->
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
                             <h6><b>Products & Services Offered</b></h6>
                             <p style="font-size: 14px; margin-bottom: 7px;">{{ $ad->details->products_and_services_offered ?? '....' }} this is one line</p>
                         </div>
-                        <hr style="border-color: #eee; width: 97%; margin:-9px 0px 0px 12px;">
+                        <hr style="border-color: #eee; width: 100%; margin: 10px 0;">
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
                             <h6><b>Description</b></h6>
                             <p style="font-size: 14px;margin-bottom: 7px;">{{ $ad->description }} this is description</p>
                         
                         </div>
-                        <hr style="border-color: #eee; width: 97%; margin:-9px 0px 0px 12px;">
+                        <hr style="border-color: #eee; width: 100%; margin: 10px 0;">
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
                 
                                 <h6><b>Files</b></h6>
@@ -543,7 +705,7 @@ width: 60rem !important;
                             </p>
                         </div>
                       
-                        <hr style="border-color: #eee; width: 97%; margin:-9px 0px 0px 12px;">
+                        <hr style="border-color: #eee; width: 100%; margin: 10px 0;">
                         <div class="col-lg-12 col-md-12 col-12" >
                             <h6><b>Location</b></h5>
                             <div class="row">
@@ -556,13 +718,13 @@ width: 60rem !important;
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-6">
                                     {{-- <div style="border-radius:5px;"> --}}
-                                        <div style="width:370px; height:66px; border:0;bottom: 1.8rem;left: 2.2rem;" id="map"></div>
+                                        <div style="width:100%; height:66px; border:0;bottom: 1.8rem;left: 2.2rem;" id="map"></div>
                                     {{-- </div> --}}
                                 </div>
                             </div>
                         </div>
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
-                        <hr style="border-color: #eee; width: 95%; margin:-9px 0px 0px 12px;">
+                        <hr style="border-color: #eee; width: 100%; margin: 10px 0;">
                         <div style="font-weight: bold;font-size:15px;margin-top: 6px;margin-left: 12px;">
                             Is there an issue?
 
@@ -578,7 +740,7 @@ width: 60rem !important;
                         </div>
                        
                         
-                        <hr style="border-color: #eee; width: 95%; margin:9px 0px 0px 12px;">
+                        <hr style="border-color: #eee; width: 100%; margin: 10px 0;">
 
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
                         <!---------------------->
@@ -586,82 +748,43 @@ width: 60rem !important;
                 </div>
                 <!--  desktop view -->
                 <div class="col-lg-3 col-md-3 col-12 desktop-view">
-                    <div class="row" style="margin-top: 11px;">
+                    <div class="row">
                         
                         <div class="col-lg-12 col-md-12 col-12">
-                            <div class="inner" style="border: 1px solid #eee; border-radius: 5px; padding: 15px;width: 24.4rem;">
-                                <p class="text-muted" style="font-size: 13px;margin-left: 14px;">Posted by: <b style="color:#000" >{{ ($ad->posted_by == 1) ? "Agent" : "User"  }}</b></p>
- 
-                                <div class="profile-image-container" style=" align-items: center; margin-left:9rem;margin-top: -11px; font-size: 17px;">
-                                      
-                                    <b>{{ $ad->created_by_user->name }}</b>
-                                    {{-- <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="40" height="40" style="border-radius: 50%; margin-right: 10px;"> --}}
-                                </div>
-                                <div class="row" style="padding-bottom: 10px; align-items: center;">
-                                   
-                                    <div class="col-6">
-                                    @if (session()->has('user'))
-                                    <div class="profile-image-container" style="display: flex; align-items: center;margin-left:7.2rem;margin-top:10px;">
-                                                  
-                                        {{-- <b>{{ $ad->created_by_user->name }}</b> --}}
-                                        <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="150" height="135" style="border-radius:0.3rem;">
-                                    </div>
-                                
-                                 @else
-                                        
-                                       
-                                            <div class="profile-image-container" style="display: flex; align-items: center;margin-left:7.2rem;margin-top:10px;">
-                                              
-                                                {{-- <b>{{ $ad->created_by_user->name }}</b> --}}
-                                                <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="150" height="135" style="border-radius: 0.3rem;">
-                                            </div>
-                                            @endif 
-                                    </div>
+                            <div class="inner d-flex flex-column align-items-center text-center p-3" style="border: 1px solid #eee; border-radius: 5px; width: 100%;">
+                                <!-- User Info -->
+                                <div class="mb-4">
+                                    <p class="text-muted mb-3" style="font-size: 13px;">Posted by: <b style="color:#000">{{ ($ad->posted_by == 1) ? "Agent" : "User" }}</b></p>
+                                    <h5 class="mb-2"><b>{{ $ad->created_by_user->name }}</b></h5>
                                     
+                                    <div class="profile-image-container d-flex justify-content-center mb-2">
+                                        <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="150" height="135" style="border-radius:0.3rem; object-fit: cover;">
+                                    </div>
                                 </div>
-                                
-                
-                               
-                
-                                <div class="action-buttons" style="text-align: center;margin-top: 13px;margin-left:23px;margin-bottom: 15px;">
-                                    {{-- @if(empty($ad->phone_listing_approval_status) || $ad->phone_listing_approval_status == 'rejected') --}}
-                                    {{-- <a href="#" class="btn btn-sm phone-show-request">Show Phone Number</a> --}}
-                                    {{-- @elseif($ad->phone_listing_approval_status == 'approved')
-                                    <b>{{ $ad->created_by_user->phone }}</b>
-                                    @else
-                                    <p class="phone-approval-status">Waiting for phone no approval</p>
-                                    @endif --}}
-                
+
+                                <!-- Action Buttons -->
+                                <div class="action-buttons d-flex justify-content-center w-100 flex-wrap">
                                     <p class="phone-approval-status" style="display: none">Waiting for phone no approval</p>
-                                    <button class="btn callbutton"  onclick="showPopup()" style="border: 1px solid red; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 0.3rem; color: red;" type="button" aria-expanded="false">
-                                        <img src="{{ asset('images/socialicon/call.svg') }}" alt="Call Icon" style="height: 23px;margin-top: -6px; margin-right: 4px;">
-
+                                    
+                                    <button class="btn callbutton p-0 d-flex align-items-center justify-content-center" onclick="showPopup()" style="border: 1px solid red; width: 45px; height: 36px; border-radius: 0.3rem; margin: 0 6px;" type="button">
+                                        <img src="{{ asset('images/socialicon/call.svg') }}" alt="Call" style="height: 20px;">
                                     </button>
-                                    <div id="callPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 15px; border-radius: 0.3rem; z-index: 1000;">
+                                     <div id="callPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 15px; border-radius: 0.3rem; z-index: 1000;">
                                         <p style="margin: 0; font-size: 18px; color: red;"> <img src="{{ asset('images/socialicon/call.svg') }}" alt="Call Icon" style="height: 23px;margin-top: -6px; margin-right: 4px;"> {!!$ad->phone !!}</p>
-                                        {{-- <button onclick="hidePopup()" style="margin-top: 10px; padding: 5px 10px; border: none; background: red; color: white; border-radius: 3px; cursor: pointer;">Close</button> --}}
                                     </div>
-                                    
-                                    <!-- Overlay -->
                                     <div id="popupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; " onclick="hidePopup()"></div>
-                                    
-                                    <button  class="btn start-chat" user-id="{{ $ad->created_by_user->id }}"   user-ad="{{ $ad->id}}" style="border: 1px solid #0088eb; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 0.3rem; color: red;"
-                                        type="button" 
-                                        aria-expanded="false">
-                                        <img src="{{ asset('images/socialicon/chat.png') }}" alt="Chat Icon" style="height: 30px; margin-top: -4px; margin-right: 1px;">
+
+                                    <button class="btn start-chat p-0 d-flex align-items-center justify-content-center" user-id="{{ $ad->created_by_user->id }}" user-ad="{{ $ad->id}}" style="border: 1px solid #0088eb; width: 45px; height: 36px; border-radius: 0.3rem; margin: 0 6px;" type="button">
+                                        <img src="{{ asset('images/socialicon/chat.png') }}" alt="Chat" style="height: 26px;">
                                     </button>
 
-                                    <button class="btn" onclick="redirectToWhatsApp()" style="border: 1px solid #32d951; margin-right: 9px; white-space: nowrap; height: 36px;width: 60px; border-radius: 0.3rem; color: red;" type="button" aria-expanded="false">
-                                        <img src="{{ asset('images/socialicon/whatsapp.png')}}" alt="WhatsApp Icon" style="height: 45px; margin-top: -12px; margin-left: -5px;">
+                                    <button class="btn p-0 d-flex align-items-center justify-content-center" onclick="redirectToWhatsApp()" style="border: 1px solid #32d951; width: 45px; height: 36px; border-radius: 0.3rem; margin: 0 6px;" type="button">
+                                        <img src="{{ asset('images/socialicon/whatsapp.png')}}" alt="WhatsApp" style="height: 38px;">
                                     </button>
 
-                                   
-                                   
-                                    <button class="btn" onclick="redirectToEmail()" style="border: 1px solid #fab005; margin-right: 9px; white-space: nowrap; height: 36px; border-radius: 0.3rem; color: red;" type="button" aria-expanded="false">
-                                        <img src="{{ asset('images/socialicon/email.png')}}" title="Email" alt="WhatsApp Icon" style="height: 25px; margin-right: 2px;margin-top: -4px;">
+                                    <button class="btn p-0 d-flex align-items-center justify-content-center" onclick="redirectToEmail()" style="border: 1px solid #fab005; width: 45px; height: 36px; border-radius: 0.3rem; margin: 0 6px;" type="button">
+                                        <img src="{{ asset('images/socialicon/email.png')}}" title="Email" alt="Email" style="height: 20px;">
                                     </button>
-                                    
-                               
                                 </div>
                             </div>
                         </div>
@@ -719,30 +842,35 @@ width: 60rem !important;
                 </div>
                 <!---------------------->
                 {{-- <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;"> --}}
-                <div class="col-lg-12 col-md-12 col-12 similar_ad" style="margin-top: 7px;margin-left: -18px;">
-                    <h6 style="margin-top: 9px;margin-left: 15px;margin-bottom: 0px;"><b>Similar Ads</b></h6>
-                    <div class="row">
-                        <div class="col-md-9">
-                            <div class="slider" style="width: auto;"> <!-- Adjust the width here -->
+                <div class="col-lg-12 col-md-12 col-12 similar_ad">
+                    <h6><b>Similar Ads</b></h6>
+                    <div class="row" >
+                        <div class="col-md-9" style="margin-left: 14px;padding:0px;">
+                            <div class="slider">
                                 @php
-                                    $similar_ads = \App\Helpers\RecordHelper::getAdsBySubcategory($ad->subcategory_id)->take(5);
-                                @endphp
+                                    $similar_ads = \App\Helpers\RecordHelper::getAdsBySubcategory($ad->subcategory_id)->where('id', '!=', $ad->id)->take(12);
+                                
+                                    @endphp
                                 @foreach($similar_ads as $similar_ad)
-                                    <div class="col-lg-2 col-md-3 col-6" style="width: 13rem !important;"> <!-- Adjust column width if needed -->
-                                        <a href="{{env('BASE_URL') . 'ads/detail/' . $similar_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
-                                            <div class="listing" style="margin-bottom: 12px;">
-                                                <img src="{{ $similar_ad->main_image_url }}" alt="{{ $similar_ad->name }}" title="{{ $similar_ad->name }}" width="170" height="152">
-                                                <div class="heart-icon" style="position: absolute; top: 16px; right: 5.5rem;">
-                                                    <i class="fa fa-heart-o" style="color: #fff !important; font-size: 18px;"></i>
+                                    <div>
+                                        <a href="{{env('BASE_URL') . 'ads/detail/' . $similar_ad->id . '?country=' . request()->country . '&city=' . request()->city}}" style="text-decoration: none;">
+                                            <div class="similar-listing-card">
+                                                <div class="similar-listing-image">
+                                                    <img src="{{ $similar_ad->main_image_url }}" alt="{{ $similar_ad->name }}">
+                                                    <div class="similar-listing-overlay"></div>
+                                                    <div class="similar-listing-heart">
+                                                        <i class="fa fa-heart-o"></i>
+                                                    </div>
+                                                    <div class="similar-listing-count">
+                                                        <i class="fa fa-camera"></i> 1 / {{ count($similar_ad->attachments) > 0 ? count($similar_ad->attachments) : 1 }}
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                    {{-- <i class="fa fa-image" style="color:white;font-size: 12px;"></i> --}}
-                                                    <span class="text-white" style=" font-size: 13px;">1 / {{$similar_ads->count()}}</span>
-                                                </div>
-                                                <div class="detail"  style="margin-bottom:8px;margin-left: -3px;">
-                                                    <span style="color:#000; display: block;">{{ $similar_ad->title ?? 'Title N/A' }}</span>
-                                                    <span style="color:#999; display: block; font-size:10px; " >{{ $similar_ad->category_name}} > {{$similar_ad->subcategory_name }}</span>
-                                                    <h5 style="font-size: 14px;margin-bottom: -10px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}</b></h5>
+                                                <div class="similar-listing-details">
+                                                    <span class="similar-listing-title" title="{{ $similar_ad->title }}">{{ $similar_ad->title ?? 'Title N/A' }}</span>
+                                                    <span class="similar-listing-category">{{ $similar_ad->category_name}} > {{$similar_ad->subcategory_name }}</span>
+                                                    <h5 class="similar-listing-price">
+                                                        {{session('app_currency', 'default_currency')}} {{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}
+                                                    </h5>
                                                 </div>
                                             </div>
                                         </a>
@@ -761,38 +889,40 @@ width: 60rem !important;
 @section('page_scripts')
     <script type="text/javascript">
   $(document).ready(function(){
-    $('.slider').slick({
-        // infinite: true,
-            infinite: true,
-        slidesToShow: 3,
+    // Wait for images to loaZd or a short delay
+   $('.slider').slick({
+        slidesToShow: 4,
         slidesToScroll: 1,
+        prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-angle-left"></i></button>',
+        nextArrow: '<button type="button" class="slick-next"><i class="fa fa-angle-right"></i></button>',
+        variableWidth: true,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 3000, // 3 seconds
         arrows: true,
-        prevArrow: '<button type="button" class="slick-prev" style="border: none;"><i class="fa fa-chevron-left" aria-hidden="true" style="color: black;"></i></button>',
-        nextArrow: '<button type="button" class="slick-next" style="border: none;"><i class="fa fa-chevron-right" aria-hidden="true" style="color: black;"></i></button>',
-            responsive: [
-                {
+        dots: false,
+        infinite: true,
+        responsive: [
+            {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
+                    slidesToShow: 3
                 }
             },
-                {
-                    breakpoint: 768, // At 768px, show 2 slides
-                    settings: {
-                        slidesToShow: 2,
-                    }
-                },
-                {
-                    breakpoint: 480, // At 480px, show 1 slide
-                    settings: {
-                        slidesToShow: 1,
-                    }
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
                 }
-            ]
-        });
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    variableWidth: false,
+                }
+            }
+        ]
+    });
 });
 
 
