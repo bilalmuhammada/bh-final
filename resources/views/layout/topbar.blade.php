@@ -206,6 +206,45 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         display: none !important;
     }
 
+    /* Custom Dropdown for Three Dots */
+    .dropdown-menu-custom {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 20px;
+        background: #fff;
+        border: 1px solid #eee;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+        min-width: 100px;
+        border-radius: 6px;
+       
+    }
+
+    .dropdown-menu-custom a {
+        display: block;
+        padding: 3px 7px;
+        font-size: 12px;
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background 0.2s;
+    }
+
+    .dropdown-menu-custom a:hover {
+        background: #f8f9fa;
+        color: #0088eb;
+    }
+    .fa-ellipsis-h {
+        color: blue;
+    }
+    .fa-ellipsis-h:hover {
+        color: goldenrod;
+    }
+    .btn:focus, .btn.focus {
+        box-shadow: none !important;
+    }
+
     /* end */
 </style>
 <header>
@@ -308,14 +347,14 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                             </div>
                             <div class="list-group list-group-flush">
                                 @foreach($notifications as $notification)
-                                    <div class="list-group-item list-group-item-action border-bottom p-2" style="background-color: aliceblue;">
+                                    <div class=" list-group-item-action border-bottom pl-2 pr-2 " style="background-color: aliceblue;">
                                         <div class="d-flex align-items-center position-relative">
-                                            <div style="flex-shrink: 0; width: 45px; height: 45px; border-radius: 4px; overflow: hidden; background: #fff;">
+                                            <div style="flex-shrink: 0; width: 50px; height: 50px; border-radius: 4px; overflow: hidden; background: #fff;">
                                                 <img style="width: 100%; height: 100%; object-fit: cover;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
                                             </div>
                                             <div class="ms-3 flex-grow-1 px-2">
-                                                <h6 class="mb-2 text-dark fw-bold" style="font-size: 13px;">{{$notification->title}}</h6>
-                                                <p class="mb-2 text-muted small text-truncate" style="max-width: 180px;">{{$notification->message}}</p>
+                                                <h6 class="mb-0 text-dark fw-bold" style="font-size: 13px;">{{$notification->title}}</h6>
+                                                <p class="mb-0 text-muted small text-truncate" style="max-width: 180px;">{{$notification->message}}</p>
                                                 <small class="text-muted" style="font-size: 10px;">{{ \Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}</small>
                                             </div>
                                             <div class="dropdown">
