@@ -27,7 +27,8 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     .topbar-wrapper {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start; /* Changed from space-between to align content to the left */
+        gap: 8px; /* Gap between Logo and Items */
         padding: 8px 46px;
         background: #fff;
         border-bottom: 1px solid #f0f0f0;
@@ -36,7 +37,11 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     .topbar-items-group {
         display: flex;
         align-items: center;
-        gap: 20px; /* Equal space between all items */
+        gap: 19px; /* Equal space between all items */
+        flex: 1; /* Allow group to fill remaining space */
+    }
+    .list-group-item{
+        padding: 0.25rem 0.5rem;
     }
 
     .topbar-dropdown-trigger {
@@ -74,6 +79,16 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         border-radius: 50px !important;
         box-shadow: 0 2px 4px rgba(22, 101, 52, 0.1);
     }
+    .badge-new-green {
+        
+        
+        background-color: #dcfce7 !important;
+        color: #166534 !important;
+        font-size: 10px !important;
+        font-weight: 700 !important;
+        border-radius: 50px !important;
+        box-shadow: 0 2px 4px rgba(22, 101, 52, 0.1);
+    }
 
     /* Dropdown Menus */
     .dropdown-menu {
@@ -81,9 +96,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
         border-radius: 0.5rem !important;
         margin-top: 10px !important;
-        padding: 8px 0 !important;
-        max-height: 15rem;
-        overflow-y: auto;
+        padding:  0 !important;
     }
 
     /* Selection items (Select2-like styling for custom selects) */
@@ -159,6 +172,40 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
     }
 
+    /* Select2 Arrow and Selection Refinements */
+    .select2-container--default .select2-selection--single .select2-selection__arrow b {
+        border-color: blue transparent transparent transparent !important;
+        transition: border-color 0.2s ease;
+    }
+
+    .select2-container--default:hover .select2-selection--single .select2-selection__arrow b {
+        border-color: goldenrod transparent transparent transparent !important;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: blue !important;
+        padding-left: 6px !important; /* "Less" padding for tighter alignment */
+        transition: color 0.2s ease;
+    }
+
+    .select2-container--default:hover .select2-selection--single .select2-selection__rendered {
+        color: goldenrod !important;
+    }
+
+    /* Remove hover effect when open */
+    .select2-container--open .select2-selection--single .select2-selection__arrow b {
+        border-color: blue transparent transparent transparent !important;
+    }
+
+    .select2-container--open .select2-selection--single .select2-selection__rendered {
+        color: blue !important;
+    }
+
+    /* Disable hover open for dropdowns */
+    .dropdown:hover > .dropdown-menu:not(.show) {
+        display: none !important;
+    }
+
     /* end */
 </style>
 <header>
@@ -198,7 +245,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         <div class="topbar-items-group">
             <!-- Country Dropdown -->
             <div class="selection-item">
-                <select class="form-control country_dropdown1 country_dropdown" name="country_dropdown" style="width:160px;" id="country_dropdown">
+                <select class="form-control country_dropdown1 country_dropdown" name="country_dropdown" style="width:180px;" id="country_dropdown">
                     <option value="">All Countries</option>
                     @foreach($countries as $country)
                         <option {{ $country->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $country->image_url }}" value="{{ $country->id }}">
@@ -210,7 +257,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
             <!-- City Dropdown -->
             <div class="selection-item">
-                <select class="form-control city_dropdown" name="city_dropdown" style="width:130px;">
+                <select class="form-control city_dropdown" name="city_dropdown" style="width:120px;">
                     <option value="">All Cities</option>
                     @foreach($cities as $city)
                         <option data-city-id="{{ $city->id }}" {{ $city->id == request()->city ? 'selected' : '' }} value="{{ $city->id }}">
@@ -222,7 +269,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
             <!-- Language Dropdown -->
             <div class="selection-item">
-                <select class="form-control language_dropdown" name="language_dropdown" style="width:130px;" onchange="translateLanguage()">
+                <select class="form-control language_dropdown" name="language_dropdown" style="width:135px;" onchange="translateLanguage()">
                     @foreach($language as $language1)
                         <option {{ $language1->id == request()->language ? 'selected' : '' }} data-flag-url="{{ $language1->flag_image_url }}" value="{{ $language1->prefix }}" {{ $language1->id == 131 ? 'selected' : '' }}>
                             {{ $language1->name }}
@@ -234,7 +281,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
             <!-- Currency Dropdown -->
             <div class="selection-item">
-                <select class="form-control currency_dropdown" name="currency_dropdown" style="width:100px;">
+                <select class="form-control currency_dropdown" name="currency_dropdown" style="width:120px;">
                     <option value="">Currency</option>
                     @foreach($currency as $currencyn)
                         <option data-currency-id="{{ $currencyn->currency }}" {{ $currencyn->currency_short_name == session('app_currency', 'default_currency') ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" value="{{ $currencyn->currency_short_name }}">
@@ -253,11 +300,11 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                             <span class="badge-premium-green">{{ count($notifications) }}</span>
                         @endif
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" style="width:380px;">
+                    <div class="dropdown-menu" style="width:420px;">
                         @if (count($notifications) > 0)
-                            <div class="px-3 py-2 border-bottom d-flex justify-content-between align-items-center">
+                            <div class="px-2 py-1 border-bottom d-flex justify-content-between align-items-center">
                                 <h6 class="mb-0 fw-bold">Notifications</h6>
-                                <span class="badge-premium-green">{{ count($notifications) }} New</span>
+                                <span class="badge-new-green">{{ count($notifications) }} New</span>
                             </div>
                             <div class="list-group list-group-flush">
                                 @foreach($notifications as $notification)
@@ -267,8 +314,8 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                                                 <img style="width: 100%; height: 100%; object-fit: cover;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
                                             </div>
                                             <div class="ms-3 flex-grow-1 px-2">
-                                                <h6 class="mb-0 text-dark fw-bold" style="font-size: 13px;">{{$notification->title}}</h6>
-                                                <p class="mb-0 text-muted small text-truncate" style="max-width: 180px;">{{$notification->message}}</p>
+                                                <h6 class="mb-2 text-dark fw-bold" style="font-size: 13px;">{{$notification->title}}</h6>
+                                                <p class="mb-2 text-muted small text-truncate" style="max-width: 180px;">{{$notification->message}}</p>
                                                 <small class="text-muted" style="font-size: 10px;">{{ \Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}</small>
                                             </div>
                                             <div class="dropdown">
@@ -284,7 +331,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                                     </div>
                                 @endforeach
                             </div>
-                            <div class="p-2 text-center border-top">
+                            <div class="p-1 text-center border-top">
                                 <a href="{{ env('BASE_URL').'notifications'}}" class="fw-bold view-all-link" style="font-size: 13px; color: red;">View all Notifications</a>
                             </div>
                         @else
@@ -301,29 +348,29 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                             <span class="badge-premium-green">{{ count($favourite_ads) }}</span>
                         @endif
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" style="width:340px;">
+                    <div class="dropdown-menu" style="width:380px;">
                         @if (count($favourite_ads) > 0)
-                            <div class="px-3 py-2 border-bottom d-flex justify-content-between align-items-center">
+                            <div class="px-2 py-1 border-bottom d-flex justify-content-between align-items-center">
                                 <h6 class="mb-0 fw-bold">Favorites</h6>
-                                <span class="badge-premium-green">{{ count($favourite_ads) }}</span>
+                                <span class="badge-new-green">{{ count($favourite_ads) }} New</span>
                             </div>
                             <div class="list-group list-group-flush">
                                 @foreach($favourite_ads as $favourite_ad)
-                                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $favourite_ad->id . '?country=' . request()->country . '&city=' . request()->city }}" class="list-group-item list-group-item-action border-bottom d-flex align-items-center p-2" style="background-color: aliceblue;">
+                                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $favourite_ad->id . '?country=' . request()->country . '&city=' . request()->city }}" class=" list-group-item-action border-bottom d-flex align-items-center pl-2 pr-2 pb-1 pt-1" style="background-color: aliceblue;">
                                         <div style="flex-shrink: 0; width: 45px; height: 45px; border-radius: 4px; overflow: hidden; background: #fff;">
                                             <img src="{{ $favourite_ad->main_image_url ?? 'https://via.placeholder.com/80x80?text=Ad' }}" style="width: 100%; height: 100%; object-fit: cover;">
                                         </div>
                                         <div class="ms-3 flex-grow-1 px-2">
-                                            <h6 class="mb-0 text-dark text-truncate fw-bold" style="font-size: 13px;">{{ $favourite_ad->title }}</h6>
-                                            <div class="d-flex justify-content-between">
+                                            <h6 class="mb-2 text-dark text-truncate fw-bold" style="font-size: 14px;">{{ $favourite_ad->title }}</h6>
+                                            <div class="d-flex justify-content-between align-items-center">
                                                 <small class="text-muted">{{ $favourite_ad->category->name ?? 'General' }}</small>
-                                                <small class="fw-bold text-danger">{{ \App\Helpers\SiteHelper::priceFormatter($favourite_ad->price,session('app_currency', 'default_currency')) }}</small>
+                                                <h6 class="mb-0 fw-bold text-danger" style="font-size: 14px;">{{ \App\Helpers\SiteHelper::priceFormatter($favourite_ad->price,session('app_currency', 'default_currency')) }}</h6>
                                             </div>
                                         </div>
                                     </a>
                                 @endforeach
                             </div>
-                            <div class="p-2 text-center border-top">
+                            <div class="p-1 text-center border-top">
                                 <a href="{{ env('BASE_URL') . 'ads?type=favourite' }}" class="fw-bold view-all-link" style="font-size: 13px; color: red;">View all Favorites</a>
                             </div>
                         @else
@@ -340,29 +387,30 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                             <span class="badge-premium-green">{{ count($chats) }}</span>
                         @endif
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow-lg" style="width:380px;">
-                        <div class="px-3 py-2 border-bottom d-flex justify-content-between align-items-center">
+                    <div class="dropdown-menu shadow-lg" style="width:420px;">
+                        <div class="pl-2 pr-2 pb-2 pt-2 border-bottom d-flex justify-content-between align-items-center">
                             <h6 class="mb-0 fw-bold">Messages</h6>
-                            <span class="badge-premium-green">{{ count($chats) }} New</span>
+                            <span class="badge badge-new-green">{{ count($chats) }} New</span>
                         </div>
                         <div class="list-group list-group-flush">
                             @forelse($chats->take(3) as $message)
-                                <a href="{{ route('chats') . '/detail/' . $message->id . '?country=' . request()->country . '&city=' . request()->city }}" class="list-group-item list-group-item-action border-bottom d-flex align-items-center p-2" style="background-color: aliceblue;">
-                                    <img src="{{ $message->chat->other_user->image_url ?? 'https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg' }}" class="rounded-circle" width="40" height="40" style="object-fit: cover;">
+                                <a href="{{ route('chats') . '/detail/' . $message->id . '?country=' . request()->country . '&city=' . request()->city }}" class=" list-group-item-action border-bottom d-flex align-items-center pl-2 pr-2" style="background-color: aliceblue;">
+                                    <img src="{{ $message->chat->other_user->image_url ?? 'https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg' }}" class="rounded-circle" width="60" height="60" style="object-fit: cover;">
                                     <div class="ms-3 flex-grow-1 px-2 overflow-hidden">
-                                        <h6 class="mb-0 text-dark fw-bold text-truncate" style="font-size: 13px;">{{ Str::limit($message->chat->ad->title ?? 'Untitled Ad', 30) }}</h6>
-                                        <div class="d-flex justify-content-between">
-                                            <small class="text-muted text-truncate" style="font-size: 11px;">{{ $message->message ?? 'Click to view' }}</small>
-                                            <small class="text-muted" style="font-size: 10px;">{{ $message->message_recieved_time_diff }}</small>
+                                        <h6 class="mb-1 text-primary fw-bold text-truncate" style="font-size: 14px;">{{ Str::limit($message->chat->ad->title ?? 'Untitled Ad', 30) }}</h6>
+                                        <p class="mb-1 text-muted small text-truncate" style="color: #666;">{{ Str::limit($message->message ?? 'Click to view', 40) }}</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-primary fw-bold" style="font-size: 12px;font-weight: 600;">{{ $message->chat->other_user->first_name ?? 'User' }}</small>
+                                            <small class="text-muted" style="font-size: 11px;">{{ $message->message_recieved_time_diff }}</small>
                                         </div>
                                     </div>
-                                    <img src="{{ $message->chat->ad->main_image_url ?? 'https://via.placeholder.com/45' }}" class="rounded" width="40" height="40" style="object-fit: cover;">
+                                    <img src="{{ $message->chat->ad->main_image_url ?? 'https://via.placeholder.com/45' }}" class="rounded" width="60" height="60" style="object-fit: cover; border: 1px solid #eee;">
                                 </a>
                             @empty
                                 <div class="p-4 text-center text-muted small">No new messages</div>
                             @endforelse
                         </div>
-                        <div class="p-2 text-center border-top">
+                        <div class="p-1 text-center border-top">
                             <a href="{{ route('chats') . '?country=' . request()->country . '&city=' . request()->city }}" class="fw-bold view-all-link" style="font-size: 13px; color: red;">View all Chats</a>
                         </div>
                     </div>
@@ -374,20 +422,22 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                 </a>
 
                 <!-- Profile -->
-                <div class="dropdown">
-                    <a class="topbar-dropdown-trigger" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="{{session()->get('user')->image_url}}" class="topbar-profile-img">
+                <div class="dropdown" style="margin-left: auto;">
+                    <a class="topbar-dropdown-trigger" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: flex; align-items: center;">
                         <span>{{session()->get('user')->first_name}}</span>
+                        <img src="{{session()->get('user')->image_url}}" class="topbar-profile-img">
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" style="min-width: 140px;">
-                        <a class="dropdown-item fw-bold" href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">My Profile</a>
-                        <a class="dropdown-item fw-bold" href="{{ env('BASE_URL') . 'user/ads?country=' . request()->country . '&city=' . request()->city}}">My Ads</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item logout-btn fw-bold text-danger">Sign Out</a>
+                    <div class="dropdown-menu dropdown-menu-right p-0" style="min-width: 140px;">
+                        <div class="list-group list-group-flush">
+                            <a class="list-group-item list-group-item-action fw-bold" href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">My Profile</a>
+                            <a class="list-group-item list-group-item-action fw-bold" href="{{ env('BASE_URL') . 'user/ads?country=' . request()->country . '&city=' . request()->city}}">My Ads</a>
+                            <a class="list-group-item list-group-item-action logout-btn fw-bold text-danger">Sign Out</a>
+                        </div>
                     </div>
                 </div>
             @else
-                <div class="auth-buttons d-flex gap-3">
+               
+                <div class="auth-buttons d-flex" style="gap: 12px; margin-left: auto;">
                     <a class="topbar-dropdown-trigger login-btn fw-bold">Login</a>
                     <a class="topbar-dropdown-trigger register-btn fw-bold">Register</a>
                 </div>

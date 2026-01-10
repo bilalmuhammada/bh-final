@@ -126,18 +126,9 @@ $second = $parts[1] ?? null;
 
 
 <style>
-     .select2-container--default .select2-selection--single .select2-selection__rendered{
-        color: blue !important;
-        padding-left:11px !important;
-    }
-
     .disabled {
   background-color: #7070707d !important;
-
-
 }
-
-
 </style>
 <script>
     //countries dropdown
@@ -164,23 +155,20 @@ if (inputValue === "") {
     });
     
     function formatCountry(country) {
-            if (!country.id) {
-                return country.text;
-            }
+        if (!country.id) {
+            return country.text;
+        }
 
-            var flagUrl = $(country.element).data('flag-url'); // Access the flag-url data attribute
-            if (!flagUrl) {
-        var $country = $( 
-        '<img src="' + flagUrl + '" class="img-flag" style="width:20px; height:13px; display:none;" />' + 
-        '<span style="font-size:14px; margin-left: 2px;">' + country.text + '</span>'
-    );// Optional default image
-    }else{
-            var $country = $(
-                '<img src="' + flagUrl + '" class="img-flag" style="width:20px;height:13px;margin-left:1px; "> <span  style="font-size:14px; margin-left: 2px;white-space:nowrap; ">' + country.text + '</span>'
-            );
-            return $country;
-        };
-      };
+        var flagUrl = $(country.element).data('flag-url');
+        var $content = $(
+            '<div style="display: flex; align-items: center; width: 100%;">' +
+            (flagUrl ? '<img src="' + flagUrl + '" class="img-flag" style="width:20px; height:13px; margin-right: 8px;">' : '') +
+            '<span style="font-size:14px; white-space:nowrap;">' + country.text + '</span>' +
+            '</div>'
+            
+        );
+        return $content;
+    };
 
       $(document).on('change', '.country_id', function () {
     var country_id = $(this).val();
@@ -256,6 +244,11 @@ $.ajax({
             templateResult: formatCountry,
             minimumResultsForSearch: -1
         });
+        
+        $(".city_dropdown").select2({
+            templateSelection: formatCountry,
+            templateResult: formatCountry,
+        });
 
         $("#register_country").select2({
             // templateSelection: formatCountry,
@@ -315,26 +308,7 @@ $("#profile_cities").select2({
             minimumResultsForSearch: -1
         });
 
-        function formatCity(city) {
-            if (!city.id) {
-                return city.text;
-            }
 
-            var city_id = $(city.element).data('city-id'); // Access the custom data attribute
-            var country_id = "{{ !empty(request()->country) ? request()->country : '' }}";
-
-            var $city = $(
-                '<a href="' + base_url + 'home?country=' + country_id + '&city=' + city_id + '" style="color:inherit;"><span class="spanz">' + city.text + '</span></a>'
-            );
-            return $city;
-        };
-
-        //cities dropdown
-        $(".city_dropdown").select2({
-            // minimumResultsForSearch: -1
-            // templateSelection: formatCity,
-            // templateResult: formatCity,
-        });
         $(".city_dropdown_list").select2({
             // minimumResultsForSearch: -1
             // templateSelection: formatCity,
