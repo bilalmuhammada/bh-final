@@ -463,7 +463,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                 <!-- Profile -->
                 <div class="dropdown" style="margin-left: auto;">
                     <a class="topbar-dropdown-trigger" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: flex; align-items: center;">
-                        <span style="white-space: nowrap;">{{session()->get('user')->first_name}} {{session()->get('user')->last_name}}</span>
+                        <span style="white-space: nowrap; padding: 0px 10px;">{{session()->get('user')->first_name}} {{session()->get('user')->last_name}}</span>
                         <img src="{{session()->get('user')->image_url}}" class="topbar-profile-img">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right p-0" style="min-width: 140px;">
