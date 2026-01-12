@@ -29,7 +29,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         align-items: center;
         justify-content: flex-start; /* Changed from space-between to align content to the left */
         gap: 8px; /* Gap between Logo and Items */
-        padding: 8px 46px;
+        padding: 8px 81px;
         background: #fff;
         border-bottom: 1px solid #f0f0f0;
     }
@@ -456,14 +456,14 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                 </div>
 
                 <!-- My Ads Link -->
-                <a href="{{ env('BASE_URL') . 'user/ads?country=' . request()->get('country') . '&city=' . request()->get('city') }}" class="topbar-dropdown-trigger">
-                    My Ads
+                <a href="{{ env('BASE_URL') . 'user/ads?country=' . request()->get('country') . '&city=' . request()->get('city') }}" class="topbar-dropdown-trigger white-space-nowrap" style="white-space: nowrap;">
+                    My Ads2
                 </a>
 
                 <!-- Profile -->
                 <div class="dropdown" style="margin-left: auto;">
                     <a class="topbar-dropdown-trigger" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: flex; align-items: center;">
-                        <span>{{session()->get('user')->first_name}}</span>
+                        <span style="white-space: nowrap;">{{session()->get('user')->first_name}} {{session()->get('user')->last_name}}</span>
                         <img src="{{session()->get('user')->image_url}}" class="topbar-profile-img">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right p-0" style="min-width: 140px;">
@@ -482,7 +482,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                 </div>
             @endif
 
-            <a class="add-listing-btn btn" style="padding: 7px 15px; border-radius: 6px; font-weight: 600; font-size: 13px; color: #fff !important; background-color: goldenrod !important;">+ Place Your Ad</a>
+            <a class="add-listing-btn btn" style="padding: 7px 15px; border-radius: 6px; font-weight: 600; font-size: 13px; color: #fff !important; background-color: goldenrod !important; white-space: nowrap;">+ Place Your Ad</a>
         </div>
     </div>
 
