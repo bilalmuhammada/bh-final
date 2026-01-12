@@ -37,7 +37,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     .topbar-items-group {
         display: flex;
         align-items: center;
-        gap: 19px; /* Equal space between all items */
+        gap: 13px; /* Equal space between all items */
         flex: 1; /* Allow group to fill remaining space */
     }
     .list-group-item{
@@ -482,7 +482,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                 </div>
             @endif
 
-            <a class="add-listing-btn btn" style="padding: 7px 15px; border-radius: 6px; font-weight: 600; font-size: 13px; color: #fff !important; background-color: goldenrod !important; white-space: nowrap;">+ Place Your Ad</a>
+            <a class="add-listing-btn btn" style="padding: 5px 7px; border-radius: 6px; font-weight: 600; font-size: 13px; color: #fff !important; background-color: goldenrod !important; white-space: nowrap;">+ Place Your Ad</a>
         </div>
     </div>
 
