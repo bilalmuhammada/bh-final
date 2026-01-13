@@ -14,15 +14,46 @@
 
     }
 
-    .slider {
-        width: 110%;
-        /* Adjust the width as needed */
-        /* margin: 0 auto; Optional: Center the slider */
+    /* Listing card styles */
+    .listing {
+        background: #fff;
+        border-radius: 0.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        width: 110% !important;
+        overflow: hidden;
+        display: block;
+    }
+
+    .listing img {
+        width: 100% !important;
+        height: 152px !important;
+        object-fit: cover;
+        border-radius: 0.3rem 0.3rem 0 0;
+    }
+
+    .listing-slider .listing {
+        background: #fff;
+        border-radius: 0.3rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        width: 100% !important;
+        overflow: hidden;
+    }
+
+    .slick-slide {
+        padding: 0px !important;
+        margin: 0px 10px;
+    }
+
+    .listing-slider .listing img {
+        width: 100% !important;
+        height: 152px !important;
+        object-fit: cover;
+        border-radius: 0.3rem 0.3rem 0 0;
     }
 
     .noAds {
-        margin-left: 0.8rem;
-        margin-top: 1.5rem;
+
+        margin-top: 0.5rem;
     }
 
     .show-more-btn1 {
@@ -52,7 +83,7 @@
         border-radius: 50%;
     }
 
-    .slider:before {
+    .listing-slider:before {
         background-color: transparent !important;
     }
 
@@ -69,6 +100,20 @@
     .slick-slide img {
         width: 100% !important;
     }
+
+
+    .home-full-width {
+        padding-left: 81px !important;
+        padding-right: 81px !important;
+        width: 100% !important;
+    }
+
+    @media (max-width: 768px) {
+        .home-full-width {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+    }
 </style>
 @php
 $categories = \App\Helpers\RecordHelper::getCategories();
@@ -76,7 +121,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
 @endphp
 <section>
     <!-- <div class="container slider-area"> -->
-    <div class="cont-w slider-area desktop-view" style="border:0px solid red;margin-top:-12px;">
+    <div class="container-fluid home-full-width slider-area desktop-view" style="border:0px solid red;margin-top:-12px;">
         <div id="demo" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" style="border-radius:0.3rem;">
                 <div class="carousel-item active">
@@ -100,7 +145,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
     </div>
 </section>
 <!-- searchbar area desktop start -->
-<div class="container mt-100 desktop-view">
+<div class="container-fluid home-full-width mt-100 desktop-view">
     <section class="mt-100 desktop-view">
         <div class="container">
             <div class="row justify-content-md-center">
@@ -112,7 +157,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                         <form action="{{ env('BASE_URL') . 'listing/search' }}" method="get"
                             style="border:0px solid red;margin-left: -24px;">
                             <div class="searchbox-area" style="border:0px solid red;">
-                                <div class="container">
+                                <div class="container-fluid">
                                     <div class="row">
                                         <div class="searches mb-10">
                                             {{-- <a href="javascript:void(0);" class="text-white"><span> &nbsp; &nbsp; &nbsp; </span>Searching In</a> --}}
@@ -159,7 +204,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
 <!-- searchbar area desktop finish -->
 <!-- searchbar area mobile start -->
 <section class="mobile-view">
-    <div class="container">
+    <div class="container-fluid home-full-width">
         <div class="row justify-content-md-center">
             <div class="col-lg-10">
                 <!-- searchbar start -->
@@ -199,12 +244,13 @@ $catgories_for_search = $categories->random()->take(6)->get();
 <!-- searchbar mobile finish  -->
 <!-- Categories area start -->
 <section class="list">
-    <div class="container">
-        <div class="col-md-12 m-10" style="min-width: 92rem;">
-            <h6>
+    <div class="container-fluid home-full-width">
+        <div class="row">
+            <div class="col-md-12">
+            <h6 style="margin-top: 20px;">
                 <b style="margin-left: 0rem;">Popular Categories</b>
             </h6>
-            <div class="row" style="margin-left: -13px !important;margin-bottom: -10px;">
+            <div class="row" style="margin-bottom: -10px;">
                 @foreach($categories as $category)
                 <div class="col-md-3 cat mb-4">
                     <div class="subcategory-list">
@@ -242,11 +288,15 @@ $catgories_for_search = $categories->random()->take(6)->get();
 
 
 
-    <div class="container">
-        <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -70px;">
-            <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Businesses for Sale</b></h6>
+
+
+    <div class="container-fluid home-full-width">
+        <div class="row" style="margin-left:2px;">
+            <div class="col-lg-12 col-md-12 col-12 p-0">
+            <h6 style="margin-bottom:0px;"><b>Popular in Businesses for Sale</b></h6>
             @if($ads->where("category_id", 1)->count()>0)
-            <div class="row slider" style="margin-left: -8px;">
+            @php $validListingsCount = 0; @endphp
+            <div class="row">
 
 
                 @foreach($ads->where("category_id", 1) as $key=>$featured_ad)
@@ -254,9 +304,10 @@ $catgories_for_search = $categories->random()->take(6)->get();
                 $business_for_sale_details= DB::table('business_for_sale_details')->where('listing_id', $featured_ad->id)->first();
                 @endphp
                 @if(!$business_for_sale_details) @continue @endif
-                <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
+                @php $validListingsCount++; @endphp
+                <div class="col-lg-2 col-md-3 col-6">
                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
-                        <div class="listing">
+                        <div class="listing p-1">
                             <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                             <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
                                 <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
@@ -264,7 +315,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                             <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                             </div>
-                            <div class="detail" style="padding: 12px;margin-left: -13px;">
+                            <div class="detail" style="padding: 12px;">
                                 <span style="color:#000; display: block; margin-bottom: 2px;">{!!$business_for_sale_details->title !!} {{$key}}</span>
                                 <span style="color:#999; display: block; margin-bottom: 5px;">{!!$business_for_sale_details->location_name !!}</span>
                                 <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$business_for_sale_details->price !!}</b></h5>
@@ -275,6 +326,11 @@ $catgories_for_search = $categories->random()->take(6)->get();
                 </div>
                 @endforeach
             </div>
+            @if($validListingsCount == 0)
+            <div class="noAds">
+                <h6>No Ads</h6>
+            </div>
+            @endif
             @else
             <div class="noAds">
 
@@ -284,30 +340,31 @@ $catgories_for_search = $categories->random()->take(6)->get();
             <!-- Custom Arrows -->
             {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
                 <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
+            </div>
         </div>
-
-
     </div>
 </section>
 <section class="business-rent">
     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
 
-    <div class="container">
-        <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -70px;">
-            <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Businesses for Rent</b></h6>
+    <div class="container-fluid home-full-width">
+        <div class="row" style="margin-left:2px;">
+            <div class="col-lg-12 col-md-12   col-12 p-0">
+            <h6 style="margin-bottom:0px;"><b>Popular in Businesses for Rent</b></h6>
             @if($ads->where("category_id", 7)->count()>0)
-
-            <div class="row slider" style="margin-left: -8px;">
+            @php $validListingsCount = 0; @endphp
+            <div class="row">
 
                 @foreach($ads->where("category_id", 7) as $key=>$featured_ad)
                 @php
                 $business_rents= DB::table('business_rents')->where('listing_id', $featured_ad->id)->first();
                 @endphp
                 @if(!$business_rents) @continue @endif
-                <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
+                @php $validListingsCount++; @endphp
+                <div class="col-lg-2 col-md-3 col-6">
                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
-                        <div class="listing ">
+                        <div class="listing p-1">
                             <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                             <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
                                 <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
@@ -315,7 +372,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                             <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                             </div>
-                            <div class="detail" style="padding: 12px;margin-left: -13px;">
+                            <div class="detail" style="padding: 12px;">
                                 <span style="color:#000; display: block; margin-bottom: 2px;">{!!$business_rents->title !!}{{$key}}</span>
                                 <span style="color:#999; display: block; margin-bottom: 5px;">{!!$business_rents->location_name !!}</span>
                                 <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$business_rents->price !!}</b></h5>
@@ -326,6 +383,11 @@ $catgories_for_search = $categories->random()->take(6)->get();
                 </div>
                 @endforeach
             </div>
+            @if($validListingsCount == 0)
+            <div class="noAds">
+                <h6>No Ads</h6>
+            </div>
+            @endif
             @else
             <div class="noAds">
 
@@ -333,6 +395,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
             </div>
             @endif
 
+            </div>
         </div>
     </div>
 
@@ -342,11 +405,13 @@ $catgories_for_search = $categories->random()->take(6)->get();
     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
 
-    <div class="container">
-        <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -70px;">
-            <h6 style="margin-left: 12px;margin-bottom:-14px;"><b>Popular in Shares for Sale</b></h4>
+    <div class="container-fluid home-full-width">
+        <div class="row" style="margin-left:2px;">
+            <div class="col-lg-12 col-md-12 col-12 p-0">
+            <h6 style="margin-bottom:0px;"><b>Popular in Shares for Sale</b></h6>
                 @if($ads->where("category_id", 2)->count()>0)
-                <div class="row slider" style="margin-left: -8px;">
+                @php $validListingsCount = 0; @endphp
+                <div class="row">
 
 
                     @foreach($ads->where("category_id", 2) as $key=>$featured_ad)
@@ -354,9 +419,10 @@ $catgories_for_search = $categories->random()->take(6)->get();
                     $shares_for_sale_details= DB::table('shares_for_sale_details')->where('listing_id', $featured_ad->id)->first();
                     @endphp
                     @if(!$shares_for_sale_details) @continue @endif
-                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
+                    @php $validListingsCount++; @endphp
+                    <div class="col-lg-2 col-md-3 col-6">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
-                            <div class="listing">
+                            <div class="listing p-1">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
                                     <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
@@ -364,7 +430,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                 </div>
-                                <div class="detail" style="padding: 12px;margin-left: -13px;">
+                                <div class="detail" style="padding: 12px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">{!!$shares_for_sale_details->title !!}{{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">{!!$shares_for_sale_details->location_name !!}</span>
                                     <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$shares_for_sale_details->price !!}</b></h5>
@@ -375,6 +441,11 @@ $catgories_for_search = $categories->random()->take(6)->get();
                     </div>
                     @endforeach
                 </div>
+                @if($validListingsCount == 0)
+                <div class="noAds">
+                    <h6>No Ads</h6>
+                </div>
+                @endif
                 @else
                 <div class="noAds">
 
@@ -385,6 +456,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                 <!-- Custom Arrows -->
                 {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
                 <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
+            </div>
         </div>
     </div>
 
@@ -393,20 +465,23 @@ $catgories_for_search = $categories->random()->take(6)->get();
     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
     {{-- @if($ads->count()>0) --}}
-    <div class="container">
-        <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:0px 0px 0px -70px;">
-            <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Business Ideas</b></h4>
+    <div class="container-fluid home-full-width">
+        <div class="row" style="margin-left:2px;">
+            <div class="col-lg-12 col-md-12 col-12 p-0">
+            <h6 style="margin-bottom:0px;"><b>Popular in Business Ideas</b></h6>
                 @if($ads->where("category_id", 3)->count()>0)
-                <div class="row slider" style="    margin-left: -8px;">
+                @php $validListingsCount = 0; @endphp
+                <div class="row">
 
                     @foreach($ads->where("category_id", 3) as $key=>$featured_ad)
                     @php
                     $business_idea_details= DB::table('business_idea_details')->where('listing_id', $featured_ad->id)->first();
                     @endphp
                     @if(!$business_idea_details) @continue @endif
-                    <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
+                    @php $validListingsCount++; @endphp
+                    <div class="col-lg-2 col-md-3 col-6">
                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
-                            <div class="listing">
+                            <div class="listing p-1">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
                                     <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
@@ -414,7 +489,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                                 </div>
-                                <div class="detail" style="padding: 12px;margin-left: -13px;">
+                                <div class="detail" style="padding: 12px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">{!!$business_idea_details->title !!} {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">{!!$business_idea_details->location_name !!}</span>
                                     <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$business_idea_details->price !!}</b></h5>
@@ -425,6 +500,11 @@ $catgories_for_search = $categories->random()->take(6)->get();
                     </div>
                     @endforeach
                 </div>
+                @if($validListingsCount == 0)
+                <div class="noAds">
+                    <h6>No Ads</h6>
+                </div>
+                @endif
                 @else
                 <div class="noAds">
 
@@ -434,6 +514,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                 <!-- Custom Arrows -->
                 {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
                 <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
+            </div>
         </div>
     </div>
 
@@ -442,11 +523,13 @@ $catgories_for_search = $categories->random()->take(6)->get();
     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
 
-    <div class="container">
-        <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -70px;">
-            <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Investors</b></h6>
+    <div class="container-fluid home-full-width">
+        <div class="row" style="margin-left:2px;">
+            <div class="col-lg-12 col-md-12  col-12 p-0">
+            <h6 style="margin-bottom:0px;"><b>Popular in Investors</b></h6>
             @if($ads->where("category_id", 4)->count()>0)
-            <div class="row slider" style="    margin-left: -8px;">
+                @php $validListingsCount = 0; @endphp
+                <div class="row">
 
                 @foreach($ads->where("category_id", 4) as $key=>$featured_ad)
 
@@ -454,9 +537,10 @@ $catgories_for_search = $categories->random()->take(6)->get();
                 $investors_details= DB::table('investors_details')->where('listing_id', $featured_ad->id)->first();
                 @endphp
                 @if(!$investors_details) @continue @endif
-                <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
+                @php $validListingsCount++; @endphp
+                <div class="col-lg-2 col-md-3 col-6">
                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
-                        <div class="listing">
+                        <div class="listing p-1">
                             <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                             <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
                                 <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
@@ -464,7 +548,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                             <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                             </div>
-                            <div class="detail" style="padding: 12px;margin-left: -13px;">
+                            <div class="detail" style="padding: 12px;">
                                 <span style="color:#000; display: block; margin-bottom: 2px;">{!!$investors_details->title !!} {{$key}}</span>
                                 <span style="color:#999; display: block; margin-bottom: 5px;">{!!$investors_details->location_name !!}</span>
                                 <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$investors_details->price !!}</b></h5>
@@ -475,6 +559,11 @@ $catgories_for_search = $categories->random()->take(6)->get();
                 </div>
                 @endforeach
             </div>
+            @if($validListingsCount == 0)
+            <div class="noAds">
+                <h6>No Ads</h6>
+            </div>
+            @endif
             @else
             <div class="noAds">
 
@@ -486,6 +575,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
             <!-- Custom Arrows -->
             {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
                 <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
+            </div>
         </div>
     </div>
 
@@ -494,20 +584,23 @@ $catgories_for_search = $categories->random()->take(6)->get();
     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
 
-    <div class="container">
-        <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -70px;">
-            <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Investors Required</b></h6>
+    <div class="container-fluid home-full-width">
+        <div class="row" style="margin-left:2px;">
+            <div class="col-lg-12 col-md-12  col-12 p-0">
+            <h6 style="margin-bottom:0px;"><b>Popular in Investors Required</b></h6>
             @if($ads->where("category_id", 5)->count()>0)
-            <div class="row slider" style="    margin-left: -8px;">
+            @php $validListingsCount = 0; @endphp
+            <div class="row">
 
                 @foreach($ads->where("category_id", 5) as $key=>$featured_ad)
                 @php
                 $investors_required_details= DB::table('investors_required_details')->where('listing_id', $featured_ad->id)->first();
                 @endphp
                 @if(!$investors_required_details) @continue @endif
-                <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
+                @php $validListingsCount++; @endphp
+                <div class="col-lg-2 col-md-3 col-6">
                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
-                        <div class="listing">
+                        <div class="listing p-1">
                             <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                             <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
                                 <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
@@ -515,7 +608,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                             <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                             </div>
-                            <div class="detail" style="padding: 12px;margin-left: -13px;">
+                            <div class="detail" style="padding: 12px;">
                                 <span style="color:#000; display: block; margin-bottom: 2px;">{!!$investors_required_details->title !!} {{$key}}</span>
                                 <span style="color:#999; display: block; margin-bottom: 5px;">{!!$investors_required_details->location_name !!}</span>
                                 <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$investors_required_details->price !!}</b></h5>
@@ -526,6 +619,11 @@ $catgories_for_search = $categories->random()->take(6)->get();
                 </div>
                 @endforeach
             </div>
+            @if($validListingsCount == 0)
+            <div class="noAds">
+                <h6>No Ads</h6>
+            </div>
+            @endif
             @else
             <div class="noAds">
 
@@ -537,6 +635,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
             <!-- Custom Arrows -->
             {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
                 <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
+            </div>
         </div>
     </div>
 
@@ -544,20 +643,23 @@ $catgories_for_search = $categories->random()->take(6)->get();
 <section class="franchise-opp">
     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
-    <div class="container">
-        <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin: 0px 0px 0px -70px;">
-            <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Franchise Opportunities</b></h6>
+    <div class="container-fluid home-full-width">
+        <div class="row" style="margin-left:2px;">
+            <div class="col-lg-12 col-md-12  col-12 p-0">
+            <h6 style="margin-bottom:0px;"><b>Popular in Franchise Opportunities</b></h6>
             @if($ads->where("category_id", 6)->count()>0)
-            <div class="row slider" style="    margin-left: -8px;">
+            @php $validListingsCount = 0; @endphp
+            <div class="row">
 
                 @foreach($ads->where("category_id", 6) as $key=>$featured_ad)
                 @php
                 $franchise_opportunities_details= DB::table('franchise_opportunities_details')->where('listing_id', $featured_ad->id)->first();
                 @endphp
                 @if(!$franchise_opportunities_details) @continue @endif
-                <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
+                @php $validListingsCount++; @endphp
+                <div class="col-lg-2 col-md-3 col-6">
                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
-                        <div class="listing">
+                        <div class="listing p-1">
                             <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                             <div class="heart-icon" style="position: absolute; top: 16px; right:0.4rem;">
                                 <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
@@ -565,7 +667,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                             <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                             </div>
-                            <div class="detail" style="padding: 12px;margin-left: -13px;">
+                            <div class="detail" style="padding: 12px;">
                                 <span style="color:#000; display: block; margin-bottom: 2px;">{!!$franchise_opportunities_details->title !!} {{$key}}</span>
                                 <span style="color:#999; display: block; margin-bottom: 5px;">{!!$franchise_opportunities_details->location_name !!}</span>
                                 <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$franchise_opportunities_details->price !!}</b></h5>
@@ -576,6 +678,11 @@ $catgories_for_search = $categories->random()->take(6)->get();
                 </div>
                 @endforeach
             </div>
+            @if($validListingsCount == 0)
+            <div class="noAds">
+                <h6>No Ads</h6>
+            </div>
+            @endif
             @else
             <div class="noAds">
 
@@ -586,6 +693,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
             <!-- Custom Arrows -->
             {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
                 <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
+            </div>
         </div>
     </div>
 
@@ -593,11 +701,14 @@ $catgories_for_search = $categories->random()->take(6)->get();
 <section class="machinery">
     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
-    <div class="container">
-        <div class="col-lg-12 col-md-12 mb-30 col-12 " style="margin:0px 0px 0px -70px;">
-            <h6 style="margin-left: 12px;margin-bottom: -14px;"><b>Popular in Machinery & Supplies</b></h6>
-            @if($ads->where("category_id", 8)->count()>0)
-            <div class="row slider" style="    margin-left: -8px;">
+
+    <div class="container-fluid home-full-width">
+        <div class="row" style="margin-left:2px;">
+            <div class="col-lg-12 col-md-12 col-12 p-0">
+            <h6 style="margin-bottom:0px;"><b>Popular in Machinery & Supplies</b></h6>
+            @if($ads->where("category_id", 8)->count()>0 )
+            @php $validListingsCount = 0; @endphp
+            <div class="row">
 
 
 
@@ -606,9 +717,10 @@ $catgories_for_search = $categories->random()->take(6)->get();
                 $machine_supplies_details= DB::table('machine_supplies_details')->where('listing_id', $featured_ad->id)->first();
                 @endphp
                 @if(!$machine_supplies_details) @continue @endif
-                <div class="col-lg-2 col-md-3 col-6 m-15" style="width: 230px !important;">
+                @php $validListingsCount++; @endphp
+                <div class="col-lg-2 col-md-3 col-6">
                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
-                        <div class="listing">
+                        <div class="listing p-1">
                             <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                             <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
                                 <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
@@ -616,7 +728,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                             <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                             </div>
-                            <div class="detail" style="padding: 12px;margin-left: -13px;">
+                            <div class="detail" style="padding: 12px;">
                                 <span style="color:#000; display: block; margin-bottom: 2px;">{!!$machine_supplies_details->title !!}{{$key}}</span>
                                 <span style="color:#999; display: block; margin-bottom: 5px;">{!!$machine_supplies_details->location_name !!}</span>
                                 <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$machine_supplies_details->price !!}</b></h5>
@@ -627,6 +739,11 @@ $catgories_for_search = $categories->random()->take(6)->get();
                 </div>
                 @endforeach
             </div>
+            @if($validListingsCount == 0)
+            <div class="noAds">
+                <h6>No Ads</h6>
+            </div>
+            @endif
             @else
             <div class="noAds">
 
@@ -637,6 +754,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
             <!-- Custom Arrows -->
             {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
                 <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
+            </div>
         </div>
     </div>
 
@@ -648,42 +766,6 @@ $catgories_for_search = $categories->random()->take(6)->get();
 @endsection
 @section('page_scripts')
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.slider').slick({
-            infinite: true,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 2000,
-            arrows: true,
-
-            variableWidth: true,
-            prevArrow: '<button type="button" class="slick-prev" style="border: none;"><i class="fa fa-chevron-left" aria-hidden="true" style="color: black;"></i></button>',
-            nextArrow: '<button type="button" class="slick-next" style="border: none;"><i class="fa fa-chevron-right" aria-hidden="true" style="color: black;"></i></button>',
-            responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-            ]
-        });
-    });
 
 
     $(document).on('click', '.category-search', function(e) {

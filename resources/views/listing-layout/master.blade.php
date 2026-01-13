@@ -192,6 +192,7 @@
         });
     </script>
     @yield('page_scripts')
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places&loading=async&callback=initListingMap"></script>
 </body>
 
 </html>

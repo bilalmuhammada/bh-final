@@ -10,7 +10,6 @@
 <script src="{{ asset('js/alerts.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="{{asset('select2/js/select2.min.js')}}" type="text/javascript " charset="utf-8 "></script>
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"></script>
 <script src="{{asset('js/map.js?v='.date('ymdhis'))}}"></script>
 {{--WAIT ME PLUGIN--}}
 <script src="{{asset('waitme/waitMe.min.js')}}"></script>

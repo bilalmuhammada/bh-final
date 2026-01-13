@@ -30,13 +30,12 @@
 
         .carousel-indicators button {
             width: max-content !important;
-            justify-content: flex-start !;
         }
 
         .carousel-indicators {
             margin-bottom: -10px;
             position: unset;
-            justify-content: flex-start;
+            justify-content: center;
             margin-left: -5px !important;
             margin-right: 0px !important;
             overflow-x: auto;
@@ -63,12 +62,44 @@
             box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2), 0 2px 48px 0 rgba(0, 0, 0, 0.04) !important;
         }
 
-        .share-btn{
-            font-size:19px;border-radius:2px; color:blue;
+        .share-btn,
+        .favourite-btn {
+            font-size: 19px;
+            border-radius: 2px;
+            color: #fff !important;
+            padding: 6px 6px;
+            text-shadow: 0 0 3px rgba(0,0,0,0.5);
+            transition: color 0.3s ease;
         }
 
-        .share-btn:hover{
-           color:goldenrod;
+        .share-btn:hover,
+        .favourite-btn:hover {
+            color: goldenrod !important;
+            animation: shakeIcon 0.5s;
+            animation-iteration-count: infinite;
+        }
+        
+        .share-btn:hover {
+            border-color: goldenrod;
+        }
+
+        .action-btn-shake:hover {
+            animation: shakeIcon 0.5s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes shakeIcon {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
         }
 
         .notification {
@@ -561,11 +592,12 @@ button.active .indicator-img {
                                 <div class="carousel slide" id="carouselDemo" data-bs-wrap="true" data-bs-ride="carousel" style="position: relative;">
                                     <div style="position: absolute; top: 10px; right: 10px; z-index: 10;">
                                         <span style="font-size: 13px; cursor:pointer;">
-                                            <i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}"
+                                            <i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart-o' : 'fa-heart-o' }}"
                                                is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
-                                               style="padding:6px 6px;font-size:19px; color: #fff; text-shadow: 0 0 3px rgba(0,0,0,0.5);"> </i>&nbsp;
-                                           
-                                            <i class="fa fa-share share-btn" ad-id="{{ $ad->id }}" title="Copy Ad link" style="color: #fff; text-shadow: 0 0 3px rgba(0,0,0,0.5);"></i>
+                                               style="padding:6px 6px;font-size:19px; text-shadow: 0 0 3px rgba(0,0,0,0.5);"> </i>&nbsp;
+                        
+                        
+                                            <i class="fa fa-share-square-o share-btn" ad-id="{{ $ad->id }}" title="Copy Ad link"></i>
                                                <div id="notification" class="notification hidden">Ad link copied to clipboard!</div>
         
                                         </span>
@@ -754,8 +786,8 @@ button.active .indicator-img {
                             <div class="inner d-flex flex-column align-items-center text-center p-3" style="border: 1px solid #eee; border-radius: 5px; width: 100%;">
                                 <!-- User Info -->
                                 <div class="mb-4">
-                                    <p class="text-muted mb-3" style="font-size: 13px;">Posted by: <b style="color:#000">{{ ($ad->posted_by == 1) ? "Agent" : "User" }}</b></p>
-                                    <h5 class="mb-2"><b>{{ $ad->created_by_user->name }}</b></h5>
+                                    <p class="text-muted mb-1" style="font-size: 13px;">Posted by:</p>
+                                    <h6 class="mb-1"><b>{{ $ad->created_by_user->name }}</b></h6>
                                     
                                     <div class="profile-image-container d-flex justify-content-center mb-2">
                                         <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="150" height="135" style="border-radius:0.3rem; object-fit: cover;">
@@ -763,10 +795,10 @@ button.active .indicator-img {
                                 </div>
 
                                 <!-- Action Buttons -->
-                                <div class="action-buttons d-flex justify-content-center w-100 flex-wrap">
+                                <div class="action-buttons d-flex justify-content-center w-100 mb-3 flex-wrap">
                                     <p class="phone-approval-status" style="display: none">Waiting for phone no approval</p>
                                     
-                                    <button class="btn callbutton p-0 d-flex align-items-center justify-content-center" onclick="showPopup()" style="border: 1px solid red; width: 45px; height: 36px; border-radius: 0.3rem; margin: 0 6px;" type="button">
+                                    <button class="btn  callbutton action-btn-shake p-0 d-flex align-items-center justify-content-center" onclick="showPopup()" style="border: 1px solid red; width: 45px; height: 36px; border-radius: 0.3rem; margin: 0 6px;" type="button">
                                         <img src="{{ asset('images/socialicon/call.svg') }}" alt="Call" style="height: 20px;">
                                     </button>
                                      <div id="callPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 15px; border-radius: 0.3rem; z-index: 1000;">
@@ -774,15 +806,15 @@ button.active .indicator-img {
                                     </div>
                                     <div id="popupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; " onclick="hidePopup()"></div>
 
-                                    <button class="btn start-chat p-0 d-flex align-items-center justify-content-center" user-id="{{ $ad->created_by_user->id }}" user-ad="{{ $ad->id}}" style="border: 1px solid #0088eb; width: 45px; height: 36px; border-radius: 0.3rem; margin: 0 6px;" type="button">
+                                    <button class="btn start-chat action-btn-shake p-0 d-flex align-items-center justify-content-center" user-id="{{ $ad->created_by_user->id }}" user-ad="{{ $ad->id}}" style="border: 1px solid #0088eb; width: 45px; height: 36px; border-radius: 0.3rem; margin: 0 6px;" type="button">
                                         <img src="{{ asset('images/socialicon/chat.png') }}" alt="Chat" style="height: 26px;">
                                     </button>
 
-                                    <button class="btn p-0 d-flex align-items-center justify-content-center" onclick="redirectToWhatsApp()" style="border: 1px solid #32d951; width: 45px; height: 36px; border-radius: 0.3rem; margin: 0 6px;" type="button">
+                                    <button class="btn action-btn-shake p-0 d-flex align-items-center justify-content-center" onclick="redirectToWhatsApp()" style="border: 1px solid #32d951; width: 45px; height: 36px; border-radius: 0.3rem; margin: 0 6px;" type="button">
                                         <img src="{{ asset('images/socialicon/whatsapp.png')}}" alt="WhatsApp" style="height: 38px;">
                                     </button>
 
-                                    <button class="btn p-0 d-flex align-items-center justify-content-center" onclick="redirectToEmail()" style="border: 1px solid #fab005; width: 45px; height: 36px; border-radius: 0.3rem; margin: 0 6px;" type="button">
+                                    <button class="btn action-btn-shake p-0 d-flex align-items-center justify-content-center" onclick="redirectToEmail()" style="border: 1px solid #fab005; width: 45px; height: 36px; border-radius: 0.3rem; margin: 0 6px;" type="button">
                                         <img src="{{ asset('images/socialicon/email.png')}}" title="Email" alt="Email" style="height: 20px;">
                                     </button>
                                 </div>
@@ -887,6 +919,7 @@ button.active .indicator-img {
     <!--------ad show------------->
 @endsection
 @section('page_scripts')
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"></script>
     <script type="text/javascript">
   $(document).ready(function(){
     // Wait for images to loaZd or a short delay

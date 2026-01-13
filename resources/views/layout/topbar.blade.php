@@ -29,9 +29,12 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         align-items: center;
         justify-content: flex-start; /* Changed from space-between to align content to the left */
         gap: 8px; /* Gap between Logo and Items */
-        padding: 8px 81px;
+        padding: 0px 81px;
         background: #fff;
         border-bottom: 1px solid #f0f0f0;
+    }
+    .colorchange:hover{
+        color: blue !important;
     }
 
     .topbar-items-group {
@@ -52,14 +55,13 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         cursor: pointer;
         display: flex;
         align-items: center;
-        gap: 6px;
         padding: 4px 0;
         transition: all 0.2s ease;
         text-decoration: none !important;
     }
 
     .topbar-dropdown-trigger:hover {
-        color: #0088eb !important;
+        color: goldenrod !important;
     }
 
     /* Badge positioning */
@@ -116,29 +118,6 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         outline: none;
     }
     
-    .select2-container--default .select2-selection--single {
-        border-radius: 6px !important;
-        height: 34px !important;
-        background: #fdfdfd !important;
-    }
-
-    .select2-container--default .select2-selection--single .select2-selection__rendered {
-        line-height: 32px !important;
-        color: #333 !important;
-        font-size: 15px !important;
-    }
-
-    .select2-container--default .select2-selection--single .select2-selection__arrow {
-        height: 32px !important;
-    }
-
-    .topbar-profile-img {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 1px solid #eee;
-    }
 
     /* Select2 Results Padding */
     .select2-results__option {
@@ -146,6 +125,14 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         font-size: 13px !important;
     }
 
+
+  .ad-place-btn{
+    padding: 0px 7px; border-radius: 6px; font-weight: 600; font-size: 13px; color: #fff !important; background-color: goldenrod !important; white-space: nowrap;
+    }
+    .ad-place-btn:hover {
+        color: white !important;
+        background-color: blue !important;
+    }
     .select2-container--default .select2-results__option--highlighted[aria-selected] {
         background-color: #fff !important;
         color: blue !important;
@@ -155,13 +142,13 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     /* Select2 Search Field Styles */
     .select2-search--dropdown .select2-search__field {
         padding: 5px !important;
-        border: 1px solid blue !important;
+        border: 1px solid goldenrod !important;
         border-radius: 4px !important;
         outline: none !important;
     }
 
     .select2-search--dropdown .select2-search__field:hover {
-        border-color: goldenrod !important;
+        border-color: blue !important;
     }
 
     /* Subcategory Dropdown */
@@ -172,34 +159,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
     }
 
-    /* Select2 Arrow and Selection Refinements */
-    .select2-container--default .select2-selection--single .select2-selection__arrow b {
-        border-color: blue transparent transparent transparent !important;
-        transition: border-color 0.2s ease;
-    }
-
-    .select2-container--default:hover .select2-selection--single .select2-selection__arrow b {
-        border-color: goldenrod transparent transparent transparent !important;
-    }
-
-    .select2-container--default .select2-selection--single .select2-selection__rendered {
-        color: blue !important;
-        padding-left: 6px !important; /* "Less" padding for tighter alignment */
-        transition: color 0.2s ease;
-    }
-
-    .select2-container--default:hover .select2-selection--single .select2-selection__rendered {
-        color: goldenrod !important;
-    }
-
-    /* Remove hover effect when open */
-    .select2-container--open .select2-selection--single .select2-selection__arrow b {
-        border-color: blue transparent transparent transparent !important;
-    }
-
-    .select2-container--open .select2-selection--single .select2-selection__rendered {
-        color: blue !important;
-    }
+    /* Select2 Arrow and Selection Refinements - Moved to custom.css */
 
     /* Disable hover open for dropdowns */
     .dropdown:hover > .dropdown-menu:not(.show) {
@@ -284,7 +244,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         <div class="topbar-items-group">
             <!-- Country Dropdown -->
             <div class="selection-item">
-                <select class="form-control country_dropdown1 country_dropdown" name="country_dropdown" style="width:180px;" id="country_dropdown">
+                <select class="form-control country_dropdown1 country_dropdown" name="country_dropdown" style="width:183px; margin-left: -3px;" id="country_dropdown">
                     <option value="">All Countries</option>
                     @foreach($countries as $country)
                         <option {{ $country->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $country->image_url }}" value="{{ $country->id }}">
@@ -308,7 +268,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
             <!-- Language Dropdown -->
             <div class="selection-item">
-                <select class="form-control language_dropdown" name="language_dropdown" style="width:135px;" onchange="translateLanguage()">
+                <select class="form-control language_dropdown" name="language_dropdown" style="width:140px;" onchange="translateLanguage()">
                     @foreach($language as $language1)
                         <option {{ $language1->id == request()->language ? 'selected' : '' }} data-flag-url="{{ $language1->flag_image_url }}" value="{{ $language1->prefix }}" {{ $language1->id == 131 ? 'selected' : '' }}>
                             {{ $language1->name }}
@@ -457,20 +417,20 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
                 <!-- My Ads Link -->
                 <a href="{{ env('BASE_URL') . 'user/ads?country=' . request()->get('country') . '&city=' . request()->get('city') }}" class="topbar-dropdown-trigger white-space-nowrap" style="white-space: nowrap;">
-                    My Ads2
+                    My Ads
                 </a>
 
                 <!-- Profile -->
                 <div class="dropdown" style="margin-left: auto;">
                     <a class="topbar-dropdown-trigger" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: flex; align-items: center;">
-                        <span style="white-space: nowrap; padding: 0px 10px;">{{session()->get('user')->first_name}} {{session()->get('user')->last_name}}</span>
+                        <span style="white-space: nowrap; padding: 0px 14px;">{{session()->get('user')->first_name}} {{session()->get('user')->last_name}}</span>
                         <img src="{{session()->get('user')->image_url}}" class="topbar-profile-img">
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right p-0" style="min-width: 140px;">
+                    <div class="dropdown-menu dropdown-menu-right p-0" style="min-width: 90px;">
                         <div class="list-group list-group-flush">
-                            <a class="list-group-item list-group-item-action fw-bold" href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">My Profile</a>
-                            <a class="list-group-item list-group-item-action fw-bold" href="{{ env('BASE_URL') . 'user/ads?country=' . request()->country . '&city=' . request()->city}}">My Ads</a>
-                            <a class="list-group-item list-group-item-action logout-btn fw-bold text-danger">Sign Out</a>
+                            <a class="list-group-item list-group-item-action colorchange  fw-bold" style="padding: 0rem 0.5rem;" href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">My Profile</a>
+                            
+                            <a class="list-group-item list-group-item-action colorchange logout-btn fw-bold text-danger" style="padding: 0rem 0.5rem;">Sign Out</a>
                         </div>
                     </div>
                 </div>
@@ -482,7 +442,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                 </div>
             @endif
 
-            <a class="add-listing-btn btn" style="padding: 5px 7px; border-radius: 6px; font-weight: 600; font-size: 13px; color: #fff !important; background-color: goldenrod !important; white-space: nowrap;">+ Place Your Ad</a>
+            <a class="add-listing-btn btn ad-place-btn" >+ Place Your Ad</a>
         </div>
     </div>
 
@@ -571,13 +531,13 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     </div>
     <!-- navigation finish -->
     <nav class="navbar navbar-expand-lg navbar-light"
-        style="border:0px solid green;padding:0px !important;height:20px;">
+        style="border:0px solid green;padding:0px !important;height:0px;">
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContentx" style="margin-left: 4.3rem;border:0px solid green;">
-            <div class="container" style="margin:0px auto;border:0px solid green;">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="collapse navbar-collapse" id="navbarSupportedContentx" style="margin-left: 12px;">
+            <div class="container" style="">
+               
                 <ul class="navbar-nav"
-                    style="margin:0px 0px 22px 5px !important;border:0px solid red;font-size: 14px;line-height: 1.43;font-weight: 600;">
+                    style="font-size: 14px;font-weight: 600;">
                     <div class="row">
                         @php $categories = \App\Helpers\RecordHelper::getCategories(); @endphp
                         @foreach($categories as $category)

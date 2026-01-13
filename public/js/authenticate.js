@@ -209,7 +209,7 @@ $(document).on('click', '.favourite-btn', function () {
         return ;
     }
 
-alert(thisElem.attr('is-favourite'))
+
 
     if (thisElem.attr('is-favourite') === '1') {
         $.ajax({
@@ -221,7 +221,7 @@ alert(thisElem.attr('is-favourite'))
                     thisElem.attr('is-favourite', '0');
                     thisElem.removeClass('fa-heart');
                     thisElem.addClass('fa-heart-o');
-                    // showAlert('success', "Removed From Favourites");
+                    showAlert('success', "Removed From Favourites");
 
                 } else {
                     // showAlert('error', "Could not remove");
@@ -241,7 +241,7 @@ alert(thisElem.attr('is-favourite'))
                     thisElem.attr('is-favourite', '1');
                     thisElem.removeClass('fa-heart-o');
                     thisElem.addClass('fa-heart');
-                    // showAlert('success', "Added to Favourite");
+                    showAlert('success', "Added to Favourite");
 
                 } else {
                     // showAlert('error', "Could not added to favourite");

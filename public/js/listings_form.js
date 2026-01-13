@@ -46,6 +46,10 @@ function getCitiesByCountry(country_id) {
     });
 }
 
+window.initListingMap = function() {
+    loadMap();
+};
+
 function loadMap() {
 
     var latitude = 25.197525;
@@ -158,64 +162,54 @@ function loadMap() {
 
 function submitListingForm(form) {
     if (form.checkValidity() === false) {
-        // If the form is invalid, add the 'was-validated' class to show the validation messages
         form.classList.add('was-validated');
-    } else {
-        // If the form is valid, remove the 'was-validated' class and proceed with form submission
-        form.classList.remove('was-validated');
+        unblock_page();
+        return;
+    }
+    
+    form.classList.remove('was-validated');
+    var formData = new FormData(form);
 
-        var formData = new FormData(form);
-
-        $.ajax({
-            url: api_url + 'listing/save-ad',
-            type: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
-            dataType: "JSON",
-            success: function (response) {
-                if (response.status) {
-
-                    // Handle successful submission here
-                    setTimeout(function () {
-                        window.location.assign(base_url + "listing/terms-and-conditions/" + response.listing_id);
-                    }, 600);
-                } else {
-                    // Handle validation errors
-                    var errors = response.errors;
-                    var form = $('.place-ad-form')[0];
-
-                    // Clear previous validation messages
-                    $(form).find('.invalid-feedback').html('');
-
-                    // Add the 'was-validated' class to show validation messages
-                    form.classList.add('was-validated');
-
-                    // Display validation messages for each field
-
-                    for (var fieldName in errors) {
-                        if (fieldName == 'images') {
-                            $('.images').siblings('.invalid-feedback.image-error').show().html(errors[fieldName][0]);
-                        } else {
-                            var errorElement = $(form).find('[name="' + fieldName + '"]');
-                            errorElement.val('');
-                            errorElement.siblings('.invalid-feedback').html(errors[fieldName]);
-                        }
+    $.ajax({
+        url: api_url + 'listing/save-ad',
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        dataType: "JSON",
+        success: function (response) {
+            if (response.status) {
+                showAlert("success", "Your Ad is Live!");
+                setTimeout(function () {
+                    window.location.assign(base_url + "ads");
+                }, 600);
+            } else {
+                var errors = response.errors;
+                form.classList.add('was-validated');
+                for (var fieldName in errors) {
+                    if (fieldName == 'images') {
+                        $('.images').siblings('.invalid-feedback.image-error').show().html(errors[fieldName][0]);
+                    } else {
+                        var errorElement = $(form).find('[name="' + fieldName + '"]');
+                        errorElement.val('');
+                        errorElement.siblings('.invalid-feedback').html(errors[fieldName]);
                     }
                 }
-            },
-            error: function (response) {
-                showAlert("error", "Server Error");
             }
-        });
-    }
-
-    unblock_page();
+        },
+        error: function (response) {
+            showAlert("error", "Server Error");
+        },
+        complete: function() {
+            unblock_page();
+        }
+    });
 }
 
 
 
-    loadMap();
+
+    // loadMap() is now called via initMap callback from Google Maps API
 
 //starting code to mange images
 

@@ -507,6 +507,22 @@
 <script type="text/javascript" src="{{ asset('js/listings_form.js') }}"></script>
 
 <script>
+    $(document).ready(function() {
+        $('.premium-toggle-container').hide();
+
+        $(document).on('change', '.documents', function(e) {
+            if (this.files && this.files.length > 0) {
+                $('.premium-toggle-container').fadeIn();
+            }
+        });
+
+        if ($('.floating').length > 0) {
+            $('.floating').on('focus blur', function(e) {
+                $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
+            }).trigger('blur');
+        }
+    });
+
     function validatePhoneNumber(input) {
         // Remove any non-digit characters
         input.value = input.value.replace(/\D/g, '');
@@ -519,59 +535,5 @@
         }
 
     }
-
-
-    $(document).on('click', '.place-ad-form-submit', function(e) {
-
-        e.preventDefault();
-        var formData = new FormData($('.place-ad-form')[0]);
-        // console.log(formData);
-        $.ajax({
-            url: api_url + 'listing/nextsubmit',
-            type: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
-            dataType: "JSON",
-            success: function(response) {
-                console.log(response);
-                if (response.status) {
-
-                    showAlert("success", "Your Ad is Live!");
-                    setTimeout(function() {
-                        window.location.assign(base_url + "ads");
-                        // window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
-                    }, 600);
-
-                } else {
-                    // showAlert("error", response.message);
-
-                }
-            },
-            error: function(response) {
-                showAlert("error", "Server Error");
-            }
-        });
-    });
-
-    $(document).ready(function() {
-
-
-
-
-
-        $('#filehide').hide();
-
-        $(document).on('click', '.documents', function(e) {
-            $('#filehide').show();
-        });
-
-
-        if ($('.floating').length > 0) {
-            $('.floating').on('focus blur', function(e) {
-                $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
-            }).trigger('blur');
-        }
-    });
 </script>
 @endsection

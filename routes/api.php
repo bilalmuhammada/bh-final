@@ -152,7 +152,7 @@ Route::prefix('/listing')->group(function () {
     // Route::post('/nextsubmit', [ListingController::class, 'SubmitPrice']);
 
     Route::post('/nextsubmit', [ListingController::class, 'storeAd']);
-    // Route::post('/save-ad', [ListingController::class, 'storeAd']);
+    Route::post('/save-ad', [ListingController::class, 'storeAd']);
     Route::post('agree-to-terms/{listing_id}', [ListingController::class, 'agreeToTermsAndConditions']);
     Route::post('add-to-favourites/{listing_id}', [ListingController::class, 'addToFavourites']);
     Route::post('remove-from-favourites/{listing_id}', [ListingController::class, 'removeFromFavourites']);

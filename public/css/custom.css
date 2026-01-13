@@ -140,5 +140,70 @@ zoom: 1;
  border-radius:4px;
  }
 
+/* Global Select2 Styles (Blue Theme/White Text) - Moved from topbar.blade.php */
+.select2-container--default .select2-selection--single {
+    border-radius: 6px !important;
+    height: 34px !important;
+    background: #0088eb !important;
+}
 
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 32px !important;
+    color: blue !important;
+    font-size: 15px !important;
+    padding-left: 6px !important;
+    transition: color 0.2s ease;
+}
 
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 32px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: blue transparent transparent transparent !important;
+    transition: border-color 0.2s ease;
+}
+
+.select2-container--default:hover .select2-selection--single .select2-selection__rendered {
+    color: goldenrod !important;
+}
+
+.select2-container--default:hover .select2-selection--single .select2-selection__arrow b {
+    border-color: goldenrod transparent transparent transparent !important;
+}
+
+/* Remove hover effect when open */
+.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: #fff transparent transparent transparent !important;
+}
+
+.select2-container--open .select2-selection--single .select2-selection__rendered {
+    color: blue !important;
+}
+
+.topbar-profile-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #eee;
+}
+
+.select2-dropdown {
+    background: white !important;
+    color: black !important;
+    border: 0px solid #aaa;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 100%;
+    z-index: 1051;
+    font-weight: bold;
+    margin-left: -4px !important;
+}
+
+.select2-results__option {
+    color: black !important;
+    font-weight: bold !important;
+}
