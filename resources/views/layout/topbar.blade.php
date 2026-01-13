@@ -270,7 +270,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
             <div class="selection-item">
                 <select class="form-control language_dropdown" name="language_dropdown" style="width:140px;" onchange="translateLanguage()">
                     @foreach($language as $language1)
-                        <option {{ $language1->id == request()->language ? 'selected' : '' }} data-flag-url="{{ $language1->flag_image_url }}" value="{{ $language1->prefix }}" {{ $language1->id == 131 ? 'selected' : '' }}>
+                        <option {{ $language1->id == request()->language ? 'selected' : '' }} data-flag-url="{{ $language1->flag_image_url }}" value="{{ $language1->prefix }}" {{ $language1->prefix == 'en' ? 'selected' : '' }}>
                             {{ $language1->name }}
                         </option>
                     @endforeach
