@@ -40,7 +40,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     .topbar-items-group {
         display: flex;
         align-items: center;
-        gap: 13px; /* Equal space between all items */
+        gap: 11px; /* Equal space between all items */
         flex: 1; /* Allow group to fill remaining space */
     }
     .list-group-item{
