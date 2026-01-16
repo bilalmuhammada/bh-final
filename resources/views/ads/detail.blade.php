@@ -75,31 +75,14 @@
         .share-btn:hover,
         .favourite-btn:hover {
             color: goldenrod !important;
-            animation: shakeIcon 0.5s;
-            animation-iteration-count: infinite;
         }
         
         .share-btn:hover {
             border-color: goldenrod;
         }
 
-        .action-btn-shake:hover {
-            animation: shakeIcon 0.5s;
-            animation-iteration-count: infinite;
-        }
-
-        @keyframes shakeIcon {
-            0% { transform: translate(1px, 1px) rotate(0deg); }
-            10% { transform: translate(-1px, -2px) rotate(-1deg); }
-            20% { transform: translate(-3px, 0px) rotate(1deg); }
-            30% { transform: translate(3px, 2px) rotate(0deg); }
-            40% { transform: translate(1px, -1px) rotate(1deg); }
-            50% { transform: translate(-1px, 2px) rotate(-1deg); }
-            60% { transform: translate(-3px, 1px) rotate(0deg); }
-            70% { transform: translate(3px, 1px) rotate(-1deg); }
-            80% { transform: translate(-1px, -1px) rotate(1deg); }
-            90% { transform: translate(1px, 2px) rotate(0deg); }
-            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        .favourite-btn.fa-heart {
+            color: red !important;
         }
 
         .notification {
@@ -524,7 +507,7 @@ button.active .indicator-img {
 
                                 style="font-weight:bold;font-size:18px;text-align:right;border:0px solid red;width:100%;">
                                 <a href=""
-                                   style="color: red;font-weight:bold;">{{session('app_currency', 'default_currency')}}  {{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
+                                   style="color: red;font-weight:bold;">{{session('app_currency', 'USD')}}  {{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
                                 </a></div>
                         </div>
                     </div>
@@ -592,12 +575,12 @@ button.active .indicator-img {
                                 <div class="carousel slide" id="carouselDemo" data-bs-wrap="true" data-bs-ride="carousel" style="position: relative;">
                                     <div style="position: absolute; top: 10px; right: 10px; z-index: 10;">
                                         <span style="font-size: 13px; cursor:pointer;">
-                                            <i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart-o' : 'fa-heart-o' }}"
+                                            <i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking"
                                                is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
                                                style="padding:6px 6px;font-size:19px; text-shadow: 0 0 3px rgba(0,0,0,0.5);"> </i>&nbsp;
                         
                         
-                                            <i class="fa fa-share-square-o share-btn" ad-id="{{ $ad->id }}" title="Copy Ad link"></i>
+                                            <i class="fa fa-share-alt share-btn shaking" ad-id="{{ $ad->id }}" title="Copy Ad link"></i>
                                                <div id="notification" class="notification hidden">Ad link copied to clipboard!</div>
         
                                         </span>
@@ -744,7 +727,7 @@ button.active .indicator-img {
                                 <div class="col-lg-6 col-md-6 col-6">
                                     {{-- <div style="border-radius:5px;"> --}}
                                         <h6 style="text-align: left;font-size:13px;font-weight:bold;">
-                                          <i class="fa fa-map-marker text-danger"></i>   <span style="margin-left: 9px;">{{ $ad->location_name }} </span>
+                                          <i class="fa fa-map-marker text-danger shaking"></i>   <span style="margin-left: 9px;">{{ $ad->location_name }} </span>
                                         </h6>
                                     {{-- </div> --}}
                                 </div>
@@ -891,7 +874,7 @@ button.active .indicator-img {
                                                     <img src="{{ $similar_ad->main_image_url }}" alt="{{ $similar_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>
                                                     <div class="similar-listing-heart">
-                                                        <i class="fa fa-heart-o"></i>
+                                                        <i class="fa fa-heart-o shaking"></i>
                                                     </div>
                                                     <div class="similar-listing-count">
                                                         <i class="fa fa-camera"></i> 1 / {{ count($similar_ad->attachments) > 0 ? count($similar_ad->attachments) : 1 }}
@@ -901,7 +884,7 @@ button.active .indicator-img {
                                                     <span class="similar-listing-title" title="{{ $similar_ad->title }}">{{ $similar_ad->title ?? 'Title N/A' }}</span>
                                                     <span class="similar-listing-category">{{ $similar_ad->category_name}} > {{$similar_ad->subcategory_name }}</span>
                                                     <h5 class="similar-listing-price">
-                                                        {{session('app_currency', 'default_currency')}} {{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}
+                                                        {{session('app_currency', 'USD')}} {{ \App\Helpers\SiteHelper::priceFormatter($similar_ad->price) }}
                                                     </h5>
                                                 </div>
                                             </div>

@@ -14,9 +14,11 @@ $(document).on('click', '.register-button', function () {
                         $('#registerModal').modal('hide');
                         $('#loginModal').modal('show');
                     } else {
-
                         $('.alert-text-register').text(response.message);
                         $('.alert-div').show();
+
+                        // Scroll to top of modal to show error
+                        $('#registerModal').animate({ scrollTop: 0 }, 'slow');
 
                         setTimeout(function () {
                             $('.alert-text-register').text('');

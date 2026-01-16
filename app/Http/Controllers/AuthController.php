@@ -91,10 +91,11 @@ class AuthController extends Controller
             'last_name' => $request->last_name,
             'email' => $request->email,
             'phone' => $request->mobile,
+            'gender' => $request->gender,
+            'dob' => Carbon::parse($request->dob)->format('Y-m-d'),
             'country_id' => $request->country,
-            'city_id' => $request->city,
+            'city_id' => $request->cities,
             'email_verification_code' => $otp,
-            
             'password' => Hash::make($request->password),
         ]);
 
@@ -108,7 +109,12 @@ class AuthController extends Controller
     Session::put('otp_email', $request->email);
     Session::put('otp_code', $otp);
     Session::put('otp_username', $request->first_name." ".$request->last_name);
-    Mail::to($User->email)->send(new RegistrationMail($details));
+    
+    try {
+        Mail::to($User->email)->send(new RegistrationMail($details));
+    } catch (\Exception $e) {
+        \Illuminate\Support\Facades\Log::error("Registration Email error: " . $e->getMessage());
+    }
 
         return response()->json([
             'status' => TRUE,

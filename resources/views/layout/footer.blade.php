@@ -10,22 +10,6 @@
     .m-10{
         margin: 30px 0px 0px -60px !important;
     }
-    .shaking {
-    display: inline-block;
-    transition: transform 0.2s ease-in-out;
-   }
- 
-  .shaking:hover {
-    animation: shake 1.5s linear infinite;
-   }
-
-   @keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
-  }
 </style>
 <footer>
 {{--<div class="marquee" style="background-color: #0000FF;color: white;padding-top: 10px;margin-bottom: 10px;height: 25px;">

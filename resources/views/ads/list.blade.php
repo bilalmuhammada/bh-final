@@ -350,7 +350,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
             <div class="row" style="margin-left: -71px;">
                 <div class="col-lg-12 col-md-12 col-12">
                     @foreach($ads as $ad)
-                    <div class="row">
+                    <div class="row ad-listing-card">
                         <!-----content----->
                         <div class="col-lg-4 col-md-4 col-12" style="margin-top:-11px;">
                             <div style="position:absolute;border:0px solid red;width:100%;">
@@ -358,7 +358,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                                     <!-- Sharing and Favourite buttons -->
                                     <div style="margin-top: 12px; margin-left: 232px;  z-index: 2;">
                                         <span>
-                                            <a><i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }}" is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}" style="font-size: 20px;margin-right: 7px; margin-left: 6px; color: white;"></i></a>
+                                            <a><i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking" is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}" style="font-size: 20px;margin-right: 7px; margin-left: 6px; color: white;"></i></a>
 
                                         </span>
                                     </div>
@@ -387,7 +387,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                                 <div class="col-lg-7 col-md-7 col-7" style="margin-left: -118px">
                                     <h5 style="font-size: 18px;font-weight:700;margin: 0px 0px 5px 0px;">{{ $ad->title ?? 'Heading N/A' }}</h5>
                                     <p style="font-size: 13px;margin-bottom: 10px;">{{ $ad->category_name }} <span style="font-size: 14px;"> > </span> {{ $ad->subcategory_name }}</p>
-                                    <h3 style="font-weight: bold;font-size:18px;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price, session('app_currency', 'default_currency')) }}</h3>
+                                    <h3 style="font-weight: bold;font-size:18px;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price, session('app_currency', 'USD')) }}</h3>
 
                                     <p style="margin-top:5rem;font-size: 13px; white-space: nowrap;"><i class="fa fa-map-marker" style="color: red;"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span style="margin-top: 12px;">24 May 2024</span></p>
 

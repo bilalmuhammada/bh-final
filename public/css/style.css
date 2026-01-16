@@ -3417,7 +3417,8 @@ border: 1px solid #2d11e7;
     }
     
     .login-submit-button-area {
-        width: 104px;
+        width: 100%;
+        text-align: center;
         margin: 10px auto 20px;
     }
     

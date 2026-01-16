@@ -150,7 +150,7 @@ zoom: 1;
 .select2-container--default .select2-selection--single .select2-selection__rendered {
     line-height: 32px !important;
     color: blue !important;
-    font-size: 15px !important;
+    font-size: 14px !important;
     padding-left: 6px !important;
     transition: color 0.2s ease;
 }
@@ -206,4 +206,48 @@ zoom: 1;
 .select2-results__option {
     color: black !important;
     font-weight: bold !important;
+}
+
+/* Shaking Effect */
+.shaking {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+}
+
+.shaking:hover,
+.action-btn-shake:hover {
+    animation: shakeIcon 0.5s infinite;
+}
+
+/* Favorite button active state */
+.favourite-btn.fa-heart,
+.heart-icon i.fa-heart {
+    color: red !important;
+}
+
+/* Shaking image on ad card hover */
+.ad-listing-card:hover img {
+    animation: shakeIcon 0.5s !important;
+    animation-iteration-count: infinite !important;
+}
+
+/* Ad title color on hover - Logo Gold */
+.ad-listing-card:hover h5,
+.ad-listing-card:hover .detail span:first-child {
+    color: goldenrod !important;
+    transition: color 0.3s ease;
+}
+
+@keyframes shakeIcon {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
 }

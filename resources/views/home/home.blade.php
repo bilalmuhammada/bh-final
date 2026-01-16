@@ -259,18 +259,18 @@ $catgories_for_search = $categories->random()->take(6)->get();
                         @foreach($category->sub_categories as $key=>$sub_category)
                         @if($key >= 5)
                         <div class="collapse hidden-div">
-                            <a href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city.'&currency=' . session('app_currency', 'default_currency')}}">{{$sub_category->name}}</a>
+                            <a href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city.'&currency=' . session('app_currency', 'USD')}}">{{$sub_category->name}}</a>
                             <br>
                         </div>
                         @else
                         <span class="external">
-                            <a href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city.'&currency=' . session('app_currency', 'default_currency')}}">{{$sub_category->name}}</a>
+                            <a href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city.'&currency=' . session('app_currency', 'USD')}}">{{$sub_category->name}}</a>
                         </span>
                         <br>
                         @endif
                         @endforeach
                         @if (count($category->sub_categories) >= 4)
-                        <a href="{{env('BASE_URL') . 'ads/?country=' . request()->country . '&city=' . request()->city.'&currency=' . session('app_currency', 'default_currency')}}" class="show-more-btn1">All in {{$category->name}}</a>
+                        <a href="{{env('BASE_URL') . 'ads/?country=' . request()->country . '&city=' . request()->city.'&currency=' . session('app_currency', 'USD')}}" class="show-more-btn1">All in {{$category->name}}</a>
                         @endif
                     </div>
                 </div>
@@ -310,7 +310,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                         <div class="listing p-1">
                             <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                             <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
+                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
                             </div>
                             <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
@@ -318,7 +318,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                             <div class="detail" style="padding: 12px;">
                                 <span style="color:#000; display: block; margin-bottom: 2px;">{!!$business_for_sale_details->title !!} {{$key}}</span>
                                 <span style="color:#999; display: block; margin-bottom: 5px;">{!!$business_for_sale_details->location_name !!}</span>
-                                <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$business_for_sale_details->price !!}</b></h5>
+                                <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!!$business_for_sale_details->price !!}</b></h5>
                             </div>
 
                         </div>
@@ -367,7 +367,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                         <div class="listing p-1">
                             <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                             <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
+                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
                             </div>
                             <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
@@ -375,7 +375,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                             <div class="detail" style="padding: 12px;">
                                 <span style="color:#000; display: block; margin-bottom: 2px;">{!!$business_rents->title !!}{{$key}}</span>
                                 <span style="color:#999; display: block; margin-bottom: 5px;">{!!$business_rents->location_name !!}</span>
-                                <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$business_rents->price !!}</b></h5>
+                                <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!!$business_rents->price !!}</b></h5>
                             </div>
 
                         </div>
@@ -425,7 +425,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                             <div class="listing p-1">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                    <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
+                                    <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
                                 </div>
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
@@ -433,7 +433,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                                 <div class="detail" style="padding: 12px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">{!!$shares_for_sale_details->title !!}{{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">{!!$shares_for_sale_details->location_name !!}</span>
-                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$shares_for_sale_details->price !!}</b></h5>
+                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!!$shares_for_sale_details->price !!}</b></h5>
                                 </div>
 
                             </div>
@@ -484,7 +484,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                             <div class="listing p-1">
                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                 <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                    <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
+                                    <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
                                 </div>
                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                     <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
@@ -492,7 +492,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                                 <div class="detail" style="padding: 12px;">
                                     <span style="color:#000; display: block; margin-bottom: 2px;">{!!$business_idea_details->title !!} {{$key}}</span>
                                     <span style="color:#999; display: block; margin-bottom: 5px;">{!!$business_idea_details->location_name !!}</span>
-                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$business_idea_details->price !!}</b></h5>
+                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!!$business_idea_details->price !!}</b></h5>
                                 </div>
 
                             </div>
@@ -543,7 +543,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                         <div class="listing p-1">
                             <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                             <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
+                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
                             </div>
                             <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
@@ -551,7 +551,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                             <div class="detail" style="padding: 12px;">
                                 <span style="color:#000; display: block; margin-bottom: 2px;">{!!$investors_details->title !!} {{$key}}</span>
                                 <span style="color:#999; display: block; margin-bottom: 5px;">{!!$investors_details->location_name !!}</span>
-                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$investors_details->price !!}</b></h5>
+                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!!$investors_details->price !!}</b></h5>
                             </div>
 
                         </div>
@@ -603,7 +603,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                         <div class="listing p-1">
                             <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                             <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
+                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
                             </div>
                             <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
@@ -611,7 +611,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                             <div class="detail" style="padding: 12px;">
                                 <span style="color:#000; display: block; margin-bottom: 2px;">{!!$investors_required_details->title !!} {{$key}}</span>
                                 <span style="color:#999; display: block; margin-bottom: 5px;">{!!$investors_required_details->location_name !!}</span>
-                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$investors_required_details->price !!}</b></h5>
+                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!!$investors_required_details->price !!}</b></h5>
                             </div>
 
                         </div>
@@ -662,7 +662,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                         <div class="listing p-1">
                             <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                             <div class="heart-icon" style="position: absolute; top: 16px; right:0.4rem;">
-                                <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
+                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
                             </div>
                             <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
@@ -670,7 +670,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                             <div class="detail" style="padding: 12px;">
                                 <span style="color:#000; display: block; margin-bottom: 2px;">{!!$franchise_opportunities_details->title !!} {{$key}}</span>
                                 <span style="color:#999; display: block; margin-bottom: 5px;">{!!$franchise_opportunities_details->location_name !!}</span>
-                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$franchise_opportunities_details->price !!}</b></h5>
+                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!!$franchise_opportunities_details->price !!}</b></h5>
                             </div>
 
                         </div>
@@ -723,7 +723,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                         <div class="listing p-1">
                             <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                             <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                <i class="fa fa-heart-o" style="color: #fff !important; font-size: 20px;"></i>
+                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
                             </div>
                             <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
@@ -731,7 +731,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
                             <div class="detail" style="padding: 12px;">
                                 <span style="color:#000; display: block; margin-bottom: 2px;">{!!$machine_supplies_details->title !!}{{$key}}</span>
                                 <span style="color:#999; display: block; margin-bottom: 5px;">{!!$machine_supplies_details->location_name !!}</span>
-                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'default_currency')}} {!!$machine_supplies_details->price !!}</b></h5>
+                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!!$machine_supplies_details->price !!}</b></h5>
                             </div>
 
                         </div>

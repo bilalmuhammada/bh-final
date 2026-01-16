@@ -127,7 +127,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
 
   .ad-place-btn{
-    padding: 0px 7px; border-radius: 6px; font-weight: 600; font-size: 13px; color: #fff !important; background-color: goldenrod !important; white-space: nowrap;
+    padding: 0px 7px; border-radius: 6px; font-weight: 600; font-size: 13px; color: #fff !important; background-color: #A17A4E !important; white-space: nowrap;
     }
     .ad-place-btn:hover {
         color: white !important;
@@ -283,7 +283,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                 <select class="form-control currency_dropdown" name="currency_dropdown" style="width:120px;">
                     <option value="">Currency</option>
                     @foreach($currency as $currencyn)
-                        <option data-currency-id="{{ $currencyn->currency }}" {{ $currencyn->currency_short_name == session('app_currency', 'default_currency') ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" value="{{ $currencyn->currency_short_name }}">
+                        <option data-currency-id="{{ $currencyn->currency }}" {{ $currencyn->currency_short_name == session('app_currency', 'USD') ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" value="{{ $currencyn->currency_short_name }}">
                             {{ $currencyn->currency_short_name }}
                         </option>
                     @endforeach
@@ -292,7 +292,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
             @if (session()->has('user'))
                 <!-- Notifications -->
-                <div class="dropdown">
+                <div class="dropdown" style="margin-left: auto;">
                     <a class="topbar-dropdown-trigger trigger-with-badge" id="notificationsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Notifications
                         @if(count($notifications) > 0)
@@ -363,7 +363,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                                             <h6 class="mb-2 text-dark text-truncate fw-bold" style="font-size: 14px;">{{ $favourite_ad->title }}</h6>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <small class="text-muted">{{ $favourite_ad->category->name ?? 'General' }}</small>
-                                                <h6 class="mb-0 fw-bold text-danger" style="font-size: 14px;">{{ \App\Helpers\SiteHelper::priceFormatter($favourite_ad->price,session('app_currency', 'default_currency')) }}</h6>
+                                                <h6 class="mb-0 fw-bold text-danger" style="font-size: 14px;">{{ \App\Helpers\SiteHelper::priceFormatter($favourite_ad->price,session('app_currency', 'USD')) }}</h6>
                                             </div>
                                         </div>
                                     </a>
@@ -421,7 +421,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                 </a>
 
                 <!-- Profile -->
-                <div class="dropdown" style="margin-left: auto;">
+                <div class="dropdown">
                     <a class="topbar-dropdown-trigger" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: flex; align-items: center;">
                         <span style="white-space: nowrap; padding: 0px 14px;">{{session()->get('user')->first_name}} {{session()->get('user')->last_name}}</span>
                         <img src="{{session()->get('user')->image_url}}" class="topbar-profile-img">
@@ -442,7 +442,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                 </div>
             @endif
 
-            <a class="add-listing-btn btn ad-place-btn" >+ Place Your Ad</a>
+            <a class="add-listing-btn btn ad-place-btn shaking" >+ Place Your Ad</a>
         </div>
     </div>
 

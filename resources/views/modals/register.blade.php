@@ -13,10 +13,12 @@
     }
     
     #select2-register_cities-container{
-color: #ffffff !important;
+        color: #ffffff !important;
+        font-size: 13px !important;
     }
     #select2-register_country-container{
-color: #ffffff !important;
+        color: #ffffff !important;
+        font-size: 13px !important;
     }
 
     #select2-registercities-container
