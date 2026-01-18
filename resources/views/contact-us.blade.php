@@ -12,7 +12,7 @@ select {
     text-transform:initial !important;
 }
 .form-focus.focused .focus-label {
-    top: -14px !important;
+    top: -18px !important;
 }
 .form-focus .form-padding {
     padding: 21px 10px 6px !important;
@@ -24,14 +24,16 @@ form{
 .contact-us{
     background-color:  #997045 !important;
     color: white;
+    border: none !important;
 }
 .contact-us:hover{
     background-color:  blue !important;  
     color: white;
+    border: none !important;
 }
 .form-focus .focus-label {
     color: #000 !important;
-
+    top: -7px !important;
 }
 .form-control {
     width: -webkit-fill-available !important;

@@ -7,7 +7,7 @@ $(document).ready(function () {
 });
 
 function showAlert(type = 'success', msg = 'Notification', delay = 1000) {
-    /* Lobibox.notify(type, {
+    Lobibox.notify(type, {
         size: 'mini',
         msg: msg,
         icon: false,
@@ -16,7 +16,7 @@ function showAlert(type = 'success', msg = 'Notification', delay = 1000) {
         delay:delay,
 
        
-    }); */
+    });
 }
 
 function showBotomAlert(type = 'success', msg = 'Notification') {

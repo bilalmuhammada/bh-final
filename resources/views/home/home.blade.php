@@ -17,7 +17,7 @@
     /* Listing card styles */
     .listing {
         background: #fff;
-        border-radius: 0.3rem;
+        border-radius: 4px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         width: 110% !important;
         overflow: hidden;
@@ -28,12 +28,12 @@
         width: 100% !important;
         height: 152px !important;
         object-fit: cover;
-        border-radius: 0.3rem 0.3rem 0 0;
+        border-radius: 4px 4px 0 0;
     }
 
     .listing-slider .listing {
         background: #fff;
-        border-radius: 0.3rem;
+        border-radius: 4px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         width: 100% !important;
         overflow: hidden;
@@ -48,7 +48,7 @@
         width: 100% !important;
         height: 152px !important;
         object-fit: cover;
-        border-radius: 0.3rem 0.3rem 0 0;
+        border-radius: 4px 4px 0 0;
     }
 
     .noAds {
@@ -65,6 +65,11 @@
         border: 1px solid transparent !important;
         background-color: #fff;
         color: #000 !important;
+        border-radius: 4px !important;
+    }
+
+    #subcategoryDropdown {
+        border-radius: 4px !important;
     }
 
     .show-more-btn1:hover {
@@ -123,7 +128,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
     <!-- <div class="container slider-area"> -->
     <div class="container-fluid home-full-width slider-area desktop-view" style="border:0px solid red;margin-top:-12px;">
         <div id="demo" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner" style="border-radius:0.3rem;">
+            <div class="carousel-inner" style="border-radius:4px;">
                 <div class="carousel-item active">
                     <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;">
                 </div>

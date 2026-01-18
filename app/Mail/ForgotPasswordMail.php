@@ -9,13 +9,12 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class RegistrationMail extends Mailable
+class ForgotPasswordMail extends Mailable
 {
-    
-
     use Queueable, SerializesModels;
 
     public $details;
+
     /**
      * Create a new message instance.
      *
@@ -24,7 +23,6 @@ class RegistrationMail extends Mailable
     public function __construct($details)
     {
         $this->details = $details;
-        //
     }
 
     /**
@@ -35,7 +33,7 @@ class RegistrationMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Registration OTP',
+            subject: 'Password Reset OTP',
         );
     }
 
@@ -47,7 +45,7 @@ class RegistrationMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'email.registration',
+            view: 'email.forgot-password',
         );
     }
 

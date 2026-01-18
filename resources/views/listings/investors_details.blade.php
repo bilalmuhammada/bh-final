@@ -299,17 +299,18 @@
                     <label class="focus-label">WhatsApp</label>
                 </div>
             </div>
-            <div class="form-group" style="margin-bottom: -7px;" id="filemoble">
-                <label style="margin-top: -16px; margin-left: 17rem;
-                text-align: center;
-                font-size: 14px;">Do you want to Show or Hide your Mobile?</label>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons" style="display: ruby-text">
-                    <label class="btn active  btn-show btn-mobile" style="margin-left:20.8rem !important;">
-                        <input type="radio" name="options" id="showPhone" autocomplete="off" checked style="margin-left: 6pc"> Show
-                    </label>
-                    <label class="btn btn-show btn-mobile-hide" style=" margin-left: 1.6rem;float: right;">
-                        <input type="radio" name="options" id="hidePhone" autocomplete="off"> Hide
-                    </label>
+            <div class="form-group"  id="filemoble">
+                <div class="premium-toggle-container">
+                    <label class="premium-toggle-label">Do you want to Show or Hide your Mobile?</label>
+                    <div class="toggle-wrapper">
+                        <input type="radio" name="phone_visibility" id="showPhone" value="show" checked>
+                        <input type="radio" name="phone_visibility" id="hidePhone" value="hide">
+                        
+                        <label for="showPhone" class="toggle-item">Show</label>
+                        <label for="hidePhone" class="toggle-item">Hide</label>
+                        
+                        <div class="slider"></div>
+                    </div>
                 </div>
             </div>
         </div>

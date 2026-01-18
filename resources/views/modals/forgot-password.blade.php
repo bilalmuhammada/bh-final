@@ -43,7 +43,7 @@
                             <!-- user name area finish -->
                             <!-- submit button start -->
                             <div class="login-submit-button-area">
-                                <a class="btn submit-button forgot-submit" style="color: #FFFF;">Submit</a>
+                                <a class="btn submit-button forgot-submit" style="color: #fff !important; background-color: #0000FF !important;">Submit</a>
                             </div>
                             <!-- submit button finish -->
                         </form>

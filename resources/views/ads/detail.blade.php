@@ -294,11 +294,11 @@ button.active .indicator-img {
 
     .similar-listing-card {
         background: #fff;
-        border-radius: 12px;
+        border-radius: 4px;
         overflow: hidden;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         transition: all 0.3s ease;
-        margin: 10px 0px;
+        margin: 1px 0px;
         border: 1px solid #f0f0f0;
         position: relative;
         width: 190px; /* Added as requested */
@@ -686,20 +686,20 @@ button.active .indicator-img {
                         @endif
 
 
-                        <hr style="border-color: #eee; width: 100%; margin: 10px 0;">
+                        <hr style="border-color: #eee; width: 100%; margin: 5px 13px 0;">
                         <!---------->
-                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
+                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px;">
                             <h6><b>Products & Services Offered</b></h6>
                             <p style="font-size: 14px; margin-bottom: 7px;">{{ $ad->details->products_and_services_offered ?? '....' }} this is one line</p>
                         </div>
-                        <hr style="border-color: #eee; width: 100%; margin: 10px 0;">
-                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
+                        <hr style="border-color: #eee; width: 100%; margin: 5px 13px 0;">
+                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px;">
                             <h6><b>Description</b></h6>
                             <p style="font-size: 14px;margin-bottom: 7px;">{{ $ad->description }} this is description</p>
                         
                         </div>
-                        <hr style="border-color: #eee; width: 100%; margin: 10px 0;">
-                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:10px;">
+                        <hr style="border-color: #eee; width: 100%; margin: 5px 13px 0;">
+                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px;">
                 
                                 <h6><b>Files</b></h6>
                                 <p style="font-size: 14px;">
@@ -712,17 +712,17 @@ button.active .indicator-img {
                             @elseif($ad->document_listing_approval_status == 'approved')
                                             <a href="#" class="btn download-document">Approved</a>
                                 @else
-                                    <p class="approval-status"> Request Sent </p>
+                                    <p style="margin-bottom:0px;" class="approval-status-request"> Request Sent </p>
                                 @endif
 
-                                <p class="approval-status" style="display: none">Request Sent </p>
+                                <p class="approval-status-request" style="display: none;margin-bottom:0px;">Request Sent </p>
                             </div>
-                            </p>
+
                         </div>
                       
-                        <hr style="border-color: #eee; width: 100%; margin: 10px 0;">
+                        <hr style="border-color: #eee; width: 100%; margin: 5px 13px 0;">
                         <div class="col-lg-12 col-md-12 col-12" >
-                            <h6><b>Location</b></h5>
+                            <h6 style="margin-bottom: 0px;"><b>Location</b></h5>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-6">
                                     {{-- <div style="border-radius:5px;"> --}}
@@ -733,13 +733,13 @@ button.active .indicator-img {
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-6">
                                     {{-- <div style="border-radius:5px;"> --}}
-                                        <div style="width:100%; height:66px; border:0;bottom: 1.8rem;left: 2.2rem;" id="map"></div>
+                                        <div style="width:100%; height:80px; border-radius:4px;" id="map"></div>
                                     {{-- </div> --}}
                                 </div>
                             </div>
                         </div>
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
-                        <hr style="border-color: #eee; width: 100%; margin: 10px 0;">
+                        <hr style="border-color: #eee; width: 100%; margin: 5px 13px 0;">
                         <div style="font-weight: bold;font-size:15px;margin-top: 6px;margin-left: 12px;">
                             Is there an issue?
 
@@ -755,7 +755,7 @@ button.active .indicator-img {
                         </div>
                        
                         
-                        <hr style="border-color: #eee; width: 100%; margin: 10px 0;">
+                        <hr style="border-color: #eee; width: 100%; margin: 5px 13px 0;">
 
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
                         <!---------------------->
@@ -858,7 +858,7 @@ button.active .indicator-img {
                 <!---------------------->
                 {{-- <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;"> --}}
                 <div class="col-lg-12 col-md-12 col-12 similar_ad">
-                    <h6><b>Similar Ads</b></h6>
+                    <h6 style="margin-bottom: 0px;"><b>Similar Ads</b></h6>
                     <div class="row" >
                         <div class="col-md-9" style="margin-left: 14px;padding:0px;">
                             <div class="slider">
@@ -871,13 +871,13 @@ button.active .indicator-img {
                                         <a href="{{env('BASE_URL') . 'ads/detail/' . $similar_ad->id . '?country=' . request()->country . '&city=' . request()->city}}" style="text-decoration: none;">
                                             <div class="similar-listing-card">
                                                 <div class="similar-listing-image">
-                                                    <img src="{{ $similar_ad->main_image_url }}" alt="{{ $similar_ad->name }}">
+                                                    <img src="{{ $similar_ad->main_image_url }}"  alt="{{ $similar_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>
                                                     <div class="similar-listing-heart">
                                                         <i class="fa fa-heart-o shaking"></i>
                                                     </div>
                                                     <div class="similar-listing-count">
-                                                        <i class="fa fa-camera"></i> 1 / {{ count($similar_ad->attachments) > 0 ? count($similar_ad->attachments) : 1 }}
+                                                        1 / {{ count($similar_ad->attachments) > 0 ? count($similar_ad->attachments) : 1 }}
                                                     </div>
                                                 </div>
                                                 <div class="similar-listing-details">
@@ -1059,7 +1059,7 @@ return ;
             var user_ad = $(this).attr('user-ad');
             
             $.ajax({
-                url: api_url + 'chats/initiate',
+                url: base_url + 'chats/initiate',
                 method: 'POST',
                 data: {
                     user_id: user_id,

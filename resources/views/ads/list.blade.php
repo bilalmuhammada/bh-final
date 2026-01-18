@@ -1,6 +1,6 @@
 @extends('layout.master')
-{{-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> --}}
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 @section('content')
 <style>
     select {
@@ -45,7 +45,9 @@
         /* Active page background */
         border-color: #007bff;
     }
-
+    .swiper {
+        margin-left: 0px;
+    }
     .paginationLink {
         margin-left: 17rem;
     }
@@ -110,8 +112,13 @@
         cursor: pointer;
     }
 
-    .btn:hover {
-        border: 1px solid blue !important;
+    
+
+    .btn:focus,
+    .btn:active {
+        outline: none !important;
+        box-shadow: none !important;
+        border-color: transparent !important;
     }
 
     .multi-collapse {
@@ -154,14 +161,47 @@
     }
 
     .swiper-button-next:after,
-    .swiper-button-prev:after {
-        color: white !important;
-        font-size: 23px !important;
-        margin-left: 7px !important;
+    .swiper-button-prev:after,
+    .swiper-button-next svg,
+    .swiper-button-prev svg {
+        content: "" !important; /* Remove default Swiper arrows */
+        display: none !important;
+    }
+
+    .swiper-button-next i,
+    .swiper-button-prev i {
+        color: #A17A4E !important;
+        font-size: 18px !important;
+        font-weight: bold !important;
+        transition: color 0.3s ease;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .swiper-button-next:hover i,
+    .swiper-button-prev:hover i {
+        color: blue !important;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        z-index: 100 !important;
+        width: 30px !important; /* Slightly wider for better click area */
+        height: 100% !important;
+        top: 0 !important;
+        margin-top: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        pointer-events: auto !important;
     }
 
     .swiper-button-next {
-        left: 15rem;
+        right: 0px !important;
+        left: auto !important;
+    }
+
+    .swiper-button-prev {
+        left: 0px !important;
     }
 
     select::-ms-expand {
@@ -328,7 +368,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
         <div class="col-lg-12 col-md-12 col-12" style="margin-left: 4rem;">
             <div class="row" style="margin-left: -137px;">
                 <div class="col-lg-8 col-md-8" style="display: flex;">
-                    <h6 style="white-space: nowrap;font-size: 14px;"> <a href="{{ env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city }}" style="color: inherit; text-decoration: none;"><b> {!! $category_name->name !!} </b> > </a> <b> {{ $subcategory_name }} </b><span style="color: blue;font-size:14px;"> - {{ $ads->count() }} Ads</span>
+                    <h6 style="white-space: nowrap;font-size: 14px;"> <a href="{{ env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city }}" style="color: inherit; text-decoration: none;"><b> {!! $category_name->name !!} </b> > </a> <b> {{ $subcategory_name }} </b><span style="color: blue;font-size:13px;"> - {{ $ads->count() }} Ads</span>
                     </h6>
 
 
@@ -353,34 +393,38 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                     <div class="row ad-listing-card">
                         <!-----content----->
                         <div class="col-lg-4 col-md-4 col-12" style="margin-top:-11px;">
-                            <div style="position:absolute;border:0px solid red;width:100%;">
-                                <div class="row">
+                            <div style="position:absolute;border:0px solid red;width:100%; height: 180px; z-index: 5; pointer-events: none;">
+                                <div class="row" style="pointer-events: none;">
                                     <!-- Sharing and Favourite buttons -->
-                                    <div style="margin-top: 12px; margin-left: 232px;  z-index: 2;">
+                                    <div style="margin-top: 12px; margin-left: 232px;  z-index: 6; pointer-events: auto;">
                                         <span>
-                                            <a><i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking" is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}" style="font-size: 20px;margin-right: 7px; margin-left: 6px; color: white;"></i></a>
+                                            <a><i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking" is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}" style="font-size: 20px;margin-right: 7px; margin-left: 27px; color: white;"></i></a>
 
                                         </span>
                                     </div>
                                 </div>
-                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:155px; z-index: 2;">
-                                    {{-- <i class="fa fa-image" style="color:white;font-size: 13px;"></i> --}}
-                                    <span class="text-white" style="font-size: 13px;"> 1 / 40</span>
+                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;bottom:10px; left: 10px; z-index: 6; pointer-events: none;">
+                                    <span class="text-white swiper-pagination-fraction" style="font-size: 13px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);"></span>
                                 </div>
                             </div>
-                            <a href="{{ env('BASE_URL') . 'ads/detail/' . $ad->id }}">
-                                <div class="swiper-container" style="height:180px;width:16pc;">
-                                    <div class="swiper-wrapper">
-                                        <!-- Static image for now -->
-                                        <div class="swiper-slide" style="background-image:url({{ $ad->main_image_url }});height: 100%;width: 100%;"></div>
-                                    </div>
-                                    <!-- Add Pagination if needed -->
-                                    <div class="swiper-pagination"></div>
-                                    <!-- Add Navigation buttons if needed -->
-                                    <div class="swiper-button-next"></div>
-                                    <div class="swiper-button-prev"></div>
+                            <div class="swiper swiper-container" style="height:180px;width:17pc;">
+                                <div class="swiper-wrapper">
+                                    @if($ad->attachments && count($ad->attachments) > 0)
+                                        @foreach($ad->attachments as $attachment)
+                                            <div class="swiper-slide">
+                                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $ad->id }}" style="display: block; width: 100%; height: 100%;border-radius:4px; background-image:url({{ $attachment->listing_image_url }}); background-size: cover; background-position: center;"></a>
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <div class="swiper-slide">
+                                            <a href="{{ env('BASE_URL') . 'ads/detail/' . $ad->id }}" style="display: block; width: 100%; height: 100%;border-radius:4px; background-image:url({{ $ad->main_image_url }}); background-size: cover; background-position: center;"></a>
+                                        </div>
+                                    @endif
                                 </div>
-                            </a>
+                                <!-- Custom Navigation buttons with FontAwesome -->
+                                <div class="swiper-button-next"><i class="fa fa-chevron-right"></i></div>
+                                <div class="swiper-button-prev"><i class="fa fa-chevron-left"></i></div>
+                            </div>
                         </div>
                         <div class="col-lg-8 col-md-8 col-12">
                             <div class="row" style="margin-top: -12px;">
@@ -607,51 +651,23 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
         var parent = $(this).parents('.multiCollapse');
         from_price = parent.find('#from').val();
         to_price = parent.find('#to').val();
-        window.location.assign(base_url + "ads/" + {
-            {
-                $subcategory_id
-            }
-        } + "?country=" + {
-            {
-                request() - > country
-            }
-        } + "&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city);
+        window.location.assign(base_url + "ads/{{ $subcategory_id }}?country={{ request()->country }}&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city);
     });
 
     $(document).on('click', '.apply-keyword-filter-btn', function() {
         var parent = $(this).parents('.multiCollapse');
         keyword = parent.find('.keyword-input').val();
-        window.location.assign(base_url + "ads/" + {
-            {
-                $subcategory_id
-            }
-        } + "?country=" + {
-            {
-                request() - > country
-            }
-        } + "&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city);
+        window.location.assign(base_url + "ads/{{ $subcategory_id }}?country={{ request()->country }}&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city);
     });
 
     $(document).on('click', '.city-list', function() {
         city = $(this).attr('city-id');
-        window.location.assign(base_url + "ads/" + {
-            {
-                $subcategory_id
-            }
-        } + "?country=" + {
-            {
-                request() - > country
-            }
-        } + "&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city);
+        window.location.assign(base_url + "ads/{{ $subcategory_id }}?country={{ request()->country }}&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city);
     });
 
     $(document).on('click', '.subcategory-list', function() {
         subcategory = $(this).attr('subcategory-id');
-        window.location.assign(base_url + "ads/" + subcategory + "?country=" + {
-            {
-                request() - > country
-            }
-        } + "&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city);
+        window.location.assign(base_url + "ads/" + subcategory + "?country={{ request()->country }}&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city);
     });
 
 
@@ -706,6 +722,25 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
             if (!$(e.target).closest('#keyword, #subcategoryDropdown').length) {
                 dropdown.hide();
             }
+        });
+    });
+    $(document).ready(function() {
+        console.log("Initializing Swipers...");
+        $('.swiper-container').each(function() {
+            var container = this;
+            var swiper = new Swiper(container, {
+                navigation: {
+                    nextEl: $(container).find('.swiper-button-next')[0],
+                    prevEl: $(container).find('.swiper-button-prev')[0],
+                },
+                pagination: {
+                    el: $(container).closest('.col-lg-4').find('.swiper-pagination-fraction')[0],
+                    type: 'fraction',
+                },
+                loop: true,
+                observer: true,
+                observeParents: true,
+            });
         });
     });
 </script>

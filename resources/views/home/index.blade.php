@@ -57,7 +57,7 @@
         font-size: 25px;
     }
     .select2-search__field{
-        border-radius: 0.3rem;
+        border-radius: 4px;
         padding-left: 8px !important;
     }
 
@@ -154,7 +154,7 @@
         width:100%;
         text-align: center;
         background: rgb(241, 227, 164, .7);
-        border-radius: 0.3rem;
+        border-radius: 4px;
     }
 
     .main-div-mobile {
@@ -201,7 +201,7 @@ a{
         /* width: auto; */
         width:17px;
         height: 12px;
-        margin-bottom: 7px;
+        margin-right: 8px;
     }
 /* start */
 .select2-search__field{
@@ -258,7 +258,7 @@ a{
     }
     .select2-dropdown{
 
-        border-radius:0.3rem; 
+        border-radius: 4px; 
         border: 1px solid transparent !important;
         background-color: #fff;
         color: #000 !important;
@@ -573,19 +573,15 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                 return country.text;
             }
 
-            var flagUrl = $(country.element).data('flag-url'); // Access the flag-url data attribute
-            if (!flagUrl) {
-        var $country = $( 
-        '<img src="' + flagUrl + '" class="img-flag" style="width:20px; height:13px;margin-top:0px; display:none;" />' + 
-        '<span style="font-size:14px; margin-left: 3px;">' + country.text + '</span>'
-    );// Optional default image
-    }else{
-            var $country = $(
-                '<img src="' + flagUrl + '" class="img-flag" / style="width:20px;height:13px;margin-top:0px;"> <span  style="font-size:14px; margin-left: 0px;">' + country.text + '</span>'
+            var flagUrl = $(country.element).data('flag-url');
+            var $content = $(
+                '<div style="display: flex; align-items: center;">' +
+                (flagUrl ? '<img src="' + flagUrl + '" class="img-flag" style="width:20px; height:13px; margin-right: 8px;">' : '') +
+                '<span style="font-size:14px;">' + country.text + '</span>' +
+                '</div>'
             );
-            return $country;
+            return $content;
         };
-      };
 
         $(document).on('change', '.country_dropdown', function () {
 

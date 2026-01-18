@@ -10,9 +10,11 @@ $(document).on('click', '.register-button', function () {
                 dataType: "JSON",
                 success: function (response) {
                     if (response.status) {
-                        showAlert("success", "Registerrd Successfully");
+                        showAlert("success", "Registered Successfully. Please verify your OTP.");
                         $('#registerModal').modal('hide');
-                        $('#loginModal').modal('show');
+                        setTimeout(function () {
+                            openOtpModal(response.email, 'registration');
+                        }, 500);
                     } else {
                         $('.alert-text-register').text(response.message);
                         $('.alert-div').show();
@@ -41,10 +43,11 @@ $(document).on('click', '.close-signup-btn', function () {
    
     
 });
-$(document).on('click', '.show-forgot-btn,.login-btn', function () {
+$(document).on('click', '.show-forgot-btn,.login-btn,.register-btn', function () {
     
     $('#forgotModal').modal('hide');
     $('#registerModal').modal('hide');
+    $('#loginModal').modal('hide');
     
 });
 
@@ -152,11 +155,15 @@ $(document).on('click', '.forgot-submit', function () {
         success: function (response) {
             if (response.status) {
                 $('.alert-text').text(response.message);
-                $('.alert-div').show();
-                // $('.password-alert').show().text(response.message);
+                $('.alert-div').show().find('.alert').removeClass('alert-danger').addClass('alert-success');
+                
+                setTimeout(function() {
+                    $('#forgotModal').modal('hide');
+                    openOtpModal(response.email, 'forgot_password');
+                }, 1500);
             } else {
                 $('.alert-text').text(response.message);
-                $('.alert-div').show();
+                $('.alert-div').show().find('.alert').removeClass('alert-success').addClass('alert-danger');
 
                 setTimeout(function () {
                     $('.alert-text').text('');

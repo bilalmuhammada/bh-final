@@ -46,7 +46,8 @@
     <link rel="stylesheet" href="{{ asset('css/chat.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('select2/css/select2.min.css')}}">
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="{{ asset('emojionearea-master/dist/emojionearea.min.css') }}">
     <script src="{{ asset('emojionearea-master/dist/emojionearea.min.js') }}"></script>
@@ -54,8 +55,7 @@
 </head>
 
 <script>
- jQuery.noConflict();
-jQuery(document).ready(function($) {
+$(document).ready(function() {
    
     $('.emoji-trigger').emojioneArea({
                 pickerPosition: "bottom",

@@ -29,7 +29,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         align-items: center;
         justify-content: flex-start; /* Changed from space-between to align content to the left */
         gap: 8px; /* Gap between Logo and Items */
-        padding: 0px 81px;
+        padding: 0px 81px 0px; /* Added clearance at top, less at bottom */
         background: #fff;
         border-bottom: 1px solid #f0f0f0;
     }
@@ -55,7 +55,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         cursor: pointer;
         display: flex;
         align-items: center;
-        padding: 4px 0;
+        padding: 0px 0;
         transition: all 0.2s ease;
         text-decoration: none !important;
     }
@@ -71,32 +71,42 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
     .badge-premium-green {
         position: absolute;
-        top: -8px;
-        right: -12px;
+        top: -4px;
+        right: -10px;
         background-color: #dcfce7 !important;
         color: #166534 !important;
-        font-size: 10px !important;
-        padding: 2px 5px !important;
+        font-size: 8px !important;
+        width: 12px !important;
+        height: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
         font-weight: 700 !important;
-        border-radius: 50px !important;
-        box-shadow: 0 2px 4px rgba(22, 101, 52, 0.1);
+        border-radius: 50% !important;
+        box-shadow: 0 1px 3px rgba(22, 101, 52, 0.1);
+        padding: 0 !important;
     }
     .badge-new-green {
-        
-        
         background-color: #dcfce7 !important;
         color: #166534 !important;
-        font-size: 10px !important;
+        font-size: 8px !important;
+        white-space: nowrap !important;
+        width: 28px !important;
+        height: 15px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
         font-weight: 700 !important;
-        border-radius: 50px !important;
-        box-shadow: 0 2px 4px rgba(22, 101, 52, 0.1);
+        border-radius: 4% !important;
+        box-shadow: 0 1px 3px rgba(22, 101, 52, 0.1);
+        padding: 0 !important;
     }
 
     /* Dropdown Menus */
     .dropdown-menu {
         border: none !important;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
-        border-radius: 0.5rem !important;
+        border-radius: 0px !important;
         margin-top: 10px !important;
         padding:  0 !important;
     }
@@ -127,7 +137,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
 
   .ad-place-btn{
-    padding: 0px 7px; border-radius: 6px; font-weight: 600; font-size: 13px; color: #fff !important; background-color: #A17A4E !important; white-space: nowrap;
+    padding: 0px 7px; border-radius: 6px; font-weight: 600; font-size: 11px; color: #fff !important; background-color: #A17A4E !important; white-space: nowrap;
     }
     .ad-place-btn:hover {
         color: white !important;
@@ -143,7 +153,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     .select2-search--dropdown .select2-search__field {
         padding: 5px !important;
         border: 1px solid goldenrod !important;
-        border-radius: 4px !important;
+        border-radius: 0px !important;
         outline: none !important;
     }
 
@@ -343,27 +353,27 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                 <div class="dropdown">
                     <a class="topbar-dropdown-trigger trigger-with-badge" id="favoritesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Favorites
-                        @if(count($favourite_ads) > 0)
-                            <span class="badge-premium-green">{{ count($favourite_ads) }}</span>
+                        @if($favourite_ads_count > 0)
+                            <span class="badge-premium-green">{{ $favourite_ads_count }}</span>
                         @endif
                     </a>
                     <div class="dropdown-menu" style="width:380px;">
                         @if (count($favourite_ads) > 0)
                             <div class="px-2 py-1 border-bottom d-flex justify-content-between align-items-center">
                                 <h6 class="mb-0 fw-bold">Favorites</h6>
-                                <span class="badge-new-green">{{ count($favourite_ads) }} New</span>
+                                <span class="badge-new-green">{{ $favourite_ads_count }} New</span>
                             </div>
                             <div class="list-group list-group-flush">
                                 @foreach($favourite_ads as $favourite_ad)
-                                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $favourite_ad->id . '?country=' . request()->country . '&city=' . request()->city }}" class=" list-group-item-action border-bottom d-flex align-items-center pl-2 pr-2 pb-1 pt-1" style="background-color: aliceblue;">
+                                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $favourite_ad->id . '?country=' . request()->country . '&city=' . request()->city }}" class=" list-group-item-action border-bottom d-flex align-items-center pl-2 pr-2 pb-0 pt-0" style="background-color: aliceblue;">
                                         <div style="flex-shrink: 0; width: 45px; height: 45px; border-radius: 4px; overflow: hidden; background: #fff;">
                                             <img src="{{ $favourite_ad->main_image_url ?? 'https://via.placeholder.com/80x80?text=Ad' }}" style="width: 100%; height: 100%; object-fit: cover;">
                                         </div>
                                         <div class="ms-3 flex-grow-1 px-2">
-                                            <h6 class="mb-2 text-dark text-truncate fw-bold" style="font-size: 14px;">{{ $favourite_ad->title }}</h6>
+                                            <h6 class="mb-2 text-truncate fw-bold" style="font-size: 14px; color: #A17A4E !important;">{{ $favourite_ad->title }}</h6>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <small class="text-muted">{{ $favourite_ad->category->name ?? 'General' }}</small>
-                                                <h6 class="mb-0 fw-bold text-danger" style="font-size: 14px;">{{ \App\Helpers\SiteHelper::priceFormatter($favourite_ad->price,session('app_currency', 'USD')) }}</h6>
+                                                <h6 class="mb-0 fw-bold text-danger" style="font-size: 12px;">{{ \App\Helpers\SiteHelper::priceFormatter($favourite_ad->price,session('app_currency', 'USD')) }}</h6>
                                             </div>
                                         </div>
                                     </a>
@@ -426,11 +436,11 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                         <span style="white-space: nowrap; padding: 0px 14px;">{{session()->get('user')->first_name}} {{session()->get('user')->last_name}}</span>
                         <img src="{{session()->get('user')->image_url}}" class="topbar-profile-img">
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right p-0" style="min-width: 90px;">
+                    <div class="dropdown-menu dropdown-menu-right p-0" style="min-width: 60px;">
                         <div class="list-group list-group-flush">
-                            <a class="list-group-item list-group-item-action colorchange  fw-bold" style="padding: 0rem 0.5rem;" href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">My Profile</a>
+                            <a class="list-group-item list-group-item-action colorchange" style="padding: 0.25rem 0.35rem; font-size: 12px;" href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">My Profile</a>
                             
-                            <a class="list-group-item list-group-item-action colorchange logout-btn fw-bold text-danger" style="padding: 0rem 0.5rem;">Sign Out</a>
+                            <a class="list-group-item list-group-item-action colorchange logout-btn text-danger" style="padding: 0.25rem 0.35rem; font-size: 12px;">Sign Out</a>
                         </div>
                     </div>
                 </div>

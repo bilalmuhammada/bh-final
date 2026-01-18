@@ -95,6 +95,91 @@
             background-size: 14px;
             padding-right: 30px;
         }
+
+        /* Premium Toggle Styles */
+        .premium-toggle-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            margin-bottom: 0px;
+        }
+
+        .premium-toggle-label {
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 7px;
+            color: #333;
+        }
+
+        .toggle-wrapper {
+            position: relative;
+            display: flex;
+            width: 140px;
+            height: 30px;
+            background-color: #f8f9fa;
+            border-radius: 17px;
+            padding: 3px;
+            border: 1px solid #e0e0e0;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .toggle-wrapper input[type="radio"] {
+            display: none;
+        }
+
+        .toggle-item {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 700;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-wrapper .slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: calc(50% - 3px);
+            height: calc(100% - 6px);
+            background-color: #A17A4E; /* Logo Gold */
+            border-radius: 14px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+            box-shadow: 0 2px 5px rgba(161, 122, 78, 0.3);
+        }
+
+        .toggle-wrapper input[type="radio"]:checked + label + input + label + .slider,
+        .toggle-wrapper input[type="radio"]:checked + label + .slider {
+            /* Fallback or complex selectors if needed, but simple ones below usually work */
+        }
+
+        /* Logic for slider movement and label color */
+        .toggle-wrapper input:nth-of-type(1):checked ~ .slider {
+            transform: translateX(0);
+        }
+
+        .toggle-wrapper input:nth-of-type(2):checked ~ .slider {
+            transform: translateX(100%);
+        }
+
+        .toggle-wrapper input:nth-of-type(1):checked ~ label:nth-of-type(1),
+        .toggle-wrapper input:nth-of-type(2):checked ~ label:nth-of-type(2) {
+            color: white;
+        }
+
+        .toggle-item:hover {
+            color: #A17A4E;
+        }
+
+        .toggle-wrapper input:checked ~ label:hover {
+            color: white;
+        }
     </style>
     <!-- Optional JavaScript -->
     @include('listing-layout.footer')

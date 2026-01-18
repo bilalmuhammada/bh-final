@@ -194,7 +194,7 @@
         /* opacity: 0.5; */
         /* padding: 30px 50px; */
         padding-top: 20px;
-        border-radius: 0.3rem;
+        border-radius: 4px;
         -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
         -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
         box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
@@ -224,7 +224,7 @@
         border-right: 0px;
         color: #FFF;
         font-size: 22px;
-        /* border-radius: 20px 0 0 20px; */
+        border-radius: 4px 0 0 4px !important;
         padding: 30px;
         background: rgba(33, 34, 35, .6);
     }
@@ -240,7 +240,7 @@
     }
     
     .searbox-button {
-        /* border-radius: 0px 20px 20px 0px; */
+        border-radius: 0 4px 4px 0 !important;
         padding: 19px;
         /* background: #0000FF; */
         background: #A17A4E;
@@ -324,6 +324,7 @@
     .dropdown-item {
         font-size: 12px;
         padding: 5px;
+        border-radius: 4px;
     }
     
     a.item {

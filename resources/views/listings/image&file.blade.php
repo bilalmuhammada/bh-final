@@ -1,10 +1,3 @@
-
-<style>
-    .btn.focus, .btn:focus{
-        box-shadow: 0 0 0 0rem rgba(0, 123, 255, .25) !important;
-    }
-     
-</style>
 <div class="col-md-6 mx-auto" style="margin-top:166px;">
     <div class="input--file">
         <i class="fa fa-camera fa-1x"></i>
@@ -37,7 +30,7 @@
 
 <!-- Middle Separate Section for Toggle -->
 <div class="col-md-6 mx-auto">
-    <div class="premium-toggle-container" id="file_visibility_toggle" >
+    <div class="premium-toggle-container" id="filehide" >
         <label class="premium-toggle-label">Do you want to Show or Hide your Files?</label>
         <div class="toggle-wrapper">
             <input type="radio" name="options" id="option-show" value="show" checked>

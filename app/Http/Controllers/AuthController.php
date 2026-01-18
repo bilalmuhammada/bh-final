@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use App\Mail\RegistrationMail;
+use App\Mail\ForgotPasswordMail;
 use Illuminate\Support\Facades\Mail;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -105,9 +106,11 @@ class AuthController extends Controller
     $details = [
         'name' => $request->first_name . " " . $request->last_name,
         'otp' => $otp,
+        'body' => 'Welcome to BusinessHub! Please verify your email using the OTP:',
     ];
     Session::put('otp_email', $request->email);
     Session::put('otp_code', $otp);
+    Session::put('otp_type', 'registration');
     Session::put('otp_username', $request->first_name." ".$request->last_name);
     
     try {
@@ -155,10 +158,13 @@ class AuthController extends Controller
         'email_verified_at' => now(),
         'email_verification_code' => null,
     ]);
-    Session::forget(['otp_code', 'otp_email']);
+
+    $otp_type = Session::get('otp_type');
+    Session::forget(['otp_code', 'otp_email', 'otp_type']);
 
     return response()->json([
         'status' => true,
+        'type' => $otp_type,
         'message' => 'Email verified successfully!',
     ]);
 }
@@ -284,20 +290,33 @@ public function resend()
         $User = User::where('email', $request->email)->first();
 
         if (!empty($User)) {
-            $password_reset_code = date('hisymd') . $User->id;
-            $User->password_reset_code = $password_reset_code;
+            $otp = rand(100000, 999999);
+            $User->password_reset_code = $otp;
             $User->save();
 
             /*******PREPARE EMAIL FOR USER PASSWORD RESET********/
-            $link = env('BASE_URL') . 'reset/' . $password_reset_code;
-            $User->notify(new PasswordReset($password_reset_code));
+            $details = [
+                'name' => $User->name,
+                'otp' => $otp,
+            ];
 
+            Session::put('otp_email', $User->email);
+            Session::put('otp_code', $otp);
+            Session::put('otp_type', 'forgot_password');
+
+            try {
+                Mail::to($User->email)->send(new ForgotPasswordMail($details));
+            } catch (\Exception $e) {
+                \Illuminate\Support\Facades\Log::error("Forgot Password Email error: " . $e->getMessage());
+            }
 
             /*******END- PREPARE EMAIL FOR USER PASSWORD RESET********/
 
             return response()->json([
                 'status' => TRUE,
-                'message' => "An Email Has been sent to your email address to reset your password",
+                'type' => 'forgot_password',
+                'email' => $User->email,
+                'message' => "An OTP has been sent to your email address to reset your password",
             ]);
         } else {
             return response()->json([

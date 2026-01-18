@@ -38,10 +38,8 @@ $second = $parts[1] ?? null;
 <!-- footer area start -->
 @include('layout.footer')
 <!-- footer area end -->
-<!-- jQuery -->
+<!-- jQuery is loaded in header.blade.php -->
 
-<script src="https://code.jquery.com/jquery-3.7.0.min.js"
-        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <!-- Popper.js -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"

@@ -14,7 +14,7 @@
         border: 1px solid #1202c9 !important;
     } */
     #select2-country_id-container{
-  font-size: 11px !important;
+  font-size: 13px !important;
     }
     #profile-form .toggle-password {
             position: absolute;
@@ -60,7 +60,7 @@ margin-left: -7px;
 
            
     input::placeholder{
-        font-size: 10px;
+        font-size: 13px;
         color: blue !important;
     }
     .lobibox-notify-success{
@@ -72,10 +72,12 @@ margin-left: -7px;
     .form-control{
         /* width:100%; */
         text-align: center;
+       
 
     }
     .form-control1{
         width:100% !important;
+         font-size: 13px !important;
         
 
     }
@@ -94,6 +96,7 @@ select {
     background: none; /* Remove default background */
     background-color: transparent;
     padding-right: 20px; /* Add some padding to keep the layout */
+    text-align-last: center;
 }
 #change-photo-link:hover{
     color:#000fff !important;
@@ -117,11 +120,11 @@ width: 225px !important;
 }
 
 #select2-profile_cities-container{
-    font-size:11px !important;
+    font-size:13px !important;
 
 }
 .changecolor {
-    font-size: 12px;
+    font-size: 13px;
     color: goldenrod;
 }
 
@@ -147,19 +150,19 @@ width: 225px !important;
 </span>
 
         {{-- <h4><b>My Profile</b></h4> --}}
-        <h6 style="font-size:12px;font-weight: bolder; "> Hey, {{ session()->get('user')->first_name }}</h6>
+        <h6 style="font-size:13px;font-weight: bolder; "> Hey, {{ session()->get('user')->first_name }}</h6>
         </div>
         <div class="col-md-12 desktop-view">
             <div class="row">
                 <div class="col-md-2" style="border: 0px solid red;text-align:center;">
                     <img id="profile-image" class="display-profile-img" src="{{session()->get('user')->image_url}}" alt="img" width="120" height="120" style="border-radius: 0.3rem; border: 0px solid red;">
-                    <a href="#" id="change-photo-link"  style="display: flex; margin-left: 51px; margin-top: 5px;font-size:14px; color: goldenrod;">Change Photo</a>
+                    <a href="#" id="change-photo-link"  style="display: flex; margin-left: 51px; margin-top: 5px;font-size:15px; color: goldenrod;">Change Photo</a>
                     <input type="file" name="profile_image" id="profile_image" class="form-control-file" accept="image/*" style="border: 1px solid #999; border-radius: 0.3rem; display: none;">
                     <input type="hidden" name="image" class="base64-Image-name">
                 </div>
                 <div class="col-md-4"  style="margin-left: 42px;margin-top: -32px;">
                     <div class="row">
-                        <form class="profile-form" id="profile-form" style="font-size:12px;">
+                        <form class="profile-form" id="profile-form" style="font-size:13px;">
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;" ><b> First Name:</b></div>
@@ -252,7 +255,7 @@ width: 225px !important;
                                                         <option
                                                             {{ $country->id == request()->country ? 'selected' : '' }} 
                                                             value="{{ $country->id }}"
-                                                            style="font-size:8px !important;"> {{ $country->name }}</option>
+                                                            style="font-size:13px !important;"> {{ $country->name }}</option>
                                                     @endforeach
                                                 </select>
                                         </div>
@@ -269,7 +272,7 @@ width: 225px !important;
                                             <option
                                                 {{ $city->id == request()->city ? 'selected' : '' }}
                                                 value="{{ $city->id }}"
-                                                style="font-size:8px !important;"> {{ $city->name }}</option>
+                                                style="font-size:13px !important;"> {{ $city->name }}</option>
                                         @endforeach
                                     </select>
                                        </div>
@@ -340,7 +343,7 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-12 text-left">
                                         <a class="btn add-list-button update-profile-btn update-profile-submit-btn"
-                                                style="padding: 8px;font-size:15px;border-radius:0.3rem;margin-left: 15rem;">Update
+                                                style="padding: 8px;font-size:16px;border-radius:0.3rem;margin-left: 15rem;">Update
                                         </a>
                                     </div>
                                 </div>
@@ -533,11 +536,11 @@ $(document).ready(function(){
         });
 
         $(".country_dropdown_user").on("select2:open", function () {
-    $(".select2-results__option").css("font-size", "11px"); // Dropdown options
-    $(".select2-container--default .select2-selection--single").css("font-size", "11px !important"); // Selected option
+    $(".select2-results__option").css("font-size", "13px"); // Dropdown options
+    $(".select2-container--default .select2-selection--single").css("font-size", "13px !important"); // Selected option
 });
 $(".country_dropdown_user").on("select2:select", function (e) {
-    $(".select2-selection--single").css("font-size", "11px"); // Selected option display
+    $(".select2-selection--single").css("font-size", "13px"); // Selected option display
 });
 });
 
@@ -693,7 +696,7 @@ errorElement.addClass('was-validated')
 errorElement.addClass('is-invalid')
 errorElement.siblings('.invalid-feedback').html(errors[fieldName]);
 }
-                        // showAlert("error", response.message);
+                        showAlert("error", response.message);
                     }
                 },
                 error: function (response) {
