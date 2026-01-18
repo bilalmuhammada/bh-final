@@ -216,7 +216,7 @@ zoom: 1;
 
 .shaking:hover,
 .action-btn-shake:hover {
-    animation: shakeIcon 0.8s infinite;
+    animation: shakeIcon 0.5s infinite;
 }
 
 /* Favorite button active state */
@@ -227,7 +227,7 @@ zoom: 1;
 
 /* Shaking image on ad card hover */
 .ad-listing-card:hover img {
-    animation: shakeIcon 0.8s !important;
+    animation: shakeIcon 0.5s !important;
     animation-iteration-count: infinite !important;
 }
 

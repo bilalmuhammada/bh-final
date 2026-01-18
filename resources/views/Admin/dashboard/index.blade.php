@@ -164,11 +164,10 @@ label{
     display: inline-block;
     transition: transform 0.2s ease-in-out;
    }
-      .shaking:hover ,.apexcharts-legend-series:hover {
-        
-    animation: shake 2s linear infinite;
+   .shaking:hover ,.apexcharts-legend-series:hover {
+    animation: shakeIcon 0.5s infinite;
    }
-  @keyframes shake {
+  @keyframes shakeIcon {
     0% { transform: translateX(0); }
     25% { transform: translateX(-5px); }
     50% { transform: translateX(5px); }

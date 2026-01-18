@@ -18,10 +18,10 @@
         }
 
         .shaking:hover {
-            animation: shake 2s linear infinite;
+            animation: shakeIcon 0.5s infinite;
         }
 
-        @keyframes shake {
+        @keyframes shakeIcon {
             0% {
                 transform: translateX(0);
             }

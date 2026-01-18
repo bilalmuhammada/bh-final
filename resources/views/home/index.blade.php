@@ -235,7 +235,7 @@ a{
 
    .countrylist:hover{
         /* color: blue; */
-        animation: shake 1.5s linear infinite;
+        animation: shakeIcon 0.5s infinite;
     }
 
     .select2-container--default .select2-selection--single .select2-selection__rendered{
@@ -243,7 +243,7 @@ a{
         
     }
 
-    @keyframes shake {
+    @keyframes shakeIcon {
   0% { transform: translateX(0); }
   25% { transform: translateX(-5px); }
   50% { transform: translateX(5px); }

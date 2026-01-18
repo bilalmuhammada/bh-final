@@ -13,11 +13,11 @@
     transition: transform 0.2s ease-in-out;
    }
  
-  .shaking:hover {
-    animation: shake 1.5s linear infinite;
+   .shaking:hover {
+    animation: shakeIcon 0.5s infinite;
    }
 
-   @keyframes shake {
+   @keyframes shakeIcon {
     0% { transform: translateX(0); }
     25% { transform: translateX(-5px); }
     50% { transform: translateX(5px); }
