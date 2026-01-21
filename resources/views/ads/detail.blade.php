@@ -33,7 +33,7 @@
         }
 
         .carousel-indicators {
-            margin-bottom: -20px;
+            margin-bottom: -30px;
             position: unset;
             justify-content: center;
             margin-left: -5px !important;
