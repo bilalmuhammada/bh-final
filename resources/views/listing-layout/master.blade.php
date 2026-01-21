@@ -18,7 +18,7 @@
         }
 
         .shaking:hover {
-            animation: shakeIcon 0.5s infinite;
+            animation: shakeIcon 2s linear infinite;
         }
 
         @keyframes shakeIcon {
@@ -106,9 +106,9 @@
         }
 
         .premium-toggle-label {
-            font-weight: bold;
+            font-weight: normal;
             font-size: 13px;
-            margin-bottom: 7px;
+            margin-bottom: 4px;
             color: #333;
         }
 
@@ -117,11 +117,10 @@
             display: flex;
             width: 140px;
             height: 30px;
-            background-color: #f8f9fa;
+            background-color: white;
             border-radius: 17px;
             padding: 3px;
-            border: 1px solid #e0e0e0;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #ccc;
         }
 
         .toggle-wrapper input[type="radio"] {
@@ -143,15 +142,16 @@
 
         .toggle-wrapper .slider {
             position: absolute;
-            top: 3px;
-            left: 3px;
-            width: calc(50% - 3px);
-            height: calc(100% - 6px);
-            background-color: #A17A4E; /* Logo Gold */
+            top: 2px;
+            left: 2px;
+            width: calc(50% - 2px);
+            height: calc(100% - 4px);
+            background-color: white;
             border-radius: 14px;
+            border: 1px solid #ccc;
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1;
-            box-shadow: 0 2px 5px rgba(161, 122, 78, 0.3);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .toggle-wrapper input[type="radio"]:checked + label + input + label + .slider,
@@ -168,9 +168,12 @@
             transform: translateX(100%);
         }
 
-        .toggle-wrapper input:nth-of-type(1):checked ~ label:nth-of-type(1),
+        .toggle-wrapper input:nth-of-type(1):checked ~ label:nth-of-type(1) {
+            color: blue !important;
+        }
+
         .toggle-wrapper input:nth-of-type(2):checked ~ label:nth-of-type(2) {
-            color: white;
+            color: red !important;
         }
 
         .toggle-item:hover {
@@ -178,7 +181,7 @@
         }
 
         .toggle-wrapper input:checked ~ label:hover {
-            color: white;
+            color: black;
         }
     </style>
     <!-- Optional JavaScript -->

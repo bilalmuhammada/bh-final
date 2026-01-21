@@ -216,7 +216,7 @@ zoom: 1;
 
 .shaking:hover,
 .action-btn-shake:hover {
-    animation: shakeIcon 0.5s infinite;
+    animation: shakeIcon 2s linear infinite;
 }
 
 /* Favorite button active state */
@@ -226,9 +226,14 @@ zoom: 1;
 }
 
 /* Shaking image on ad card hover */
+.ad-listing-card:hover {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
+
 .ad-listing-card:hover img {
-    animation: shakeIcon 0.5s !important;
-    animation-iteration-count: infinite !important;
+    animation: shakeIcon 2s linear infinite !important;
 }
 
 /* Ad title color on hover - Logo Gold */

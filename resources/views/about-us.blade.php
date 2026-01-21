@@ -37,7 +37,7 @@ Either, you are looking to Buy, Sell or Rent Businesses, Company Shares, Innovat
 
                        
                    
-                        <ul style="text-align:justify; list-style-type: disc; padding-left: 15px; margin-top: 20px;">
+                        <ul style="text-align:justify; list-style-type: disc; padding-left: 14px; margin-top: 20px;">
                             <li style=""><strong>Buy & Sell Businesses:</strong> Access a wide range of listings, from startups to established companies looking for a new owner in various business industries.</li>
                             <li style=""><strong>Rent Businesses:</strong> Discover potential rental opportunities that allow you to manage a business without full ownership commitments, to avoid country legality time-consuming process.</li>
                             <li style=""><strong>Company Shares:</strong> Invest in or Sell Company Shares to expand your Business Portfolio or Generate additional capital worldwide.</li>

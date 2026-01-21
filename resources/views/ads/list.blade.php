@@ -135,12 +135,12 @@
     }
 
     .form {
-
         border-radius: 0.3rem;
-        margin-left: -24px;
         border: 1px solid rgb(194, 196, 199);
         display: flex !important;
-        width: 74rem !important;
+        width: 100% !important;
+        flex: 1;
+        align-items: stretch;
     }
 
     .form:hover {
@@ -170,11 +170,11 @@
 
     .swiper-button-next i,
     .swiper-button-prev i {
-        color: #A17A4E !important;
-        font-size: 18px !important;
-        font-weight: bold !important;
-        transition: color 0.3s ease;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        color: #fff !important;
+        font-size: 22px !important;
+        font-weight: normal !important;
+        transition: all 0.3s ease;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
 
     .swiper-button-next:hover i,
@@ -193,6 +193,13 @@
         align-items: center !important;
         justify-content: center !important;
         pointer-events: auto !important;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .swiper-container:hover .swiper-button-next,
+    .swiper-container:hover .swiper-button-prev {
+        opacity: 1;
     }
 
     .swiper-button-next {
@@ -218,6 +225,46 @@
         background-color: transparent;
         padding-right: 20px;
         /* Add some padding to keep the layout */
+    }
+
+    .featured-badge-static {
+        background-color: #007bff !important;
+        border-color: #007bff !important;
+        color: white !important;
+        cursor: default !important;
+    }
+    .featured-badge-static:hover, 
+    .featured-badge-static:focus, 
+    .featured-badge-static:active {
+        background-color: #007bff !important;
+        border-color: #007bff !important;
+        color: white !important;
+    }
+
+    .btn-search-blue {
+        background-color: #fff !important;
+    color: #007bff !important;
+    border: 1px solid goldenrod !important;
+    border-radius: 0.3rem !important;
+    font-weight: bold !important;
+    padding: 0 25px !important;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    }
+    .btn-search-blue:hover {
+        background-color: #007bff !important;
+        color: white !important;
+        border-color: #007bff !important;
+    }
+
+    .btn-clear-blue:hover {
+        background-color: #007bff !important;
+        color: white !important;
+        border-color: #007bff !important;
     }
 </style>
 <!--------ad area --------->
@@ -255,16 +302,16 @@ $cities_for_filter = \App\Helpers\RecordHelper::getCities(request()->country);
 $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city) ? $cities_for_filter->where('id', request()->city)->first()->name : 'All';
 @endphp
 <section class="desktop-view">
-    <div class="container" style=" max-width: 80rem;">
+    <div class="container d-flex align-items-center" style="max-width: 80rem; gap: 15px;">
 
         <form class="form">
-            <div class="row" style="display: flex; flex-wrap: nowrap;">
-                <div class="col-md-4 border-color" style="border-right:2px solid #eee;" id="cityArea">
+            <div class="row" style="display: flex; flex-wrap: nowrap; width: 100%; margin: 0;">
+                <div class="col border-color" style="border-right:2px solid #eee; flex: 1;" id="cityArea">
                     <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
                         aria-controls="multiCollapseExample1" style="color:#000;">
                         <div class="col-md-12" style="text-align: center;margin-top: 3px;"><span style="font-size: 14px;"><b>City</b></span></div>
                         <div class="col-md-12" style="margin-top: 8px;"> <select class="form-control city_dropdown_list1" name="city_dropdown" id=""
-                                style="text-align:center;background-color:transparent !important; font-size:13px; width: 109% !important;">
+                                style="text-align:center;background-color:transparent !important; font-size:13px; width: 100% !important;">
                                 <option value="">All </option>
                                 @foreach($cities_for_filter as $city)
                                 <option data-city-id="{{ $city->id }}"
@@ -276,10 +323,10 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                 </div>
 
 
-                <div class="col-md-7 border-color" style="border-right: 2px solid #eee; text-align: center;">
+                <div class="col border-color" style="border-right: 2px solid #eee; text-align: center; flex: 2.5;">
                     <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;font-size: 14px; margin-top: 2px;">Keyword</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control filter1 keyword_search" id="keyword" style="margin-top: -2px; font-size: 14px;" placeholder="Search anything in {{ $category_name->name }}">
+                    <div class="input-group" style="flex-wrap: nowrap;">
+                        <input type="text" class="form-control filter1 keyword_search" id="keyword" style="margin-top: -2px; font-size: 14px; width: 100% !important;" placeholder="Search anything in {{ $category_name->name }}">
                         <span style="margin-top:8px;font-weight: bolder; color: goldenrod;" id="searchIcon">
                             <i class="fa fa-search"></i> <!-- Bootstrap Icons -->
                         </span>
@@ -296,13 +343,13 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
 
 
 
-                <div class="col-md-7 border-color" style="border-right: 2px solid #eee; text-align: center;">
+                <div class="col border-color" style="border-right: 2px solid #eee; text-align: center; flex: 2;">
                     <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px; font-size: 14px; margin-top: 2px;">Neighborhood</label>
-                    <div class="input-group">
+                    <div class="input-group" style="flex-wrap: nowrap;">
                         <input type="text"
                             class="form-control filter1 location_name"
                             name="location_name"
-                            style="margin-top: -2px; font-size: 14px;"
+                            style="margin-top: -2px; font-size: 14px; width: 100% !important;"
                             id="location_name"
                             placeholder="Enter Location">
                         <span class="" id="locationIcon">
@@ -318,7 +365,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
 
 
 
-                <div class="col-md-5 border-color" style="border-right:2px solid #eee;" id="priceArea1">
+                <div class="col border-color" style="border-right:2px solid #eee; flex: 1.5;" id="priceArea1">
                     <a data-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false"
                         aria-controls="multiCollapseExample4" style="color:#000;">
                         <div class="col-md-12" style="text-align: center;margin-top:2px;"><span style="font-size: 14px;"><b>Price</b></span></div>
@@ -327,19 +374,19 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                     </a>
 
                     <span style="display: flex;">
-                        <input type="text" class="form-control filter1" style="border-right: 2px solid #eee;padding: 1px !important; font-size: 14px;" name="min_price" id="min_price" oninput="validatePhoneNumber(this)" placeholder="Min" min="0">
+                        <input type="text" class="form-control filter1" style="border-right: 2px solid #eee;padding: 1px !important; font-size: 14px; width: 50% !important;" name="min_price" id="min_price" oninput="validatePhoneNumber(this)" placeholder="Min" min="0">
 
 
-                        <input type="text" class="form-control max_price" style="padding: 0px 0px 0px 5px !important; font-size: 14px;width: 49.5% !important; " name="max_price" id="max_price" oninput="validatePhoneNumber(this)" placeholder="Max" min="0">
+                        <input type="text" class="form-control max_price" style="padding: 0px 0px 0px 5px !important; font-size: 14px;width: 50% !important; " name="max_price" id="max_price" oninput="validatePhoneNumber(this)" placeholder="Max" min="0">
                     </span>
 
                 </div>
 
-                <div class="col-md-5 border-color" id="filtersAreaw1">
+                <div class="col border-color" id="filtersAreaw1" style="flex: 1.5;">
                     <div class="col-md-12" style="text-align: center; margin-top: 2px;">
                         <span style="font-size: 15px;"><b>Sort</b></span>
                     </div>
-                    <select class="form-select form-control " style="font-size: 13px;" id="sortDropdown" onchange="">
+                    <select class="form-select form-control " style="font-size: 13px; width: 100% !important;" id="sortDropdown" onchange="">
 
                         {{-- <option class="option"  selected value=""></option> --}}
 
@@ -351,13 +398,12 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                     </select>
                 </div>
             </div>
-            <button class="btn" style="white-space: nowrap;margin-left:46.2rem;  color: blue; border: 1px solid goldenrod ;border-radius: 5px;" type="button" aria-expanded="false">
-                Search
-            </button>
-
         </form>
-
-
+        <div style="text-align: center;margin-top: 7px;margin-right: -26px;">
+            <button class="btn btn-search-blue" type="button" aria-expanded="false">
+                <i class="fa fa-search" style="margin-right: 8px;"></i> Search
+            </button>
+        </div>
     </div>
 </section>
 <!---new filter ennded----->
@@ -374,7 +420,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
 
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <button class="btn" style="border: 1px solid goldenrod ;float: right; white-space: nowrap; height: 36px; border-radius: 0.3rem; color: red;" type="button" aria-expanded="false">
+                    <button class="btn btn-clear-blue" style="border: 1px solid goldenrod ;float: right; white-space: nowrap; height: 36px; margin-right: 4px; border-radius: 0.3rem; color: red;" type="button" aria-expanded="false">
                         Clear Search
                     </button>
                 </div>
@@ -403,7 +449,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                                         </span>
                                     </div>
                                 </div>
-                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;bottom:10px; left: 10px; z-index: 6; pointer-events: none;">
+                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;bottom:10px; left: 4px; z-index: 6; pointer-events: none;">
                                     <span class="text-white swiper-pagination-fraction" style="font-size: 13px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);"></span>
                                 </div>
                             </div>
@@ -440,7 +486,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                                 <div class="col-lg-2 col-md-2 mb-30 col-3">
 
 
-                                    <button class="btn btn-primary" style="font-size:11px;color:white; font-weight:bold;padding: 2px 6px 1px 6px !important; margin-left:2px;">Featured</button>
+                                    <button class="btn btn-primary featured-badge-static" style="font-size:11px;color:white; font-weight:bold;padding: 2px 6px 1px 6px !important; margin-left:2px;">Featured</button>
                                 </div>
                             </div>
                         </div>

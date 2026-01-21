@@ -17,7 +17,7 @@
    }
  
   .categoryname:hover {
-    animation: shakeIcon 0.5s infinite;
+    animation: shakeIcon 2s linear infinite;
    }
     @keyframes shakeIcon {
   0% { transform: translateX(0); }

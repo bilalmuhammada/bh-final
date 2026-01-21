@@ -235,7 +235,7 @@ a{
 
    .countrylist:hover{
         /* color: blue; */
-        animation: shakeIcon 0.5s infinite;
+        animation: shakeIcon 2s linear infinite;
     }
 
     .select2-container--default .select2-selection--single .select2-selection__rendered{

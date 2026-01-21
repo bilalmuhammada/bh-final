@@ -33,7 +33,7 @@
         }
 
         .carousel-indicators {
-            margin-bottom: -10px;
+            margin-bottom: -20px;
             position: unset;
             justify-content: center;
             margin-left: -5px !important;
@@ -305,9 +305,9 @@ button.active .indicator-img {
     }
 
     .similar-listing-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        border-color: #0088eb;
+         transform: translateY(-5px); 
+        box-shadow: 0 10px 25px transparent; 
+        border-color: transparent; 
     }
 
     .similar-listing-image {
@@ -323,9 +323,9 @@ button.active .indicator-img {
         transition: transform 0.5s ease;
     }
 
-    .similar-listing-card:hover .similar-listing-image img {
+    /* .similar-listing-card:hover .similar-listing-image img {
         transform: scale(1.05);
-    }
+    } */
 
     .similar-listing-overlay {
         position: absolute;
@@ -611,7 +611,7 @@ button.active .indicator-img {
                                     <div class="carousel-indicators">
                                         @foreach($ad->attachments as $index => $image)
                                             <button 
-                                                type="button"  style="border: 0px;background: #fff; margin-top: 16px;height: 80px;"
+                                                type="button"  style="border: 0px;background: #fff; margin-top: 6px;height: 80px;"
                                                 data-bs-target="#carouselDemo" 
                                                 data-bs-slide-to="{{ $index }}" 
                                                 class="{{ $loop->first ? 'active' : '' }}">
@@ -688,18 +688,18 @@ button.active .indicator-img {
 
                         <hr style="border-color: #eee; width: 100%; margin: 5px 13px 0;">
                         <!---------->
-                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px;">
-                            <h6><b>Products & Services Offered</b></h6>
-                            <p style="font-size: 14px; margin-bottom: 7px;">{{ $ad->details->products_and_services_offered ?? '....' }} this is one line</p>
+                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px; margin-top: 4px;">
+                            <h6 style="margin-bottom: 2px;"><b>Products & Services Offered</b></h6>
+                            <p style="font-size: 14px; margin-bottom: 2px;">{{ $ad->details->products_and_services_offered ?? '....' }} this is one line</p>
                         </div>
                         <hr style="border-color: #eee; width: 100%; margin: 5px 13px 0;">
-                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px;">
-                            <h6><b>Description</b></h6>
-                            <p style="font-size: 14px;margin-bottom: 7px;">{{ $ad->description }} this is description</p>
+                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px; margin-top: 4px;">
+                            <h6 style="margin-bottom: 2px;"><b>Description</b></h6>
+                            <p style="font-size: 14px;margin-bottom: 2px;">{{ $ad->description }} this is description</p>
                         
                         </div>
                         <hr style="border-color: #eee; width: 100%; margin: 5px 13px 0;">
-                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px;">
+                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px; margin-top: 4px;">
                 
                                 <h6><b>Files</b></h6>
                                 <p style="font-size: 14px;">
@@ -721,19 +721,19 @@ button.active .indicator-img {
                         </div>
                       
                         <hr style="border-color: #eee; width: 100%; margin: 5px 13px 0;">
-                        <div class="col-lg-12 col-md-12 col-12" >
+                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px; margin-top: 4px;">
                             <h6 style="margin-bottom: 0px;"><b>Location</b></h5>
                             <div class="row">
-                                <div class="col-lg-6 col-md-6 col-6">
+                                <div class="col-lg-6 col-md-6 col-12">
                                     {{-- <div style="border-radius:5px;"> --}}
-                                        <h6 style="text-align: left;font-size:13px;font-weight:bold;">
+                                        <h6 style="text-align: left;font-size:13px;font-weight:bold; margin-top: 10px;">
                                           <i class="fa fa-map-marker text-danger shaking"></i>   <span style="margin-left: 9px;">{{ $ad->location_name }} </span>
                                         </h6>
                                     {{-- </div> --}}
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-6">
+                                <div class="col-lg-6 col-md-6 col-12" >
                                     {{-- <div style="border-radius:5px;"> --}}
-                                        <div style="width:100%; height:80px; border-radius:4px;" id="map"></div>
+                                        <div style="width:100%; height:70px; border-radius:4px;" id="map"></div>
                                     {{-- </div> --}}
                                 </div>
                             </div>
@@ -770,7 +770,7 @@ button.active .indicator-img {
                                 <!-- User Info -->
                                 <div class="mb-4">
                                     <p class="text-muted mb-1" style="font-size: 13px;">Posted by:</p>
-                                    <h6 class="mb-1"><b>{{ $ad->created_by_user->name }}</b></h6>
+                                    <h6 class="mb-2"><b>{{ $ad->created_by_user->name }}</b></h6>
                                     
                                     <div class="profile-image-container d-flex justify-content-center mb-2">
                                         <img src="{{ $ad->created_by_user->image_url }}" alt="img" width="150" height="135" style="border-radius:0.3rem; object-fit: cover;">
@@ -871,7 +871,7 @@ button.active .indicator-img {
                                         <a href="{{env('BASE_URL') . 'ads/detail/' . $similar_ad->id . '?country=' . request()->country . '&city=' . request()->city}}" style="text-decoration: none;">
                                             <div class="similar-listing-card">
                                                 <div class="similar-listing-image">
-                                                    <img src="{{ $similar_ad->main_image_url }}"  alt="{{ $similar_ad->name }}">
+                                                    <img src="{{ $similar_ad->main_image_url }}" class="shaking" alt="{{ $similar_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>
                                                     <div class="similar-listing-heart">
                                                         <i class="fa fa-heart-o shaking"></i>

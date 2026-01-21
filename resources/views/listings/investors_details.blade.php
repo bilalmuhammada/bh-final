@@ -280,15 +280,15 @@
     <div class="col-md-6 mx-auto">
         <div class="row">
             <div class="col-md-6">
-                <div class="form-group form-focus">
+                <div class="form-group form-focus" style="margin-bottom: 0px; ">
                     <input type="number" class="form-control floating mobile" name="phone" onwheel="this.blur()" placeholder=""
                         pattern="[0-9]{10}" title="Please enter a valid 10-digit Mobile  number" required>
                     <label class="focus-label">Mobile</label>
                 </div>
 
-                <div class="invalid-feedback">
+                {{-- <div style="font-size: 13px; color: #666; text-align: center; margin-top: 5px;">
                     Mobile number will show only request only !
-                </div>
+                </div> --}}
 
             </div>
 
@@ -299,7 +299,8 @@
                     <label class="focus-label">WhatsApp</label>
                 </div>
             </div>
-            <div class="form-group"  id="filemoble">
+            
+            <div class="col-md-6" id="filemoble" style="margin-bottom:6px; margin-top: -18px;">
                 <div class="premium-toggle-container">
                     <label class="premium-toggle-label">Do you want to Show or Hide your Mobile?</label>
                     <div class="toggle-wrapper">

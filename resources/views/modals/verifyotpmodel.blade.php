@@ -12,43 +12,72 @@
                 style="color: white; top:15px; right:15px; font-size:24px; background:none; border:none; outline:none;">&times;</button>
 
         <!-- Title -->
-        <h3 id="modal-title" style="font-weight: bold;line-height: 20px;color: #A17A4E; margin-bottom: 25px;" class="login-heading">
-            <div style="border-right: 0px solid #ffc000;text-align:center;">Verify OTP</div>
-        </h3>
+        <h5 id="modal-title" style="font-weight: bold; line-height: 20px; color: #A17A4E; font-size: 1.25rem; text-transform: uppercase;" class="login-heading">
+            <div style="border-right: 0px solid #ffc000; text-align: center;">Verify OTP</div>
+        </h5>
 
-        <p id="modal-description" style="font-size:15px; color:#aaa; margin-bottom:30px; line-height: 1.6;">
-          We've sent a 6-digit OTP to your registered email.<br>
-          Please enter it below to proceed.
+        <p id="modal-description" style="font-size: 14px; color: #aaa; margin-bottom: 25px; line-height: 1.6;">
+          Enter the OTP
         </p>
         
         <!-- Alert Section (Matches Login) -->
+        <!-- Alert Section Restored and Styled Subtly -->
         <div class="alert-div" style="display: none; margin-bottom: 20px;">
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <div class="alert-text" style="font-size: 14px;"></div>
-                <button type="button" class="close" onclick="$(this).closest('.alert-div').hide()">&times;</button>
+            <div class="alert alert-danger border-0 p-2" role="alert" style="background: rgba(255,0,0,0.1); color: #ff5e5e; font-size: 13px; border-radius: 4px;">
+                <span class="alert-text"></span>
+                <button type="button" class="close text-white opacity-50" onclick="$(this).closest('.alert-div').hide()" style="font-size: 18px; line-height: 1; padding: 0.5rem 0.75rem;">&times;</button>
             </div>
         </div>
 
-<style>
-    /* Focus State Blue */
+        <style>
+            
+      
+    /* Focus State - Removed Blue Shadow */
     .login-user:focus {
         border-color: blue !important;
-        box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+        box-shadow: none !important;
+        outline: none !important;
     }
-    /* Button Hover Blue */
+    /* OTP Box Styles */
+    .otp-box-container {
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+       
+    }
+    .otp-digit {
+        width: 40px;
+        height: 50px;
+        background: transparent !important;
+        border: 1px solid #A17A4E !important;
+        color: white !important;
+        font-size: 20px !important;
+        text-align: center !important;
+        border-radius: 6px !important;
+        outline: none !important;
+        transition: border-color 0.2s;
+    }
+    .otp-digit:focus {
+        border-color: blue !important;
+        box-shadow: none !important;
+    }
+    /* Button Hover blue */
     #verifyOtpBtn:hover {
         background-color: blue !important;
     }
     #verifyOtpForm .toggle-password {
         position: absolute;
-        right: 16px;
-        top: 58% !important;
+        right: 12px;
+        top: 57%;
         transform: translateY(-50%);
         cursor: pointer;
+        z-index: 10;
+        color: #A17A4E;
+        font-size: 16px;
     }
     #verifyOtpForm input::placeholder {
         color: white !important;
-        opacity: 0.7; /* Optional: Adjust opacity if needed, 1 for full white */
+        opacity: 0.7;
     }
 </style>
 
@@ -65,10 +94,15 @@
             </div>
             
             <div class="input-group mb-3">
-              <input type="text" id="otp" name="otp" maxlength="6" 
-                     class="form-control login-user"
-                     placeholder="Enter 6-digit Code"
-                     style="background: transparent; border: 1px solid #A17A4E; color: #fff; font-size:12px; letter-spacing:5px; padding: 10px 11px; border-radius: 4px; font-weight: 700; width: 100%; display: block; margin: 0 auto; text-align: center;">
+              <div class="otp-box-container">
+                  <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                  <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                  <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                  <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                  <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                  <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+              </div>
+              <input type="hidden" id="otp" name="otp">
             </div>
 
             <!-- Password fields for Forgot Password mode -->
@@ -94,12 +128,12 @@
             </div>
 
             <!-- Verify Button -->
-            <div class="login-submit-button-area">
+            <div class="login-submit-button-area" style="margin-bottom: 0px;">
                 <button type="button" 
                         class="btn" 
                         id="verifyOtpBtn"
-                        style="background-color:#A17A4E; color:white; border:none; font-weight:700; padding: 10px 30px; border-radius: 4px; text-transform: uppercase; font-size: 12px;">
-                  Verify & Proceed
+                        style="background-color:#A17A4E; color:white; border:none; font-weight:700; padding: 8px 35px; border-radius: 4px; text-transform: uppercase; font-size: 13px; ">
+                  Submit
                 </button>
             </div>
           </form>
@@ -144,23 +178,48 @@ function toggleOtpPassword(fieldId, iconElement) {
 function openOtpModal(email, mode = 'registration') {
     current_otp_mode = mode;
     $('#verify_email').val(email);
+    $('.otp-digit').val('');
     $('#otp').val('');
     $('#new_password').val('');
     $('#confirm_password').val('');
+    $('#verifyOtpModal .alert-div').hide();
     
     if (mode === 'forgot_password') {
         $('#forgot-password-fields').show();
         $('#modal-title').text('Reset Password');
-        $('#modal-description').html("Enter the 6-digit OTP sent to your email and<br>your new password to complete the reset.");
+        $('#modal-description').html("Enter the OTP");
+        $('#otp-label').show();
     } else {
         $('#forgot-password-fields').hide();
         $('#modal-title').text('Verify OTP');
-        $('#modal-description').html("We've sent a 6-digit OTP to your registered email.<br>Please enter it below to verify your account.");
+        $('#modal-description').html("Enter the OTP");
+        $('#otp-label').hide();
     }
     $('#verifyOtpModal').modal('show');
+    // Auto focus first box
+    setTimeout(() => $('.otp-digit').first().focus(), 500);
 }
 
+// Handle OTP digit input tabbing
+$(document).on('keyup', '.otp-digit', function(e) {
+    let key = e.key;
+    let input = $(this);
+    
+    if (key === 'Backspace' || key === 'Delete') {
+        input.prev('.otp-digit').focus();
+    } else if (input.val().length === 1) {
+        input.next('.otp-digit').focus();
+    }
+});
+
 $('#verifyOtpBtn').click(function() {
+    // Collect OTP digits
+    let CollectedOtp = "";
+    $('.otp-digit').each(function() {
+        CollectedOtp += $(this).val();
+    });
+    $('#otp').val(CollectedOtp);
+
     let otp = $('#otp').val();
     let email = $('#verify_email').val();
 

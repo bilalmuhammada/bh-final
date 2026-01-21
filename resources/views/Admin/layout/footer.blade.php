@@ -14,7 +14,7 @@
    }
  
    .shaking:hover {
-    animation: shakeIcon 0.5s infinite;
+    animation: shakeIcon 2s linear infinite;
    }
 
    @keyframes shakeIcon {

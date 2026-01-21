@@ -156,7 +156,7 @@ width: 225px !important;
             <div class="row">
                 <div class="col-md-2" style="border: 0px solid red;text-align:center;">
                     <img id="profile-image" class="display-profile-img" src="{{session()->get('user')->image_url}}" alt="img" width="120" height="120" style="border-radius: 0.3rem; border: 0px solid red;">
-                    <a href="#" id="change-photo-link"  style="display: flex; margin-left: 51px; margin-top: 5px;font-size:15px; color: goldenrod;">Change Photo</a>
+                    <a href="#" id="change-photo-link"  style="display: flex; margin-left: 48px; margin-top: 5px;font-size:13px; color: goldenrod;">Change Photo</a>
                     <input type="file" name="profile_image" id="profile_image" class="form-control-file" accept="image/*" style="border: 1px solid #999; border-radius: 0.3rem; display: none;">
                     <input type="hidden" name="image" class="base64-Image-name">
                 </div>
@@ -339,7 +339,7 @@ width: 225px !important;
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12" style="margin-top: 10px;">
+                            <div class="col-md-12" style="margin-top: 0px;">
                                 <div class="row">
                                     <div class="col-md-12 text-left">
                                         <a class="btn add-list-button update-profile-btn update-profile-submit-btn"

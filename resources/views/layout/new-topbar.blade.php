@@ -35,8 +35,8 @@
 
     /* start */
 .select2-search__field{
-    border-radius: 0.3rem;
-    border-color: #997045 !important;
+    border-radius: 0px !important;
+    border-color: #0071DC !important;
         }
         .select2-search__field:hover{
     border-color: blue !important;
@@ -198,16 +198,20 @@ $second = $parts[1] ?? null;
                                 <span class="auth"  style="text-align:center;font-size:14px !important;    font-weight: bold;">
                                         <a class="register-btn">Register</a>
                                </span>
+                               @if(!in_array(request()->path(), ['privacy-policy', 'terms-of-use', 'terms']))
                                 <span style="padding:4px 15px;text-align:center;font-size:14px !important;">
                                     <a class="add-list-button add-listing-btn"
                                        style="padding: 7px 8px;border-radius: 0.3rem;">+ Place Your Ad</a>
                                 </span> 
+                                @endif
                             @else
-                                <a class="dashboard-btn"  href="{{env('BASE_URL') . 'home'}}" >Dashboard</a>
+                                <a class="dashboard-btn"  href="{{env('BASE_URL') . 'home'}}" style="margin-right: 15px;">Dashboard</a>
+                                @if(!in_array(request()->path(), ['privacy-policy', 'terms-of-use', 'terms']))
                                 <span style="padding:4px 15px;text-align:center;font-size:14px !important;">
                                     <a class="add-list-button add-listing-btn"
                                        style="padding: 7px 8px;border-radius: 0.3rem;">+ Place Your Ad</a>
                                 </span> 
+                                @endif
                             @endif
                         
                         {{-- </div> --}}

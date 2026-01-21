@@ -165,7 +165,7 @@ label{
     transition: transform 0.2s ease-in-out;
    }
    .shaking:hover ,.apexcharts-legend-series:hover {
-    animation: shakeIcon 0.5s infinite;
+    animation: shakeIcon 2s linear infinite;
    }
   @keyframes shakeIcon {
     0% { transform: translateX(0); }
