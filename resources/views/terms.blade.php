@@ -15,12 +15,12 @@
         <div class="container">
             <div class="row" style="margin-bottom: 3rem;">
                 <div class="col-md-12 col-lg-12 col-xl-12 term-text">
-                    <div class="login-header" style="margin-left: -45px;width: 104%;">
+                    <div class="login-header" style="margin-left: -47px; width: calc(100% + 92px);">
                         {{-- <a href="{{ env('BASE_URL') }}">
                             <img src="{{asset('images/businesshub.png')}}" alt="" width="150px" alt="logo">
                         </a> --}}
                         {{-- <h3 style="margin-top: 20px;">Contact Us</h3> --}}
-                        <h1 class="terms-h "   >Terms of Use</h1>
+                        <h1 class="terms-h" style="padding-left: 0px;">Terms of Use</h1>
                        
                         <p style="text-align: justify;">
                             BusinessHub Platform Terms of Use ("Terms of Use") tell you the rules for using the platform available at www.businesshub.at and through any BusinessHub mobile application available from time to time (collectively, the "Platform"), as well as any information, content or materials published on, or available via, the Platform (collectively, the "Content").
@@ -412,7 +412,7 @@
 <p>We may amend these Business Account Terms from time to time, with or without notice to you. The new version of these Business Account Terms will be made available on this page.</p>
 
                   
-<h6 style="margin-top: 28px; ">Last Revised Date: <span style="font-weight:800 "> December 1, 2024</span></h6>
+<h6 style="margin-top: 28px; ">Last Revised Date: <span style="font-weight:800 "> May 2025</span></h6>
 
 
                     

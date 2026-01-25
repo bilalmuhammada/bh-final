@@ -62,7 +62,7 @@
     }
 
     .select2-dropdown {
-        border: 1px solid transparent !important;
+        border: none !important;
         background-color: #fff;
         color: #000 !important;
         border-radius: 4px !important;
@@ -888,4 +888,5 @@ $catgories_for_search = $categories->random()->take(6)->get();
         });
     });
 </script>
+
 @endsection

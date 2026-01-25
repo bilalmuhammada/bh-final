@@ -33,8 +33,8 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         background: #fff;
         border-bottom: 1px solid #f0f0f0;
     }
-    .colorchange:hover{
-        color: #0071DC !important;
+    .colorchange:hover {
+        color: #0088eb !important;
     }
 
     .topbar-items-group {
@@ -105,7 +105,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         border: none !important;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
         border-radius: 4px !important;
-        margin-top: 10px !important;
+        margin-top: 2px !important;
         padding:  0 !important;
     }
 
@@ -138,7 +138,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     padding: 3px 8px; 
     border-radius: 6px; 
     font-weight: 600; 
-    font-size: 14px; 
+    font-size: 12px; 
     color: #fff !important; 
     background-color: #A17A4E !important; 
     white-space: nowrap;
@@ -166,6 +166,10 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     .price-text {
         color: #FF0000 !important;
     }
+    .view-all-link:hover {
+        color: #0088eb !important;
+        text-decoration: none;
+    }
 
     /* Select2 Search Field Styles */
     .select2-search--dropdown .select2-search__field {
@@ -181,8 +185,9 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
     /* Subcategory Dropdown */
     #subcategorydropdown {
-        border-radius: 0.5rem !important;
-        max-height: 25rem !important;
+        border-radius: 4px !important;
+        max-height: 18rem !important;
+        overflow-y: auto !important;
         border: none !important;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
     }
@@ -190,11 +195,14 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     /* Select2 Arrow and Selection Refinements - Moved to custom.css */
 
     /* Enable hover open for dropdowns */
-    .dropdown:hover > .dropdown-menu {
+    .dropdown.hover-delay > .dropdown-menu {
         display: block !important;
     }
-    .nav-item.dropdown:hover > .dropdown-menu {
+    .nav-item.dropdown.hover-delay > .dropdown-menu {
         display: block !important;
+    }
+    .nav-item.dropdown:hover > .nav-link {
+        color: blue !important;
     }
 
     /* Custom Dropdown for Three Dots */
@@ -361,7 +369,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                                     </div>
                                 @endforeach
                             </div>
-                            <div class="text-center ">
+                            <div class="text-center py-1 border-top">
                                 <a href="{{ env('BASE_URL').'notifications'}}" class="fw-bold view-all-link" style="font-size: 13px; color: red;">View all Notifications</a>
                             </div>
                         @else
@@ -400,7 +408,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                                     </a>
                                 @endforeach
                             </div>
-                            <div class="text-center">
+                            <div class="text-center py-1 border-top">
                                 <a href="{{ env('BASE_URL') . 'ads?type=favourite' }}" class="fw-bold view-all-link" style="font-size: 13px; color: red;">View all Favorites</a>
                             </div>
                         @else
@@ -457,14 +465,14 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                         <span style="white-space: nowrap; padding: 0px 14px;">{{session()->get('user')->first_name}} {{session()->get('user')->last_name}}</span>
                         <img src="{{session()->get('user')->image_url}}" class="topbar-profile-img">
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right p-0" style="min-width: 80px; border: 1px solid #eee !important;">
+                    <div class="dropdown-menu dropdown-menu-right p-0" style="min-width:70px; border: 1px solid #eee !important; margin-top: 2px !important;">
                         <div class="list-group list-group-flush">
-                            <a class="list-group-item list-group-item-action colorchange" style=" font-size: 13px; padding: 0px 14px; color: black; border: none; display: flex; align-items: center;" href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">
+                            <a class="list-group-item list-group-item-action colorchange" style=" font-size: 13px; padding:0px 4px 0px 4px; color: black; border: none; display: flex; align-items: center;" href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">
                             
                                 <span>My Profile</span>
                             </a>
                             
-                            <a class="list-group-item list-group-item-action colorchange logout-btn" style=" font-size: 13px; padding: 0px 14px; color: black; border: none; display: flex; align-items: center;">
+                            <a class="list-group-item list-group-item-action colorchange logout-btn" style=" font-size: 13px; padding:0px 4px 0px 4px; color: black; border: none; display: flex; align-items: center;">
                                 
                                 <span>Sign Out</span>
                             </a>
@@ -578,12 +586,12 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                     <div class="row">
                         @php $categories = \App\Helpers\RecordHelper::getCategories(); @endphp
                         @foreach($categories as $category)
-                        <li class="nav-item dropdown" onchange="">
+                        <li class="nav-item dropdown">
                             <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 {{$category->name}}
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="subcategorydropdown" style="margin-left: 6px !important;">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="subcategorydropdown" style="margin-left: 7px !important;">
                                 @foreach($category->sub_categories as $sub_category)
                                 <a class="dropdown-item link"
                                     href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city }}">{{$sub_category->name}}</a>
@@ -603,7 +611,10 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     </div>
     <hr>
 </header>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@php
+    // Removed duplicate jQuery include to prevent conflict with version in header.blade.php
+@endphp
+
 
 <script>
     $(document).on('click', '.nav-item.dropdown', function() {
@@ -621,22 +632,44 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
 
 
+    // Dropdown delay logic
+    $(document).ready(function() {
+        var dropdownTimer;
+        
+        $('.nav-item.dropdown').on('mouseenter', function() {
+            var $this = $(this);
+            clearTimeout(dropdownTimer);
+            $('.nav-item.dropdown').removeClass('hover-delay');
+            $this.addClass('hover-delay');
+        }).on('mouseleave', function() {
+            var $this = $(this);
+            dropdownTimer = setTimeout(function() {
+                $this.removeClass('hover-delay');
+            }, 500); // 2 seconds delay
+        });
+
+        $('.dropdown-menu').on('mouseenter', function() {
+            clearTimeout(dropdownTimer);
+        }).on('mouseleave', function() {
+            var $dropdown = $(this).closest('.dropdown');
+            dropdownTimer = setTimeout(function() {
+                $dropdown.removeClass('hover-delay');
+            }, 500); // 2 seconds delay
+        });
+    });
+
     function toggleDropdown(element, event) {
         // Stop click from bubbling to parent notification dropdown
         event.stopPropagation();
-
         const dropdownMenu = element.nextElementSibling;
-
         // Close other three-dots menus
         document.querySelectorAll('.dropdown-menu-custom').forEach(menu => {
             if (menu !== dropdownMenu) menu.style.display = 'none';
         });
-
         // Toggle this menu
         dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
     }
 
-    // Example actions
     function markAsRead(el) {
         el.closest('.notification-item').style.background = '#fff';
     }
@@ -644,6 +677,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     function removeNotification(el) {
         el.closest('.notification-item').remove();
     }
+
     // Close dropdown if clicked outside
     window.onclick = function(event) {
         if (!event.target.matches('.dropdown-toggle-custom')) {

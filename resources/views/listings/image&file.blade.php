@@ -29,7 +29,7 @@
 </div>
 
 <!-- Middle Separate Section for Toggle -->
-<div class="col-md-6 mx-auto" style="margin-top: -10px;">
+<div class="col-md-6 mx-auto" style="margin-top: -7px; margin-bottom: 7px;">
     <div class="premium-toggle-container" id="filehide" >
         <label class="premium-toggle-label">Do you want to Show or Hide your Files?</label>
         <div class="toggle-wrapper">

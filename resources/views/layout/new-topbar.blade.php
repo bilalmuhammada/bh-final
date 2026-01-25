@@ -190,7 +190,7 @@ $second = $parts[1] ?? null;
                     
                @if(request()->path()!=="contact-us")
                     <div class="col-lg-6 col-xl-6 col-md-6" style="margin-top: 17px;">
-                        <div style="float:right;margin-right: -45px;">
+                        <div style="float:right;margin-right: -53px;">
                             @if (!session()->has('user'))
                             <span class="auth" style="text-align:center;font-size:14px !important;font-weight: bold;">
                                 <a class="login-btn">Login</a>

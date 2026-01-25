@@ -21,8 +21,9 @@
 .map {
     height: 10rem;
     width: 33rem;
-    margin-left: 5rem;
+    margin-left: 5.5rem;
     margin-top: 10px;
+    border-radius: 4px;
 }
 
 .image-gallery {

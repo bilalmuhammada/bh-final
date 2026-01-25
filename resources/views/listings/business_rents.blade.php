@@ -49,6 +49,7 @@
         height: 51px;
         padding: 21px 12px 6px;
         border: 1px solid #2d11e7;
+        font-size: 14px !important;
         /* box-shadow: 1px 1px 1px 1px #eee; */
     }
 

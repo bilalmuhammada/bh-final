@@ -192,7 +192,7 @@ zoom: 1;
 .select2-dropdown {
     background: white !important;
     color: black !important;
-    border: 0px solid #aaa;
+    border: none !important;
     border-radius: 4px;
     box-sizing: border-box;
     display: block;

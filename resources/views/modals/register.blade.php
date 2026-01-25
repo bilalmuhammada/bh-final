@@ -256,9 +256,9 @@ padding-left: 31px;
                         <!-- clicking start -->
                         <p class="by" >
                             By registering, I agree to the BusinessHub
-                            <a href="{{ env('BASE_URL').'terms-of-use'}}" id="colorTowhite" style="color:#0070cc;">Terms & Condition</a>
+                            <a href="{{ env('BASE_URL').'terms-of-use'}}" id="colorTowhite" style="color:#00aaff;">Terms & Condition</a>
                             and
-                            <a href="{{ env('BASE_URL').'privacy-policy'}}" id="colorTowhite" style="color:#0070cc;">Privacy
+                            <a href="{{ env('BASE_URL').'privacy-policy'}}" id="colorTowhite" style="color:#00aaff;">Privacy
                                 Policy</a>.
                         </p>
                         <!-- clicking finish -->
@@ -272,8 +272,8 @@ padding-left: 31px;
                             
                         </div>
                         <div class="Forgot" style="font-size: 12px;text-align: left; margin-top: -10px;">
-                            <a  class="show-forgot-btn" id="colorTowhite" style="margin-left: 13px;color:#0070cc;" > Forgot Password? </a>
-                           <span style="float: right;margin-right: 13px;">Already on BusinessHub? <a  class="login-btn" style="color:#0070cc;" id="colorTowhite" >&nbsp; Click Here </a></span>
+                            <a  class="show-forgot-btn" id="colorTowhite" style="margin-left: 13px;color:#00aaff;" > Forgot Password? </a>
+                           <span style="float: right;margin-right: 40px; color: #fff;">Already on BusinessHub? | <a  class="login-btn" style="color:#00aaff;" id="colorTowhite" > Click Here </a></span>
                                
                            </div>
                         <!-- Register button finish -->

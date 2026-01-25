@@ -37,7 +37,7 @@ form{
 }
 .form-control {
     width: -webkit-fill-available !important;
-    font-size: 16px !important;
+    font-size: 14px !important;
 }
 select {
     -webkit-appearance: none; /* For Chrome, Safari, Edge */

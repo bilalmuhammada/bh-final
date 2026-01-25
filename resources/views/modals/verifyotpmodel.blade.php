@@ -7,18 +7,17 @@
     <div class="modal-content" style="background-color: rgba(33, 34, 35, .90) !important; border-radius: 0.3rem; border: none;">
       <div class="modal-body text-center text-white p-4 position-relative">
 
-        <!-- Close Button -->
-        <button type="button" class="close position-absolute" data-dismiss="modal" 
-                style="color: white; top:15px; right:15px; font-size:24px; background:none; border:none; outline:none;">&times;</button>
+        <!-- Title Area -->
+        <div class="d-flex align-items-center justify-content-center mb-3" style="position: relative; margin-bottom: 10px !important;">
+            <h5 id="modal-title" style="font-weight: bold; line-height: 20px; color: #A17A4E; font-size: 1.1rem; text-transform: uppercase; margin: 0 auto;" class="login-heading">
+                Verify OTP
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" 
+                    style="color: white; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size:24px; background:none; border:none; outline:none; padding: 0;">&times;</button>
+        </div>
 
-        <!-- Title -->
-        <h5 id="modal-title" style="font-weight: bold; line-height: 20px; color: #A17A4E; font-size: 1.25rem; text-transform: uppercase;" class="login-heading">
-            <div style="border-right: 0px solid #ffc000; text-align: center;">Verify OTP</div>
-        </h5>
-
-        <p id="modal-description" style="font-size: 14px; color: #aaa; margin-bottom: 25px; line-height: 1.6;">
-          Enter the OTP
-        </p>
+        <!-- Description Removed (Requirement 2) -->
+        <p id="modal-description" style="display: none;"></p>
         
         <!-- Alert Section (Matches Login) -->
         <!-- Alert Section Restored and Styled Subtly -->
@@ -93,7 +92,7 @@
                      style="background: transparent; border: 1px solid #A17A4E; color: #fff; font-size:14px; padding: 10px 11px; border-radius: 4px; width: 100%;">
             </div>
             
-            <div class="input-group mb-3">
+            <div class="mb-3" style="width: 100%; display: flex; justify-content: center;">
               <div class="otp-box-container">
                   <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
                   <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
@@ -132,7 +131,7 @@
                 <button type="button" 
                         class="btn" 
                         id="verifyOtpBtn"
-                        style="background-color:#A17A4E; color:white; border:none; font-weight:700; padding: 8px 35px; border-radius: 4px; text-transform: uppercase; font-size: 13px; ">
+                        style="background-color:#A17A4E; color:white; border:none; font-weight:700; padding: 8px 35px; border-radius: 4px; text-transform: uppercase; font-size: 11px; ">
                   Submit
                 </button>
             </div>
@@ -187,12 +186,12 @@ function openOtpModal(email, mode = 'registration') {
     if (mode === 'forgot_password') {
         $('#forgot-password-fields').show();
         $('#modal-title').text('Reset Password');
-        $('#modal-description').html("Enter the OTP");
+        $('#modal-description').hide();
         $('#otp-label').show();
     } else {
         $('#forgot-password-fields').hide();
         $('#modal-title').text('Verify OTP');
-        $('#modal-description').html("Enter the OTP");
+        $('#modal-description').hide();
         $('#otp-label').hide();
     }
     $('#verifyOtpModal').modal('show');

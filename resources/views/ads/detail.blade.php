@@ -281,7 +281,7 @@ button.active .indicator-img {
 
     .similar_ad {
         margin-left: -2px;
-        background: #fdfdfd;
+        background: transparent;
         padding-bottom: 30px;
         border-radius: 12px;
     }
@@ -308,6 +308,12 @@ button.active .indicator-img {
          transform: translateY(-5px); 
         box-shadow: 0 10px 25px transparent; 
         border-color: transparent; 
+    }
+
+    .similar-listing-card:hover .similar-listing-title,
+    .similar-listing-card:hover .similar-listing-category,
+    .similar-listing-card:hover .similar-listing-price {
+        color: goldenrod !important;
     }
 
     .similar-listing-image {
@@ -352,7 +358,7 @@ button.active .indicator-img {
     }
 
     .similar-listing-heart i:hover {
-        color: #ff3131;
+        color: goldenrod;
     }
 
     .similar-listing-count {
@@ -362,7 +368,6 @@ button.active .indicator-img {
         color: #fff;
         font-size: 11px;
         font-weight: 500;
-        background: rgba(0,0,0,0.4);
         padding: 2px 8px;
         border-radius: 10px;
         backdrop-filter: blur(4px);
@@ -401,15 +406,15 @@ button.active .indicator-img {
     .slick-prev, .slick-next {
         width: 45px !important;
         height: 45px !important;
-        background: #fff !important;
+        background: transparent !important;
         border-radius: 50% !important;
-        box-shadow: 0 6px 16px rgba(0,0,0,0.1) !important;
+        box-shadow: none !important;
         z-index: 10 !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
-        border: 1px solid #f0f0f0 !important;
+        border: none !important;
     }
 
     .slick-prev:before, .slick-next:before {
@@ -417,20 +422,21 @@ button.active .indicator-img {
     }
 
     .slick-prev:hover, .slick-next:hover {
-        background: #0088eb !important;
+       
         transform: scale(1.1);
-        box-shadow: 0 10px 20px rgba(0, 136, 235, 0.3) !important;
+       
         border-color: #0088eb !important;
     }
 
     .slick-prev i, .slick-next i {
-        color: #1a1a1a !important; /* Dark grey by default */
-        font-size: 18px !important;
-        transition: color 0.3s ease !important;
+        color: goldenrod !important; /* Logo-Gold */
+        font-size: 32px !important;
+        transition: all 0.3s ease !important;
     }
 
     .slick-prev:hover i, .slick-next:hover i {
-        color: #fff !important; 
+        color: #0088eb !important; 
+        transform: scale(1.1);
     }
 
     .slick-prev {
@@ -627,17 +633,7 @@ button.active .indicator-img {
 
                                 <div id="slide-counter" 
                                 class="col-md-7 col-6" 
-                                style="
-                                   position: absolute; 
-                                   color: white; 
-                                   
-                                   width: 90px; 
-                                   border-radius: 9px; 
-                                   margin-left: 10px; 
-                                   top: 17rem; 
-                                   z-index: 2; 
-                                   display: flex; 
-                                   align-items: center;">
+                                style="display: none !important;">
                                {{-- <i class="fa fa-image" style="font-size: 16px;"></i> --}}
                                <span style="color: white;">
                                    1 / {{ $ad->attachments->count() }}
@@ -722,18 +718,20 @@ button.active .indicator-img {
                       
                         <hr style="border-color: #eee; width: 100%; margin: 5px 13px 0;">
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px; margin-top: 4px;">
-                            <h6 style="margin-bottom: 0px;"><b>Location</b></h5>
+                            
                             <div class="row">
+                                
                                 <div class="col-lg-6 col-md-6 col-12">
                                     {{-- <div style="border-radius:5px;"> --}}
-                                        <h6 style="text-align: left;font-size:13px;font-weight:bold; margin-top: 10px;">
+                                    <h6 style="margin-bottom: 0px;"><b>Location</b></h5>
+                                        <h6 style="text-align: left;font-size:13px;font-weight:bold; margin-top: 5px;">
                                           <i class="fa fa-map-marker text-danger shaking"></i>   <span style="margin-left: 9px;">{{ $ad->location_name }} </span>
                                         </h6>
                                     {{-- </div> --}}
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12" >
                                     {{-- <div style="border-radius:5px;"> --}}
-                                        <div style="width:100%; height:70px; border-radius:4px;" id="map"></div>
+                                        <div style="width:100%; height:70px; border-radius:6px;" id="map"></div>
                                     {{-- </div> --}}
                                 </div>
                             </div>

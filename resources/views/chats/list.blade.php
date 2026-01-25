@@ -20,7 +20,7 @@ select {
     .chat-users-list {
         overflow-y: auto;
         max-height: 400px; /* Adjust as needed */
-        padding: 10px;
+        padding: 0px;
         /* border: 1px solid #ddd; */
         border-radius: 5px;
     }
@@ -198,8 +198,18 @@ color:#0686ee !important;
 .mgn-send-color:hover{
 color: goldenrod !important;
 }
-#select2-language_dropdown-container {
-    margin-left: -22px !important;
+#select2-filter-dropdown-container {
+    color: blue !important;
+    font-weight: 600 !important;
+}
+.select2-container--default .select2-selection--single {
+    border: none !important;
+    background: transparent !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 0 !important;
+}
+
 }
     .chat-info {
         display: flex;
@@ -265,12 +275,10 @@ input.form-control-search:focus {
 
 } 
 .form-control-search{
-    margin-top: 7px  !important;
-    margin-left: 21px  !important;
-    width: 90% !important;
     border:1px solid goldenrod !important;
-    padding-left: 30px;
-    font-size: 10px !important;
+    padding-left: 35px;
+    font-size: 13px !important;
+    height: 40px;
 }
 .position-relative {
     position: relative;
@@ -451,49 +459,33 @@ a:hover {
                     <div class="chat-window">
 
                         <div class="chat-cont-left">
-                            <div class="row" style="padding:5px 8px;">
-                                <div class="col-md-6">
-                                    <div class="row align-items-center"  id="checkbox">
-                                        
-                                            <input type="checkbox" class="hiddencheck" id="check-all" >
-                                            <span style="font-size: 13px;">Select All</span>
-                                      
-                                        
+                            <div class="d-flex justify-content-between align-items-center py-2 px-3 border-bottom">
+                                <div class="d-flex align-items-center gap-2">
+                                    <input type="checkbox" class="hiddencheck mb-0" id="check-all">
+                                    <span style="font-size: 11px; font-weight: 500;" class="hiddencheck">Select All</span>
+                                </div>
+                                <div class="flex-grow-1 text-center">
+                                    <select class="form-select chat" id="filter-dropdown" style="width: auto; min-width: 120px;">
+                                        <option value="all">All Chats</option>
+                                        <option value="favorites">Favourites</option>
+                                        <option value="unread">Unread</option>
+                                        <option value="blocked">Blocked</option>
+                                    </select>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="hiddentrash">
+                                        <i class="fa fa-trash cursor-pointer" style="color: blue; font-size: 15px;"></i>
+                                    </div>
+                                    <div class="edit">
+                                        <i class="fa fa-pencil cursor-pointer" id="edit-icon" style="color: blue; font-size: 15px;"></i>
                                     </div>
                                 </div>
-                                    <div class="col-md-2" style="margin-left: -97px;margin-top: 2px;">
-                                            <select class="form-select chat" id="filter-dropdown" style="width: 164%; ;">
-                                                <option value="all">All Chats</option>
-                                                <option value="favorites">Favourites</option>
-                                                <option value="unread">Unread</option>
-                                                <option value="blocked">Blocked</option>
-                                            </select>
-                                        </div>
-
-                               
-                                <div class="col-md-2 hiddentrash">
-                                    <div class="row">
-                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 183px;">
-                                            <i class="fa fa-trash" style="color: rgb(9, 9, 166);font-size: 15px;"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 edit">
-                                    <div class="row">
-                                        <div class="col-md-12 text-center" style="margin: 9px 0px 0px 182px;">
-                                            <i class="fa fa-pencil" id="edit-icon" style="color: rgb(9, 9, 166);font-size: 15px;"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                
-                            </div> 
+                            </div>
                             
-                            <div class="row">
-                                <div class="col-md-12 position-relative">
-                                  
-                                 <input type="text" name="" id="" placeholder="Search..." class="form-control form-control-search">
-                               
+                            <div class="px-3 py-1 ">
+                                <div class="position-relative">
+                                    <i class="fa fa-search search-icon"></i>
+                                    <input type="text" name="" id="search" placeholder="Search..." class="form-control form-control-search" style="padding-left: 30px; width: 100%; margin-top: 0px;">
                                 </div>
                             </div>
                             <div class="chat-users-list" id="chat-users-list">
@@ -557,7 +549,7 @@ a:hover {
                                                 </div>
                                                
                                                 <!-- Bottom: Time & Unread badge -->
-                                                <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #666;">
+                                                <div style="display: flex; align-items: center; gap: 12px; font-size: 12px; color: #666;">
                                                     <div class="badge bgg-yellow badge-pill unread-count" 
                                                         style="display: {{ ($login_user_id != $chat->latest_message_sender_id && $chat->unread_count > 0) ? 'block' : 'none' }};border-radius: 30px;">
                                                         {{ $chat->unread_count }}
@@ -1013,7 +1005,7 @@ $.ajax({
 
         function accept_or_reject(status, chat_id) {
             $.ajax({
-                url: api_url + 'chats/accept-or-reject',
+                url: api_url + 'app/chats/accept-or-reject',
                 method: 'POST',
                 data: {
                     chat_id: chat_id,
@@ -1035,7 +1027,7 @@ $.ajax({
             
         
             $.ajax({
-                url: api_url + 'chats/mark-as-read',
+                url: api_url + 'app/chats/mark-as-read',
                 method: 'POST',
                 data: {
                     id: id
@@ -1075,7 +1067,7 @@ $.ajax({
         function send_new_message(message, thisElem) {
             // alert($(message).val());
             $.ajax({
-                url: api_url + 'chats/send-message',
+                url: api_url + 'app/chats/send-message',
                 method: 'POST',
                 data: {
                     user_id: $(thisElem).attr('data-user-id'),
@@ -1101,7 +1093,7 @@ $.ajax({
 
              
             $.ajax({
-                url: api_url + 'chats/get-new-messages',
+                url: api_url + 'app/chats/get-new-messages',
                 method: 'GET',
                 success: function (response) {
                     if (response.status) {
@@ -1209,7 +1201,7 @@ $(document).on('click', '.closebtn ', function() {
                 }).then((result) => {
                     if (result.value) {
                         $.ajax({
-                            url: api_url + 'chats/delete-chats',
+                            url: api_url + 'app/chats/delete-chats',
                             type: 'POST',
                             dataType: "JSON",
                             data: {chat_ids: selectedValues},

@@ -55,8 +55,8 @@
     }
     .remove-document{
     position: absolute;
-    top: 5px;
-    right: 45px;
+    top: 3px;
+    right: 53px;
     /* background-color: rgba(255, 255, 255, 0.8); */
     border-radius: 50%;
     padding: 4px;
@@ -92,7 +92,7 @@
             width: 100%;
             height: calc(2.4em + 0.75rem + 2px) !important;
             padding: 0.375rem 0.75rem;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 400;
             line-height: 1.5;
             color: #495057;

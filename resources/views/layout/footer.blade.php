@@ -178,7 +178,7 @@
         <!-- footer copyright area start -->
         <div class="row copyright ">
             <div class="col-lg-12 ">
-                <p style="color:#00498e;text-align:center;font-size:12px; margin-top: -10px;">© BusinessHub.com 2024, All Rights Reserved.</p>
+                <p style="color:#00498e;text-align:center;font-size:12px; margin-top: -10px;">© BusinessHub.com {{ date('Y') }}, All Rights Reserved.</p>
             </div>
         </div>
         <!-- footer copyright area finish -->

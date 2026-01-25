@@ -339,6 +339,7 @@ public function resend()
     public function resetPassword(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
             'password_reset_code' => 'required',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -350,7 +351,10 @@ public function resend()
             ]);
         }
 
-        $User = User::where('password_reset_code', $request->password_reset_code)->first();
+        $User = User::where('email', $request->email)
+                    ->where('password_reset_code', $request->password_reset_code)
+                    ->first();
+
         if (!empty($User)) {
             $User->password = Hash::make($request->password);
             $User->password_reset_code = '';
@@ -362,7 +366,7 @@ public function resend()
         } else {
             return response()->json([
                 'status' => FALSE,
-                'message' => 'Invalid password reset request'
+                'message' => 'Invalid password reset request. Please ensure the OTP and email are correct.'
             ]);
         }
     }

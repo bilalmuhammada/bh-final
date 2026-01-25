@@ -138,11 +138,31 @@ class ChatController extends Controller
 
     public function sendMessage(Request $request)
     {
+        $chat_id = $request->chat_id;
+        $receiver_id = $request->user_id;
+        $sender_id = SiteHelper::getLoginUserId();
+
+        // Fallback: If receiver_id is missing, try to find the other user from the chat record
+        if (empty($receiver_id)) {
+            $chat = Chat::find($chat_id);
+            if ($chat) {
+                $receiver_id = ($chat->first_user_id == $sender_id) ? $chat->second_user_id : $chat->first_user_id;
+            }
+        }
+
+        // Final check: If we still don't have a receiver_id, we can't send the message
+        if (empty($receiver_id)) {
+            return response()->json([
+                'status' => false,
+                'message' => "Receiver not found. The other user may have been deleted."
+            ], 422);
+        }
+
         $Message = Message::create([
-            'sender_id' => SiteHelper::getLoginUserId(),
-            'receiver_id' => $request->user_id,
+            'sender_id' => $sender_id,
+            'receiver_id' => $receiver_id,
             'message' => $request->message,
-            'chat_id' => $request->chat_id,
+            'chat_id' => $chat_id,
             'is_readed' => 0,
             'sended_at' => Carbon::now()
         ]);

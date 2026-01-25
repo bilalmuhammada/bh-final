@@ -17,7 +17,7 @@
         <div class="container">
             <div class="row " style="margin-bottom: 30px;">
                 <div class="col-md-12 col-lg-12 col-xl-12 term-text">
-                    <div class="login-header" style="margin-left: -45px;width: 104%;">
+                    <div class="login-header" style="margin-left: -47px; width: calc(100% + 92px);">
                         {{-- <a href="{{ env('BASE_URL') }}">
                             <img src="{{asset('images/businesshub.png')}}" alt="" width="150px" alt="logo">
                         </a> --}}
@@ -411,7 +411,7 @@
     We reserve the right to update this Privacy Policy at any time, with or without notice to you. Where that is the case, we will update this page to display the revised Privacy Policy and may also under certain circumstances notify you (for example, by email). Any revisions to this Privacy Policy will be effective immediately once posted on this page.
 </p>
 
-<p style="color: #333;">Last Revised Date:<strong> December 1, 2024</strong></p>
+<p style="color: #333;">Last Revised Date:<strong> May 2025</strong></p>
 
 
                     <!-- Privacy Policy text finish -->

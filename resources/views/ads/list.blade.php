@@ -70,6 +70,10 @@
         color: #000;
         /* margin-top: 4px; */
     }
+    .dropdown-item {
+       
+        padding: 2px 12px;
+    }
 
     .carousel-item {
         border-radius: 20px;
@@ -135,10 +139,9 @@
     }
 
     .form {
-        border-radius: 0.3rem;
+        border-radius: 4px;
         border: 1px solid rgb(194, 196, 199);
         display: flex !important;
-        width: 100% !important;
         flex: 1;
         align-items: stretch;
     }
@@ -179,7 +182,7 @@
 
     .swiper-button-next:hover i,
     .swiper-button-prev:hover i {
-        color: blue !important;
+        color: #A17A4E !important;
     }
 
     .swiper-button-next,
@@ -233,6 +236,8 @@
         color: white !important;
         cursor: default !important;
     }
+
+
     .featured-badge-static:hover, 
     .featured-badge-static:focus, 
     .featured-badge-static:active {
@@ -243,27 +248,36 @@
 
     .btn-search-blue {
         background-color: #fff !important;
-    color: #007bff !important;
-    border: 1px solid goldenrod !important;
-    border-radius: 0.3rem !important;
-    font-weight: bold !important;
-    padding: 0 25px !important;
-    height: 66px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    white-space: nowrap;
+        color: #007bff !important;
+        border: 1px solid goldenrod !important;
+        border-radius: 4px !important;
+        font-weight: bold !important;
+        padding: 0 22px !important;
+        height: 65px; /* Reduced height to align better */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        white-space: nowrap;
     }
     .btn-search-blue:hover {
-        background-color: #007bff !important;
-        color: white !important;
+        color: #007bff !important;
         border-color: #007bff !important;
     }
 
+    .btn-clear-blue {
+        border: 1px solid goldenrod !important;
+        float: right;
+        white-space: nowrap;
+        height: 36px;
+        margin-right: 4px;
+        border-radius: 4px;
+        color: red;
+        background-color: #fff !important;
+        transition: all 0.2s ease;
+    }
     .btn-clear-blue:hover {
-        background-color: #007bff !important;
-        color: white !important;
+        color: #007bff !important;
         border-color: #007bff !important;
     }
 </style>
@@ -275,19 +289,19 @@
         <div id="demo" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:0.3rem;">
+                    <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:4px;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:0.3rem;">
+                    <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:4px;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:0.3rem;">
+                    <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:4px;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/image3.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:0.3rem;">
+                    <img src="{{asset('images/slider-images/image3.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:4px;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/image4.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:0.3rem;">
+                    <img src="{{asset('images/slider-images/image4.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:4px;">
                 </div>
             </div>
         </div>
@@ -309,7 +323,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                 <div class="col border-color" style="border-right:2px solid #eee; flex: 1;" id="cityArea">
                     <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
                         aria-controls="multiCollapseExample1" style="color:#000;">
-                        <div class="col-md-12" style="text-align: center;margin-top: 3px;"><span style="font-size: 14px;"><b>City</b></span></div>
+                        <div class="col-md-12" style="text-align: center;margin-top: 1px;"><span style="font-size: 14px;"><b>City</b></span></div>
                         <div class="col-md-12" style="margin-top: 8px;"> <select class="form-control city_dropdown_list1" name="city_dropdown" id=""
                                 style="text-align:center;background-color:transparent !important; font-size:13px; width: 100% !important;">
                                 <option value="">All </option>
@@ -324,7 +338,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
 
 
                 <div class="col border-color" style="border-right: 2px solid #eee; text-align: center; flex: 2.5;">
-                    <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;font-size: 14px; margin-top: 2px;">Keyword</label>
+                    <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;font-size: 14px; margin-top: 1px;">Keyword</label>
                     <div class="input-group" style="flex-wrap: nowrap;">
                         <input type="text" class="form-control filter1 keyword_search" id="keyword" style="margin-top: -2px; font-size: 14px; width: 100% !important;" placeholder="Search anything in {{ $category_name->name }}">
                         <span style="margin-top:8px;font-weight: bolder; color: goldenrod;" id="searchIcon">
@@ -332,7 +346,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                         </span>
 
 
-                        <ul id="subcategoryDropdown" class="dropdown-menu" style="display: none;max-height: 11.2rem !important; position: absolute; z-index: 1000; width: 100%;">
+                        <ul id="subcategoryDropdown" class="dropdown-menu" style="display: none;max-height: 11.2rem !important; position: absolute; z-index: 1000; width: 100%; border-radius: 4px;">
 
                         </ul>
                     </div>
@@ -344,7 +358,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
 
 
                 <div class="col border-color" style="border-right: 2px solid #eee; text-align: center; flex: 2;">
-                    <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px; font-size: 14px; margin-top: 2px;">Neighborhood</label>
+                    <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px; font-size: 14px; margin-top: 1px;">Neighborhood</label>
                     <div class="input-group" style="flex-wrap: nowrap;">
                         <input type="text"
                             class="form-control filter1 location_name"
@@ -368,7 +382,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                 <div class="col border-color" style="border-right:2px solid #eee; flex: 1.5;" id="priceArea1">
                     <a data-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false"
                         aria-controls="multiCollapseExample4" style="color:#000;">
-                        <div class="col-md-12" style="text-align: center;margin-top:2px;"><span style="font-size: 14px;"><b>Price</b></span></div>
+                        <div class="col-md-12" style="text-align: center;margin-top:1px;"><span style="font-size: 14px;"><b>Price</b></span></div>
 
 
                     </a>
@@ -383,7 +397,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                 </div>
 
                 <div class="col border-color" id="filtersAreaw1" style="flex: 1.5;">
-                    <div class="col-md-12" style="text-align: center; margin-top: 2px;">
+                    <div class="col-md-12" style="text-align: center; margin-top: 1px;">
                         <span style="font-size: 15px;"><b>Sort</b></span>
                     </div>
                     <select class="form-select form-control " style="font-size: 13px; width: 100% !important;" id="sortDropdown" onchange="">
@@ -399,7 +413,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                 </div>
             </div>
         </form>
-        <div style="text-align: center;margin-top: 7px;margin-right: -26px;">
+        <div style="text-align: center; margin-top: 5px; margin-right: -27px;">
             <button class="btn btn-search-blue" type="button" aria-expanded="false">
                 <i class="fa fa-search" style="margin-right: 8px;"></i> Search
             </button>
@@ -420,7 +434,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
 
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <button class="btn btn-clear-blue" style="border: 1px solid goldenrod ;float: right; white-space: nowrap; height: 36px; margin-right: 4px; border-radius: 0.3rem; color: red;" type="button" aria-expanded="false">
+                    <button class="btn btn-clear-blue" type="button" aria-expanded="false">
                         Clear Search
                     </button>
                 </div>
