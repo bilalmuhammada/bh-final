@@ -141,7 +141,7 @@
                             </a>
                         </div>
                         <div class="copyright-text bilal-footer" style="margin-top: -12px;">
-                            <p style="color:#00498e;text-align:center;">© BusinessHub.com 2024, All Rights Reserved.</p>
+                            <p style="color:#00498e;text-align:center;">© BusinessHub.com {{ date('Y') }}, All Rights Reserved.</p>
                         </div>
                     </div>
                     <div class="col-md-4 col-lg-4 right-text">
