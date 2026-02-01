@@ -46,7 +46,7 @@ Either, you are looking to Buy, Sell or Rent Businesses, Company Shares, Innovat
                             <li style=""><strong>Franchise Opportunities:</strong> Discover franchising as a viable option to expand your Business or invest in an Established Brand with a Proven Track Record.</li>
                             <li style=""><strong>Machinery & Supplies:</strong> Find the necessary equipment and supplies to start or grow your business efficiently.</li>
                         </ul>
-                    <b class="joinnow">  <a class="register-btn" style="margin-left: 9px;">Join BusinessHub Now! </a></b>
+                    <b class="joinnow">  <a class="register-btn" style="margin-left: 2px;">Join BusinessHub Now! </a></b>
                 </div>
                 <!-- about us text finish -->
             </div>

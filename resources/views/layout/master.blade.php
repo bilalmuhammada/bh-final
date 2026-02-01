@@ -96,6 +96,11 @@ $second = $parts[1] ?? null;
 
     $(document).ready(function () {
         ajax_setup();
+        $.fn.select2.defaults.set("language", {
+            noResults: function () {
+                return "No Data";
+            }
+        });
     });
 </script>
 <!-- Lobibox -->

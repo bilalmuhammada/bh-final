@@ -3,13 +3,13 @@
 
 <!-- OTP Verification Modal -->
 <div class="modal fade" id="verifyOtpModal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" style="max-width: 27% !important; min-width: 350px; margin: auto;">
+  <div class="modal-dialog" style="max-width: 27% !important; min-width: 350px; margin: 30px auto;">
     <div class="modal-content" style="background-color: rgba(33, 34, 35, .90) !important; border-radius: 0.3rem; border: none;">
       <div class="modal-body text-center text-white p-4 position-relative">
 
         <!-- Title Area -->
         <div class="d-flex align-items-center justify-content-center mb-3" style="position: relative; margin-bottom: 10px !important;">
-            <h5 id="modal-title" style="font-weight: bold; line-height: 20px; color: #A17A4E; font-size: 1.1rem; text-transform: uppercase; margin: 0 auto;" class="login-heading">
+            <h5 id="modal-title" style="font-weight: bold; line-height: 20px; color: #A17A4E; font-size: 1.1rem; margin: 0 auto;" class="login-heading">
                 Verify OTP
             </h5>
             <button type="button" class="close" data-dismiss="modal" 
@@ -85,7 +85,7 @@
           <form id="verifyOtpForm">
             <input type="hidden" id="verify_email1" name="email1">
 
-            <div class="input-group mb-3">
+            <div class="input-group mb-4">
               <input type="text" id="verify_email" name="email"
                      class="form-control login-user"
                      readonly
@@ -94,8 +94,6 @@
             
             <div class="mb-3" style="width: 100%; display: flex; justify-content: center;">
               <div class="otp-box-container">
-                  <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
-                  <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
                   <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
                   <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
                   <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*">
@@ -131,7 +129,7 @@
                 <button type="button" 
                         class="btn" 
                         id="verifyOtpBtn"
-                        style="background-color:#A17A4E; color:white; border:none; font-weight:700; padding: 8px 35px; border-radius: 4px; text-transform: uppercase; font-size: 11px; ">
+                        style="background-color:#A17A4E; color:white; border:none; font-weight:700; padding: 8px 35px; border-radius: 4px; font-size: 11px; ">
                   Submit
                 </button>
             </div>

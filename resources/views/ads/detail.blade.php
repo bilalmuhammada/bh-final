@@ -310,10 +310,8 @@ button.active .indicator-img {
         border-color: transparent; 
     }
 
-    .similar-listing-card:hover .similar-listing-title,
-    .similar-listing-card:hover .similar-listing-category,
-    .similar-listing-card:hover .similar-listing-price {
-        color: goldenrod !important;
+    .similar-listing-card:hover .similar-listing-title {
+        color: #A17A4E !important;
     }
 
     .similar-listing-image {
@@ -422,21 +420,19 @@ button.active .indicator-img {
     }
 
     .slick-prev:hover, .slick-next:hover {
-       
-        transform: scale(1.1);
-       
-        border-color: #0088eb !important;
+        /* transform: scale(1.1); */
+        border-color: blue !important;
     }
 
     .slick-prev i, .slick-next i {
-        color: goldenrod !important; /* Logo-Gold */
+        color: goldenrod  !important; /* Logo-Blue */
         font-size: 32px !important;
         transition: all 0.3s ease !important;
     }
 
     .slick-prev:hover i, .slick-next:hover i {
-        color: #0088eb !important; 
-        transform: scale(1.1);
+        color: blue !important; /* Logo-Gold */
+        /* transform: scale(1.1); */
     }
 
     .slick-prev {
@@ -682,19 +678,19 @@ button.active .indicator-img {
                         @endif
 
 
-                        <hr style="border-color: #eee; width: 100%; margin: 5px 13px 0;">
+                        <hr style="border-color: #eee; width: 100%; margin: 0px 13px 0;">
                         <!---------->
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px; margin-top: 4px;">
                             <h6 style="margin-bottom: 2px;"><b>Products & Services Offered</b></h6>
                             <p style="font-size: 14px; margin-bottom: 2px;">{{ $ad->details->products_and_services_offered ?? '....' }} this is one line</p>
                         </div>
-                        <hr style="border-color: #eee; width: 100%; margin: 5px 13px 0;">
+                        <hr style="border-color: #eee; width: 100%; margin: 0px 13px 0;">
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px; margin-top: 4px;">
                             <h6 style="margin-bottom: 2px;"><b>Description</b></h6>
                             <p style="font-size: 14px;margin-bottom: 2px;">{{ $ad->description }} this is description</p>
                         
                         </div>
-                        <hr style="border-color: #eee; width: 100%; margin: 5px 13px 0;">
+                        <hr style="border-color: #eee; width: 100%; margin: 0px 13px 0;">
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px; margin-top: 4px;">
                 
                                 <h6><b>Files</b></h6>
@@ -737,7 +733,7 @@ button.active .indicator-img {
                             </div>
                         </div>
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
-                        <hr style="border-color: #eee; width: 100%; margin: 5px 13px 0;">
+                        <hr style="border-color: #eee; width: 100%; margin: 0px 13px 0;">
                         <div style="font-weight: bold;font-size:15px;margin-top: 6px;margin-left: 12px;">
                             Is there an issue?
 
@@ -753,7 +749,7 @@ button.active .indicator-img {
                         </div>
                        
                         
-                        <hr style="border-color: #eee; width: 100%; margin: 5px 13px 0;">
+                        <hr style="border-color: #eee; width: 100%; margin: 0px 13px 0;">
 
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
                         <!---------------------->

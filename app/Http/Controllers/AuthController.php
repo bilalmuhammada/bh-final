@@ -84,7 +84,7 @@ class AuthController extends Controller
         }
 
         $role_id = Role::firstWhere('role_key', $request->role)->id ?? 1;
-        $otp = rand(100000, 999999);
+        $otp = rand(1000, 9999);
         $User = User::create([
             'role_id' => $role_id,
             'name' => $request->first_name . " " . $request->last_name,
@@ -177,7 +177,7 @@ public function resend()
         return redirect()->route('login')->with('error', 'Session expired. Please log in again.');
     }
   
-    $otp = rand(100000, 999999);
+    $otp = rand(1000, 9999);
     Session::put('otp_code', $otp);
     $details = [
         'name' => $otp_username,
@@ -290,7 +290,7 @@ public function resend()
         $User = User::where('email', $request->email)->first();
 
         if (!empty($User)) {
-            $otp = rand(100000, 999999);
+            $otp = rand(1000, 9999);
             $User->password_reset_code = $otp;
             $User->save();
 
@@ -445,7 +445,7 @@ public function resend()
 
     public function generateEmailVerificationcode()
     {
-        $code = 1 . Carbon::now()->format('Hs');
+        $code = rand(1000, 9999);
 
 
         $User = User::find(Auth::id() ?? Session::get('user')->id);

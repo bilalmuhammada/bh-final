@@ -76,7 +76,7 @@
     }
 
     .carousel-item {
-        border-radius: 20px;
+        border-radius: 0px;
     }
 
     .dropdown-toggle::after {
@@ -88,7 +88,7 @@
     }
 
     .swiper-slide {
-        border-radius: 10px;
+        border-radius: 0px;
     }
 
     .filter-options-list {
@@ -182,7 +182,8 @@
 
     .swiper-button-next:hover i,
     .swiper-button-prev:hover i {
-        color: #A17A4E !important;
+        color: #0000FF !important;
+        transform: none !important;
     }
 
     .swiper-button-next,
@@ -248,8 +249,8 @@
 
     .btn-search-blue {
         background-color: #fff !important;
-        color: #007bff !important;
-        border: 1px solid goldenrod !important;
+        color: #A17A4E !important;
+        border: 1px solid #A17A4E !important;
         border-radius: 4px !important;
         font-weight: bold !important;
         padding: 0 22px !important;
@@ -261,12 +262,12 @@
         white-space: nowrap;
     }
     .btn-search-blue:hover {
-        color: #007bff !important;
-        border-color: #007bff !important;
+        color: blue !important;
+        border-color: blue !important;
     }
 
     .btn-clear-blue {
-        border: 1px solid goldenrod !important;
+        border: 1px solid #A17A4E !important;
         float: right;
         white-space: nowrap;
         height: 36px;
@@ -277,8 +278,31 @@
         transition: all 0.2s ease;
     }
     .btn-clear-blue:hover {
-        color: #007bff !important;
-        border-color: #007bff !important;
+        color: blue !important;
+        border-color: blue !important;
+    }
+
+    /* Select2 Sharp Edges and Styling */
+    .select2-container--default .select2-selection--single {
+        border: none !important;
+        border-radius: 0px !important;
+        height: auto !important;
+        background-color: transparent !important;
+        min-width: 120px !important;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        text-align: center !important;
+        padding-left: 0 !important;
+        font-weight: bold;
+        color: #000 !important;
+    }
+    .select2-dropdown {
+        border-radius: 4px !important;
+        border: 1px solid transparent !important;
+        min-width: 120px !important;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        display: none !important;
     }
 </style>
 <!--------ad area --------->
@@ -321,19 +345,17 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
         <form class="form">
             <div class="row" style="display: flex; flex-wrap: nowrap; width: 100%; margin: 0;">
                 <div class="col border-color" style="border-right:2px solid #eee; flex: 1;" id="cityArea">
-                    <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
-                        aria-controls="multiCollapseExample1" style="color:#000;">
-                        <div class="col-md-12" style="text-align: center;margin-top: 1px;"><span style="font-size: 14px;"><b>City</b></span></div>
-                        <div class="col-md-12" style="margin-top: 8px;"> <select class="form-control city_dropdown_list1" name="city_dropdown" id=""
+                    <div class="col-md-12" style="text-align: center;margin-top: 1px;"><span style="font-size: 14px;"><b>City</b></span></div>
+                    <div class="col-md-12" style="margin-top: 8px;">
+                        <select class="form-control city_dropdown_list1" name="city_dropdown" id=""
                                 style="text-align:center;background-color:transparent !important; font-size:13px; width: 100% !important;">
-                                <option value="">All </option>
-                                @foreach($cities_for_filter as $city)
+                            <option value="">All </option>
+                            @foreach($cities_for_filter as $city)
                                 <option data-city-id="{{ $city->id }}"
-                                    {{ $city->id == request()->city ? 'selected' : '' }} value="{{ $city->id }}"
-                                    style="font-size:8px !important;">{{ $city->name }}</option>
-                                @endforeach
-                            </select></div>
-                    </a>
+                                    {{ $city->id == request()->city ? 'selected' : '' }} value="{{ $city->id }}">{{ $city->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
 
 
@@ -413,7 +435,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                 </div>
             </div>
         </form>
-        <div style="text-align: center; margin-top: 5px; margin-right: -27px;">
+        <div style="text-align: center; margin-top: 5px; margin-right: -25px;">
             <button class="btn btn-search-blue" type="button" aria-expanded="false">
                 <i class="fa fa-search" style="margin-right: 8px;"></i> Search
             </button>
@@ -458,7 +480,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                                     <!-- Sharing and Favourite buttons -->
                                     <div style="margin-top: 12px; margin-left: 232px;  z-index: 6; pointer-events: auto;">
                                         <span>
-                                            <a><i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking" is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}" style="font-size: 20px;margin-right: 7px; margin-left: 27px; color: white;"></i></a>
+                                            <a><i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking" is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}" style="font-size: 20px; margin-left: 19px; color: #A17A4E;"></i></a>
 
                                         </span>
                                     </div>
@@ -489,7 +511,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                         <div class="col-lg-8 col-md-8 col-12">
                             <div class="row" style="margin-top: -12px;">
                                 <div class="col-lg-7 col-md-7 col-7" style="margin-left: -118px">
-                                    <h5 style="font-size: 18px;font-weight:700;margin: 0px 0px 5px 0px;">{{ $ad->title ?? 'Heading N/A' }}</h5>
+                                    <h5 style="font-size: 18px;font-weight:700;margin: 0px 0px 5px 0px; color: #A17A4E;">{{ $ad->title ?? 'Heading N/A' }}</h5>
                                     <p style="font-size: 13px;margin-bottom: 10px;">{{ $ad->category_name }} <span style="font-size: 14px;"> > </span> {{ $ad->subcategory_name }}</p>
                                     <h3 style="font-weight: bold;font-size:18px;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price, session('app_currency', 'USD')) }}</h3>
 
@@ -801,6 +823,30 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                 observer: true,
                 observeParents: true,
             });
+        });
+
+        // Initialize City Dropdown with Select2
+        $(".city_dropdown_list1").select2({
+            placeholder: "All",
+            allowClear: false,
+            width: '100%'
+        });
+
+        // Search button logic
+        $('#btn-search-main').on('click', function () {
+            var city_id = $('.city_dropdown_list1').val();
+            var subcategory_id = "{{ $subcategory_id }}";
+            var from_price = $('#min_price').val();
+            var to_price = $('#max_price').val();
+            var keyword = $('.keyword_search').val();
+            var location = $('#location_name').val();
+            
+            window.location.assign(base_url + "ads/" + subcategory_id + "?country={{ request()->country }}&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city_id + "&location=" + encodeURIComponent(location));
+        });
+
+        // Trigger search on Select2 change (optional, keeping it commented out for now as per user preference implied by commenting it out, but updated logic)
+        $('.city_dropdown_list1').on('change', function () {
+             // window.location.assign(base_url + "ads/{{ $subcategory_id }}?country={{ request()->country }}&from=" + $('#min_price').val() + "&to=" + $('#max_price').val() + "&keyword=" + $('.keyword_search').val() + "&city=" + $(this).val());
         });
     });
 </script>

@@ -205,7 +205,7 @@ zoom: 1;
 
 .select2-results__option {
     color: black !important;
-    font-weight: bold !important;
+    font-weight: normal !important;
 }
 
 /* Shaking Effect */
@@ -239,7 +239,7 @@ zoom: 1;
 /* Ad title color on hover - Logo Gold */
 .ad-listing-card:hover h5,
 .ad-listing-card:hover .detail span:first-child {
-    color: goldenrod !important;
+    color: #A17A4E !important;
     transition: color 0.3s ease;
 }
 

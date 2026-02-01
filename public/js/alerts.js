@@ -7,24 +7,24 @@ $(document).ready(function () {
 });
 
 function showAlert(type = 'success', msg = 'Notification', delay = 1000) {
-    Lobibox.notify(type, {
-        size: 'mini',
-        msg: msg,
-        icon: false,
-        width: 105,
-        position: 'top right', // Notification position
-        delay:delay,
-
-       
-    });
+    // Lobibox.notify(type, {
+    //     size: 'mini',
+    //     msg: msg,
+    //     icon: false,
+    //     width: 105,
+    //     position: 'top right', // Notification position
+    //     delay:delay,
+    //
+    //
+    // });
 }
 
 function showBotomAlert(type = 'success', msg = 'Notification') {
-    Lobibox.notify(type, {
-        size: 'mini',
-        msg: msg,
-        position: 'bottom right',
-    });
+    // Lobibox.notify(type, {
+    //     size: 'mini',
+    //     msg: msg,
+    //     position: 'bottom right',
+    // });
 }
 
 function showImgAlert(type = 'success', msg = 'Notification', img_url = public_url + "images/default/alert.jpg") {

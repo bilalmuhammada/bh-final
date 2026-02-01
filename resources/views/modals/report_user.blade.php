@@ -24,9 +24,7 @@
             color: blue;
             font-size: 15px;
         }
-        .colorchange:focus{
-            border: 1px solid #000fff  !important;
-        }
+       
         .form-control {
             margin-top: 7px;
             margin-left: 1px;

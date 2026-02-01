@@ -116,6 +116,9 @@
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+    .select2-results__message {
+        font-weight: normal !important;
+    }
   </style>
     <script>
      function formatCountry(country) {
@@ -144,6 +147,11 @@
 }
 
         $(document).ready(function () {
+            $.fn.select2.defaults.set("language", {
+                noResults: function () {
+                    return "No Data";
+                }
+            });
          $(".currency_dropdown").select2({
             templateSelection: formatCountry,
             templateResult: formatCountry,

@@ -56,7 +56,7 @@
     .remove-document{
     position: absolute;
     top: 3px;
-    right: 53px;
+    right: 11px;
     /* background-color: rgba(255, 255, 255, 0.8); */
     border-radius: 50%;
     padding: 4px;

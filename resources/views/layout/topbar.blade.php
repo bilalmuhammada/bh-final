@@ -34,7 +34,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         border-bottom: 1px solid #f0f0f0;
     }
     .colorchange:hover {
-        color: #0088eb !important;
+        color: blue !important;
     }
 
     .topbar-items-group {
@@ -109,6 +109,13 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         padding:  0 !important;
     }
 
+    .color-logo{
+        color: red !important;
+    }
+
+    .color-logo:hover{
+        color: blue !important;
+    }
     /* Selection items (Select2-like styling for custom selects) */
     .custom-select-trigger {
         border: 1px solid #eee;
@@ -136,7 +143,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
   .ad-place-btn{
     padding: 3px 8px; 
-    border-radius: 6px; 
+    border-radius: 4px; 
     font-weight: 600; 
     font-size: 12px; 
     color: #fff !important; 
@@ -174,6 +181,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     /* Select2 Search Field Styles */
     .select2-search--dropdown .select2-search__field {
         padding: 5px !important;
+        font-weight: normal !important;
         border: 1px solid #A17A4E !important;
         border-radius: 4px !important;
         outline: none !important;
@@ -348,7 +356,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                                 @foreach($notifications as $notification)
                                     <div class=" list-group-item-action border-bottom pl-2 pr-2" style="background-color: aliceblue;">
                                         <div class="d-flex align-items-center position-relative">
-                                            <div style="flex-shrink: 0; width: 50px; height: 52px; border-radius: 4px; overflow: hidden; background: #fff;">
+                                            <div style="flex-shrink: 0; width: 50px; height: 46px; border-radius: 4px; overflow: hidden; background: #fff;">
                                                 <img style="width: 100%; height: 100%; object-fit: cover;" src="https://www.ivertech.com/Articles/Images/KoalaBear200x200.jpg" />
                                             </div>
                                             <div class="ms-3 flex-grow-1 px-2">
@@ -369,8 +377,8 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                                     </div>
                                 @endforeach
                             </div>
-                            <div class="text-center py-1 border-top">
-                                <a href="{{ env('BASE_URL').'notifications'}}" class="fw-bold view-all-link" style="font-size: 13px; color: red;">View all Notifications</a>
+                            <div class="text-center pt-2 pb-2 border-top">
+                                <a href="{{ env('BASE_URL').'notifications'}}" class="fw-bold color-logo" style="font-size: 14px;">View all Notifications</a>
                             </div>
                         @else
                             <div class="p-4 text-center text-muted small">Nothing to show</div>
@@ -394,8 +402,8 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                             </div>
                             <div class="list-group list-group-flush">
                                 @foreach($favourite_ads as $favourite_ad)
-                                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $favourite_ad->id . '?country=' . request()->country . '&city=' . request()->city }}" class=" list-group-item-action border-bottom d-flex align-items-center pl-2 pr-2 py-1" style="background-color: aliceblue;">
-                                        <div style="flex-shrink: 0; width: 45px; height: 45px; border-radius: 4px; overflow: hidden; background: #fff;">
+                                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $favourite_ad->id . '?country=' . request()->country . '&city=' . request()->city }}" class=" list-group-item-action border-bottom d-flex align-items-center pl-2 pr-2" style="background-color: aliceblue;">
+                                        <div style="flex-shrink: 0; width: 45px; height: 38px; border-radius: 4px; overflow: hidden; background: #fff;">
                                             <img src="{{ $favourite_ad->main_image_url ?? 'https://via.placeholder.com/80x80?text=Ad' }}" style="width: 100%; height: 100%; object-fit: cover;">
                                         </div>
                                         <div class="ms-3 flex-grow-1 px-2">
@@ -408,8 +416,8 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                                     </a>
                                 @endforeach
                             </div>
-                            <div class="text-center py-1 border-top">
-                                <a href="{{ env('BASE_URL') . 'ads?type=favourite' }}" class="fw-bold view-all-link" style="font-size: 13px; color: red;">View all Favorites</a>
+                            <div class="text-center pt-2 pb-2 border-top">
+                                <a href="{{ env('BASE_URL') . 'ads?type=favourite' }}" class="fw-bold  color-logo" style="font-size: 14px;">View all Favorites</a>
                             </div>
                         @else
                             <div class="p-4 text-center text-muted small">No favorites yet</div>
@@ -419,19 +427,20 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
                 <!-- Chats -->
                 <div class="dropdown" style="margin-bottom: 4px;">
-                    <a class="topbar-dropdown-trigger trigger-with-badge" id="chatsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a href="{{ count($chats) > 0 ? '#' : route('chats') . '?country=' . request()->country . '&city=' . request()->city }}" class="topbar-dropdown-trigger trigger-with-badge" id="chatsDropdown" @if(count($chats) > 0) data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @endif>
                         Chats
                         @if(count($chats) > 0)
                             <span class="badge-premium-green">{{ count($chats) }}</span>
                         @endif
                     </a>
+                    @if(count($chats) > 0)
                     <div class="dropdown-menu shadow-lg" style="width:420px;">
                         <div class="pl-2 pr-2 pb-2 pt-2 border-bottom d-flex justify-content-between align-items-center">
-                            <h6 class="mb-0 fw-bold">Messages</h6>
+                            <h6 class="mb-0 fw-bold">Chats</h6>
                             <span class="badge badge-new-green">{{ count($chats) }} New</span>
                         </div>
                         <div class="list-group list-group-flush">
-                            @forelse($chats->take(3) as $message)
+                            @foreach($chats->take(3) as $message)
                                 <a href="{{ route('chats') . '/detail/' . $message->id . '?country=' . request()->country . '&city=' . request()->city }}" class=" list-group-item-action d-flex align-items-center pl-2 pr-2 " style="background-color: aliceblue; margin-bottom: .15rem; margin-top: .15rem;">
                                     <img src="{{ $message->chat->other_user->image_url ?? 'https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg' }}" class="rounded-circle" width="60" height="60" style="object-fit: cover;">
                                     <div class="ms-3 flex-grow-1 px-2 overflow-hidden">
@@ -444,14 +453,13 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                                     </div>
                                     <img src="{{ $message->chat->ad->main_image_url ?? 'https://via.placeholder.com/45' }}" class="rounded" width="60" height="60" style="object-fit: cover; border: 1px solid #eee;">
                                 </a>
-                            @empty
-                                <div class="p-4 text-center text-muted small">No new messages</div>
-                            @endforelse
+                            @endforeach
                         </div>
-                        <div class="p-1 text-center border-top">
-                            <a href="{{ route('chats') . '?country=' . request()->country . '&city=' . request()->city }}" class="fw-bold view-all-link" style="font-size: 13px; color: red;">View all Chats</a>
+                        <div class="pt-2 pb-2 text-center border-top">
+                            <a href="{{ route('chats') . '?country=' . request()->country . '&city=' . request()->city }}" class="fw-bold color-logo" style="font-size: 14px;">View all Chats</a>
                         </div>
                     </div>
+                    @endif
                 </div>
 
                 <!-- My Ads Link -->
@@ -582,25 +590,22 @@ $language = \App\Helpers\RecordHelper::getlanguge();
             <div class="container" style="">
                
                 <ul class="navbar-nav"
-                    style="font-size: 14px;font-weight: 600;">
-                    <div class="row">
-                        @php $categories = \App\Helpers\RecordHelper::getCategories(); @endphp
-                        @foreach($categories as $category)
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                {{$category->name}}
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="subcategorydropdown" style="margin-left: 7px !important;">
-                                @foreach($category->sub_categories as $sub_category)
-                                <a class="dropdown-item link"
-                                    href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city }}">{{$sub_category->name}}</a>
-                                @endforeach
-                            </div>
-                        </li>
-                        @endforeach
-                        <!---------->
-                    </div>
+                    style="font-size: 14px; display: flex; flex-wrap: nowrap; gap: 51px; white-space: nowrap;">
+                    @php $categories = \App\Helpers\RecordHelper::getCategories(); @endphp
+                    @foreach($categories as $category)
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown" style="margin: 0px -13px;" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            {{$category->name}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="subcategorydropdown" style="margin-left: 7px !important;">
+                            @foreach($category->sub_categories as $sub_category)
+                            <a class="dropdown-item link"
+                                href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city }}">{{$sub_category->name}}</a>
+                            @endforeach
+                        </div>
+                    </li>
+                    @endforeach
                 </ul>
 
             </div>

@@ -262,8 +262,8 @@ function displayImages(base64Image, file_name) {
 
 // alert(imageDisplay);
     const imgHtml = `
-                        <div class="col-md-3" >
-                            <div class="image-gallery" style="margin-bottom:-13px;">
+                        <div class="col-3 mb-3" >
+                            <div class="image-gallery">
                               <div class="image-container">
                                 <img class="form-image img-thumbnail" src="${base64Image}" />
                                 <i class="fa fa-close remove-img" file-name="${file_name}"></i>
@@ -277,7 +277,7 @@ function displayImages(base64Image, file_name) {
 
 $(document).on('click', '.remove-img', function (e) {
     const fileName = $(this).attr("file-name");
-    const imageCol = $(this).parents('.col-md-3');
+    const imageCol = $(this).closest('.col-3');
 
     // Remove the corresponding file from the input field's files array
     const imagesInput = $('.images');
@@ -317,8 +317,8 @@ function displayDocs(base64Image, file_name) {
     const imageDisplay = document.getElementById('document-display-div');
 
     const imgHtml = `
-                        <div class="col-md-3" >
-                            <div class="image-gallery" style="margin-bottom:-29px;">
+                        <div class="col-3 mb-3" >
+                            <div class="image-gallery">
                               <div class="image-container">
                                 <img class="form-image img-thumbnail" src="${base64Image}" />
                                 <i class="fa fa-close remove-document" file-name="${file_name}"></i>
@@ -332,7 +332,7 @@ function displayDocs(base64Image, file_name) {
 
 $(document).on('click', '.remove-document', function (e) {
     const fileName = $(this).attr("file-name");
-    const imageCol = $(this).parents('.col-md-3');
+    const imageCol = $(this).closest('.col-3');
 
     // Remove the corresponding file from the input field's files array
     const imagesInput = $('.documents');
