@@ -50,7 +50,7 @@
                             <!-- submit button finish -->
                         </form>
                         <div class="Forgot" style="font-size: 13px; margin-top: 15px; text-align: center; width: 100%;">
-                            <span>New to BusinessHub? <a class="register-btn" style="color: blue;" id="colorTowhite">Click Here</a></span>
+                            <span>New to BusinessHub? <a class="register-btn" style="color:#007bff;" id="colorTowhite">Click Here</a></span>
                         </div>
                         <div style="text-align:center;">
                            {{-- <button type="button" class="btn btn-danger" data-dismiss="modal">

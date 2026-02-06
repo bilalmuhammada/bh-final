@@ -49,19 +49,13 @@
         margin-left: 0px;
     }
     .paginationLink {
-        margin-left: 17rem;
+        margin-left: 0 !important;
     }
 
 
-    .btnx {
-        /*background: rgb(0, 0, 255, .3);*/
-        font-size: 13px;
-        border-radius: 30px;
+    .filter1::placeholder {
+        font-size: 12px;
         color: #000;
-        font-weight: normal;
-        margin: 10px !important;
-        padding: 10px 16px;
-        border: 1px solid rgb(224, 225, 227);
     }
 
     .filter1::placeholder {
@@ -97,9 +91,16 @@
         padding: 2px 12px;
         margin-bottom: 0px !important;
     }
+    .select2-selection__placeholder {
+        color: #000 !important;
+        font-size: 12px !important;
+        font-weight: normal !important;
+    }
 
     .max_price::placeholder {
-        color: #000 !important
+        color: #000 !important;
+        font-size: 12px !important;
+        font-weight: normal !important;
     }
 
     #sortDropdown {
@@ -133,9 +134,8 @@
     }
 
     .form-control {
-        margin-left: 4px;
-        width: 49.5% !important;
-
+        margin-left: 0px;
+        width: 100%;
     }
 
     .form {
@@ -173,7 +173,7 @@
 
     .swiper-button-next i,
     .swiper-button-prev i {
-        color: #fff !important;
+        color: #A17A4E !important;
         font-size: 22px !important;
         font-weight: normal !important;
         transition: all 0.3s ease;
@@ -182,7 +182,7 @@
 
     .swiper-button-next:hover i,
     .swiper-button-prev:hover i {
-        color: #0000FF !important;
+        color: #A17A4E !important;
         transform: none !important;
     }
 
@@ -253,7 +253,7 @@
         border: 1px solid #A17A4E !important;
         border-radius: 4px !important;
         font-weight: bold !important;
-        padding: 0 22px !important;
+        padding: 0 21px !important;
         height: 65px; /* Reduced height to align better */
         display: flex;
         align-items: center;
@@ -265,13 +265,17 @@
         color: blue !important;
         border-color: blue !important;
     }
+    /* Favorite icon frame effect (making any white shadow/border Logo-Gold) */
+    
 
     .btn-clear-blue {
         border: 1px solid #A17A4E !important;
         float: right;
         white-space: nowrap;
         height: 36px;
-        margin-right: 4px;
+        font-size: 14px;
+        padding: 0px 18px;
+        margin-right: 0px;
         border-radius: 4px;
         color: red;
         background-color: #fff !important;
@@ -304,11 +308,49 @@
     .select2-container--default .select2-selection--single .select2-selection__arrow {
         display: none !important;
     }
-</style>
-<!--------ad area --------->
-<section>
 
-    <!-- <div class="container slider-area"> -->
+    /* Ad listing card refinements */
+    .ad-listing-card h5 {
+        color: #000 !important;
+        transition: color 0.3s ease;
+    }
+    .ad-listing-card:hover h5 {
+        color: #A17A4E !important;
+    }
+
+    .favourite-btn{
+        color: white !important;
+    }
+
+    .favourite-btn:hover{
+        color: #A17A4E !important;
+    }
+        
+    /* Small search bar in Select2 */
+    .select2-search--dropdown .select2-search__field {
+        font-size: 12px !important;
+        padding: 4px !important;
+    }
+
+    /* Standardize "All" text in Select2 selection */
+    .city_dropdown_list1 + .select2-container .select2-selection__rendered {
+        font-size: 12px !important;
+        color: #000 !important;
+        font-weight: normal !important;
+    }
+
+    /* Dropdown alignment refinements */
+    .select2-container--open .select2-dropdown--below {
+        margin-top: -1px !important;
+        border-top: 1px solid #aaa !important; /* Ensure a clean edge */
+    }
+
+    #subcategoryDropdown {
+        margin-top: -1px !important;
+        border-top: 1px solid #ddd !important;
+    }
+</style>
+<section>
     <div class="cont-w slider-area desktop-view">
         <div id="demo" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -339,16 +381,18 @@ $subcategories_for_filter = \App\Helpers\RecordHelper::getSubCategories($categor
 $cities_for_filter = \App\Helpers\RecordHelper::getCities(request()->country);
 $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city) ? $cities_for_filter->where('id', request()->city)->first()->name : 'All';
 @endphp
-<section class="desktop-view">
-    <div class="container d-flex align-items-center" style="max-width: 80rem; gap: 15px;">
+<section class="desktop-view" style="padding-bottom: 0px !important; margin-bottom: 0px !important;">
+    <div class="container" style="max-width: 1200px !important; margin: 0 auto; padding: 0 15px;">
+        <div class="row align-items-center" style="gap: 15px;">
+            <div class="col-12 d-flex align-items-center">
 
-        <form class="form">
+        <form class="form"  style="margin-left:0px;  margin-top: 7px; margin-bottom: 0px;">
             <div class="row" style="display: flex; flex-wrap: nowrap; width: 100%; margin: 0;">
                 <div class="col border-color" style="border-right:2px solid #eee; flex: 1;" id="cityArea">
                     <div class="col-md-12" style="text-align: center;margin-top: 1px;"><span style="font-size: 14px;"><b>City</b></span></div>
                     <div class="col-md-12" style="margin-top: 8px;">
                         <select class="form-control city_dropdown_list1" name="city_dropdown" id=""
-                                style="text-align:center;background-color:transparent !important; font-size:13px; width: 100% !important;">
+                                style="text-align:center;background-color:transparent !important; font-size:13px; width: 100% !important; border: none !important; box-shadow: none !important;">
                             <option value="">All </option>
                             @foreach($cities_for_filter as $city)
                                 <option data-city-id="{{ $city->id }}"
@@ -362,7 +406,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                 <div class="col border-color" style="border-right: 2px solid #eee; text-align: center; flex: 2.5;">
                     <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;font-size: 14px; margin-top: 1px;">Keyword</label>
                     <div class="input-group" style="flex-wrap: nowrap;">
-                        <input type="text" class="form-control filter1 keyword_search" id="keyword" style="margin-top: -2px; font-size: 14px; width: 100% !important;" placeholder="Search anything in {{ $category_name->name }}">
+                        <input type="text" class="form-control filter1 keyword_search" id="keyword" style="margin-top: -2px; font-size: 14px; width: 100% !important; background-color: transparent !important; border: none !important; box-shadow: none !important;" placeholder="Search anything in {{ $category_name->name }}">
                         <span style="margin-top:8px;font-weight: bolder; color: goldenrod;" id="searchIcon">
                             <i class="fa fa-search"></i> <!-- Bootstrap Icons -->
                         </span>
@@ -385,7 +429,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                         <input type="text"
                             class="form-control filter1 location_name"
                             name="location_name"
-                            style="margin-top: -2px; font-size: 14px; width: 100% !important;"
+                            style="margin-top: -2px; font-size: 14px; width: 100% !important; background-color: transparent !important; border: none !important; box-shadow: none !important;"
                             id="location_name"
                             placeholder="Enter Location">
                         <span class="" id="locationIcon">
@@ -410,10 +454,10 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                     </a>
 
                     <span style="display: flex;">
-                        <input type="text" class="form-control filter1" style="border-right: 2px solid #eee;padding: 1px !important; font-size: 14px; width: 50% !important;" name="min_price" id="min_price" oninput="validatePhoneNumber(this)" placeholder="Min" min="0">
+                        <input type="text" class="form-control filter1" style="border-right: 2px solid #eee;padding: 1px !important; font-size: 14px; width: 50% !important; background-color: transparent !important; border: none !important; box-shadow: none !important;" name="min_price" id="min_price" oninput="validatePhoneNumber(this)" placeholder="Min" min="0">
 
 
-                        <input type="text" class="form-control max_price" style="padding: 0px 0px 0px 5px !important; font-size: 14px;width: 50% !important; " name="max_price" id="max_price" oninput="validatePhoneNumber(this)" placeholder="Max" min="0">
+                        <input type="text" class="form-control max_price" style="padding: 0px 0px 0px 5px !important; font-size: 14px;width: 50% !important; background-color: transparent !important; border: none !important; box-shadow: none !important;" name="max_price" id="max_price" oninput="validatePhoneNumber(this)" placeholder="Max" min="0">
                     </span>
 
                 </div>
@@ -422,7 +466,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                     <div class="col-md-12" style="text-align: center; margin-top: 1px;">
                         <span style="font-size: 15px;"><b>Sort</b></span>
                     </div>
-                    <select class="form-select form-control " style="font-size: 13px; width: 100% !important;" id="sortDropdown" onchange="">
+                    <select class="form-select form-control " style="font-size: 13px; width: 100% !important; background-color: transparent !important; border: none !important; box-shadow: none !important;" id="sortDropdown" onchange="">
 
                         {{-- <option class="option"  selected value=""></option> --}}
 
@@ -435,52 +479,50 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                 </div>
             </div>
         </form>
-        <div style="text-align: center; margin-top: 5px; margin-right: -25px;">
+        <div style="text-align: right; margin-top: 7px; margin-bottom: 0px; margin-left: 12px; ">
             <button class="btn btn-search-blue" type="button" aria-expanded="false">
                 <i class="fa fa-search" style="margin-right: 8px;"></i> Search
             </button>
+            </div>
         </div>
     </div>
 </section>
 <!---new filter ennded----->
 
 
-<section>
-    <div class="container">
-        <div class="col-lg-12 col-md-12 col-12" style="margin-left: 4rem;">
-            <div class="row" style="margin-left: -137px;">
-                <div class="col-lg-8 col-md-8" style="display: flex;">
-                    <h6 style="white-space: nowrap;font-size: 14px;"> <a href="{{ env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city }}" style="color: inherit; text-decoration: none;"><b> {!! $category_name->name !!} </b> > </a> <b> {{ $subcategory_name }} </b><span style="color: blue;font-size:13px;"> - {{ $ads->count() }} Ads</span>
+<section style="padding-top: 0px !important; margin-top: 0px !important;">
+    <div class="container" style="max-width: 1200px !important; margin: 0 auto; padding: 0 15px;">
+        <div class="row align-items-center">
+            <div class="col-lg-8 col-md-8" style="margin-bottom: 16px;">
+                <h6 style="white-space: nowrap; font-size: 14px; margin-bottom: 0;"> <a href="{{ env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city }}" style="color: inherit; text-decoration: none;"><b> {!! $category_name->name !!} </b> > </a> <b> {{ $subcategory_name }} </b><span style="color: blue;font-size:13px;"> - {{ $ads->count() }} Ads</span>
                     </h6>
 
 
                 </div>
-                <div class="col-lg-4 col-md-4">
+                <div class="col-lg-4 col-md-4 text-right" style="margin-top: 6px;">
                     <button class="btn btn-clear-blue" type="button" aria-expanded="false">
                         Clear Search
                     </button>
                 </div>
 
-            </div>
         </div>
     </div>
 </section>
 
 <section>
-    <div class="container">
-        <div class="col-lg-12 col-md-12 col-12">
-            <div class="row" style="margin-left: -71px;">
-                <div class="col-lg-12 col-md-12 col-12">
-                    @foreach($ads as $ad)
+    <div class="container" style="max-width: 1200px !important; margin: 0 auto; padding: 0 15px;">
+        <div class="row">
+            <div class="col-12">
+                @foreach($ads as $ad)
                     <div class="row ad-listing-card">
                         <!-----content----->
-                        <div class="col-lg-4 col-md-4 col-12" style="margin-top:-11px;">
+                        <div class="col-lg-3 col-md-3 col-12" style="margin-top:-11px;">
                             <div style="position:absolute;border:0px solid red;width:100%; height: 180px; z-index: 5; pointer-events: none;">
                                 <div class="row" style="pointer-events: none;">
                                     <!-- Sharing and Favourite buttons -->
                                     <div style="margin-top: 12px; margin-left: 232px;  z-index: 6; pointer-events: auto;">
                                         <span>
-                                            <a><i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking" is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}" style="font-size: 20px; margin-left: 19px; color: #A17A4E;"></i></a>
+                                            <a><i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking" is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}" style="font-size: 20px; margin-left: 19px; "></i></a>
 
                                         </span>
                                     </div>
@@ -489,7 +531,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                                     <span class="text-white swiper-pagination-fraction" style="font-size: 13px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);"></span>
                                 </div>
                             </div>
-                            <div class="swiper swiper-container" style="height:180px;width:17pc;">
+                            <div class="swiper swiper-container" style="height:180px; width: 100%;">
                                 <div class="swiper-wrapper">
                                     @if($ad->attachments && count($ad->attachments) > 0)
                                         @foreach($ad->attachments as $attachment)
@@ -508,10 +550,10 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                                 <div class="swiper-button-prev"><i class="fa fa-chevron-left"></i></div>
                             </div>
                         </div>
-                        <div class="col-lg-8 col-md-8 col-12">
+                        <div class="col-lg-9 col-md-9 col-12">
                             <div class="row" style="margin-top: -12px;">
-                                <div class="col-lg-7 col-md-7 col-7" style="margin-left: -118px">
-                                    <h5 style="font-size: 18px;font-weight:700;margin: 0px 0px 5px 0px; color: #A17A4E;">{{ $ad->title ?? 'Heading N/A' }}</h5>
+                                <div class="col-lg-7 col-md-7 col-7">
+                                    <h5 style="font-size: 18px;font-weight:700;margin: 0px 0px 5px 0px;">{{ $ad->title ?? 'Heading N/A' }}</h5>
                                     <p style="font-size: 13px;margin-bottom: 10px;">{{ $ad->category_name }} <span style="font-size: 14px;"> > </span> {{ $ad->subcategory_name }}</p>
                                     <h3 style="font-weight: bold;font-size:18px;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price, session('app_currency', 'USD')) }}</h3>
 
@@ -527,28 +569,14 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                             </div>
                         </div>
                         <!-----content----->
-                        <hr style="width: 68%;margin-top:-14px;margin-left: 12px;background:#eee;">
+                        <hr style="width: 74%; margin-top:-14px; margin-left: 13px; background:#eee;">
                     </div>
-                    @endforeach
-                    {{-- <div class="pagination mt-4">
-                        {{ $ads->links() }}
-                </div> --}}
+                @endforeach
+                <div class="d-flex justify-content-center mt-4">
+                    {{ $ads->links('pagination::bootstrap-4') }}
+                </div>
             </div>
-            <div class="d-flex justify-content-center paginationLink">
-                {{ $ads->links('pagination::bootstrap-4') }}
-            </div>
-            <!-- Pagination links -->
-            {{-- <div class="pagination">
-    {{ $ads->links() }}
-        </div> --}}
-        <!--  add area -->
-        {{-- <div class="col-lg-4 col-md-8 mb-30 col-12">
-                        <img src="{{asset('images/hero_image_7.jpeg')}}" alt="Los Angeles" width="100%" height="200"
-        style="margin-bottom: 10px;">
-    </div> --}}
-    </div>
-    </div>
-    </div>
+        </div>
     </div>
 </section>
 

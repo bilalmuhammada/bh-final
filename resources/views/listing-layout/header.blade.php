@@ -55,7 +55,7 @@
     }
     .remove-document{
     position: absolute;
-    top: 3px;
+    top: 6px; /* Moved down by increasing top value */
     right: 11px;
     /* background-color: rgba(255, 255, 255, 0.8); */
     border-radius: 50%;
@@ -99,7 +99,7 @@
             background-color: #fff;
             background-clip: padding-box;
             /* border: 1px solid #ced4da; */
-            border-radius: 0.25rem;
+            border-radius: 8px !important; /* Slightly more curved edges */
             transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
             border: 1px solid #A17A4E !important;
         }

@@ -10,6 +10,15 @@
         border-radius: 0.3rem;
         border: 1px solid #A17A4E;
     }
+    .countryfield:hover .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #1202c9 !important;
+    }
+    .countryfield:hover .select2-container--default .select2-selection--single .select2-selection__arrow b {
+        border-color: #1202c9 transparent transparent transparent !important;
+    }
+    .countryfield:hover .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+        border-color: transparent transparent #1202c9 transparent !important;
+    }
     /* input:hover{
         border: 1px solid #1202c9 !important;
     } */
@@ -18,8 +27,8 @@
     }
     #profile-form .toggle-password {
             position: absolute;
-            right: 30px;
-            top: 36% !important;
+            right: 26px;
+            top: 50% !important;
             transform: translateY(-50%);
             cursor: pointer;
         }
@@ -156,7 +165,7 @@ width: 225px !important;
             <div class="row">
                 <div class="col-md-2" style="border: 0px solid red;text-align:center;">
                     <img id="profile-image" class="display-profile-img" src="{{session()->get('user')->image_url}}" alt="img" width="120" height="120" style="border-radius: 0.3rem; border: 0px solid red;">
-                    <a href="#" id="change-photo-link"  style="display: flex; margin-left: 48px; margin-top: 5px;font-size:13px; color: goldenrod;">Change Photo</a>
+                    <a href="#" id="change-photo-link"  style="display: flex; margin-left:37px; margin-top: 5px;font-size:13px; color: goldenrod;">Change Photo</a>
                     <input type="file" name="profile_image" id="profile_image" class="form-control-file" accept="image/*" style="border: 1px solid #999; border-radius: 0.3rem; display: none;">
                     <input type="hidden" name="image" class="base64-Image-name">
                 </div>
@@ -297,7 +306,7 @@ width: 225px !important;
                                          {{-- placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" --}}
                                          style="border: 1px solid #999;">
                                          <div class="input-group-append">
-                                            <span class="toggle-password"  onclick="togglePassword('password')" style="cursor: pointer;top: 60% !important;">👁️</span>
+                                            <span class="toggle-password"  onclick="togglePassword('password')" style="cursor: pointer;top: 50% !important;">👁️</span>
                                         </div>
                                     </div>
                                 </div>
@@ -308,7 +317,7 @@ width: 225px !important;
                                     <div class="col-md-8">
                                         <input name="password" id="confirmpassword" type="password" class="form-control form-control1" placeholder="" style="border: 1px solid #999;">
                                         <div class="input-group-append">
-                                            <span class="toggle-password" onclick="togglePassword('confirmpassword')" style="cursor: pointer;top: 60% !important;">👁️</span>
+                                            <span class="toggle-password" onclick="togglePassword('confirmpassword')" style="cursor: pointer;top: 50% !important;">👁️</span>
                                         </div>
                                     </div>
                                 </div>
@@ -329,11 +338,11 @@ width: 225px !important;
                                         <b>Subscribe:</b>
                                     </div>
 
-                                    <div class="col-md-12" style="margin-left: 9.5rem;margin-top: -14px;">
+                                    <div class="col-md-12" style="margin-left: 8.7rem;margin-top: -14px;">
                                         <input name="weekly_newsletter" id="weekly_newsletter" type="checkbox">
                                         <span> &nbsp; Weekly New Business Ads.</span>
                                     </div>
-                                    <div class="col-md-12" style="margin-left: 9.5rem;">
+                                    <div class="col-md-12" style="margin-left: 8.7rem;">
                                         <input name="offers_and_bargains" id="offers_and_bargains" type="checkbox">
                                         <span> &nbsp; Best Deals from our Advertising Partners.</span>
                                     </div>
@@ -343,7 +352,7 @@ width: 225px !important;
                                 <div class="row">
                                     <div class="col-md-12 text-left">
                                         <a class="btn add-list-button update-profile-btn update-profile-submit-btn"
-                                                style="padding: 8px;font-size:16px;border-radius:0.3rem;margin-left: 15rem;">Update
+                                                style="padding: 11px;font-size:12px;border-radius:4px;margin-left: 14rem;">Update
                                         </a>
                                     </div>
                                 </div>

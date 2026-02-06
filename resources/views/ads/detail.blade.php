@@ -425,13 +425,14 @@ button.active .indicator-img {
     }
 
     .slick-prev i, .slick-next i {
-        color: goldenrod  !important; /* Logo-Blue */
-        font-size: 32px !important;
+        color: white  !important; /* Logo-Gold */
+        font-size: 43px !important;
+        font-weight: bold !important;
         transition: all 0.3s ease !important;
     }
 
     .slick-prev:hover i, .slick-next:hover i {
-        color: blue !important; /* Logo-Gold */
+        color: #A17A4E !important; /* Logo-Gold */
         /* transform: scale(1.1); */
     }
 
@@ -446,8 +447,7 @@ button.active .indicator-img {
 
 
     <section>
-     
-        <div class="cont-w slider-area desktop-view" style="margin-top: -8px;">
+        <div class="cont-w slider-area desktop-view">
             <div id="demo" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner"  style="border-radius:0.3rem;">
                     <div class="carousel-item active">
@@ -473,49 +473,41 @@ button.active .indicator-img {
     </section>
  
 
-    <section>
-        <div class="cont-w desktop-view" style="border-bottom:2px solid #eee;">
-            <div class="col-lg-12 col-md-12 col-12" style="">
-                <div class="row" style="margin-top: 8px;">
-                    <div class="cat_btn  colbtn" >
-                        <a href="{{ env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city }}"
-                           style="color:#0000FF;font-size:12px;"  >{{$ad->category_name }}</a>
-                        <i class="fa fa-chevron-right" style="font-size:8px;color:#0000FF;"></i>
-                    </div>
-                    <div class="cat_btn" style="margin:0px 3px;">
-                        <a href="{{ env('BASE_URL') . 'ads/' . $ad->subcategory_id . '?country=' . request()->country . '&city=' . request()->city }}"
-                           style="color:#0000FF;font-size:12px;">{{ $ad->subcategory_name }}</a>
-                        {{-- <i class="fa fa-chevron-right" style="font-size:8px;color:#0000FF;"></i> --}}
+    <section class="desktop-view">
+        <div class="cont-w " style="border-bottom: 2px solid #eee;">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex align-items-center flex-wrap" style="gap: 5px;">
+                        <div class="cat_btn colbtn">
+                            <a href="{{ env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city }}"
+                               style="color:#0000FF;font-size:12px;">{{$ad->category_name }}</a>
+                            <i class="fa fa-chevron-right mx-1" style="font-size:8px;color:#0000FF;"></i>
+                        </div>
+                        <div class="cat_btn">
+                            <a href="{{ env('BASE_URL') . 'ads/' . $ad->subcategory_id . '?country=' . request()->country . '&city=' . request()->city }}"
+                               style="color:#0000FF;font-size:12px;">{{ $ad->subcategory_name }}</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="cont-w desktop-view">
-            <div class="col-md-12" style="border:0px solid red;">
-                <div class="row">
-                    <div class="col" style="border:0px solid red;">
-                        <div class="row" style="margin-top: 12px;">
-                            <h6 style="margin-bottom:0px;"><b>{{ $ad->title ?? 'Title N?A' }}</b></h6>
-                        </div>
-                        <div class="row">
-                            <span class="text-muted"
-                                  style="font-size: 12px;">Posted {{ $ad->created_at_time_diff }}</span>
-                        </div>
-                    </div>
-                    <div class="col" style="text-align:right;">
-                        <div class="row text-right" style="margin-top:12px;">
-                           
-                            <div
+    </section>
 
-                                style="font-weight:bold;font-size:18px;text-align:right;border:0px solid red;width:100%;">
-                                <a href=""
-                                   style="color: red;font-weight:bold;">{{session('app_currency', 'USD')}}  {{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
-                                </a></div>
-                        </div>
+    <section class="desktop-view">
+        <div class="cont-w">
+            <div class="row align-items-end">
+                <div class="col">
+                    <h6 class="mb-1"><b>{{ $ad->title ?? 'Title N/A' }}</b></h6>
+                    <span class="text-muted small">Posted {{ $ad->created_at_time_diff }}</span>
+                </div>
+                <div class="col-auto text-right">
+                    <div class="h5 mb-0" style="color: red; font-weight: bold;">
+                        {{session('app_currency', 'USD')}} {{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
                     </div>
                 </div>
             </div>
         </div>
+    </section>
         <div class="container mobile-view">
             <div class="col-md-12" >
                 <div class="row" >
@@ -564,14 +556,12 @@ button.active .indicator-img {
         </div>
     </section>
 
-    <section>
-        <div class="cont-w desktop-view">
-            <div class="col-lg-12 col-md-12 col-12" style="margin-top: 12px; padding: 0px;">
-                <div class="row">
-                    <div class="col-lg-9 col-md-9 col-12" >
-                        <div class="row">
-                            <!-----content----->
-                            <div class="col-lg-12 col-md-12 col-12">
+    <section class="desktop-view">
+        <div class="cont-w">
+            <div class="row">
+                <div class="col-lg-9 col-md-9 col-12">
+                    <div class="row">
+                        <div class="col-12">
                                
 
                                 <div class="carousel slide" id="carouselDemo" data-bs-wrap="true" data-bs-ride="carousel" style="position: relative;">
@@ -602,11 +592,11 @@ button.active .indicator-img {
                                     </div>
 
                                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselDemo" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon"></span>
+                                        <i class="fa fa-chevron-left" style="color: #A17A4E; font-size: 20px;"></i>
                                     </button>
                             
                                     <button class="carousel-control-next" type="button" data-bs-target="#carouselDemo" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon"></span>
+                                        <i class="fa fa-chevron-right" style="color: #A17A4E; font-size: 20px;"></i>
                                     </button>
                                 
                                     <!-- Carousel Indicators -->
@@ -727,14 +717,14 @@ button.active .indicator-img {
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12" >
                                     {{-- <div style="border-radius:5px;"> --}}
-                                        <div style="width:100%; height:70px; border-radius:6px;" id="map"></div>
+                                        <div style="width:100%; height:70px; border-radius:6px; margin-bottom: 6px;" id="map"></div>
                                     {{-- </div> --}}
                                 </div>
                             </div>
                         </div>
                         {{-- <hr style="width: 100%; height:3px; color:#eee;background:#eee;"> --}}
                         <hr style="border-color: #eee; width: 100%; margin: 0px 13px 0;">
-                        <div style="font-weight: bold;font-size:15px;margin-top: 6px;margin-left: 12px;">
+                        <div style="font-weight: bold;font-size:15px;margin: 6px 0px;margin-left: 12px;">
                             Is there an issue?
 
                             @php $report_text = "Report this Ad"; $report_class = "report-ad-btn"; @endphp
@@ -743,7 +733,7 @@ button.active .indicator-img {
                             @endif
                             <a class="{{ $report_class }}" ad-id="{{ $ad->id }}"
                                title="{{ $report_text }}"
-                               style="margin-left: 12px;">
+                               style="margin-left: 4px;">
                                 {{ $report_text }}
                             </a>
                         </div>

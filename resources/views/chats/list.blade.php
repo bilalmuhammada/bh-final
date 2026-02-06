@@ -87,11 +87,11 @@ select {
     align-items: center;
 }
     .product-left-image{
-        margin-top: 4px;
-        margin-left: 2px;
-        border-radius: 5px;
-        width: 85px;
-        height: 70px;
+        margin-top: 5px;
+    margin-left: -7px;
+    border-radius: 4px;
+    width: 64px;
+    height: 60px;
     }
     
     .product-price{
@@ -200,7 +200,7 @@ color: goldenrod !important;
 }
 #select2-filter-dropdown-container {
     color: blue !important;
-    font-weight: 600 !important;
+    font-weight: 400 !important;
 }
 .select2-container--default .select2-selection--single {
     border: none !important;
@@ -210,7 +210,7 @@ color: goldenrod !important;
     top: 0 !important;
 }
 
-}
+
     .chat-info {
         display: flex;
         flex-direction: column;
@@ -239,10 +239,27 @@ color: goldenrod !important;
         border-radius: 10px;
     }
     .input-msg-send{
-        width: 100% !important;
+        width: 96% !important;
     }
     .emojionearea-editor{
         left: 19px !important;
+    }
+    .chat-window {
+        height: 75vh !important;
+        min-height: 550px !important;
+    }
+    .chat-scroll {
+        height: calc(75vh - 150px) !important;
+        max-height: calc(75vh - 150px) !important;
+    }
+    .chat-body-div {
+       
+        display: flex;
+        flex-direction: column;
+    }
+    .message-body {
+        flex-grow: 1;
+        overflow-y: auto;
     }
     /* Professional Dropdown Styling */
 
@@ -276,7 +293,7 @@ input.form-control-search:focus {
 } 
 .form-control-search{
     border:1px solid goldenrod !important;
-    padding-left: 35px;
+    padding-left: 12px;
     font-size: 13px !important;
     height: 40px;
 }
@@ -294,6 +311,7 @@ input.form-control-search:focus {
     
     color: #000;
     font-weight: 500;
+    margin-top: 2px;
     letter-spacing:1px;
     font-size: 14px;
     margin-left: 0px;
@@ -320,17 +338,24 @@ a:hover {
 }
 
 .product-description{
-    font-weight: 600;
+    font-weight: 400;
     color: #000;
     margin-bottom: 6px;
 
 }
+.chat-title:hover .product-left-description {
+    color: #A17A4E !important;
+}
+
 .dropdown:hover .dropdown-menu {
     display: none !important; /* Prevent dropdown from showing on hover */
 }
- .select2-results__option {
-    padding: 0px 2px 0px 5px !important;
-    font-weight: 100 !important;
+ .select2-results__option, 
+ .select2-results__option--highlighted[aria-selected], 
+ .select2-results__option[aria-selected=true],
+ .select2-results__option:hover {
+   
+    font-weight: 400 !important;
 }
 .dropdown:hover .dropdown-menu {
     display: none !important; /* Prevent dropdown from showing on hover */
@@ -448,8 +473,8 @@ a:hover {
 @section('content')
 
     <div class="content-chat"
-         style="background-color:#eee;min-height: 500px !important;padding-top:5px;padding-bottom:5px;">
-        <div class="container-fluid">
+         style="background-color:#fff;min-height: 500px !important;padding-top:5px;padding-bottom:75px;">
+        <div class="container" style="max-width: 1215px !important;">
             <div class="row">
                 <!-- <div style="padding-bottom:2px;"><button class="btn btn-danger" id="deleteSelected"><i class="fa fa-trash"></i></button>
                 <input type="checkbox" style="margin-left:26.5%;" id="check-all">&nbsp;ALL
@@ -459,7 +484,7 @@ a:hover {
                     <div class="chat-window">
 
                         <div class="chat-cont-left">
-                            <div class="d-flex justify-content-between align-items-center py-2 px-3 border-bottom">
+                            <div class="d-flex justify-content-between align-items-center py-2 pl-1 pr-3 border-bottom">
                                 <div class="d-flex align-items-center gap-2">
                                     <input type="checkbox" class="hiddencheck mb-0" id="check-all">
                                     <span style="font-size: 11px; font-weight: 500;" class="hiddencheck">Select All</span>
@@ -482,10 +507,9 @@ a:hover {
                                 </div>
                             </div>
                             
-                            <div class="px-3 py-1 ">
+                            <div class="px-1 py-1 ">
                                 <div class="position-relative">
-                                    <i class="fa fa-search search-icon"></i>
-                                    <input type="text" name="" id="search" placeholder="Search..." class="form-control form-control-search" style="padding-left: 30px; width: 100%; margin-top: 0px;">
+                                    <input type="text" name="" id="search" placeholder="Search..." class="form-control form-control-search" style="padding-left: 12px; width: 100%; margin-top: 0px;">
                                 </div>
                             </div>
                             <div class="chat-users-list" id="chat-users-list">
@@ -507,57 +531,46 @@ a:hover {
                                             <div class="media-img-wrap flex-shrink-0">
                                                 <div class="avatar">
                                                     <img src="{{$chat->ad->main_image_url ??  'https://via.placeholder.com/30x30'}}" alt="Car Image" class="product-left-image">
-                                                   
                                                 </div>
-                                                
                                             </div>
                                             <div class="media-body flex-grow-1">
-                                                <div class="product-left-details">
-                                                    <div class="product-left-description">{{$chat->ad->title ?? " "}}</div>
-                                                    <div class="product-message">{{ $chat->latest_message ?? " " }}</div>
-                                                    <div class="product-location">   </div>
-                                                
-                                                    
-                                                    
-                                                     <img
-                                                         src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') ?: 'https://via.placeholder.com/30x30' }}"
-                                                        alt="User Image" style="width:25px; height:25px;"
-                                                        class="avatar-img rounded-circle"> &nbsp;&nbsp; <span> {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') ?? " "}} </span>  &nbsp;&nbsp;<i class="fa fa-map-marker" style="margin-top:0px; color:red;"></i>  <span>  {{ $chat->ad->location_name ? substr($chat->ad->location_name, 0, 4) . (strlen($chat->ad->location_name) > 4 ? '..' : '') : 'No Location' }}
-
-                                                        </span>
-                                                    
-                                                 </div>
+                                                <div class="product-left-details d-flex flex-column justify-content-between" style="height: 64px;">
+                                                    <div class="product-left-description mb-0" style="line-height: 1.2; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 400;">{{$chat->ad->title ?? " "}}</div>
+                                                    <div class="product-message mb-0" style="font-size: 12px; color: #666; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 400;">{{ $chat->latest_message ?? " " }}</div>
+                                                    <div class="d-flex align-items-center" style="white-space: nowrap;">
+                                                        <img src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') ?: 'https://via.placeholder.com/30x30' }}"
+                                                            alt="User Image" style="width:20px; height:20px; margin-right: 6px;"
+                                                            class="avatar-img rounded-circle"> 
+                                                        <span style="font-size: 13px; font-weight: 400; color: #111;">{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') ?? " "}}</span>
+                                                    </div>
+                                                </div>
                                           
                                               
-                                                <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2rem;margin-right: 5px; margin-top: 6px;">
+                                                <div class="d-flex flex-column justify-content-between align-items-end" style="height: 66px; margin-right: 5px; flex-shrink: 0; min-width: 80px;">
+                                                    <div style="display: flex; gap: 8px; margin-top: 2px;">
+                                                        <button class="btn btn-link favorite-chat" 
+                                                                title="{{ $chat->is_favorite ? 'Unfavourite' : 'Favourite' }}" 
+                                                                style="padding: 0;" 
+                                                                data-chat-id="{{ $chat->id }}">
+                                                            <i class="fa fa-heart" style="color: {{ $chat->is_favorite ? 'red' : 'grey' }} !important; font-size: 14px;"></i>
+                                                        </button>
 
-
-                                                <div style="display: flex; gap: 8px;">
-                                                    <button class="btn btn-link favorite-chat" 
-                                                            title="{{ $chat->is_favorite ? 'Unfavourite' : 'Favourite' }}" 
-                                                            style="padding: 0;" 
-                                                            data-chat-id="{{ $chat->id }}">
-                                                        <i class="fa fa-heart" style="color: {{ $chat->is_favorite ? 'red' : 'grey' }} !important;"></i>
-                                                    </button>
-
-                                                    <button class="btn btn-link block-chat" 
-                                                            title="{{ $chat->is_blocked ? 'Unblock' : 'Block' }}" 
-                                                            style="padding: 0;" 
-                                                            data-chat-id="{{ $chat->id }}">
-                                                        <i class="fa fa-ban" style="color: {{ $chat->is_blocked ? 'goldenrod' : 'grey' }} !important;"></i>
-                                                    </button>
-                                                </div>
-                                               
-                                                <!-- Bottom: Time & Unread badge -->
-                                                <div style="display: flex; align-items: center; gap: 12px; font-size: 12px; color: #666;">
-                                                    <div class="badge bgg-yellow badge-pill unread-count" 
-                                                        style="display: {{ ($login_user_id != $chat->latest_message_sender_id && $chat->unread_count > 0) ? 'block' : 'none' }};border-radius: 30px;">
-                                                        {{ $chat->unread_count }}
+                                                        <button class="btn btn-link block-chat" 
+                                                                title="{{ $chat->is_blocked ? 'Unblock' : 'Block' }}" 
+                                                                style="padding: 0;" 
+                                                                data-chat-id="{{ $chat->id }}">
+                                                            <i class="fa fa-ban" style="color: {{ $chat->is_blocked ? 'goldenrod' : 'grey' }} !important; font-size: 14px;"></i>
+                                                        </button>
                                                     </div>
+                                                   
+                                                    <div style="display: flex; align-items: center; gap: 8px; font-size: 11px; color: #666; margin-bottom: 2px; white-space: nowrap;">
+                                                        <div class="badge bgg-yellow badge-pill unread-count" 
+                                                            style="display: {{ ($login_user_id != $chat->latest_message_sender_id && $chat->unread_count > 0) ? 'block' : 'none' }}; border-radius: 30px; font-size: 10px; padding: 2px 5px;">
+                                                            {{ $chat->unread_count }}
+                                                        </div>
 
-                                                    <span>{{ $chat->latest_message_recieved_time_diff }}</span>
-                                                </div>
-
+                                                        <span>{{ $chat->latest_message_recieved_time_diff }}</span>
+                                                    </div>
                                                 </div>
                                                
                                                    
@@ -593,20 +606,18 @@ a:hover {
                                         </a>
                                         
                                         <div class="media d-flex">
-                                            <div class="media-img-wrap theiaStickySidebar gallerys flex-shrink-0">
+                                            <div class="media-img-wrap gallerys flex-shrink-0">
                                                 <div class="avatar">
                                                     <a href="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') }}">
-                                                    <img
-                                                        src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') }}"
-                                                        alt="UserImage"  width="50px" height="50px"
-                                                        class="avatar-img rounded-circle">
+                                                    <img src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') }}"
+                                                         width="50px" height="50px"
+                                                         class="avatar-img rounded-circle">
                                                     </a>
                                                 </div>
                                             </div>
                                       
-                                            <div class="media-body flex-grow-1">
-                                                <div class="user-name colorchangecompany">  {{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }} </span> </div>
-                                               
+                                            <div class="media-body flex-grow-1 ms-2">
+                                                <div class="user-name colorchangecompany" style="font-weight: 600; font-size: 16px;">{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') }}</div>
                                             </div>
                                         </div>
                                         @php
@@ -637,8 +648,8 @@ a:hover {
                                             </div>
 
                                     </div>
-                                    <div class="chat-header bg-color" style="background-color: #fff;height:5rem; margin-top:13px;width: 70%; ">
-                                    <a href="{{ env('BASE_URL') }}ads/detail/{{ $chat->ad->id }}"  style="text-decoration: none; color: inherit; display: flex;">
+                                    <div class="chat-header bg-color pb-1 pt-1 px-2" style="background-color: #fff; height: auto; min-height: 5rem; margin-top: 5px; width: 100%; border: 1px solid #F4EEFF; border-radius: 4px;">
+                                    <a href="{{ env('BASE_URL') }}ads/detail/{{ $chat->ad->id }}"  style="text-decoration: none; color: inherit; display: flex; width: 100%; align-items: center;">
                                    
                                         <div class="product-image-container">
                                         <img src="{{$chat->ad->main_image_url ??  'https://via.placeholder.com/30x30'}}" alt="Car Image" class="product-image">
@@ -715,7 +726,7 @@ a:hover {
                                                 <button type="button" id="msg-send-btn" class="btn btn-primary msg-send-btn"
                                                 data-user-id="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
                                                 data-chat-id="{{ $chat->id }}"
-                                                style="position: absolute; right: 36px; top: 9px; background-color: transparent; border: none;">
+                                                style="position: absolute; right: 43px; top: 3px; background-color: transparent; border: none;">
                                             <i class="fa fa-arrow-circle-up mgn-send-color" aria-hidden="true"
                                                style="font-size: 33px; background-color: none;"></i>
                                         </button>

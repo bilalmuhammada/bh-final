@@ -119,6 +119,7 @@
         margin-bottom: 10px;
     }
     .select2-container--default .select2-results>.select2-results__options {
+        overflow-x: hidden !important;
         max-height: 178px;
     }
 

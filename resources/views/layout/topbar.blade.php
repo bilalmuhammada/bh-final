@@ -27,11 +27,18 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     .topbar-wrapper {
         display: flex;
         align-items: center;
-        justify-content: flex-start; /* Changed from space-between to align content to the left */
-        gap: 8px; /* Gap between Logo and Items */
-        padding: 0px 81px 0px; /* Added clearance at top, less at bottom */
+        justify-content: flex-start;
+        gap: 8px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0px 15px;
+        background: #fff;
+    }
+    .topbar-main-bg {
         background: #fff;
         border-bottom: 1px solid #f0f0f0;
+        width: 100%;
+        height: 37px;
     }
     .colorchange:hover {
         color: blue !important;
@@ -40,7 +47,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     .topbar-items-group {
         display: flex;
         align-items: center;
-        gap: 11px; /* Equal space between all items */
+        gap: 15px; /* Reduced from 11px */
         flex: 1; /* Allow group to fill remaining space */
     }
     .list-group-item{
@@ -49,7 +56,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
     .topbar-dropdown-trigger {
         font-family: 'Inter', sans-serif;
-        font-size: 14px;
+        font-size: 13px; /* Reduced from 14px */
         font-weight: 500;
         color: #1a1a1a;
         cursor: pointer;
@@ -138,6 +145,9 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     .select2-results__option {
         padding: 4px 10px !important;
         font-size: 13px !important;
+    }
+    .select2-results__options {
+        overflow-x: hidden !important;
     }
 
 
@@ -281,7 +291,8 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     </script>
     <!-- topbar start -->
 
-    <div class="topbar-wrapper desktop-view">
+    <div class="topbar-main-bg desktop-view">
+    <div class="topbar-wrapper">
         <div class="topbar-logo">
             <a href="{{env('BASE_URL') . 'home'}}">
                 <img src="{{asset('images/businesshub.png')}}" alt="logo" width="120px" class="shaking">
@@ -291,7 +302,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         <div class="topbar-items-group">
             <!-- Country Dropdown -->
             <div class="selection-item">
-                <select class="form-control country_dropdown1 country_dropdown" name="country_dropdown" style="width:183px; margin-left: -3px;" id="country_dropdown">
+                <select class="form-control country_dropdown1 country_dropdown" name="country_dropdown" style="width:160px;" id="country_dropdown">
                     <option value="">All Countries</option>
                     @foreach($countries as $country)
                         <option {{ $country->id == request()->country ? 'selected' : '' }} data-flag-url="{{ $country->image_url }}" value="{{ $country->id }}">
@@ -315,7 +326,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
             <!-- Language Dropdown -->
             <div class="selection-item">
-                <select class="form-control language_dropdown" name="language_dropdown" style="width:140px;" onchange="translateLanguage()">
+                <select class="form-control language_dropdown" name="language_dropdown" style="width:100px;" onchange="translateLanguage()">
                     @foreach($language as $language1)
                         <option {{ $language1->id == request()->language ? 'selected' : '' }} data-flag-url="{{ $language1->flag_image_url }}" value="{{ $language1->prefix }}" {{ $language1->prefix == 'en' ? 'selected' : '' }}>
                             {{ $language1->name }}
@@ -327,7 +338,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
             <!-- Currency Dropdown -->
             <div class="selection-item">
-                <select class="form-control currency_dropdown" name="currency_dropdown" style="width:120px;">
+                <select class="form-control currency_dropdown" name="currency_dropdown" style="width:100px;">
                     <option value="">Currency</option>
                     @foreach($currency as $currencyn)
                         <option data-currency-id="{{ $currencyn->currency }}" {{ $currencyn->currency_short_name == session('app_currency', 'USD') ? 'selected' : '' }} data-flag-url="{{ $currencyn->image_url }}" value="{{ $currencyn->currency_short_name }}">
@@ -339,7 +350,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
             @if (session()->has('user'))
                 <!-- Notifications -->
-                <div class="dropdown" style="margin-left: auto; margin-bottom: 4px;">
+                <div class="dropdown" style="margin-left: auto;">
                     <a class="topbar-dropdown-trigger trigger-with-badge" id="notificationsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Notifications
                         @if(count($notifications) > 0)
@@ -349,7 +360,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                     <div class="dropdown-menu" style="width:420px;">
                         @if (count($notifications) > 0)
                             <div class="px-2 py-1 border-bottom d-flex justify-content-between align-items-center">
-                                <h6 class="mb-0 fw-bold">Notifications</h6>
+                                <h6 class="mb-0 fw-bold" style="font-size: 14px;">Notifications</h6>
                                 <span class="badge-new-green">{{ count($notifications) }} New</span>
                             </div>
                             <div class="list-group list-group-flush">
@@ -377,7 +388,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                                     </div>
                                 @endforeach
                             </div>
-                            <div class="text-center pt-2 pb-2 border-top">
+                            <div class="text-center pt-1 pb-1 border-top">
                                 <a href="{{ env('BASE_URL').'notifications'}}" class="fw-bold color-logo" style="font-size: 14px;">View all Notifications</a>
                             </div>
                         @else
@@ -387,7 +398,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                 </div>
 
                 <!-- Favorites -->
-                <div class="dropdown" style="margin-bottom: 4px;">
+                <div class="dropdown">
                     <a class="topbar-dropdown-trigger trigger-with-badge" id="favoritesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Favorites
                         @if($favourite_ads_count > 0)
@@ -397,7 +408,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                     <div class="dropdown-menu" style="width:380px;">
                         @if (count($favourite_ads) > 0)
                             <div class="px-2 py-1 border-bottom d-flex justify-content-between align-items-center">
-                                <h6 class="mb-0 fw-bold">Favorites</h6>
+                                <h6 class="mb-0 fw-bold" style="font-size: 14px;">Favorites</h6>
                                 <span class="badge-new-green">{{ $favourite_ads_count }} New</span>
                             </div>
                             <div class="list-group list-group-flush">
@@ -416,7 +427,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                                     </a>
                                 @endforeach
                             </div>
-                            <div class="text-center pt-2 pb-2 border-top">
+                            <div class="text-center pt-1 pb-1 border-top">
                                 <a href="{{ env('BASE_URL') . 'ads?type=favourite' }}" class="fw-bold  color-logo" style="font-size: 14px;">View all Favorites</a>
                             </div>
                         @else
@@ -426,7 +437,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                 </div>
 
                 <!-- Chats -->
-                <div class="dropdown" style="margin-bottom: 4px;">
+                <div class="dropdown">
                     <a href="{{ count($chats) > 0 ? '#' : route('chats') . '?country=' . request()->country . '&city=' . request()->city }}" class="topbar-dropdown-trigger trigger-with-badge" id="chatsDropdown" @if(count($chats) > 0) data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @endif>
                         Chats
                         @if(count($chats) > 0)
@@ -436,7 +447,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                     @if(count($chats) > 0)
                     <div class="dropdown-menu shadow-lg" style="width:420px;">
                         <div class="pl-2 pr-2 pb-2 pt-2 border-bottom d-flex justify-content-between align-items-center">
-                            <h6 class="mb-0 fw-bold">Chats</h6>
+                            <h6 class="mb-0 fw-bold" style="font-size: 14px;">Chats</h6>
                             <span class="badge badge-new-green">{{ count($chats) }} New</span>
                         </div>
                         <div class="list-group list-group-flush">
@@ -455,7 +466,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                                 </a>
                             @endforeach
                         </div>
-                        <div class="pt-2 pb-2 text-center border-top">
+                        <div class="pt-1 pb-1 text-center border-top">
                             <a href="{{ route('chats') . '?country=' . request()->country . '&city=' . request()->city }}" class="fw-bold color-logo" style="font-size: 14px;">View all Chats</a>
                         </div>
                     </div>
@@ -498,6 +509,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
             <a class="add-listing-btn btn ad-place-btn shaking" >+ Place Your Ad</a>
         </div>
     </div>
+    </div>
 
                             <style>
                                 .hover-scale:hover {
@@ -517,50 +529,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
 
     <!-- topbar finish -->
     <!-- navigation start -->
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <!-- navigation toggle start -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- navigation toggle start -->
-            <a class="navbar-brand mobile-view link"
-                href="{{ env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city}}">
-                <img src="{{asset('images/businesshub.png')}}" alt="businesshub" title="businesshub" id="mobile-logo">
-            </a>
-            <div class="mobile-menu-right">
-                <!-- languages bar mobile start -->
-                <span>
-                    <!-- country bar mobile start -->
-                    <div class="mobile-country desktop-menu-right">
-                        <span class="country">
-                            <div class="mobile-country desktop-menu-right">
-                                <select class="form-control city_dropdown" name="city_dropdown" id=""
-                                    style="width:80px;">
-                                    @foreach($cities as $city)
-                                    <option {{ $city->id == request()->city ? 'selected' : '' }} value="{{ $city->id }}"
-                                        style="font-size:8px !important;"> &nbsp; {{ $city->name }}</option>
-                                    @endforeach
-                                </select>
-                                <select class="form-control country_dropdown" name="country_dropdown" id=""
-                                    style="width:80px;">
-                                    @foreach($countries as $country)
-                                    <option data-flag-url="{{ $country->image_url }}"
-                                        data-country-id="{{ $country->id }}"
-                                        value="{{ $country->id }}"> {{ $country->nice_name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </span>
-                    </div>
-                    <!----langs end---->
-            </div>
-            <!-- country bar mobile finish -->
-            </span>
-
-            <!-- languages bar mobile finish -->
-    </div>
+    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <!-- mobile menu close button start -->
@@ -580,25 +549,20 @@ $language = \App\Helpers\RecordHelper::getlanguge();
             </li>
         </ul>
     </div>
-    </nav>
-    </div>
-    <!-- navigation finish -->
-    <nav class="navbar navbar-expand-lg navbar-light"
-        style="border:0px solid green;padding:0px !important;height:0px;">
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContentx" style="margin-left: 12px;">
-            <div class="container" style="">
-               
-                <ul class="navbar-nav"
-                    style="font-size: 14px; display: flex; flex-wrap: nowrap; gap: 51px; white-space: nowrap;">
+    <!-- navigation finish -->
+    <div class="desktop-view" style="max-width: 1200px !important; margin: 0 auto !important; border-top: 1px solid #f0f0f0; padding: 10px 13px; margin-bottom: 0px !important; padding-bottom: 0px !important;">
+        <nav class="navbar navbar-expand-lg navbar-light p-0" style="min-height: auto !important; margin-bottom: 10px !important;">
+            <div class="collapse navbar-collapse" id="navbarSupportedContentx">
+                <ul class="navbar-nav" style="font-size: 13px; display: flex; flex-wrap: nowrap; gap: 39px; font-weight: 600; white-space: nowrap; margin-bottom: 0px !important;">
                     @php $categories = \App\Helpers\RecordHelper::getCategories(); @endphp
                     @foreach($categories as $category)
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" id="navbarDropdown" style="margin: 0px -13px;" role="button" data-toggle="dropdown"
+                        <a class="nav-link p-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             {{$category->name}}
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="subcategorydropdown" style="margin-left: 7px !important;">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="subcategorydropdown" style="margin-left: -9px !important;">
                             @foreach($category->sub_categories as $sub_category)
                             <a class="dropdown-item link"
                                 href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city }}">{{$sub_category->name}}</a>
@@ -609,12 +573,9 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                 </ul>
 
             </div>
-            <hr>
-        </div>
-        <!-- </li> -->
-    </nav>
+        </nav>
     </div>
-    <hr>
+
 </header>
 @php
     // Removed duplicate jQuery include to prevent conflict with version in header.blade.php

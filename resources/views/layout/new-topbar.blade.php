@@ -182,7 +182,7 @@ $second = $parts[1] ?? null;
                 <div class="row">
                     <div class="col-lg-6 col-xl-6 col-md-6">
                         <!-- social icon desktop start -->
-                        <a class="" href="{{env('BASE_URL') . 'home'}}" style="margin-left: -47px;">
+                        <a class="" href="{{env('BASE_URL') . 'home'}}">
                             <img src="{{asset('images/businesshub.png')}}" alt="" width="150px" class="shaking" alt="logo">
                         </a>
                     </div>
@@ -190,7 +190,7 @@ $second = $parts[1] ?? null;
                     
                @if(request()->path()!=="contact-us")
                     <div class="col-lg-6 col-xl-6 col-md-6" style="margin-top: 17px;">
-                        <div style="float:right;margin-right: -53px;">
+                        <div style="float:right;">
                             @if (!session()->has('user'))
                             <span class="auth" style="text-align:center;font-size:14px !important;font-weight: bold;">
                                 <a class="login-btn">Login</a>

@@ -12,11 +12,11 @@
 
 </div>
 
-<div class="col-md-6 mx-auto" style="margin-top:20px;">
-    <div id="image-display-div" class="row"></div>
+<div class="col-md-6 mx-auto" style="margin-top:13px;">
+    <div id="image-display-div" style="margin-bottom: 11px;" class="row"></div>
 </div>
 
-<div class="col-md-6 mx-auto" style="margin-top:-7px;margin-bottom: 7px;">
+<div class="col-md-6 mx-auto" style="margin-top:0px;margin-bottom: 11px;">
     <div class="input--file">
         <i class="fa fa-camera fa-1x"></i>
         <input type="file" multiple class="form-controlz form-control-file  documents"  id="fileInput" name="documents[]"

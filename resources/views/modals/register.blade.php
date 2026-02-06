@@ -12,19 +12,11 @@
         background-color: transparent !important;  
     }
     
-    #select2-register_cities-container{
+    #select2-register_cities-container, 
+    #select2-register_country-container {
         color: #ffffff !important;
         font-size: 13px !important;
-    }
-    #select2-register_country-container{
-        color: #ffffff !important;
-        font-size: 13px !important;
-    }
-
-    #select2-registercities-container
-    {
-color: #000000 !important;
-padding-left: 31px;
+        text-align: left !important;
     }
     select {
     -webkit-appearance: none; /* Safari and Chrome */
@@ -81,15 +73,39 @@ padding-left: 31px;
          .form-control:focus{
             border-color: blue !important;
          }
-         #form-border:hover{
+         .form-border-container:hover{
             border:1px solid blue !important;
+         }
+         /* Fix for Select2 text and arrow color on hover */
+         .form-border-container:hover .select2-container--default .select2-selection--single .select2-selection__rendered {
+            color: blue !important;
+         }
+         .form-border-container:hover .select2-container--default .select2-selection--single .select2-selection__arrow b {
+            border-color: blue transparent transparent transparent !important;
+         }
+         .form-border-container:hover .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+            border-color: transparent transparent blue transparent !important;
          }
          
          
-         #register-form #select2-country-container,#register-form #select2-cities-container{
+    #register-form #select2-country-container,#register-form #select2-cities-container{
             color: #fff !important;
             /* margin-left: -30px !important; */
         }
+    
+    /* Force white color for Select2 selection and placeholder */
+    #registerModal .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #ffffff !important;
+    }
+
+    #registerModal .select2-container--default .select2-selection--single .select2-selection__placeholder {
+        color: #ffffff !important;
+    }
+    
+    #registerModal .select2-results__options {
+        max-height: 160px !important; /* show ~5 items */
+        overflow-y: auto !important;
+    }
 </style>
 
 
@@ -187,12 +203,12 @@ padding-left: 31px;
                                @endphp
 
                                 <div class="col-md-6">
-                                    <div class=" " id="form-border" style="  border-radius: 5px;  padding: 5px 20px;
+                                    <div class="form-border-container " style="  border-radius: 5px;  padding: 5px 20px;
                                     border: 1px solid #A17A4E">
                                         <select name="country" id="register_country"
                                                     class="form-control  country_id   login-user"
-                                                    style="width:100%;">
-                                                    <option value="" selected>Countries</option>
+                                                    style="width:100%;" data-placeholder="Country">
+                                                    <option></option>
                                                 @foreach($countries as $country)
                                                
                                                     <option
@@ -207,13 +223,13 @@ padding-left: 31px;
                                 </div>
 
                                 <div class="col-md-6">
-                                    <div class="input-group mb-3 "  id="form-border"  style="border-radius: 5px;   padding: 5px 20px;
+                                    <div class="input-group mb-3 form-border-container "  style="border-radius: 5px;   padding: 5px 20px;
                                     border: 1px solid #A17A4E">
                                         <select name="cities" id="register_cities"
                                         class="form-control   login-user"
-                                        style="width:100%;color:#fff !important;">
+                                        style="width:100%;color:#fff !important;" data-placeholder="City">
                                     
-                                        <option value="" selected>City</option>
+                                        <option></option>
                                
                                     @foreach($cities as $city)
                                         <option
@@ -273,7 +289,7 @@ padding-left: 31px;
                         </div>
                         <div class="Forgot" style="font-size: 12px;text-align: left; margin-top: -10px;">
                             <a  class="show-forgot-btn" id="colorTowhite" style="margin-left: 13px;color:#00aaff;" > Forgot Password? </a>
-                           <span style="float: right;margin-right: 40px; color: #fff;">Already on BusinessHub? | <a  class="login-btn" style="color:#00aaff;" id="colorTowhite" > Click Here </a></span>
+                           <span style="float: right;margin-right: 40px; color: #A17A4E;">Already on BusinessHub? <a  class="login-btn" style="color:#00aaff;" id="colorTowhite" > Click Here </a></span>
                                
                            </div>
                         <!-- Register button finish -->

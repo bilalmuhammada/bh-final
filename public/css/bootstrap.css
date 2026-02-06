@@ -6706,6 +6706,7 @@ a.close.disabled {
 }
 
 .carousel-inner {
+    border-radius: 4px;
     position: relative;
     width: 100%;
     overflow: hidden;

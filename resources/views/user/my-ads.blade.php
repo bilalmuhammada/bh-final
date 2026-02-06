@@ -43,7 +43,7 @@
         padding: 2px 5px 5px 5px !important;
         border-radius: 5px; 
        
-        margin-left: 12px;"
+        margin-left: 12px;
     }
     .deletebtn{
         border: 1px solid red !important ; 
@@ -52,16 +52,15 @@
         font-size: 13px !important;
         padding: 2px 5px 5px 5px !important;
         border-radius: 5px; 
-        margin-left: 12px;"
+        margin-left: 12px;
     }
 
     .checkbox-label{
         display: inline-block; 
-        color: red;
+        color: #ff3131;
         white-space: nowrap;
-         margin-left: -13px;
-          margin-top: 16px; 
-          height: 36px;
+        margin-left: 0;
+        margin-top: 5px; 
     }
     .navColor{
         color: blue;
@@ -69,15 +68,16 @@
 
 </style>
 @section('content')
-    <div class="cont-w">
+<div class="container" style="max-width: 1200px !important; margin: 0 auto; padding: 0px 15px;">
+    <div>
         <h5 style="font-weight: bold;">My Ads</h5>
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs" style="font-size:12px;width: 46.5%;">
+        <ul class="nav nav-tabs" style="font-size:12px; width: 100%; border-bottom: 1px solid #eee;">
             {{-- <li class="nav-item">
                 <a class="nav-link navColor active" data-toggle="tab" href="#all_ads">All Ads - {{ $my_ads->count() }}</a>
             </li> --}}
             <li class="nav-item">
-                <a class="nav-link navColor active" style="margin-left: -16px;" data-toggle="tab" href="#live">Live -
+                <a class="nav-link navColor active" style="padding-left: 0;" data-toggle="tab" href="#live">Live -
                     {{ $activeListing->total() }}</a>
             </li>
             <li class="nav-item">
@@ -213,99 +213,70 @@
                 @endif
             </div>
             {{-- live --}}
-            <div id="live" class="cont-w tab-pane active "><br>
+            <div id="live" class="cont-w tab-pane active ">
                 
             @if ($activeListing->total() > 0)
                 <!------------------single row----------->
-               <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
-                        <label class="checkbox-label" style=" position: relative; z-index: 10;" >
-                            
-                            <input type="checkbox" id="selectAllLive" class="select-all-checkbox"> &nbsp;&nbsp;All
-                        </label>
-                      <button class="btn deletebtn" style="color: red; display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
-                        Delete
-                    </button>
-                      
-                        {{-- <input type="checkbox" style="color: red white-space: nowrap;margin-left: -16px;margin-top: 12px; height: 36px; border-radius: 5px;"/>All --}}
-                   
+                <div class="row align-items-center">
+                    <div class="col-auto" style="width: 40px;">
+                        <input type="checkbox" id="selectAllLive" class="select-all-checkbox">
+                    </div>
+                    <div class="col">
+                        <label class="checkbox-label mb-0" for="selectAllLive">All</label>
+                    </div>
+                    <div class="col-auto" style="margin-top: 6px;">
+                        <button class="btn deletebtn py-1" style="color:red;" type="button">
+                            Delete
+                        </button>
+                    </div>
+                </div>
                     @foreach($activeListing as $my_ad)
-                    <form class="place-ad-form" enctype="multipart/form-data">
-                        <div class="row" style="margin-top: -3rem;" >
-                           
-                            <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;margin-left: 19px;">
-                                <input type="checkbox" class="row-checkbox" value="{{$my_ad->id}}">
+                    <form class="place-ad-form border-bottom pb-3 mb-3" enctype="multipart/form-data">
+                        <div class="row align-items-center">
+                            <div class="col-auto" style="width: 40px;">
+                                <input type="checkbox" class="row-checkbox" value="{{ $my_ad->id }}">
                             </div>
-                            <div class="col-md-4" style="max-width: 11pc;margin-left: -15px;">
-                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
-                                    <div >
-                                        <div class="ad-show" style="padding:10px;border-radius:5px;margin-left: 11px;margin-top: 20px;">
-                                            {{-- <div class="img"> --}}
-                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="100" width="120" style="border-radius: 5px;">
-                                            {{-- </div> --}}
-                                        </div>
-                                        {{-- <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:6.5rem; z-index: 2;color: white;">
-                                            <i class="fa fa-image" style="color:white;margin-left: 5px;"></i><span class="text-black" style="margin-left:9px">{{ $my_ad->images->count() }}</span>
-                                        </div> --}}
+                            <div class="col-auto pr-0">
+                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}">
+                                    <div class="ad-show" style="padding:5px; border-radius:5px; background: #f9f9f9;">
+                                        <img src="{{ $my_ad->main_image_url }}" alt="img" height="100" width="120" style="border-radius: 5px; object-fit: cover;">
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-md-3">
-                                <span class="badge badge-success" style="margin-top: 32px;">Live</span>
-
-                                <span class="badge badge-primary" style="margin-left: 7px;">Featured</span>
-                               
-                               <div style="display: grid;">
-                            
-                                    <a href="" style="font-size: 18px;font-weight:bold;color:#000;">
+                            <div class="col pl-4">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="badge badge-success">Live</span>
+                                    <span class="badge badge-primary ml-1">Featured</span>
+                                </div>
+                                <div class="mt-2 text-truncate">
+                                    <a href="" style="font-size: 16px; font-weight:bold; color:#000;">
                                         {{ $my_ad->title ?? 'TITLE N/A' }}
                                     </a>
-                            
-                                <a href="" class="text-muted" style="font-size: 11px;">
-                                    {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
-                                </a>
-                                </div> 
-                                
-                                   
-                                    <h4 class="pricetext">
-                                        {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
-                                        {{-- <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i class="fa fa-trash delete-ad-btn" ad-id="{{ $my_ad->id }}"></i></span> --}}
-                                    </h4>
-                                    
-                              
-                               
-                               <span style="font-size: 12px;"> Last Updated: 15 May</span> <span style="margin-left:33px ;font-size: 12px;"> Expires: in 9 days</span> 
-                            </div>
-                            <div class="col-md-4 d-flex flex-column justify-content-end" style="margin-bottom: 13px;">
-                                <div style="margin-left: 4.8rem;">
-                                    {{-- <i class="fa fa-exclamation-circle text-warning"></i>  --}}
-                                    <span class="text-bold "  style="font-weight: 700; color: goldenrod;"> 👁️ 1,224 </span> 
-                                    <!-- Button with calendar icon -->
-                                    <button class="btn upgradebtn"  type="button" aria-expanded="false">
-                                        <a href="" style="color: #32d951">Upgrade</a>
-                                    </button>
-                                    
-                                    <button class="btn editbtn" style="color: #0088eb;" type="button" aria-expanded="false">
-                                        Edit
-                                    </button>
-                                    
-                                    <button class="btn deletebtn" style="color: red;" type="button" aria-expanded="false">
-                                        Delete
-                                    </button>
-                                    
-                                    
-                                 
-                            
-                                    
                                 </div>
-                                <!-- This column is intentionally left empty -->
+                                <div class="text-muted small">
+                                    {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
+                                </div>
+                                <h4 class="pricetext mt-1">
+                                    {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
+                                </h4>
+                                <div class="small text-muted mt-1">
+                                    Last Updated: 15 May · Expires: in 9 days
+                                </div>
+                            </div>
+                            <div class="col-auto text-right">
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="text-bold mr-3" style="font-weight: 700; color: goldenrod;">👁️ 1,224</span>
+                                    <div class="btn-group">
+                                        <button class="btn upgradebtn p-1" type="button" style="border: 1px solid #32d951; color: #32d951; font-size: 12px; min-width: 60px;">Upgrade</button>
+                                        <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 12px; min-width: 60px;">Edit</button>
+                                        <button class="btn deletebtn p-1 ml-2" type="button" style="border: 1px solid red; color: red; font-size: 12px; min-width: 60px;">Delete</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>
-                        <!-- Add margin bottom -->
-                        <div class="mb-3"></div>
-                        <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: 1.6rem;">
                     @endforeach
-                    <div class="d-flex justify-content-center paginationLink" style="margin: 29px 27rem 0px 0px">
+                    <div class="d-flex justify-content-center paginationLink mt-4 mb-5">
                         {{ $activeListing->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
@@ -317,96 +288,59 @@
             </div>
   {{-- endlive --}}
 {{-- draft --}}
-            <div id="draft" class="cont-w tab-pane "><br>
-                
+            <div id="draft" class="cont-w tab-pane ">
                 @if ($draftListing->total() > 0)
                     <!------------------single row----------->
-                    <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
-                        <label class="checkbox-label" >
-                            <input type="checkbox" id="selectAll" class="select-draft-checkbox"> &nbsp;&nbsp;All
-                        </label>
-                          <button class="btn deletebtn" style="color: red;display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
+                <div class="row align-items-center mb-4">
+                    <div class="col-auto" style="width: 40px;">
+                        <input type="checkbox" id="selectAll" class="select-draft-checkbox">
+                    </div>
+                    <div class="col">
+                        <label class="checkbox-label mb-0" for="selectAll">All</label>
+                    </div>
+                    <div class="col-auto" style="margin-top: 6px;">
+                        <button class="btn deletebtn py-1" style="color:red;" type="button">
                             Delete
                         </button>
+                    </div>
+                </div>
                         @foreach($draftListing as $my_ad)
-                        <form class="place-ad-form" enctype="multipart/form-data">
-                            <div class="row"  >
-                                <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;">
-                                    <input type="checkbox"  class="row-checkbox" value="{{ $my_ad->id }}">
+                        <form class="place-ad-form border-bottom pb-3 mb-3" enctype="multipart/form-data">
+                            <div class="row align-items-center">
+                                <div class="col-auto" style="width: 40px;">
+                                    <input type="checkbox" class="row-checkbox" value="{{ $my_ad->id }}">
                                 </div>
-                                <div class="col-md-4" style="max-width: 11pc">
-                                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
-                                        <div >
-                                            <div class="ad-show" style="padding:10px;border-radius:5px;margin-top: 6px;">
-                                                {{-- <div class="img"> --}}
-                                                    <img src="{{ $my_ad->main_image_url  }}" alt="img" height="100" width="120" style="border-radius: 5px;">
-                                                {{-- </div> --}}
-                                            </div>
-                                            {{-- <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:6.5rem; z-index: 2;color: white;">
-                                                <i class="fa fa-image" style="color:white;margin-left: 5px;"></i><span class="text-black" style="margin-left:9px">{{ $my_ad->images->count() }}</span>
-                                            </div> --}}
+                                <div class="col-auto pr-0">
+                                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}">
+                                        <div class="ad-show" style="padding:5px; border-radius:5px; background: #f9f9f9;">
+                                            <img src="{{ $my_ad->main_image_url }}" alt="img" height="100" width="120" style="border-radius: 5px; object-fit: cover;">
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-md-3">
-                                    {{-- <span class="badge badge-success" style="margin-top: 15px;">Live</span>
-    
-                                    <span class="badge badge-primary" style="margin-left: 7px;">Featured</span> --}}
-                                   
-                                   <div style="margin-top: 13px;display: grid;">
-                                
-                                        <a href="" style="font-size: 18px;font-weight:bold;color:#000;">
+                                <div class="col pl-4">
+                                   <div class="mt-2 text-truncate">
+                                        <a href="" style="font-size: 16px; font-weight:bold; color:#000;">
                                             {{ $my_ad->title ?? 'TITLE N/A' }}
                                         </a>
-                                
-                                    <a href="" class="text-muted" style="font-size: 11px;">
-                                        {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
-                                    </a>
-                                    </div> 
-                                    
-                                       
-                                        <h4 class="pricetext">
-                                            {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
-                                            {{-- <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i class="fa fa-trash delete-ad-btn" ad-id="{{ $my_ad->id }}"></i></span> --}}
-                                        </h4>
-                                        
-                                  
-                                   
-                                   {{-- <span style="font-size: 12px;"> Last Updated: 15 May</span> <span style="margin-left:33px ;font-size: 12px;"> Expires: in 9 days</span>  --}}
-                                </div>
-                                <div class="col-md-4 d-flex flex-column justify-content-end" style="margin-bottom: 13px;">
-                                    <div style="margin-left:13.6rem;" >
-                                        {{-- <i class="fa fa-exclamation-circle text-warning"></i>  --}}
-                                        {{-- <span class="text-bold "  style="font-weight: 700; color: goldenrod;"> 👁️ 1,224 </span>  --}}
-                                        <!-- Button with calendar icon -->
-                                        {{-- <button class="btn" style="border: 1px solid #32d951 ; white-space: nowrap; height: 36px; border-radius: 5px; margin-left: 12px;" type="button" aria-expanded="false">
-                                            <a href="" style="color: #32d951">Upgrade</a>
-                                        </button> --}}
-                                        
-                                        <button class="btn editbtn" style="color: #0088eb" type="button" aria-expanded="false">
-                                            Edit
-                                        </button>
-                                        
-                                        <button class="btn deletebtn" style="color: red;" type="button" aria-expanded="false">
-                                            Delete
-                                        </button>
-                                        
-                                        
-                                     
-                                
-                                        
                                     </div>
-                                    <!-- This column is intentionally left empty -->
+                                    <div class="text-muted small">
+                                        {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
+                                    </div>
+                                    <h4 class="pricetext mt-2">
+                                        {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
+                                    </h4>
+                                </div>
+                                <div class="col-auto text-right">
+                                    <div class="btn-group">
+                                        <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 12px; min-width: 60px;">Edit</button>
+                                        <button class="btn deletebtn p-1 ml-2" type="button" style="border: 1px solid red; color: red; font-size: 12px; min-width: 60px;">Delete</button>
+                                    </div>
                                 </div>
                             </div>
                         </form>
-                       
-                            <!-- Add margin bottom -->
-                            <div class="mb-3"></div>
-                            <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: -1.3rem;">
                         @endforeach
 
-                        <div class="d-flex justify-content-center paginationLink" style="margin: 29px 27rem 0px 0px">
+                        <div class="d-flex justify-content-center paginationLink mt-4 mb-5">
                             {{ $draftListing->links('pagination::bootstrap-4') }}
                         </div>
                     </div>
@@ -418,93 +352,59 @@
                 </div>
                 {{-- enddraft --}}
 {{-- payment_pending --}}
-            <div id="payment_pending" class="cont-w tab-pane fade"><br>
+            <div id="payment_pending" class="cont-w tab-pane fade">
                 @if ($payment_pendingtListing->total() > 0)
                 <!------------------single row----------->
-                <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
-                    <label class="checkbox-label" style="position: relative; z-index: 10;" >
-                        <input type="checkbox" id="selectpayment_pending" class="select-payment_pending-checkbox"> &nbsp;&nbsp;All
-                    </label>
-                      <button class="btn deletebtn" style="color:red; display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
-                        Delete
-                    </button>
+                <div class="row align-items-center mb-4">
+                    <div class="col-auto" style="width: 40px;">
+                        <input type="checkbox" id="selectpayment_pending" class="select-payment_pending-checkbox">
+                    </div>
+                    <div class="col">
+                        <label class="checkbox-label mb-0" for="selectpayment_pending">All</label>
+                    </div>
+                    <div class="col-auto" style="margin-top: 6px;">
+                        <button class="btn deletebtn py-1" style="color:red;" type="button">
+                            Delete
+                        </button>
+                    </div>
+                </div>
                     @foreach($payment_pendingtListing as $my_ad)
-                    <form class="place-ad-form" enctype="multipart/form-data">
-                        <div class="row"  style="margin-top: -3rem;">
-                            <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;">
-                                <input type="checkbox"  class="row-checkbox" value="{{ $my_ad->id }}">
+                    <form class="place-ad-form border-bottom pb-3 mb-3" enctype="multipart/form-data">
+                        <div class="row align-items-center">
+                            <div class="col-auto" style="width: 40px;">
+                                <input type="checkbox" class="row-checkbox" value="{{ $my_ad->id }}">
                             </div>
-                            <div class="col-md-4" style="max-width: 11pc">
-                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
-                                    <div >
-                                        <div class="ad-show" style="padding:10px;border-radius:5px;margin-top: 16px;">
-                                            {{-- <div class="img"> --}}
-                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="100" width="120" style="border-radius: 5px;">
-                                            {{-- </div> --}}
-                                        </div>
-                                        {{-- <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:6.5rem; z-index: 2;color: white;">
-                                            <i class="fa fa-image" style="color:white;margin-left: 5px;"></i><span class="text-black" style="margin-left:9px">{{ $my_ad->images->count() }}</span>
-                                        </div> --}}
+                            <div class="col-auto pr-0">
+                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}">
+                                    <div class="ad-show" style="padding:5px; border-radius:5px; background: #f9f9f9;">
+                                        <img src="{{ $my_ad->main_image_url }}" alt="img" height="100" width="120" style="border-radius: 5px; object-fit: cover;">
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-md-3">
-                                {{-- <span class="badge badge-success" style="margin-top: 15px;">Live</span>
-
-                                <span class="badge badge-primary" style="margin-left: 7px;">Featured</span> --}}
-                               
-                               <div style="margin-top: 21px;display: grid;">
-                            
-                                    <a href="" style="font-size: 18px;font-weight:bold;color:#000;">
+                            <div class="col pl-4">
+                                <div class="mt-1 text-truncate">
+                                    <a href="" style="font-size: 16px; font-weight:bold; color:#000;">
                                         {{ $my_ad->title ?? 'TITLE N/A' }}
                                     </a>
-                            
-                                <a href="" class="text-muted" style="font-size: 11px;">
-                                    {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
-                                </a>
-                                </div> 
-                                
-                                   
-                                    <h4 class="pricetext">
-                                        {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
-                                        {{-- <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i class="fa fa-trash delete-ad-btn" ad-id="{{ $my_ad->id }}"></i></span> --}}
-                                    </h4>
-                                    
-                              
-                               
-                               {{-- <span style="font-size: 12px;"> Last Updated: 15 May</span> <span style="margin-left:33px ;font-size: 12px;"> Expires: in 9 days</span>  --}}
-                            </div>
-                            <div class="col-md-4 d-flex flex-column justify-content-end" style="margin-bottom: 13px;">
-                                <div style="margin-left:8rem;" >
-                                    {{-- <i class="fa fa-exclamation-circle text-warning"></i>  --}}
-                                    {{-- <span class="text-bold "  style="font-weight: 700; color: goldenrod;"> 👁️ 1,224 </span>  --}}
-                                    <!-- Button with calendar icon -->
-                                    <button class="btn upgradebtn"  type="button" aria-expanded="false">
-                                        <a href="" style="color: #32d951">Complete</a>
-                                    </button>
-                                    
-                                    <button class="btn editbtn" style="color: #0088eb;" type="button" aria-expanded="false">
-                                        Edit
-                                    </button>
-                                    
-                                    <button class="btn deletebtn" style=" color: red;" type="button" aria-expanded="false">
-                                        Delete
-                                    </button>
-                                    
-                                    
-                                 
-                            
-                                    
                                 </div>
-                                <!-- This column is intentionally left empty -->
+                                <div class="text-muted small">
+                                    {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
+                                </div>
+                                <h4 class="pricetext mt-2">
+                                    {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
+                                </h4>
+                            </div>
+                            <div class="col-auto text-right">
+                                <div class="btn-group">
+                                    <button class="btn upgradebtn p-1" type="button" style="border: 1px solid #32d951; color: #32d951; font-size: 12px; min-width: 60px;">Complete</button>
+                                    <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 12px; min-width: 60px;">Edit</button>
+                                    <button class="btn deletebtn p-1 ml-2" type="button" style="border: 1px solid red; color: red; font-size: 12px; min-width: 60px;">Delete</button>
+                                </div>
                             </div>
                         </div>
                     </form>
-                        <!-- Add margin bottom -->
-                        <div class="mb-3"></div>
-                        <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: -1.2rem;">
                     @endforeach
-                    <div class="d-flex justify-content-center paginationLink" style="margin: 29px 27rem 0px 0px">
+                    <div class="d-flex justify-content-center paginationLink mt-4 mb-5">
                         {{ $payment_pendingtListing->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
@@ -518,93 +418,56 @@
             </div>
             {{-- endpayment_pending --}}
             {{-- under_review --}}
-            <div id="under_review" class="cont-w tab-pane fade"><br>
+            <div id="under_review" class="cont-w tab-pane fade">
             @if ($pendingListing->total() > 0)
                 <!------------------single row----------->
-                <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
-                    <label class="checkbox-label" style="position: relative; z-index: 10;" >
-                        <input type="checkbox" id="selectunder_review" class="select-under_review-checkbox"> &nbsp;&nbsp;All
-                    </label>
-                      <button class="btn deletebtn" style="color:red;display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
-                        Delete
-                    </button>
+                <div class="row align-items-center">
+                    <div class="col-auto" style="width: 40px;">
+                        <input type="checkbox" id="selectunder_review" class="select-under_review-checkbox">
+                    </div>
+                    <div class="col-md-8">
+                        <label class="checkbox-label mb-0" for="selectunder_review">All</label>
+                    </div>
+                    <div class="col-auto" style="margin-top: 6px;">
+                        <button class="btn deletebtn py-1" style="color:red;" type="button">
+                            Delete
+                        </button>
+                    </div>
+                </div>
                     @foreach($pendingListing as $my_ad)
-                    <form class="place-ad-form" enctype="multipart/form-data">
-                        <div class="row" style="margin-top: -3rem;">
-                            <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;">
-                                <input type="checkbox"  class="row-checkbox" value="{{ $my_ad->id }}">
+                    <form class="place-ad-form border-bottom " style="margin-left: 0px; margin-top: 0px; margin-bottom: 0px; width: 56.5rem;" enctype="multipart/form-data">
+                        <div class="row align-items-center">
+                            <div class="col-auto" style="width: 40px;">
+                                <input type="checkbox" class="row-checkbox" value="{{ $my_ad->id }}">
                             </div>
-                            <div class="col-md-4" style="max-width: 11pc">
-                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
-                                    <div >
-                                        <div class="ad-show" style="padding:10px;border-radius:5px;margin-top: 16px;">
-                                            {{-- <div class="img"> --}}
-                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="100" width="120" style="border-radius: 5px;">
-                                            {{-- </div> --}}
-                                        </div>
-                                        {{-- <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:6.5rem; z-index: 2;color: white;">
-                                            <i class="fa fa-image" style="color:white;margin-left: 5px;"></i><span class="text-black" style="margin-left:9px">{{ $my_ad->images->count() }}</span>
-                                        </div> --}}
+                            <div class="col-auto pl-0">
+                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}">
+                                    <div class="ad-show" style="padding:5px; border-radius:5px; background: #f9f9f9;">
+                                        <img src="{{ $my_ad->main_image_url }}" alt="img" height="100" width="120" style="border-radius: 5px; object-fit: cover;">
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-md-3">
-                                {{-- {{-- <span class="badge badge-success" style="margin-top: 15px;">Live</span> --}}
-
-                                <span class="badge " style="margin-left: 1px;margin-top: 26px; color: white;background-color: #F5BD02">Under Review</span> 
-                               
-                               <div style="margin-top:7px;display: grid;">
-                            
-                                    <a href="" style="font-size: 18px;font-weight:bold;color:#000;">
+                            <div class="col pl-2">
+                                <span class="badge" style="color: white; background-color: #F5BD02">Under Review</span>
+                                <div class="mt-2 text-truncate">
+                                    <a href="" style="font-size: 16px; font-weight:bold; color:#000;">
                                         {{ $my_ad->title ?? 'TITLE N/A' }}
                                     </a>
-                            
-                                <a href="" class="text-muted" style="font-size: 11px;">
-                                    {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
-                                </a>
-                                </div> 
-                                
-                                   
-                                    <h4 class="pricetext">
-                                        {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
-                                        {{-- <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i class="fa fa-trash delete-ad-btn" ad-id="{{ $my_ad->id }}"></i></span> --}}
-                                    </h4>
-                                    
-                              
-                               
-                               {{-- <span style="font-size: 12px;"> Last Updated: 15 May</span> <span style="margin-left:33px ;font-size: 12px;"> Expires: in 9 days</span>  --}}
-                            </div>
-                            <div class="col-md-4 d-flex flex-column justify-content-end" style="margin-bottom: 13px;">
-                                <div style="margin-left:5rem;" >
-                                    {{-- <i class="fa fa-exclamation-circle text-warning"></i>  --}}
-                                    {{-- <span class="text-bold "  style="font-weight: 700; color: goldenrod;"> 👁️ 1,224 </span>  --}}
-                                    <!-- Button with calendar icon -->
-                                    {{-- <button class="btn" style="border: 1px solid #32d951 ; white-space: nowrap; height: 36px; border-radius: 5px; margin-left: 12px;" type="button" aria-expanded="false">
-                                        <a href="" style="color: #32d951">Repost</a>
-                                    </button>
-                                    
-                                    <button class="btn" style="border: 1px solid #0088eb ; white-space: nowrap; height: 36px; border-radius: 5px; color: #0088eb;margin-left: 12px;" type="button" aria-expanded="false">
-                                        Edit
-                                    </button>
-                                    
-                                    <button class="btn" style="border: 1px solid red ; white-space: nowrap; height: 36px; border-radius: 5px; color: red;margin-left: 12px;" type="button" aria-expanded="false">
-                                        Delete
-                                    </button> --}}
-                                    
-                                    
-                                 
-                            
-                                    
                                 </div>
-                                <!-- This column is intentionally left empty -->
+                                <div class="text-muted small">
+                                    {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
+                                </div>
+                                <h4 class="pricetext mt-2">
+                                    {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
+                                </h4>
+                            </div>
+                            <div class="col-auto text-right">
+                                {{-- No actions for Under Review --}}
                             </div>
                         </div>
                     </form>
-                        <!-- Add margin bottom -->
-                        <div class="mb-3"></div>
-                        <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: 2rem;">
                     @endforeach
-                    <div class="d-flex justify-content-center paginationLink" style="margin: 29px 27rem 0px 0px">
+                    <div class="d-flex justify-content-center paginationLink mt-4 mb-5">
                         {{ $pendingListing->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
@@ -637,93 +500,60 @@
             </div>
             {{-- endunder_review --}}
              {{-- rejected --}}
-            <div id="rejected" class="cont-w tab-pane fade"><br>
+            <div id="rejected" class="cont-w tab-pane fade">
             @if ($rejectedListing->total() > 0)
                 <!------------------single row----------->
-                <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
-                    <label class="checkbox-label" style="position: relative; z-index: 10;" >
-                        <input type="checkbox" id="selectrejected" class="select-rejected-checkbox"> &nbsp;&nbsp;All
-                    </label>
-                      <button class="btn deletebtn" id="deletedbtn" style="color: red; display:block; position: relative; z-index: 10; margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
-                        Delete
-                    </button>
+                <div class="row align-items-center">
+                    <div class="col-auto" style="width: 40px;">
+                        <input type="checkbox" id="selectrejected" class="select-rejected-checkbox">
+                    </div>
+                    <div class="col">
+                        <label class="checkbox-label mb-0" for="selectrejected">All</label>
+                    </div>
+                    <div class="col-auto" style="margin-top: 6px;">
+                        <button class="btn deletebtn py-1" style="color:red;" type="button">
+                            Delete
+                        </button>
+                    </div>
+                </div>
                     @foreach($rejectedListing as $my_ad)
-                    <form class="place-ad-form" enctype="multipart/form-data">
-                        <div class="row" style="margin-top: -3rem;">
-                            <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;">
-                                <input type="checkbox"  class="row-checkbox" value="{{ $my_ad->id }}">
+                    <form class="place-ad-form border-bottom pb-3 mb-3" enctype="multipart/form-data">
+                        <div class="row align-items-center">
+                            <div class="col-auto" style="width: 40px;">
+                                <input type="checkbox" class="row-checkbox" value="{{ $my_ad->id }}">
                             </div>
-                            <div class="col-md-4" style="max-width: 11pc">
-                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
-                                    <div >
-                                        <div class="ad-show" style="padding:10px;border-radius:5px;margin-top: 17px;">
-                                            {{-- <div class="img"> --}}
-                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="100" width="120" style="border-radius: 5px;">
-                                            {{-- </div> --}}
-                                        </div>
-                                        {{-- <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:6.5rem; z-index: 2;color: white;">
-                                            <i class="fa fa-image" style="color:white;margin-left: 5px;"></i><span class="text-black" style="margin-left:9px">{{ $my_ad->images->count() }}</span>
-                                        </div> --}}
+                            <div class="col-auto pr-0">
+                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}">
+                                    <div class="ad-show" style="padding:5px; border-radius:5px; background: #f9f9f9;">
+                                        <img src="{{ $my_ad->main_image_url }}" alt="img" height="100" width="120" style="border-radius: 5px; object-fit: cover;">
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-md-3">
-                                <span class="badge" style="margin-top: 27px; background-color: #ff3131;color: white;">Rejected</span>
-
-                                {{-- <span class="badge badge-primary" style="margin-left: 7px;">Featured</span> --}}
-                               
-                               <div style="margin-top: 6px;display: grid;margin-bottom: 9px;">
-                            
-                                    <a href="" style="font-size: 18px;font-weight:bold;color:#000;">
+                            <div class="col pl-4">
+                                <span class="badge" style="background-color: #ff3131; color: white;">Rejected</span>
+                                <div class="mt-2 text-truncate">
+                                    <a href="" style="font-size: 16px; font-weight:bold; color:#000;">
                                         {{ $my_ad->title ?? 'TITLE N/A' }}
                                     </a>
-                            
-                                <a href="" class="text-muted" style="font-size: 11px;">
-                                    {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
-                                </a>
-                                </div> 
-                                
-                                   
-                                    <h4 class="pricetext">
-                                        {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
-                                        {{-- <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i class="fa fa-trash delete-ad-btn" ad-id="{{ $my_ad->id }}"></i></span> --}}
-                                    </h4>
-                                    
-                              
-                               
-                               {{-- <span style="font-size: 12px;"> Last Updated: 15 May</span> <span style="margin-left:33px ;font-size: 12px;"> Expires: in 9 days</span>  --}}
-                            </div>
-                            <div class="col-md-4 d-flex flex-column justify-content-end" style="margin-bottom: 13px;">
-                                <div style="margin-left: 8.9rem;">
-                                    {{-- <i class="fa fa-exclamation-circle text-warning"></i>  --}}
-                                    {{-- <span class="text-bold "  style="font-weight: 700; color: goldenrod;"> 👁️ 1,224 </span>  --}}
-                                    <!-- Button with calendar icon -->
-                                    <button class="btn upgradebtn"  type="button" aria-expanded="false">
-                                        <a href="" style="color: #32d951">Repost</a>
-                                    </button>
-                                    
-                                    <button class="btn editbtn" style="color: #0088eb;" type="button" aria-expanded="false">
-                                        Edit
-                                    </button>
-                                    
-                                    <button class="btn deletebtn" style=" color: red;" type="button" aria-expanded="false">
-                                        Delete
-                                    </button>
-                                    
-                                    
-                                 
-                            
-                                    
                                 </div>
-                                <!-- This column is intentionally left empty -->
+                                <div class="text-muted small">
+                                    {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
+                                </div>
+                                <h4 class="pricetext mt-2">
+                                    {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
+                                </h4>
+                            </div>
+                            <div class="col-auto text-right">
+                                <div class="btn-group">
+                                    <button class="btn upgradebtn p-1" type="button" style="border: 1px solid #32d951; color: #32d951; font-size: 12px; min-width: 60px;">Repost</button>
+                                    <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 12px; min-width: 60px;">Edit</button>
+                                    <button class="btn deletebtn p-1 ml-2" type="button" style="border: 1px solid red; color: red; font-size: 12px; min-width: 60px;">Delete</button>
+                                </div>
                             </div>
                         </div>
                     </form>
-                        <!-- Add margin bottom -->
-                        <div class="mb-3"></div>
-                        <hr style="margin-top: -1.3rem; width: 64%;margin-left: 24px;margin-bottom: 1.6rem;">
                     @endforeach
-                    <div class="d-flex justify-content-center paginationLink" style="margin: 29px 27rem 0px 0px">
+                    <div class="d-flex justify-content-center paginationLink mt-4 mb-5">
                         {{ $rejectedListing->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
@@ -756,93 +586,60 @@
             </div>
             {{-- endrejected --}}
              {{-- expired --}}
-            <div id="expired" class="cont-w tab-pane fade"><br>
+            <div id="expired" class="cont-w tab-pane fade">
             @if ($expiredListing->total() > 0)
                 <!------------------single row----------->
-                <div class="col-md-12" style="border-radius:6px;margin-top:-2rem;">
-                    <label class="checkbox-label" style="position: relative; z-index: 10;" >
-                        <input type="checkbox" id="selectexpired" class="select-expired-checkbox"> &nbsp;&nbsp;All
-                    </label>
-                      <button class="btn deletebtn" style="color: red; display:block;  margin: -38px 0px -38px 49.2rem;padding-top:0;" type="button" aria-expanded="false">
-                        Delete
-                    </button>
+                <div class="row align-items-center">
+                    <div class="col-auto" style="width: 40px;">
+                        <input type="checkbox" id="selectexpired" class="select-expired-checkbox">
+                    </div>
+                    <div class="col">
+                        <label class="checkbox-label mb-0" for="selectexpired">All</label>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn deletebtn py-1" style="color:red;" type="button">
+                            Delete
+                        </button>
+                    </div>
+                </div>
                     @foreach($expiredListing as $my_ad)
-                    <form class="place-ad-form" enctype="multipart/form-data">
-                        <div class="row" style="margin-top: -3rem;">
-                            <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;">
-                                <input type="checkbox"  class="row-checkbox" value="{{ $my_ad->id }}">
+                    <form class="place-ad-form border-bottom pb-3 mb-3" enctype="multipart/form-data">
+                        <div class="row align-items-center">
+                            <div class="col-auto" style="width: 40px;">
+                                <input type="checkbox" class="row-checkbox" value="{{ $my_ad->id }}">
                             </div>
-                            <div class="col-md-4" style="max-width: 11pc">
-                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
-                                    <div >
-                                        <div class="ad-show" style="padding:10px;border-radius:5px;margin-top: 19px;">
-                                            {{-- <div class="img"> --}}
-                                                <img src="{{ $my_ad->main_image_url  }}" alt="img" height="100" width="120" style="border-radius: 5px;">
-                                            {{-- </div> --}}
-                                        </div>
-                                        {{-- <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:6.5rem; z-index: 2;color: white;">
-                                            <i class="fa fa-image" style="color:white;margin-left: 5px;"></i><span class="text-black" style="margin-left:9px">{{ $my_ad->images->count() }}</span>
-                                        </div> --}}
+                            <div class="col-auto pr-0">
+                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}">
+                                    <div class="ad-show" style="padding:5px; border-radius:5px; background: #f9f9f9;">
+                                        <img src="{{ $my_ad->main_image_url }}" alt="img" height="100" width="120" style="border-radius: 5px; object-fit: cover;">
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-md-3">
-                                <span class="badge" style="margin-top: 28px; background-color: #ff3131;color: white; ">Expired</span>
-
-                                {{-- <span class="badge badge-primary" style="margin-left: 7px;">Featured</span> --}}
-                               
-                               <div style="margin-top: 6px;display: grid;">
-                            
-                                    <a href="" style="font-size: 18px;font-weight:bold;color:#000; margin-bottom: 9px;">
+                            <div class="col pl-4">
+                                <span class="badge" style="background-color: #ff3131; color: white;">Expired</span>
+                                <div class="mt-2 text-truncate">
+                                    <a href="" style="font-size: 16px; font-weight:bold; color:#000;">
                                         {{ $my_ad->title ?? 'TITLE N/A' }}
                                     </a>
-                            
-                                <a href="" class="text-muted" style="font-size: 11px;">
-                                    {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
-                                </a>
-                                </div> 
-                                
-                                   
-                                    <h4 class="pricetext">
-                                        {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
-                                        {{-- <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i class="fa fa-trash delete-ad-btn" ad-id="{{ $my_ad->id }}"></i></span> --}}
-                                    </h4>
-                                    
-                              
-                               
-                               {{-- <span style="font-size: 12px;"> Last Updated: 15 May</span> <span style="margin-left:33px ;font-size: 12px;"> Expires: in 9 days</span>  --}}
-                            </div>
-                            <div class="col-md-4 d-flex flex-column justify-content-end" style="margin-bottom: 13px;">
-                                <div style="margin-left: 8.9rem;">
-                                    {{-- <i class="fa fa-exclamation-circle text-warning"></i>  --}}
-                                    {{-- <span class="text-bold "  style="font-weight: 700; color: goldenrod;"> 👁️ 1,224 </span>  --}}
-                                    <!-- Button with calendar icon -->
-                                    <button class="btn upgradebtn "  type="button" aria-expanded="false">
-                                        <a href="" style="color: #32d951">Repost</a>
-                                    </button>
-                                    
-                                    <button class="btn editbtn" style="color:#0088eb" type="button" aria-expanded="false">
-                                        Edit
-                                    </button>
-                                    
-                                    <button class="btn deletebtn" style="color:red;" type="button" aria-expanded="false">
-                                        Delete
-                                    </button>
-                                    
-                                    
-                                 
-                            
-                                    
                                 </div>
-                                <!-- This column is intentionally left empty -->
+                                <div class="text-muted small">
+                                    {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
+                                </div>
+                                <h4 class="pricetext mt-2">
+                                    {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
+                                </h4>
+                            </div>
+                            <div class="col-auto text-right">
+                                <div class="btn-group">
+                                    <button class="btn upgradebtn p-1" type="button" style="border: 1px solid #32d951; color: #32d951; font-size: 12px; min-width: 60px;">Repost</button>
+                                    <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 12px; min-width: 60px;">Edit</button>
+                                    <button class="btn deletebtn p-1 ml-2" type="button" style="border: 1px solid red; color: red; font-size: 12px; min-width: 60px;">Delete</button>
+                                </div>
                             </div>
                         </div>
                     </form>
-                        <!-- Add margin bottom -->
-                        <div class="mb-3"></div>
-                        <hr style="margin-top: -1rem; width: 64%;margin-left: 24px;margin-bottom: 1.6rem;">
                     @endforeach
-                    <div class="d-flex justify-content-center paginationLink" style="margin: 29px 27rem 0px 0px">
+                    <div class="d-flex justify-content-center paginationLink mt-4 mb-5">
                         {{ $expiredListing->links('pagination::bootstrap-4') }}
                     </div>
                 </div>

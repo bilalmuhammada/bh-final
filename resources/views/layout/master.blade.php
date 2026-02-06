@@ -130,8 +130,18 @@ $second = $parts[1] ?? null;
 
 <style>
     .disabled {
-  background-color: #7070707d !important;
-}
+        background-color: #7070707d !important;
+    }
+    @media (min-width: 1200px) {
+        .container, .topbar-wrapper {
+            max-width: 1200px !important;
+            margin-right: auto !important;
+            margin-left: auto !important;
+        }
+    }
+    body {
+        background-color: #f8f9fa; /* Subtle background for better contrast with centered content */
+    }
 </style>
 <script>
     //countries dropdown
@@ -254,9 +264,8 @@ $.ajax({
         });
 
         $("#register_country").select2({
-            // templateSelection: formatCountry,
-            // templateResult: formatCountry,
-            // // minimumResultsForSearch: -1
+            placeholder: "Countries",
+            // allowClear: true
         });
         $("#register_country").on("select2:open", function () {
     // Select the currently open dropdown and adjust its width
@@ -264,9 +273,8 @@ $.ajax({
 });
 
 $("#register_cities").select2({
-            // templateSelection: formatCountry,
-            // templateResult: formatCountry,
-            //  minimumResultsForSearch: -1
+            placeholder: "City",
+            // allowClear: true
         });
         $("#register_cities").on("select2:open", function () {
     // Adjust the width of the currently open dropdown

@@ -8,17 +8,16 @@
      color: blue !important;
     }
     .m-10{
-        margin: 30px 0px 0px -60px !important;
+        margin: 30px 0px 0px 0px !important;
     }
 </style>
 <footer>
 {{--<div class="marquee" style="background-color: #0000FF;color: white;padding-top: 10px;margin-bottom: 10px;height: 25px;">
         <marquee behavior="" direction=""><h5><b><i><span>BusinessHub</span> </i> </b></h5></marquee>
     </div>--}}
-    <div class="container mb-30" style="margin-top:3.5rem;">
-        <div class="col-lg-12 col-md-12 col-12 m-10">
-            <div class="row" style="margin-right: -8.9rem;">
-                <div class="col-lg-4 col-md-6 col-12">
+    <div class="container mb-30" style="max-width: 1200px !important; margin: 0 auto; margin-top:1rem;">
+        <div class="row m-10">
+            <div class="col-lg-4 col-md-6 col-12 pl-0">
                     <h6>
                         Find amazing Businesses on the go.<br/>
                         <div style="color:#0000FF;margin-top: 6px;"><b>Download our App Now!</b></div>
@@ -28,7 +27,7 @@
                     <img src="{{ asset('images/iphone.png')}}" alt=" " height="80px" width="100px">
                 </div>
                 <div class="col-lg-2 col-md-6 col-6">
-                    <img src="{{ asset('images/google-play-store.png')}}" alt=" " style="margin-left: -14px;" class="shaking" height="45px">
+                    <img src="{{ asset('images/google-play-store.png')}}" alt=" " class="shaking" height="45px">
                 </div>
                 <div class="col-lg-2 col-md-6 col-6">
                     <img src="{{ asset('images/apple-store.png')}}" alt=" " class="shaking" height="45px">
@@ -39,10 +38,9 @@
             </div>
         </div>
     </div>
-    <div class="container ">
-        <div class="col-lg-12 col-md-12 col-12 m-10">
-            <div class="row">
-                <div class="col-lg-2 col-md-6 col-12 ">
+    <div class="container" style="max-width: 1200px !important; margin: 0 auto;">
+        <div class="row m-10">
+            <div class="col-lg-2 col-md-6 col-12 pl-0">
                     <h5 style="font-size:15px;font-weight: bold;">Company</h5>
                     <ul>
                        
@@ -112,8 +110,8 @@
                     </ul>
                 </div> --}}
                 <div class="col-lg-3 col-md-8 col-12 desktop-view">
-                    <h5 style="text-align:center;font-size:15px; font-weight: bold;">Socials</h5>
-                    <ul style="text-align:center;margin-top: 15px;" >
+                    <h5 style="font-size:15px; font-weight: bold;">Socials</h5>
+                    <ul style="margin-top: 15px;" >
                         <li style="margin-bottom: 5px;">
                             <a href="# " target="_blank ">
                                 <img src="{{ asset('images/socialicon/insta.png')}}" class="shaking" alt="" width="25" height="25">
@@ -164,7 +162,7 @@
     </div>
    
     <!-- footer copyright area start -->
-    <div class="container" style="margin-top: 2rem;">
+    <div class="container" style="max-width: 1200px !important; margin: 0 auto; margin-top: 2rem;">
         <div class="row">
             <div class="col-xl-12 col-md-12 col-lg-12 col-12">
                 <div class="logo text-center">
@@ -182,7 +180,5 @@
             </div>
         </div>
         <!-- footer copyright area finish -->
-    </div>
-    <!-- footer copyright area finish -->
     </div>
 </footer>

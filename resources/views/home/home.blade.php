@@ -108,12 +108,13 @@
 
 
     .home-full-width {
-        padding-left: 81px !important;
-        padding-right: 81px !important;
+        max-width: 1200px !important;
+        margin-right: auto !important;
+        margin-left: auto !important;
         width: 100% !important;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1200px) {
         .home-full-width {
             padding-left: 15px !important;
             padding-right: 15px !important;
@@ -126,7 +127,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
 @endphp
 <section>
     <!-- <div class="container slider-area"> -->
-    <div class="container-fluid home-full-width slider-area desktop-view" style="border:0px solid red;margin-top:-12px;">
+    <div class="container home-full-width slider-area desktop-view" style="border:0px solid red;">
         <div id="demo" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" style="border-radius:4px;">
                 <div class="carousel-item active">
@@ -209,7 +210,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
 <!-- searchbar area desktop finish -->
 <!-- searchbar area mobile start -->
 <section class="mobile-view">
-    <div class="container-fluid home-full-width">
+    <div class="container home-full-width">
         <div class="row justify-content-md-center">
             <div class="col-lg-10">
                 <!-- searchbar start -->
@@ -249,7 +250,7 @@ $catgories_for_search = $categories->random()->take(6)->get();
 <!-- searchbar mobile finish  -->
 <!-- Categories area start -->
 <section class="list">
-    <div class="container-fluid home-full-width">
+    <div class="container home-full-width">
         <div class="row">
             <div class="col-md-12">
             <h6 style="margin-top: 20px;">
@@ -295,9 +296,9 @@ $catgories_for_search = $categories->random()->take(6)->get();
 
 
 
-    <div class="container-fluid home-full-width">
-        <div class="row" style="margin-left:2px;">
-            <div class="col-lg-12 col-md-12 col-12 p-0">
+    <div class="container home-full-width">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
             <h6 style="margin-bottom:0px;"><b>Popular in Businesses for Sale</b></h6>
             @if($ads->where("category_id", 1)->count()>0)
             @php $validListingsCount = 0; @endphp
@@ -353,9 +354,9 @@ $catgories_for_search = $categories->random()->take(6)->get();
     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
 
-    <div class="container-fluid home-full-width">
-        <div class="row" style="margin-left:2px;">
-            <div class="col-lg-12 col-md-12   col-12 p-0">
+    <div class="container home-full-width">
+        <div class="row">
+            <div class="col-lg-12 col-md-12   col-12 ">
             <h6 style="margin-bottom:0px;"><b>Popular in Businesses for Rent</b></h6>
             @if($ads->where("category_id", 7)->count()>0)
             @php $validListingsCount = 0; @endphp
@@ -410,9 +411,9 @@ $catgories_for_search = $categories->random()->take(6)->get();
     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
 
-    <div class="container-fluid home-full-width">
-        <div class="row" style="margin-left:2px;">
-            <div class="col-lg-12 col-md-12 col-12 p-0">
+    <div class="container home-full-width">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
             <h6 style="margin-bottom:0px;"><b>Popular in Shares for Sale</b></h6>
                 @if($ads->where("category_id", 2)->count()>0)
                 @php $validListingsCount = 0; @endphp
@@ -470,9 +471,9 @@ $catgories_for_search = $categories->random()->take(6)->get();
     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
     {{-- @if($ads->count()>0) --}}
-    <div class="container-fluid home-full-width">
-        <div class="row" style="margin-left:2px;">
-            <div class="col-lg-12 col-md-12 col-12 p-0">
+    <div class="container home-full-width">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
             <h6 style="margin-bottom:0px;"><b>Popular in Business Ideas</b></h6>
                 @if($ads->where("category_id", 3)->count()>0)
                 @php $validListingsCount = 0; @endphp
@@ -528,9 +529,9 @@ $catgories_for_search = $categories->random()->take(6)->get();
     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
 
-    <div class="container-fluid home-full-width">
-        <div class="row" style="margin-left:2px;">
-            <div class="col-lg-12 col-md-12  col-12 p-0">
+    <div class="container home-full-width">
+        <div class="row">
+            <div class="col-lg-12 col-md-12  col-12">
             <h6 style="margin-bottom:0px;"><b>Popular in Investors</b></h6>
             @if($ads->where("category_id", 4)->count()>0)
                 @php $validListingsCount = 0; @endphp
@@ -589,9 +590,9 @@ $catgories_for_search = $categories->random()->take(6)->get();
     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
 
-    <div class="container-fluid home-full-width">
-        <div class="row" style="margin-left:2px;">
-            <div class="col-lg-12 col-md-12  col-12 p-0">
+    <div class="container home-full-width">
+        <div class="row">
+            <div class="col-lg-12 col-md-12  col-12">
             <h6 style="margin-bottom:0px;"><b>Popular in Investors Required</b></h6>
             @if($ads->where("category_id", 5)->count()>0)
             @php $validListingsCount = 0; @endphp
@@ -648,9 +649,9 @@ $catgories_for_search = $categories->random()->take(6)->get();
 <section class="franchise-opp">
     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
-    <div class="container-fluid home-full-width">
-        <div class="row" style="margin-left:2px;">
-            <div class="col-lg-12 col-md-12  col-12 p-0">
+    <div class="container home-full-width">
+        <div class="row">
+            <div class="col-lg-12 col-md-12  col-12">
             <h6 style="margin-bottom:0px;"><b>Popular in Franchise Opportunities</b></h6>
             @if($ads->where("category_id", 6)->count()>0)
             @php $validListingsCount = 0; @endphp
@@ -707,9 +708,9 @@ $catgories_for_search = $categories->random()->take(6)->get();
     @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
 
-    <div class="container-fluid home-full-width">
-        <div class="row" style="margin-left:2px;">
-            <div class="col-lg-12 col-md-12 col-12 p-0">
+    <div class="container home-full-width">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
             <h6 style="margin-bottom:0px;"><b>Popular in Machinery & Supplies</b></h6>
             @if($ads->where("category_id", 8)->count()>0 )
             @php $validListingsCount = 0; @endphp

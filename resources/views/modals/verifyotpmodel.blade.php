@@ -3,17 +3,17 @@
 
 <!-- OTP Verification Modal -->
 <div class="modal fade" id="verifyOtpModal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog" style="max-width: 27% !important; min-width: 350px; margin: 30px auto;">
+  <div class="modal-dialog" style="max-width: 17% !important; min-width: 300px; margin: 30px auto;">
     <div class="modal-content" style="background-color: rgba(33, 34, 35, .90) !important; border-radius: 0.3rem; border: none;">
-      <div class="modal-body text-center text-white p-4 position-relative">
+      <div class="modal-body text-center text-white py-4 position-relative">
 
         <!-- Title Area -->
-        <div class="d-flex align-items-center justify-content-center mb-3" style="position: relative; margin-bottom: 10px !important;">
+        <div class="d-flex align-items-center justify-content-center mb-2" style="position: relative; margin-bottom: 16px !important; margin-top: -10px;">
             <h5 id="modal-title" style="font-weight: bold; line-height: 20px; color: #A17A4E; font-size: 1.1rem; margin: 0 auto;" class="login-heading">
                 Verify OTP
             </h5>
             <button type="button" class="close" data-dismiss="modal" 
-                    style="color: white; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size:24px; background:none; border:none; outline:none; padding: 0;">&times;</button>
+                    style="color: white; position: absolute; right: 10; top: 44%; transform: translateY(-50%); font-size:24px; background:none; border:none; outline:none; padding: 0;">&times;</button>
         </div>
 
         <!-- Description Removed (Requirement 2) -->
@@ -81,16 +81,11 @@
 </style>
 
             <!-- OTP Verification Form -->
-        <div id="otp-verification-section" style="padding: 0 10px;">
+        <div id="otp-verification-section" style="padding: 0 26px;">
           <form id="verifyOtpForm">
-            <input type="hidden" id="verify_email1" name="email1">
+            <input type="hidden" id="verify_email" name="email">
 
-            <div class="input-group mb-4">
-              <input type="text" id="verify_email" name="email"
-                     class="form-control login-user"
-                     readonly
-                     style="background: transparent; border: 1px solid #A17A4E; color: #fff; font-size:14px; padding: 10px 11px; border-radius: 4px; width: 100%;">
-            </div>
+            
             
             <div class="mb-3" style="width: 100%; display: flex; justify-content: center;">
               <div class="otp-box-container">
@@ -102,34 +97,30 @@
               <input type="hidden" id="otp" name="otp">
             </div>
 
-            <!-- Password fields for Forgot Password mode -->
             <div id="forgot-password-fields" style="display:none;">
-              <div class="input-group mb-3" style="display: flex; align-items: stretch;">
+              <div class="input-group mb-3" style="display: flex; align-items: stretch; position: relative;">
                 <input type="password" id="new_password" name="password" 
                        class="form-control login-user" 
                        placeholder="New Password"
-                       style="background: transparent; border: 1px solid #A17A4E; color: #fff; padding: 10px 11px; border-radius: 4px; width: 1%; flex: 1 1 auto;">
-                <div class="input-group-append">
-                    <span class="toggle-password" onclick="toggleOtpPassword('new_password', this)">👁️</span>
-                </div>
+                       style="background: transparent; border: 1px solid #A17A4E; color: #fff; padding: 10px 11px; border-radius: 4px; width: 100%;">
+                <span class="toggle-password" onclick="toggleOtpPassword('new_password', this)">👁️</span>
               </div>
-              <div class="input-group mb-3" style="display: flex; align-items: stretch;">
+              <div class="input-group mb-3" style="display: flex; align-items: stretch; position: relative;">
                 <input type="password" id="confirm_password" name="password_confirmation" 
                        class="form-control login-user" 
                        placeholder="Confirm Password"
-                       style="background: transparent; border: 1px solid #A17A4E; color: #fff; padding: 10px 11px; border-radius: 4px; width: 1%; flex: 1 1 auto;">
-                    <div class="input-group-append">
-                    <span class="toggle-password" onclick="toggleOtpPassword('confirm_password', this)">👁️</span>
-                </div>
+                       style="background: transparent; border: 1px solid #A17A4E; color: #fff; padding: 10px 11px; border-radius: 4px; width: 100%;">
+                <span class="toggle-password" onclick="toggleOtpPassword('confirm_password', this)">👁️</span>
               </div>
             </div>
+
 
             <!-- Verify Button -->
             <div class="login-submit-button-area" style="margin-bottom: 0px;">
                 <button type="button" 
                         class="btn" 
                         id="verifyOtpBtn"
-                        style="background-color:#A17A4E; color:white; border:none; font-weight:700; padding: 8px 35px; border-radius: 4px; font-size: 11px; ">
+                        style="background-color:#A17A4E; color:white; border:none; font-weight:700; padding: 8px 35px; border-radius: 4px; font-size: 14px; ">
                   Submit
                 </button>
             </div>
