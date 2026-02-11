@@ -1054,12 +1054,13 @@ $.ajax({
 
         $(document).on('click', '.chat-title', function (e) {
             e.preventDefault();
-            //calling function to mark messages as readed
-            markMessageAsReaded($(this).attr('chat-id'), $(this));
-
-            var chat_body_selector = "#" + $(this).attr('id') + "-chat-body-div";
-            $('.chat-body-div').css('display', 'none');
-            $(chat_body_selector).css('display', 'block');
+            var userId = $(this).attr('chat-id'); // Wait, the controller uses 'i' which is the other user's id
+            // Let's get the other user id from the id attribute if possible, or better yet, add a data attribute.
+            // Based on view: id="Name-ID"
+            var idParts = $(this).attr('id').split('-');
+            var otherUserId = idParts[idParts.length - 1];
+            
+            window.location.href = '?i=' + otherUserId;
         });
        
 

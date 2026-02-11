@@ -13,12 +13,12 @@ class Chat extends Model
 
     protected $guarded = [];
     protected $appends = [
-        'other_user',
-        'latest_message',
-        'unread_count',
-        'latest_message_recieved_time_diff',
-        'unread_ids',
-        'latest_message_sender_id'
+        // 'other_user',
+        // 'latest_message',
+        // 'unread_count',
+        // 'latest_message_recieved_time_diff',
+        // 'unread_ids',
+        // 'latest_message_sender_id'
     ];
 
     public function messages()
@@ -26,69 +26,68 @@ class Chat extends Model
         return $this->hasMany(Message::class, 'chat_id', 'id');
     }
 
+    public function firstUser()
+    {
+        return $this->belongsTo(User::class, 'first_user_id');
+    }
+
+    public function secondUser()
+    {
+        return $this->belongsTo(User::class, 'second_user_id');
+    }
+
+    public function latestMessage()
+    {
+        return $this->hasOne(Message::class, 'chat_id')->latest();
+    }
+
+    public function unreadMessages()
+    {
+        return $this->hasMany(Message::class, 'chat_id')->where('is_readed', false);
+    }
+
     public function getOtherUserAttribute()
     {
-        $ids = [$this->first_user_id, $this->second_user_id];
-
-        $current_user_id  = SiteHelper::getLoginUserId();
-        //uncomment it while dealing in project
-//        $current_user_id = 1;
-// dd();
-
-        return User::whereIn('id', $ids)
-            ->where('id', '!=', $current_user_id)
-            ->first();
+        $current_user_id = SiteHelper::getLoginUserId();
+        if ($this->first_user_id == $current_user_id) {
+            return $this->secondUser;
+        }
+        return $this->firstUser;
     }
 
     public function getLatestMessageAttribute()
     {
         if ($this->status == 'requested') {
             return "Sent you a message request!";
-        } else {
-            return Message::where('chat_id', $this->id)->latest()->value('message');
-
         }
+        return $this->latestMessage ? $this->latestMessage->message : null;
     }
 
     public function getLatestMessageSenderIdAttribute()
     {
         if ($this->status == 'requested') {
             return 0;
-        } else {
-            return Message::where('chat_id', $this->id)->latest()->value('sender_id');
-
         }
+        return $this->latestMessage ? $this->latestMessage->sender_id : 0;
     }
 
     public function getUnreadCountAttribute()
     {
-        return Message::where([
-            'chat_id' => $this->id,
-            'is_readed' => false
-        ])->count();
+        return $this->unreadMessages()->count();
     }
-
-    
 
     public function getLatestMessageRecievedTimeDiffAttribute()
     {
-        $Message = Message::where('chat_id', $this->id)->latest()->first();
-
-        if ($Message !== null) {
-            return Carbon::parse($Message->sended_at)->diffForHumans();
-        } else {
-            return Carbon::parse($this->created_at)->diffForHumans();
+        $msg = $this->latestMessage;
+        if ($msg) {
+            return Carbon::parse($msg->sended_at)->diffForHumans();
         }
-
+        return Carbon::parse($this->created_at)->diffForHumans();
     }
 
     public function getUnreadIdsAttribute()
     {
-
-        return $Message_ids = Message::where([
-            'chat_id' => $this->id,
-            'is_readed' => false
-        ])->pluck('id');
+        return $this->unreadMessages()->pluck('id');
     }
 
     public function ad() {

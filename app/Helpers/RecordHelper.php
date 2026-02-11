@@ -159,11 +159,37 @@ class RecordHelper
         $country_id = request()->country;
         $city_id = request()->city;
 
-        return Listing::orderBy('name')->when($country_id, function ($Listing) use ($country_id) {
+        return Listing::orderBy('created_at', 'desc')->when($country_id, function ($Listing) use ($country_id) {
             $Listing->where('country_id', $country_id);
         })->when($city_id, function ($Listing) use ($city_id) {
             $Listing->where('city_id', $city_id);
         })->get();
+    }
+
+    public static function getAdsWithDetailsByCategory($category_id, $limit = 6)
+    {
+        $country_id = request()->country;
+        $city_id = request()->city;
+
+        $category = Category::find($category_id);
+        if (!$category || !$category->form_view) {
+            return collect();
+        }
+
+        $table = $category->form_view;
+
+        return Listing::select('listings.*', 'details.title', 'details.price', 'details.location_name')
+            ->join($table . ' as details', 'details.listing_id', '=', 'listings.id')
+            ->where('listings.category_id', $category_id)
+            ->when($country_id, function ($q) use ($country_id) {
+                $q->where('listings.country_id', $country_id);
+            })
+            ->when($city_id, function ($q) use ($city_id) {
+                $q->where('listings.city_id', $city_id);
+            })
+            ->orderBy('listings.created_at', 'desc')
+            ->limit($limit)
+            ->get();
     }
 
     public static function getFavouriteAds()

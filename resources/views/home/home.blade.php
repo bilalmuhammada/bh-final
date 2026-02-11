@@ -287,7 +287,9 @@ $catgories_for_search = $categories->random()->take(6)->get();
 </section>
 <section class="business-sale">
 
-    @php $ads = \App\Helpers\RecordHelper::getAds();
+    @php 
+    // $ads = \App\Helpers\RecordHelper::getAds(); // No longer needed for category sections
+    @endphp
 
 
     @endphp
@@ -300,17 +302,12 @@ $catgories_for_search = $categories->random()->take(6)->get();
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
             <h6 style="margin-bottom:0px;"><b>Popular in Businesses for Sale</b></h6>
-            @if($ads->where("category_id", 1)->count()>0)
-            @php $validListingsCount = 0; @endphp
+            @php 
+                $business_for_sale_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(1, 6);
+            @endphp
+            @if($business_for_sale_ads->count() > 0)
             <div class="row">
-
-
-                @foreach($ads->where("category_id", 1) as $key=>$featured_ad)
-                @php
-                $business_for_sale_details= DB::table('business_for_sale_details')->where('listing_id', $featured_ad->id)->first();
-                @endphp
-                @if(!$business_for_sale_details) @continue @endif
-                @php $validListingsCount++; @endphp
+                @foreach($business_for_sale_ads as $key => $featured_ad)
                 <div class="col-lg-2 col-md-3 col-6">
                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
                         <div class="listing p-1">
@@ -322,25 +319,18 @@ $catgories_for_search = $categories->random()->take(6)->get();
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                             </div>
                             <div class="detail" style="padding: 12px;">
-                                <span style="color:#000; display: block; margin-bottom: 2px;">{!!$business_for_sale_details->title !!} {{$key}}</span>
-                                <span style="color:#999; display: block; margin-bottom: 5px;">{!!$business_for_sale_details->location_name !!}</span>
-                                <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!!$business_for_sale_details->price !!}</b></h5>
+                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
+                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
+                                <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
                             </div>
-
                         </div>
                     </a>
                 </div>
                 @endforeach
             </div>
-            @if($validListingsCount == 0)
-            <div class="noAds">
-                <h6>No Ads</h6>
-            </div>
-            @endif
             @else
             <div class="noAds">
-
-                <h6>No Ads </h6>
+                <h6>No Ads</h6>
             </div>
             @endif
             <!-- Custom Arrows -->
@@ -351,23 +341,19 @@ $catgories_for_search = $categories->random()->take(6)->get();
     </div>
 </section>
 <section class="business-rent">
-    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+    @php // $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
 
     <div class="container home-full-width">
         <div class="row">
             <div class="col-lg-12 col-md-12   col-12 ">
             <h6 style="margin-bottom:0px;"><b>Popular in Businesses for Rent</b></h6>
-            @if($ads->where("category_id", 7)->count()>0)
-            @php $validListingsCount = 0; @endphp
+            @php 
+                $business_for_rent_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(7, 6);
+            @endphp
+            @if($business_for_rent_ads->count() > 0)
             <div class="row">
-
-                @foreach($ads->where("category_id", 7) as $key=>$featured_ad)
-                @php
-                $business_rents= DB::table('business_rents')->where('listing_id', $featured_ad->id)->first();
-                @endphp
-                @if(!$business_rents) @continue @endif
-                @php $validListingsCount++; @endphp
+                @foreach($business_for_rent_ads as $key => $featured_ad)
                 <div class="col-lg-2 col-md-3 col-6">
                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
                         <div class="listing p-1">
@@ -379,25 +365,18 @@ $catgories_for_search = $categories->random()->take(6)->get();
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                             </div>
                             <div class="detail" style="padding: 12px;">
-                                <span style="color:#000; display: block; margin-bottom: 2px;">{!!$business_rents->title !!}{{$key}}</span>
-                                <span style="color:#999; display: block; margin-bottom: 5px;">{!!$business_rents->location_name !!}</span>
-                                <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!!$business_rents->price !!}</b></h5>
+                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
+                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
+                                <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
                             </div>
-
                         </div>
                     </a>
                 </div>
                 @endforeach
             </div>
-            @if($validListingsCount == 0)
-            <div class="noAds">
-                <h6>No Ads</h6>
-            </div>
-            @endif
             @else
             <div class="noAds">
-
-                <h6>No Ads </h6>
+                <h6>No Ads</h6>
             </div>
             @endif
 
@@ -408,142 +387,19 @@ $catgories_for_search = $categories->random()->take(6)->get();
 </section>
 <section class="share-sale">
 
-    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+    @php // $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
 
     <div class="container home-full-width">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
             <h6 style="margin-bottom:0px;"><b>Popular in Shares for Sale</b></h6>
-                @if($ads->where("category_id", 2)->count()>0)
-                @php $validListingsCount = 0; @endphp
-                <div class="row">
-
-
-                    @foreach($ads->where("category_id", 2) as $key=>$featured_ad)
-                    @php
-                    $shares_for_sale_details= DB::table('shares_for_sale_details')->where('listing_id', $featured_ad->id)->first();
-                    @endphp
-                    @if(!$shares_for_sale_details) @continue @endif
-                    @php $validListingsCount++; @endphp
-                    <div class="col-lg-2 col-md-3 col-6">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
-                            <div class="listing p-1">
-                                <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                    <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
-                                </div>
-                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                    <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
-                                </div>
-                                <div class="detail" style="padding: 12px;">
-                                    <span style="color:#000; display: block; margin-bottom: 2px;">{!!$shares_for_sale_details->title !!}{{$key}}</span>
-                                    <span style="color:#999; display: block; margin-bottom: 5px;">{!!$shares_for_sale_details->location_name !!}</span>
-                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!!$shares_for_sale_details->price !!}</b></h5>
-                                </div>
-
-                            </div>
-                        </a>
-                    </div>
-                    @endforeach
-                </div>
-                @if($validListingsCount == 0)
-                <div class="noAds">
-                    <h6>No Ads</h6>
-                </div>
-                @endif
-                @else
-                <div class="noAds">
-
-                    <h6>No Ads </h6>
-                </div>
-                @endif
-
-                <!-- Custom Arrows -->
-                {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
-                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
-            </div>
-        </div>
-    </div>
-
-</section>
-<section class="business-idea">
-    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
-
-    {{-- @if($ads->count()>0) --}}
-    <div class="container home-full-width">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-12">
-            <h6 style="margin-bottom:0px;"><b>Popular in Business Ideas</b></h6>
-                @if($ads->where("category_id", 3)->count()>0)
-                @php $validListingsCount = 0; @endphp
-                <div class="row">
-
-                    @foreach($ads->where("category_id", 3) as $key=>$featured_ad)
-                    @php
-                    $business_idea_details= DB::table('business_idea_details')->where('listing_id', $featured_ad->id)->first();
-                    @endphp
-                    @if(!$business_idea_details) @continue @endif
-                    @php $validListingsCount++; @endphp
-                    <div class="col-lg-2 col-md-3 col-6">
-                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
-                            <div class="listing p-1">
-                                <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                    <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
-                                </div>
-                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                    <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
-                                </div>
-                                <div class="detail" style="padding: 12px;">
-                                    <span style="color:#000; display: block; margin-bottom: 2px;">{!!$business_idea_details->title !!} {{$key}}</span>
-                                    <span style="color:#999; display: block; margin-bottom: 5px;">{!!$business_idea_details->location_name !!}</span>
-                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!!$business_idea_details->price !!}</b></h5>
-                                </div>
-
-                            </div>
-                        </a>
-                    </div>
-                    @endforeach
-                </div>
-                @if($validListingsCount == 0)
-                <div class="noAds">
-                    <h6>No Ads</h6>
-                </div>
-                @endif
-                @else
-                <div class="noAds">
-
-                    <h6>No Ads</h6>
-                </div>
-                @endif
-                <!-- Custom Arrows -->
-                {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
-                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
-            </div>
-        </div>
-    </div>
-
-</section>
-<section class="investor">
-    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
-
-
-    <div class="container home-full-width">
-        <div class="row">
-            <div class="col-lg-12 col-md-12  col-12">
-            <h6 style="margin-bottom:0px;"><b>Popular in Investors</b></h6>
-            @if($ads->where("category_id", 4)->count()>0)
-                @php $validListingsCount = 0; @endphp
-                <div class="row">
-
-                @foreach($ads->where("category_id", 4) as $key=>$featured_ad)
-
-                @php
-                $investors_details= DB::table('investors_details')->where('listing_id', $featured_ad->id)->first();
-                @endphp
-                @if(!$investors_details) @continue @endif
-                @php $validListingsCount++; @endphp
+            @php 
+                $shares_for_sale_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(2, 6);
+            @endphp
+            @if($shares_for_sale_ads->count() > 0)
+            <div class="row">
+                @foreach($shares_for_sale_ads as $key => $featured_ad)
                 <div class="col-lg-2 col-md-3 col-6">
                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
                         <div class="listing p-1">
@@ -555,24 +411,112 @@ $catgories_for_search = $categories->random()->take(6)->get();
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                             </div>
                             <div class="detail" style="padding: 12px;">
-                                <span style="color:#000; display: block; margin-bottom: 2px;">{!!$investors_details->title !!} {{$key}}</span>
-                                <span style="color:#999; display: block; margin-bottom: 5px;">{!!$investors_details->location_name !!}</span>
-                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!!$investors_details->price !!}</b></h5>
+                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
+                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
+                                <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
                             </div>
-
                         </div>
                     </a>
                 </div>
                 @endforeach
             </div>
-            @if($validListingsCount == 0)
+            @else
             <div class="noAds">
                 <h6>No Ads</h6>
             </div>
             @endif
+
+                <!-- Custom Arrows -->
+                {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
+                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
+            </div>
+        </div>
+    </div>
+
+</section>
+<section class="business-idea">
+    @php // $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+
+    {{-- @if($ads->count()>0) --}}
+    <div class="container home-full-width">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+            <h6 style="margin-bottom:0px;"><b>Popular in Business Ideas</b></h6>
+            @php 
+                $business_idea_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(3, 6);
+            @endphp
+            @if($business_idea_ads->count() > 0)
+            <div class="row">
+                @foreach($business_idea_ads as $key => $featured_ad)
+                <div class="col-lg-2 col-md-3 col-6">
+                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
+                        <div class="listing p-1">
+                            <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
+                            <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
+                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
+                            </div>
+                            <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
+                                <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
+                            </div>
+                            <div class="detail" style="padding: 12px;">
+                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
+                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
+                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @endforeach
+            </div>
             @else
             <div class="noAds">
+                <h6>No Ads</h6>
+            </div>
+            @endif
+                <!-- Custom Arrows -->
+                {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
+                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
+            </div>
+        </div>
+    </div>
 
+</section>
+<section class="investor">
+    @php // $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+
+
+    <div class="container home-full-width">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+            <h6 style="margin-bottom:0px;"><b>Popular in Investors</b></h6>
+            @php 
+                $investor_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(4, 6);
+            @endphp
+            @if($investor_ads->count() > 0)
+            <div class="row">
+                @foreach($investor_ads as $key => $featured_ad)
+                <div class="col-lg-2 col-md-3 col-6">
+                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
+                        <div class="listing p-1">
+                            <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
+                            <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
+                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
+                            </div>
+                            <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
+                                <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
+                            </div>
+                            <div class="detail" style="padding: 12px;">
+                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
+                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
+                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @endforeach
+            </div>
+            @else
+            <div class="noAds">
                 <h6>No Ads</h6>
             </div>
             @endif
@@ -587,23 +531,19 @@ $catgories_for_search = $categories->random()->take(6)->get();
 
 </section>
 <section class="investor-required">
-    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+    @php // $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
 
     <div class="container home-full-width">
         <div class="row">
-            <div class="col-lg-12 col-md-12  col-12">
+            <div class="col-lg-12 col-md-12 col-12">
             <h6 style="margin-bottom:0px;"><b>Popular in Investors Required</b></h6>
-            @if($ads->where("category_id", 5)->count()>0)
-            @php $validListingsCount = 0; @endphp
+            @php 
+                $investor_required_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(5, 6);
+            @endphp
+            @if($investor_required_ads->count() > 0)
             <div class="row">
-
-                @foreach($ads->where("category_id", 5) as $key=>$featured_ad)
-                @php
-                $investors_required_details= DB::table('investors_required_details')->where('listing_id', $featured_ad->id)->first();
-                @endphp
-                @if(!$investors_required_details) @continue @endif
-                @php $validListingsCount++; @endphp
+                @foreach($investor_required_ads as $key => $featured_ad)
                 <div class="col-lg-2 col-md-3 col-6">
                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
                         <div class="listing p-1">
@@ -615,24 +555,17 @@ $catgories_for_search = $categories->random()->take(6)->get();
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                             </div>
                             <div class="detail" style="padding: 12px;">
-                                <span style="color:#000; display: block; margin-bottom: 2px;">{!!$investors_required_details->title !!} {{$key}}</span>
-                                <span style="color:#999; display: block; margin-bottom: 5px;">{!!$investors_required_details->location_name !!}</span>
-                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!!$investors_required_details->price !!}</b></h5>
+                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
+                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
+                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
                             </div>
-
                         </div>
                     </a>
                 </div>
                 @endforeach
             </div>
-            @if($validListingsCount == 0)
-            <div class="noAds">
-                <h6>No Ads</h6>
-            </div>
-            @endif
             @else
             <div class="noAds">
-
                 <h6>No Ads</h6>
             </div>
             @endif
@@ -647,51 +580,40 @@ $catgories_for_search = $categories->random()->take(6)->get();
 
 </section>
 <section class="franchise-opp">
-    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+    @php // $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
     <div class="container home-full-width">
         <div class="row">
-            <div class="col-lg-12 col-md-12  col-12">
+            <div class="col-lg-12 col-md-12 col-12">
             <h6 style="margin-bottom:0px;"><b>Popular in Franchise Opportunities</b></h6>
-            @if($ads->where("category_id", 6)->count()>0)
-            @php $validListingsCount = 0; @endphp
+            @php 
+                $franchise_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(6, 6);
+            @endphp
+            @if($franchise_ads->count() > 0)
             <div class="row">
-
-                @foreach($ads->where("category_id", 6) as $key=>$featured_ad)
-                @php
-                $franchise_opportunities_details= DB::table('franchise_opportunities_details')->where('listing_id', $featured_ad->id)->first();
-                @endphp
-                @if(!$franchise_opportunities_details) @continue @endif
-                @php $validListingsCount++; @endphp
+                @foreach($franchise_ads as $key => $featured_ad)
                 <div class="col-lg-2 col-md-3 col-6">
-                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
+                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
                         <div class="listing p-1">
                             <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                            <div class="heart-icon" style="position: absolute; top: 16px; right:0.4rem;">
+                            <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
                                 <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
                             </div>
                             <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                             </div>
                             <div class="detail" style="padding: 12px;">
-                                <span style="color:#000; display: block; margin-bottom: 2px;">{!!$franchise_opportunities_details->title !!} {{$key}}</span>
-                                <span style="color:#999; display: block; margin-bottom: 5px;">{!!$franchise_opportunities_details->location_name !!}</span>
-                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!!$franchise_opportunities_details->price !!}</b></h5>
+                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
+                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
+                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
                             </div>
-
                         </div>
                     </a>
                 </div>
                 @endforeach
             </div>
-            @if($validListingsCount == 0)
-            <div class="noAds">
-                <h6>No Ads</h6>
-            </div>
-            @endif
             @else
             <div class="noAds">
-
                 <h6>No Ads</h6>
             </div>
             @endif
@@ -705,27 +627,21 @@ $catgories_for_search = $categories->random()->take(6)->get();
 
 </section>
 <section class="machinery">
-    @php $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+    @php // $ads = \App\Helpers\RecordHelper::getAds(); @endphp
 
 
     <div class="container home-full-width">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
             <h6 style="margin-bottom:0px;"><b>Popular in Machinery & Supplies</b></h6>
-            @if($ads->where("category_id", 8)->count()>0 )
-            @php $validListingsCount = 0; @endphp
+            @php 
+                $machinery_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(8, 6);
+            @endphp
+            @if($machinery_ads->count() > 0)
             <div class="row">
-
-
-
-                @foreach($ads->where("category_id", 8) as $key=>$featured_ad)
-                @php
-                $machine_supplies_details= DB::table('machine_supplies_details')->where('listing_id', $featured_ad->id)->first();
-                @endphp
-                @if(!$machine_supplies_details) @continue @endif
-                @php $validListingsCount++; @endphp
+                @foreach($machinery_ads as $key => $featured_ad)
                 <div class="col-lg-2 col-md-3 col-6">
-                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city}}">
+                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
                         <div class="listing p-1">
                             <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                             <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
@@ -735,24 +651,17 @@ $catgories_for_search = $categories->random()->take(6)->get();
                                 <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
                             </div>
                             <div class="detail" style="padding: 12px;">
-                                <span style="color:#000; display: block; margin-bottom: 2px;">{!!$machine_supplies_details->title !!}{{$key}}</span>
-                                <span style="color:#999; display: block; margin-bottom: 5px;">{!!$machine_supplies_details->location_name !!}</span>
-                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!!$machine_supplies_details->price !!}</b></h5>
+                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
+                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
+                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
                             </div>
-
                         </div>
                     </a>
                 </div>
                 @endforeach
             </div>
-            @if($validListingsCount == 0)
-            <div class="noAds">
-                <h6>No Ads</h6>
-            </div>
-            @endif
             @else
             <div class="noAds">
-
                 <h6>No Ads</h6>
             </div>
             @endif

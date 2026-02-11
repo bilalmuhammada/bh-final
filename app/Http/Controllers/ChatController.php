@@ -14,60 +14,72 @@ class ChatController extends Controller
     private $logged_in_user_id = 1;
 
     public function index(Request $request)
-    {  
-        
-
-
-       
-    
-        if($request->i){
-        Chat::updateOrCreate(
-            ['second_user_id'=>$request->i],
-            ['first_user_id'=>session()->get('user')['id'],'status'=> 'accepted', 'initiated_by'=>session()->get('user')['id']]
-        );
+    {
+        if ($request->i) {
+            Chat::updateOrCreate(
+                ['second_user_id' => $request->i],
+                [
+                    'first_user_id' => session()->get('user')['id'],
+                    'status' => 'accepted',
+                    'initiated_by' => session()->get('user')['id']
+                ]
+            );
         }
-      
-        $chats = Chat::with(['messages',"ad"])
-            ->where('first_user_id', SiteHelper::getLoginUserId())
-            ->orWhere('second_user_id', SiteHelper::getLoginUserId());
 
-    //   dd();
+        $userId = \App\Helpers\SiteHelper::getLoginUserId();
+
+        $chatsQuery = Chat::with(['latestMessage', 'ad', 'firstUser', 'secondUser'])
+            ->withCount(['unreadMessages' => function ($query) use ($userId) {
+                $query->where('sender_id', '!=', $userId);
+            }])
+            ->where(function ($query) use ($userId) {
+                $query->where('first_user_id', $userId)
+                    ->orWhere('second_user_id', $userId);
+            });
+
         if ($request->user_id) {
-                $chats = $chats->where('second_user_id', '=', $request->user_id);
-        } 
-   
+            $chatsQuery->where('second_user_id', '=', $request->user_id);
+        }
 
         if (session()->get('role') == 'vendor') {
-            $chats = $chats->where('status', '=', 'accepted');
+            $chatsQuery->where('status', '=', 'accepted');
         } else {
-            $chats = $chats->where('status', '!=', 'rejected');
+            $chatsQuery->where('status', '!=', 'rejected');
         }
 
-        $chats = $chats->orderBy('created_at','desc')
-        ->get();
-      
+        $chats = $chatsQuery->orderBy('created_at', 'desc')->get();
+
+        // Mark messages as delivered efficiently
+        Message::whereIn('chat_id', $chats->pluck('id'))
+            ->where('receiver_id', $userId)
+            ->where('is_delivered', false)
+            ->update(['is_delivered' => true]);
+
+        // Only group messages for the ACTIVE chat
+        $activeUserId = $request->i;
         foreach ($chats as $chat) {
-            $groupedMessages = [];
-            if ($chat->messages) {
+            $otherUserId = ($chat->first_user_id == $userId) ? $chat->second_user_id : $chat->first_user_id;
+            
+            if ($activeUserId && $otherUserId == $activeUserId) {
+                $groupedMessages = [];
+                $chat->load(['messages' => function ($q) {
+                    $q->orderBy('sended_at', 'asc');
+                }]);
+                
                 foreach ($chat->messages as $message) {
                     $dateKey = Carbon::parse($message->sended_at)->format('d-m-Y');
-                    // Log the date key for debugging
-                    \Log::info('Date Key: ' . $dateKey);
                     $groupedMessages[$dateKey][] = $message;
-                    $message->update(['is_delivered' => true]);
                 }
-        
-                // Sort the messages by the date key
                 ksort($groupedMessages);
                 $chat->sorted_messages = $groupedMessages;
-        
+            } else {
+                $chat->sorted_messages = [];
             }
         }
 
-     
         return view('chats.list')->with([
             'chats' => $chats,
-            'login_user_id' => SiteHelper::getLoginUserId()
+            'login_user_id' => $userId
         ]);
     }
 
