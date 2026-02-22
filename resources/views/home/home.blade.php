@@ -626,7 +626,7 @@ $catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $cat
 
 </section>
 <section class="machinery">
-    @php // $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+   
 
 
     <div class="container home-full-width">
@@ -634,9 +634,9 @@ $catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $cat
             <div class="col-lg-12 col-md-12 col-12">
             <h6 style="margin-bottom:0px;"><b>Popular in Machinery & Supplies</b></h6>
             @php 
-             
+              dd("dd");
                 $machinery_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(8, 6);
-            dd("dd");
+           
                 @endphp
             @if($machinery_ads->count() > 0)
             <div class="row">
