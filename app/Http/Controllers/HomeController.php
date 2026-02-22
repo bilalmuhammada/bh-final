@@ -22,11 +22,16 @@ class HomeController extends Controller
 
     public function home(Request $request)
     {
+        if ($request->country) {
+            Session::put('country', $request->country);
+        }
+
         // Capture everything during view rendering
         DB::enableQueryLog();
         $startTime = microtime(true);
         
-        $renderedView = view('home.home')->render();
+        $view = view('home.home');
+        $renderedView = $view->render();
         
         $endTime = microtime(true);
         $executionTime = $endTime - $startTime;
@@ -38,7 +43,7 @@ class HomeController extends Controller
         
         foreach ($queries as $query) {
             if ($query['time'] > 100) {
-                \Illuminate\Support\Facades\Log::warning("SLOW QUERY IN VIEW ({$query['time']}ms): {$query['query']}", $query['bindings']);
+                \Illuminate\Support\Facades\Log::warning("SLOW QUERY ({$query['time']}ms): {$query['query']}", $query['bindings']);
             }
         }
 
