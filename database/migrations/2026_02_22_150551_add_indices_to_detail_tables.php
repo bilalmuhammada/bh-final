@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -25,16 +26,18 @@ return new class extends Migration
             'business_rents'
         ];
 
-        foreach ($tables as $table) {
-            if (Schema::hasTable($table)) {
-                Schema::table($table, function (Blueprint $table) {
-                    // Check if index already exists to prevent errors
-                    $sm = Schema::getConnection()->getDoctrineSchemaManager();
-                    $indexesFound = $sm->listTableIndexes($table);
-                    if (!array_key_exists($table . '_listing_id_index', $indexesFound)) {
+        foreach ($tables as $tableName) {
+            if (Schema::hasTable($tableName)) {
+                $indexName = $tableName . '_listing_id_index';
+                
+                // Use raw query to check for index existence to avoid Doctrine dependency
+                $indexes = DB::select("SHOW INDEX FROM {$tableName} WHERE Key_name = ?", [$indexName]);
+                
+                if (count($indexes) == 0) {
+                    Schema::table($tableName, function (Blueprint $table) {
                         $table->index('listing_id');
-                    }
-                });
+                    });
+                }
             }
         }
     }
@@ -58,11 +61,16 @@ return new class extends Migration
             'business_rents'
         ];
 
-        foreach ($tables as $table) {
-            if (Schema::hasTable($table)) {
-                Schema::table($table, function (Blueprint $table) {
-                    $table->dropIndex(['listing_id']);
-                });
+        foreach ($tables as $tableName) {
+            if (Schema::hasTable($tableName)) {
+                $indexName = $tableName . '_listing_id_index';
+                $indexes = DB::select("SHOW INDEX FROM {$tableName} WHERE Key_name = ?", [$indexName]);
+                
+                if (count($indexes) > 0) {
+                    Schema::table($tableName, function (Blueprint $table) use ($indexName) {
+                        $table->dropIndex($indexName);
+                    });
+                }
             }
         }
     }
