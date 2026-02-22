@@ -176,6 +176,7 @@ class RecordHelper
             return collect();
         }
 
+  dd($category);
         $table = $category->form_view;
 
         return Listing::with(['attachments'])->select('listings.*', 'details.title', 'details.price', 'details.location_name')
