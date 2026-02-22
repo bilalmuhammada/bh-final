@@ -394,7 +394,7 @@ $catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $cat
             <div class="col-lg-12 col-md-12 col-12">
             <h6 style="margin-bottom:0px;"><b>Popular in Shares for Sale</b></h6>
             @php 
-            dd("gghhhxg");
+           
                 $shares_for_sale_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(2, 6);
             @endphp
             @if($shares_for_sale_ads->count() > 0)
@@ -445,7 +445,8 @@ $catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $cat
             @php 
              
                 $business_idea_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(3, 6);
-            @endphp
+           dd("bbb");
+                @endphp
             @if($business_idea_ads->count() > 0)
             <div class="row">
                 @foreach($business_idea_ads as $key => $featured_ad)
