@@ -122,7 +122,7 @@
     }
 </style>
 @php
-dd("dd");
+
 $categories = \App\Helpers\RecordHelper::getCategories();
 $catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $categories;
 
@@ -289,12 +289,7 @@ $catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $cat
 </section>
 <section class="business-sale">
 
-    @php 
-    // $ads = \App\Helpers\RecordHelper::getAds(); // No longer needed for category sections
-    @endphp
-
-
-    @endphp
+   
 
 
 
@@ -305,6 +300,7 @@ $catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $cat
             <div class="col-lg-12 col-md-12 col-12">
             <h6 style="margin-bottom:0px;"><b>Popular in Businesses for Sale</b></h6>
             @php 
+            dd("ff");
                 $business_for_sale_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(1, 6);
             @endphp
             @if($business_for_sale_ads->count() > 0)
@@ -343,7 +339,7 @@ $catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $cat
     </div>
 </section>
 <section class="business-rent">
-    @php // $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+   
 
 
     <div class="container home-full-width">
@@ -389,7 +385,7 @@ $catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $cat
 </section>
 <section class="share-sale">
 
-    @php // $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+
 
 
     <div class="container home-full-width">
@@ -437,7 +433,7 @@ $catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $cat
 
 </section>
 <section class="business-idea">
-    @php // $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+  
 
     {{-- @if($ads->count()>0) --}}
     <div class="container home-full-width">
@@ -484,7 +480,7 @@ $catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $cat
 
 </section>
 <section class="investor">
-    @php // $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+    
 
 
     <div class="container home-full-width">
@@ -533,7 +529,7 @@ $catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $cat
 
 </section>
 <section class="investor-required">
-    @php // $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+
 
 
     <div class="container home-full-width">
@@ -582,7 +578,7 @@ $catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $cat
 
 </section>
 <section class="franchise-opp">
-    @php // $ads = \App\Helpers\RecordHelper::getAds(); @endphp
+   
 
     <div class="container home-full-width">
         <div class="row">
