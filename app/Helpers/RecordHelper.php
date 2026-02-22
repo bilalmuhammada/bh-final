@@ -178,7 +178,7 @@ class RecordHelper
 
         $table = $category->form_view;
 
-        return Listing::select('listings.*', 'details.title', 'details.price', 'details.location_name')
+        return Listing::with(['attachments'])->select('listings.*', 'details.title', 'details.price', 'details.location_name')
             ->join($table . ' as details', 'details.listing_id', '=', 'listings.id')
             ->where('listings.category_id', $category_id)
             ->when($country_id, function ($q) use ($country_id) {
