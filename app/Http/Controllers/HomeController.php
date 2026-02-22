@@ -21,27 +21,27 @@ class HomeController extends Controller
 
     public function home(Request $request)
     {
-        \Illuminate\Support\Facades\DB::enableQueryLog();
+        // Capture everything during view rendering
+        DB::enableQueryLog();
         $startTime = microtime(true);
-      
-        if ($request->country) {
-            Session::put('country', $request->country);
-        }
-
+        
+        $renderedView = view('home.home')->render();
+        
         $endTime = microtime(true);
         $executionTime = $endTime - $startTime;
-        $queries = \Illuminate\Support\Facades\DB::getQueryLog();
+        $queries = DB::getQueryLog();
         
-        \Illuminate\Support\Facades\Log::info("Home page execution time: {$executionTime}s");
-        \Illuminate\Support\Facades\Log::info("Home page queries count: " . count($queries));
+        \Illuminate\Support\Facades\Log::info("HOME VIEW RENDER PERFORMANCE:");
+        \Illuminate\Support\Facades\Log::info("Execution time: {$executionTime}s");
+        \Illuminate\Support\Facades\Log::info("Queries count: " . count($queries));
         
         foreach ($queries as $query) {
-            if ($query['time'] > 100) { // Log queries slower than 100ms
-                \Illuminate\Support\Facades\Log::warning("Slow query ({$query['time']}ms): {$query['query']}", $query['bindings']);
+            if ($query['time'] > 100) {
+                \Illuminate\Support\Facades\Log::warning("SLOW QUERY IN VIEW ({$query['time']}ms): {$query['query']}", $query['bindings']);
             }
         }
 
-        return view('home.home');
+        return $renderedView;
     }
     public function showAd()
     {
