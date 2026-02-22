@@ -8,11 +8,10 @@ $my_ads_for_topbar = [];
 $cities = \App\Helpers\RecordHelper::getCities(request()->country);
 $currency = \App\Helpers\RecordHelper::getCurrency();
 if (session()->has('user')) {
-$notifications = \App\Helpers\RecordHelper::getNotifications();
-$my_searches = \App\Helpers\RecordHelper::getSearches()->take(2);
-$all_favourites = \App\Helpers\RecordHelper::getFavouriteAds();
-$favourite_ads_count = $all_favourites->count();
-$favourite_ads = $all_favourites->take(3);
+    $notifications = \App\Helpers\RecordHelper::getNotifications(5);
+    $my_searches = \App\Helpers\RecordHelper::getSearches(2);
+    $favourite_ads = \App\Helpers\RecordHelper::getFavouriteAds(3);
+    $favourite_ads_count = \App\Models\Favourite::where('user_id', session()->get('user')->id)->count();
 
 $chats = \App\Helpers\RecordHelper::getLatestChats();
 // dd($chats );
@@ -555,7 +554,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         <nav class="navbar navbar-expand-lg navbar-light p-0" style="min-height: auto !important; margin-bottom: 10px !important;">
             <div class="collapse navbar-collapse" id="navbarSupportedContentx">
                 <ul class="navbar-nav" style="font-size: 13px; display: flex; flex-wrap: nowrap; gap: 39px; font-weight: 600; white-space: nowrap; margin-bottom: 0px !important;">
-                    @php $categories = \App\Helpers\RecordHelper::getCategories(); @endphp
+                    @php $categories = $categories ?? \App\Helpers\RecordHelper::getCategories(); @endphp
                     @foreach($categories as $category)
                     <li class="nav-item dropdown">
                         <a class="nav-link p-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"

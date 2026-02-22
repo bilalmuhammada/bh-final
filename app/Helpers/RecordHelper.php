@@ -144,9 +144,9 @@ class RecordHelper
     }
 
 
-    public static function getSearches()
+    public static function getSearches($limit = 5)
     {
-        return Search::where('searched_by', Auth::id() ?? Session::get('user')->id)->orderBy('created_at')->get();
+        return Search::where('searched_by', Auth::id() ?? Session::get('user')->id)->orderBy('created_at', 'desc')->limit($limit)->get();
     }
 
     public static function getAds()
@@ -188,19 +188,19 @@ class RecordHelper
             ->get();
     }
 
-    public static function getFavouriteAds()
+    public static function getFavouriteAds($limit = 10)
     {
         $user_id = Auth::id() ?? Session::get('user')->id;
         return Listing::with(['attachments', 'created_by_user'])->whereHas('favourites', function ($Favourite) use ($user_id) {
             $Favourite->where('user_id', $user_id);
-        })->get();
+        })->limit($limit)->get();
     }
 
-    public static function getNotifications()
+    public static function getNotifications($limit = 5)
     {
         $user_id = Auth::id() ?? Session::get('user')->id;
 
-        $notifications = UserNotification::where('user_id', $user_id)->latest()->get();
+        $notifications = UserNotification::where('user_id', $user_id)->latest()->limit($limit)->get();
 
         return $notifications;
     }

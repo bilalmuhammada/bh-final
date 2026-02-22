@@ -21,9 +21,24 @@ class HomeController extends Controller
 
     public function home(Request $request)
     {
+        \Illuminate\Support\Facades\DB::enableQueryLog();
+        $startTime = microtime(true);
       
         if ($request->country) {
             Session::put('country', $request->country);
+        }
+
+        $endTime = microtime(true);
+        $executionTime = $endTime - $startTime;
+        $queries = \Illuminate\Support\Facades\DB::getQueryLog();
+        
+        \Illuminate\Support\Facades\Log::info("Home page execution time: {$executionTime}s");
+        \Illuminate\Support\Facades\Log::info("Home page queries count: " . count($queries));
+        
+        foreach ($queries as $query) {
+            if ($query['time'] > 100) { // Log queries slower than 100ms
+                \Illuminate\Support\Facades\Log::warning("Slow query ({$query['time']}ms): {$query['query']}", $query['bindings']);
+            }
         }
 
         return view('home.home');
