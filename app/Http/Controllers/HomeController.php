@@ -21,7 +21,7 @@ class HomeController extends Controller
 
     public function home(Request $request)
     {
-        dd("dd");
+      
         if ($request->country) {
             Session::put('country', $request->country);
         }
