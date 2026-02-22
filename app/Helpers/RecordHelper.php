@@ -56,12 +56,7 @@ class RecordHelper
             return collect();
         }
 
-        $cities = city::where('country_id', $country_id)->orderBy('sequence')->get();
-        // dd($cities,'hh');
-        if ($cities->count() > 22) {
-            return $cities->take(22);
-        }
-
+        $cities = city::where('country_id', $country_id)->orderBy('sequence')->limit(22)->get();
         return $cities;
     }
     public static function getCurrency()
@@ -179,7 +174,7 @@ class RecordHelper
  
         $table = $category->form_view;
 
-        return Listing::with(['attachments'])->select('listings.id', 'listings.name', 'listings.category_id', 'details.title', 'details.price', 'details.location_name')
+        return Listing::with(['attachments'])->select('listings.*', 'details.title', 'details.price', 'details.location_name')
             ->join($table . ' as details', 'details.listing_id', '=', 'listings.id')
             ->where('listings.category_id', $category_id)
             ->when($country_id, function ($q) use ($country_id) {
