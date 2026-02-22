@@ -300,7 +300,7 @@ $catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $cat
             <div class="col-lg-12 col-md-12 col-12">
             <h6 style="margin-bottom:0px;"><b>Popular in Businesses for Sale</b></h6>
             @php 
-            dd("ff");
+           
                 $business_for_sale_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(1, 6);
             @endphp
             @if($business_for_sale_ads->count() > 0)
@@ -347,6 +347,7 @@ $catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $cat
             <div class="col-lg-12 col-md-12   col-12 ">
             <h6 style="margin-bottom:0px;"><b>Popular in Businesses for Rent</b></h6>
             @php 
+            dd("dd");
                 $business_for_rent_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(7, 6);
             @endphp
             @if($business_for_rent_ads->count() > 0)
