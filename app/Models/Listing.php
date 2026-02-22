@@ -20,11 +20,6 @@ class Listing extends Model
         'category_name',
         'subcategory_name',
         'created_at_time_diff',
-        'is_favourite',
-        'is_reported_by_this_user',
-        'details',
-        'document_listing_approval_status',
-        'phone_listing_approval_status'
     ];
 
     public function attachments()
