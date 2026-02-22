@@ -124,6 +124,7 @@
 @php
 $categories = \App\Helpers\RecordHelper::getCategories();
 $catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $categories;
+dd($categories);
 @endphp
 <section>
     <!-- <div class="container slider-area"> -->
