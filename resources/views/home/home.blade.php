@@ -538,6 +538,7 @@ $catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $cat
             <div class="col-lg-12 col-md-12 col-12">
             <h6 style="margin-bottom:0px;"><b>Popular in Investors Required</b></h6>
             @php 
+             dd("ddnn");
                 $investor_required_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(5, 6);
             @endphp
             @if($investor_required_ads->count() > 0)
