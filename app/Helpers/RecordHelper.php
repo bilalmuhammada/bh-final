@@ -214,16 +214,19 @@ class RecordHelper
         $userId = \App\Helpers\SiteHelper::getLoginUserId();
 
 
-        // Get the latest message from each chat the user is part of
+        // Get the latest message from each chat the user is part of efficiently
         $Messages = \App\Models\Message::with('receiver', 'sender', 'chat.ad')
-            ->whereHas('chat', function ($query) use ($userId) {
-                $query->where('first_user_id', $userId)
-                    ->orWhere('second_user_id', $userId);
+            ->whereIn('id', function($query) use ($userId) {
+                $query->select(DB::raw('max(id)'))
+                    ->from('messages')
+                    ->whereHas('chat', function ($q) use ($userId) {
+                        $q->where('first_user_id', $userId)
+                          ->orWhere('second_user_id', $userId);
+                    })
+                    ->groupBy('chat_id');
             })
-            ->whereHas('chat.ad')
             ->latest()
-            ->get()
-            ->unique('chat_id');
+            ->get();
 
         return $Messages;
     }
