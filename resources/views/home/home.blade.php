@@ -1,804 +1,916 @@
 @extends('layout.master')
 @section('content')
 
-<style>
-    .slick-prev,
-    .slick-next {
-        top: 32% !important;
+    <style>
+        .slick-prev,
+        .slick-next {
+            top: 32% !important;
 
-    }
-
-    .external,
-    .show-more-btn1 {
-        font-size: 13px;
-
-    }
-
-    /* Listing card styles */
-    .listing {
-        background: #fff;
-        border-radius: 4px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        width: 110% !important;
-        overflow: hidden;
-        display: block;
-    }
-
-    .listing img {
-        width: 100% !important;
-        height: 152px !important;
-        object-fit: cover;
-        border-radius: 4px 4px 0 0;
-    }
-
-    .listing-slider .listing {
-        background: #fff;
-        border-radius: 4px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        width: 100% !important;
-        overflow: hidden;
-    }
-
-    .slick-slide {
-        padding: 0px !important;
-        margin: 0px 10px;
-    }
-
-    .listing-slider .listing img {
-        width: 100% !important;
-        height: 152px !important;
-        object-fit: cover;
-        border-radius: 4px 4px 0 0;
-    }
-
-    .noAds {
-
-        margin-top: 0.5rem;
-    }
-
-    .show-more-btn1 {
-        color: goldenrod !important;
-
-    }
-
-    .select2-dropdown {
-        border: none !important;
-        background-color: #fff;
-        color: #000 !important;
-        border-radius: 4px !important;
-    }
-
-    #subcategoryDropdown {
-        border-radius: 4px !important;
-    }
-
-    .show-more-btn1:hover {
-        color: blue !important;
-
-    }
-
-    .navbar-light .navbar-nav .show>.nav-link,
-    .navbar-light .navbar-nav .active>.nav-link,
-    .navbar-light .navbar-nav .nav-link.show,
-    .navbar-light .navbar-nav .nav-link.active {
-        color: blue !important;
-    }
-
-    .carousel-item .active {
-        border-radius: 50%;
-    }
-
-    .listing-slider:before {
-        background-color: transparent !important;
-    }
-
-    .slick-prev {
-        left: 29px;
-        opacity: 0.5;
-    }
-
-    .slick-next {
-        right: 24px;
-        opacity: 0.5;
-    }
-
-    .slick-slide img {
-        width: 100% !important;
-    }
-
-
-    .home-full-width {
-        max-width: 1200px !important;
-        margin-right: auto !important;
-        margin-left: auto !important;
-        width: 100% !important;
-    }
-
-    @media (max-width: 1200px) {
-        .home-full-width {
-            padding-left: 15px !important;
-            padding-right: 15px !important;
         }
-    }
-</style>
-@php
 
-$categories = \App\Helpers\RecordHelper::getCategories();
-$catgories_for_search = $categories->count() > 6 ? $categories->random(6) : $categories;
+        .external,
+        .show-more-btn1 {
+            font-size: 13px;
 
-@endphp
-<section>
-    <!-- <div class="container slider-area"> -->
-    <div class="container home-full-width slider-area desktop-view" style="border:0px solid red;">
-        <div id="demo" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner" style="border-radius:4px;">
-                <div class="carousel-item active">
-                    <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;">
-                </div>
-                <div class="carousel-item ">
-                    <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Los Angeles" width="100%" height="257" style="height:310px;">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/image3.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/image4.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/image5.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;">
-                </div>
+        }
 
-            </div>
-        </div>
-    </div>
-</section>
-<!-- searchbar area desktop start -->
-<div class="container-fluid home-full-width mt-100 desktop-view">
-    <section class="mt-100 desktop-view">
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-lg-12 col-xl-10 col-md-12">
-                    <div class="col-lg-12 col-md-12" style="border:0px solid red;margin-top:-53px;">
-                        <h4 class="slider-heading" style="color: white">
-                            <b>The Best Marketplace to Buy & Sell Businesses Worldwide!</b>
-                        </h4>
-                        <form action="{{ env('BASE_URL') . 'listing/search' }}" method="get"
-                            style="border:0px solid red;margin-left: -24px;">
-                            <div class="searchbox-area" style="border:0px solid red;">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="searches mb-10">
-                                            {{-- <a href="javascript:void(0);" class="text-white"><span> &nbsp; &nbsp; &nbsp; </span>Searching In</a> --}}
-                                            <a href="javascript:void(0);"
-                                                class="searches-cat category-search searching-cat" category-id="">All </a>
-                                            @foreach($catgories_for_search as $category)
-                                            <a href="javascript:void(0);" class="searches-cat category-search"
-                                                category-id="{{ $category->id }}">{{ $category->name }}</a>
-                                            @endforeach
-                                        </div>
-                                        <!-- Business Advisory finish -->
-                                    </div>
-                                </div>
-                                <br>
-                                <!-- searchbar start -->
-                                <div class="input-group search-box-area search-w" style="border:0px solid red;">
-                                    <input name="key_words" type="search"
-                                        class="form-control keyword_search searbox-input category-search-box"
-                                        placeholder="Search in All" aria-label="Search"
-                                        aria-describedby="search-addon">
-                                    <ul id="subcategoryDropdown" class="dropdown-menu" style="display: none;">
-                                        <!-- Subcategories will be appended here dynamically -->
-                                    </ul>
-                                    <input name="category_id" type="hidden" class="category-search-category-id">
-                                    <input name="country" type="hidden" class="country" value="{{ request()->country }}">
-                                    <input name="city" type="hidden" class="city" value="{{ request()->city }}">
-                                    <span> &nbsp; &nbsp; &nbsp; &nbsp;</span>
-                                    <button type="submit" class="btn searbox-button category-search-btn">
-                                        Search
-                                    </button>
-                                </div>
+        /* Listing card styles */
+        .listing {
+            background: #fff;
+            border-radius: 4px;
+            width: 110% !important;
+            overflow: hidden;
+            display: block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-                                <br>
-                                <!-- searchbar finish -->
-                            </div>
-                        </form>
+        .listing:hover {
+            transform: translateY(-8px);
+            
+            z-index: 10;
+        }
 
+        .listing img {
+            width: 100% !important;
+            height: 152px !important;
+            object-fit: cover;
+            border-radius: 4px 4px 0 0;
+            margin-bottom: 5px !important;
+        }
+
+        .listing-slider .listing {
+            background: #fff;
+            border-radius: 4px;
+            width: 100% !important;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .listing-slider .listing:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+        }
+
+        .slick-slide {
+            padding: 0px !important;
+            margin: 0px 10px;
+        }
+
+        .listing-slider .listing img {
+            width: 100% !important;
+            height: 152px !important;
+            object-fit: cover;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .noAds {
+
+            margin-top: 0.5rem;
+        }
+
+        .show-more-btn1 {
+            color: goldenrod !important;
+
+        }
+
+        .select2-dropdown {
+            border: none !important;
+            background-color: #fff;
+            color: #000 !important;
+            border-radius: 4px !important;
+        }
+
+        #subcategoryDropdown {
+            border-radius: 4px !important;
+        }
+
+        .show-more-btn1:hover {
+            color: blue !important;
+
+        }
+
+        .navbar-light .navbar-nav .show>.nav-link,
+        .navbar-light .navbar-nav .active>.nav-link,
+        .navbar-light .navbar-nav .nav-link.show,
+        .navbar-light .navbar-nav .nav-link.active {
+            color: blue !important;
+        }
+
+        .carousel-item .active {
+            border-radius: 50%;
+        }
+
+        .listing-slider:before {
+            background-color: transparent !important;
+        }
+
+        .slick-prev {
+            left: 29px;
+            opacity: 0.5;
+        }
+
+        .slick-next {
+            right: 24px;
+            opacity: 0.5;
+        }
+
+        .slick-slide img {
+            width: 100% !important;
+        }
+
+
+        .home-full-width {
+            max-width: 1200px !important;
+            margin-right: auto !important;
+            margin-left: auto !important;
+            width: 100% !important;
+        }
+
+            .home-full-width {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+        
+        /* Search Area Consistency Fixes */
+        .searches {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            justify-content: center !important;
+            align-items: center !important;
+            overflow-x: auto !important;
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+            width: 100% !important;
+            padding: 5px 0 !important;
+        }
+        .searches::-webkit-scrollbar { display: none !important; }
+
+        .searches-cat {
+            font-size: 13.5px !important;
+            margin: 0 8px !important;
+            padding: 6px 14px !important;
+           
+            border-radius: 20px !important;
+            white-space: nowrap !important;
+            flex-shrink: 0 !important;
+            color: #fff !important;
+            transition: all 0.3s ease !important;
+        }
+        .searches-cat:hover, .searching-cat {
+            background: #0000FF !important;
+            color: #fff !important;
+            transform: translateY(-1px) !important;
+        }
+        .searbox-input {
+            height: 55px !important;
+            padding: 12px 20px !important;
+            font-size: 18px !important;
+            border-top-left-radius: 4px !important;
+            border-bottom-left-radius: 4px !important;
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+        }
+        .searbox-button {
+            height: 55px !important;
+            margin-top: 7px !important;
+            border-radius: 0 4px 4px 0 !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.5px !important;
+        }
+        .searchbox-area {
+            height: auto !important;
+            min-height: 120px !important;
+            padding-bottom: 25px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+        }
+    </style>
+    @php
+        $categories = \App\Helpers\RecordHelper::getCategories();
+        $catgories_for_search = $categories->count() > 6 ? $categories->take(6) : $categories;
+    @endphp
+    <section>
+        <!-- <div class="container slider-area"> -->
+        <div class="container home-full-width slider-area desktop-view" style="border:0px solid red;">
+            <div id="demo" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" style="border-radius:4px;">
+                    <div class="carousel-item active">
+                        <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Chicago" width="100%" height="257"
+                            style="height:310px;">
                     </div>
+                    <div class="carousel-item ">
+                        <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Los Angeles" width="100%" height="257"
+                            style="height:310px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{asset('images/slider-images/image3.jpg')}}" alt="Chicago" width="100%" height="257"
+                            style="height:310px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{asset('images/slider-images/image4.jpg')}}" alt="Chicago" width="100%" height="257"
+                            style="height:310px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{asset('images/slider-images/image5.jpg')}}" alt="Chicago" width="100%" height="257"
+                            style="height:310px;">
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
-</div>
-<!-- searchbar area desktop finish -->
-<!-- searchbar area mobile start -->
-<section class="mobile-view">
-    <div class="container home-full-width">
-        <div class="row justify-content-md-center">
-            <div class="col-lg-10">
-                <!-- searchbar start -->
-                <div class="searchbox-area-second" style="border: 2px solid #eef0f1;">
-                    <div class="input-group search-box-area">
-                        <input type="search" class="form-control searbox-input-mobile"
-                            placeholder="Business For Sale india" aria-label="Search"
-                            aria-describedby="search-addon">
-                        <button type="button" class="btn searbox-button-mobile">
-                            Search
-                        </button>
+    <!-- searchbar area desktop start -->
+    <div class="container-fluid home-full-width mt-100 desktop-view">
+        <section class="mt-100 desktop-view">
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class="col-lg-12 col-xl-10 col-md-12">
+                        <div class="col-lg-12 col-md-12" style="border:0px solid red;margin-top:-53px;">
+                            <h4 class="slider-heading" style="color: white">
+                                <b>The Best Marketplace to Buy & Sell Businesses Worldwide!</b>
+                            </h4>
+                            <form action="{{ env('BASE_URL') . 'listing/search' }}" method="get"
+                                style="border:0px solid red;">
+                                <div class="searchbox-area" style="border:0px solid red;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="searches mb-10">
+                                                {{-- <a href="javascript:void(0);" class="text-white"><span> &nbsp; &nbsp;
+                                                        &nbsp; </span>Searching In</a> --}}
+                                                <a href="javascript:void(0);"
+                                                    class="searches-cat category-search searching-cat" category-id="">All
+                                                </a>
+                                                @foreach($catgories_for_search as $category)
+                                                    <a href="javascript:void(0);" class="searches-cat category-search"
+                                                        category-id="{{ $category->id }}">{{ $category->name }}</a>
+                                                @endforeach
+                                            </div>
+                                            <!-- Business Advisory finish -->
+                                        </div>
+                                    </div>
+                                    
+        
+                                    <!-- searchbar start -->
+                                    <div class="input-group search-box-area search-w" style="border:0px solid red;">
+                                        <input name="key_words" type="search"
+                                            class="form-control keyword_search searbox-input category-search-box"
+                                            placeholder="Search in All" aria-label="Search" aria-describedby="search-addon">
+                                        <ul id="subcategoryDropdown" class="dropdown-menu" style="display: none;">
+                                            <!-- Subcategories will be appended here dynamically -->
+                                        </ul>
+                                        <input name="category_id" type="hidden" class="category-search-category-id">
+                                        <input name="country" type="hidden" class="country"
+                                            value="{{ request()->country }}">
+                                        <input name="city" type="hidden" class="city" value="{{ request()->city }}">
+                                        <button type="submit" class="btn searbox-button category-search-btn">
+                                            Search
+                                        </button>
+                                    </div>
+                                    <!-- searchbar finish -->
+                                </div>
+                            </form>
+
+                        </div>
                     </div>
                 </div>
-                <!-- searchbar finish -->
             </div>
-        </div>
-        <div class="row">
-            <!-- Categories start -->
-            <div class="col-lg-3 p-5px col-6">
-                <div class="create-profile-area">
-                    <a href="#" class="btn profile-button">All</a>
-                </div>
-            </div>
-            @foreach($catgories_for_search as $category)
-            <div class="col-lg-3 p-5px col-6">
-                <div class="create-profile-area">
-                    <a href="#" class="btn profile-button">{{ $category->name }}</a>
-                </div>
-            </div>
-            @endforeach
-
-            <!-- Categories end -->
-        </div>
+        </section>
     </div>
-</section>
-
-<!-- searchbar mobile finish  -->
-<!-- Categories area start -->
-<section class="list">
-    <div class="container home-full-width">
-        <div class="row">
-            <div class="col-md-12">
-            <h6 style="margin-top: 20px;">
-                <b style="margin-left: 0rem;">Popular Categories</b>
-            </h6>
-            <div class="row" style="margin-bottom: -10px;">
-                @foreach($categories as $category)
-                <div class="col-md-3 cat mb-4">
-                    <div class="subcategory-list">
-                        <img src="{{ $category->image_url  }}" alt="" width="25" style="margin-top: -11px;"> <b style="font-size: 14px;"> {{$category->name}}</b>
-                        <br>
-                        @foreach($category->sub_categories as $key=>$sub_category)
-                        @if($key >= 5)
-                        <div class="collapse hidden-div">
-                            <a href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city.'&currency=' . session('app_currency', 'USD')}}">{{$sub_category->name}}</a>
-                            <br>
+    <!-- searchbar area desktop finish -->
+    <!-- searchbar area mobile start -->
+    <section class="mobile-view">
+        <div class="container home-full-width">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-10">
+                    <!-- searchbar start -->
+                    <div class="searchbox-area-second" style="border: 2px solid #eef0f1;">
+                        <div class="input-group search-box-area">
+                            <input type="search" class="form-control searbox-input-mobile"
+                                placeholder="Business For Sale india" aria-label="Search" aria-describedby="search-addon">
+                            <button type="button" class="btn searbox-button-mobile">
+                                Search
+                            </button>
                         </div>
-                        @else
-                        <span class="external">
-                            <a href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city.'&currency=' . session('app_currency', 'USD')}}">{{$sub_category->name}}</a>
-                        </span>
-                        <br>
-                        @endif
+                    </div>
+                    <!-- searchbar finish -->
+                </div>
+            </div>
+            <div class="row">
+                <!-- Categories start -->
+                <div class="col-lg-3 p-5px col-6">
+                    <div class="create-profile-area">
+                        <a href="#" class="btn profile-button">All</a>
+                    </div>
+                </div>
+                @foreach($catgories_for_search as $category)
+                    <div class="col-lg-3 p-5px col-6">
+                        <div class="create-profile-area">
+                            <a href="#" class="btn profile-button">{{ $category->name }}</a>
+                        </div>
+                    </div>
+                @endforeach
+
+                <!-- Categories end -->
+            </div>
+        </div>
+    </section>
+
+    <!-- searchbar mobile finish  -->
+    <!-- Categories area start -->
+    <section class="list">
+        <div class="container home-full-width">
+            <div class="row">
+                <div class="col-md-12">
+                    <h6 style="margin-top: 20px;">
+                        <b style="margin-left: 0rem;">Popular Categories</b>
+                    </h6>
+                    <div class="row" style="margin-bottom: -10px;">
+                        @foreach($categories as $category)
+                            <div class="col-md-3 cat mb-4">
+                                <div class="subcategory-list">
+                                    <img src="{{ $category->image_url  }}" alt="" width="25" style="margin-top: -11px;"> <b
+                                        style="font-size: 14px;"> {{$category->name}}</b>
+                                    <br>
+                                    @foreach($category->sub_categories as $key => $sub_category)
+                                        @if($key >= 5)
+                                            <div class="collapse hidden-div">
+                                                <a
+                                                    href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'USD')}}">{{$sub_category->name}}</a>
+                                                <br>
+                                            </div>
+                                        @else
+                                            <span class="external">
+                                                <a
+                                                    href="{{env('BASE_URL') . 'ads/' . $sub_category->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'USD')}}">{{$sub_category->name}}</a>
+                                            </span>
+                                            <br>
+                                        @endif
+                                    @endforeach
+                                    @if (count($category->sub_categories) >= 4)
+                                        <a href="{{env('BASE_URL') . 'ads/?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'USD')}}"
+                                            class="show-more-btn1">All in {{$category->name}}</a>
+                                    @endif
+                                </div>
+                            </div>
                         @endforeach
-                        @if (count($category->sub_categories) >= 4)
-                        <a href="{{env('BASE_URL') . 'ads/?country=' . request()->country . '&city=' . request()->city.'&currency=' . session('app_currency', 'USD')}}" class="show-more-btn1">All in {{$category->name}}</a>
-                        @endif
                     </div>
                 </div>
-                @endforeach
             </div>
-        </div>
-    </div>
-</section>
-<section class="business-sale">
-
-   
+    </section>
+    <section class="business-sale">
 
 
 
 
 
-    <div class="container home-full-width">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-12">
-            <h6 style="margin-bottom:0px;"><b>Popular in Businesses for Sale</b></h6>
-            @php 
-           
-                $business_for_sale_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(1, 6);
-            @endphp
-            @if($business_for_sale_ads->count() > 0)
+
+
+        <div class="container home-full-width">
             <div class="row">
-                @foreach($business_for_sale_ads as $key => $featured_ad)
-                <div class="col-lg-2 col-md-3 col-6">
-                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
-                        <div class="listing p-1">
-                            <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                            <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
-                            </div>
-                            <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
-                            </div>
-                            <div class="detail" style="padding: 12px;">
-                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
-                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
-                                <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
-                            </div>
+                <div class="col-lg-12 col-md-12 col-12">
+                    <h6 style="margin-bottom:0px;"><b>Popular in Businesses for Sale</b></h6>
+                    @php 
+
+                        $business_for_sale_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(1, 6);
+                    @endphp
+                    @if($business_for_sale_ads->count() > 0)
+                            <div class
+                                       ="row">
+                                @foreach($business_for_sale_ads as $key => $featured_ad)
+                                    <div class="col-lg-2 col-md-3 col-6">
+
+                                                                           <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
+                                            <div class="listing p-1">
+
+                                                                                   <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
+                                                <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
+                                                    <i class="fa fa-heart-o shaking" style="color: #fff !important; font-siz
+                                                       e: 20px;"></i>
+                                                </div>
+                                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
+                                                    <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
+                                                </div>
+
+                                                                                   <div class="detail" style="padding: 12px;">
+
+                                                                                            <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
+                                                    <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
+                                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endforeach
+                         </div>
+                    @else
+                        <div class="noAds">
+                            <h6>No Ads</h6>
                         </div>
-                    </a>
-                </div>
-                @endforeach
-            </div>
-            @else
-            <div class="noAds">
-                <h6>No Ads</h6>
-            </div>
-            @endif
-            <!-- Custom Arrows -->
-            {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
-                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
-            </div>
-        </div>
-    </div>
-</section>
-<section class="business-rent">
-   
-
-
-    <div class="container home-full-width">
-        <div class="row">
-            <div class="col-lg-12 col-md-12   col-12 ">
-            <h6 style="margin-bottom:0px;"><b>Popular in Businesses for Rent</b></h6>
-            @php 
-           
-                $business_for_rent_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(7, 6);
-            @endphp
-            @if($business_for_rent_ads->count() > 0)
-            <div class="row">
-                @foreach($business_for_rent_ads as $key => $featured_ad)
-                <div class="col-lg-2 col-md-3 col-6">
-                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
-                        <div class="listing p-1">
-                            <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                            <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
-                            </div>
-                            <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
-                            </div>
-                            <div class="detail" style="padding: 12px;">
-                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
-                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
-                                <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                @endforeach
-            </div>
-            @else
-            <div class="noAds">
-                <h6>No Ads</h6>
-            </div>
-            @endif
-
-            </div>
-        </div>
-    </div>
-
-</section>
-<section class="share-sale">
-
-
-
-
-    <div class="container home-full-width">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-12">
-            <h6 style="margin-bottom:0px;"><b>Popular in Shares for Sale</b></h6>
-            @php 
-                $shares_for_sale_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(2, 6);
-            @endphp
-            @if($shares_for_sale_ads->count() > 0)
-            <div class="row">
-                @foreach($shares_for_sale_ads as $key => $featured_ad)
-                <div class="col-lg-2 col-md-3 col-6">
-                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
-                        <div class="listing p-1">
-                            <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                            <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
-                            </div>
-                            <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
-                            </div>
-                            <div class="detail" style="padding: 12px;">
-                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
-                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
-                                <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                @endforeach
-            </div>
-            @else
-            <div class="noAds">
-                <h6>No Ads</h6>
-            </div>
-            @endif
-
+                    @endif
                 <!-- Custom Arrows -->
                 {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
-                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
+                    <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
+                </div>
             </div>
-        </div>
-    </div>
+     </div>
+    </section>
+    <section class="business-rent">
 
-</section>
-<section class="business-idea">
-  
 
-    {{-- @if($ads->count()>0) --}}
-    <div class="container home-full-width">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-12">
-            <h6 style="margin-bottom:0px;"><b>Popular in Business Ideas</b></h6>
-            @php 
-              
-                $business_idea_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(3, 6);
+
+        <div class="container home-full-width">
+               <div  class="row">
+                    <div class="col-lg-12 col-md-12   col-12 ">
+                    <h6 style="margin-bottom:0px;"><b>Popular in Businesses for Rent</b></h6>
+                   @php 
+
+                    $business_for_rent_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(7, 6);
                 @endphp
-            @if($business_idea_ads->count() > 0)
-            <div class="row">
-                @foreach($business_idea_ads as $key => $featured_ad)
-                <div class="col-lg-2 col-md-3 col-6">
-                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
-                        <div class="listing p-1">
-                            <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                            <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
-                            </div>
-                            <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
-                            </div>
-                            <div class="detail" style="padding: 12px;">
-                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
-                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
-                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
-                            </div>
+                    @if($business_for_rent_ads->count() > 0)
+
+                                                           <div class="row">
+                                @foreach($business_for_rent_ads as $key => $featured_ad)
+                                                        <div class="col-lg-2 col-md-3 col-6">
+                                                          <a href=  "{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
+                                                            <div class="listing p-1">
+
+                                                                                          <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
+                                                                    <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
+                                                                        <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
+                                                                </div>
+
+                                                                <div     class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-
+                                                                               index: 2;">
+                                                                        <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
+                                                                    </div>
+                                                                    <div class="detail" style="padding: 12px;">
+                                                                        <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
+                                                                        <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
+                                                                        <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                @endforeach
                         </div>
-                    </a>
+                    @else
+                    <div class="noAds">
+                        <h6>No Ads</h6>
+                    </div>
+                @endif
+
                 </div>
-                @endforeach
             </div>
-            @else
-            <div class="noAds">
-                <h6>No Ads</h6>
+        </div>
+
+    </section>
+    <section class="share-sale">
+
+
+
+
+            <div class="container home-full-width">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-12">
+                    <h6 style=
+     "                          margin-bottom:0px;"><b>Popular in Shares for Sale</b></h6>
+                    @php 
+                        $shares_for_sale_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(2, 6);
+                    @endphp
+                    @if($shares_for_sale_ads->count() > 0)
+
+                                                               <div class="row"    >
+                            @foreach($shares_for_sale_ads as $key => $featured_ad)
+                                        <div class="col-    lg-2 col-md-3 col-6">
+
+                                                                                       <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
+                                                   <div  class="listing p-1">
+                                                    <img     src=
+                                               "                {{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
+                                                        <div clas
+                                s                               ="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
+                                                            <i class="fa fa-heart-o shaking" style="color: #fff !important; font-siz
+                                               e                    : 20px;"></i>
+                                                        </div>
+                                                        <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
+                                                            <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
+                                                        </div>
+                                                        <div class="detail" style="padding: 12px;">
+                                                            <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
+                                                            <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
+                                                            <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                        </div>
+                            @endforeach
+                        </div>
+                    @else
+                    <div class="noAds">
+                        <h6>No Ads</h6>
+                    </div>
+                @endif
+
+                    <!-- Custom Arrows -->
+                  {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
+                    <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
+                </div>
             </div>
-            @endif
+        </div>
+
+     </section>
+           <section class="business-idea">
+
+
+        {{-- @if($ads->count()>0) --}}
+           <div class=" container home-full-width">
+            <div class="    row    ">
+                <div class="    col-lg-12 col-md-12 col-12">
+                <h6 style="margi    n-bottom:0px;"><b>Popular in Business Ideas</b></h6>
+
+                                @php 
+
+                                    $business_idea_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(3, 6);
+                                @endphp
+                    @if($business_idea_ads->count() > 0)
+
+                                <div class="row">
+                                @foreach($business_idea_ads as $key => $featured_ad)
+                                            <div class="col-lg-2 
+                                       c                        ol-md-3 col-6">
+                                            <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
+                                                <div class="listing p-1">
+
+                                                                      <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
+                                                        <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
+                                                            <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
+                                                        </div>
+                                                        <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
+                                                            <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
+                                                        </div>
+                                                        <div class="detail" style="padding: 12px;">
+                                                            <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
+                                                            <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
+                                                            <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                @endforeach
+                        </div>
+                    @else
+                        <div class="noAds">
+                            <h6>No Ads</h6>
+                    </div>
+                @endif
+                    <!-- Custom Arrows -->
+                    {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
+                    <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
+                </div>
+                </div>
+            </div>
+
+    </section>
+            <section class="investor">
+
+
+
+
+           <div class="container home-full-width">
+
+                                                <div class="row">
+                   <div class="col-lg-12 col-md-12 col-12">
+
+                                     <h6 style="margin-bottom:0px;"><b>Popular in Investors</b></h6>
+                    @php 
+                        $investor_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(4, 6);
+                    @endphp
+                    @if($investor_ads->count() > 0)
+                        <div class="row">
+
+                                                                  @foreach($investor_ads as $key => $featured_ad)
+                                                                        <div class="col-lg-2 col-md-3 col-6">
+
+                                                                             <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
+                                                                                <div class="listing p-1">
+                                                                                    <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
+                                                                                    <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
+                                                                                        <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
+                                                                                    </div>
+                                                                                    <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
+                                                                                        <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
+                                                                                    </div>
+                                                                                    <div class="detail" style="padding: 12px;">
+                                                                                        <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
+                                                                                    <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
+                                                                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
+                                                                                    </div>
+                                                                                </div>
+                                                                        </a>
+                                                                    </div>
+                                                                @endforeach
+                        </div>
+                    @else
+                    <div class="noAds">
+                        <h6>No Ads</h6>
+                    </div>
+                @endif
+
+
                 <!-- Custom Arrows -->
                 {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
-                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
+                        <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
+                    </div>
+              </div>
+         </div>
+
+    </section>
+           <section class="investor-required">
+
+
+
+
+            <div class="container home-full-width">
+
+                                                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-12">
+                <h6 style="margin-bottom:0px;"><b>Popular in Investors Required</b></h6>
+
+                                                           @php 
+
+
+                                                            $investor_required_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(5, 6);
+                                                        @endphp
+
+                                                               @if($investor_required_ads->count() > 0)
+                                                                       <div class=" row">
+                                                                           @foreach($investor_required_ads as $key => $featured_ad)
+                                                                                <div class="col-lg-2 col-md-3 col-6">
+                                                                                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
+                                                                                        <div class="listing p-1">
+                                                                                            <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
+                                                                                            <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
+                                                                                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
+                                                                                            </div>
+                                                                                            <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
+                                                                                            <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
+                                                                                        </div>
+                                                                                            <div class="detail" style="padding: 12px;">
+                                                                                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
+                                                                                            <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
+                                                                                            <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </a>
+                                                                            </div>
+                                                                        @endforeach
+                                                                 </div>
+                                                            @else
+                    <div class="noAds">
+                        <h6>No Ads</h6>
+                    </div>
+                @endif
+
+
+                     <!-- Custom Arrows -->
+                   {{--  <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
+                        <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
+                  </div>
+
+                         </div>
             </div>
-        </div>
-    </div>
-
-</section>
-<section class="investor">
-    
 
 
-    <div class="container home-full-width">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-12">
-            <h6 style="margin-bottom:0px;"><b>Popular in Investors</b></h6>
-            @php 
-                $investor_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(4, 6);
-            @endphp
-            @if($investor_ads->count() > 0)
-            <div class="row">
-                @foreach($investor_ads as $key => $featured_ad)
-                <div class="col-lg-2 col-md-3 col-6">
-                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
-                        <div class="listing p-1">
-                            <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                            <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
+        </section>
+
+                           <section class="franchise-opp">
+
+
+
+                                     <div class="container home-full-width">
+              <div class="row">
+                   <div class="col-lg-12 col
+       -                                    md-12 col-12">
+                    <h6 style="margin-bottom:
+                      0                     px;"><b>Popular in Franchise Opportunities</b></h6>
+                @php 
+                    $franchise_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(6, 6);
+                @endphp
+                        @if($franchise_ads->count() > 0)
+                            <div     class="row">
+                                    @foreach($franchise_ads as $key => $featured_ad)
+                                            <div class="col-lg-2 col-md-3 col-6">
+                                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
+                                                    <div class="listing p-1">
+                                                        <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
+                                                        <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
+                                                            <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
+                                                    </div>
+                                                        <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
+                                                            <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
+                                                    </div>
+                                                    <div class="detail" style="padding: 12px;">
+                                                        <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
+                                                        <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
+                                                        <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
+                                                    </div>
+                                                </div>
+                                         </a>
+                                        </div>
+                                    @endforeach
                             </div>
-                            <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
-                            </div>
-                            <div class="detail" style="padding: 12px;">
-                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
-                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
-                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
-                            </div>
+                        @else
+                    <div class="noAds">
+                            <h6>No Ads</h6>
                         </div>
-                    </a>
+                @endif
+
+                <!--     Custom Arrows -->
+                   {{--  <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
+                    <but    to
+                           n     type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
                 </div>
-                @endforeach
-            </div>
-            @else
-            <div class="noAds">
-                <h6>No Ads</h6>
-            </div>
-            @endif
+                </div>
+
+                                           </div>
 
 
-            <!-- Custom Arrows -->
-            {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
-                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
-            </div>
-        </div>
-    </div>
-
-</section>
-<section class="investor-required">
+                                               </section>
+        <section class="machinery">
 
 
 
-    <div class="container home-full-width">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-12">
-            <h6 style="margin-bottom:0px;"><b>Popular in Investors Required</b></h6>
-            @php 
-            
-            
-                $investor_required_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(5, 6);
-            @endphp
-            @if($investor_required_ads->count() > 0)
+
+            <div class="container home-full-width">
             <div class="row">
-                @foreach($investor_required_ads as $key => $featured_ad)
-                <div class="col-lg-2 col-md-3 col-6">
-                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
-                        <div class="listing p-1">
-                            <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                            <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
-                            </div>
-                            <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
-                            </div>
-                            <div class="detail" style="padding: 12px;">
-                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
-                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
-                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
-                            </div>
-                        </div>
-                    </a>
+
+                                              <div class="col-lg-12 col-md-12 col-12">
+
+                                                           <h6 style="margin-bottom:0px;"><b>Popular in Machinery & Supplies</b></h6>
+                  @php 
+                    $machinery_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(8, 6);
+                @endphp
+                 @if($machinery_ads->count() > 0)
+                        <div class="row">
+                            @foreach($machinery_ads as $key => $featured_ad)
+                                    <div class="col-lg-2 col-md-3 col-6">
+                                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
+                                            <div class="listing p-1">
+                                                <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
+                                            <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
+                                                    <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
+                                                </div>
+                                            <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
+                                                <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
+                                            </div>
+                                            <div class="detail" style="padding: 12px;">
+                                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
+                                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
+                                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
+                    </div>
+                @else
+                    <div class="noAds">
+                        <h6>No Ads</h6>
+                     </div>
+                @endif
+
+                <!-- Custom Arrows -->
+                {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
+                    <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
                 </div>
-                @endforeach
-            </div>
-            @else
-            <div class="noAds">
-                <h6>No Ads</h6>
-            </div>
-            @endif
-
-
-            <!-- Custom Arrows -->
-            {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
-                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
             </div>
         </div>
-    </div>
 
-</section>
-<section class="franchise-opp">
-   
-
-    <div class="container home-full-width">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-12">
-            <h6 style="margin-bottom:0px;"><b>Popular in Franchise Opportunities</b></h6>
-            @php 
-                $franchise_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(6, 6);
-            @endphp
-            @if($franchise_ads->count() > 0)
-            <div class="row">
-                @foreach($franchise_ads as $key => $featured_ad)
-                <div class="col-lg-2 col-md-3 col-6">
-                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
-                        <div class="listing p-1">
-                            <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                            <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
-                            </div>
-                            <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
-                            </div>
-                            <div class="detail" style="padding: 12px;">
-                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
-                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
-                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                @endforeach
-            </div>
-            @else
-            <div class="noAds">
-                <h6>No Ads</h6>
-            </div>
-            @endif
-
-            <!-- Custom Arrows -->
-            {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
-                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
-            </div>
-        </div>
-    </div>
-
-</section>
-<section class="machinery">
-   
-
-
-    <div class="container home-full-width">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-12">
-            <h6 style="margin-bottom:0px;"><b>Popular in Machinery & Supplies</b></h6>
-            @php 
-                $machinery_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(8, 6);
-            @endphp
-            @if($machinery_ads->count() > 0)
-            <div class="row">
-                @foreach($machinery_ads as $key => $featured_ad)
-                <div class="col-lg-2 col-md-3 col-6">
-                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city. '&currency=' . session('app_currency', 'default_currency')}}">
-                        <div class="listing p-1">
-                            <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                            <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
-                            </div>
-                            <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
-                            </div>
-                            <div class="detail" style="padding: 12px;">
-                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
-                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
-                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                @endforeach
-            </div>
-            @else
-            <div class="noAds">
-                <h6>No Ads</h6>
-            </div>
-            @endif
-
-            <!-- Custom Arrows -->
-            {{-- <button type="button" class="slick-prev"><img src="path/to/left-arrow.png" alt="Prev"></button>
-                <button type="button" class="slick-next"><img src="path/to/right-arrow.png" alt="Next"></button> --}}
-            </div>
-        </div>
-    </div>
-
-</section>
+    </section>
 
 
 
 
 @endsection
 @section('page_scripts')
-<script type="text/javascript">
+    <script type="text/javascript">
 
 
-    $(document).on('click', '.category-search', function(e) {
-        e.preventDefault();
-        var thisElem = $(this);
-        var searchBox = $('.category-search-box')
+        $(document).on('click', '.category-search', function(e) {
+            e.preventDefault();
+            var thisElem = $(this);
+            var searchBox = $('.category-search-box')
 
-        //Prominenting the clicked category
-        $('.category-search').removeClass('searching-cat');
-        thisElem.addClass('searching-cat');
+            //Prominenting the clicked category
+            $('.category-search').removeClass('searching-cat');
+            thisElem.addClass('searching-cat');
 
-        //changing the placeholder of search input
-        searchBox.attr('placeholder', "Search in " + thisElem.text());
+            //changing the placeholder of search input
+            searchBox.attr('placeholder', "Search in " + thisElem.text());
 
-        //setting attribute to search in relevent category
-        $('.category-search-category-id').val(thisElem.attr('category-id'))
-
-
-
-    });
-
-    // $(document).on('click', '.category-search-btn', function (e) {
-    //     e.preventDefault();
-    //
-    //     var data = {
-    //         'key_words': $('.category-search-box').val(),
-    //         'category_id': $('.category-search-box').attr('category-id')
-    //     };
-    //
-    //     $.ajax({
-    //         url: api_url + 'listing/search',
-    //         type: 'POST',
-    //         data: data,
-    //         dataType: "JSON",
-    //         success: function (response) {
-    //             if (response.status) {
-    //                 console.log(response.data);
-    //
-    //
-    //             } else {
-    //                 alert(response.message);
-    //             }
-    //         },
-    //         error: function (response) {
-    //             showAlert("error", "Server Error");
-    //         }
-    //     });
-    // });
+            //setting attribute to search in relevent category
+            $('.category-search-category-id').val(thisElem.attr('category-id'))
 
 
-    $(document).on('click', '.show-more-btn', function(e) {
-        e.preventDefault();
-        var thisElemParent = $(this).parent(".subcategory-list");
-        var a = $(thisElemParent).find(".hidden-div");
-        if (a.hasClass('show')) {
-            a.collapse('hide');
-        } else {
-            a.collapse('show');
-        }
-        a.collapse('show');
-        // hidden-div
-    });
+
+        });
+
+        // $(document).on('click', '.category-search-btn', function (e) {
+        //     e.preventDefault();
+        //
+        //     var data = {
+        //         'key_words': $('.category-search-box').val(),
+        //         'category_id': $('.category-search-box').attr('category-id')
+        //     };
+        //
+        //     $.ajax({
+         //         url: api_url + 'listing/search',
+        //         type: 'POST',
+        //         data: data,
+        //         dataType: "JSON",
+        //         success: function (response) {
+        //             if (response.status) {
+        //                 console.log(response.data);
+        //
+        //
+        //             } else {
+        //                 alert(response.message);
+        //             }
+        //         },
+        //         error: function  (response) {
+        //             showAlert("error", "Server Error");
+        //         }
+        //     });
+        // });
 
 
-    $(document).ready(function() {
-        const dropdown = $('#subcategoryDropdown');
-        const keywordInput = $('.keyword_search');
-        const categoryId = $('.category-search')
-
-        // Show dropdown when input gains focus or starts typing
-        keywordInput.on('input', function() {
-            const keyword = $(this).val();
-
-
-            const category_id = $('.category-search-category-id').val();
-
-
-            if (keyword.length > 0) {
-                $.ajax({
-                    url: '/ads/lisiting_get_subcategories',
-                    type: 'GET',
-                    data: {
-                        category_id: category_id,
-                        keyword: keyword
-                    },
-                    success: function(data) {
-                        dropdown.empty(); // Clear existing items
-                        if (data.length > 0) {
-                            data.forEach(function(subcategory) {
-                                const item = $('<li>')
-                                    .addClass('dropdown-item')
-                                    .text(subcategory.name)
-                                    .on('click', function() {
-                                        keywordInput.val(subcategory.name);
-                                        dropdown.hide();
-                                    });
-                                dropdown.append(item);
-                            });
-                            dropdown.show();
-                        } else {
-                            dropdown.hide();
-                        }
-                    },
-                });
+         $(document).on('click', '.show-more-btn', function(e) {
+            e.preventDefault();
+            var thisElemParent = $(this).parent(".subcategory-list");
+            var a = $(thisElemParent).find(".hidden-div");
+            if (a.hasClass('show')) {
+                a.collapse('hide');
             } else {
-                dropdown.hide();
+                a.collapse('show');
             }
+            a.collapse('show');
+            // hidden-div
         });
 
-        // Hide the dropdown when clicking outside of it
-        $(document).on('click', function(e) {
-            if (!$(e.target).closest('#keyword, #subcategoryDropdown').length) {
-                dropdown.hide();
-            }
+
+        $(document).ready(function() {
+             const dropdown = $('#subcategoryDropdown');
+            const keywordInput = $('.keyword_search');
+            const categoryId = $('.category-search')
+
+            // Show dropdown when input gains focus or starts typing
+            keywordInput.on('input', function() {
+                const keyword = $(this).val();
+
+
+                const category_id = $('.category-search-category-id').val();
+
+
+                if (keyword.length > 0) {
+                    $.ajax({
+                        url: '/ads/lisiting_get_subcategories',
+                        type: 'GET',
+                        data: {
+                            category_id: category_id,
+                            keyword: keyword
+                        },
+                        success: function(data) {
+                            dropdown.empty(); // Clear existing items
+                            if (data.length > 0) {
+                                data.forEach(function(subcategory) {
+                                    const item = $('<li>')
+                                        .addClass('dropdown-item')
+                                        .text(subcategory.name)
+                                        .on('click', function() {
+                                            keywordInput.val(subcategory.name);
+                                            dropdown.hide();
+                                        });
+                                    dropdown.append(item);
+                                });
+                                dropdown.show();
+                            } else {
+                                dropdown.hide();
+                            }
+                        },
+                    });
+                } else {
+                    dropdown.hide();
+                }
+            });
+
+            // Hide the dropdown when clicking outside of it
+            $(document).on('click', function(e) {
+                if (!$(e.target).closest('#keyword, #subcategoryDropdown').length) {
+                    dropdown.hide();
+                }
+            });
         });
-    });
-</script>
+    </script>
 
 @endsection

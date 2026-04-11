@@ -203,7 +203,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     /* Subcategory Dropdown */
     #subcategorydropdown {
         border-radius: 4px !important;
-        max-height: 18rem !important;
+        max-height: 17rem !important;
         overflow-y: auto !important;
         border: none !important;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
@@ -259,6 +259,11 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     }
     .btn:focus, .btn.focus {
         box-shadow: none !important;
+    }
+
+    /* Fix for Language and other selects arrow spacing */
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        padding-right: 35px !important;
     }
 
     /* end */
@@ -323,9 +328,8 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                 </select>
             </div>
 
-            <!-- Language Dropdown -->
             <div class="selection-item">
-                <select class="form-control language_dropdown" name="language_dropdown" style="width:100px;" onchange="translateLanguage()">
+                <select class="form-control language_dropdown" name="language_dropdown" style="width:120px;" onchange="translateLanguage()">
                     @foreach($language as $language1)
                         <option {{ $language1->id == request()->language ? 'selected' : '' }} data-flag-url="{{ $language1->flag_image_url }}" value="{{ $language1->prefix }}" {{ $language1->prefix == 'en' ? 'selected' : '' }}>
                             {{ $language1->name }}

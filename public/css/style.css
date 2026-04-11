@@ -385,10 +385,7 @@
         border-radius: 0.3rem;
     }
     
-     .business-sale .listing:hover {
-        /* border: 1px solid #fff; */
-        box-shadow: 3px 3px 3px 3px #8e888842;
-    }
+  
     .similar_ad .listing:hover {
         width: 230px;
         /* border: 1px solid #fff; */
@@ -397,39 +394,7 @@
     }
 
     
-    .business-rent .listing:hover {
-        /* border: 1px solid #fff; */
-        box-shadow: 3px 3px 3px 3px #8e888842;
-    }
-
-    .business-idea .listing:hover {
-        /* border: 1px solid #fff; */
-        box-shadow: 3px 3px 3px 3px #8e888842;
-    }
     
-    .share-sale .listing:hover {
-        /* border: 1px solid #fff; */
-        box-shadow: 3px 3px 3px 3px #8e888842;
-    }
-    
-   
-    .investor-required .listing:hover {
-        /* border: 1px solid #fff; */
-        box-shadow: 3px 3px 3px 3px #8e888842;
-    }
-
-    
-
-    .franchise-opp .listing:hover {
-        /* border: 1px solid #fff; */
-        box-shadow: 3px 3px 3px 3px #8e888842;
-    }
-
-    
-    .machinery .listing:hover {
-        /* border: 1px solid #fff; */
-        box-shadow: 3px 3px 3px 3px #8e888842;
-    }
     .sick-area {
         background: #f7f7f7;
         float: left;
@@ -6427,7 +6392,7 @@ border: 1px solid #2d11e7;
         padding: 8px;
         width: 40px;
         color: #fff;
-        /* margin: 12px; */
+         
         border-radius: 20px;
     }
     
@@ -6441,7 +6406,7 @@ border: 1px solid #2d11e7;
         /* padding: 10px; */
         /* color: #0000FF; */
         color: #fff;
-        margin: 13px;
+        margin: 11px !important;
         border-radius: 20px;
         font-weight: bold;
     }

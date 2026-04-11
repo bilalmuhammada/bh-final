@@ -17,10 +17,8 @@
      <!-- about us area start -->
      <section class="">
             <div class="container">
-                <div class="row ">
-                   
-                    
-                    <div class="col-md-8 col-lg-8 col-xl-8" style="margin-bottom: 1rem;margin-left: 11rem;margin-top: 2rem;">
+                <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-8" style="margin-bottom: 1rem; margin-top: 2rem;">
                         <div class="logo" style="text-align:center;">
                             <a class="" href="{{env('BASE_URL') . 'home'}}" style="margin-left: -4px;">
                                

@@ -527,8 +527,9 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                                         </span>
                                     </div>
                                 </div>
-                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;bottom:10px; left: 4px; z-index: 6; pointer-events: none;">
-                                    <span class="text-white swiper-pagination-fraction" style="font-size: 13px; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);"></span>
+                                <div style="margin:0px;position:absolute;bottom:10px; left: 10px; z-index: 6; pointer-events: none; background: rgba(0,0,0,0.5); padding: 2px 8px; border-radius: 4px; display: flex; align-items: center; gap: 5px;">
+                                    <i class="fa fa-image" style="color:white; font-size: 12px;"></i>
+                                    <span class="text-white swiper-pagination-fraction" style="font-size: 12px; font-weight: bold;"></span>
                                 </div>
                             </div>
                             <div class="swiper swiper-container" style="height:180px; width: 100%;">
@@ -569,7 +570,9 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                             </div>
                         </div>
                         <!-----content----->
-                        <hr style="width: 74%; margin-top:-14px; margin-left: 13px; background:#eee;">
+                        <div class="col-12" style="padding: 0 15px;">
+                            <hr style="width: 100%; margin: 0; background:#eee;">
+                        </div>
                     </div>
                 @endforeach
                 <div class="d-flex justify-content-center mt-4">
@@ -844,7 +847,7 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
                     prevEl: $(container).find('.swiper-button-prev')[0],
                 },
                 pagination: {
-                    el: $(container).closest('.col-lg-4').find('.swiper-pagination-fraction')[0],
+                    el: $(container).parent().find('.swiper-pagination-fraction')[0],
                     type: 'fraction',
                 },
                 loop: true,

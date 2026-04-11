@@ -1,4 +1,14 @@
 @extends('layout.master')
+@php
+    $posted_by_types = [
+        '0' => 'Broker',
+        '1' => 'Agent',
+        '2' => 'Owner',
+        '3' => 'Staff'
+    ];
+    $posted_by_val = optional($ad->details)->posted_by ?? '';
+    $posted_by_label = $posted_by_types[$posted_by_val] ?? '';
+@endphp
 @section('content')
 <style>
 /* Center and style the popup container */
@@ -474,7 +484,7 @@ button.active .indicator-img {
  
 
     <section class="desktop-view">
-        <div class="cont-w " style="border-bottom: 2px solid #eee;">
+        <div class="cont-w " style="border-bottom: 0px solid #eee;">
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex align-items-center flex-wrap" style="gap: 5px;">
@@ -753,7 +763,7 @@ button.active .indicator-img {
                             <div class="inner d-flex flex-column align-items-center text-center p-3" style="border: 1px solid #eee; border-radius: 5px; width: 100%;">
                                 <!-- User Info -->
                                 <div class="mb-4">
-                                    <p class="text-muted mb-1" style="font-size: 13px;">Posted by:</p>
+                                    <p class="text-muted mb-1" style="font-size: 13px;">Posted by: <span style="color: blue; font-weight: bold; text-decoration: underline;">{{ $posted_by_label }}</span></p>
                                     <h6 class="mb-2"><b>{{ $ad->created_by_user->name }}</b></h6>
                                     
                                     <div class="profile-image-container d-flex justify-content-center mb-2">
@@ -803,7 +813,7 @@ button.active .indicator-img {
                         <div class="col-lg-12 col-md-12 col-12" style="border:0px solid red;margin-right:-30px;">
                             <div class="inner"
                                  style="border: 1px solid #eee;border-radius:5px;margin:0px 0px 10px 0px;padding:15px;">
-                                <p class="text-muted" style="font-size: 13px;padding-left:12px;">Posted by</p>
+                                <p class="text-muted" style="font-size: 13px;padding-left:12px;">Posted by: <span style="color: blue; font-weight: bold; text-decoration: underline;">{{ $posted_by_label }}</span></p>
                                 <p class="text-muted" style="font-size: 15px;padding-left:12px;">
                                     <b>{{ $ad->created_by_user->name; }}</b></p>
                                 <span
@@ -841,10 +851,10 @@ button.active .indicator-img {
                 </div>
                 <!---------------------->
                 {{-- <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;"> --}}
-                <div class="col-lg-12 col-md-12 col-12 similar_ad">
-                    <h6 style="margin-bottom: 0px;"><b>Similar Ads</b></h6>
-                    <div class="row" >
-                        <div class="col-md-9" style="margin-left: 14px;padding:0px;">
+                <div class="col-12 similar_ad" style="margin-top: 20px;">
+                    <h6 style="margin-bottom: 15px;"><b>Similar Ads</b></h6>
+                    <div class="row">
+                        <div class="col-12">
                             <div class="slider">
                                 @php
                                     $similar_ads = \App\Helpers\RecordHelper::getAdsBySubcategory($ad->subcategory_id)->where('id', '!=', $ad->id)->take(12);

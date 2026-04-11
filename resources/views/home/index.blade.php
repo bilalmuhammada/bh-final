@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>BusinessHub - Home</title>
     <meta charset="utf-8">
@@ -31,7 +32,7 @@
 
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
-    
+
 </head>
 <style>
     .hero-image {
@@ -40,9 +41,11 @@
         min-height: 250px;
         position: relative;
     }
-    .select2-container--default .select2-selection--single{
-      border: 0px solid transparent;
+
+    .select2-container--default .select2-selection--single {
+        border: 0px solid transparent;
     }
+
     .hero-text {
         text-align: center;
         position: absolute;
@@ -50,13 +53,14 @@
         left: 50%;
         transform: translate(-50%, -50%);
         color: #F5BD02;
-        font-weight:bold;
+        font-weight: bold;
     }
-   
+
     .hero-text .main {
         font-size: 25px;
     }
-    .select2-search__field{
+
+    .select2-search__field {
         border-radius: 4px;
         padding-left: 8px !important;
     }
@@ -109,8 +113,10 @@
     }
 
     .select2-selection__arrow {
-    display: block !important;  /* Force the arrow to display */
-}
+        display: block !important;
+        /* Force the arrow to display */
+    }
+
     .country-divs {
         /* width: 60%; */
         width: 70%;
@@ -118,6 +124,7 @@
         top: 10px;
         margin-bottom: 10px;
     }
+
     .select2-container--default .select2-results>.select2-results__options {
         overflow-x: hidden !important;
         max-height: 178px;
@@ -152,7 +159,7 @@
     .main-div {
         padding: 20px 40px;
         margin: 4px;
-        width:100%;
+        width: 100%;
         text-align: center;
         background: rgb(241, 227, 164, .7);
         border-radius: 4px;
@@ -165,9 +172,11 @@
     .main-div:hover {
         border: 1px solid #0000FF;
     }
-a{
-    width:150px;
-}
+
+    a {
+        width: 150px;
+    }
+
     .main-div a .spans {
         /* color:#A17A4E; */
         color: #0000FF;
@@ -175,10 +184,10 @@ a{
 
     .main-div .spans {
 
-    
+
         margin-top: -10px;
         font-weight: bold;
-        text-align:center;
+        text-align: center;
         color: #0000FF;
         font-size: 18px !important;
         /* color: white; */
@@ -200,326 +209,371 @@ a{
 
     .img-flag {
         /* width: auto; */
-        width:17px;
+        width: 17px;
         height: 12px;
         margin-right: 8px;
     }
-/* start */
-.select2-search__field{
-    border-color: #997045 !important;
-        }
-        .select2-search__field:hover{
-    border-color: blue !important;
-        }
-        .select2-results__option {
-            padding: 6px !important;
-        }
+
+    /* start */
+    .select2-search__field {
+        border-color: #997045 !important;
+    }
+
+    .select2-search__field:hover {
+        border-color: blue !important;
+    }
+
+    .select2-results__option {
+        padding: 6px !important;
+    }
 
     /* .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable { */
-        .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+    .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
         background-color: #fff !important;
-        color: blue !important;
+        color: goldenrod !important;
         font-size: 14px;
         font-weight: bold;
-    /* } */
     }
+
     .select2-container--default .select2-results__option--selected {
         background-color: #fff !important;
     }
- 
 
-   
+
+
     .countrylist {
-    display: inline-block;
-    transition: transform 0.2s ease-in-out;
-   }
+        display: inline-block;
+        transition: transform 0.2s ease-in-out;
+    }
 
-   .countrylist:hover{
+    .countrylist:hover {
         /* color: blue; */
         animation: shakeIcon 2s linear infinite;
     }
 
-    .select2-container--default .select2-selection--single .select2-selection__rendered{
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
         color: blue !important;
-        
+
     }
 
     @keyframes shakeIcon {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-    .select2-results__options{
+        0% {
+            transform: translateX(0);
+        }
+
+        25% {
+            transform: translateX(-5px);
+        }
+
+        50% {
+            transform: translateX(5px);
+        }
+
+        75% {
+            transform: translateX(-5px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    .select2-results__options {
         margin-right: 0px;
-    font-size: 14px !important;
-    font-weight: bolder !important;
+        font-size: 14px !important;
+        font-weight: bolder !important;
         padding: 6px !important;
     }
-    .select2-dropdown{
 
-        border-radius: 4px; 
+    .select2-dropdown {
+
+        border-radius: 4px;
         border: 1px solid transparent !important;
         background-color: #fff;
         color: #000 !important;
     }
+
     /* end */
-    .select2-selection__rendered{
+    .select2-selection__rendered {
         padding-left: 12px !important;
-        font-size:14px !important;
-        outline:none !important;
-        border:none !important;
+        font-size: 14px !important;
+        outline: none !important;
+        border: none !important;
     }
-    .select2-results__option{
+
+    .select2-results__option {
         /* font-size:18px !important; */
         font-weight: bold;
         /* background-color:rgba(0, 0, 255, .3) !important; */
     }
-    .aaaa{
-        background:none !important;
+
+    .aaaa {
+        background: none !important;
         /* background-color:transparent !important; */
-        background-color:rgba(0, 0, 255, .3) !important;
+        background-color: rgba(0, 0, 255, .3) !important;
     }
-    .flag2{
-        
-        width:40px;
-       height:25px;
+
+    .flag2 {
+
+        width: 40px;
+        height: 25px;
     }
-    
+
     /* //scrollbar */
     ::-webkit-scrollbar {
-  width: 6px !important;               /* width of the entire scrollbar */
-}
+        width: 6px !important;
+        /* width of the entire scrollbar */
+    }
 
-::-webkit-scrollbar-track {
-  background: none !important;        /* color of the tracking area */
-}
+    ::-webkit-scrollbar-track {
+        background: none !important;
+        /* color of the tracking area */
+    }
 
-::-webkit-scrollbar-thumb {
-  background-color: #997045 !important;    /* color of the scroll thumb */
-  border-radius: 20px !important;       /* roundness of the scroll thumb */
-  border: 0px solid orange !important;  /* creates padding around scroll thumb */
-}
+    ::-webkit-scrollbar-thumb {
+        background-color: #997045 !important;
+        /* color of the scroll thumb */
+        border-radius: 20px !important;
+        /* roundness of the scroll thumb */
+        border: 0px solid orange !important;
+        /* creates padding around scroll thumb */
+    }
 
-.select2-container--default .select2-selection--single .select2-selection__arrow b{
-    border-color: blue transparent transparent transparent !important;
-}
-.select2-container--default .select2-selection--single:hover .select2-selection__arrow b {
-    border-color: goldenrod transparent transparent transparent !important;
-}
+    .select2-container--default .select2-selection--single .select2-selection__arrow b {
+        border-color: blue transparent transparent transparent !important;
+    }
+
+    .select2-container--default .select2-selection--single:hover .select2-selection__arrow b {
+        border-color: goldenrod transparent transparent transparent !important;
+    }
+
+    .select2-container--default .select2-selection--single:hover .select2-selection__rendered {
+        color: goldenrod !important;
+    }
 </style>
 @php
-$countries = \App\Helpers\RecordHelper::getCountries();
+    $countries = \App\Helpers\RecordHelper::getCountries();
 @endphp
+
 <body style="overflow-x: hidden;">
-<div class="container" >
-    <div class="row">
-  
-        <div class="col-md-3" style="margin-left: 3.5rem;">
-                    <span style="">
-                         <!-- country bar mobile start -->
-                <div class="mobile-country desktop-menu-right" style="margin-top:16px !important;">
-                <select class="form-control country_dropdown" name="country_dropdown" id="" style="width:150px;">
-                <option value="" selected>All Countries</option>
-                
-                    @foreach($countries as $country)
-                    <option data-flag-url="{{ $country->image_url }}" data-country_id="{{ $country->id }}" value="{{ $country->id }}">&nbsp;{{ $country->name }}</option>
-                @endforeach
-               </select>
-                        </div>
-                        <!-- country bar mobile finish -->
-                    </span>
-        </div>
-        <div class="col-md-4" style="padding:0px 0px 0px 50px;">
-            <div class="logo text-center">
-                <a href="{{env('BASE_URL')}}">
-                    <img src="{{asset('images/businesshub-slogan.png')}}" title="businesshub " class="countrylist" alt="businesshub" width="200"/>
-                </a>
-            </div>
-        </div>
-        <div class="col-md-4"></div>
-    </div>
-
-</div>
-</div>
-<!-----hero section-------->
-<div class="hero-image mobile-view">
-    <div class="hero-text">
-        <p>Welcome to Only-Businesses Focused Worldwide Platform!</p>
-
-        <p class="text-center" style="font-size:14px;margin-top:10px;">Explore all Countries!</p>
-    </div>
-</div>
-<!-- slider start -->
-<section>
-    <div class="container-fluid slider-area desktop-view">
-        <div id="demo" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{asset('images/slider-images/1.jpeg')}}" alt="Los Angeles" width="100%" height="450px">
-                    <div class="hero-text">
-                        <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">
-                        Explore all Countries!
-                        </p>
-                    </div>
-                </div>
-               
-                <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/2.jpeg')}}" alt="New York" width="100%" height="450px">
-                    <div class="hero-text" >
-                        <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
-                    </div>
-                </div>
-                
-                <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/3.jpeg')}}" alt="New York" width="100%" height="450px">
-                    <div class="hero-text">
-                        <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
-                    </div>
-                </div>
-               
-                <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/4.jpeg')}}" alt="New York" width="100%" height="450px">
-                    <div class="hero-text">
-                        <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/5.jpeg')}}" alt="New York" width="100%" height="450px">
-                    <div class="hero-text" >
-                        <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/6.jpeg')}}" alt="New York" width="100%" height="450px">
-                    <div class="hero-text" >
-                        <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/7.jpeg')}}" alt="New York" width="100%" height="450px">
-                    <div class="hero-text" >
-                        <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/8.jpeg')}}" alt="New York" width="100%" height="450px">
-                    <div class="hero-text" >
-                        <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
-                        <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-<!-- slider finish -->
-<!----hero section end--------->
-<!-- searchbar area mobile start -->
-<section class="desktop-view">
-    <div class="container country-divs">
-        <div class="row justify-content-md-center">
-            <div class="col-lg-12" style="margin-top: 12px;">
-              <div class="row">
-              @foreach($countries->whereBetween('priority', [11, 30])->sortBy('priority') as $country)
-
-                <div class="col-md-2" style="margin:10px 15px;">
-                    <div class="row">
-
-
-              <a class="mx-auto" href="{{env('BASE_URL') . 'home?country=' . $country->id}}" style="border:0px solid red;">
-                <div class="col-md-12 main-div countrylist" class="main-div" style="border:0px solid red;">
-                        <span>
-                            <img src="{{asset('images/businesshub.png')}}" alt="businesshub" title="businesshub" width="60px">
-                        </span>
-                        <br/>
-                        @php
-                        // dd($country->image_url);
-                        @endphp
-                        <span class="spans">{{ $country->name}}</span>
-                        <div>
-                            <img src="{{ $country->image_url }} " alt="{{ $country->iso }}" title="{{ $country->name }}" class="flag2" width="40px">
-                        </div>
-                    </div>
-                    </a>
-                 </div>
-               </div>
-               @endforeach
-            </div>
-
-              </div>
-            </div>
-        </div>
-</section>
-<div>&nbsp;</div>
-<!--  mobile-view start -->
-<section class="mobile-view">
     <div class="container">
-        <div class="row justify-content-md-center">
-            <div class="col-lg-10">
-            </div>
-        </div>
         <div class="row">
-        @foreach($countries as $country)
-            <div class="col-lg-3 p-5px col-6  " style="border:0px solid #eee;">
-            <a class="mx-auto" href="{{env('BASE_URL') . 'home'}}">
-                <div class="col mx-auto main-div">
-           <span>
-            <img src="{{asset('images/businesshub.png')}}" alt="businesshub" title="businesshub" width="70px">
-            </span></br>
-            <span class="spans">{{ explode(' ', $country->name)[0] }}</span>
-                    <div>
-                    <img src="{{ $country->image_url }} " alt="{{ $country->iso }}" title="{{ $country->iso }}" class="flag2" width="40px">
+
+            <div class="col-md-3" style="margin-left: 3.5rem;">
+                <span style="">
+                    <!-- country bar mobile start -->
+                    <div class="mobile-country desktop-menu-right" style="margin-top:16px !important;">
+                        <select class="form-control country_dropdown" name="country_dropdown" id=""
+                            style="width:150px;">
+                            <option value="" selected>All Countries</option>
+
+                            @foreach($countries as $country)
+                                <option data-flag-url="{{ $country->image_url }}" data-country_id="{{ $country->id }}"
+                                    value="{{ $country->id }}">&nbsp;{{ $country->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
-                </div>
-                </a>
+                    <!-- country bar mobile finish -->
+                </span>
             </div>
-            @endforeach
+            <div class="col-md-4" style="padding:0px 0px 0px 50px;">
+                <div class="logo text-center">
+                    <a href="{{env('BASE_URL')}}">
+                        <img src="{{asset('images/businesshub-slogan.png')}}" title="businesshub " class="countrylist"
+                            alt="businesshub" width="200" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+    </div>
+    </div>
+    <!-----hero section-------->
+    <div class="hero-image mobile-view">
+        <div class="hero-text">
+            <p>Welcome to Only-Businesses Focused Worldwide Platform!</p>
+
+            <p class="text-center" style="font-size:14px;margin-top:10px;">Explore all Countries!</p>
         </div>
     </div>
-</section>
-<!-- mobile-view finish  -->
-@php
-    $categories = \App\Helpers\RecordHelper::getCategories();
-@endphp
+    <!-- slider start -->
+    <section>
+        <div class="container-fluid slider-area desktop-view">
+            <div id="demo" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{asset('images/slider-images/1.jpeg')}}" alt="Los Angeles" width="100%"
+                            height="450px">
+                        <div class="hero-text">
+                            <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
+                            <p class="text-center" style="font-size:20px;margin-top:30px;">
+                                Explore all Countries!
+                            </p>
+                        </div>
+                    </div>
 
-<div class="container">
-    <h4 class="text-center desktop-view" style="color:goldenrod;font-weight:bold;">
-    <b>Join Millions of Users to Buy & Sell Businesses Worldwide!
-    </b>
-    </h4>
-    <h4 class="text-center mb-50 mobile-view">
-        <b>Join Millions of Users to Buy & Sell Businesses Worldwide!</b>
-    </h4>
-    <div class="col-md-12" style="margin: 20px 0px 0px 32px !important;">
-        <div class="row">
-            @foreach($categories as $category)
-                <div class="col-lg-3 col-md-6 mb-30 col-12 ">
-                    <div class="subcategory-list">
-                        <b>{{$category->name}}</b>
-                        <br>
-                        @foreach($category->sub_categories->take(5) as $key=>$sub_category)
-                        
-                            <a link="{{env('BASE_URL') . 'home/' }}" class="cf subcategory-name">{{$sub_category->name}}</a>
-                            {{-- <a link="{{env('BASE_URL') . 'ads/' . $sub_category->id}}" class="cf subcategory-name">{{$sub_category->name}}</a> --}}
-                            <br>
+                    <div class="carousel-item">
+                        <img src="{{asset('images/slider-images/2.jpeg')}}" alt="New York" width="100%" height="450px">
+                        <div class="hero-text">
+                            <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
+                            <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="{{asset('images/slider-images/3.jpeg')}}" alt="New York" width="100%" height="450px">
+                        <div class="hero-text">
+                            <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
+                            <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="{{asset('images/slider-images/4.jpeg')}}" alt="New York" width="100%" height="450px">
+                        <div class="hero-text">
+                            <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
+                            <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{asset('images/slider-images/5.jpeg')}}" alt="New York" width="100%" height="450px">
+                        <div class="hero-text">
+                            <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
+                            <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{asset('images/slider-images/6.jpeg')}}" alt="New York" width="100%" height="450px">
+                        <div class="hero-text">
+                            <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
+                            <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{asset('images/slider-images/7.jpeg')}}" alt="New York" width="100%" height="450px">
+                        <div class="hero-text">
+                            <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
+                            <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{asset('images/slider-images/8.jpeg')}}" alt="New York" width="100%" height="450px">
+                        <div class="hero-text">
+                            <p class="main">Welcome to Only-Businesses Focused Worldwide Platform!</p>
+                            <p class="text-center" style="font-size:20px;margin-top:30px;">Explore all Countries!</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- slider finish -->
+    <!----hero section end--------->
+    <!-- searchbar area mobile start -->
+    <section class="desktop-view">
+        <div class="container country-divs">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-12" style="margin-top: 12px;">
+                    <div class="row">
+                        @foreach($countries->whereBetween('priority', [11, 30])->sortBy('priority') as $country)
+
+                            <div class="col-md-2" style="margin:10px 15px;">
+                                <div class="row">
+
+
+                                    <a class="mx-auto" href="{{env('BASE_URL') . 'home?country=' . $country->id}}"
+                                        style="border:0px solid red;">
+                                        <div class="col-md-12 main-div countrylist" class="main-div"
+                                            style="border:0px solid red;">
+                                            <span>
+                                                <img src="{{asset('images/businesshub.png')}}" alt="businesshub"
+                                                    title="businesshub" width="60px">
+                                            </span>
+                                            <br />
+                                            @php
+                                                // dd($country->image_url);
+                                            @endphp
+                                            <span class="spans">{{ $country->name}}</span>
+                                            <div>
+                                                <img src="{{ $country->image_url }} " alt="{{ $country->iso }}"
+                                                    title="{{ $country->name }}" class="flag2" width="40px">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
                         @endforeach
                     </div>
+
                 </div>
-                <!-- footer area 4 finish -->
-            @endforeach
+            </div>
+        </div>
+    </section>
+    <div>&nbsp;</div>
+    <!--  mobile-view start -->
+    <section class="mobile-view">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-10">
+                </div>
+            </div>
+            <div class="row">
+                @foreach($countries as $country)
+                    <div class="col-lg-3 p-5px col-6  " style="border:0px solid #eee;">
+                        <a class="mx-auto" href="{{env('BASE_URL') . 'home'}}">
+                            <div class="col mx-auto main-div">
+                                <span>
+                                    <img src="{{asset('images/businesshub.png')}}" alt="businesshub" title="businesshub"
+                                        width="70px">
+                                </span></br>
+                                <span class="spans">{{ explode(' ', $country->name)[0] }}</span>
+                                <div>
+                                    <img src="{{ $country->image_url }} " alt="{{ $country->iso }}"
+                                        title="{{ $country->iso }}" class="flag2" width="40px">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- mobile-view finish  -->
+    @php
+        $categories = \App\Helpers\RecordHelper::getCategories();
+    @endphp
+
+    <div class="container">
+        <h4 class="text-center desktop-view" style="color:goldenrod;font-weight:bold;">
+            <b>Join Millions of Users to Buy & Sell Businesses Worldwide!
+            </b>
+        </h4>
+        <h4 class="text-center mb-50 mobile-view">
+            <b>Join Millions of Users to Buy & Sell Businesses Worldwide!</b>
+        </h4>
+        <div class="col-md-12" style="margin: 20px 0px 0px 32px !important;">
+            <div class="row">
+                @foreach($categories as $category)
+                    <div class="col-lg-3 col-md-6 mb-30 col-12 ">
+                        <div class="subcategory-list">
+                            <b>{{$category->name}}</b>
+                            <br>
+                            @foreach($category->sub_categories->take(5) as $key => $sub_category)
+
+                                <a link="{{env('BASE_URL') . 'home/' }}" class="cf subcategory-name">{{$sub_category->name}}</a>
+                                {{-- <a link="{{env('BASE_URL') . 'ads/' . $sub_category->id}}"
+                                    class="cf subcategory-name">{{$sub_category->name}}</a> --}}
+                                <br>
+                            @endforeach
+                        </div>
+                    </div>
+                    <!-- footer area 4 finish -->
+                @endforeach
+            </div>
         </div>
     </div>
-</div>
 
 
 </body>
@@ -530,8 +584,8 @@ $countries = \App\Helpers\RecordHelper::getCountries();
             <div class="col-xl-12 col-md-12 col-lg-12 col-12">
                 <div class="logo text-center">
                     <a href="{{env('BASE_URL')}}">
-                        <img src="{{asset('images/businesshub.png')}}" title="businesshub" class="countrylist" alt="businesshub "
-                             width="150 "/>
+                        <img src="{{asset('images/businesshub.png')}}" title="businesshub" class="countrylist"
+                            alt="businesshub " width="150 " />
                     </a>
                 </div>
             </div>
@@ -539,7 +593,9 @@ $countries = \App\Helpers\RecordHelper::getCountries();
         <!-- footer copyright area start -->
         <div class="row copyright ">
             <div class="col-lg-12 ">
-                <p style="color:#00498e;text-align:center; font-size:12px; margin-top: -10px;">© BusinessHub.com {{ date('Y') }}, All Rights Reserved.</p>
+                <p style="color:#00498e;text-align:center; font-size:12px; margin-top: -10px;">© BusinessHub.com
+                    {{ date('Y') }}, All Rights Reserved.
+                </p>
             </div>
         </div>
         <!-- footer copyright area finish -->
@@ -552,7 +608,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
         <div class="modal-content ">
             <div class="embed-responsive embed-responsive-16by9 ">
                 <iframe class="embed-responsive-item " src="https://www.youtube.com/embed/x0ZL-ApVya0 "
-                        allowfullscreen></iframe>
+                    allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -618,7 +674,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
             templateResult: formatCountry,
            
         });
-        $(".langauge_dropdown").select2({
+        $(".language_dropdown").select2({
             templateSelection: formatCountry,
             templateResult: formatCountry,
            
@@ -720,7 +776,7 @@ $countries = \App\Helpers\RecordHelper::getCountries();
                     right.css('transform', 'rotate(180deg)')
                     left.css('transform', 'rotate(' + percentageToDegrees(value - 55) + 'deg)')
                 }
-            }
+            }.
 
         })
 
