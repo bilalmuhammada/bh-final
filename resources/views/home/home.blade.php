@@ -25,7 +25,7 @@
         }
 
         .listing:hover {
-            transform: translateY(-8px);
+            transform: translateY(4px);
             
             z-index: 10;
         }
@@ -185,6 +185,11 @@
             flex-direction: column !important;
             justify-content: center !important;
         }
+
+        /* Spacing between listing sections */
+        
+        
+        
     </style>
     @php
         $categories = \App\Helpers\RecordHelper::getCategories();
@@ -384,12 +389,11 @@
                                             <div class="listing p-1">
 
                                                                                    <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                                <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                                    <i class="fa fa-heart-o shaking" style="color: #fff !important; font-siz
-                                                       e: 20px;"></i>
+                                                <div class="heart-icon" style="position: absolute; top: 16px; right: 1.0rem;">
+                                                    <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
                                                 </div>
                                                 <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                    <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
+                                                    <span class="text-white" >{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
                                                 </div>
 
                                                                                    <div class="detail" style="padding: 12px;">
@@ -436,13 +440,13 @@
                                                             <div class="listing p-1">
 
                                                                                           <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                                                    <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
+                                                                    <div class="heart-icon" style="position: absolute; top: 16px; right: 1.0rem;">
                                                                         <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
-                                                                </div>
+                                                                    </div>
 
                                                                 <div     class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-
                                                                                index: 2;">
-                                                                        <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">1</span>
+                                                                       <span class="text-white" >{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
                                                                     </div>
                                                                     <div class="detail" style="padding: 12px;">
                                                                         <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
@@ -494,7 +498,7 @@
                                                e                    : 20px;"></i>
                                                         </div>
                                                         <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                            <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
+                                                            <span class="text-white" >{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
                                                         </div>
                                                         <div class="detail" style="padding: 12px;">
                                                             <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
@@ -543,11 +547,12 @@
                                                 <div class="listing p-1">
 
                                                                       <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                                        <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
+                                                        <div class="heart-icon" style="position: absolute; top: 16px; right: 1.0rem;">
                                                             <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
                                                         </div>
-                                                        <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                            <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
+
+<div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
+                                                            <span class="text-white" >{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
                                                         </div>
                                                         <div class="detail" style="padding: 12px;">
                                                             <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
@@ -595,13 +600,13 @@
                                                                              <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
                                                                                 <div class="listing p-1">
                                                                                     <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                                                                    <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
+                                                                                    <div class="heart-icon" style="position: absolute; top: 16px; right: 1.0rem;">
                                                                                         <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
                                                                                     </div>
                                                                                     <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                                                        <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
+                                                                                        <span class="text-white" >{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
                                                                                     </div>
-                                                                                    <div class="detail" style="padding: 12px;">
+                                                                                                    <div class="detail" style="padding: 12px;">
                                                                                         <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
                                                                                     <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
                                                                                     <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
@@ -650,11 +655,11 @@
                                                                                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
                                                                                         <div class="listing p-1">
                                                                                             <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                                                                            <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
+                                                                                            <div class="heart-icon" style="position: absolute; top: 16px; right: 1.0rem;">
                                                                                                 <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
                                                                                             </div>
                                                                                             <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                                                            <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
+                                                                                            <span class="text-white" >{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
                                                                                         </div>
                                                                                             <div class="detail" style="padding: 12px;">
                                                                                                 <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
@@ -704,11 +709,11 @@
                                                 <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
                                                     <div class="listing p-1">
                                                         <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                                        <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
+                                                        <div class="heart-icon" style="position: absolute; top: 16px; right: 1.0rem;">
                                                             <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
                                                     </div>
                                                         <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                            <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
+                                                            <span class="text-white" >{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
                                                     </div>
                                                     <div class="detail" style="padding: 12px;">
                                                         <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
@@ -758,11 +763,11 @@
                                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
                                             <div class="listing p-1">
                                                 <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                            <div class="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
+                                            <div class="heart-icon" style="position: absolute; top: 16px; right: 1.0rem;">
                                                     <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
                                                 </div>
                                             <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                <i class="fa fa-image" style="color:white;"></i><span class="text-white" style="margin-left:9px">{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
+                                                <span class="text-white" >{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
                                             </div>
                                             <div class="detail" style="padding: 12px;">
                                                 <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>

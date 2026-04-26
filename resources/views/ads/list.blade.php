@@ -45,9 +45,11 @@
         /* Active page background */
         border-color: #007bff;
     }
+
     .swiper {
         margin-left: 0px;
     }
+
     .paginationLink {
         margin-left: 0 !important;
     }
@@ -64,8 +66,9 @@
         color: #000;
         /* margin-top: 4px; */
     }
+
     .dropdown-item {
-       
+
         padding: 2px 12px;
     }
 
@@ -91,6 +94,7 @@
         padding: 2px 12px;
         margin-bottom: 0px !important;
     }
+
     .select2-selection__placeholder {
         color: #000 !important;
         font-size: 12px !important;
@@ -117,7 +121,7 @@
         cursor: pointer;
     }
 
-    
+
 
     .btn:focus,
     .btn:active {
@@ -167,7 +171,8 @@
     .swiper-button-prev:after,
     .swiper-button-next svg,
     .swiper-button-prev svg {
-        content: "" !important; /* Remove default Swiper arrows */
+        content: "" !important;
+        /* Remove default Swiper arrows */
         display: none !important;
     }
 
@@ -177,7 +182,7 @@
         font-size: 22px !important;
         font-weight: normal !important;
         transition: all 0.3s ease;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     }
 
     .swiper-button-next:hover i,
@@ -189,7 +194,8 @@
     .swiper-button-next,
     .swiper-button-prev {
         z-index: 100 !important;
-        width: 30px !important; /* Slightly wider for better click area */
+        width: 30px !important;
+        /* Slightly wider for better click area */
         height: 100% !important;
         top: 0 !important;
         margin-top: 0 !important;
@@ -239,8 +245,8 @@
     }
 
 
-    .featured-badge-static:hover, 
-    .featured-badge-static:focus, 
+    .featured-badge-static:hover,
+    .featured-badge-static:focus,
     .featured-badge-static:active {
         background-color: #007bff !important;
         border-color: #007bff !important;
@@ -254,19 +260,22 @@
         border-radius: 4px !important;
         font-weight: bold !important;
         padding: 0 21px !important;
-        height: 65px; /* Reduced height to align better */
+        height: 65px;
+        /* Reduced height to align better */
         display: flex;
         align-items: center;
         justify-content: center;
         transition: all 0.2s ease;
         white-space: nowrap;
     }
+
     .btn-search-blue:hover {
         color: blue !important;
         border-color: blue !important;
     }
+
     /* Favorite icon frame effect (making any white shadow/border Logo-Gold) */
-    
+
 
     .btn-clear-blue {
         border: 1px solid #A17A4E !important;
@@ -281,6 +290,7 @@
         background-color: #fff !important;
         transition: all 0.2s ease;
     }
+
     .btn-clear-blue:hover {
         color: blue !important;
         border-color: blue !important;
@@ -294,19 +304,18 @@
         background-color: transparent !important;
         min-width: 120px !important;
     }
+
     .select2-container--default .select2-selection--single .select2-selection__rendered {
         text-align: center !important;
         padding-left: 0 !important;
         font-weight: bold;
         color: #000 !important;
     }
+
     .select2-dropdown {
         border-radius: 4px !important;
         border: 1px solid transparent !important;
         min-width: 120px !important;
-    }
-    .select2-container--default .select2-selection--single .select2-selection__arrow {
-        display: none !important;
     }
 
     /* Ad listing card refinements */
@@ -314,18 +323,19 @@
         color: #000 !important;
         transition: color 0.3s ease;
     }
+
     .ad-listing-card:hover h5 {
         color: #A17A4E !important;
     }
 
-    .favourite-btn{
+    .favourite-btn {
         color: white !important;
     }
 
-    .favourite-btn:hover{
+    .favourite-btn:hover {
         color: #A17A4E !important;
     }
-        
+
     /* Small search bar in Select2 */
     .select2-search--dropdown .select2-search__field {
         font-size: 12px !important;
@@ -333,7 +343,7 @@
     }
 
     /* Standardize "All" text in Select2 selection */
-    .city_dropdown_list1 + .select2-container .select2-selection__rendered {
+    .city_dropdown_list1+.select2-container .select2-selection__rendered {
         font-size: 12px !important;
         color: #000 !important;
         font-weight: normal !important;
@@ -342,7 +352,8 @@
     /* Dropdown alignment refinements */
     .select2-container--open .select2-dropdown--below {
         margin-top: -1px !important;
-        border-top: 1px solid #aaa !important; /* Ensure a clean edge */
+        border-top: 1px solid #aaa !important;
+        /* Ensure a clean edge */
     }
 
     #subcategoryDropdown {
@@ -355,19 +366,24 @@
         <div id="demo" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:4px;">
+                    <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257"
+                        style="height:310px;border-radius:4px;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:4px;">
+                    <img src="{{asset('images/slider-images/image1.jpg')}}" alt="Chicago" width="100%" height="257"
+                        style="height:310px;border-radius:4px;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:4px;">
+                    <img src="{{asset('images/slider-images/image2.jpg')}}" alt="Chicago" width="100%" height="257"
+                        style="height:310px;border-radius:4px;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/image3.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:4px;">
+                    <img src="{{asset('images/slider-images/image3.jpg')}}" alt="Chicago" width="100%" height="257"
+                        style="height:310px;border-radius:4px;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('images/slider-images/image4.jpg')}}" alt="Chicago" width="100%" height="257" style="height:310px;border-radius:4px;">
+                    <img src="{{asset('images/slider-images/image4.jpg')}}" alt="Chicago" width="100%" height="257"
+                        style="height:310px;border-radius:4px;">
                 </div>
             </div>
         </div>
@@ -379,113 +395,128 @@
 $category_name= DB::table('categories')->where('id',$category_id)->first();
 $subcategories_for_filter = \App\Helpers\RecordHelper::getSubCategories($category_id);
 $cities_for_filter = \App\Helpers\RecordHelper::getCities(request()->country);
-$selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city) ? $cities_for_filter->where('id', request()->city)->first()->name : 'All';
+$selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city) ? $cities_for_filter->where('id',
+request()->city)->first()->name : 'All';
 @endphp
 <section class="desktop-view" style="padding-bottom: 0px !important; margin-bottom: 0px !important;">
     <div class="container" style="max-width: 1200px !important; margin: 0 auto; padding: 0 15px;">
         <div class="row align-items-center" style="gap: 15px;">
             <div class="col-12 d-flex align-items-center">
 
-        <form class="form"  style="margin-left:0px;  margin-top: 7px; margin-bottom: 0px;">
-            <div class="row" style="display: flex; flex-wrap: nowrap; width: 100%; margin: 0;">
-                <div class="col border-color" style="border-right:2px solid #eee; flex: 1;" id="cityArea">
-                    <div class="col-md-12" style="text-align: center;margin-top: 1px;"><span style="font-size: 14px;"><b>City</b></span></div>
-                    <div class="col-md-12" style="margin-top: 8px;">
-                        <select class="form-control city_dropdown_list1" name="city_dropdown" id=""
-                                style="text-align:center;background-color:transparent !important; font-size:13px; width: 100% !important; border: none !important; box-shadow: none !important;">
-                            <option value="">All </option>
-                            @foreach($cities_for_filter as $city)
-                                <option data-city-id="{{ $city->id }}"
-                                    {{ $city->id == request()->city ? 'selected' : '' }} value="{{ $city->id }}">{{ $city->name }}</option>
-                            @endforeach
-                        </select>
+                <form class="form" style="margin-left:0px;  margin-top: 7px; margin-bottom: 0px;">
+                    <div class="row" style="display: flex; flex-wrap: nowrap; width: 100%; margin: 0;">
+                        <div class="col border-color" style="border-right:2px solid #eee; flex: 1;" id="cityArea">
+                            <div class="col-md-12" style="text-align: center;margin-top: 1px;"><span
+                                    style="font-size: 14px;"><b>City</b></span></div>
+                            <div class="col-md-12" style="margin-top: 8px;">
+                                <select class="form-control city_dropdown_list1" name="city_dropdown" id=""
+                                    style="text-align:center;background-color:transparent !important; font-size:13px; width: 100% !important; border: none !important; box-shadow: none !important;">
+                                    <option value="">All </option>
+                                    @foreach($cities_for_filter as $city)
+                                    <option data-city-id="{{ $city->id }}" {{ $city->id == request()->city ? 'selected'
+                                        : '' }} value="{{ $city->id }}">{{ $city->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="col border-color"
+                            style="border-right: 2px solid #eee; text-align: center; flex: 2.5;">
+                            <label for="keyword" class="form-label"
+                                style="font-weight: bold;margin-left: 13px;font-size: 14px; margin-top: 1px;">Keyword</label>
+                            <div class="input-group" style="flex-wrap: nowrap;">
+                                <input type="text" class="form-control filter1 keyword_search" id="keyword"
+                                    style="margin-top: -2px; font-size: 14px; width: 100% !important; background-color: transparent !important; border: none !important; box-shadow: none !important;"
+                                    placeholder="Search anything in {{ $category_name->name }}">
+                                <span style="margin-top:8px;font-weight: bolder; color: goldenrod;" id="searchIcon">
+                                    <i class="fa fa-search"></i> <!-- Bootstrap Icons -->
+                                </span>
+
+
+                                <ul id="subcategoryDropdown" class="dropdown-menu"
+                                    style="display: none;max-height: 11.2rem !important; position: absolute; z-index: 1000; width: 100%; border-radius: 4px;">
+
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div class="col border-color"
+                            style="border-right: 2px solid #eee; text-align: center; flex: 2;">
+                            <label for="neighborhood" class="form-label"
+                                style="font-weight: bold;margin-left: 11px; font-size: 14px; margin-top: 1px;">Neighborhood</label>
+                            <div class="input-group" style="flex-wrap: nowrap;">
+                                <input type="text" class="form-control filter1 location_name" name="location_name"
+                                    style="margin-top: -2px; font-size: 14px; width: 100% !important; background-color: transparent !important; border: none !important; box-shadow: none !important;"
+                                    id="location_name" placeholder="Enter Location">
+                                <span class="" id="locationIcon">
+                                    <i class="fa fa-map-marker" style="margin-top:8px; color:red;"></i>
+                                </span>
+
+                            </div>
+
+                            <div class="col-md-6 mx-auto" style="display: none">
+                                <div class="map" id="map"></div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col border-color" style="border-right:2px solid #eee; flex: 1.5;" id="priceArea1">
+                            <a data-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false"
+                                aria-controls="multiCollapseExample4" style="color:#000;">
+                                <div class="col-md-12" style="text-align: center;margin-top:1px;"><span
+                                        style="font-size: 14px;"><b>Price</b></span></div>
+
+
+                            </a>
+
+                            <span style="display: flex;">
+                                <input type="text" class="form-control filter1"
+                                    style="border-right: 2px solid #eee;padding: 1px !important; font-size: 14px; width: 50% !important; background-color: transparent !important; border: none !important; box-shadow: none !important;"
+                                    name="min_price" id="min_price" oninput="validatePhoneNumber(this)"
+                                    placeholder="Min" min="0">
+
+
+                                <input type="text" class="form-control max_price"
+                                    style="padding: 0px 0px 0px 5px !important; font-size: 14px;width: 50% !important; background-color: transparent !important; border: none !important; box-shadow: none !important;"
+                                    name="max_price" id="max_price" oninput="validatePhoneNumber(this)"
+                                    placeholder="Max" min="0">
+                            </span>
+
+                        </div>
+
+                        <div class="col border-color" id="filtersAreaw1" style="flex: 1.5;">
+                            <div class="col-md-12" style="text-align: center; margin-top: 1px;">
+                                <span style="font-size: 15px;"><b>Sort</b></span>
+                            </div>
+                            <select class="form-select form-control "
+                                style="font-size: 13px; width: 100% !important; background-color: transparent !important; border: none !important; box-shadow: none !important;"
+                                id="sortDropdown" onchange="">
+
+                                {{-- <option class="option" selected value=""></option> --}}
+
+                                <option class="option" selected value="?sort=newest" {{ request()->sort == 'newest' ? 'selected' : '' }}>Date: New - Old</option>
+                                <option class="option" value="?sort=oldest" {{ request()->sort == 'oldest' ? 'selected' : '' }}>Date: Old - New</option>
+                                <option class="option" value="?sort=price_high" {{ request()->sort == 'price_high' ? 'selected' : '' }}>Price: Low - High</option>
+                                <option class="option" value="?sort=price_low" {{ request()->sort == 'price_low' ? 'selected' : '' }}> Price: High - Low </option>
+                                <option class="option" value="?sort=nearest" {{ request()->sort == 'nearest' ? 'selected' : '' }}>Location: Near - Far</option>
+                            </select>
+                        </div>
                     </div>
+                </form>
+                <div style="text-align: right; margin-top: 7px; margin-bottom: 0px; margin-left: 12px; ">
+                    <button class="btn btn-search-blue" type="button" aria-expanded="false">
+                        <i class="fa fa-search" style="margin-right: 8px;"></i> Search
+                    </button>
                 </div>
-
-
-                <div class="col border-color" style="border-right: 2px solid #eee; text-align: center; flex: 2.5;">
-                    <label for="keyword" class="form-label" style="font-weight: bold;margin-left: 13px;font-size: 14px; margin-top: 1px;">Keyword</label>
-                    <div class="input-group" style="flex-wrap: nowrap;">
-                        <input type="text" class="form-control filter1 keyword_search" id="keyword" style="margin-top: -2px; font-size: 14px; width: 100% !important; background-color: transparent !important; border: none !important; box-shadow: none !important;" placeholder="Search anything in {{ $category_name->name }}">
-                        <span style="margin-top:8px;font-weight: bolder; color: goldenrod;" id="searchIcon">
-                            <i class="fa fa-search"></i> <!-- Bootstrap Icons -->
-                        </span>
-
-
-                        <ul id="subcategoryDropdown" class="dropdown-menu" style="display: none;max-height: 11.2rem !important; position: absolute; z-index: 1000; width: 100%; border-radius: 4px;">
-
-                        </ul>
-                    </div>
-                </div>
-
-
-
-
-
-
-                <div class="col border-color" style="border-right: 2px solid #eee; text-align: center; flex: 2;">
-                    <label for="neighborhood" class="form-label" style="font-weight: bold;margin-left: 11px; font-size: 14px; margin-top: 1px;">Neighborhood</label>
-                    <div class="input-group" style="flex-wrap: nowrap;">
-                        <input type="text"
-                            class="form-control filter1 location_name"
-                            name="location_name"
-                            style="margin-top: -2px; font-size: 14px; width: 100% !important; background-color: transparent !important; border: none !important; box-shadow: none !important;"
-                            id="location_name"
-                            placeholder="Enter Location">
-                        <span class="" id="locationIcon">
-                            <i class="fa fa-map-marker" style="margin-top:8px; color:red;"></i>
-                        </span>
-
-                    </div>
-
-                    <div class="col-md-6 mx-auto" style="display: none">
-                        <div class="map" id="map"></div>
-                    </div>
-                </div>
-
-
-
-                <div class="col border-color" style="border-right:2px solid #eee; flex: 1.5;" id="priceArea1">
-                    <a data-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false"
-                        aria-controls="multiCollapseExample4" style="color:#000;">
-                        <div class="col-md-12" style="text-align: center;margin-top:1px;"><span style="font-size: 14px;"><b>Price</b></span></div>
-
-
-                    </a>
-
-                    <span style="display: flex;">
-                        <input type="text" class="form-control filter1" style="border-right: 2px solid #eee;padding: 1px !important; font-size: 14px; width: 50% !important; background-color: transparent !important; border: none !important; box-shadow: none !important;" name="min_price" id="min_price" oninput="validatePhoneNumber(this)" placeholder="Min" min="0">
-
-
-                        <input type="text" class="form-control max_price" style="padding: 0px 0px 0px 5px !important; font-size: 14px;width: 50% !important; background-color: transparent !important; border: none !important; box-shadow: none !important;" name="max_price" id="max_price" oninput="validatePhoneNumber(this)" placeholder="Max" min="0">
-                    </span>
-
-                </div>
-
-                <div class="col border-color" id="filtersAreaw1" style="flex: 1.5;">
-                    <div class="col-md-12" style="text-align: center; margin-top: 1px;">
-                        <span style="font-size: 15px;"><b>Sort</b></span>
-                    </div>
-                    <select class="form-select form-control " style="font-size: 13px; width: 100% !important; background-color: transparent !important; border: none !important; box-shadow: none !important;" id="sortDropdown" onchange="">
-
-                        {{-- <option class="option"  selected value=""></option> --}}
-
-                        <option class="option" selected value="?sort=newest" {{ request()->sort == 'newest' ? 'selected' : '' }}>Date: New - Old</option>
-                        <option class="option" value="?sort=oldest" {{ request()->sort == 'oldest' ? 'selected' : '' }}>Date: Old - New</option>
-                        <option class="option" value="?sort=price_high" {{ request()->sort == 'price_high' ? 'selected' : '' }}>Price: Low - High</option>
-                        <option class="option" value="?sort=price_low" {{ request()->sort == 'price_low' ? 'selected' : '' }}> Price: High - Low </option>
-                        <option class="option" value="?sort=nearest" {{ request()->sort == 'nearest' ? 'selected' : '' }}>Location: Near - Far</option>
-                    </select>
-                </div>
-            </div>
-        </form>
-        <div style="text-align: right; margin-top: 7px; margin-bottom: 0px; margin-left: 12px; ">
-            <button class="btn btn-search-blue" type="button" aria-expanded="false">
-                <i class="fa fa-search" style="margin-right: 8px;"></i> Search
-            </button>
             </div>
         </div>
-    </div>
 </section>
 <!---new filter ennded----->
 
@@ -494,16 +525,20 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
     <div class="container" style="max-width: 1200px !important; margin: 0 auto; padding: 0 15px;">
         <div class="row align-items-center">
             <div class="col-lg-8 col-md-8" style="margin-bottom: 16px;">
-                <h6 style="white-space: nowrap; font-size: 14px; margin-bottom: 0;"> <a href="{{ env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city }}" style="color: inherit; text-decoration: none;"><b> {!! $category_name->name !!} </b> > </a> <b> {{ $subcategory_name }} </b><span style="color: blue;font-size:13px;"> - {{ $ads->count() }} Ads</span>
-                    </h6>
+                <h6 style="white-space: nowrap; font-size: 14px; margin-bottom: 0;"> <a
+                        href="{{ env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city }}"
+                        style="color: inherit; text-decoration: none;"><b> {!! $category_name->name !!} </b> > </a> <b>
+                        {{ $subcategory_name }} </b><span style="color: blue;font-size:13px;"> - {{ $ads->count() }}
+                        Ads</span>
+                </h6>
 
 
-                </div>
-                <div class="col-lg-4 col-md-4 text-right" style="margin-top: 6px;">
-                    <button class="btn btn-clear-blue" type="button" aria-expanded="false">
-                        Clear Search
-                    </button>
-                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 text-right" style="margin-top: 6px;">
+                <button class="btn btn-clear-blue" type="button" aria-expanded="false">
+                    Clear Search
+                </button>
+            </div>
 
         </div>
     </div>
@@ -514,66 +549,82 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
         <div class="row">
             <div class="col-12">
                 @foreach($ads as $ad)
-                    <div class="row ad-listing-card">
-                        <!-----content----->
-                        <div class="col-lg-3 col-md-3 col-12" style="margin-top:-11px;">
-                            <div style="position:absolute;border:0px solid red;width:100%; height: 180px; z-index: 5; pointer-events: none;">
-                                <div class="row" style="pointer-events: none;">
-                                    <!-- Sharing and Favourite buttons -->
-                                    <div style="margin-top: 12px; margin-left: 232px;  z-index: 6; pointer-events: auto;">
-                                        <span>
-                                            <a><i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking" is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}" style="font-size: 20px; margin-left: 19px; "></i></a>
+                <div class="row ad-listing-card">
+                    <!-----content----->
+                    <div class="col-lg-3 col-md-3 col-12 mt-1 mb-1" style="margin-top: 0;">
+                        <div
+                            style="position:absolute;border:0px solid red;width:100%; height: 180px; z-index: 5; pointer-events: none;">
+                            <div class="row" style="pointer-events: none;">
+                                <!-- Sharing and Favourite buttons -->
+                                <div style="margin-top: 12px; margin-left: 232px;  z-index: 6; pointer-events: auto;">
+                                    <span>
+                                        <a><i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking"
+                                                is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
+                                                style="font-size: 20px; margin-left: 19px; "></i></a>
 
-                                        </span>
-                                    </div>
-                                </div>
-                                <div style="margin:0px;position:absolute;bottom:10px; left: 10px; z-index: 6; pointer-events: none; background: rgba(0,0,0,0.5); padding: 2px 8px; border-radius: 4px; display: flex; align-items: center; gap: 5px;">
-                                    <i class="fa fa-image" style="color:white; font-size: 12px;"></i>
-                                    <span class="text-white swiper-pagination-fraction" style="font-size: 12px; font-weight: bold;"></span>
+                                    </span>
                                 </div>
                             </div>
-                            <div class="swiper swiper-container" style="height:180px; width: 100%;">
-                                <div class="swiper-wrapper">
-                                    @if($ad->attachments && count($ad->attachments) > 0)
-                                        @foreach($ad->attachments as $attachment)
-                                            <div class="swiper-slide">
-                                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $ad->id }}" style="display: block; width: 100%; height: 100%;border-radius:4px; background-image:url({{ $attachment->listing_image_url }}); background-size: cover; background-position: center;"></a>
-                                            </div>
-                                        @endforeach
-                                    @else
+                            <div
+                                style="margin:0px;position:absolute;bottom:10px; left: 10px; z-index: 6; pointer-events: none; display: flex; align-items: center; gap: 5px;">
+                                <span class="text-white swiper-pagination-fraction"
+                                    style="font-size: 12px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);"></span>
+                            </div>
+                        </div>
+                        <div class="swiper swiper-container" style="height:180px; width: 100%;">
+                            <div class="swiper-wrapper">
+                                @if($ad->attachments && count($ad->attachments) > 0)
+                                    @foreach($ad->attachments as $attachment)
                                         <div class="swiper-slide">
-                                            <a href="{{ env('BASE_URL') . 'ads/detail/' . $ad->id }}" style="display: block; width: 100%; height: 100%;border-radius:4px; background-image:url({{ $ad->main_image_url }}); background-size: cover; background-position: center;"></a>
+                                            <a href="{{ env('BASE_URL') . 'ads/detail/' . $ad->id }}"
+                                                style="display: block; width: 100%; height: 100%;border-radius:4px; background-image:url({{ $attachment->listing_image_url }}); background-size: cover; background-position: center;"></a>
                                         </div>
-                                    @endif
-                                </div>
-                                <!-- Custom Navigation buttons with FontAwesome -->
-                                <div class="swiper-button-next"><i class="fa fa-chevron-right"></i></div>
-                                <div class="swiper-button-prev"><i class="fa fa-chevron-left"></i></div>
+                                    @endforeach
+                                @else
+                                    <div class="swiper-slide">
+                                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $ad->id }}"
+                                            style="display: block; width: 100%; height: 100%;border-radius:4px; background-image:url({{ $ad->main_image_url }}); background-size: cover; background-position: center;"></a>
+                                    </div>
+                                @endif
                             </div>
-                        </div>
-                        <div class="col-lg-9 col-md-9 col-12">
-                            <div class="row" style="margin-top: -12px;">
-                                <div class="col-lg-7 col-md-7 col-7">
-                                    <h5 style="font-size: 18px;font-weight:700;margin: 0px 0px 5px 0px;">{{ $ad->title ?? 'Heading N/A' }}</h5>
-                                    <p style="font-size: 13px;margin-bottom: 10px;">{{ $ad->category_name }} <span style="font-size: 14px;"> > </span> {{ $ad->subcategory_name }}</p>
-                                    <h3 style="font-weight: bold;font-size:18px;">{{ \App\Helpers\SiteHelper::priceFormatter($ad->price, session('app_currency', 'USD')) }}</h3>
-
-                                    <p style="margin-top:5rem;font-size: 13px; white-space: nowrap;"><i class="fa fa-map-marker" style="color: red;"></i> {{ $ad->location_name }} <span style="font-size: 16px;">&#9679;</span> <span style="margin-top: 12px;">24 May 2024</span></p>
-
-                                </div>
-
-                                <div class="col-lg-2 col-md-2 mb-30 col-3">
-
-
-                                    <button class="btn btn-primary featured-badge-static" style="font-size:11px;color:white; font-weight:bold;padding: 2px 6px 1px 6px !important; margin-left:2px;">Featured</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-----content----->
-                        <div class="col-12" style="padding: 0 15px;">
-                            <hr style="width: 100%; margin: 0; background:#eee;">
+                            <!-- Custom Navigation buttons with FontAwesome -->
+                            <div class="swiper-button-next"><i class="fa fa-chevron-right"></i></div>
+                            <div class="swiper-button-prev"><i class="fa fa-chevron-left"></i></div>
                         </div>
                     </div>
+                    <div class="col-lg-9 col-md-9 col-12">
+                        <div class="row" style="margin-top: 0;">
+                            <div class="col-lg-7 col-md-7 col-7" style=" height: 180px;">
+                                <h5 style="font-size: 18px;font-weight:700;margin: 0px 0px 5px 0px;">
+                                    {{ $ad->title ?? 'Heading N/A' }}
+                                </h5>
+                                <p style="font-size: 13px;margin-bottom: 10px;">{{ $ad->category_name }} <span
+                                        style="font-size: 14px;"> > </span> {{ $ad->subcategory_name }}</p>
+                                <h3 style="font-weight: bold;font-size:18px;">
+                                    {{ \App\Helpers\SiteHelper::priceFormatter($ad->price, session('app_currency', 'USD')) }}
+                                </h3>
+
+                                <p style="margin-top: 4.5rem; font-size: 13px; white-space: nowrap;">
+                                    <i class="fa fa-map-marker" style="color: red;"></i> {{ $ad->location_name }}
+                                    <span style="font-size: 16px; margin: 0 5px;">&#9679;</span>
+                                    <span>{{ \Carbon\Carbon::parse($ad->created_at)->format('d M Y') }}</span>
+                                </p>
+
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 mb-30 col-3">
+
+
+                                <button class="btn btn-primary featured-badge-static"
+                                    style="font-size:11px;color:white; font-weight:bold;padding: 2px 6px 1px 6px !important; margin-left:2px;">Featured</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-----content----->
+                    <div class="col-12" style="padding: 0 15px;">
+                        <hr style="width: 70%; margin: 0; background:#eee;">
+                    </div>
+                </div>
                 @endforeach
                 <div class="d-flex justify-content-center mt-4">
                     {{ $ads->links('pagination::bootstrap-4') }}
@@ -585,301 +636,304 @@ $selected_city_name = $cities_for_filter->count() > 0 && !empty(request()->city)
 
 @endsection
 <!-- jQuery first -->
-<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <!-- then Popper.js -->
-{{-- <script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"></script> --}}
+{{--
+<script type="text/javascript"
+    src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"></script> --}}
 <script type="text/javascript">
     map_key = "{{env('GOOGLE_MAP_KEY')}}";
 </script>
 
 @section('page_scripts')
-<script type="text/javascript">
-    var city = $('.city-list').attr('city-id');
-    var subcategory = $('.subcategory-list').attr('subcategory-id');
-    var from_price = $('#from').val();
-    var to_price = $('#to').val();
-    var keyword = $('.keyword-input').val();
+    <script type="text/javascript">
+        var city = $('.city-list').attr('city-id');
+        var subcategory = $('.subcategory-list').attr('subcategory-id');
+        var from_price = $('#from').val();
+        var to_price = $('#to').val();
+        var keyword = $('.keyword-input').val();
 
-    function validatePhoneNumber(input) {
-        // Remove any non-digit characters
-        input.value = input.value.replace(/\D/g, '');
+        function validatePhoneNumber(input) {
+            // Remove any non-digit characters
+            input.value = input.value.replace(/\D/g, '');
 
-        // Check if the input length is exactly 10 digits
-        if (input.value.length !== 10) {
-            input.setCustomValidity('Please enter a valid 10-digit number');
-        } else {
-            input.setCustomValidity('');
-        }
-
-    }
-
-
-    function loadMap() {
-        var latitude = 25.197525;
-        var longitude = 55.274288;
-        var searchInput = $('.location_name')[0];
-
-
-        var myLatlng = new google.maps.LatLng(latitude, longitude);
-        var myOptions = {
-            zoom: 10,
-            center: myLatlng
-        }
-
-        var map = new google.maps.Map(document.getElementById("map"), myOptions);
-        var geocoder = new google.maps.Geocoder();
-        const searchBox = new google.maps.places.SearchBox(searchInput);
-
-        map.addListener('bounds_changed', () => {
-            searchBox.setBounds(map.getBounds());
-            // console.log(map.getBounds());
-        });
-
-
-        searchBox.addListener('places_changed', () => {
-            const places = searchBox.getPlaces();
-            if (places.length == 0) {
-                return;
+            // Check if the input length is exactly 10 digits
+            if (input.value.length !== 10) {
+                input.setCustomValidity('Please enter a valid 10-digit number');
+            } else {
+                input.setCustomValidity('');
             }
 
-            var place_id = places[0].place_id;
+        }
 
-            logPlaceDetails(place_id, map, searchInput)
 
-            const bounds = new google.maps.LatLngBounds();
-            places.forEach((place) => {
-                if (!place.geometry || !place.geometry.location) {
-                    console.log('Returned place contains no geometry');
+        function loadMap() {
+            var latitude = 25.197525;
+            var longitude = 55.274288;
+            var searchInput = $('.location_name')[0];
+
+
+            var myLatlng = new google.maps.LatLng(latitude, longitude);
+            var myOptions = {
+                zoom: 10,
+                center: myLatlng
+            }
+
+            var map = new google.maps.Map(document.getElementById("map"), myOptions);
+            var geocoder = new google.maps.Geocoder();
+            const searchBox = new google.maps.places.SearchBox(searchInput);
+
+            map.addListener('bounds_changed', () => {
+                searchBox.setBounds(map.getBounds());
+                // console.log(map.getBounds());
+            });
+
+
+            searchBox.addListener('places_changed', () => {
+                const places = searchBox.getPlaces();
+                if (places.length == 0) {
                     return;
                 }
 
+                var place_id = places[0].place_id;
 
-                if (place.geometry.viewport) {
-                    bounds.union(place.geometry.viewport);
-                } else {
-                    bounds.extend(place.geometry.location);
-                }
-            });
+                logPlaceDetails(place_id, map, searchInput)
 
-            map.fitBounds(bounds);
-        });
-
-        var marker = new google.maps.Marker({
-            position: myLatlng,
-            map: map,
-            draggable: true,
-            title: "Drag me!"
-        });
-
-
-        marker.addListener('dragend', function(event) {
-            $('input[name="latitude"]').val(event.latLng.lat());
-            $('input[name="longitude"]').val(event.latLng.lng());
-            console.log(event.latLng.lat() + ' ' + event.latLng.lng());
-            geocoder.geocode({
-                'latLng': event.latLng
-            }, function(results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    if (results[0]) {
-                        $('.location_name').val(results[0].formatted_address);
-                        console.log(results[0].formatted_address);
+                const bounds = new google.maps.LatLngBounds();
+                places.forEach((place) => {
+                    if (!place.geometry || !place.geometry.location) {
+                        console.log('Returned place contains no geometry');
+                        return;
                     }
-                }
-            });
-        });
 
 
-        // Inside the event listener for map click
-        google.maps.event.addListener(map, 'click', function(event) {
-            geocoder.geocode({
-                'location': event.latLng
-            }, function(results, status) {
-                if (status === google.maps.GeocoderStatus.OK) {
-                    if (results[0]) {
-                        const locationName = results[0].formatted_address;
-                        const latitude = event.latLng.lat();
-                        const longitude = event.latLng.lng();
-
-
-                        // Update the marker position
-                        marker.setPosition(event.latLng);
-
-                        // Update the input fields
-                        $('input[name="latitude"]').val(latitude);
-                        $('input[name="longitude"]').val(longitude);
-
-                        // Update the location name input
-                        $('.location_name').val(locationName);
-
-                        // Log the information
-                        console.log(locationName);
-                        console.log(latitude + ' ' + longitude);
+                    if (place.geometry.viewport) {
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
                     }
-                } else {
-                    console.error('Geocode was not successful for the following reason: ' + status);
-                }
-            });
-        });
-    }
-    loadMap();
-
-    $(document).ready(function() {
-        $("#cityArea a").click(function() {
-            $("#multiCollapseExample1").toggle();
-            $("#multiCollapseExample2").hide();
-            $("#multiCollapseExample4").hide();
-            $("#multiCollapseExample5").hide();
-        });
-
-
-        $("#catArea a").click(function() {
-            $("#multiCollapseExample1").hide();
-            $("#multiCollapseExample2").toggle();
-            $("#multiCollapseExample4").hide();
-            $("#multiCollapseExample5").hide();
-        });
-
-
-        $("#priceArea a").click(function() {
-            $("#multiCollapseExample1").hide();
-            $("#multiCollapseExample2").hide();
-            $("#multiCollapseExample4").toggle();
-            $("#multiCollapseExample5").hide();
-        });
-
-
-        $("#filtersArea a").click(function() {
-            $("#multiCollapseExample1").hide();
-            $("#multiCollapseExample2").hide();
-            $("#multiCollapseExample4").hide();
-            $("#multiCollapseExample5").toggle();
-        });
-    });
-
-    $(document).on('click', '.cancel-btn', function() {
-        $(this).parents('.multiCollapse').hide();
-    });
-
-    $(document).on('click', '.apply-price-filter-btn', function() {
-        var parent = $(this).parents('.multiCollapse');
-        from_price = parent.find('#from').val();
-        to_price = parent.find('#to').val();
-        window.location.assign(base_url + "ads/{{ $subcategory_id }}?country={{ request()->country }}&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city);
-    });
-
-    $(document).on('click', '.apply-keyword-filter-btn', function() {
-        var parent = $(this).parents('.multiCollapse');
-        keyword = parent.find('.keyword-input').val();
-        window.location.assign(base_url + "ads/{{ $subcategory_id }}?country={{ request()->country }}&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city);
-    });
-
-    $(document).on('click', '.city-list', function() {
-        city = $(this).attr('city-id');
-        window.location.assign(base_url + "ads/{{ $subcategory_id }}?country={{ request()->country }}&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city);
-    });
-
-    $(document).on('click', '.subcategory-list', function() {
-        subcategory = $(this).attr('subcategory-id');
-        window.location.assign(base_url + "ads/" + subcategory + "?country={{ request()->country }}&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city);
-    });
-
-
-
-
-    $(document).ready(function() {
-        const dropdown = $('#subcategoryDropdown');
-        const keywordInput = $('.keyword_search');
-
-        // Show dropdown when input gains focus or starts typing
-        keywordInput.on('focus input', function() {
-            const keyword = $(this).val();
-
-
-            const category_id = '{{ $category_id }}';
-
-
-            if (keyword.length > 0) {
-                $.ajax({
-                    url: 'lisiting_get_subcategories',
-                    type: 'GET',
-                    data: {
-                        category_id: category_id,
-                        keyword: keyword
-                    },
-                    success: function(data) {
-                        dropdown.empty(); // Clear existing items
-                        if (data.length > 0) {
-                            data.forEach(function(subcategory) {
-                                const item = $('<li>')
-                                    .addClass('dropdown-item')
-                                    .text(subcategory.name)
-                                    .on('click', function() {
-                                        keywordInput.val(subcategory.name);
-                                        dropdown.hide();
-                                    });
-                                dropdown.append(item);
-                            });
-                            dropdown.show();
-                        } else {
-                            dropdown.hide();
-                        }
-                    },
                 });
-            } else {
-                dropdown.hide();
-            }
-        });
 
-        // Hide the dropdown when clicking outside of it
-        $(document).on('click', function(e) {
-            if (!$(e.target).closest('#keyword, #subcategoryDropdown').length) {
-                dropdown.hide();
-            }
-        });
-    });
-    $(document).ready(function() {
-        console.log("Initializing Swipers...");
-        $('.swiper-container').each(function() {
-            var container = this;
-            var swiper = new Swiper(container, {
-                navigation: {
-                    nextEl: $(container).find('.swiper-button-next')[0],
-                    prevEl: $(container).find('.swiper-button-prev')[0],
-                },
-                pagination: {
-                    el: $(container).parent().find('.swiper-pagination-fraction')[0],
-                    type: 'fraction',
-                },
-                loop: true,
-                observer: true,
-                observeParents: true,
+                map.fitBounds(bounds);
+            });
+
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                draggable: true,
+                title: "Drag me!"
+            });
+
+
+            marker.addListener('dragend', function (event) {
+                $('input[name="latitude"]').val(event.latLng.lat());
+                $('input[name="longitude"]').val(event.latLng.lng());
+                console.log(event.latLng.lat() + ' ' + event.latLng.lng());
+                geocoder.geocode({
+                    'latLng': event.latLng
+                }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                            $('.location_name').val(results[0].formatted_address);
+                            console.log(results[0].formatted_address);
+                        }
+                    }
+                });
+            });
+
+
+            // Inside the event listener for map click
+            google.maps.event.addListener(map, 'click', function (event) {
+                geocoder.geocode({
+                    'location': event.latLng
+                }, function (results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                            const locationName = results[0].formatted_address;
+                            const latitude = event.latLng.lat();
+                            const longitude = event.latLng.lng();
+
+
+                            // Update the marker position
+                            marker.setPosition(event.latLng);
+
+                            // Update the input fields
+                            $('input[name="latitude"]').val(latitude);
+                            $('input[name="longitude"]').val(longitude);
+
+                            // Update the location name input
+                            $('.location_name').val(locationName);
+
+                            // Log the information
+                            console.log(locationName);
+                            console.log(latitude + ' ' + longitude);
+                        }
+                    } else {
+                        console.error('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+            });
+        }
+        loadMap();
+
+        $(document).ready(function () {
+            $("#cityArea a").click(function () {
+                $("#multiCollapseExample1").toggle();
+                $("#multiCollapseExample2").hide();
+                $("#multiCollapseExample4").hide();
+                $("#multiCollapseExample5").hide();
+            });
+
+
+            $("#catArea a").click(function () {
+                $("#multiCollapseExample1").hide();
+                $("#multiCollapseExample2").toggle();
+                $("#multiCollapseExample4").hide();
+                $("#multiCollapseExample5").hide();
+            });
+
+
+            $("#priceArea a").click(function () {
+                $("#multiCollapseExample1").hide();
+                $("#multiCollapseExample2").hide();
+                $("#multiCollapseExample4").toggle();
+                $("#multiCollapseExample5").hide();
+            });
+
+
+            $("#filtersArea a").click(function () {
+                $("#multiCollapseExample1").hide();
+                $("#multiCollapseExample2").hide();
+                $("#multiCollapseExample4").hide();
+                $("#multiCollapseExample5").toggle();
             });
         });
 
-        // Initialize City Dropdown with Select2
-        $(".city_dropdown_list1").select2({
-            placeholder: "All",
-            allowClear: false,
-            width: '100%'
+        $(document).on('click', '.cancel-btn', function () {
+            $(this).parents('.multiCollapse').hide();
         });
 
-        // Search button logic
-        $('#btn-search-main').on('click', function () {
-            var city_id = $('.city_dropdown_list1').val();
-            var subcategory_id = "{{ $subcategory_id }}";
-            var from_price = $('#min_price').val();
-            var to_price = $('#max_price').val();
-            var keyword = $('.keyword_search').val();
-            var location = $('#location_name').val();
-            
-            window.location.assign(base_url + "ads/" + subcategory_id + "?country={{ request()->country }}&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city_id + "&location=" + encodeURIComponent(location));
+        $(document).on('click', '.apply-price-filter-btn', function () {
+            var parent = $(this).parents('.multiCollapse');
+            from_price = parent.find('#from').val();
+            to_price = parent.find('#to').val();
+            window.location.assign(base_url + "ads/{{ $subcategory_id }}?country={{ request()->country }}&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city);
         });
 
-        // Trigger search on Select2 change (optional, keeping it commented out for now as per user preference implied by commenting it out, but updated logic)
-        $('.city_dropdown_list1').on('change', function () {
-             // window.location.assign(base_url + "ads/{{ $subcategory_id }}?country={{ request()->country }}&from=" + $('#min_price').val() + "&to=" + $('#max_price').val() + "&keyword=" + $('.keyword_search').val() + "&city=" + $(this).val());
+        $(document).on('click', '.apply-keyword-filter-btn', function () {
+            var parent = $(this).parents('.multiCollapse');
+            keyword = parent.find('.keyword-input').val();
+            window.location.assign(base_url + "ads/{{ $subcategory_id }}?country={{ request()->country }}&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city);
         });
-    });
-</script>
+
+        $(document).on('click', '.city-list', function () {
+            city = $(this).attr('city-id');
+            window.location.assign(base_url + "ads/{{ $subcategory_id }}?country={{ request()->country }}&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city);
+        });
+
+        $(document).on('click', '.subcategory-list', function () {
+            subcategory = $(this).attr('subcategory-id');
+            window.location.assign(base_url + "ads/" + subcategory + "?country={{ request()->country }}&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city);
+        });
+
+
+
+
+        $(document).ready(function () {
+            const dropdown = $('#subcategoryDropdown');
+            const keywordInput = $('.keyword_search');
+
+            // Show dropdown when input gains focus or starts typing
+            keywordInput.on('focus input', function () {
+                const keyword = $(this).val();
+
+
+                const category_id = '{{ $category_id }}';
+
+
+                if (keyword.length > 0) {
+                    $.ajax({
+                        url: 'lisiting_get_subcategories',
+                        type: 'GET',
+                        data: {
+                            category_id: category_id,
+                            keyword: keyword
+                        },
+                        success: function (data) {
+                            dropdown.empty(); // Clear existing items
+                            if (data.length > 0) {
+                                data.forEach(function (subcategory) {
+                                    const item = $('<li>')
+                                        .addClass('dropdown-item')
+                                        .text(subcategory.name)
+                                        .on('click', function () {
+                                            keywordInput.val(subcategory.name);
+                                            dropdown.hide();
+                                        });
+                                    dropdown.append(item);
+                                });
+                                dropdown.show();
+                            } else {
+                                dropdown.hide();
+                            }
+                        },
+                    });
+                } else {
+                    dropdown.hide();
+                }
+            });
+
+            // Hide the dropdown when clicking outside of it
+            $(document).on('click', function (e) {
+                if (!$(e.target).closest('#keyword, #subcategoryDropdown').length) {
+                    dropdown.hide();
+                }
+            });
+        });
+        $(document).ready(function () {
+            console.log("Initializing Swipers...");
+            $('.swiper-container').each(function () {
+                var container = this;
+                var swiper = new Swiper(container, {
+                    navigation: {
+                        nextEl: $(container).find('.swiper-button-next')[0],
+                        prevEl: $(container).find('.swiper-button-prev')[0],
+                    },
+                    pagination: {
+                        el: $(container).parent().find('.swiper-pagination-fraction')[0],
+                        type: 'fraction',
+                    },
+                    loop: true,
+                    observer: true,
+                    observeParents: true,
+                });
+            });
+
+            // Initialize City Dropdown with Select2
+            $(".city_dropdown_list1").select2({
+                placeholder: "All",
+                allowClear: false,
+                width: '100%'
+            });
+
+            // Search button logic
+            $('#btn-search-main').on('click', function () {
+                var city_id = $('.city_dropdown_list1').val();
+                var subcategory_id = "{{ $subcategory_id }}";
+                var from_price = $('#min_price').val();
+                var to_price = $('#max_price').val();
+                var keyword = $('.keyword_search').val();
+                var location = $('#location_name').val();
+
+                window.location.assign(base_url + "ads/" + subcategory_id + "?country={{ request()->country }}&from=" + from_price + "&to=" + to_price + "&keyword=" + keyword + "&city=" + city_id + "&location=" + encodeURIComponent(location));
+            });
+
+            // Trigger search on Select2 change (optional, keeping it commented out for now as per user preference implied by commenting it out, but updated logic)
+            $('.city_dropdown_list1').on('change', function () {
+                // window.location.assign(base_url + "ads/{{ $subcategory_id }}?country={{ request()->country }}&from=" + $('#min_price').val() + "&to=" + $('#max_price').val() + "&keyword=" + $('.keyword_search').val() + "&city=" + $(this).val());
+            });
+        });
+    </script>
 @endsection
 <!-- multiCollapseExample1 -->

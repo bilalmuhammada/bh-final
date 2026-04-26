@@ -33,6 +33,9 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         padding: 0px 15px;
         background: #fff;
     }
+    .topbar-logo {
+        margin-right: 15px;
+    }
     .topbar-main-bg {
         background: #fff;
         border-bottom: 1px solid #f0f0f0;
@@ -262,8 +265,33 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     }
 
     /* Fix for Language and other selects arrow spacing */
-    .select2-container--default .select2-selection--single .select2-selection__rendered {
+    .topbar-wrapper .select2-container--default .select2-selection--single .select2-selection__rendered {
         padding-right: 35px !important;
+        color: blue !important;
+        font-weight: 600 !important;
+        transition: color 0.2s ease;
+    }
+
+    .topbar-wrapper .select2-container--default .select2-selection--single:hover .select2-selection__rendered {
+        color: goldenrod !important;
+    }
+
+    /* Ensure Select2 arrows are visible in topbar */
+    .topbar-wrapper .select2-container--default .select2-selection--single .select2-selection__arrow {
+        height: 35px !important;
+        width: 30px !important;
+        display: block !important;
+        top: -3px !important;
+    }
+    .topbar-wrapper .select2-container--default .select2-selection--single .select2-selection__arrow b {
+        border-color: blue transparent transparent transparent !important;
+        border-width: 6px 5px 0 5px !important;
+        margin-left: -5px !important;
+        transition: border-color 0.2s ease;
+    }
+
+    .topbar-wrapper .select2-container--default .select2-selection--single:hover .select2-selection__arrow b {
+        border-color: goldenrod transparent transparent transparent !important;
     }
 
     /* end */

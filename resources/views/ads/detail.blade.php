@@ -505,15 +505,19 @@ button.active .indicator-img {
 
     <section class="desktop-view">
         <div class="cont-w">
-            <div class="row align-items-end">
+            <div class="row align-items-center">
                 <div class="col">
-                    <h6 class="mb-1"><b>{{ $ad->title ?? 'Title N/A' }}</b></h6>
-                    <span class="text-muted small">Posted {{ $ad->created_at_time_diff }}</span>
+                    <h6 class="mb-0"><b>{{ $ad->title ?? 'Title N/A' }}</b></h6>
                 </div>
                 <div class="col-auto text-right">
                     <div class="h5 mb-0" style="color: red; font-weight: bold;">
                         {{session('app_currency', 'USD')}} {{ \App\Helpers\SiteHelper::priceFormatter($ad->price) }}
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span class="text-muted small">Posted {{ $ad->created_at_time_diff }}</span>
                 </div>
             </div>
         </div>
@@ -523,7 +527,7 @@ button.active .indicator-img {
                 <div class="row" >
                     <div class="col" style="border:0px solid red;">
                         <div class="row">
-                            <h6 style="border:0px solid red;"><b>{{ $ad->title ?? 'Title N?A' }}</b></h6>
+                            <h6 style="border:0px solid red;"><b>{{ $ad->title ?? 'Title N/A' }}</b></h6>
                         </div>
                         <div class="row">
                             <span class="text-muted"
@@ -763,7 +767,7 @@ button.active .indicator-img {
                             <div class="inner d-flex flex-column align-items-center text-center p-3" style="border: 1px solid #eee; border-radius: 5px; width: 100%;">
                                 <!-- User Info -->
                                 <div class="mb-4">
-                                    <p class="text-muted mb-1" style="font-size: 13px;">Posted by: <span style="color: blue; font-weight: bold; text-decoration: underline;">{{ $posted_by_label }}</span></p>
+                                    <p class="text-muted mb-1" style="font-size: 13px;">Posted by: <span style="color: black; font-weight: bold; text-decoration: none;">{{ $posted_by_label }}</span></p>
                                     <h6 class="mb-2"><b>{{ $ad->created_by_user->name }}</b></h6>
                                     
                                     <div class="profile-image-container d-flex justify-content-center mb-2">
@@ -813,7 +817,7 @@ button.active .indicator-img {
                         <div class="col-lg-12 col-md-12 col-12" style="border:0px solid red;margin-right:-30px;">
                             <div class="inner"
                                  style="border: 1px solid #eee;border-radius:5px;margin:0px 0px 10px 0px;padding:15px;">
-                                <p class="text-muted" style="font-size: 13px;padding-left:12px;">Posted by: <span style="color: blue; font-weight: bold; text-decoration: underline;">{{ $posted_by_label }}</span></p>
+                                <p class="text-muted" style="font-size: 13px;padding-left:12px;">Posted by: <span style="color: black; font-weight: bold; text-decoration: none;">{{ $posted_by_label }}</span></p>
                                 <p class="text-muted" style="font-size: 15px;padding-left:12px;">
                                     <b>{{ $ad->created_by_user->name; }}</b></p>
                                 <span
