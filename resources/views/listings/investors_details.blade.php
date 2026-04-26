@@ -166,296 +166,295 @@
     }
 </style>
 @section('content')
-<div class="col-md-6 mx-auto">
-    <h5 class="mx-auto text-center" style="margin-bottom: 0px;">You are almost there!</h5>
-    <p class="mx-auto text-center" style="font-size: 14px; margin-bottom:4px;">Provide as much Details & Pictures as possible and set right Price!</p>
-    <p style="margin-bottom: 3px; font-size:14px; color: blue;">
-        <span class="menucolor"> <a href="javascript:history.back()" style="color: inherit; text-decoration: none;">
-                {{ $Categories->name }}
-            </a> </span> > <span
-            style="color:blue;">{{ $subcategories->name }}</span>
-    </p>
-</div>
-<form class="place-ad-form" enctype="multipart/form-data">
-    {{-- <input name="listing_id" type="hidden" value="{{$listing->id}}"> --}}
-    <input name="category_id" type="hidden" value="{{ $Categories->id }}">
-    <input name="category_name" type="hidden" value="{{ $Categories->name }}">
-    <input name="subcategory_name" type="hidden" value="{{ $subcategories->name }}">
-    <input type='hidden' class='form-control latitude' id='latitude' name='latitude' placeholder='Enter Latitude'>
-    <input type='hidden' class='form-control longitude' id='longitude' name='longitude'
-        placeholder='Enter Longitude'>
     <div class="col-md-6 mx-auto">
-        <div class="form-group form-focus">
-            <input type="text" class="form-control floating" name="title" value="" placeholder=""
-                required>
-            <label class="focus-label">Title</label>
-        </div>
-        <div class="invalid-feedback">
-            Please provide a title.
-        </div>
+        <h5 class="mx-auto text-center" style="margin-bottom: 0px;">You are almost there!</h5>
+        <p class="mx-auto text-center" style="font-size: 14px; margin-bottom:4px;">Provide as much Details & Pictures as
+            possible and set right Price!</p>
+        <p style="margin-bottom: 3px; font-size:14px; color: blue;">
+            <span class="menucolor"> <a href="javascript:history.back()" style="color: inherit; text-decoration: none;">
+                    {{ $Categories->name }}
+                </a> </span> > <span style="color:blue;">{{ $subcategories->name }}</span>
+        </p>
     </div>
-    <div class="col-md-6 mx-auto">
-        <div class="row">
+    <form class="place-ad-form" enctype="multipart/form-data">
+        {{-- <input name="listing_id" type="hidden" value="{{$listing->id}}"> --}}
+        <input name="category_id" type="hidden" value="{{ $Categories->id }}">
+        <input name="category_name" type="hidden" value="{{ $Categories->name }}">
+        <input name="subcategory_name" type="hidden" value="{{ $subcategories->name }}">
+        <input type='hidden' class='form-control latitude' id='latitude' name='latitude' placeholder='Enter Latitude'>
+        <input type='hidden' class='form-control longitude' id='longitude' name='longitude' placeholder='Enter Longitude'>
+        <div class="col-md-6 mx-auto">
+            <div class="form-group form-focus">
+                <input type="text" class="form-control floating" name="title" value="" placeholder="" required>
+                <label class="focus-label">Title</label>
+            </div>
+            <div class="invalid-feedback">
+                Please provide a title.
+            </div>
+        </div>
+        <div class="col-md-6 mx-auto">
+            <div class="row">
 
-            <div class="col-md-6">
-                <div class="form-group form-focus">
-                    <input type="number" class="form-control floating" onwheel="this.blur()" name="investment_amount" placeholder=""
-                        required>
-                    <label class="focus-label">Investment Amount - USD</label>
-                </div>
-                {{-- <div class="invalid-feedback">
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <input type="number" class="form-control floating" onwheel="this.blur()" name="investment_amount"
+                            placeholder="" required>
+                        <label class="focus-label">Investment Amount - USD</label>
+                    </div>
+                    {{-- <div class="invalid-feedback">
                         Please provide a valid Investment Amount.
                     </div> --}}
-            </div>
-            <div class="col-md-6">
-                <div class="form-group form-focus">
-                    <input type="text" class="form-control floating" name="int_bus_mdl" placeholder=""
-                        title="" required>
-                    <label class="focus-label">Interested Business Models</label>
                 </div>
-            </div>
-
-        </div>
-    </div>
-    <div class="col-md-6 mx-auto">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group form-focus">
-                    <select class="form-controlz form-control floating" name="open_to_invest" required>
-                        <option selected disabled hidden></option>
-                        <option value="Inside Country">Based Country</option>
-                        <option value="Inside Country">Inside Country</option>
-                        <option value="Within Region">Within Region</option>
-                        <option value="Worldwide">Worldwide</option>
-                    </select>
-                    <label class="focus-label">Open to Invest</label>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group form-focus">
-                    <select class="form-controlz form-control floating" name="open_for_partnership" required>
-                        <option selected disabled hidden></option>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                    </select>
-                    <label class="focus-label">Open for Partnership</label>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <input type="text" class="form-control floating" name="int_bus_mdl" placeholder="" title=""
+                            required>
+                        <label class="focus-label">Interested Business Models</label>
+                    </div>
                 </div>
 
             </div>
         </div>
+        <div class="col-md-6 mx-auto">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <select class="form-controlz form-control floating" name="open_to_invest" required>
+                            <option selected disabled hidden></option>
+                            <option value="Inside Country">Based Country</option>
+                            <option value="Inside Country">Inside Country</option>
+                            <option value="Within Region">Within Region</option>
+                            <option value="Worldwide">Worldwide</option>
+                        </select>
+                        <label class="focus-label">Open to Invest</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <select class="form-controlz form-control floating" name="open_for_partnership" required>
+                            <option selected disabled hidden></option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                        <label class="focus-label">Open for Partnership</label>
+                    </div>
 
-
-    </div>
-    <div class="col-md-6 mx-auto">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group form-focus">
-                    <select class="form-controlz form-control floating" name="ptn_plan" required>
-                        <option selected disabled hidden> </option>
-                        <option value="daily">Daily</option>
-                        <option value="weekly">Weekly</option>
-                        <option value="monthly">Monthly</option>
-                        <option value="yearly">Yearly</option>
-                    </select>
-                    <label class="focus-label">Partnership Plan</label>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group form-focus">
-                    <select class="form-controlz form-control floating" name="communication_pre" required>
-                        <option selected disabled hidden></option>
-                        <option value="1">Call</option>
-                        <option value="0">Chat</option>
-                        <option value="2">Whatsapp</option>
-                        <option value="3">Email</option>
-                    </select>
-                    <label class="focus-label">Communication Preferance </label>
+
+
+        </div>
+        <div class="col-md-6 mx-auto">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <select class="form-controlz form-control floating" name="ptn_plan" required>
+                            <option selected disabled hidden> </option>
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                        <label class="focus-label">Partnership Plan</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <select class="form-controlz form-control floating" name="communication_pre" required>
+                            <option selected disabled hidden></option>
+                            <option value="1">Call</option>
+                            <option value="0">Chat</option>
+                            <option value="2">Whatsapp</option>
+                            <option value="3">Email</option>
+                        </select>
+                        <label class="focus-label">Communication Preferance </label>
+                    </div>
                 </div>
             </div>
+
+
         </div>
 
 
-    </div>
+        <div class="col-md-6 mx-auto">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group form-focus" style="margin-bottom: 0px; ">
+                        <input type="number" class="form-control floating mobile" name="phone" onwheel="this.blur()"
+                            placeholder="" pattern="[0-9]{10}" title="Please enter a valid 10-digit Mobile  number"
+                            required>
+                        <label class="focus-label">Mobile</label>
+                    </div>
 
+                    {{-- <div style="font-size: 13px; color: #666; text-align: center; margin-top: 5px;">
+                        Mobile number will show only request only !
+                    </div> --}}
 
-    <div class="col-md-6 mx-auto">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group form-focus" style="margin-bottom: 0px; ">
-                    <input type="number" class="form-control floating mobile" name="phone" onwheel="this.blur()" placeholder=""
-                        pattern="[0-9]{10}" title="Please enter a valid 10-digit Mobile  number" required>
-                    <label class="focus-label">Mobile</label>
                 </div>
 
-                {{-- <div style="font-size: 13px; color: #666; text-align: center; margin-top: 5px;">
-                    Mobile number will show only request only !
-                </div> --}}
 
-            </div>
-
-
-            <div class="col-md-6">
-                <div class="form-group form-focus">
-                    <input type="number" class="form-control floating" onwheel="this.blur()" name="whatsapp" required>
-                    <label class="focus-label">WhatsApp</label>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <input type="number" class="form-control floating" onwheel="this.blur()" name="whatsapp" required>
+                        <label class="focus-label">WhatsApp</label>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="col-md-6" id="filemoble" style="margin-bottom:6px; margin-top: -18px;">
-                <div class="premium-toggle-container">
-                    <label class="premium-toggle-label">Do you want to Show or Hide your Mobile?</label>
-                    <div class="toggle-wrapper">
-                        <input type="radio" name="phone_visibility" id="showPhone" value="show" checked>
-                        <input type="radio" name="phone_visibility" id="hidePhone" value="hide">
-                        
-                        <label for="showPhone" class="toggle-item">Show</label>
-                        <label for="hidePhone" class="toggle-item">Hide</label>
-                        
-                        <div class="slider"></div>
+
+                <div class="col-md-6" id="filemoble" style="margin-bottom:6px; margin-top: -18px;">
+                    <div class="premium-toggle-container">
+                        <label class="premium-toggle-label">Do you want to Show or Hide your Mobile?</label>
+                        <div class="toggle-wrapper">
+                            <input type="radio" name="phone_visibility" id="showPhone" value="show" checked>
+                            <input type="radio" name="phone_visibility" id="hidePhone" value="hide">
+
+                            <label for="showPhone" class="toggle-item">Show</label>
+                            <label for="hidePhone" class="toggle-item">Hide</label>
+
+                            <div class="slider"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-6 mx-auto">
-        <div class="form-group form-focus">
-            <textarea name="interested_business_types" class="form-control floating" maxlength="1000"
-                placeholder="" style="height: 150px;"
-                required></textarea>
-            <label class="focus-label">Interested Business Types</label>
-        </div>
-
-        <div class="invalid-feedback">
-            Please provide a Interested Business Types.
-        </div>
-    </div>
-    <div class="col-md-6 mx-auto" style="margin-top: 120px;">
-        <div class="form-group form-focus">
-            <textarea name="description" class="form-control floating" placeholder="" style="height: 200px;"
-                required></textarea>
-            <label class="focus-label">Description</label>
-        </div>
-        <div class="invalid-feedback">
-            Please provide a description.
-        </div>
-    </div>
-
-
-
-    @include('listings.image&file')
-
-    <div class="col-md-6 mx-auto" style="margin-bottom: 22px;">
-        <div class="row">
-            <div class="col-md-6">
-                <select class="form-controlz country  form-control floating" name="country" style=" font-size: 0.9rem;color:#000;" required>
-                    <Option selected>Country</Option>
-                    @foreach($countries as $country)
-                    <option value="{{ $country->id }}">{{ $country->name }}</option>
-                    @endforeach
-                </select>
-
+        <div class="col-md-6 mx-auto">
+            <div class="form-group form-focus">
+                <textarea name="interested_business_types" class="form-control floating" maxlength="1000" placeholder=""
+                    style="height: 150px;" required></textarea>
+                <label class="focus-label">Interested Business Types</label>
             </div>
-            <div class="col-md-6">
 
-                <select class="form-controlz city form-control floating" name="city" style=" font-size: 0.9rem;color:#000;" required>
-                    <option selected>City</option>
-                </select>
-
+            <div class="invalid-feedback">
+                Please provide a Interested Business Types.
             </div>
         </div>
-    </div>
-    <div class="col-md-6 mx-auto">
-        <div class="form-group form-focus">
-            <input type="text" class="form-control floating location_name" name="location_name" placeholder=""
-                required>
-            <label class="focus-label">Location </label>
+        <div class="col-md-6 mx-auto" style="margin-top: 120px;">
+            <div class="form-group form-focus">
+                <textarea name="description" class="form-control floating" placeholder="" style="height: 200px;"
+                    required></textarea>
+                <label class="focus-label">Description</label>
+            </div>
+            <div class="invalid-feedback">
+                Please provide a description.
+            </div>
         </div>
-        <div class="invalid-feedback">
-            Please provide a location.
+
+
+
+        @include('listings.image&file')
+
+        <div class="col-md-6 mx-auto" style="margin-bottom: 22px;">
+            <div class="row">
+                <div class="col-md-6">
+                    <select class="form-controlz country  form-control floating" name="country"
+                        style=" font-size: 0.9rem;color:#000;" required>
+                        <Option selected>Country</Option>
+                        @foreach($countries as $country)
+                            <option value="{{ $country->id }}">{{ $country->name }}</option>
+                        @endforeach
+                    </select>
+
+                </div>
+                <div class="col-md-6">
+
+                    <select class="form-controlz city form-control floating" name="city"
+                        style=" font-size: 0.9rem;color:#000;" required>
+                        <option selected>City</option>
+                    </select>
+
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="col-md-6 mx-auto">
-        <div class="map" id="map"></div>
-    </div>
-    <div class="col-md-6 mx-auto text-center btn-nexts" style="margin-top: 20px;">
-        <a class="btn place-ad-form-submit">Post</a>
-    </div>
-</form>
+        <div class="col-md-6 mx-auto">
+            <div class="form-group form-focus">
+                <input type="text" class="form-control floating location_name" name="location_name" placeholder="" required>
+                <label class="focus-label">Location </label>
+            </div>
+            <div class="invalid-feedback">
+                Please provide a location.
+            </div>
+        </div>
+        <div class="col-md-6 mx-auto">
+            <div class="map" id="map"></div>
+        </div>
+        <div class="col-md-6 mx-auto text-center btn-nexts" style="margin-top: 20px;">
+            <a class="btn place-ad-form-submit">Post</a>
+        </div>
+    </form>
 
 @endsection
 @section('page_scripts')
-<script type="text/javascript">
-    map_key = "{{env('GOOGLE_MAP_KEY')}}";
-</script>
-<script type="text/javascript" src="{{ asset('js/listings_form.js') }}"></script>
+    <script type="text/javascript">
+        map_key = "{{env('GOOGLE_MAP_KEY')}}";
+    </script>
+    <script type="text/javascript" src="{{ asset('js/listings_form.js') }}"></script>
 
-<script>
-    function validatePhoneNumber(input) {
-        // Remove any non-digit characters
-        input.value = input.value.replace(/\D/g, '');
+    <script>
+        function validatePhoneNumber(input) {
+            // Remove any non-digit characters
+            input.value = input.value.replace(/\D/g, '');
 
-        // Check if the input length is exactly 10 digits
-        if (input.value.length !== 10) {
-            input.setCustomValidity('Please enter a valid 10-digit number');
-        } else {
-            input.setCustomValidity('');
+            // Check if the input length is exactly 10 digits
+            if (input.value.length !== 10) {
+                input.setCustomValidity('Please enter a valid 10-digit number');
+            } else {
+                input.setCustomValidity('');
+            }
+
         }
-
-    }
-    $(document).on('click', '.place-ad-form-submit', function(e) {
-        e.preventDefault();
-        var formData = new FormData($('.place-ad-form')[0]);
-        // console.log(formData);
-        $.ajax({
-            url: api_url + 'listing/nextsubmit',
-            type: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
-            dataType: "JSON",
-            success: function(response) {
-                console.log(response);
-                if (response.status) {
-                    showAlert("success", "Your Ad is Live!");
+        $(document).on('click', '.place-ad-form-submit', function (e) {
+            e.preventDefault();
+            var formData = new FormData($('.place-ad-form')[0]);
+            // console.log(formData);
+            $.ajax({
+                url: api_url + 'listing/nextsubmit',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: "JSON",
+                success: function (response) {
+                    console.log(response);
+                    if (response.status) {
+                    showAlert("success", "Your ad has been submitted for review. After approval, it will be published.");
                     setTimeout(function() {
                         window.location.assign(base_url + "ads");
                         // window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
-                    }, 600);
+                    }, 3000);
 
-                } else {
-                    // showAlert("error", response.message);
+                    } else {
+                        // showAlert("error", response.message);
+                    }
+                },
+                error: function (response) {
+                    showAlert("error", "Server Error");
                 }
-            },
-            error: function(response) {
-                showAlert("error", "Server Error");
+            });
+        });
+
+
+
+
+        $(document).ready(function () {
+
+
+            $('#filehide').hide();
+
+            $(document).on('click', '.documents', function (e) {
+                $('#filehide').show();
+            });
+
+            $('#filemoble').hide();
+
+            $(document).on('click', '.mobile', function (e) {
+                $('#filemoble').show();
+            });
+
+            if ($('.floating').length > 0) {
+                $('.floating').on('focus blur', function (e) {
+                    $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
+                }).trigger('blur');
             }
         });
-    });
-
-
-
-
-    $(document).ready(function() {
-
-
-        $('#filehide').hide();
-
-        $(document).on('click', '.documents', function(e) {
-            $('#filehide').show();
-        });
-
-        $('#filemoble').hide();
-
-        $(document).on('click', '.mobile', function(e) {
-            $('#filemoble').show();
-        });
-
-        if ($('.floating').length > 0) {
-            $('.floating').on('focus blur', function(e) {
-                $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
-            }).trigger('blur');
-        }
-    });
-</script>
+    </script>
 @endsection

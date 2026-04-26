@@ -179,10 +179,10 @@ function submitListingForm(form) {
         dataType: "JSON",
         success: function (response) {
             if (response.status) {
-                showAlert("success", "Your Ad is Live!");
+                showAlert("success", "Your ad has been submitted for review. After approval, it will be published.");
                 setTimeout(function () {
                     window.location.assign(base_url + "ads");
-                }, 600);
+                }, 3000);
             } else {
                 var errors = response.errors;
                 form.classList.add('was-validated');

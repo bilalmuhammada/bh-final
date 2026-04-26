@@ -190,6 +190,8 @@ class ListingController extends Controller
             'price' => 'nullable|integer',
             
             'description' => 'required',
+            'city' => 'required|integer',
+            'country' => 'required|integer',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
             // 'location_name' => 'required',
