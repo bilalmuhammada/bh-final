@@ -1,15 +1,16 @@
 <!-- Login Modal -->
 
 <style>
-    #colorTowhite:hover{
-   color: white !important;
+    #colorTowhite:hover {
+        color: white !important;
     }
 
-    .forgot-submit{
+    .forgot-submit {
         background-color: #A17A4E !important;
         color: white !important;
     }
-    .forgot-submit:hover{
+
+    .forgot-submit:hover {
         background-color: blue !important;
         color: white !important;
     }
@@ -30,7 +31,7 @@
                         </div>
                         <!-- login title finish -->
                         <form class="forgot-password-form" style="margin-left: 13px; width: 18rem;">
-                            
+
                             <!-- user name area start -->
                             <div class="input-group mb-3">
                                 <!-- <div class="input-group-prepend">
@@ -39,21 +40,23 @@
                                                                  height="19"/>
                                                         </span>
                                 </div> -->
-                                <input type="email" name="email" class="form-control login-user email" style="padding: 12px 20px 12px 10px !important;"
-                                       placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                                <input type="email" name="email" class="form-control login-user email"
+                                    style="padding: 12px 20px 12px 10px !important;" placeholder="Email"
+                                    aria-label="Email" aria-describedby="basic-addon1">
                             </div>
                             <!-- user name area finish -->
                             <!-- submit button start -->
                             <div class="login-submit-button-area">
-                                <a class="btn submit-button forgot-submit" >Submit</a>
+                                <a class="btn submit-button forgot-submit">Submit</a>
                             </div>
                             <!-- submit button finish -->
                         </form>
                         <div class="Forgot" style="font-size: 13px; margin-top: 15px; text-align: center; width: 100%;">
-                            <span>New to BusinessHub? <a class="register-btn" style="color:#007bff;" id="colorTowhite">Click Here</a></span>
+                            <span style="margin-left: 5.5rem;">New to BusinessHub? <a class="register-btn"
+                                    style="color:#007bff;" id="colorTowhite">Click Here</a></span>
                         </div>
                         <div style="text-align:center;">
-                           {{-- <button type="button" class="btn btn-danger" data-dismiss="modal">
+                            {{-- <button type="button" class="btn btn-danger" data-dismiss="modal">
                                 Close
                             </button> --}}
                         </div>
@@ -66,4 +69,3 @@
     </div>
 </div>
 <!-- Login Modal -->
-

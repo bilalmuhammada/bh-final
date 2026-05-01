@@ -111,7 +111,7 @@
                 </div> --}}
                 <div class="col-lg-3 col-md-8 col-12 desktop-view">
                     <h5 style="font-size:15px; font-weight: bold;">Socials</h5>
-                    <ul style="margin-top: 15px;" >
+                    <ul style="margin-top: 15px; padding-left: 14px;" >
                         <li style="margin-bottom: 5px;">
                             <a href="# " target="_blank ">
                                 <img src="{{ asset('images/socialicon/insta.png')}}" class="shaking" alt="" width="25" height="25">
@@ -138,7 +138,7 @@
                 </div>
                 <div class="col-lg-3 col-md-8 col-12 mobile-view">
                     <h5 style="font-size:15px;">Socials</h5>
-                    <ul>
+                    <ul style="padding-left: 14px;">
                         <li>
                             <a href="# " target="_blank ">
                                 <img src="{{ asset('images/facebook-svgrepo-com.svg')}}" alt="" c width="25" height="25">

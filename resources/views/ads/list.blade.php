@@ -524,7 +524,7 @@ request()->city)->first()->name : 'All';
 <section style="padding-top: 0px !important; margin-top: 0px !important;">
     <div class="container" style="max-width: 1200px !important; margin: 0 auto; padding: 0 15px;">
         <div class="row align-items-center">
-            <div class="col-lg-8 col-md-8" style="margin-bottom: 16px;">
+            <div class="col-lg-8 col-md-8" style="margin-bottom: 0px;">
                 <h6 style="white-space: nowrap; font-size: 14px; margin-bottom: 0;"> <a
                         href="{{ env('BASE_URL') . 'home?country=' . request()->country . '&city=' . request()->city }}"
                         style="color: inherit; text-decoration: none;"><b> {!! $category_name->name !!} </b> > </a> <b>
@@ -544,7 +544,7 @@ request()->city)->first()->name : 'All';
     </div>
 </section>
 
-<section>
+<section style="padding-top: 0px !important; margin-top: 0px !important;">
     <div class="container" style="max-width: 1200px !important; margin: 0 auto; padding: 0 15px;">
         <div class="row">
             <div class="col-12">
@@ -568,7 +568,7 @@ request()->city)->first()->name : 'All';
                             <div
                                 style="margin:0px;position:absolute;bottom:10px; left: 10px; z-index: 6; pointer-events: none; display: flex; align-items: center; gap: 5px;">
                                 <span class="text-white swiper-pagination-fraction"
-                                    style="font-size: 12px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);"></span>
+                                    style="font-size: 12px; font-weight: normal; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);"></span>
                             </div>
                         </div>
                         <div class="swiper swiper-container" style="height:180px; width: 100%;">
@@ -639,9 +639,8 @@ request()->city)->first()->name : 'All';
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <!-- then Popper.js -->
-{{--
 <script type="text/javascript"
-    src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"></script> --}}
+    src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"></script>
 <script type="text/javascript">
     map_key = "{{env('GOOGLE_MAP_KEY')}}";
 </script>

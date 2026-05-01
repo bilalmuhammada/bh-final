@@ -855,8 +855,8 @@ button.active .indicator-img {
                 </div>
                 <!---------------------->
                 {{-- <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;"> --}}
-                <div class="col-12 similar_ad" style="margin-top: 20px;">
-                    <h6 style="margin-bottom: 15px;"><b>Similar Ads</b></h6>
+                <div class="col-12 similar_ad" >
+                    <h6 ><b>Similar Ads</b></h6>
                     <div class="row">
                         <div class="col-12">
                             <div class="slider">
@@ -1029,7 +1029,7 @@ $(document).ready(function () {
             var latitude = "{{ $ad->latitude ?? 30.777855 }}";
             var longitude = "{{ $ad->longitude ?? 31.7989566 }}";
 
-            var myLatlng = new google.maps.LatLng(30.777855, 31.777855);
+            var myLatlng = new google.maps.LatLng(parseFloat(latitude), parseFloat(longitude));
             var myOptions = {
                 zoom: 13,
                 center: myLatlng

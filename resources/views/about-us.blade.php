@@ -2,15 +2,11 @@
 @section('content')
 <style>
     .joinnow{
-        color: blue;
-
-
+        color: #007bff;
     }
     .joinnow:hover{
         color: #F5BD02;
         cursor: pointer;
-        
-
     }
 </style>
 
@@ -44,7 +40,7 @@ Either, you are looking to Buy, Sell or Rent Businesses, Company Shares, Innovat
                             <li style=""><strong>Franchise Opportunities:</strong> Discover franchising as a viable option to expand your Business or invest in an Established Brand with a Proven Track Record.</li>
                             <li style=""><strong>Machinery & Supplies:</strong> Find the necessary equipment and supplies to start or grow your business efficiently.</li>
                         </ul>
-                    <b class="joinnow">  <a class="register-btn" style="margin-left: 2px;">Join BusinessHub Now! </a></b>
+                    <a class="register-btn joinnow" style="margin-left: 2px;">Join BusinessHub Now!</a>
                 </div>
                 <!-- about us text finish -->
             </div>

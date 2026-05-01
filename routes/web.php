@@ -91,6 +91,7 @@ Route::middleware('check_user_auth')->group(function () {
     // });
 });
 Route::post('/verify-otp', [AuthController::class, 'verifyOtp']);
+Route::post('/resend-otp', [AuthController::class, 'resend']);
 
 Route::post('/chat/favorite', [\App\Http\Controllers\ChatController::class, 'toggleFavorite'])->name('chat.favorite');
 Route::post('/chat/block', [\App\Http\Controllers\ChatController::class, 'toggleBlock'])->name('chat.block');

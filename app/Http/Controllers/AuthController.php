@@ -168,25 +168,46 @@ class AuthController extends Controller
         'message' => 'Email verified successfully!',
     ]);
 }
-public function resend()
+public function resend(Request $request)
 {
     $email = Session::get('otp_email');
-    
     $otp_username = Session::get('otp_username');
+    $otp_type = Session::get('otp_type');
+
     if (!$email) {
-        return redirect()->route('login')->with('error', 'Session expired. Please log in again.');
+        return response()->json([
+            'status' => false,
+            'message' => 'Session expired. Please request a new OTP.'
+        ]);
     }
   
     $otp = rand(1000, 9999);
     Session::put('otp_code', $otp);
+    
     $details = [
-        'name' => $otp_username,
+        'name' => $otp_username ?? 'User',
         'otp' => $otp,
     ];
-    // Send OTP via email
-    Mail::to($email)->send(new RegistrationMail($details));
 
-    return redirect()->back()->with('success', 'A new OTP has been sent to your email.');
+    if ($otp_type === 'forgot_password') {
+        try {
+            Mail::to($email)->send(new ForgotPasswordMail($details));
+        } catch (\Exception $e) {
+            \Illuminate\Support\Facades\Log::error("Forgot Password Email error: " . $e->getMessage());
+        }
+    } else {
+        $details['body'] = 'Welcome to BusinessHub! Please verify your email using the OTP:';
+        try {
+            Mail::to($email)->send(new RegistrationMail($details));
+        } catch (\Exception $e) {
+            \Illuminate\Support\Facades\Log::error("Registration Email error: " . $e->getMessage());
+        }
+    }
+
+    return response()->json([
+        'status' => true,
+        'message' => 'A new OTP has been sent to your email.'
+    ]);
 }
     public function login(Request $request)
     {

@@ -33,6 +33,6 @@
                     o = t("#nested-tabInfo");
                 t("span", o).text(a.text()), o.show()
             }
-        }), t(".countup").counterUp({ delay: 25, time: 2e3 }), t(".countdown").countdown({ date: "01 Aug 2025 00:01:00", format: "on" }), t(".current-year").text((new Date).getFullYear())
+        }), t(".countup").length && t(".countup").counterUp({ delay: 25, time: 2e3 }), t(".countdown").length && t(".countdown").countdown({ date: "01 Aug 2025 00:01:00", format: "on" }), t(".current-year").text((new Date).getFullYear())
     }), s.on("load", function() { t(".portfolio-gallery").lightGallery(), t(".portfolio-link").on("click", e => { e.stopPropagation() }) })
 }(jQuery);

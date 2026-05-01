@@ -3,7 +3,7 @@
 
 <!-- OTP Verification Modal -->
 <div class="modal fade" id="verifyOtpModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" style="max-width: 17% !important; min-width: 300px; margin: 30px auto;">
+    <div class="modal-dialog" style="max-width: 17% !important; min-width: 300px;">
         <div class="modal-content"
             style="background-color: rgba(33, 34, 35, .90) !important; border-radius: 0.3rem; border: none;">
             <div class="modal-body text-center text-white py-4 position-relative">
@@ -135,6 +135,10 @@
                                 Submit
                             </button>
                         </div>
+                        
+                        <div class="Forgot" style="font-size: 13px; margin-top: 15px; text-align: center; width: 100%;">
+                            <span>Didn't receive OTP? <a class="resend-otp-btn" style="color: #007bff; cursor: pointer;">Resend</a></span>
+                        </div>
                     </form>
                 </div>
 
@@ -209,6 +213,50 @@
         } else if (input.val().length === 1) {
             input.next('.otp-digit').focus();
         }
+    });
+
+    $(document).on('click', '.resend-otp-btn', function() {
+        let btn = $(this);
+        if (btn.hasClass('disabled')) return;
+        
+        btn.addClass('disabled').text('Resending...');
+        
+        $.ajax({
+            url: api_url + 'resend-otp',
+            type: 'POST',
+            data: {
+                _token: '{{ csrf_token() }}'
+            },
+            success: function(response) {
+                let alertDiv = $('#verifyOtpModal .alert-div');
+                let alertContent = alertDiv.find('.alert');
+                let alertText = alertDiv.find('.alert-text');
+                
+                alertText.text(response.message);
+                
+                if (response.status) {
+                    alertContent.removeClass('alert-danger').addClass('alert-success');
+                } else {
+                    alertContent.removeClass('alert-success').addClass('alert-danger');
+                }
+                
+                alertDiv.show();
+                btn.removeClass('disabled').text('Resend');
+                
+                // Optional: add a cooldown timer to the resend button here if needed
+            },
+            error: function() {
+                let alertDiv = $('#verifyOtpModal .alert-div');
+                let alertContent = alertDiv.find('.alert');
+                let alertText = alertDiv.find('.alert-text');
+                
+                alertText.text('Server Error. Please try again.');
+                alertContent.removeClass('alert-success').addClass('alert-danger');
+                alertDiv.show();
+                
+                btn.removeClass('disabled').text('Resend');
+            }
+        });
     });
 
     $('#verifyOtpBtn').click(function () {

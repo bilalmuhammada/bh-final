@@ -287,11 +287,9 @@
                             <a class="btn register-button   " style="color: #FFFF;margin-top: 13px;">Register </a>
                             
                         </div>
-                        <div class="Forgot" style="font-size: 12px;text-align: left; margin-top: -10px;">
-                            <a  class="show-forgot-btn" id="colorTowhite" style="margin-left: 13px;color:#00aaff;" > Forgot Password? </a>
-                           <span style="float: right;margin-right: 40px; color: #A17A4E;">Already on BusinessHub? <a  class="login-btn" style="color:#00aaff;" id="colorTowhite" > Click Here </a></span>
-                               
-                           </div>
+                        <div class="Forgot" style="font-size: 13px; text-align: right; margin-top: -10px; padding-right: 15px;">
+                            <span style="color: #A17A4E;">Already on BusinessHub? <a class="login-btn" style="color:#007bff; cursor: pointer;" id="colorTowhite">Click Here</a></span>
+                        </div>
                         <!-- Register button finish -->
                         <div style="text-align:center;">
                             {{--  <button type="button" class="btn btn-danger" data-dismiss="modal">

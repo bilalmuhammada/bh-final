@@ -138,7 +138,7 @@
         
         }
         .login-btn {
-            color: blue !important;
+        
            padding: 10px !important;
             font-weight: 700 !important;
             cursor: pointer;

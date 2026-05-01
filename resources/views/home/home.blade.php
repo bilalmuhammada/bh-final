@@ -186,10 +186,93 @@
             justify-content: center !important;
         }
 
-        /* Spacing between listing sections */
-        
-        
-        
+        /* Similar Listing Card Styles */
+        .similar-listing-card {
+            background: #fff;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 10px;
+            position: relative;
+            display: block;
+            width: 216px !important;
+        }
+        .similar-listing-card:hover {
+            transform: translateY(4px);
+           
+            
+            z-index: 10;
+        }
+        .similar-listing-image {
+            position: relative;
+            height: 152px;
+            overflow: hidden;
+        }
+        .similar-listing-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            border-radius: 4px 4px 0 0;
+        }
+        .similar-listing-card:hover .similar-listing-image img {
+            transform: scale(1.05);
+        }
+        .similar-listing-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6) 100%);
+        }
+        .similar-listing-heart {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            font-size: 18px;
+            z-index: 10;
+            cursor: pointer;
+        }
+        .similar-listing-heart:hover {
+            color: #ff3131;
+        }
+        .similar-listing-count {
+            position: absolute;
+            bottom: 8px;
+            left: 10px;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 8px;
+            border-radius: 10px;
+            backdrop-filter: blur(4px);
+        }
+        .similar-listing-details {
+            padding: 12px;
+        }
+        .similar-listing-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 4px;
+            text-decoration: none !important;
+        }
+        .similar-listing-category {
+            font-size: 11px;
+            color: #888;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .similar-listing-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ff3131;
+            margin: 0;
+        }
     </style>
     @php
         $categories = \App\Helpers\RecordHelper::getCategories();
@@ -385,22 +468,24 @@
                                 @foreach($business_for_sale_ads as $key => $featured_ad)
                                     <div class="col-lg-2 col-md-3 col-6">
 
-                                                                           <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
-                                            <div class="listing p-1">
-
-                                                                                   <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                                <div class="heart-icon" style="position: absolute; top: 16px; right: 1.0rem;">
-                                                    <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
+                                                                           <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}" style="text-decoration: none;">
+                                            <div class="similar-listing-card" style="margin: 0px auto; width: 100% !important;">
+                                                <div class="similar-listing-image">
+                                                    <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
+                                                    <div class="similar-listing-overlay"></div>
+                                                    <div class="similar-listing-heart">
+                                                        <i class="fa fa-heart-o shaking"></i>
+                                                    </div>
+                                                    <div class="similar-listing-count">
+                                                        1 / {{ count($featured_ad->attachments ?? []) ?: 1 }}
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                    <span class="text-white" >{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
-                                                </div>
-
-                                                                                   <div class="detail" style="padding: 12px;">
-
-                                                                                            <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
-                                                    <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
-                                                    <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
+                                                <div class="similar-listing-details">
+                                                    <span class="similar-listing-title" title="{{ $featured_ad->title }}">{{ $featured_ad->title ?? 'Title N/A' }}</span>
+                                                    <span class="similar-listing-category">{{ $featured_ad->category_name}} > {{$featured_ad->subcategory_name }}</span>
+                                                    <h5 class="similar-listing-price">
+                                                        {{session('app_currency', 'USD')}} {{ \App\Helpers\SiteHelper::priceFormatter($featured_ad->price) }}
+                                                    </h5>
                                                 </div>
                                             </div>
                                         </a>
@@ -488,25 +573,27 @@
                             @foreach($shares_for_sale_ads as $key => $featured_ad)
                                         <div class="col-    lg-2 col-md-3 col-6">
 
-                                                                                       <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
-                                                   <div  class="listing p-1">
-                                                    <img     src=
-                                               "                {{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                                        <div clas
-                                s                               ="heart-icon" style="position: absolute; top: 16px; right: 0.4rem;">
-                                                            <i class="fa fa-heart-o shaking" style="color: #fff !important; font-siz
-                                               e                    : 20px;"></i>
-                                                        </div>
-                                                        <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                            <span class="text-white" >{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
-                                                        </div>
-                                                        <div class="detail" style="padding: 12px;">
-                                                            <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
-                                                            <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
-                                                            <h5 style="margin-bottom: -9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
-                                                        </div>
+                                                                                       <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}" style="text-decoration: none;">
+                                            <div class="similar-listing-card" style="margin: 0px auto; width: 100% !important;">
+                                                <div class="similar-listing-image">
+                                                    <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
+                                                    <div class="similar-listing-overlay"></div>
+                                                    <div class="similar-listing-heart">
+                                                        <i class="fa fa-heart-o shaking"></i>
                                                     </div>
-                                                </a>
+                                                    <div class="similar-listing-count">
+                                                        1 / {{ count($featured_ad->attachments ?? []) ?: 1 }}
+                                                    </div>
+                                                </div>
+                                                <div class="similar-listing-details">
+                                                    <span class="similar-listing-title" title="{{ $featured_ad->title }}">{{ $featured_ad->title ?? 'Title N/A' }}</span>
+                                                    <span class="similar-listing-category">{{ $featured_ad->category_name}} > {{$featured_ad->subcategory_name }}</span>
+                                                    <h5 class="similar-listing-price">
+                                                        {{session('app_currency', 'USD')}} {{ \App\Helpers\SiteHelper::priceFormatter($featured_ad->price) }}
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </a>
                                         </div>
                             @endforeach
                         </div>
@@ -543,24 +630,27 @@
                                 @foreach($business_idea_ads as $key => $featured_ad)
                                             <div class="col-lg-2 
                                        c                        ol-md-3 col-6">
-                                            <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
-                                                <div class="listing p-1">
-
-                                                                      <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                                        <div class="heart-icon" style="position: absolute; top: 16px; right: 1.0rem;">
-                                                            <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
-                                                        </div>
-
-<div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                            <span class="text-white" >{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
-                                                        </div>
-                                                        <div class="detail" style="padding: 12px;">
-                                                            <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
-                                                            <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
-                                                            <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
+                                            <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}" style="text-decoration: none;">
+                                            <div class="similar-listing-card" style="margin: 0px auto; width: 100% !important;">
+                                                <div class="similar-listing-image">
+                                                    <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
+                                                    <div class="similar-listing-overlay"></div>
+                                                    <div class="similar-listing-heart">
+                                                        <i class="fa fa-heart-o shaking"></i>
+                                                    </div>
+                                                    <div class="similar-listing-count">
+                                                        1 / {{ count($featured_ad->attachments ?? []) ?: 1 }}
                                                     </div>
                                                 </div>
-                                            </a>
+                                                <div class="similar-listing-details">
+                                                    <span class="similar-listing-title" title="{{ $featured_ad->title }}">{{ $featured_ad->title ?? 'Title N/A' }}</span>
+                                                    <span class="similar-listing-category">{{ $featured_ad->category_name}} > {{$featured_ad->subcategory_name }}</span>
+                                                    <h5 class="similar-listing-price">
+                                                        {{session('app_currency', 'USD')}} {{ \App\Helpers\SiteHelper::priceFormatter($featured_ad->price) }}
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </a>
                                         </div>
                                 @endforeach
                         </div>
@@ -597,22 +687,27 @@
                                                                   @foreach($investor_ads as $key => $featured_ad)
                                                                         <div class="col-lg-2 col-md-3 col-6">
 
-                                                                             <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
-                                                                                <div class="listing p-1">
-                                                                                    <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                                                                    <div class="heart-icon" style="position: absolute; top: 16px; right: 1.0rem;">
-                                                                                        <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
-                                                                                    </div>
-                                                                                    <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                                                        <span class="text-white" >{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
-                                                                                    </div>
-                                                                                                    <div class="detail" style="padding: 12px;">
-                                                                                        <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
-                                                                                    <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
-                                                                                    <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
-                                                                                    </div>
-                                                                                </div>
-                                                                        </a>
+                                                                             <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}" style="text-decoration: none;">
+                                            <div class="similar-listing-card" style="margin: 0px auto; width: 100% !important;">
+                                                <div class="similar-listing-image">
+                                                    <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
+                                                    <div class="similar-listing-overlay"></div>
+                                                    <div class="similar-listing-heart">
+                                                        <i class="fa fa-heart-o shaking"></i>
+                                                    </div>
+                                                    <div class="similar-listing-count">
+                                                        1 / {{ count($featured_ad->attachments ?? []) ?: 1 }}
+                                                    </div>
+                                                </div>
+                                                <div class="similar-listing-details">
+                                                    <span class="similar-listing-title" title="{{ $featured_ad->title }}">{{ $featured_ad->title ?? 'Title N/A' }}</span>
+                                                    <span class="similar-listing-category">{{ $featured_ad->category_name}} > {{$featured_ad->subcategory_name }}</span>
+                                                    <h5 class="similar-listing-price">
+                                                        {{session('app_currency', 'USD')}} {{ \App\Helpers\SiteHelper::priceFormatter($featured_ad->price) }}
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </a>
                                                                     </div>
                                                                 @endforeach
                         </div>
@@ -652,22 +747,27 @@
                                                                        <div class=" row">
                                                                            @foreach($investor_required_ads as $key => $featured_ad)
                                                                                 <div class="col-lg-2 col-md-3 col-6">
-                                                                                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
-                                                                                        <div class="listing p-1">
-                                                                                            <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                                                                            <div class="heart-icon" style="position: absolute; top: 16px; right: 1.0rem;">
-                                                                                                <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
-                                                                                            </div>
-                                                                                            <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                                                            <span class="text-white" >{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
-                                                                                        </div>
-                                                                                            <div class="detail" style="padding: 12px;">
-                                                                                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
-                                                                                            <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
-                                                                                            <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </a>
+                                                                                    <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}" style="text-decoration: none;">
+                                            <div class="similar-listing-card" style="margin: 0px auto; width: 100% !important;">
+                                                <div class="similar-listing-image">
+                                                    <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
+                                                    <div class="similar-listing-overlay"></div>
+                                                    <div class="similar-listing-heart">
+                                                        <i class="fa fa-heart-o shaking"></i>
+                                                    </div>
+                                                    <div class="similar-listing-count">
+                                                        1 / {{ count($featured_ad->attachments ?? []) ?: 1 }}
+                                                    </div>
+                                                </div>
+                                                <div class="similar-listing-details">
+                                                    <span class="similar-listing-title" title="{{ $featured_ad->title }}">{{ $featured_ad->title ?? 'Title N/A' }}</span>
+                                                    <span class="similar-listing-category">{{ $featured_ad->category_name}} > {{$featured_ad->subcategory_name }}</span>
+                                                    <h5 class="similar-listing-price">
+                                                        {{session('app_currency', 'USD')}} {{ \App\Helpers\SiteHelper::priceFormatter($featured_ad->price) }}
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </a>
                                                                             </div>
                                                                         @endforeach
                                                                  </div>
@@ -706,22 +806,27 @@
                             <div     class="row">
                                     @foreach($franchise_ads as $key => $featured_ad)
                                             <div class="col-lg-2 col-md-3 col-6">
-                                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
-                                                    <div class="listing p-1">
-                                                        <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                                        <div class="heart-icon" style="position: absolute; top: 16px; right: 1.0rem;">
-                                                            <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
+                                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}" style="text-decoration: none;">
+                                            <div class="similar-listing-card" style="margin: 0px auto; width: 100% !important;">
+                                                <div class="similar-listing-image">
+                                                    <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
+                                                    <div class="similar-listing-overlay"></div>
+                                                    <div class="similar-listing-heart">
+                                                        <i class="fa fa-heart-o shaking"></i>
                                                     </div>
-                                                        <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                            <span class="text-white" >{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
-                                                    </div>
-                                                    <div class="detail" style="padding: 12px;">
-                                                        <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
-                                                        <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
-                                                        <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
+                                                    <div class="similar-listing-count">
+                                                        1 / {{ count($featured_ad->attachments ?? []) ?: 1 }}
                                                     </div>
                                                 </div>
-                                         </a>
+                                                <div class="similar-listing-details">
+                                                    <span class="similar-listing-title" title="{{ $featured_ad->title }}">{{ $featured_ad->title ?? 'Title N/A' }}</span>
+                                                    <span class="similar-listing-category">{{ $featured_ad->category_name}} > {{$featured_ad->subcategory_name }}</span>
+                                                    <h5 class="similar-listing-price">
+                                                        {{session('app_currency', 'USD')}} {{ \App\Helpers\SiteHelper::priceFormatter($featured_ad->price) }}
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </a>
                                         </div>
                                     @endforeach
                             </div>
@@ -760,22 +865,27 @@
                         <div class="row">
                             @foreach($machinery_ads as $key => $featured_ad)
                                     <div class="col-lg-2 col-md-3 col-6">
-                                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}">
-                                            <div class="listing p-1">
-                                                <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                            <div class="heart-icon" style="position: absolute; top: 16px; right: 1.0rem;">
-                                                    <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
+                                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}" style="text-decoration: none;">
+                                            <div class="similar-listing-card" style="margin: 0px auto; width: 100% !important;">
+                                                <div class="similar-listing-image">
+                                                    <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
+                                                    <div class="similar-listing-overlay"></div>
+                                                    <div class="similar-listing-heart">
+                                                        <i class="fa fa-heart-o shaking"></i>
+                                                    </div>
+                                                    <div class="similar-listing-count">
+                                                        1 / {{ count($featured_ad->attachments ?? []) ?: 1 }}
+                                                    </div>
                                                 </div>
-                                            <div class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-index: 2;">
-                                                <span class="text-white" >{{ count($featured_ad->attachments ?? []) ?: 1 }}</span>
+                                                <div class="similar-listing-details">
+                                                    <span class="similar-listing-title" title="{{ $featured_ad->title }}">{{ $featured_ad->title ?? 'Title N/A' }}</span>
+                                                    <span class="similar-listing-category">{{ $featured_ad->category_name}} > {{$featured_ad->subcategory_name }}</span>
+                                                    <h5 class="similar-listing-price">
+                                                        {{session('app_currency', 'USD')}} {{ \App\Helpers\SiteHelper::priceFormatter($featured_ad->price) }}
+                                                    </h5>
+                                                </div>
                                             </div>
-                                            <div class="detail" style="padding: 12px;">
-                                                <span style="color:#000; display: block; margin-bottom: 2px;">{!! $featured_ad->title !!}</span>
-                                                <span style="color:#999; display: block; margin-bottom: 5px;">{!! $featured_ad->location_name !!}</span>
-                                                <h5 style="margin-bottom:-9px;font-size: 14px;"><b style="color: red;"> {{session('app_currency', 'USD')}} {!! $featured_ad->price !!}</b></h5>
-                                            </div>
-                                        </div>
-                                    </a>
+                                        </a>
                                 </div>
                             @endforeach
                     </div>
