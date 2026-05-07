@@ -287,8 +287,8 @@
                             <a class="btn register-button   " style="color: #FFFF;margin-top: 13px;">Register </a>
                             
                         </div>
-                        <div class="Forgot" style="font-size: 13px; text-align: right; margin-top: -10px; padding-right: 15px;">
-                            <span style="color: #A17A4E;">Already on BusinessHub? <a class="login-btn" style="color:#007bff; cursor: pointer;" id="colorTowhite">Click Here</a></span>
+                        <div class="Forgot" style="font-size: 13px; text-align: right; margin-top: -10px; padding-right: 16px;">
+                            <span style="color: #A17A4E;">Already on BusinessHub?&nbsp;<a class="login-btn" style="color:#00aaff; cursor: pointer; font-weight: normal !important;" id="colorTowhite">Click Here</a></span>
                         </div>
                         <!-- Register button finish -->
                         <div style="text-align:center;">

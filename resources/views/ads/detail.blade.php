@@ -372,7 +372,7 @@ button.active .indicator-img {
     .similar-listing-count {
         position: absolute;
         bottom: 8px;
-        left: 10px;
+        left: 4px;
         color: #fff;
         font-size: 11px;
         font-weight: 500;
@@ -856,7 +856,7 @@ button.active .indicator-img {
                 <!---------------------->
                 {{-- <hr style="border-color: #eee; width: 95%; margin:0px 0px 0px 12px;"> --}}
                 <div class="col-12 similar_ad" >
-                    <h6 ><b>Similar Ads</b></h6>
+                    <h6 class="mb-0" ><b>Similar Ads</b></h6>
                     <div class="row">
                         <div class="col-12">
                             <div class="slider">

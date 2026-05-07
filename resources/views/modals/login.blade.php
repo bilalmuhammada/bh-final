@@ -71,12 +71,10 @@
                                         style="cursor: pointer;">👁️</span>
                                 </div>
                             </div>
-                            <div class="form-group"
-                                style="margin-top: -5px; margin-bottom: 2px; margin-left: 89px;color:#A17A4E;">
-                                <input type="checkbox" name="rem_password" style="margin-left: -86px !important;">
-                                <label class="custom_check" style="font-size: 13px;margin-left: 5px">
-
-                                    {{-- <span class="checkmark"></span> --}}
+                            <div class="form-group d-flex align-items-center"
+                                style="margin-top: -5px; margin-bottom: 10px; color:#A17A4E;">
+                                <input type="checkbox" name="rem_password" id="rem_password" style="margin-right: 8px; cursor: pointer;">
+                                <label for="rem_password" class="custom_check" style="font-size: 13px; margin: 0; cursor: pointer;">
                                     Remember Password
                                 </label>
                             </div>
@@ -90,13 +88,11 @@
                             </div>
                             <!-- submit button finish -->
                         </form>
-                        <div class="Forgot" style="font-size: 12px;margin-left: -21px; ">
-                            <a {{-- href="{{ env('BASE_URL') . 'forgot-password'}} --}}
-                              class=" show-forgot-btn" style="margin-right: 35px;color:#007bff;" id="colorTowhite">
+                        <div class="Forgot" style="font-size: 12px; display: flex; justify-content: space-between; align-items: center; padding: 0 12px; margin-top: 10px;">
+                            <a class="show-forgot-btn" style="color:#00aaff; font-weight: normal !important;" id="colorTowhite">
                                 Forgot Password?</a>
-                            <span>New to BusinessHub? <a class="register-btn " style="color: #007bff;"
-                                    id="colorTowhite"> &nbsp; &nbsp; &nbsp; Click Here </a></span>
-
+                            <span>New to BusinessHub?&nbsp;<a class="register-btn" style="color: #00aaff; font-weight: normal !important;"
+                                    id="colorTowhite">Click Here</a></span>
                         </div>
                         <!-- or sign in using start -->
                         {{-- <div class="or">

@@ -29,6 +29,10 @@
             
             z-index: 10;
         }
+        
+        .listing:hover .detail span:first-child {
+            color: #A17A4E !important;
+        }
 
         .listing img {
             width: 100% !important;
@@ -196,7 +200,7 @@
             margin: 10px;
             position: relative;
             display: block;
-            width: 216px !important;
+            width: 190px !important;
         }
         .similar-listing-card:hover {
             transform: translateY(4px);
@@ -234,12 +238,12 @@
             cursor: pointer;
         }
         .similar-listing-heart:hover {
-            color: #ff3131;
+            color: #A17A4E;
         }
         .similar-listing-count {
             position: absolute;
             bottom: 8px;
-            left: 10px;
+            left: 4px;
             color: #fff;
             font-size: 11px;
             font-weight: 500;
@@ -260,6 +264,10 @@
             text-overflow: ellipsis;
             margin-bottom: 4px;
             text-decoration: none !important;
+            transition: color 0.3s ease;
+        }
+        .similar-listing-card:hover .similar-listing-title {
+            color: #A17A4E !important;
         }
         .similar-listing-category {
             font-size: 11px;
@@ -469,7 +477,7 @@
                                     <div class="col-lg-2 col-md-3 col-6">
 
                                                                            <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}" style="text-decoration: none;">
-                                            <div class="similar-listing-card" style="margin: 0px auto; width: 100% !important;">
+                                            <div class="similar-listing-card" style="margin: 0px auto;">
                                                 <div class="similar-listing-image">
                                                     <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>
@@ -525,7 +533,7 @@
                                                             <div class="listing p-1">
 
                                                                                           <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                                                    <div class="heart-icon" style="position: absolute; top: 16px; right: 1.0rem;">
+                                                                    <div class="heart-icon similar-listing-heart" style="position: absolute; top: 16px; right: 1.0rem;">
                                                                         <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
                                                                     </div>
 
@@ -574,7 +582,7 @@
                                         <div class="col-    lg-2 col-md-3 col-6">
 
                                                                                        <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}" style="text-decoration: none;">
-                                            <div class="similar-listing-card" style="margin: 0px auto; width: 100% !important;">
+                                            <div class="similar-listing-card" style="margin: 0px auto;">
                                                 <div class="similar-listing-image">
                                                     <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>
@@ -631,7 +639,7 @@
                                             <div class="col-lg-2 
                                        c                        ol-md-3 col-6">
                                             <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}" style="text-decoration: none;">
-                                            <div class="similar-listing-card" style="margin: 0px auto; width: 100% !important;">
+                                            <div class="similar-listing-card" style="margin: 0px auto;">
                                                 <div class="similar-listing-image">
                                                     <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>
@@ -688,7 +696,7 @@
                                                                         <div class="col-lg-2 col-md-3 col-6">
 
                                                                              <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}" style="text-decoration: none;">
-                                            <div class="similar-listing-card" style="margin: 0px auto; width: 100% !important;">
+                                            <div class="similar-listing-card" style="margin: 0px auto; ">
                                                 <div class="similar-listing-image">
                                                     <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>
@@ -748,7 +756,7 @@
                                                                            @foreach($investor_required_ads as $key => $featured_ad)
                                                                                 <div class="col-lg-2 col-md-3 col-6">
                                                                                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}" style="text-decoration: none;">
-                                            <div class="similar-listing-card" style="margin: 0px auto; width: 100% !important;">
+                                            <div class="similar-listing-card" style="margin: 0px auto;">
                                                 <div class="similar-listing-image">
                                                     <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>
@@ -807,7 +815,7 @@
                                     @foreach($franchise_ads as $key => $featured_ad)
                                             <div class="col-lg-2 col-md-3 col-6">
                                                 <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}" style="text-decoration: none;">
-                                            <div class="similar-listing-card" style="margin: 0px auto; width: 100% !important;">
+                                            <div class="similar-listing-card" style="margin: 0px auto;">
                                                 <div class="similar-listing-image">
                                                     <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>
@@ -866,7 +874,7 @@
                             @foreach($machinery_ads as $key => $featured_ad)
                                     <div class="col-lg-2 col-md-3 col-6">
                                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $featured_ad->id . '?country=' . request()->country . '&city=' . request()->city . '&currency=' . session('app_currency', 'default_currency')}}" style="text-decoration: none;">
-                                            <div class="similar-listing-card" style="margin: 0px auto; width: 100% !important;">
+                                            <div class="similar-listing-card" style="margin: 0px auto;">
                                                 <div class="similar-listing-image">
                                                     <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>

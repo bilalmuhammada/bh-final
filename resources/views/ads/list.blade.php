@@ -521,7 +521,7 @@ request()->city)->first()->name : 'All';
 <!---new filter ennded----->
 
 
-<section style="padding-top: 0px !important; margin-top: 0px !important;">
+<section style="padding-top: 0px !important; margin-top: -3px !important;">
     <div class="container" style="max-width: 1200px !important; margin: 0 auto; padding: 0 15px;">
         <div class="row align-items-center">
             <div class="col-lg-8 col-md-8" style="margin-bottom: 0px;">
@@ -544,7 +544,7 @@ request()->city)->first()->name : 'All';
     </div>
 </section>
 
-<section style="padding-top: 0px !important; margin-top: 0px !important;">
+<section style="padding-top: 0px !important; margin-top: -12px !important;">
     <div class="container" style="max-width: 1200px !important; margin: 0 auto; padding: 0 15px;">
         <div class="row">
             <div class="col-12">
