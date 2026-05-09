@@ -604,7 +604,7 @@ request()->city)->first()->name : 'All';
                                     {{ \App\Helpers\SiteHelper::priceFormatter($ad->price, session('app_currency', 'USD')) }}
                                 </h3>
 
-                                <p style="margin-top: 4.5rem; font-size: 13px; white-space: nowrap;">
+                                <p style="margin-top: 5.2rem; font-size: 13px; white-space: nowrap;">
                                     <i class="fa fa-map-marker" style="color: red;"></i> {{ $ad->location_name }}
                                     <span style="font-size: 16px; margin: 0 5px;">&#9679;</span>
                                     <span>{{ \Carbon\Carbon::parse($ad->created_at)->format('d M Y') }}</span>
@@ -639,8 +639,7 @@ request()->city)->first()->name : 'All';
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <!-- then Popper.js -->
-<script type="text/javascript"
-    src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"></script>
+
 <script type="text/javascript">
     map_key = "{{env('GOOGLE_MAP_KEY')}}";
 </script>

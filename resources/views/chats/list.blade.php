@@ -142,6 +142,9 @@ select {
     .chat-title:hover {
         background-color: #f0f0f0;
     }
+    .chat-title.active {
+        background-color: aliceblue !important;
+    }
     ::-webkit-scrollbar {
   width: 12px; /* You can adjust this value based on your preference */
 }
@@ -530,7 +533,7 @@ a:hover {
                                             </div>
                                             <div class="media-img-wrap flex-shrink-0">
                                                 <div class="avatar">
-                                                    <img src="{{$chat->ad->main_image_url ??  'https://via.placeholder.com/30x30'}}" alt="Car Image" class="product-left-image">
+                                                    <img src="{{$chat->ad->main_image_url ??  'https://placehold.co/30x30'}}" alt="Car Image" class="product-left-image">
                                                 </div>
                                             </div>
                                             <div class="media-body flex-grow-1">
@@ -538,7 +541,7 @@ a:hover {
                                                     <div class="product-left-description mb-0" style="line-height: 1.2; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 400;">{{$chat->ad->title ?? " "}}</div>
                                                     <div class="product-message mb-0" style="font-size: 12px; color: #666; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 400;">{{ $chat->latest_message ?? " " }}</div>
                                                     <div class="d-flex align-items-center" style="white-space: nowrap;">
-                                                        <img src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') ?: 'https://via.placeholder.com/30x30' }}"
+                                                        <img src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') ?: 'https://placehold.co/30x30' }}"
                                                             alt="User Image" style="width:20px; height:20px; margin-right: 6px;"
                                                             class="avatar-img rounded-circle"> 
                                                         <span style="font-size: 13px; font-weight: 400; color: #111;">{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'name') ?? " "}}</span>
@@ -652,7 +655,7 @@ a:hover {
                                     <a href="{{ env('BASE_URL') }}ads/detail/{{ $chat->ad->id }}"  style="text-decoration: none; color: inherit; display: flex; width: 100%; align-items: center;">
                                    
                                         <div class="product-image-container">
-                                        <img src="{{$chat->ad->main_image_url ??  'https://via.placeholder.com/30x30'}}" alt="Car Image" class="product-image">
+                                        <img src="{{$chat->ad->main_image_url ??  'https://placehold.co/30x30'}}" alt="Car Image" class="product-image">
                                     </div>
                                         <div class="product-details">
                                         <div class="product-description" id="productDescription" style="margin-bottom: 7px;white-space: nowrap;">{{$chat->ad->title}}</div> <!-- Added spacing below title -->
@@ -757,15 +760,12 @@ a:hover {
         </div>
     </div>
 @endsection
-<!-- Magnific Popup CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-
-
-<!-- Magnific Popup JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-
-
 @section('page_scripts')
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <!-- Magnific Popup JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
     <script type="text/javascript">
       
       
@@ -836,7 +836,8 @@ $(document).ready(function () {
         // alert('ssss');
             @if(request()->i)
             $('.chat-body-div').css('display', 'none');
-            $('.chat-with-user-{{ request()->user_id }}').click();
+            $('.chat-with-user-{{ request()->i }}').addClass('active');
+            $('#' + $('.chat-with-user-{{ request()->i }}').attr('id') + '-chat-body-div').show();
             @endif
             ajax_setup();
 
@@ -1054,13 +1055,21 @@ $.ajax({
 
         $(document).on('click', '.chat-title', function (e) {
             e.preventDefault();
-            var userId = $(this).attr('chat-id'); // Wait, the controller uses 'i' which is the other user's id
-            // Let's get the other user id from the id attribute if possible, or better yet, add a data attribute.
-            // Based on view: id="Name-ID"
-            var idParts = $(this).attr('id').split('-');
-            var otherUserId = idParts[idParts.length - 1];
             
-            window.location.href = '?i=' + otherUserId;
+            // Highlight the selected chat
+            $('.chat-title').removeClass('active');
+            $(this).addClass('active');
+
+            var targetId = $(this).attr('id');
+            
+            // Hide all chat bodies and show the relevant one
+            $('.chat-body-div').hide();
+            $('#' + targetId + '-chat-body-div').show();
+            
+            // Update URL without reloading
+            var idParts = targetId.split('-');
+            var otherUserId = idParts[idParts.length - 1];
+            history.pushState(null, '', '?i=' + otherUserId);
         });
        
 

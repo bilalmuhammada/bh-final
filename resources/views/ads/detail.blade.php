@@ -369,6 +369,10 @@ button.active .indicator-img {
         color: goldenrod;
     }
 
+    .similar-listing-heart.favorited i {
+        color: #ff3131 !important;
+    }
+
     .similar-listing-count {
         position: absolute;
         bottom: 8px;
@@ -900,7 +904,7 @@ button.active .indicator-img {
     <!--------ad show------------->
 @endsection
 @section('page_scripts')
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"></script>
+
     <script type="text/javascript">
   $(document).ready(function(){
     // Wait for images to loaZd or a short delay
@@ -1161,6 +1165,30 @@ return ;
 
 $(document).on('click', '.close-btn', function() {
     $('.popup-container').fadeOut(); // Hide the popup
+});
+
+// Favorite Icon functionality for Similar Ads
+$(document).on('click', '.similar-listing-heart', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!checkIfUserLoggedIn()) {
+        $('#loginModal').modal('show');
+        return;
+    }
+
+    var $this = $(this);
+    var $icon = $this.find('i');
+
+    if ($this.hasClass('favorited')) {
+        $this.removeClass('favorited');
+        $icon.removeClass('fa-heart').addClass('fa-heart-o');
+        // Optional: Add AJAX call to remove from favorites
+    } else {
+        $this.addClass('favorited');
+        $icon.removeClass('fa-heart-o').addClass('fa-heart');
+        // Optional: Add AJAX call to add to favorites
+    }
 });
 
 

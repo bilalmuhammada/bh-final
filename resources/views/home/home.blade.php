@@ -240,6 +240,9 @@
         .similar-listing-heart:hover {
             color: #A17A4E;
         }
+        .similar-listing-heart.favorited i {
+            color: #ff3131 !important;
+        }
         .similar-listing-count {
             position: absolute;
             bottom: 8px;
@@ -534,7 +537,7 @@
 
                                                                                           <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
                                                                     <div class="heart-icon similar-listing-heart" style="position: absolute; top: 16px; right: 1.0rem;">
-                                                                        <i class="fa fa-heart-o shaking" style="color: #fff !important; font-size: 20px;"></i>
+                                                                        <i class="fa fa-heart-o shaking" style="color: #fff; font-size: 20px;"></i>
                                                                     </div>
 
                                                                 <div     class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-
@@ -570,8 +573,7 @@
             <div class="container home-full-width">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-12">
-                    <h6 style=
-     "                          margin-bottom:0px;"><b>Popular in Shares for Sale</b></h6>
+                    <h6 style="margin-bottom:0px;"><b>Popular in Shares for Sale</b></h6>
                     @php 
                         $shares_for_sale_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(2, 6);
                     @endphp
@@ -624,9 +626,9 @@
 
         {{-- @if($ads->count()>0) --}}
            <div class=" container home-full-width">
-            <div class="    row    ">
-                <div class="    col-lg-12 col-md-12 col-12">
-                <h6 style="margi    n-bottom:0px;"><b>Popular in Business Ideas</b></h6>
+            <div class=" row">
+                <div class="col-lg-12 col-md-12 col-12">
+                <h6 style="margin-bottom:0px;"><b>Popular in Business Ideas</b></h6>
 
                                 @php 
 
@@ -803,10 +805,8 @@
 
                                      <div class="container home-full-width">
               <div class="row">
-                   <div class="col-lg-12 col
-       -                                    md-12 col-12">
-                    <h6 style="margin-bottom:
-                      0                     px;"><b>Popular in Franchise Opportunities</b></h6>
+                   <div class="col-lg-12 col-md-12 col-12">
+                    <h6 style="margin-bottom:0px;"><b>Popular in Franchise Opportunities</b></h6>
                 @php 
                     $franchise_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(6, 6);
                 @endphp
@@ -1031,6 +1031,30 @@
             $(document).on('click', function(e) {
                 if (!$(e.target).closest('#keyword, #subcategoryDropdown').length) {
                     dropdown.hide();
+                }
+            });
+
+            // Favorite Icon functionality
+            $(document).on('click', '.similar-listing-heart', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                if (!checkIfUserLoggedIn()) {
+                    $('#loginModal').modal('show');
+                    return;
+                }
+
+                var $this = $(this);
+                var $icon = $this.find('i');
+
+                if ($this.hasClass('favorited')) {
+                    $this.removeClass('favorited');
+                    $icon.removeClass('fa-heart').addClass('fa-heart-o');
+                    // Optional: Add AJAX call to remove from favorites
+                } else {
+                    $this.addClass('favorited');
+                    $icon.removeClass('fa-heart-o').addClass('fa-heart');
+                    // Optional: Add AJAX call to add to favorites
                 }
             });
         });

@@ -6,6 +6,7 @@ use App\Helpers\SiteHelper;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Message;
 
 class Chat extends Model
 {
@@ -38,7 +39,7 @@ class Chat extends Model
 
     public function latestMessage()
     {
-        return $this->hasOne(Message::class, 'chat_id')->latest();
+        return $this->hasOne(Message::class, 'chat_id')->latestOfMany();
     }
 
     public function unreadMessages()
@@ -60,7 +61,8 @@ class Chat extends Model
         if ($this->status == 'requested') {
             return "Sent you a message request!";
         }
-        return $this->latestMessage ? $this->latestMessage->message : null;
+        $latest = $this->getRelationValue('latestMessage');
+        return $latest ? $latest->message : null;
     }
 
     public function getLatestMessageSenderIdAttribute()
@@ -68,7 +70,8 @@ class Chat extends Model
         if ($this->status == 'requested') {
             return 0;
         }
-        return $this->latestMessage ? $this->latestMessage->sender_id : 0;
+        $latest = $this->getRelationValue('latestMessage');
+        return $latest ? $latest->sender_id : 0;
     }
 
     public function getUnreadCountAttribute()
@@ -78,9 +81,9 @@ class Chat extends Model
 
     public function getLatestMessageRecievedTimeDiffAttribute()
     {
-        $msg = $this->latestMessage;
-        if ($msg) {
-            return Carbon::parse($msg->sended_at)->diffForHumans();
+        $latest = $this->getRelationValue('latestMessage');
+        if ($latest) {
+            return Carbon::parse($latest->sended_at)->diffForHumans();
         }
         return Carbon::parse($this->created_at)->diffForHumans();
     }

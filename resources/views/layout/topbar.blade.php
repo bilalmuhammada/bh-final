@@ -114,8 +114,18 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         border: none !important;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
         border-radius: 4px !important;
-        margin-top: 2px !important;
-        padding:  0 !important;
+        margin-top: 0px !important;
+        padding: 0 !important;
+    }
+
+    .dropdown-menu::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 0;
+        right: 0;
+        height: 10px;
+        background: transparent;
     }
 
     .color-logo{
@@ -446,7 +456,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                                 @foreach($favourite_ads as $favourite_ad)
                                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $favourite_ad->id . '?country=' . request()->country . '&city=' . request()->city }}" class=" list-group-item-action border-bottom d-flex align-items-center pl-2 pr-2" style="background-color: aliceblue;">
                                         <div style="flex-shrink: 0; width: 45px; height: 38px; border-radius: 4px; overflow: hidden; background: #fff;">
-                                            <img src="{{ $favourite_ad->main_image_url ?? 'https://via.placeholder.com/80x80?text=Ad' }}" style="width: 100%; height: 100%; object-fit: cover;">
+                                            <img src="{{ $favourite_ad->main_image_url ?? 'https://placehold.co/80x80?text=Ad' }}" style="width: 100%; height: 100%; object-fit: cover;">
                                         </div>
                                         <div class="ms-3 flex-grow-1 px-2">
                                             <h6 class="mb-2 text-truncate fw-bold ad-item-title" style="font-size: 14px;">{{ $favourite_ad->title }}</h6>
@@ -493,7 +503,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                                             <small class="text-muted" style="font-size: 11px;">{{ $message->message_recieved_time_diff }}</small>
                                         </div>
                                     </div>
-                                    <img src="{{ $message->chat->ad->main_image_url ?? 'https://via.placeholder.com/45' }}" class="rounded" width="60" height="60" style="object-fit: cover; border: 1px solid #eee;">
+                                    <img src="{{ $message->chat->ad->main_image_url ?? 'https://placehold.co/45' }}" class="rounded" width="60" height="60" style="object-fit: cover; border: 1px solid #eee;">
                                 </a>
                             @endforeach
                         </div>
@@ -510,9 +520,9 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                 </a>
 
                 <!-- Profile -->
-                <div class="dropdown" style="margin-bottom: 4px;">
+                <div class="dropdown hover-delay">
                     <a class="topbar-dropdown-trigger" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: flex; align-items: center;">
-                        <span style="white-space: nowrap; padding: 0px 14px;">{{session()->get('user')->first_name}} {{session()->get('user')->last_name}}</span>
+                        <span style="white-space: nowrap; padding: 0px 14px;">{{session()->get('user')->first_name}}</span>
                         <img src="{{session()->get('user')->image_url}}" class="topbar-profile-img">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right p-0" style="min-width:70px; border: 1px solid #eee !important; margin-top: 2px !important;">
