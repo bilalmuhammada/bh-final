@@ -271,6 +271,8 @@ class ListingController extends Controller
             }
         }
 
+        Session::flash('success', "Your ad has been saved successfully! You can now see it in the review section of My Ads. It will go live after admin approval.");
+
         return response()->json([
             'status' => true,
             'message' => "Your ad has been saved successfully! You can now see it in the review section of My Ads. It will go live after admin approval.",

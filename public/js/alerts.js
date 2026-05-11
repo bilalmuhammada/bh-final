@@ -6,17 +6,14 @@ $(document).ready(function () {
     });
 });
 
-function showAlert(type = 'success', msg = 'Notification', delay = 1000) {
-    // Lobibox.notify(type, {
-    //     size: 'mini',
-    //     msg: msg,
-    //     icon: false,
-    //     width: 105,
-    //     position: 'top right', // Notification position
-    //     delay:delay,
-    //
-    //
-    // });
+function showAlert(type = 'success', msg = 'Notification', delay = 3000) {
+    Lobibox.notify(type, {
+        size: 'mini',
+        msg: msg,
+        icon: false,
+        position: 'top right', // Notification position
+        delay: delay,
+    });
 }
 
 function showBotomAlert(type = 'success', msg = 'Notification') {

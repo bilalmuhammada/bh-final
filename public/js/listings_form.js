@@ -181,7 +181,7 @@ function submitListingForm(form) {
             if (response.status) {
                 showAlert("success", response.message);
                 setTimeout(function () {
-                    window.location.assign(base_url + "ads");
+                    window.location.assign(base_url + "user/ads");
                 }, 3000);
             } else {
                 var errors = response.errors;

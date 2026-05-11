@@ -397,7 +397,7 @@
                     if (response.status) {
                     showAlert("success", "Your ad has been submitted for review. After approval, it will be published.");
                     setTimeout(function() {
-                         window.location.assign(base_url + "ads");
+                         window.location.assign(base_url + "user/ads");
                     }, 3000);
 
                     } else {
