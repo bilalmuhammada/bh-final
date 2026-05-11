@@ -220,10 +220,7 @@ zoom: 1;
 }
 
 /* Favorite button active state */
-.favourite-btn.fa-heart,
-.heart-icon i.fa-heart {
-    color: red !important;
-}
+
 
 /* Shaking image on ad card hover */
 .ad-listing-card:hover {

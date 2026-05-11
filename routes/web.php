@@ -94,6 +94,7 @@ Route::post('/verify-otp', [AuthController::class, 'verifyOtp']);
 Route::post('/resend-otp', [AuthController::class, 'resend']);
 
 Route::post('/chat/favorite', [\App\Http\Controllers\ChatController::class, 'toggleFavorite'])->name('chat.favorite');
+Route::post('/ad/favorite', [AdController::class, 'toggleFavourite'])->name('ad.favorite');
 Route::post('/chat/block', [\App\Http\Controllers\ChatController::class, 'toggleBlock'])->name('chat.block');
 
 Route::prefix('/chats')->group(function () {

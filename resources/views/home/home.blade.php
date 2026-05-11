@@ -468,7 +468,7 @@
         <div class="container home-full-width">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-12">
-                    <h6 style="margin-bottom:0px;"><b>Popular in Businesses for Sale</b></h6>
+                    <h6 style="margin-top: 5px; margin-bottom: 5px;"><b>Popular in Businesses for Sale</b></h6>
                     @php 
 
                         $business_for_sale_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(1, 6);
@@ -484,8 +484,8 @@
                                                 <div class="similar-listing-image">
                                                     <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>
-                                                    <div class="similar-listing-heart">
-                                                        <i class="fa fa-heart-o shaking"></i>
+                                                    <div class="similar-listing-heart {{ $featured_ad->is_favourite ? 'favorited' : '' }}" data-listing-id="{{ $featured_ad->id }}">
+                                                        <i class="fa {{ $featured_ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking"></i>
                                                     </div>
                                                     <div class="similar-listing-count">
                                                         1 / {{ count($featured_ad->attachments ?? []) ?: 1 }}
@@ -522,7 +522,7 @@
         <div class="container home-full-width">
                <div  class="row">
                     <div class="col-lg-12 col-md-12   col-12 ">
-                    <h6 style="margin-bottom:0px;"><b>Popular in Businesses for Rent</b></h6>
+                    <h6 style="margin-top: 5px; margin-bottom: 5px;"><b>Popular in Businesses for Rent</b></h6>
                    @php 
 
                     $business_for_rent_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(7, 6);
@@ -536,8 +536,8 @@
                                                             <div class="listing p-1">
 
                                                                                           <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                                                    <div class="heart-icon similar-listing-heart" style="position: absolute; top: 16px; right: 1.0rem;">
-                                                                        <i class="fa fa-heart-o shaking" style="color: #fff; font-size: 20px;"></i>
+                                                                    <div class="heart-icon similar-listing-heart {{ $featured_ad->is_favourite ? 'favorited' : '' }}" style="position: absolute; top: 16px; right: 1.0rem;" data-listing-id="{{ $featured_ad->id }}">
+                                                                        <i class="fa {{ $featured_ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking" style="color: {{ $featured_ad->is_favourite ? '#ff3131' : '#fff' }}; font-size: 20px;"></i>
                                                                     </div>
 
                                                                 <div     class="col-md-7 col-6" style="margin:0px;position:absolute;top:8rem; z-
@@ -573,7 +573,7 @@
             <div class="container home-full-width">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-12">
-                    <h6 style="margin-bottom:0px;"><b>Popular in Shares for Sale</b></h6>
+                    <h6 style="margin-top: 5px; margin-bottom: 5px;"><b>Popular in Shares for Sale</b></h6>
                     @php 
                         $shares_for_sale_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(2, 6);
                     @endphp
@@ -588,8 +588,8 @@
                                                 <div class="similar-listing-image">
                                                     <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>
-                                                    <div class="similar-listing-heart">
-                                                        <i class="fa fa-heart-o shaking"></i>
+                                                    <div class="similar-listing-heart {{ $featured_ad->is_favourite ? 'favorited' : '' }}" data-listing-id="{{ $featured_ad->id }}">
+                                                        <i class="fa {{ $featured_ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking"></i>
                                                     </div>
                                                     <div class="similar-listing-count">
                                                         1 / {{ count($featured_ad->attachments ?? []) ?: 1 }}
@@ -628,7 +628,7 @@
            <div class=" container home-full-width">
             <div class=" row">
                 <div class="col-lg-12 col-md-12 col-12">
-                <h6 style="margin-bottom:0px;"><b>Popular in Business Ideas</b></h6>
+                <h6 style="margin-top: 5px; margin-bottom: 5px;"><b>Popular in Business Ideas</b></h6>
 
                                 @php 
 
@@ -645,8 +645,8 @@
                                                 <div class="similar-listing-image">
                                                     <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>
-                                                    <div class="similar-listing-heart">
-                                                        <i class="fa fa-heart-o shaking"></i>
+                                                    <div class="similar-listing-heart {{ $featured_ad->is_favourite ? 'favorited' : '' }}" data-listing-id="{{ $featured_ad->id }}">
+                                                        <i class="fa {{ $featured_ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking"></i>
                                                     </div>
                                                     <div class="similar-listing-count">
                                                         1 / {{ count($featured_ad->attachments ?? []) ?: 1 }}
@@ -687,7 +687,7 @@
                                                 <div class="row">
                    <div class="col-lg-12 col-md-12 col-12">
 
-                                     <h6 style="margin-bottom:0px;"><b>Popular in Investors</b></h6>
+                                     <h6 style="margin-top: 5px; margin-bottom: 5px;"><b>Popular in Investors</b></h6>
                     @php 
                         $investor_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(4, 6);
                     @endphp
@@ -702,8 +702,8 @@
                                                 <div class="similar-listing-image">
                                                     <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>
-                                                    <div class="similar-listing-heart">
-                                                        <i class="fa fa-heart-o shaking"></i>
+                                                    <div class="similar-listing-heart {{ $featured_ad->is_favourite ? 'favorited' : '' }}" data-listing-id="{{ $featured_ad->id }}">
+                                                        <i class="fa {{ $featured_ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking"></i>
                                                     </div>
                                                     <div class="similar-listing-count">
                                                         1 / {{ count($featured_ad->attachments ?? []) ?: 1 }}
@@ -745,7 +745,7 @@
 
                                                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-12">
-                <h6 style="margin-bottom:0px;"><b>Popular in Investors Required</b></h6>
+                <h6 style="margin-top: 5px; margin-bottom: 5px;"><b>Popular in Investors Required</b></h6>
 
                                                            @php 
 
@@ -762,8 +762,8 @@
                                                 <div class="similar-listing-image">
                                                     <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>
-                                                    <div class="similar-listing-heart">
-                                                        <i class="fa fa-heart-o shaking"></i>
+                                                    <div class="similar-listing-heart {{ $featured_ad->is_favourite ? 'favorited' : '' }}" data-listing-id="{{ $featured_ad->id }}">
+                                                        <i class="fa {{ $featured_ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking"></i>
                                                     </div>
                                                     <div class="similar-listing-count">
                                                         1 / {{ count($featured_ad->attachments ?? []) ?: 1 }}
@@ -806,7 +806,7 @@
                                      <div class="container home-full-width">
               <div class="row">
                    <div class="col-lg-12 col-md-12 col-12">
-                    <h6 style="margin-bottom:0px;"><b>Popular in Franchise Opportunities</b></h6>
+                    <h6 style="margin-top: 5px; margin-bottom: 5px;"><b>Popular in Franchise Opportunities</b></h6>
                 @php 
                     $franchise_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(6, 6);
                 @endphp
@@ -819,8 +819,8 @@
                                                 <div class="similar-listing-image">
                                                     <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>
-                                                    <div class="similar-listing-heart">
-                                                        <i class="fa fa-heart-o shaking"></i>
+                                                    <div class="similar-listing-heart {{ $featured_ad->is_favourite ? 'favorited' : '' }}" data-listing-id="{{ $featured_ad->id }}">
+                                                        <i class="fa {{ $featured_ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking"></i>
                                                     </div>
                                                     <div class="similar-listing-count">
                                                         1 / {{ count($featured_ad->attachments ?? []) ?: 1 }}
@@ -865,7 +865,7 @@
 
                                               <div class="col-lg-12 col-md-12 col-12">
 
-                                                           <h6 style="margin-bottom:0px;"><b>Popular in Machinery & Supplies</b></h6>
+                                                           <h6 style="margin-top: 5px; margin-bottom: 5px;"><b>Popular in Machinery & Supplies</b></h6>
                   @php 
                     $machinery_ads = \App\Helpers\RecordHelper::getAdsWithDetailsByCategory(8, 6);
                 @endphp
@@ -878,8 +878,8 @@
                                                 <div class="similar-listing-image">
                                                     <img src="{{ $featured_ad->main_image_url }}" class="shaking" alt="{{ $featured_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>
-                                                    <div class="similar-listing-heart">
-                                                        <i class="fa fa-heart-o shaking"></i>
+                                                    <div class="similar-listing-heart {{ $featured_ad->is_favourite ? 'favorited' : '' }}" data-listing-id="{{ $featured_ad->id }}">
+                                                        <i class="fa {{ $featured_ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking"></i>
                                                     </div>
                                                     <div class="similar-listing-count">
                                                         1 / {{ count($featured_ad->attachments ?? []) ?: 1 }}
@@ -1046,16 +1046,50 @@
 
                 var $this = $(this);
                 var $icon = $this.find('i');
+                var listingId = $this.data('listing-id');
 
-                if ($this.hasClass('favorited')) {
-                    $this.removeClass('favorited');
-                    $icon.removeClass('fa-heart').addClass('fa-heart-o');
-                    // Optional: Add AJAX call to remove from favorites
-                } else {
-                    $this.addClass('favorited');
-                    $icon.removeClass('fa-heart-o').addClass('fa-heart');
-                    // Optional: Add AJAX call to add to favorites
-                }
+                $.ajax({
+                    url: '/ad/favorite',
+                    type: 'POST',
+                    data: {
+                        listing_id: listingId,
+                        _token: $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        if (response.status) {
+                            if (response.fav_status === 'added') {
+                                $this.addClass('favorited');
+                                $icon.removeClass('fa-heart-o').addClass('fa-heart');
+                                if ($this.hasClass('heart-icon')) {
+                                    $icon.css('color', '#ff3131');
+                                }
+                            } else {
+                                $this.removeClass('favorited');
+                                $icon.removeClass('fa-heart').addClass('fa-heart-o');
+                                if ($this.hasClass('heart-icon')) {
+                                    $icon.css('color', '#fff');
+                                }
+                            }
+                            
+                            // Update favorite count in topbar
+                            var $badge = $('#favoritesDropdown .badge-premium-green');
+                            if (response.fav_count > 0) {
+                                if ($badge.length) {
+                                    $badge.text(response.fav_count);
+                                } else {
+                                    $('#favoritesDropdown').append('<span class="badge-premium-green">' + response.fav_count + '</span>');
+                                }
+                            } else {
+                                $badge.remove();
+                            }
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function() {
+                        alert('Something went wrong. Please try again.');
+                    }
+                });
             });
         });
     </script>

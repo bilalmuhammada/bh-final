@@ -179,9 +179,9 @@ function submitListingForm(form) {
         dataType: "JSON",
         success: function (response) {
             if (response.status) {
-                showAlert("success", "Your ad has been submitted for review. After approval, it will be published.");
+                showAlert("success", response.message);
                 setTimeout(function () {
-                    window.location.assign(base_url + "ads");
+                    window.location.assign(base_url + "my-ads");
                 }, 3000);
             } else {
                 var errors = response.errors;

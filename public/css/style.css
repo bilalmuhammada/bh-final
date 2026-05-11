@@ -6468,7 +6468,7 @@ border: 1px solid #2d11e7;
         z-index: 4;
         background: #fff;
         box-shadow: 0px 4px 14px rgba(198, 198, 198, 0.25);
-        border-radius: 0px 0px 10px 10px;
+        border-radius: 0px 0px 4px 4px;
     }
     
     .chat-cont-left .chat-header {
@@ -6637,7 +6637,7 @@ border: 1px solid #2d11e7;
         max-width: 65%;
         background: #fff;
         box-shadow: 0px 4px 14px rgba(198, 198, 198, 0.25);
-        border-radius: 0px 0px 10px 10px;
+        border-radius: 0px 0px 4px 4px;
         padding: 2px;
     }
     

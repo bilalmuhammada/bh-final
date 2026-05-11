@@ -336,6 +336,10 @@
         color: #A17A4E !important;
     }
 
+    .favourite-btn.fa-heart {
+        color: red !important;
+    }
+
     /* Small search bar in Select2 */
     .select2-search--dropdown .select2-search__field {
         font-size: 12px !important;
@@ -930,6 +934,56 @@ request()->city)->first()->name : 'All';
             // Trigger search on Select2 change (optional, keeping it commented out for now as per user preference implied by commenting it out, but updated logic)
             $('.city_dropdown_list1').on('change', function () {
                 // window.location.assign(base_url + "ads/{{ $subcategory_id }}?country={{ request()->country }}&from=" + $('#min_price').val() + "&to=" + $('#max_price').val() + "&keyword=" + $('.keyword_search').val() + "&city=" + $(this).val());
+            });
+
+            // Favorite Icon functionality
+            $(document).on('click', '.favourite-btn', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                if (!checkIfUserLoggedIn()) {
+                    $('#loginModal').modal('show');
+                    return;
+                }
+
+                var $this = $(this);
+                var listingId = $this.attr('ad-id');
+
+                $.ajax({
+                    url: '/ad/favorite',
+                    type: 'POST',
+                    data: {
+                        listing_id: listingId,
+                        _token: $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function (response) {
+                        if (response.status) {
+                            if (response.fav_status === 'added') {
+                                $this.removeClass('fa-heart-o').addClass('fa-heart');
+                            } else {
+                                $this.removeClass('fa-heart').addClass('fa-heart-o');
+                            }
+
+                            // Update favorite count in topbar
+                            var $badge = $('#favoritesDropdown .badge-premium-green');
+                            if (response.fav_count > 0) {
+                                var displayCount = response.fav_count > 99 ? '99' : response.fav_count;
+                                if ($badge.length) {
+                                    $badge.text(displayCount);
+                                } else {
+                                    $('#favoritesDropdown').append('<span class="badge-premium-green">' + displayCount + '</span>');
+                                }
+                            } else {
+                                $badge.remove();
+                            }
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function () {
+                        alert('Something went wrong. Please try again.');
+                    }
+                });
             });
         });
     </script>

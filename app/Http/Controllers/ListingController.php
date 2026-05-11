@@ -186,8 +186,8 @@ class ListingController extends Controller
         $Validator = Validator::make($request->all(), [
            
             'title' => 'required',
-            'phone' => 'required|integer',
-            'price' => 'nullable|integer',
+            'phone' => 'required',
+            'price' => 'nullable',
             
             'description' => 'required',
             'city' => 'required|integer',
@@ -196,7 +196,7 @@ class ListingController extends Controller
             'longitude' => 'required|numeric',
             // 'location_name' => 'required',
             'images' => 'required|array',
-            'images.*' => 'image|max:2048',
+            'images.*' => 'image|max:5120',
         ]);
 
 
@@ -228,6 +228,7 @@ class ListingController extends Controller
                 "hide_phone" => false,
                 'latitude' => $request->latitude,
                 'longitude' => $request->longitude,
+                'location_name' => $request->location_name,
                 'created_by' => Session::get('user')->id,
             ]
         );
@@ -272,7 +273,7 @@ class ListingController extends Controller
 
         return response()->json([
             'status' => true,
-            'message' => "Add placed successfully",
+            'message' => "Your ad has been saved successfully! You can now see it in the review section of My Ads. It will go live after admin approval.",
             'listing_id' => $list->id,
         ]);
     }

@@ -20,6 +20,7 @@ class Listing extends Model
         'category_name',
         'subcategory_name',
         'created_at_time_diff',
+        'is_favourite',
     ];
 
     public function attachments()

@@ -374,8 +374,8 @@
 
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="text" class="form-control floating" name="expect_roi" onwheel="this.blur()"
-                            placeholder="" {{-- pattern="\d{10}" --}} title="Please enter a valid 10-digit  number"
+                        <input type="number" class="form-control floating" name="expect_roi" onwheel="this.blur()"
+                            placeholder="" {{-- pattern="\d{10}" --}} title=""
                             required>
                         <label class="focus-label">Expected ROI %</label>
                     </div>

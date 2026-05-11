@@ -11,7 +11,7 @@ if (session()->has('user')) {
     $notifications = \App\Helpers\RecordHelper::getNotifications(5);
     $my_searches = \App\Helpers\RecordHelper::getSearches(2);
     $favourite_ads = \App\Helpers\RecordHelper::getFavouriteAds(3);
-    $favourite_ads_count = \App\Models\Favourite::where('user_id', session()->get('user')->id)->count();
+    $favourite_ads_count = \App\Models\Favourite::where('user_id', session()->get('user')->id)->has('listing')->count();
 
 $chats = \App\Helpers\RecordHelper::getLatestChats();
 // dd($chats );
@@ -304,6 +304,17 @@ $language = \App\Helpers\RecordHelper::getlanguge();
         border-color: goldenrod transparent transparent transparent !important;
     }
 
+    /* Profile Image Styling */
+    .topbar-profile-img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid #eee;
+        position: relative;
+        top: -1px; /* Move up by 1px */
+    }
+
     /* end */
 </style>
 <header>
@@ -395,14 +406,14 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                     <a class="topbar-dropdown-trigger trigger-with-badge" id="notificationsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Notifications
                         @if(count($notifications) > 0)
-                            <span class="badge-premium-green">{{ count($notifications) }}</span>
+                            <span class="badge-premium-green">{{ count($notifications) > 99 ? '99' : count($notifications) }}</span>
                         @endif
                     </a>
                     <div class="dropdown-menu" style="width:420px;">
                         @if (count($notifications) > 0)
                             <div class="px-2 py-1 border-bottom d-flex justify-content-between align-items-center">
                                 <h6 class="mb-0 fw-bold" style="font-size: 14px;">Notifications</h6>
-                                <span class="badge-new-green">{{ count($notifications) }} New</span>
+                                <span class="badge-new-green">{{ count($notifications) > 99 ? '99' : count($notifications) }} New</span>
                             </div>
                             <div class="list-group list-group-flush">
                                 @foreach($notifications as $notification)
@@ -443,14 +454,14 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                     <a class="topbar-dropdown-trigger trigger-with-badge" id="favoritesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Favorites
                         @if($favourite_ads_count > 0)
-                            <span class="badge-premium-green">{{ $favourite_ads_count }}</span>
+                            <span class="badge-premium-green">{{ $favourite_ads_count > 99 ? '99' : $favourite_ads_count }}</span>
                         @endif
                     </a>
                     <div class="dropdown-menu" style="width:380px;">
                         @if (count($favourite_ads) > 0)
                             <div class="px-2 py-1 border-bottom d-flex justify-content-between align-items-center">
                                 <h6 class="mb-0 fw-bold" style="font-size: 14px;">Favorites</h6>
-                                <span class="badge-new-green">{{ $favourite_ads_count }} New</span>
+                                <span class="badge-new-green">{{ $favourite_ads_count > 99 ? '99' : $favourite_ads_count }} New</span>
                             </div>
                             <div class="list-group list-group-flush">
                                 @foreach($favourite_ads as $favourite_ad)
@@ -482,14 +493,14 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                     <a href="{{ count($chats) > 0 ? '#' : route('chats') . '?country=' . request()->country . '&city=' . request()->city }}" class="topbar-dropdown-trigger trigger-with-badge" id="chatsDropdown" @if(count($chats) > 0) data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @endif>
                         Chats
                         @if(count($chats) > 0)
-                            <span class="badge-premium-green">{{ count($chats) }}</span>
+                            <span class="badge-premium-green">{{ count($chats) > 99 ? '99' : count($chats) }}</span>
                         @endif
                     </a>
                     @if(count($chats) > 0)
                     <div class="dropdown-menu shadow-lg" style="width:420px;">
                         <div class="pl-2 pr-2 pb-2 pt-2 border-bottom d-flex justify-content-between align-items-center">
                             <h6 class="mb-0 fw-bold" style="font-size: 14px;">Chats</h6>
-                            <span class="badge badge-new-green">{{ count($chats) }} New</span>
+                            <span class="badge badge-new-green">{{ count($chats) > 99 ? '99' : count($chats) }} New</span>
                         </div>
                         <div class="list-group list-group-flush">
                             @foreach($chats->take(3) as $message)
@@ -520,7 +531,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
                 </a>
 
                 <!-- Profile -->
-                <div class="dropdown hover-delay">
+                <div class="dropdown">
                     <a class="topbar-dropdown-trigger" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: flex; align-items: center;">
                         <span style="white-space: nowrap; padding: 0px 14px;">{{session()->get('user')->first_name}}</span>
                         <img src="{{session()->get('user')->image_url}}" class="topbar-profile-img">
@@ -643,16 +654,16 @@ $language = \App\Helpers\RecordHelper::getlanguge();
     $(document).ready(function() {
         var dropdownTimer;
         
-        $('.nav-item.dropdown').on('mouseenter', function() {
+        $('.dropdown, .nav-item.dropdown').on('mouseenter', function() {
             var $this = $(this);
             clearTimeout(dropdownTimer);
-            $('.nav-item.dropdown').removeClass('hover-delay');
+            $('.dropdown, .nav-item.dropdown').removeClass('hover-delay');
             $this.addClass('hover-delay');
         }).on('mouseleave', function() {
             var $this = $(this);
             dropdownTimer = setTimeout(function() {
                 $this.removeClass('hover-delay');
-            }, 500); // 2 seconds delay
+            }, 500); 
         });
 
         $('.dropdown-menu').on('mouseenter', function() {
@@ -661,7 +672,7 @@ $language = \App\Helpers\RecordHelper::getlanguge();
             var $dropdown = $(this).closest('.dropdown');
             dropdownTimer = setTimeout(function() {
                 $dropdown.removeClass('hover-delay');
-            }, 500); // 2 seconds delay
+            }, 500); 
         });
     });
 

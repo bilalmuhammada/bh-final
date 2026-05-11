@@ -110,7 +110,7 @@ select {
 }
 
     .emojionearea {
-    border-color: goldenrod !important;
+    border-color: #A17A4E !important;
     outline: 0;
   
     box-shadow: none  !important;
@@ -295,7 +295,7 @@ input.form-control-search:focus {
 
 } 
 .form-control-search{
-    border:1px solid goldenrod !important;
+    border:1px solid #A17A4E !important;
     padding-left: 12px;
     font-size: 13px !important;
     height: 40px;

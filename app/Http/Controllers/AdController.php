@@ -307,4 +307,39 @@ class AdController extends Controller
             'data' => RecordHelper::getDownloadRequests($ListingUserApproval->type)
         ]);
     }
+
+    public function toggleFavourite(Request $request)
+    {
+        $user_id = SiteHelper::getLoginUserId();
+        if (empty($user_id)) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Please login to favorite an ad'
+            ]);
+        }
+
+        $listing_id = $request->listing_id;
+        $favourite = \App\Models\Favourite::where('user_id', $user_id)
+            ->where('listing_id', $listing_id)
+            ->first();
+
+        if ($favourite) {
+            $favourite->delete();
+            $status = 'removed';
+        } else {
+            \App\Models\Favourite::create([
+                'user_id' => $user_id,
+                'listing_id' => $listing_id
+            ]);
+            $status = 'added';
+        }
+
+        $favCount = \App\Models\Favourite::where('user_id', $user_id)->has('listing')->count();
+
+        return response()->json([
+            'status' => true,
+            'fav_status' => $status,
+            'fav_count' => $favCount
+        ]);
+    }
 }

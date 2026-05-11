@@ -309,15 +309,16 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="text" class="form-control floating" name="expect_sale" placeholder="" title=""
-                            required>
+                        <input type="number" class="form-control floating" name="expect_sale" onwheel="this.blur()"
+                            placeholder="" title="" required>
                         <label class="focus-label">Expected Sales Revenue/EBITDA - USD</label>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="text" class="form-control floating" name="expect_roi" placeholder="" title="" required>
+                        <input type="number" class="form-control floating" name="expect_roi" onwheel="this.blur()"
+                            placeholder="" title="" required>
                         <label class="focus-label">Expected ROI %</label>
                     </div>
                 </div>
@@ -335,8 +336,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="text" class="form-control floating" name="contrt_length" placeholder="" title=""
-                            required>
+                        <input type="number" class="form-control floating" name="contract_length" onwheel="this.blur()"
+                            placeholder="" title="" required>
                         <label class="focus-label">Contract Length</label>
                     </div>
                 </div>

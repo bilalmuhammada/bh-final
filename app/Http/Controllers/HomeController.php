@@ -26,28 +26,7 @@ class HomeController extends Controller
             Session::put('country', $request->country);
         }
 
-        // Capture everything during view rendering
-        DB::enableQueryLog();
-        $startTime = microtime(true);
-        
-        $view = view('home.home');
-        $renderedView = $view->render();
-        
-        $endTime = microtime(true);
-        $executionTime = $endTime - $startTime;
-        $queries = DB::getQueryLog();
-        
-        \Illuminate\Support\Facades\Log::info("HOME VIEW RENDER PERFORMANCE:");
-        \Illuminate\Support\Facades\Log::info("Execution time: {$executionTime}s");
-        \Illuminate\Support\Facades\Log::info("Queries count: " . count($queries));
-        
-        foreach ($queries as $query) {
-            if ($query['time'] > 100) {
-                \Illuminate\Support\Facades\Log::warning("SLOW QUERY ({$query['time']}ms): {$query['query']}", $query['bindings']);
-            }
-        }
-
-        return $renderedView;
+        return view('home.home');
     }
     public function showAd()
     {
@@ -59,10 +38,27 @@ class HomeController extends Controller
     }
     public function favourite()
     {
-        $categories = Category::orderBy('name')->get();
+        $user_id = \App\Helpers\SiteHelper::getLoginUserId();
+        if (empty($user_id)) {
+            return redirect('/home')->with('error', 'Please login to view favorites');
+        }
+
+        $categories = Category::orderBy('sequence')->get();
+        
+        // Fetch favorites grouped by category
+        $favourites = \App\Models\Favourite::where('user_id', $user_id)
+            ->has('listing')
+            ->with(['listing.category', 'listing.attachments'])
+            ->get()
+            ->groupBy(function($fav) {
+                return $fav->listing->category_id;
+            });
+
         $data = [
-            'categories' => $categories
+            'categories' => $categories,
+            'favourites' => $favourites
         ];
+        
         return view('home.innerPages.favourite')->with($data);
     }
 

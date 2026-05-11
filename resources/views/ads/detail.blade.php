@@ -585,7 +585,7 @@ button.active .indicator-img {
                                 <div class="carousel slide" id="carouselDemo" data-bs-wrap="true" data-bs-ride="carousel" style="position: relative;">
                                     <div style="position: absolute; top: 10px; right: 10px; z-index: 10;">
                                         <span style="font-size: 13px; cursor:pointer;">
-                                            <i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking"
+                                            <i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart-o' : 'fa-heart-o' }} shaking"
                                                is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
                                                style="padding:6px 6px;font-size:19px; text-shadow: 0 0 3px rgba(0,0,0,0.5);"> </i>&nbsp;
                         
@@ -875,8 +875,8 @@ button.active .indicator-img {
                                                 <div class="similar-listing-image">
                                                     <img src="{{ $similar_ad->main_image_url }}" class="shaking" alt="{{ $similar_ad->name }}">
                                                     <div class="similar-listing-overlay"></div>
-                                                    <div class="similar-listing-heart">
-                                                        <i class="fa fa-heart-o shaking"></i>
+                                                    <div class="similar-listing-heart {{ $similar_ad->is_favourite ? 'favorited' : '' }}" data-listing-id="{{ $similar_ad->id }}">
+                                                        <i class="fa {{ $similar_ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking"></i>
                                                     </div>
                                                     <div class="similar-listing-count">
                                                         1 / {{ count($similar_ad->attachments) > 0 ? count($similar_ad->attachments) : 1 }}
@@ -1167,8 +1167,8 @@ $(document).on('click', '.close-btn', function() {
     $('.popup-container').fadeOut(); // Hide the popup
 });
 
-// Favorite Icon functionality for Similar Ads
-$(document).on('click', '.similar-listing-heart', function(e) {
+// Favorite Icon functionality for Main Ad and Similar Ads
+$(document).on('click', '.favourite-btn, .similar-listing-heart', function(e) {
     e.preventDefault();
     e.stopPropagation();
 
@@ -1178,17 +1178,45 @@ $(document).on('click', '.similar-listing-heart', function(e) {
     }
 
     var $this = $(this);
-    var $icon = $this.find('i');
+    var $icon = $this.hasClass('fa') ? $this : $this.find('i');
+    var listingId = $this.attr('ad-id') || $this.data('listing-id');
 
-    if ($this.hasClass('favorited')) {
-        $this.removeClass('favorited');
-        $icon.removeClass('fa-heart').addClass('fa-heart-o');
-        // Optional: Add AJAX call to remove from favorites
-    } else {
-        $this.addClass('favorited');
-        $icon.removeClass('fa-heart-o').addClass('fa-heart');
-        // Optional: Add AJAX call to add to favorites
-    }
+    $.ajax({
+        url: '/ad/favorite',
+        type: 'POST',
+        data: {
+            listing_id: listingId,
+            _token: $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function(response) {
+            if (response.status) {
+                if (response.fav_status === 'added') {
+                    $this.addClass('favorited');
+                    $icon.removeClass('fa-heart-o').addClass('fa-heart');
+                } else {
+                    $this.removeClass('favorited');
+                    $icon.removeClass('fa-heart').addClass('fa-heart-o');
+                }
+                
+                // Update favorite count in topbar
+                var $badge = $('#favoritesDropdown .badge-premium-green');
+                if (response.fav_count > 0) {
+                    if ($badge.length) {
+                        $badge.text(response.fav_count);
+                    } else {
+                        $('#favoritesDropdown').append('<span class="badge-premium-green">' + response.fav_count + '</span>');
+                    }
+                } else {
+                    $badge.remove();
+                }
+            } else {
+                alert(response.message);
+            }
+        },
+        error: function() {
+            alert('Something went wrong. Please try again.');
+        }
+    });
 });
 
 
