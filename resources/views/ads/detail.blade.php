@@ -52,6 +52,12 @@
             white-space: nowrap;
             height: 122px;
             padding-left: 0;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        .carousel-indicators::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
         }
 
         .carousel-control-next,
