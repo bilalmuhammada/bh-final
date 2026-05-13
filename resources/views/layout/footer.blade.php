@@ -15,7 +15,7 @@
 {{--<div class="marquee" style="background-color: #0000FF;color: white;padding-top: 10px;margin-bottom: 10px;height: 25px;">
         <marquee behavior="" direction=""><h5><b><i><span>BusinessHub</span> </i> </b></h5></marquee>
     </div>--}}
-    <div class="container mb-30" style="max-width: 1200px !important; margin: 0 auto; margin-top:1rem;">
+    <div class="container mb-30" style="max-width: 1200px !important; margin: 0 auto; margin-top: 4rem;">
         <div class="row m-10">
             <div class="col-lg-4 col-md-6 col-12 pl-0">
                     <h6>

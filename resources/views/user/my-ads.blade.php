@@ -68,7 +68,7 @@
 
 </style>
 @section('content')
-<div class="container" style="max-width: 1200px !important; margin: 0 auto; padding: 0px 15px;">
+<div class="container" style="max-width: 1200px !important; margin: 0 auto; padding: 0px 15px; margin-bottom: 100px;">
     <div>
         <h5 style="font-weight: bold;">My Ads</h5>
         <!-- Nav tabs -->
