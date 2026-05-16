@@ -193,7 +193,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" name="price" placeholder="" required>
+                        <input type="text" class="form-control floating number-format" name="price" placeholder="" required>
 
                         <label class="focus-label">Price</label>
                     </div>
@@ -249,7 +249,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" name="stock_level" placeholder="Stock Level"
+                        <input type="text" class="form-control floating number-format" name="stock_level" placeholder="Stock Level"
                             required>
                         <label class="focus-label">Stock Level</label>
                     </div>
@@ -395,7 +395,7 @@
                 success: function (response) {
                     console.log(response);
                     if (response.status) {
-                    showAlert("success", "Your ad has been submitted for review. After approval, it will be published.");
+                    showAlert("success", "Your Ad is Live");
                     setTimeout(function() {
                          window.location.assign(base_url + "user/ads");
                     }, 3000);

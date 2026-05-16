@@ -196,7 +196,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating " onwheel="this.blur()" name="share_price"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" name="share_price"
                             placeholder="" title="" required>
                         <label class="focus-label">Share Price - USD</label>
                     </div>
@@ -230,7 +230,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="sale_revenue"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" name="sale_revenue"
                             placeholder="" title="" required>
                         <label class="focus-label">Sale Revenue - USD</label>
                     </div>
@@ -270,7 +270,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="branches"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" name="branches"
                             placeholder="" title="" required>
                         <label class="focus-label">Branches </label>
                     </div>
@@ -280,7 +280,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="no_of_employees"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" name="no_of_employees"
                             placeholder="" title="" required>
                         <label class="focus-label">Employees </label>
                     </div>
@@ -301,7 +301,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="size_sqm"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" name="size_sqm"
                             placeholder="" title="" required>
                         <label class="focus-label">Premise Size Sq.Ft</label>
                     </div>
@@ -326,7 +326,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="lease_amount"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" name="lease_amount"
                             placeholder="" title="" required>
                         <label class="focus-label">Lease Amount - USD</label>
                     </div>
@@ -369,7 +369,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="text" class="form-control floating" name="website" placeholder="URL" {{--
+                        <input type="text" class="form-control floating url-format" name="website" placeholder="URL" {{--
                             pattern="\d{10}" --}} title="" required>
                         <label class="focus-label">Website</label>
                     </div>
@@ -377,7 +377,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="text" class="form-control floating" name="reason_sale" placeholder="URL" {{--
+                        <input type="text" class="form-control floating url-format" name="instagram" placeholder="URL" {{--
                             pattern="\d{10}" --}} title="" required>
                         <label class="focus-label">Instagram</label>
                     </div>
@@ -498,7 +498,7 @@
                 success: function (response) {
                     console.log(response);
                     if (response.status) {
-                    showAlert("success", "Your ad has been submitted for review. After approval, it will be published.");
+                    showAlert("success", "Your Ad is Live");
                     setTimeout(function() {
                         window.location.assign(base_url + "user/ads");
                         // window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);

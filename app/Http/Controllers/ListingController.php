@@ -143,32 +143,22 @@ class ListingController extends Controller
         ]);
     }
 
-    public function showPlaceAd($category_id,$subcategory_id)
+    public function showPlaceAd($category_id, $subcategory_id, $listing_id = null)
     {
-        // $validation_arr = [
-        //     'listing_id' => $listing_id,
-        // ];
-
-        // $Validator = Validator::make($validation_arr, [
-        //     'listing_id' => 'required|exists:listings,id',
-        // ]);
-
-        // if ($Validator->fails()) {
-        //     $error = $Validator->errors()->first();
-        //     SiteHelper::setAlert('danger', $error);
-        //     return redirect(env('base_url') . 'listing/select-subcategory');
-        // }
-
-        // $Listing = Listing::find($listing_id);
-
-        $Categories = Category::where('id',$category_id)->first();
-        $subcategories = SubCategory::where('id',$subcategory_id)->first();;
+        $Categories = Category::where('id', $category_id)->first();
+        $subcategories = SubCategory::where('id', $subcategory_id)->first();
         $view_name = Category::find($category_id)->form_view;
-//  dd($subcategories);
+
+        $Listing = null;
+        if ($listing_id) {
+            $Listing = Listing::find($listing_id);
+        }
+
         $data = [
-             'Categories' => $Categories,
-             'subcategories' => $subcategories,
+            'Categories' => $Categories,
+            'subcategories' => $subcategories,
             'countries' => RecordHelper::getCountries(),
+            'Listing' => $Listing,
         ];
 
         return view('listings.' . $view_name)->with($data);
@@ -223,7 +213,7 @@ class ListingController extends Controller
                 'description' => $request->description,
                 'city_id' => $request->city,
                 'country_id' => $request->country,
-                'status' => "pending",
+                'status' => "active",
                 'is_featured' => 1,
                 "hide_phone" => false,
                 'latitude' => $request->latitude,
@@ -271,11 +261,11 @@ class ListingController extends Controller
             }
         }
 
-        Session::flash('success', "Your ad has been saved successfully! You can now see it in the review section of My Ads. It will go live after admin approval.");
+        Session::flash('success', "Your Ad is Live");
 
         return response()->json([
             'status' => true,
-            'message' => "Your ad has been saved successfully! You can now see it in the review section of My Ads. It will go live after admin approval.",
+            'message' => "Your Ad is Live",
             'listing_id' => $list->id,
         ]);
     }
@@ -286,65 +276,54 @@ class ListingController extends Controller
     //  dd($data_arr->all());
         switch ($listing_detail_name) {
             case 'business_for_sale_details':
-
-                BusinessForSaleDetail::create([
-                    'listing_id' => $list->id,
-                    'category_name' => $data_arr->category_name,
-                    'subcategory_name' => $data_arr->subcategory_name,
-                    'latitude' => $data_arr->latitude,
-                    'longitude' => $data_arr->longitude,
-                    'title' => $data_arr->title,
-                    'price' => $data_arr->price,
-                    'sale_revenue' => $data_arr->sale_revenue,
-                    'branches' => $data_arr->branches,
-                    'business_type' => $data_arr->business_type,
-
-
-
-                    'trade_license_type' => $data_arr->trade_license_type,
-                    'established_year' => $data_arr->established_year,
-                    'lease_term' => $data_arr->lease_term,
-                    'squrft' => $data_arr->squrft,
-                    'no_of_employees' => $data_arr->no_of_employees,
-                    'reason_sale' => $data_arr->reason_sale,
-                    'premise_status' => $data_arr->premise_status,
-
-                    
-                    'least_amt' => $data_arr->least_amt,
-                    'invt_value' => $data_arr->invt_value,
-                    'selling_fin' => $data_arr->selling_fin,
-                    'supt_traning' => $data_arr->supt_traning,
-                    'posted_by' => $data_arr->posted_by,
-                    'website' => $data_arr->website,
-                    'phone' => $data_arr->phone,
-
-                    'whatsapp' => $data_arr->whatsapp,
-                    'products_and_services_offered' => $data_arr->products_and_services_offered,
-                    'description' => $data_arr->description,
-                    'country' => $data_arr->country,
-                    'location_name' => $data_arr->location_name,
-                    'city_ids' => $data_arr->city_ids,
-                    
-                ]);
-
+                BusinessForSaleDetail::updateOrCreate(
+                    ['listing_id' => $list->id],
+                    [
+                        'category_name' => $data_arr->category_name,
+                        'subcategory_name' => $data_arr->subcategory_name,
+                        'latitude' => $data_arr->latitude,
+                        'longitude' => $data_arr->longitude,
+                        'title' => $data_arr->title,
+                        'price' => $data_arr->price,
+                        'sale_revenue' => $data_arr->sale_revenue,
+                        'branches' => $data_arr->branches,
+                        'business_type' => $data_arr->business_type,
+                        'trade_license_type' => $data_arr->trade_license_type,
+                        'established_year' => $data_arr->established_year,
+                        'lease_term' => $data_arr->lease_term,
+                        'squrft' => $data_arr->squrft,
+                        'no_of_employees' => $data_arr->no_of_employees,
+                        'reason_sale' => $data_arr->reason_sale,
+                        'premise_status' => $data_arr->premise_status,
+                        'least_amt' => $data_arr->least_amt,
+                        'invt_value' => $data_arr->invt_value,
+                        'selling_fin' => $data_arr->selling_fin,
+                        'supt_traning' => $data_arr->supt_traning,
+                        'posted_by' => $data_arr->posted_by,
+                        'website' => $data_arr->website,
+                        'phone' => $data_arr->phone,
+                        'whatsapp' => $data_arr->whatsapp,
+                        'products_and_services_offered' => $data_arr->products_and_services_offered,
+                        'description' => $data_arr->description,
+                        'country' => $data_arr->country,
+                        'location_name' => $data_arr->location_name,
+                        'city_ids' => $data_arr->city_ids,
+                    ]
+                );
                 return true;
                 break;
 
-                case 'business_idea_details':
-
-                    BusinessIdeaDetail::create([
-                        'listing_id' => $list->id,
+            case 'business_idea_details':
+                BusinessIdeaDetail::updateOrCreate(
+                    ['listing_id' => $list->id],
+                    [
                         'category_name' => $data_arr->category_name,
                         'subcategory_name' => $data_arr->subcategory_name,
-                        
                         'latitude' => $data_arr->latitude,
                         'longitude' => $data_arr->longitude,
                         'title' => $data_arr->title,
                         'business_modal' => $data_arr->business_modal,
                         'investment_amount' => $data_arr->investment_amount,
-    
-    
-    
                         'trade_licence_type' => $data_arr->trade_licence_type,
                         'premise_status' => $data_arr->premise_status,
                         'size_sqm' => $data_arr->size_sqm,
@@ -352,8 +331,6 @@ class ListingController extends Controller
                         'branches' => $data_arr->branches,
                         'no_of_employees' => $data_arr->no_of_employees,
                         'sale_freq' => $data_arr->sale_freq,
-    
-                        
                         'expect_sale' => $data_arr->expect_sale,
                         'expect_roi' => $data_arr->expect_roi,
                         'contract_term' => $data_arr->contract_term,
@@ -361,59 +338,46 @@ class ListingController extends Controller
                         'phone' => $data_arr->phone,
                         'whatsapp' => $data_arr->whatsapp,
                         'products_and_services_offered' => $data_arr->products_and_services_offered,
-    
                         'description' => $data_arr->description,
                         'country_id' => $data_arr->country_id,
-                       
                         'city_id' => $data_arr->city_id,
                         'location_name' => $data_arr->location_name,
-    
-                        
-                    ]);
-    
-                    return true;
-                    break;
+                    ]
+                );
+                return true;
+                break;
 
-                    case 'businesses_for_rent':
-
-                        business_rent::create([
-                                'listing_id' => $list->id,
-                                'category_name' => $data_arr->category_name,
-                                'subcategory_name' => $data_arr->subcategory_name,
-                                
-                                'title' => $data_arr->title,
-                                'price' => $data_arr->price,
-                                'business_status' => $data_arr->business_status,
-                                'established_year' => $data_arr->established_year,
-                                'branches' => $data_arr->branches,
-            
-            
-            
-                                'no_of_employees' => $data_arr->no_of_employees,
-                                'premise_status' => $data_arr->premise_status,
-                                'squrft' => $data_arr->squrft,
-                                'lease_term' => $data_arr->lease_term,
-                                'least_amt' => $data_arr->least_amt,
-                                'invt_value' => $data_arr->invt_value,
-                                'supt_traning' => $data_arr->supt_traning,
-            
-                                
-                                'posted_by' => $data_arr->posted_by,
-                                'website' => $data_arr->website,
-                                'instagram' => $data_arr->instagram,
-                                'phone' => $data_arr->phone,
-                                'whatsapp' => $data_arr->whatsapp,
-                                'description' => $data_arr->description,
-                                'country_id' => $data_arr->country_id,
-            
-                                'city_id' => $data_arr->city_id,
-                                'location_name' => $data_arr->location_name,
-                               
-                                
-                            ]);
-            
-                            return true;
-                            break;
+            case 'businesses_for_rent':
+                business_rent::updateOrCreate(
+                    ['listing_id' => $list->id],
+                    [
+                        'category_name' => $data_arr->category_name,
+                        'subcategory_name' => $data_arr->subcategory_name,
+                        'title' => $data_arr->title,
+                        'price' => $data_arr->price,
+                        'business_status' => $data_arr->business_status,
+                        'established_year' => $data_arr->established_year,
+                        'branches' => $data_arr->branches,
+                        'no_of_employees' => $data_arr->no_of_employees,
+                        'premise_status' => $data_arr->premise_status,
+                        'squrft' => $data_arr->squrft,
+                        'lease_term' => $data_arr->lease_term,
+                        'least_amt' => $data_arr->least_amt,
+                        'invt_value' => $data_arr->invt_value,
+                        'supt_traning' => $data_arr->supt_traning,
+                        'posted_by' => $data_arr->posted_by,
+                        'website' => $data_arr->website,
+                        'instagram' => $data_arr->instagram,
+                        'phone' => $data_arr->phone,
+                        'whatsapp' => $data_arr->whatsapp,
+                        'description' => $data_arr->description,
+                        'country_id' => $data_arr->country_id,
+                        'city_id' => $data_arr->city_id,
+                        'location_name' => $data_arr->location_name,
+                    ]
+                );
+                return true;
+                break;
             case 'shares_for_sale_details':
 
                 SharesForSaleDetail::create([

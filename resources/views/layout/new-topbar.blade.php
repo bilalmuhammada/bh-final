@@ -7,7 +7,7 @@
         background-color: #fff !important;
         color: blue !important;
         font-size: 14px;
-        font-weight: bold;
+        font-weight: 400;
     }
 
 
@@ -45,7 +45,7 @@
             margin-right: 0px !important;
             /* padding: 4px !important; */
             font-size: 14px;
-            font-weight: bold;
+            font-weight: 400;
 
         }
         .select2-container--default .select2-results>.select2-results__options{
@@ -65,7 +65,7 @@
         background-color: #fff !important;
         color: blue !important;
         font-size: 14px;
-        font-weight: bold;
+        font-weight: 400;
     }
     .select2-container--default .select2-results__option--selected {
         background-color: #fff !important;

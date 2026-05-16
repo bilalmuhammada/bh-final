@@ -784,9 +784,8 @@
     
     form {
         /* display: flex; */
-        width: 75rem;
-        margin-left: -25px;
-        margin-top: 20px;
+        width: 50rem;
+        margin-bottom: 1px;
     }
     
     .get-stared-area .profile-button:hover {

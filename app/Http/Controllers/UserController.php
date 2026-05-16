@@ -299,7 +299,7 @@ class UserController extends Controller
        $pendingListing = Listing::with(['attachments', 'created_by_user'])->where('created_by', $user_id)->where('status', 'pending')->orderBy('name')->paginate(20, ['*'], 'pendingPage');
        $rejectedListing = Listing::with(['attachments', 'created_by_user'])->where('created_by', $user_id)->where('status', 'rejected')->orderBy('name')->paginate(20, ['*'], 'rejectedPage');
        $expiredListing = Listing::with(['attachments', 'created_by_user'])->where('created_by', $user_id)->where('status', 'expired')->orderBy('name')->paginate(20, ['*'], 'expiredPage');
-       $payment_pendingtListing = Listing::with(['attachments', 'created_by_user'])->where('created_by', $user_id)->where('status', 'payment_pending')->orderBy('name')->paginate(20, ['*'], 'payment_pendingPage');
+       $payment_pendingListing = Listing::with(['attachments', 'created_by_user'])->where('created_by', $user_id)->where('status', 'payment_pending')->orderBy('name')->paginate(20, ['*'], 'payment_pendingPage');
        
         // $ads = $this->getAdsOfCurrentUser(Auth::id() ?? Session::get('user')->id);
 
@@ -310,7 +310,7 @@ class UserController extends Controller
             'pendingListing' => $pendingListing,
             'rejectedListing' => $rejectedListing,
             'expiredListing' => $expiredListing,
-            'payment_pendingtListing' => $payment_pendingtListing,
+            'payment_pendingListing' => $payment_pendingListing,
             
         ];
         

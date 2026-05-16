@@ -11,6 +11,76 @@
 @endphp
 @section('content')
 <style>
+    /* File display styles */
+    .document-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .document-card {
+        position: relative;
+        width: 180px;
+        height: 228px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #f9f9f9;
+        transition: transform 0.3s ease;
+    }
+
+    .document-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .document-card embed {
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    .document-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .document-card:hover .document-overlay {
+        opacity: 1;
+    }
+
+    .document-action-btn {
+        color: #fff;
+        font-size: 22px;
+        transition: all 0.3s ease;
+        text-decoration: none !important;
+    }
+
+    .document-action-btn:hover {
+        color: #A17A4E !important;
+        transform: scale(1.2);
+    }
+
+    /* Brand link styles */
+    .brand-link {
+        color: blue !important; /* Light Blue */
+        transition: all 0.3s ease;
+        text-decoration: none !important;
+    }
+    .brand-link:hover {
+        color: #c5a059 !important; /* Light Gold */
+    }
+
 /* Center and style the popup container */
 .popup-container {
     position: fixed;
@@ -598,9 +668,20 @@ button.active .indicator-img {
                         
                                             <i class="fa fa-share-alt share-btn shaking" ad-id="{{ $ad->id }}" title="Copy Ad link"></i>
                                                <div id="notification" class="notification hidden">Ad link copied to clipboard!</div>
-        
-                                        </span>
-                                    </div>
+                                         </span>
+                                     </div>
+                                     @if($ad->status == 'active')
+                                     <div class="live-badge-note" style="position: absolute; top: 15px; left: 15px; background: rgba(40, 167, 69, 0.9); color: white; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: 600; z-index: 100; display: flex; align-items: center; gap: 6px;">
+                                         <i class="fa fa-circle" style="font-size: 8px; animation: blink-live 1.5s infinite;"></i> Your Ad is Live
+                                     </div>
+                                     <style>
+                                         @keyframes blink-live {
+                                             0% { opacity: 1; }
+                                             50% { opacity: 0.3; }
+                                             100% { opacity: 1; }
+                                         }
+                                     </style>
+                                     @endif
 
                                     <!-- Carousel Inner -->
                                     <div class="carousel-inner">
@@ -706,24 +787,34 @@ button.active .indicator-img {
                         </div>
                         <hr style="border-color: #eee; width: 100%; margin: 0px 13px 0;">
                         <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px; margin-top: 4px;">
-                
-                                <h6><b>Files</b></h6>
-                                <p style="font-size: 14px;">
-                                    <embed class="@if(empty($ad->document_listing_approval_status) || $ad->document_listing_approval_status == 'rejected') blur-image @endif" src="https://www.buds.com.ua/images/Lorem_ipsum.pdf"
-                                           type="application/pdf" width="180px" height="228px"/>
-                                    <br/>
-                                    <div class="btn-next">
-                                        @if(empty($ad->document_listing_approval_status) || $ad->document_listing_approval_status == 'rejected')
-                                            <a href="" class="btn document-download-request">Request Access</a>
-                            @elseif($ad->document_listing_approval_status == 'approved')
-                                            <a href="#" class="btn download-document">Approved</a>
-                                @else
-                                    <p style="margin-bottom:0px;" class="approval-status-request"> Request Sent </p>
-                                @endif
+                            <h6><b>Files</b></h6>
+                            <div class="document-grid">
+                                @forelse($ad->documents as $doc)
+                                    <div class="document-card">
+                                        @php
+                                            $docUrl = asset('uploads/listings/documents/' . $doc->name);
+                                            $fileExtension = strtolower(pathinfo($doc->name, PATHINFO_EXTENSION));
+                                        @endphp
+                                        
+                                        @if(in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif']))
+                                            <img src="{{ $docUrl }}" class="w-100 h-100" style="object-fit: cover;">
+                                        @else
+                                            <embed src="{{ $docUrl }}" type="application/pdf" />
+                                        @endif
 
-                                <p class="approval-status-request" style="display: none;margin-bottom:0px;">Request Sent </p>
+                                        <div class="document-overlay">
+                                            <a href="{{ $docUrl }}" target="_blank" class="document-action-btn" title="View">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                            <a href="{{ $docUrl }}" download class="document-action-btn" title="Download">
+                                                <i class="fa fa-download"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @empty
+                                    <p style="font-size: 14px; color: #888;">No files uploaded.</p>
+                                @endforelse
                             </div>
-
                         </div>
                       
                         <hr style="border-color: #eee; width: 100%; margin: 5px 13px 0;">

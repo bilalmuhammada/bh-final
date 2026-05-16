@@ -5,57 +5,54 @@
     <div class="row">
         <div class="col-lg-5 col-md-5 col-5" >
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Business Model:</b>
-                <span >{{ $ad->details->business_type ?? '....' }}</span></p>
+                <span >{!! $ad->details->business_type ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
         </div>
         <div class="col-lg-7 col-md-7 col-7" >
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Business Status:</b>
-                <span >{{ $ad->details->trade_licence_type ?? '....' }}</span></p>
+                <span >{!! $ad->details->business_status ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
         </div>
     </div>
     <div class="row">
-
-    
         <div class="col-lg-5 col-md-5 col-5" >
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Trade Licence:</b>
-                <span >{{ $ad->details->business_type ?? '....' }}</span></p>
+                <span >{!! $ad->details->trade_licence_type ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
         </div>
         <div class="col-lg-7 col-md-7 col-7" >
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Established Year:</b>
-                <span >{{ $ad->details->trade_licence_type ?? '....' }}</span></p>
+                <span >{!! $ad->details->established_year ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-5 col-md-5 col-5">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Branches:</b>
-                <span >{{ $ad->details->established_year ?? '....' }}</span></p>
+                <span >{!! $ad->details->branches ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
         </div>
         <div class="col-lg-7 col-md-7 col-7">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Employees:</b>
-                <span >{{ $ad->details->lease_term ?? '....' }}</span></p>
+                <span >{!! $ad->details->no_of_employees ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-5 col-md-5 col-5">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Premise Status:</b>
-                <span >{{ $ad->details->size_sqm ?? '....' }}</span></p>
+                <span >{!! $ad->details->premise_status ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
         </div>
         <div class="col-lg-7 col-md-7 col-7">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Premise Size Sq.Ft:</b>
-                <span >{{ $ad->details->no_of_employees ?? '....' }}</span></p>
+                <span >{!! $ad->details->squrft ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-5 col-md-5 col-5">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Lease Term:</b>
-                <span >{{ $ad->details->reason_for_sale ?? '....' }}</span></p>
+                <span >{!! $ad->details->lease_term ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
         </div>
         <div class="col-lg-7 col-md-7 col-7">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Lease Amount:</b>
-                <span >{{ !empty($ad->details->open_for_partnership) && $ad->details->open_for_partnership == 1 ? 'Yes' : 'NO' }}</span>
-            </p>
+                <span >{!! $ad->details->least_amt ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
         </div>
     </div>
 
@@ -63,35 +60,29 @@
     <div class="row">
         <div class="col-lg-5 col-md-5 col-5">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Inventory Value:</b>
-                <span >{{ $ad->details->reason_for_sale ?? '....' }}</span></p>
+                <span >{!! $ad->details->invt_value ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
         </div>
         <div class="col-lg-7 col-md-7 col-7">
-            <p style="font-size: 14px; margin-bottom: 5px;"><b>Leaser Financing:</b>
-                <span >{{ !empty($ad->details->open_for_partnership) && $ad->details->open_for_partnership == 1 ? 'Yes' : 'NO' }}</span>
-            </p>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-5 col-md-5 col-5">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Support & Training:</b>
-                <span >{{ $ad->details->reason_for_sale ?? '....' }}</span></p>
-        </div>
-        <div class="col-lg-7 col-md-7 col-7">
-            <p style="font-size: 14px; margin-bottom: 5px;"><b>Posted by:</b>
-                <span >{{ !empty($ad->details->open_for_partnership) && $ad->details->open_for_partnership == 1 ? 'Yes' : 'NO' }}</span>
-            </p>
+                <span >{!! $ad->details->supt_traning ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-5 col-md-5 col-5">
-            <p style="font-size: 14px; margin-bottom: 5px;"><b>Reason for Lease:</b>
-                <span >{{ $ad->details->reason_for_sale ?? '....' }}</span></p>
+            <p style="font-size: 14px; margin-bottom: 5px;"><b>Posted by:</b>
+                <span >{!! $ad->details->posted_by ?? '<small style="font-size: 11px;">No</small>' !!}</span>
+            </p>
         </div>
         <div class="col-lg-7 col-md-7 col-7">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Website:</b>
-                <span >{{ !empty($ad->details->open_for_partnership) && $ad->details->open_for_partnership == 1 ? 'Yes' : 'NO' }}</span>
+                <span >
+                    @if(!empty($ad->details->website))
+                        <a href="{{ $ad->details->website }}" target="_blank" class="brand-link">Visit Site</a>
+                    @else
+                        <small style="font-size: 11px;">No</small>
+                    @endif
+                </span>
             </p>
         </div>
     </div>
@@ -99,11 +90,18 @@
     <div class="row">
         <div class="col-lg-5 col-md-5 col-5">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Instagram:</b>
-                <span >{{ $ad->details->reason_for_sale ?? '....' }}</span></p>
+                <span >
+                    @if(!empty($ad->details->instagram))
+                        <a href="{{ $ad->details->instagram }}" target="_blank" class="brand-link">View Profile</a>
+                    @else
+                        <small style="font-size: 11px;">No</small>
+                    @endif
+                </span>
+            </p>
         </div>
         <div class="col-lg-7 col-md-7 col-7">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Mobile:</b>
-                <span >{{ !empty($ad->details->open_for_partnership) && $ad->details->open_for_partnership == 1 ? 'Yes' : 'NO' }}</span>
+                <span >{!! $ad->details->phone ?? '<small style="font-size: 11px;">No</small>' !!}</span>
             </p>
         </div>
     </div>
@@ -111,8 +109,8 @@
     <div class="row">
         <div class="col-lg-5 col-md-5 col-5">
             <p style="font-size: 14px; margin-bottom: 0px;"><b>WhatsApp:</b>
-                <span >{{ $ad->details->reason_for_sale ?? '....' }}</span></p>
+                <span >{!! $ad->details->whatsapp ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
         </div>
-        
     </div>
+</div>
 </div>

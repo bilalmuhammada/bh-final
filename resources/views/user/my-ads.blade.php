@@ -65,6 +65,20 @@
     .navColor{
         color: blue;
     }
+    .tab-content > .tab-pane {
+        display: none !important;
+    }
+    .tab-content > .tab-pane.active {
+        display: block !important;
+    }
+    .nav-link {
+        display: block;
+        padding: 0.3rem 1rem 0rem 0rem !important;
+    }
+    .nav-tabs .nav-link.active {
+        background-color: transparent !important;
+  
+    }
 
 </style>
 @section('content')
@@ -77,143 +91,34 @@
                 <a class="nav-link navColor active" data-toggle="tab" href="#all_ads">All Ads - {{ $my_ads->count() }}</a>
             </li> --}}
             <li class="nav-item">
-                <a class="nav-link navColor active" style="padding-left: 0;" data-toggle="tab" href="#live">Live -
+                <a class="nav-link navColor active" id="live-tab" data-toggle="tab" data-bs-toggle="tab" href="#live" data-bs-target="#live" role="tab" aria-controls="live" aria-selected="true">Live -
                     {{ $activeListing->total() }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link navColor" data-toggle="tab" href="#draft">Drafts -
+                <a class="nav-link navColor" id="draft-tab" data-toggle="tab" data-bs-toggle="tab" href="#draft" data-bs-target="#draft" role="tab" aria-controls="draft" aria-selected="false">Drafts -
                     {{ $draftListing->total() }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link navColor" data-toggle="tab" href="#payment_pending">Payment Pending - 
-                    {{ $payment_pendingtListing->total() }}</a>
+                <a class="nav-link navColor" id="payment-pending-tab" data-toggle="tab" data-bs-toggle="tab" href="#payment_pending" data-bs-target="#payment_pending" role="tab" aria-controls="payment_pending" aria-selected="false">Payment Pending - 
+                    {{ $payment_pendingListing->total() }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link navColor" data-toggle="tab" href="#under_review">Under Review
+                <a class="nav-link navColor" id="under-review-tab" data-toggle="tab" data-bs-toggle="tab" href="#under_review" data-bs-target="#under_review" role="tab" aria-controls="under_review" aria-selected="false">Under Review
                     - {{ $pendingListing->total() }} </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link navColor" data-toggle="tab" href="#rejected">Rejected
+                <a class="nav-link navColor" id="rejected-tab" data-toggle="tab" data-bs-toggle="tab" href="#rejected" data-bs-target="#rejected" role="tab" aria-controls="rejected" aria-selected="false">Rejected
                      - {{ $rejectedListing->total() }} </a>
             </li>
-           
             <li class="nav-item">
-                <a class="nav-link navColor" data-toggle="tab" href="#expired">Expired
+                <a class="nav-link navColor" id="expired-tab" data-toggle="tab" data-bs-toggle="tab" href="#expired" data-bs-target="#expired" role="tab" aria-controls="expired" aria-selected="false">Expired
                      - {{ $expiredListing->total() }} </a>
             </li>
         </ul>
         <!-- Tab panes -->
-        <div class="tab-content">
-            <div id="all_ads" class="cont-w tab-pane fade"><br>
-               
-            @if ($payment_pendingtListing->total() > 0)
-                <!------------------single row----------->
-                <div class="col-md-12" style="border-radius:6px;margin-top:-2.5rem;">
-                    @foreach($payment_pendingtListing as $my_ad)
-                    <form class="place-ad-form" enctype="multipart/form-data">
-                        <div class="row" >
-                            <div class="col-md-1 d-flex justify-content-center align-items-center" style="max-width: 0pc;margin-left: 18px;">
-                                <input type="checkbox" >
-                            </div>
-                            <div class="col-md-4" style="max-width:11rem;">
-                                <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}" >
-                                    <div>
-                                        <div class="ad-show" style="padding:10px;border-radius:5px;">
-                                            
-                                         <img src="{{ $my_ad->main_image_url  }}" alt="img" height="120" width="120" style="border-radius: 5px;">
-                                        
-                                        </div>
-                                        
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-3">
-                                <span class="badge badge-success" style="margin-top: 15px;">Live</span>
-
-                                <span class="badge badge-primary" style="margin-left: 7px;">Featured</span>
-                               
-                               <div style="margin-top: 6px;display: grid;">
-                            
-                                    <a href="" style="font-size: 18px;font-weight:bold;color:#000;">
-                                        {{ $my_ad->title ?? 'TITLE N/A' }}
-                                    </a>
-                            
-                                <a href="" class="text-muted" style="font-size: 11px;">
-                                    {{ $my_ad->category_name . " / " . $my_ad->subcategory_name }}
-                                </a>
-                                </div> 
-                                
-                                   
-                                    <h4 style="font-size: 14px;font-weight:bold;">
-                                        {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
-                                        {{-- <span style="cursor: pointer;margin-left: 110px;" title="Delete Ad"><i class="fa fa-trash delete-ad-btn" ad-id="{{ $my_ad->id }}"></i></span> --}}
-                                    </h4>
-                                    
-                              
-                               
-                               <span style="font-size: 12px;"> Last Updated: 15 May</span> <span style="margin-left:33px ;font-size: 12px;"> Expires: in 9 days</span> 
-                            </div>
-                            <div class="col-md-4 d-flex flex-column justify-content-end" style="margin-bottom: 13px;">
-                                <div >
-                                    {{-- <i class="fa fa-exclamation-circle text-warning"></i>  --}}
-                                    <span class="text-bold "  style="font-weight: 700; color: goldenrod;"> 👁️ 1,224 </span> 
-                                    <!-- Button with calendar icon -->
-                                    <button class="btn" style="border: 1px solid #32d951 ; white-space: nowrap; height: 36px; border-radius: 5px; margin-left: 12px;" type="button" aria-expanded="false">
-                                        <a href="" style="color:#32d951">Upgrade</a>
-                                    </button>
-                                    
-                                    <button class="btn" style="border: 1px solid #0088eb ; white-space: nowrap; height: 36px; border-radius: 5px; color: #0088eb;margin-left: 12px;" type="button" aria-expanded="false">
-                                        Edit
-                                    </button>
-                                    
-                                    <button class="btn" style="border: 1px solid red ; white-space: nowrap; height: 36px; border-radius: 5px; color: red;margin-left: 12px;" type="button" aria-expanded="false">
-                                        Delete
-                                    </button>
-                                    
-                                    
-                                 
-                            
-                                    
-                                </div>
-                                <!-- This column is intentionally left empty -->
-                            </div>
-                        </div>
-                    </form>
-                        <!-- Add margin bottom -->
-                        <div class="mb-3"></div>
-                        <hr style="margin-top: -1.3rem; width: 64%;margin-left: 24px;margin-bottom: -1.4rem;">
-                    @endforeach
-                </div>
-                
-                    <!----single row ended------>
-            @else
-                <!------------------single row----------->
-                    {{-- <div class="col-md-12 mx-auto"
-                         style="border: 0px solid #E0E1E3;border-radius:6px;padding:15px 20px;margin-top:10px;">
-                        <div class="row mx-auto">
-                            <div class="mx-auto">
-                                <img src="{{ asset('images/no-ads-placeholder.svg')}}" height="120">
-                            </div>
-                        </div>
-                        <div style="text-align: center;font-weight:bold;">
-                            <h4>
-                                <b>You don't have any ads </b>
-                            </h4>
-                        </div>
-                        <div style="text-align: center;font-size:12px;" class="text-muted">
-                            <a href="{{env('BASE_URL') . 'listing/' . 'select-category'}}">
-                                <button class="btn"
-                                        style="background: #0000FF;color:white;;padding:7px 120px;font-size:14px;">
-                                    Post ad now
-                                </button>
-                            </a>
-                        </div>
-                    </div> --}}
-                    <!----single row ended------>
-                @endif
-            </div>
+        <div class="tab-content" id="myAdsTabContent">
             {{-- live --}}
-            <div id="live" class="cont-w tab-pane active ">
+            <div id="live" class="tab-pane active" role="tabpanel" aria-labelledby="live-tab">
                 
             @if ($activeListing->total() > 0)
                 <!------------------single row----------->
@@ -221,7 +126,7 @@
                     <div class="col-auto" style="width: 40px;">
                         <input type="checkbox" id="selectAllLive" class="select-all-checkbox">
                     </div>
-                    <div class="col">
+                    <div class="col-md-7">
                         <label class="checkbox-label mb-0" for="selectAllLive">All</label>
                     </div>
                     <div class="col-auto" style="margin-top: 6px;">
@@ -231,14 +136,14 @@
                     </div>
                 </div>
                     @foreach($activeListing as $my_ad)
-                    <form class="place-ad-form border-bottom pb-3 mb-3" enctype="multipart/form-data">
+                    <form class="place-ad-form border-bottom" enctype="multipart/form-data">
                         <div class="row align-items-center">
                             <div class="col-auto" style="width: 40px;">
                                 <input type="checkbox" class="row-checkbox" value="{{ $my_ad->id }}">
                             </div>
                             <div class="col-auto pr-0">
                                 <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}">
-                                    <div class="ad-show" style="padding:5px; border-radius:5px; background: #f9f9f9;">
+                                    <div class="ad-show" style="padding:5px; border-radius:4px; background: #f9f9f9;">
                                         <img src="{{ $my_ad->main_image_url }}" alt="img" height="100" width="120" style="border-radius: 5px; object-fit: cover;">
                                     </div>
                                 </a>
@@ -248,7 +153,7 @@
                                     <span class="badge badge-success">Live</span>
                                     <span class="badge badge-primary ml-1">Featured</span>
                                 </div>
-                                <div class="mt-2 text-truncate">
+                                <div class=" text-truncate">
                                     <a href="" style="font-size: 16px; font-weight:bold; color:#000;">
                                         {{ $my_ad->title ?? 'TITLE N/A' }}
                                     </a>
@@ -263,7 +168,7 @@
                                     Last Updated: 15 May · Expires: in 9 days
                                 </div>
                             </div>
-                            <div class="col-auto text-right">
+                            <div class="col-auto text-right align-self-end pb-1">
                                 <div class="d-flex align-items-center gap-3">
                                     <span class="text-bold mr-3" style="font-weight: 700; color: goldenrod;">👁️ 1,224</span>
                                     <div class="btn-group">
@@ -279,7 +184,6 @@
                     <div class="d-flex justify-content-center paginationLink mt-4 mb-5">
                         {{ $activeListing->links('pagination::bootstrap-4') }}
                     </div>
-                </div>
                       
                        
                 @else
@@ -288,7 +192,7 @@
             </div>
   {{-- endlive --}}
 {{-- draft --}}
-            <div id="draft" class="cont-w tab-pane ">
+            <div id="draft" class="tab-pane" role="tabpanel">
                 @if ($draftListing->total() > 0)
                     <!------------------single row----------->
                 <div class="row align-items-center mb-4">
@@ -305,20 +209,20 @@
                     </div>
                 </div>
                         @foreach($draftListing as $my_ad)
-                        <form class="place-ad-form border-bottom pb-3 mb-3" enctype="multipart/form-data">
+                        <form class="place-ad-form border-bottom" enctype="multipart/form-data">
                             <div class="row align-items-center">
                                 <div class="col-auto" style="width: 40px;">
                                     <input type="checkbox" class="row-checkbox" value="{{ $my_ad->id }}">
                                 </div>
                                 <div class="col-auto pr-0">
                                     <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}">
-                                        <div class="ad-show" style="padding:5px; border-radius:5px; background: #f9f9f9;">
+                                        <div class="ad-show" style="padding:5px; border-radius:0px; background: #f9f9f9;">
                                             <img src="{{ $my_ad->main_image_url }}" alt="img" height="100" width="120" style="border-radius: 5px; object-fit: cover;">
                                         </div>
                                     </a>
                                 </div>
                                 <div class="col pl-4">
-                                   <div class="mt-2 text-truncate">
+                                   <div class=" text-truncate">
                                         <a href="" style="font-size: 16px; font-weight:bold; color:#000;">
                                             {{ $my_ad->title ?? 'TITLE N/A' }}
                                         </a>
@@ -330,7 +234,7 @@
                                         {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
                                     </h4>
                                 </div>
-                                <div class="col-auto text-right">
+                                <div class="col-auto text-right align-self-end pb-1">
                                     <div class="btn-group">
                                         <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 12px; min-width: 60px;">Edit</button>
                                         <button class="btn deletebtn p-1 ml-2" type="button" style="border: 1px solid red; color: red; font-size: 12px; min-width: 60px;">Delete</button>
@@ -340,20 +244,17 @@
                         </form>
                         @endforeach
 
-                        <div class="d-flex justify-content-center paginationLink mt-4 mb-5">
-                            {{ $draftListing->links('pagination::bootstrap-4') }}
-                        </div>
+                    <div class="d-flex justify-content-center paginationLink mt-4 mb-5">
+                        {{ $draftListing->links('pagination::bootstrap-4') }}
                     </div>
-                          
-                           
-                    @else
+                @else
                    
-                    @endif
-                </div>
-                {{-- enddraft --}}
+                @endif
+            </div>
+            {{-- enddraft --}}
 {{-- payment_pending --}}
-            <div id="payment_pending" class="cont-w tab-pane fade">
-                @if ($payment_pendingtListing->total() > 0)
+            <div id="payment_pending" class="tab-pane" role="tabpanel">
+                @if ($payment_pendingListing->total() > 0)
                 <!------------------single row----------->
                 <div class="row align-items-center mb-4">
                     <div class="col-auto" style="width: 40px;">
@@ -368,7 +269,7 @@
                         </button>
                     </div>
                 </div>
-                    @foreach($payment_pendingtListing as $my_ad)
+                    @foreach($payment_pendingListing as $my_ad)
                     <form class="place-ad-form border-bottom pb-3 mb-3" enctype="multipart/form-data">
                         <div class="row align-items-center">
                             <div class="col-auto" style="width: 40px;">
@@ -376,7 +277,7 @@
                             </div>
                             <div class="col-auto pr-0">
                                 <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}">
-                                    <div class="ad-show" style="padding:5px; border-radius:5px; background: #f9f9f9;">
+                                    <div class="ad-show" style="padding:5px; border-radius:4px; background: #f9f9f9;">
                                         <img src="{{ $my_ad->main_image_url }}" alt="img" height="100" width="120" style="border-radius: 5px; object-fit: cover;">
                                     </div>
                                 </a>
@@ -394,7 +295,7 @@
                                     {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
                                 </h4>
                             </div>
-                            <div class="col-auto text-right">
+                            <div class="col-auto text-right align-self-end pb-1">
                                 <div class="btn-group">
                                     <button class="btn upgradebtn p-1" type="button" style="border: 1px solid #32d951; color: #32d951; font-size: 12px; min-width: 60px;">Complete</button>
                                     <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 12px; min-width: 60px;">Edit</button>
@@ -405,7 +306,7 @@
                     </form>
                     @endforeach
                     <div class="d-flex justify-content-center paginationLink mt-4 mb-5">
-                        {{ $payment_pendingtListing->links('pagination::bootstrap-4') }}
+                        {{ $payment_pendingListing->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
                       
@@ -418,7 +319,7 @@
             </div>
             {{-- endpayment_pending --}}
             {{-- under_review --}}
-            <div id="under_review" class="cont-w tab-pane fade">
+            <div id="under_review" class="tab-pane" role="tabpanel">
             @if ($pendingListing->total() > 0)
                 <!------------------single row----------->
                 <div class="row align-items-center">
@@ -442,14 +343,14 @@
                             </div>
                             <div class="col-auto pl-0">
                                 <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}">
-                                    <div class="ad-show" style="padding:5px; border-radius:5px; background: #f9f9f9;">
+                                    <div class="ad-show" style="padding:5px; border-radius:4px; background: #f9f9f9;">
                                         <img src="{{ $my_ad->main_image_url }}" alt="img" height="100" width="120" style="border-radius: 5px; object-fit: cover;">
                                     </div>
                                 </a>
                             </div>
                             <div class="col pl-2">
                                 <span class="badge" style="color: white; background-color: #F5BD02">Under Review</span>
-                                <div class="mt-2 text-truncate">
+                                <div class="text-truncate">
                                     <a href="" style="font-size: 16px; font-weight:bold; color:#000;">
                                         {{ $my_ad->title ?? 'TITLE N/A' }}
                                     </a>
@@ -461,7 +362,7 @@
                                     {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
                                 </h4>
                             </div>
-                            <div class="col-auto text-right">
+                            <div class="col-auto text-right align-self-end pb-1">
                                 {{-- No actions for Under Review --}}
                             </div>
                         </div>
@@ -470,37 +371,13 @@
                     <div class="d-flex justify-content-center paginationLink mt-4 mb-5">
                         {{ $pendingListing->links('pagination::bootstrap-4') }}
                     </div>
-                </div>
-                    <!----single row ended------>
-            @else
-                <!------------------single row----------->
-                    {{-- <div class="col-md-12 mx-auto"
-                         style="border: 0px solid #E0E1E3;border-radius:6px;padding:15px 20px;margin-top:10px;">
-                        <div class="row mx-auto">
-                            <div class="mx-auto">
-                                <img src="{{ asset('images/no-ads-placeholder.svg')}}" height="120">
-                            </div>
-                        </div>
-                        <div style="text-align: center;font-weight:bold;">
-                            <h4>
-                                <b>You don't have any ads </b>
-                            </h4>
-                        </div>
-                        <div style="text-align: center;font-size:12px;" class="text-muted">
-                            <a href="{{env('BASE_URL') . 'listing/' . 'select-category'}}">
-                                <button class="btn"
-                                        style="background: #0000FF;color:white;;padding:7px 120px;font-size:14px;">
-                                    Post ad now
-                                </button>
-                            </a>
-                        </div>
-                    </div> --}}
-                    <!----single row ended------>
+                @else
+               
                 @endif
             </div>
             {{-- endunder_review --}}
              {{-- rejected --}}
-            <div id="rejected" class="cont-w tab-pane fade">
+            <div id="rejected" class="tab-pane" role="tabpanel">
             @if ($rejectedListing->total() > 0)
                 <!------------------single row----------->
                 <div class="row align-items-center">
@@ -524,14 +401,14 @@
                             </div>
                             <div class="col-auto pr-0">
                                 <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}">
-                                    <div class="ad-show" style="padding:5px; border-radius:5px; background: #f9f9f9;">
+                                    <div class="ad-show" style="padding:5px; border-radius:4px; background: #f9f9f9;">
                                         <img src="{{ $my_ad->main_image_url }}" alt="img" height="100" width="120" style="border-radius: 5px; object-fit: cover;">
                                     </div>
                                 </a>
                             </div>
                             <div class="col pl-4">
                                 <span class="badge" style="background-color: #ff3131; color: white;">Rejected</span>
-                                <div class="mt-2 text-truncate">
+                                <div class="text-truncate">
                                     <a href="" style="font-size: 16px; font-weight:bold; color:#000;">
                                         {{ $my_ad->title ?? 'TITLE N/A' }}
                                     </a>
@@ -543,7 +420,7 @@
                                     {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
                                 </h4>
                             </div>
-                            <div class="col-auto text-right">
+                            <div class="col-auto text-right align-self-end pb-1">
                                 <div class="btn-group">
                                     <button class="btn upgradebtn p-1" type="button" style="border: 1px solid #32d951; color: #32d951; font-size: 12px; min-width: 60px;">Repost</button>
                                     <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 12px; min-width: 60px;">Edit</button>
@@ -586,7 +463,7 @@
             </div>
             {{-- endrejected --}}
              {{-- expired --}}
-            <div id="expired" class="cont-w tab-pane fade">
+            <div id="expired" class="tab-pane" role="tabpanel">
             @if ($expiredListing->total() > 0)
                 <!------------------single row----------->
                 <div class="row align-items-center">
@@ -610,14 +487,14 @@
                             </div>
                             <div class="col-auto pr-0">
                                 <a href="{{ env('BASE_URL') . 'ads/detail/' . $my_ad->id }}">
-                                    <div class="ad-show" style="padding:5px; border-radius:5px; background: #f9f9f9;">
+                                    <div class="ad-show" style="padding:5px; border-radius:4px; background: #f9f9f9;">
                                         <img src="{{ $my_ad->main_image_url }}" alt="img" height="100" width="120" style="border-radius: 5px; object-fit: cover;">
                                     </div>
                                 </a>
                             </div>
                             <div class="col pl-4">
                                 <span class="badge" style="background-color: #ff3131; color: white;">Expired</span>
-                                <div class="mt-2 text-truncate">
+                                <div class="text-truncate">
                                     <a href="" style="font-size: 16px; font-weight:bold; color:#000;">
                                         {{ $my_ad->title ?? 'TITLE N/A' }}
                                     </a>
@@ -629,7 +506,7 @@
                                     {{ \App\Helpers\SiteHelper::priceFormatter($my_ad->price) }}
                                 </h4>
                             </div>
-                            <div class="col-auto text-right">
+                            <div class="col-auto text-right align-self-end pb-1">
                                 <div class="btn-group">
                                     <button class="btn upgradebtn p-1" type="button" style="border: 1px solid #32d951; color: #32d951; font-size: 12px; min-width: 60px;">Repost</button>
                                     <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 12px; min-width: 60px;">Edit</button>
@@ -673,12 +550,27 @@
             {{-- end expired --}}
         </div>
     </div>
+</div>
 
 @endsection
 
 @section('page_scripts')
 <script>
 $(document).ready(function() {
+    // Force tab switching behavior to resolve Bootstrap version conflicts
+    $('[data-bs-toggle="tab"], [data-toggle="tab"]').on('click', function(e) {
+        e.preventDefault();
+        var targetSelector = $(this).attr('data-bs-target') || $(this).attr('href');
+        
+        // Remove active class from all other tabs and panes
+        $('.nav-link').removeClass('active');
+        $('.tab-pane').removeClass('active');
+        
+        // Add active class to current tab and targeted pane
+        $(this).addClass('active');
+        $(targetSelector).addClass('active');
+    });
+
     // When the "Select All" checkbox is changed
     $(document).on('change', '#selectAll', function() {
         // console.log("Select All checkbox changed");

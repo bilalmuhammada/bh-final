@@ -194,7 +194,7 @@
     .select2-container--default .select2-results__option--highlighted[aria-selected] {
         background-color: #fff !important;
         color: blue !important;
-
+        font-weight: 400 !important;
     }
 
     .ad-item-title {
@@ -305,6 +305,7 @@
 
     .topbar-wrapper .select2-container--default .select2-selection--single:hover .select2-selection__rendered {
         color: goldenrod !important;
+        font-weight: 400 !important;
     }
 
     /* Ensure Select2 arrows are visible in topbar */

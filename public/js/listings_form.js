@@ -166,8 +166,17 @@ function submitListingForm(form) {
         unblock_page();
         return;
     }
-    
+
     form.classList.remove('was-validated');
+
+    // Remove commas from numeric fields before submitting
+    $(form).find('.number-format').each(function() {
+        var val = $(this).val();
+        if (val) {
+            $(this).val(val.replace(/,/g, ''));
+        }
+    });
+
     var formData = new FormData(form);
 
     $.ajax({
@@ -179,9 +188,16 @@ function submitListingForm(form) {
         dataType: "JSON",
         success: function (response) {
             if (response.status) {
-                showAlert("success", response.message);
+                showAlert("success", "Your Ad is Live");
+                var redirectUrl = $(form).data('redirect');
                 setTimeout(function () {
-                    window.location.assign(base_url + "user/ads");
+                    if (redirectUrl) {
+                        // Replace placeholder with actual ID if it exists in the URL
+                        var finalUrl = redirectUrl.replace('{listing_id}', response.listing_id);
+                        window.location.assign(finalUrl);
+                    } else {
+                        window.location.assign(base_url + "user/ads");
+                    }
                 }, 3000);
             } else {
                 var errors = response.errors;
@@ -364,4 +380,24 @@ $(document).on('click', '.place-ad-form-submit', function (e) {
     $('.images').siblings('.invalid-feedback.image-error').hide();
 
     submitListingForm($('.place-ad-form')[0]);
+});
+
+// Number formatting with commas
+$(document).on('input', '.number-format', function() {
+    var value = $(this).val().replace(/,/g, '');
+    if (!isNaN(value) && value !== '') {
+        $(this).val(parseFloat(value).toLocaleString('en-US'));
+    } else {
+        $(this).val(value.replace(/[^0-9.]/g, ''));
+    }
+});
+
+// URL prefix removal (http:/, https:/, etc.)
+$(document).on('blur', '.url-format', function() {
+    var val = $(this).val();
+    if (val) {
+        // Remove http:/, https:/, http://, https://, etc.
+        var cleaned = val.replace(/^(https?:\/\/|https?:\/|https?|ftp:\/\/|www\.)/i, '');
+        $(this).val(cleaned);
+    }
 });

@@ -649,15 +649,9 @@
                     contentType: false, // required for FormData
                     success: function (response) {
                         if (response.status) {
-                            showAlert("success", response.message);
                             if (response.image_url) {
                                 $('#profile-image').attr('src', response.image_url);
                             }
-                            setTimeout(function () {
-                                location.reload();
-                            }, 2000);
-
-
                         } else {
                             console.log("Validation errors:", response.errors);
                         }
@@ -742,10 +736,6 @@
                 dataType: "JSON",
                 success: function (response) {
                     if (response.status) {
-                        showAlert("success", response.message);
-                        // setTimeout(function () {
-                        //     window.location.assign(window.location.href);
-                        // }, 600);
                     } else {
                         var errors = response.errors;
                         console.log(errors);

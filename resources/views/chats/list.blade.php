@@ -354,7 +354,7 @@ a:hover {
     display: none !important; /* Prevent dropdown from showing on hover */
 }
  .select2-results__option, 
- .select2-results__option--highlighted[aria-selected], 
+ .select2-results__option--highlighted, 
  .select2-results__option[aria-selected=true],
  .select2-results__option:hover {
    
