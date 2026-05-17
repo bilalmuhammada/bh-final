@@ -249,7 +249,12 @@ color: goldenrod !important;
     }
     .chat-window {
         height: 75vh !important;
-        min-height: 550px !important;
+        min-height: 570px !important;
+        background-color: #ffffff !important;
+        border: 1px solid #e5e5e5 !important;
+        border-radius: 4px !important;
+        overflow: hidden;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
     }
     .chat-scroll {
         height: calc(75vh - 150px) !important;
@@ -476,7 +481,7 @@ a:hover {
 @section('content')
 
     <div class="content-chat"
-         style="background-color:#fff;min-height: 500px !important;padding-top:5px;padding-bottom:75px;">
+         style="background-color:#F8F9FA;min-height: 500px !important;padding-top:5px;padding-bottom:75px;">
         <div class="container" style="max-width: 1215px !important;">
             <div class="row">
                 <!-- <div style="padding-bottom:2px;"><button class="btn btn-danger" id="deleteSelected"><i class="fa fa-trash"></i></button>

@@ -65,6 +65,11 @@
     .navColor{
         color: blue;
     }
+    .upgradebtn:hover, .editbtn:hover {
+        background-color: blue !important;
+        color: white !important;
+        border-color: blue !important;
+    }
     .tab-content > .tab-pane {
         display: none !important;
     }
@@ -98,10 +103,10 @@
                 <a class="nav-link navColor" id="draft-tab" data-toggle="tab" data-bs-toggle="tab" href="#draft" data-bs-target="#draft" role="tab" aria-controls="draft" aria-selected="false">Drafts -
                     {{ $draftListing->total() }}</a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link navColor" id="payment-pending-tab" data-toggle="tab" data-bs-toggle="tab" href="#payment_pending" data-bs-target="#payment_pending" role="tab" aria-controls="payment_pending" aria-selected="false">Payment Pending - 
                     {{ $payment_pendingListing->total() }}</a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a class="nav-link navColor" id="under-review-tab" data-toggle="tab" data-bs-toggle="tab" href="#under_review" data-bs-target="#under_review" role="tab" aria-controls="under_review" aria-selected="false">Under Review
                     - {{ $pendingListing->total() }} </a>
@@ -170,11 +175,10 @@
                             </div>
                             <div class="col-auto text-right align-self-end pb-1">
                                 <div class="d-flex align-items-center gap-3">
-                                    <span class="text-bold mr-3" style="font-weight: 700; color: goldenrod;">👁️ 1,224</span>
+                                    <span class="text-bold mr-1" style="font-weight: 700; color: goldenrod;">👁️ 1,224</span>
                                     <div class="btn-group">
-                                        <button class="btn upgradebtn p-1" type="button" style="border: 1px solid #32d951; color: #32d951; font-size: 12px; min-width: 60px;">Upgrade</button>
-                                        <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 12px; min-width: 60px;">Edit</button>
-                                        <button class="btn deletebtn p-1 ml-2" type="button" style="border: 1px solid red; color: red; font-size: 12px; min-width: 60px;">Delete</button>
+                                        <button class="btn upgradebtn p-1" type="button" style="border: 1px solid #32d951; color: #32d951; font-size: 11px; min-width: 50px;">Upgrade</button>
+                                        <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 11px; min-width: 50px;">Edit</button>
                                     </div>
                                 </div>
                             </div>
@@ -195,11 +199,11 @@
             <div id="draft" class="tab-pane" role="tabpanel">
                 @if ($draftListing->total() > 0)
                     <!------------------single row----------->
-                <div class="row align-items-center mb-4">
+                <div class="row align-items-center">
                     <div class="col-auto" style="width: 40px;">
                         <input type="checkbox" id="selectAll" class="select-draft-checkbox">
                     </div>
-                    <div class="col">
+                    <div class="col-md-7">
                         <label class="checkbox-label mb-0" for="selectAll">All</label>
                     </div>
                     <div class="col-auto" style="margin-top: 6px;">
@@ -236,8 +240,7 @@
                                 </div>
                                 <div class="col-auto text-right align-self-end pb-1">
                                     <div class="btn-group">
-                                        <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 12px; min-width: 60px;">Edit</button>
-                                        <button class="btn deletebtn p-1 ml-2" type="button" style="border: 1px solid red; color: red; font-size: 12px; min-width: 60px;">Delete</button>
+                                        <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 11px; min-width: 50px;">Edit</button>
                                     </div>
                                 </div>
                             </div>
@@ -253,7 +256,7 @@
             </div>
             {{-- enddraft --}}
 {{-- payment_pending --}}
-            <div id="payment_pending" class="tab-pane" role="tabpanel">
+            {{-- <div id="payment_pending" class="tab-pane" role="tabpanel">
                 @if ($payment_pendingListing->total() > 0)
                 <!------------------single row----------->
                 <div class="row align-items-center mb-4">
@@ -297,9 +300,8 @@
                             </div>
                             <div class="col-auto text-right align-self-end pb-1">
                                 <div class="btn-group">
-                                    <button class="btn upgradebtn p-1" type="button" style="border: 1px solid #32d951; color: #32d951; font-size: 12px; min-width: 60px;">Complete</button>
-                                    <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 12px; min-width: 60px;">Edit</button>
-                                    <button class="btn deletebtn p-1 ml-2" type="button" style="border: 1px solid red; color: red; font-size: 12px; min-width: 60px;">Delete</button>
+                                    <button class="btn upgradebtn p-1" type="button" style="border: 1px solid #32d951; color: #32d951; font-size: 11px; min-width: 50px;">Complete</button>
+                                    <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 11px; min-width: 50px;">Edit</button>
                                 </div>
                             </div>
                         </div>
@@ -316,7 +318,7 @@
                 
                 @endif
                 <!----single row ended------>
-            </div>
+            </div> --}}
             {{-- endpayment_pending --}}
             {{-- under_review --}}
             <div id="under_review" class="tab-pane" role="tabpanel">
@@ -326,7 +328,7 @@
                     <div class="col-auto" style="width: 40px;">
                         <input type="checkbox" id="selectunder_review" class="select-under_review-checkbox">
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <label class="checkbox-label mb-0" for="selectunder_review">All</label>
                     </div>
                     <div class="col-auto" style="margin-top: 6px;">
@@ -384,7 +386,7 @@
                     <div class="col-auto" style="width: 40px;">
                         <input type="checkbox" id="selectrejected" class="select-rejected-checkbox">
                     </div>
-                    <div class="col">
+                    <div class="col-md-7">
                         <label class="checkbox-label mb-0" for="selectrejected">All</label>
                     </div>
                     <div class="col-auto" style="margin-top: 6px;">
@@ -394,7 +396,7 @@
                     </div>
                 </div>
                     @foreach($rejectedListing as $my_ad)
-                    <form class="place-ad-form border-bottom pb-3 mb-3" enctype="multipart/form-data">
+                    <form class="place-ad-form border-bottom" enctype="multipart/form-data">
                         <div class="row align-items-center">
                             <div class="col-auto" style="width: 40px;">
                                 <input type="checkbox" class="row-checkbox" value="{{ $my_ad->id }}">
@@ -422,9 +424,8 @@
                             </div>
                             <div class="col-auto text-right align-self-end pb-1">
                                 <div class="btn-group">
-                                    <button class="btn upgradebtn p-1" type="button" style="border: 1px solid #32d951; color: #32d951; font-size: 12px; min-width: 60px;">Repost</button>
-                                    <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 12px; min-width: 60px;">Edit</button>
-                                    <button class="btn deletebtn p-1 ml-2" type="button" style="border: 1px solid red; color: red; font-size: 12px; min-width: 60px;">Delete</button>
+                                    <button class="btn upgradebtn p-1" type="button" style="border: 1px solid #32d951; color: #32d951; font-size: 11px; min-width: 50px;">Repost</button>
+                                    <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 11px; min-width: 50px;">Edit</button>
                                 </div>
                             </div>
                         </div>
@@ -433,9 +434,7 @@
                     <div class="d-flex justify-content-center paginationLink mt-4 mb-5">
                         {{ $rejectedListing->links('pagination::bootstrap-4') }}
                     </div>
-                </div>
-                    <!----single row ended------>
-            @else
+                @else
                 <!------------------single row----------->
                     {{-- <div class="col-md-12 mx-auto"
                          style="border: 0px solid #E0E1E3;border-radius:6px;padding:15px 20px;margin-top:10px;">
@@ -470,7 +469,7 @@
                     <div class="col-auto" style="width: 40px;">
                         <input type="checkbox" id="selectexpired" class="select-expired-checkbox">
                     </div>
-                    <div class="col">
+                    <div class="col-md-7">
                         <label class="checkbox-label mb-0" for="selectexpired">All</label>
                     </div>
                     <div class="col-auto">
@@ -480,7 +479,7 @@
                     </div>
                 </div>
                     @foreach($expiredListing as $my_ad)
-                    <form class="place-ad-form border-bottom pb-3 mb-3" enctype="multipart/form-data">
+                    <form class="place-ad-form border-bottom " enctype="multipart/form-data">
                         <div class="row align-items-center">
                             <div class="col-auto" style="width: 40px;">
                                 <input type="checkbox" class="row-checkbox" value="{{ $my_ad->id }}">
@@ -508,9 +507,8 @@
                             </div>
                             <div class="col-auto text-right align-self-end pb-1">
                                 <div class="btn-group">
-                                    <button class="btn upgradebtn p-1" type="button" style="border: 1px solid #32d951; color: #32d951; font-size: 12px; min-width: 60px;">Repost</button>
-                                    <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 12px; min-width: 60px;">Edit</button>
-                                    <button class="btn deletebtn p-1 ml-2" type="button" style="border: 1px solid red; color: red; font-size: 12px; min-width: 60px;">Delete</button>
+                                    <button class="btn upgradebtn p-1" type="button" style="border: 1px solid #32d951; color: #32d951; font-size: 11px; min-width: 50px;">Repost</button>
+                                    <button class="btn editbtn p-1 ml-2" type="button" style="border: 1px solid #0088eb; color: #0088eb; font-size: 11px; min-width: 50px;">Edit</button>
                                 </div>
                             </div>
                         </div>
@@ -519,9 +517,7 @@
                     <div class="d-flex justify-content-center paginationLink mt-4 mb-5">
                         {{ $expiredListing->links('pagination::bootstrap-4') }}
                     </div>
-                </div>
-                    <!----single row ended------>
-            @else
+                @else
                 <!------------------single row----------->
                     {{-- <div class="col-md-12 mx-auto"
                          style="border: 0px solid #E0E1E3;border-radius:6px;padding:15px 20px;margin-top:10px;">
