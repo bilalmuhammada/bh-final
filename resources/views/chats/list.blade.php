@@ -70,7 +70,7 @@ select {
         border-radius: 7px;
         height: 70px;
         margin-top: 2px;
-        width: 85spx;
+        width: 85px;
 
     }
     .hiddencheck {
@@ -135,15 +135,17 @@ select {
         display: flex;
         align-items: center;
         transition: background-color 0.3s;
-        padding: 10px;
+        padding: 10px 8px 10px 13px;
         border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .chat-title:hover {
         background-color: #f0f0f0;
     }
     .chat-title.active {
-        background-color: aliceblue !important;
+        background-color: #eafafe !important;
     }
     ::-webkit-scrollbar {
   width: 12px; /* You can adjust this value based on your preference */
@@ -242,7 +244,14 @@ color: goldenrod !important;
         border-radius: 10px;
     }
     .input-msg-send{
-        width: 96% !important;
+        width: 100% !important;
+        height: 42px !important;
+        border: 1px solid #A17A4E !important;
+        border-radius: 30px !important;
+        padding: 0 54px 0 18px !important;
+        color: #111 !important;
+        background-color: #fff !important;
+        outline: none !important;
     }
     .emojionearea-editor{
         left: 19px !important;
@@ -323,6 +332,49 @@ input.form-control-search:focus {
     letter-spacing:1px;
     font-size: 14px;
     margin-left: 0px;
+}
+.chat-title .media-body {
+    min-width: 0;
+    width: 100%;
+}
+.chat-list-actions {
+    margin-left: auto;
+}
+.chat-message-form {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    margin: 0;
+    padding: 6px 12px;
+    width: 100%;
+}
+.chat-input-wrap {
+    flex: 1 1 auto;
+    min-width: 0;
+    position: relative;
+}
+.chat-input-wrap .emojionearea {
+    width: 100% !important;
+}
+.chat-input-wrap .emojionearea.emojionearea-inline {
+    height: 42px !important;
+}
+.chat-input-wrap .emojionearea.emojionearea-inline > .emojionearea-editor {
+    color: #111 !important;
+    min-height: 38px !important;
+    padding-right: 48px !important;
+}
+.chat-send-button {
+    align-items: center;
+    background: transparent !important;
+    border: none !important;
+    display: flex;
+    flex: 0 0 38px;
+    height: 38px;
+    justify-content: center;
+    padding: 0 !important;
+    position: static !important;
+    width: 38px;
 }
 #userOptionsMenu:hover{
     color: goldenrod !important;
@@ -554,7 +606,7 @@ a:hover {
                                                 </div>
                                           
                                               
-                                                <div class="d-flex flex-column justify-content-between align-items-end" style="height: 66px; margin-right: 5px; flex-shrink: 0; min-width: 80px;">
+                                                <div class="chat-list-actions d-flex flex-column justify-content-between align-items-end" style="height: 66px; margin-right: 5px; flex-shrink: 0; min-width: 80px;">
                                                     <div style="display: flex; gap: 8px; margin-top: 2px;">
                                                         <button class="btn btn-link favorite-chat" 
                                                                 title="{{ $chat->is_favorite ? 'Unfavourite' : 'Favourite' }}" 
@@ -715,26 +767,24 @@ a:hover {
                                             </div>
                                         </div>
                                         <div class="chat-footer">
-                                            <div class="input-group" style="margin-left: 17px;" >
+                                            <div class="chat-message-form" >
                                                 {{-- <div class="avatar" style="padding:4px;">
                                                     <img
                                                         src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') }}"
                                                         alt="User Image"
                                                         class="avatar-img rounded-circle">
                                                 </div> --}}
-                                                <div class="input-group" style="position: relative; width: 93%; height: 42px;">
-                                                    <input type="text" class="input-msg-send emoji-trigger form-controls"
-                                                           id="emoji-trigger" 
+                                                <div class="chat-input-wrap">
+                                                    <input type="text" class="input-msg-send emoji-trigger form-control"
                                                            data-user-id="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
-                                                           data-chat-id="{{ $chat->id }}"  data-chat-block="{{$chat->is_blocked}}"    style="border-radius: 30px; width: 100%; padding-right: 50px;"
+                                                           data-chat-id="{{ $chat->id }}"  data-chat-block="{{$chat->is_blocked}}"
                                                            >
                                                    
                                                 </div>
                                                         
-                                                <button type="button" id="msg-send-btn" class="btn btn-primary msg-send-btn"
+                                                <button type="button" class="btn btn-primary msg-send-btn chat-send-button"
                                                 data-user-id="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'id') }}"
-                                                data-chat-id="{{ $chat->id }}"
-                                                style="position: absolute; right: 43px; top: 3px; background-color: transparent; border: none;">
+                                                data-chat-id="{{ $chat->id }}">
                                             <i class="fa fa-arrow-circle-up mgn-send-color" aria-hidden="true"
                                                style="font-size: 33px; background-color: none;"></i>
                                         </button>
@@ -1107,7 +1157,6 @@ $.ajax({
                         $(message).val('');
                         $('.emojionearea-editor').html('');
                     }
-                     $(selector).find('.unread-count').css('display', 'none');
                 },
                 error: function (response) {
                     console.log('error');

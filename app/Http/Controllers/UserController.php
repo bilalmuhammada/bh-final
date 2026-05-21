@@ -164,21 +164,19 @@ class UserController extends Controller
 
             $User->save();
 
-            $img_response = [];
-  
-            //calling function update img
-            // if (!empty($request->image)) {
-            //     $img_response = $this->updateProfileImage($request->image);
-            // }
+            if ($request->hasFile('profile_image')) {
+                $this->saveProfileImage($User, $request->file('profile_image'));
+            }
            
             Session::forget('user');
+            $User->load('attachment');
             Session::put('user', $User);
 
             return response()->json([
                 'status' => true,
-                'imag' => $img_response,
                 'message' => 'Updated',
-                'data' => $User
+                'data' => $User,
+                'image_url' => $User->image_url,
             ]);
         } else {
             return response()->json([
@@ -197,57 +195,23 @@ class UserController extends Controller
 
        
         if (!empty($User)) {
-           
-           
-            // Check if a profile image is uploaded
-    if ($request->hasFile('profile_image')) {
-        $file = $request->file('profile_image');
-
-        // Ensure only a single file
-        if ($file && $file->isValid()) {
-            $path = public_path('uploads/users/profile-images/');
-            
-            // Create folder if it doesn't exist
-            if (!file_exists($path)) {
-                mkdir($path, 0755, true);
+            if (!$request->hasFile('profile_image')) {
+                return [
+                    'status' => false,
+                    'message' => 'Please select an image',
+                ];
             }
 
-            // Generate unique file name
-            $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
-            
-            // Move file to the desired folder
-            $file->move($path, $fileName);
+            $imageUrl = $this->saveProfileImage($User, $request->file('profile_image'));
+            $User->load('attachment');
+            session()->put('user', $User);
+            session()->save();
 
-            // Save/update in attachments table
-            Attachment::updateOrCreate(
-                [
-                    'object' => 'User',
-                    'object_id' => $User->id,
-                    'context' => 'profile-image'
-                ],
-                [
-                    'name' => $fileName,
-                    'file_name' => $fileName,
-                    'type' => $file->getClientOriginalExtension(),
-                ]
-            );
-        }
-    }
-
-
-
-    $new_user_data = User::find(Auth::id() ?? Session::get('user')->id);
-    $User->image_url = asset('uploads/users/profile-images/' . $fileName);
-    $User->refresh();
-    session()->put('user', $User);
-    session()->save();  
-
-    return [
-        'status' => true,
-        'message' => 'Updated',
-        
-        'image_url' => session('user')->image_url
-    ];
+            return [
+                'status' => true,
+                'message' => 'Updated',
+                'image_url' => $imageUrl
+            ];
            
            
            
@@ -270,6 +234,37 @@ class UserController extends Controller
 
             // return [  'status' => true, 'message' => 'Updated',  'image_url' => $new_user_data->image_url];
         }
+    }
+
+    private function saveProfileImage(User $User, $file)
+    {
+        if (!$file || !$file->isValid()) {
+            return $User->image_url;
+        }
+
+        $path = public_path('uploads/users/profile-images/');
+
+        if (!file_exists($path)) {
+            mkdir($path, 0755, true);
+        }
+
+        $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
+        $file->move($path, $fileName);
+
+        Attachment::updateOrCreate(
+            [
+                'object' => 'User',
+                'object_id' => $User->id,
+                'context' => 'profile-image'
+            ],
+            [
+                'name' => $fileName,
+                'file_name' => $fileName,
+                'type' => $file->getClientOriginalExtension(),
+            ]
+        );
+
+        return asset('uploads/users/profile-images/' . $fileName);
     }
 
     public function myAds()

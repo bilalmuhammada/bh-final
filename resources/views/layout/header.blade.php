@@ -71,7 +71,7 @@ $(document).ready(function() {
                     console.log('enter');
                  
                
-                    $('#msg-send-btn').click();  
+                    $('.chat-body-div:visible .msg-send-btn').click();
                 }
                 
             },
