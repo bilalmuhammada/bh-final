@@ -1,4 +1,4 @@
-<div class="col-md-6 mx-auto listing-upload-field listing-upload-field-after-textarea">
+<div class="col-md-6 mx-auto" style="margin-top:166px;">
     <div class="input--file">
         <i class="fa fa-camera fa-1x"></i>
         <input type="file" multiple class="form-controlz form-control floating form-control-file images" name="images[]"
@@ -12,7 +12,7 @@
 
 </div>
 
-<div class="col-md-6 mx-auto listing-upload-preview">
+<div class="col-md-6 mx-auto" style="margin-top:13px;">
     <div id="image-display-div" style="margin-bottom: 11px;" class="row">
         @if(isset($Listing))
             @foreach($Listing->images as $image)
@@ -29,7 +29,7 @@
     </div>
 </div>
 
-<div class="col-md-6 mx-auto listing-upload-field">
+<div class="col-md-6 mx-auto" style="margin-top:0px;margin-bottom: 18px;">
     <div class="input--file">
         <i class="fa fa-camera fa-1x"></i>
         <input type="file" multiple class="form-controlz form-control-file  documents" id="fileInput" name="documents[]"
@@ -42,7 +42,7 @@
 </div>
 
 <!-- Middle Separate Section for Toggle -->
-<div class="col-md-6 mx-auto listing-upload-toggle">
+<div class="col-md-6 mx-auto" style="margin-top: -7px; margin-bottom: 7px;">
     <div class="premium-toggle-container" id="filehide">
         <label class="premium-toggle-label">Do you want to Show or Hide your Files?</label>
         <div class="toggle-wrapper">
