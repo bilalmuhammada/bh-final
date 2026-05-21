@@ -192,6 +192,11 @@
         .select2-container--default .select2-selection--single .select2-selection__rendered {
             font-size: 14px !important;
         }
+
+        .map {
+            border-radius: 8px !important;
+            overflow: hidden;
+        }
     </style>
     <!-- Optional JavaScript -->
     @include('listing-layout.footer')

@@ -661,7 +661,7 @@ button.active .indicator-img {
                                 <div class="carousel slide" id="carouselDemo" data-bs-wrap="true" data-bs-ride="carousel" style="position: relative;">
                                     <div style="position: absolute; top: 10px; right: 10px; z-index: 10;">
                                         <span style="font-size: 13px; cursor:pointer;">
-                                            <i class="fa favourite-btn {{ $ad->is_favourite ? 'fa-heart-o' : 'fa-heart-o' }} shaking"
+                                            <i class="fa favourite-btn detail-favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking"
                                                is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
                                                style="padding:6px 6px;font-size:19px; text-shadow: 0 0 3px rgba(0,0,0,0.5);"> </i>&nbsp;
                         
@@ -793,6 +793,7 @@ button.active .indicator-img {
                                     <div class="document-card">
                                         @php
                                             $docUrl = asset('uploads/listings/documents/' . $doc->name);
+                                            $downloadName = preg_replace('/^\d+_/', '', $doc->name);
                                             $fileExtension = strtolower(pathinfo($doc->name, PATHINFO_EXTENSION));
                                         @endphp
                                         
@@ -806,7 +807,7 @@ button.active .indicator-img {
                                             <a href="{{ $docUrl }}" target="_blank" class="document-action-btn" title="View">
                                                 <i class="fa fa-eye"></i>
                                             </a>
-                                            <a href="{{ $docUrl }}" download class="document-action-btn" title="Download">
+                                            <a href="{{ $docUrl }}" download="{{ $downloadName }}" class="document-action-btn" title="Download">
                                                 <i class="fa fa-download"></i>
                                             </a>
                                         </div>
@@ -1246,7 +1247,10 @@ return ;
                 @php
                     $docs_arr = [];
                     foreach ($ad->documents as $doc) {
-                        $docs_arr[] = $doc->name;
+                        $docs_arr[] = [
+                            'storedName' => $doc->name,
+                            'downloadName' => preg_replace('/^\d+_/', '', $doc->name),
+                        ];
                     }
                 @endphp
 
@@ -1257,8 +1261,8 @@ return ;
             // Loop through the files and create a link for each
             for (var i = 0; i < files.length; i++) {
                 var downloadLink = $('<a>', {
-                    href: "{{ asset('uploads/listings/documents/') }}/" + files[i], // Adjust the download route
-                    download: files[i],
+                    href: "{{ asset('uploads/listings/documents/') }}/" + files[i].storedName, // Adjust the download route
+                    download: files[i].downloadName,
                     style: 'display:none;'
                 });
 
