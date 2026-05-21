@@ -75,6 +75,14 @@
         background: #0000FF !important;
         color: #fff !important;
     }
+    .btn-next a.btn.is-live,
+    .btn-nexts a.btn.is-live,
+    .btn-next a.btn.is-live:hover,
+    .btn-nexts a.btn.is-live:hover {
+        background: #29B87E !important;
+        border-color: #24a370 !important;
+        color: #fff !important;
+    }
     .listing-title-form-submit{
         background: #A17A4E !important;
         color: #fff !important;
@@ -124,4 +132,3 @@
         }
     </style>
 </head>
-

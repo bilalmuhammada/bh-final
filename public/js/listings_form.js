@@ -160,7 +160,7 @@ function loadMap() {
     });
 }
 
-function submitListingForm(form) {
+function submitListingForm(form, submitButton) {
     if (form.checkValidity() === false) {
         form.classList.add('was-validated');
         unblock_page();
@@ -188,7 +188,11 @@ function submitListingForm(form) {
         dataType: "JSON",
         success: function (response) {
             if (response.status) {
-                showAlert("success", "Your Ad is Live");
+                if (submitButton) {
+                    submitButton.text('Live').addClass('is-live');
+                }
+
+                showAlert("success", response.message || "Your Ad is Live");
                 var redirectUrl = $(form).data('redirect');
                 setTimeout(function () {
                     if (redirectUrl) {
@@ -374,12 +378,13 @@ $(document).on('change', '.country', function () {
 
 $(document).on('click', '.place-ad-form-submit', function (e) {
     e.preventDefault();
+    e.stopImmediatePropagation();
     block_page();
 
     // hiding image error div manually
     $('.images').siblings('.invalid-feedback.image-error').hide();
 
-    submitListingForm($('.place-ad-form')[0]);
+    submitListingForm($('.place-ad-form')[0], $(this));
 });
 
 // Number formatting with commas

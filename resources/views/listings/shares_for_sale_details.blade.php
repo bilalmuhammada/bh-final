@@ -498,6 +498,7 @@
                 success: function (response) {
                     console.log(response);
                     if (response.status) {
+                    $(e.currentTarget).text('Live').addClass('is-live');
                     showAlert("success", "Your Ad is Live");
                     setTimeout(function() {
                         window.location.assign(base_url + "user/ads");

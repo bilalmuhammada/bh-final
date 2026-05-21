@@ -960,9 +960,22 @@ button.active .indicator-img {
                     <h6 class="mb-0" ><b>Similar Ads</b></h6>
                     <div class="row">
                         <div class="col-12">
-                            <div class="slider">
+                            <div class="similar-ads-slider">
                                 @php
                                     $similar_ads = \App\Helpers\RecordHelper::getAdsBySubcategory($ad->subcategory_id)->where('id', '!=', $ad->id)->take(12);
+
+                                    if ($similar_ads->isEmpty()) {
+                                        $similar_ads = \App\Helpers\RecordHelper::getAdsByCategory($ad->category_id)->where('id', '!=', $ad->id)->take(12);
+                                    }
+
+                                    if ($similar_ads->isEmpty()) {
+                                        $similar_ads = \App\Models\Listing::with(['attachments', 'created_by_user'])
+                                            ->where('category_id', $ad->category_id)
+                                            ->where('id', '!=', $ad->id)
+                                            ->orderBy('created_at', 'desc')
+                                            ->take(12)
+                                            ->get();
+                                    }
                                 
                                     @endphp
                                 @foreach($similar_ads as $similar_ad)
@@ -1005,7 +1018,7 @@ button.active .indicator-img {
     <script type="text/javascript">
   $(document).ready(function(){
     // Wait for images to loaZd or a short delay
-   $('.slider').slick({
+   $('.similar-ads-slider').slick({
         slidesToShow: 4,
         slidesToScroll: 1,
         prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-angle-left"></i></button>',

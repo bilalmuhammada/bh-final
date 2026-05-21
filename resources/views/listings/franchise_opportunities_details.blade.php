@@ -498,7 +498,8 @@
                 success: function (response) {
                     console.log(response);
                     if (response.status) {
-                    showAlert("success", "Your ad has been submitted for review. After approval, it will be published.");
+                    $(e.currentTarget).text('Live').addClass('is-live');
+                    showAlert("success", "Your Ad is Live");
                     setTimeout(function() {
                         window.location.assign(base_url + "user/ads");
                         // window.location.assign(`${base_url}listing/plane-ad/${response.listing_id}`);
