@@ -338,7 +338,7 @@
                     </div>
                 </div>
                     @foreach($pendingListing as $my_ad)
-                    <form class="place-ad-form border-bottom " style="margin-left: 0px; margin-top: 0px; margin-bottom: 0px; width: 56.5rem;" enctype="multipart/form-data">
+                    <form class="place-ad-form border-bottom " style="margin-left: 0px; margin-top: 0px; margin-bottom: 0px; width: 50rem;" enctype="multipart/form-data">
                         <div class="row align-items-center">
                             <div class="col-auto" style="width: 40px;">
                                 <input type="checkbox" class="row-checkbox" value="{{ $my_ad->id }}">
