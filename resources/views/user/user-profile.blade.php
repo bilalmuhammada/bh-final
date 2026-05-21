@@ -199,7 +199,7 @@
                     <a href="#" id="change-photo-link"
                         style="display: flex; margin-left:37px; margin-top: 5px;font-size:13px; color: goldenrod;">Change
                         Photo</a>
-                    <input type="file" name="profile_image" id="profile_image" class="form-control-file" accept="image/*"
+                    <input type="file" name="profile_image" id="profile_image" form="profile-form" class="form-control-file" accept="image/*"
                         style="border: 1px solid #999; border-radius: 0.3rem; display: none;">
                     <input type="hidden" name="image" class="base64-Image-name">
                 </div>
@@ -612,7 +612,8 @@
 
 
 
-        document.getElementById('change-photo-link').addEventListener('click', function () {
+        document.getElementById('change-photo-link').addEventListener('click', function (e) {
+            e.preventDefault();
             document.getElementById('profile_image').click();
         });
 
@@ -626,40 +627,10 @@
                 // Preview the image
                 var imgElement = document.getElementById('profile-image');
                 imgElement.src = e.target.result;
+                $('.topbar-profile-img').attr('src', e.target.result);
 
                 // Optional: store base64 in hidden input
                 document.querySelector('.base64-Image-name').value = e.target.result;
-
-                // Prepare FormData for AJAX
-                var formData = new FormData();
-                formData.append('_token', '{{ csrf_token() }}'); // Laravel CSRF
-                formData.append('profile_image', file); // the actual file
-
-                // Optionally, send other profile fields too
-                formData.append('first_name', $('#name').val());
-                formData.append('email', $('#email').val());
-
-                // AJAX request to update profile
-                $.ajax({
-                    url: api_url + 'update-image', // your profile update route
-                    type: 'POST',
-                    data: formData,
-                    dataType: 'JSON',
-                    processData: false, // required for FormData
-                    contentType: false, // required for FormData
-                    success: function (response) {
-                        if (response.status) {
-                            if (response.image_url) {
-                                $('#profile-image').attr('src', response.image_url);
-                            }
-                        } else {
-                            console.log("Validation errors:", response.errors);
-                        }
-                    },
-                    error: function (xhr) {
-                        showAlert("error", "Error");
-                    }
-                });
             };
 
             reader.readAsDataURL(file);
@@ -727,15 +698,23 @@
 
             var form = $('#profile-form')[0]; // get form DOM element
             var formData = new FormData(form);
+            formData.append('_token', '{{ csrf_token() }}');
 
 
             $.ajax({
                 url: api_url + 'update-profile',
-                data: $('.profile-form').serialize(),
+                data: formData,
                 type: 'post',
                 dataType: "JSON",
+                processData: false,
+                contentType: false,
                 success: function (response) {
                     if (response.status) {
+                        if (response.image_url) {
+                            var imageUrl = response.image_url + (response.image_url.indexOf('?') === -1 ? '?' : '&') + 'v=' + new Date().getTime();
+                            $('#profile-image').attr('src', imageUrl);
+                            $('.topbar-profile-img').attr('src', imageUrl);
+                        }
                     } else {
                         var errors = response.errors;
                         console.log(errors);
