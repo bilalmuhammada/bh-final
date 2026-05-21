@@ -346,6 +346,7 @@ input.form-control-search:focus {
     gap: 8px;
     margin: 0;
     padding: 6px 12px;
+    transform: translateY(-10px);
     width: 100%;
 }
 .chat-input-wrap {
