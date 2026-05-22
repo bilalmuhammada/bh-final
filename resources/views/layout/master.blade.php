@@ -186,9 +186,9 @@
 
             var flagUrl = $(country.element).data('flag-url');
             var $content = $(
-                '<div style="display: flex; align-items: center; width: 100%;">' +
-                (flagUrl ? '<img src="' + flagUrl + '" class="img-flag" style="width:20px; height:13px; margin-right: 8px;">' : '') +
-                '<span style="font-size:14px; white-space:nowrap;">' + country.text + '</span>' +
+                '<div style="display: flex; align-items: center; width: 100%; min-height: 24px; line-height: 1.2;">' +
+                (flagUrl ? '<img src="' + flagUrl + '" class="img-flag" style="width:20px; height:13px; margin-right: 8px; flex-shrink: 0;">' : '') +
+                '<span style="font-size:14px; white-space:nowrap; line-height: 1.2;">' + country.text + '</span>' +
                 '</div>'
 
             );

@@ -7235,5 +7235,6 @@ border: 1px solid #2d11e7;
     /* end chat */
 /* Global Select2 Result Height Fix */
 .select2-container--default .select2-results > .select2-results__options {
-    max-height: 160px !important;
+    max-height: 220px !important;
+    padding-bottom: 8px !important;
 }

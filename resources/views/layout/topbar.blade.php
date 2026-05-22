@@ -32,10 +32,18 @@
         margin: 0 auto;
         padding: 0px 15px;
         background: #fff;
+        height: 37px;
     }
 
     .topbar-logo {
         margin-right: 15px;
+        display: flex;
+        align-items: center;
+        height: 37px;
+    }
+
+    .topbar-logo img {
+        display: block;
     }
 
     .topbar-main-bg {
@@ -56,6 +64,7 @@
         /* Reduced from 11px */
         flex: 1;
         /* Allow group to fill remaining space */
+        height: 37px;
     }
 
     .topbar-wrapper .selection-item {
@@ -65,6 +74,8 @@
 
     .topbar-wrapper .selection-item .select2-container {
         max-width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
     }
 
     .topbar-wrapper .country_dropdown ~ .select2-container {
@@ -186,12 +197,17 @@
 
     /* Select2 Results Padding */
     .select2-results__option {
-        padding: 4px 10px !important;
+        padding: 0px 10px !important;
         font-size: 13px !important;
+        min-height: 31px !important;
+        line-height: 1.2 !important;
+        display: flex !important;
+        align-items: center !important;
     }
 
     .select2-results__options {
         overflow-x: hidden !important;
+        padding-bottom: 8px !important;
     }
 
 
@@ -318,11 +334,19 @@
     }
 
     /* Fix for Language and other selects arrow spacing */
+    .topbar-wrapper .select2-container--default .select2-selection--single {
+        height: 28px !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+
     .topbar-wrapper .select2-container--default .select2-selection--single .select2-selection__rendered {
         padding-left: 6px !important;
         padding-right: 28px !important;
         color: blue !important;
         font-weight: 600 !important;
+        font-size: 14px !important;
+        line-height: 28px !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
         white-space: nowrap !important;
@@ -331,15 +355,16 @@
 
     .topbar-wrapper .select2-container--default .select2-selection--single:hover .select2-selection__rendered {
         color: goldenrod !important;
-        font-weight: 400 !important;
+        font-weight: 600 !important;
+        font-size: 14px !important;
     }
 
     /* Ensure Select2 arrows are visible in topbar */
     .topbar-wrapper .select2-container--default .select2-selection--single .select2-selection__arrow {
-        height: 35px !important;
+        height: 28px !important;
         width: 22px !important;
         display: block !important;
-        top: -3px !important;
+        top: 0 !important;
         right: 0 !important;
     }
 
