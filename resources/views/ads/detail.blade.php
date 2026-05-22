@@ -8,6 +8,25 @@
     ];
     $posted_by_val = optional($ad->details)->posted_by ?? '';
     $posted_by_label = $posted_by_types[$posted_by_val] ?? '';
+    $external_link_url = function ($url) {
+        if (empty($url)) {
+            return '';
+        }
+
+        return preg_match('/^https?:\/\//i', $url) ? $url : 'https://' . $url;
+    };
+    $external_link_label = function ($url, $fallback = 'Link') use ($external_link_url) {
+        $normalized_url = $external_link_url($url);
+        $host = parse_url($normalized_url, PHP_URL_HOST);
+
+        return $host ? preg_replace('/^www\./i', '', $host) : $fallback;
+    };
+    $instagram_link_label = function ($url) use ($external_link_url, $external_link_label) {
+        $normalized_url = $external_link_url($url);
+        $path = trim(parse_url($normalized_url, PHP_URL_PATH) ?? '', '/');
+
+        return $path ? '@' . basename($path) : $external_link_label($url, 'Instagram');
+    };
 @endphp
 @section('content')
 <style>
@@ -60,25 +79,42 @@
     }
 
     .document-action-btn {
-        color: #fff;
-        font-size: 22px;
+       
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+       
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
         transition: all 0.3s ease;
         text-decoration: none !important;
     }
 
     .document-action-btn:hover {
-        color: #A17A4E !important;
         transform: scale(1.2);
+    }
+
+    .document-action-btn .document-eye-icon {
+        line-height: 1;
+    }
+
+    .document-action-btn .document-download-icon {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+        display: block;
     }
 
     /* Brand link styles */
     .brand-link {
-        color: blue !important; /* Light Blue */
+        color: #0088eb !important; /* Light Blue */
         transition: all 0.3s ease;
         text-decoration: none !important;
     }
     .brand-link:hover {
-        color: #c5a059 !important; /* Light Gold */
+        color: #A17A4E !important; /* Logo Gold */
     }
 
 /* Center and style the popup container */
@@ -597,7 +633,7 @@ button.active .indicator-img {
             </div>
             <div class="row">
                 <div class="col">
-                    <span class="text-muted small">Posted {{ $ad->created_at_time_diff }}</span>
+                    <span class="text-muted" style="font-size: 11px;">Posted {{ $ad->created_at_time_diff }}</span>
                 </div>
             </div>
         </div>
@@ -611,7 +647,7 @@ button.active .indicator-img {
                         </div>
                         <div class="row">
                             <span class="text-muted"
-                                  style="font-size: 12px; margin-left: 7px;">Posted {{ $ad->created_at_time_diff }}</span>
+                                  style="font-size: 11px; margin-left: 7px;">Posted {{ $ad->created_at_time_diff }}</span>
                         </div>
                     </div>
                     <div class="col" style="text-align:right;">
@@ -805,10 +841,10 @@ button.active .indicator-img {
 
                                         <div class="document-overlay">
                                             <a href="{{ $docUrl }}" target="_blank" class="document-action-btn" title="View">
-                                                <i class="fa fa-eye"></i>
+                                                <span class="document-eye-icon">👁️</span>
                                             </a>
                                             <a href="{{ $docUrl }}" download="{{ $downloadName }}" class="document-action-btn" title="Download">
-                                                <i class="fa fa-download"></i>
+                                                <img src="{{ asset('images/dwnld.png') }}" alt="Download" class="document-download-icon">
                                             </a>
                                         </div>
                                     </div>

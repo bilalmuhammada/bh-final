@@ -3,53 +3,53 @@
     <div class="row">
         <div class="col-lg-5 col-md-5 col-5" >
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Business Model:</b>
-                <span >{!! $ad->details->business_modal ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
+                <span >{!! $ad->details->business_modal ?? 'No' !!}</span></p>
         </div>
         <div class="col-lg-7 col-md-7 col-7" >
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Trade License:</b>
-                <span >{!! $ad->details->trade_licence_type ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
+                <span >{!! $ad->details->trade_licence_type ?? 'No' !!}</span></p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-5 col-md-5 col-5" >
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Premise:</b>
-                <span >{!! $ad->details->premise_status ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
+                <span >{!! $ad->details->premise_status ?? 'No' !!}</span></p>
         </div>
         <div class="col-lg-7 col-md-7 col-7" >
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Premise Size Sq.Ft:</b>
-                <span >{!! $ad->details->size_sqm ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
+                <span >{!! $ad->details->size_sqm ?? 'No' !!}</span></p>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-5 col-md-5 col-5" >
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Employees:</b>
-                <span >{!! $ad->details->no_of_employees ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
+                <span >{!! $ad->details->no_of_employees ?? 'No' !!}</span></p>
         </div>
         <div class="col-lg-7 col-md-7 col-7" >
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Expected Sales:</b>
-                <span >{!! $ad->details->expect_sale ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
+                <span >{!! $ad->details->expect_sale ?? 'No' !!}</span></p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-5 col-md-5 col-5" >
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Sales Frequency:</b>
-                <span >{!! $ad->details->sale_freq ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
+                <span >{!! $ad->details->sale_freq ?? 'No' !!}</span></p>
         </div>
         <div class="col-lg-7 col-md-7 col-7" >
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Expected ROI %:</b>
-                <span >{!! $ad->details->expect_roi ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
+                <span >{!! $ad->details->expect_roi ?? 'No' !!}</span></p>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-5 col-md-5 col-5" >
             <p style="font-size: 14px; margin-bottom: 0px;"><b>Contract Term:</b>
-                <span >{!! $ad->details->contract_term ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
+                <span >{!! $ad->details->contract_term ?? 'No' !!}</span></p>
         </div>
         <div class="col-lg-7 col-md-7 col-7" >
             <p style="font-size: 14px; margin-bottom: 0px;"><b> Contract Length:</b>
-                <span >{!! $ad->details->contract_length ?? '<small style="font-size: 11px;">No</small>' !!}</span></p>
+                <span >{!! $ad->details->contract_length ?? 'No' !!}</span></p>
         </div>
     </div>
 </div>
