@@ -28,9 +28,11 @@
       
         .map {
             height: 10rem;
-    width: 33rem;
-    margin-left: 8rem;
-    margin-top: 10px;
+            width: 33rem;
+            margin-left: 8rem;
+            margin-top: 10px;
+            border-radius: 4px;
+            overflow: hidden;
         }
 
         .image-gallery {

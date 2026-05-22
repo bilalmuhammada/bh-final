@@ -22,7 +22,7 @@
     height: 250px;
     width: 100%;
     margin-top: 10px;
-    border-radius: 6px; /* Slightly more curved edges */
+    border-radius: 4px; /* Slightly more curved edges */
 }
 
 .image-gallery {
@@ -58,7 +58,7 @@
     cursor: pointer;
     color: #e74c3c;
     font-size: 18px;
-   
+
     z-index: 10;
 }
 
@@ -75,7 +75,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0px auto; 
+    margin: 0px auto;
     text-align: center;
     width: 100%;
 }
@@ -95,7 +95,7 @@
     border-radius: 50px;
     padding: 4px;
     user-select: none;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
 .toggle-wrapper input {
@@ -125,7 +125,7 @@
     background: #fff;
     border-radius: 50px;
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     z-index: 1;
 }
 

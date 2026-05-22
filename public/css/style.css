@@ -5722,7 +5722,8 @@ border: 1px solid #2d11e7;
     
     .map-border {
         border: 2px solid #fff;
-        border-radius: 10px;
+        border-radius: 4px;
+        overflow: hidden;
     }
     /*the container must be positioned relative:*/
     

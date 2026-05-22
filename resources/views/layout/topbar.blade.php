@@ -52,10 +52,32 @@
     .topbar-items-group {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         /* Reduced from 11px */
         flex: 1;
         /* Allow group to fill remaining space */
+    }
+
+    .topbar-wrapper .selection-item {
+        flex: 0 0 auto;
+        min-width: 0;
+    }
+
+    .topbar-wrapper .selection-item .select2-container {
+        max-width: 100% !important;
+    }
+
+    .topbar-wrapper .country_dropdown ~ .select2-container {
+        width: 160px !important;
+    }
+
+    .topbar-wrapper .city_dropdown ~ .select2-container,
+    .topbar-wrapper .language_dropdown ~ .select2-container {
+        width: 120px !important;
+    }
+
+    .topbar-wrapper .currency_dropdown ~ .select2-container {
+        width: 100px !important;
     }
 
     .list-group-item {
@@ -297,9 +319,13 @@
 
     /* Fix for Language and other selects arrow spacing */
     .topbar-wrapper .select2-container--default .select2-selection--single .select2-selection__rendered {
-        padding-right: 35px !important;
+        padding-left: 6px !important;
+        padding-right: 28px !important;
         color: blue !important;
         font-weight: 600 !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
         transition: color 0.2s ease;
     }
 
@@ -311,9 +337,10 @@
     /* Ensure Select2 arrows are visible in topbar */
     .topbar-wrapper .select2-container--default .select2-selection--single .select2-selection__arrow {
         height: 35px !important;
-        width: 30px !important;
+        width: 22px !important;
         display: block !important;
         top: -3px !important;
+        right: 0 !important;
     }
 
     .topbar-wrapper .select2-container--default .select2-selection--single .select2-selection__arrow b {

@@ -208,8 +208,15 @@ $(document).on('click', '.reset-password-submit', function () {
 });
 
 //add to facourite
-$(document).on('click', '.favourite-btn', function () {
+$(document).on('click', '.favourite-btn', function (e) {
     var thisElem = $(this);
+
+    if (thisElem.hasClass('detail-favourite-btn')) {
+        return;
+    }
+
+    e.preventDefault();
+    e.stopPropagation();
 
     // alert(thisElem.attr('ad-id'));
     if (!checkIfUserLoggedIn()) {
@@ -352,4 +359,3 @@ $(document).on('click', '.report-ad-submit-btn', function () {
     });
 
 });
-

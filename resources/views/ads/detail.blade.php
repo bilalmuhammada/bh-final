@@ -833,7 +833,7 @@ button.active .indicator-img {
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12" >
                                     {{-- <div style="border-radius:5px;"> --}}
-                                        <div style="width:100%; height:70px; border-radius:6px; margin-bottom: 6px;" id="map"></div>
+                                        <div style="width:100%; height:70px; border-radius:4px; overflow:hidden; margin-bottom: 6px;" id="map"></div>
                                     {{-- </div> --}}
                                 </div>
                             </div>
