@@ -151,8 +151,8 @@
 
         .searches-cat {
             font-size: 13.5px !important;
-            margin: 0 8px !important;
-            padding: 6px 14px !important;
+            margin: 0px 1px !important;
+            padding: 6px 7px !important;
            
             border-radius: 20px !important;
             white-space: nowrap !important;
@@ -182,12 +182,25 @@
             letter-spacing: 0.5px !important;
         }
         .searchbox-area {
+            width: 920px !important;
+            max-width: 100% !important;
             height: auto !important;
             min-height: 120px !important;
+            padding-top: 10px !important;
             padding-bottom: 25px !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: center !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        .searchbox-area .search-w {
+            width: 96% !important;
+        }
+
+        .slider-heading {
+            padding-bottom: 8px !important;
         }
 
         /* Similar Listing Card Styles */

@@ -190,7 +190,8 @@
     
     .searchbox-area {
         background: rgba(33, 34, 35, .6);
-        width: 80%;
+        width: 920px;
+        max-width: 100%;
         /* opacity: 0.5; */
         /* padding: 30px 50px; */
         padding-top: 20px;
@@ -199,6 +200,8 @@
         -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
         box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
         margin-bottom: 50px;
+        margin-left: auto;
+        margin-right: auto;
         height: 142px;
     }
     
@@ -444,7 +447,7 @@
         text-align: center;
         color: #A17A4E;
         padding-top: 30px;
-        padding-bottom: 20px;
+        padding-bottom: 8px;
     }
     
     .detail h6 {
@@ -460,7 +463,7 @@
     }
     
     .search-w {
-        width: 920px;
+        width: 100%;
     }
     /* @media screen and (min-width: 600px) {
         img#mobile-logo {
