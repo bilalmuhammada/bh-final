@@ -610,7 +610,7 @@ request()->city)->first()->name : 'All';
 
                                 <p style="margin-top: 5.2rem; font-size: 13px; white-space: nowrap;">
                                     <i class="fa fa-map-marker" style="color: red;"></i> {{ $ad->location_name }}
-                                    <span style="font-size: 16px; margin: 0 5px;">&#9679;</span>
+                                    <span style="font-size: 16px; margin-left: 6px; margin-right: 4px; color: #A17A4E;">&#9679;</span>
                                     <span>{{ \Carbon\Carbon::parse($ad->created_at)->format('d M Y') }}</span>
                                 </p>
 

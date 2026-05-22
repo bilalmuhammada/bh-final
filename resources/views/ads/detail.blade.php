@@ -813,7 +813,7 @@ button.active .indicator-img {
                                         </div>
                                     </div>
                                 @empty
-                                    <p style="font-size: 14px; color: #888;">No files uploaded.</p>
+                                    <p style="font-size: 14px; color: #888;">No Files</p>
                                 @endforelse
                             </div>
                         </div>
