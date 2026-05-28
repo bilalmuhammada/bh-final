@@ -189,6 +189,12 @@
             font-size: 14px !important;
         }
 
+        .form-focus textarea.floating ~ .focus-label {
+            background-color: #fff;
+            padding: 0 5px;
+            z-index: 2;
+        }
+
         .select2-container--default .select2-selection--single .select2-selection__rendered {
             font-size: 14px !important;
         }

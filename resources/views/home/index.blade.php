@@ -224,7 +224,11 @@
     }
 
     .select2-results__option {
-        padding: 6px !important;
+        display: flex !important;
+        align-items: center !important;
+        min-height: 27px !important;
+        padding: 0px 5px !important;
+        white-space: normal !important;
     }
 
     /* .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable { */
@@ -282,7 +286,7 @@
         margin-right: 0px;
         font-size: 14px !important;
         font-weight: bolder !important;
-        padding: 6px !important;
+        padding: 6px 6px 10px !important;
     }
 
     .select2-dropdown {
@@ -632,9 +636,9 @@
 
             var flagUrl = $(country.element).data('flag-url');
             var $content = $(
-                '<div style="display: flex; align-items: center;">' +
-                (flagUrl ? '<img src="' + flagUrl + '" class="img-flag" style="width:20px; height:13px; margin-right: 8px;">' : '') +
-                '<span style="font-size:14px;">' + country.text + '</span>' +
+                '<div style="display: flex; align-items: center; min-height: 24px; width: 100%; line-height: 1.25;">' +
+                (flagUrl ? '<img src="' + flagUrl + '" class="img-flag" style="width:20px; height:13px; margin-right: 8px; flex-shrink: 0;">' : '') +
+                '<span style="font-size:14px; white-space: normal;">' + country.text + '</span>' +
                 '</div>'
             );
             return $content;
