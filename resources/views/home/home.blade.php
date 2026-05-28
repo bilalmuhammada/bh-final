@@ -167,6 +167,7 @@
         }
         .searbox-input {
             height: 55px !important;
+            flex: 1 1 auto !important;
             padding: 12px 20px !important;
             font-size: 18px !important;
             border-top-left-radius: 4px !important;
@@ -175,8 +176,12 @@
             border-bottom-right-radius: 0 !important;
         }
         .searbox-button {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex: 0 0 130px !important;
             height: 55px !important;
-            margin-top: 7px !important;
+            margin-top: 0 !important;
             border-radius: 0 4px 4px 0 !important;
             font-weight: 600 !important;
             letter-spacing: 0.5px !important;
@@ -191,11 +196,14 @@
             display: flex !important;
             flex-direction: column !important;
             justify-content: center !important;
-            margin-left: auto !important;
+            margin-left: 60px !important;
             margin-right: auto !important;
         }
 
         .searchbox-area .search-w {
+            display: flex !important;
+            align-items: stretch !important;
+            flex-wrap: nowrap !important;
             width: 96% !important;
         }
 
@@ -434,7 +442,7 @@
         <div class="container home-full-width">
             <div class="row">
                 <div class="col-md-12">
-                    <h6 style="margin-top: 20px;">
+                    <h6 style="margin-top: 45px;">
                         <b style="margin-left: 0rem;">Popular Categories</b>
                     </h6>
                     <div class="row" style="margin-bottom: -10px;">

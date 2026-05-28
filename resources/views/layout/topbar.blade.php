@@ -60,8 +60,8 @@
     .topbar-items-group {
         display: flex;
         align-items: center;
-        gap: 8px;
-        /* Reduced from 11px */
+        gap: 10px;
+        /* Keep a little breathing room between topbar categories */
         flex: 1;
         /* Allow group to fill remaining space */
         height: 37px;
@@ -120,8 +120,8 @@
 
     .badge-premium-green {
         position: absolute;
-        top: -4px;
-        right: -10px;
+        top: -7px;
+        right: -11px;
         background-color: #dcfce7 !important;
         color: #166534 !important;
         font-size: 8px !important;
