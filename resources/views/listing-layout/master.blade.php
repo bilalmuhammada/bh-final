@@ -189,10 +189,50 @@
             font-size: 14px !important;
         }
 
+        select.form-control,
+        select.form-controlz,
+        .form-focus select.form-control,
+        .form-focus select.form-controlz {
+            height: 51px !important;
+            padding: 0 42px 0 12px !important;
+            border: 1px solid #A17A4E !important;
+            border-radius: 4px !important;
+            background-color: #fff !important;
+            background-position: right 15px center !important;
+            background-size: 14px !important;
+            background-clip: padding-box !important;
+            color: #495057 !important;
+            line-height: 1.5 !important;
+        }
+
+        .form-focus .select2-container .select2-selection--single,
+        .form-focus .select2-container--default .select2-selection--single {
+            height: 51px !important;
+            border: 1px solid #A17A4E !important;
+            border-radius: 4px !important;
+            background-color: #fff !important;
+        }
+
+        .form-focus .select2-container .select2-selection--single .select2-selection__rendered,
+        .form-focus .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 49px !important;
+            padding: 0 42px 0 12px !important;
+        }
+
+        .form-focus .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 49px !important;
+            right: 10px !important;
+        }
+
         .form-focus textarea.floating ~ .focus-label {
             background-color: #fff;
             padding: 0 5px;
             z-index: 2;
+        }
+
+        .form-focus textarea.form-control {
+            padding-top: 24px !important;
+            line-height: 1.35;
         }
 
         .select2-container--default .select2-selection--single .select2-selection__rendered {

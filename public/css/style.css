@@ -2484,6 +2484,17 @@ border: 1px solid #2d11e7;
     /* box-shadow: 1px 1px 1px 1px #eee; */
 }
 
+.form-focus textarea.form-control {
+    padding-top: 24px !important;
+    line-height: 1.35;
+}
+
+.form-focus textarea.floating ~ .focus-label {
+    background-color: #fff;
+    padding: 0 5px;
+    z-index: 2;
+}
+
 .form-focus .form-control::-webkit-input-placeholder {
     color: transparent;
     transition: 240ms;
