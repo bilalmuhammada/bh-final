@@ -193,7 +193,8 @@ class ListingController extends Controller
      if ($Validator->fails()) {
             return response()->json([
                 'status' => FALSE,
-                'message' => $Validator->errors()->first()
+                'message' => $Validator->errors()->first(),
+                'errors' => $Validator->errors(),
             ]);
         }
 

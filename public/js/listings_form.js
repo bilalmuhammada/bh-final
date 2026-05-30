@@ -167,7 +167,13 @@ function submitListingForm(form, submitButton) {
         return;
     }
 
+    if (submitButton && submitButton.hasClass('is-submitting')) {
+        return;
+    }
+
     form.classList.remove('was-validated');
+    $('.images').siblings('.invalid-feedback.image-error').hide().html('');
+    $(form).find('.invalid-feedback').not('.image-error').html('');
 
     // Remove commas from numeric fields before submitting
     $(form).find('.number-format').each(function() {
@@ -178,6 +184,11 @@ function submitListingForm(form, submitButton) {
     });
 
     var formData = new FormData(form);
+    var originalText = submitButton ? submitButton.text() : '';
+
+    if (submitButton) {
+        submitButton.addClass('is-submitting disabled').attr('aria-disabled', 'true').text('Posting...');
+    }
 
     $.ajax({
         url: api_url + 'listing/save-ad',
@@ -189,7 +200,11 @@ function submitListingForm(form, submitButton) {
         success: function (response) {
             if (response.status) {
                 if (submitButton) {
-                    submitButton.text('Live').addClass('is-live');
+                    submitButton
+                        .removeClass('is-submitting')
+                        .addClass('is-posted is-live disabled')
+                        .attr('aria-disabled', 'true')
+                        .text('Posted');
                 }
 
                 showAlert("success", response.message || "Your Ad is Live");
@@ -204,21 +219,42 @@ function submitListingForm(form, submitButton) {
                     }
                 }, 3000);
             } else {
-                var errors = response.errors;
+                var errors = response.errors || {};
                 form.classList.add('was-validated');
+                var hasFieldErrors = false;
+
                 for (var fieldName in errors) {
-                    if (fieldName == 'images') {
-                        $('.images').siblings('.invalid-feedback.image-error').show().html(errors[fieldName][0]);
-                    } else {
-                        var errorElement = $(form).find('[name="' + fieldName + '"]');
-                        errorElement.val('');
-                        errorElement.siblings('.invalid-feedback').html(errors[fieldName]);
+                    if (Object.prototype.hasOwnProperty.call(errors, fieldName)) {
+                        hasFieldErrors = true;
+                        var message = Array.isArray(errors[fieldName]) ? errors[fieldName][0] : errors[fieldName];
+
+                        if (fieldName == 'images') {
+                            $('.images').siblings('.invalid-feedback.image-error').show().html(message);
+                        } else {
+                            var errorElement = $(form).find('[name="' + fieldName + '"], [name="' + fieldName + '[]"]');
+                            errorElement.siblings('.invalid-feedback').html(message);
+                        }
                     }
+                }
+
+                if (!hasFieldErrors && response.message) {
+                    showAlert("error", response.message);
+                }
+
+                if (submitButton) {
+                    submitButton.removeClass('is-submitting disabled').removeAttr('aria-disabled').text(originalText);
                 }
             }
         },
         error: function (response) {
-            showAlert("error", "Server Error");
+            var message = response.responseJSON && response.responseJSON.message
+                ? response.responseJSON.message
+                : "Server Error";
+            showAlert("error", message);
+
+            if (submitButton) {
+                submitButton.removeClass('is-submitting disabled').removeAttr('aria-disabled').text(originalText);
+            }
         },
         complete: function() {
             unblock_page();
