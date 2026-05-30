@@ -322,13 +322,25 @@ $(document).on('click', '.report-ad-submit-btn', function () {
         dataType: "JSON",
         success: function (response) {
             if (response.status) {
-                $('#reportModal').modal('hide');
+                var isUserReport = $('.report-ad-form:visible input[name="formtype"]').val() === 'reportuser';
+                var reportedAdId = $('.report-ad-form:visible .ad-id').val();
+
+                if (isUserReport) {
+                    $('#reportUserModal').modal('hide');
+                    $('.report-user-btn[data-ad-id="' + reportedAdId + '"]')
+                        .addClass('user-reported')
+                        .text('User Reported');
+                } else {
+                    $('#reportModal').modal('hide');
+                }
 
                 var reportAdBtn = $('.report-ad-btn');
 
-                reportAdBtn.removeAttr('ad-id').removeClass('report-ad-btn');
-                reportAdBtn.text('Ad Reported');
-                reportAdBtn.attr('title', 'Ad Reported');
+                if (!isUserReport) {
+                    reportAdBtn.removeAttr('ad-id').removeClass('report-ad-btn');
+                    reportAdBtn.text('Ad Reported');
+                    reportAdBtn.attr('title', 'Ad Reported');
+                }
 
                 showAlert('success', "Ad Reported Successfully!");
 

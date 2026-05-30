@@ -15,7 +15,7 @@
     //  dd($second =="plane-ad" );
 @endphp
 
-<body style="overflow-x: hidden;">
+<body style="overflow-x: hidden; background-color: #fff;">
     @if(!in_array(request()->path(), ["about-us", "privacy-policy", "terms-of-use", "contact-us",]) && $second !== "plane-ad")
         @include("layout.topbar")
     @else

@@ -80,8 +80,8 @@
 
     .document-action-btn {
        
-        width: 42px;
-        height: 42px;
+        width: 9px;
+        height: 32px;
         border-radius: 50%;
        
         display: inline-flex;
@@ -101,7 +101,7 @@
     }
 
     .document-action-btn .document-download-icon {
-        width: 42px;
+        width: 27px;
         height: 42px;
         object-fit: contain;
         display: block;
@@ -109,12 +109,22 @@
 
     /* Brand link styles */
     .brand-link {
-        color: #0088eb !important; /* Light Blue */
+        color: #0088eb !important; /* Light Gold */
         transition: all 0.3s ease;
         text-decoration: none !important;
     }
     .brand-link:hover {
-        color: #A17A4E !important; /* Logo Gold */
+        color: gold !important; /* Logo Gold */
+    }
+
+    .ad-detail-heading {
+        margin-bottom: 2px;
+    }
+
+    .ad-detail-date {
+        display: inline-block;
+        margin-top: 0;
+        line-height: 1.1;
     }
 
 /* Center and style the popup container */
@@ -623,7 +633,7 @@ button.active .indicator-img {
         <div class="cont-w">
             <div class="row align-items-center">
                 <div class="col">
-                    <h6 class="mb-0"><b>{{ $ad->title ?? 'Title N/A' }}</b></h6>
+                    <h6 class="ad-detail-heading"><b>{{ $ad->title ?? 'Title N/A' }}</b></h6>
                 </div>
                 <div class="col-auto text-right">
                     <div class="h5 mb-0" style="color: red; font-weight: bold;">
@@ -632,8 +642,8 @@ button.active .indicator-img {
                 </div>
             </div>
             <div class="row">
-                <div class="col">
-                    <span class="text-muted" style="font-size: 11px;">Posted {{ $ad->created_at_time_diff }}</span>
+                <div class="col" style="margin-top: -6px;">
+                    <span class="text-muted ad-detail-date" style="font-size: 11px;">Posted {{ $ad->created_at_time_diff }}</span>
                 </div>
             </div>
         </div>
@@ -643,10 +653,10 @@ button.active .indicator-img {
                 <div class="row" >
                     <div class="col" style="border:0px solid red;">
                         <div class="row">
-                            <h6 style="border:0px solid red;"><b>{{ $ad->title ?? 'Title N/A' }}</b></h6>
+                            <h6 class="ad-detail-heading" style="border:0px solid red;"><b>{{ $ad->title ?? 'Title N/A' }}</b></h6>
                         </div>
                         <div class="row">
-                            <span class="text-muted"
+                            <span class="text-muted ad-detail-date"
                                   style="font-size: 11px; margin-left: 7px;">Posted {{ $ad->created_at_time_diff }}</span>
                         </div>
                     </div>

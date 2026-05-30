@@ -441,7 +441,7 @@ a:hover {
   display: none;
   position: absolute;
   right: 10;
-  font-size: 13px;
+  font-size: 12px;
   top: 100%;
   min-width: 78px;
  
@@ -530,11 +530,25 @@ a:hover {
 
 }
 
+.chat-product-meta {
+    font-size: 12px !important;
+}
+
+.chat-product-meta .meta-separator {
+    color: red;
+    margin: 0 7px !important;
+}
+
+.report-user-btn.user-reported,
+.report-user-btn.user-reported:hover {
+    color: red !important;
+}
+
     </style>
 @section('content')
 
     <div class="content-chat"
-         style="background-color:#F8F9FA;min-height: 500px !important;padding-top:5px;padding-bottom:75px;">
+         style="background-color:#fff;min-height: 500px !important;padding-top:5px;padding-bottom:75px;">
         <div class="container" style="max-width: 1215px !important;">
             <div class="row">
                 <!-- <div style="padding-bottom:2px;"><button class="btn btn-danger" id="deleteSelected"><i class="fa fa-trash"></i></button>
@@ -683,7 +697,7 @@ a:hover {
                                         </div>
                                         @php
                                                 $existingReport = \App\Models\AdsReported::where('reported_by', session()->get('user')['id'])
-                                                    ->where('listing_id', $chat->id)
+                                                    ->where('listing_id', $chat->ad->id)
                                                     ->first();
 
 
@@ -698,9 +712,9 @@ a:hover {
                                             
                                             <div class="custom-dropdown-menu" id="optionsMenu"  >
                                                 <a href="#" class="block-chat   block_user" data-chat-id="{{ $chat->id }}">Block User</a>
-                                                <a href="#" class="report-user-btn" data-bs-toggle="modal" data-bs-target="#reportUserModal">  
+                                                <a href="#" class="report-user-btn @if($existingReport) user-reported @endif" data-ad-id="{{ $chat->ad->id }}" data-bs-toggle="modal" data-bs-target="#reportUserModal">  
                                                 @if($existingReport)
-                                                        Reported User
+                                                        User Reported
                                                     @else
                                                         Report User
                                                     @endif
@@ -719,10 +733,10 @@ a:hover {
                                         <div class="product-description" id="productDescription" style="margin-bottom: 7px;white-space: nowrap;">{{$chat->ad->title}}</div> <!-- Added spacing below title -->
                                         <div class="product-price" style="margin-bottom: 0px;">AED {{$chat->ad->price}}</div> <!-- Added spacing below price -->
 
-                                        <div class="product-location">
+                                        <div class="product-location chat-product-meta">
                                             <i class="fa fa-map-marker" style="margin-top: 0px; color: red;"></i>
                                             <span>{{ $chat->ad->location_name }}</span>
-                                            <span style="margin:0px 0px 9px 11px; color:red">•</span> <!-- Increased spacing between location and date -->
+                                            <span class="meta-separator">•</span>
                                             <span>{{ \Carbon\Carbon::parse($chat->ad->created_at)->format('d-M-Y') }}</span>
                                         </div>
                                        
@@ -1240,7 +1254,7 @@ $.ajax({
         });
 
         $(document).on('click', '.report-user-btn', function() {
-           
+            $('#reportUserModal').find('.ad-id').val($(this).data('ad-id'));
             $('#reportUserModal').modal('show');// Show the popup
 });
 $(document).on('click', '.closebtn ', function() {
