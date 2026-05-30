@@ -252,7 +252,7 @@
         .similar-listing-heart {
             position: absolute;
             top: 10px;
-            right: 10px;
+            right: 24px !important;
             color: #fff;
             font-size: 18px;
             z-index: 10;
@@ -557,7 +557,7 @@
                                                             <div class="listing p-1">
 
                                                                                           <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                                                    <div class="heart-icon similar-listing-heart {{ $featured_ad->is_favourite ? 'favorited' : '' }}" style="position: absolute; top: 16px; right: 1.0rem;" data-listing-id="{{ $featured_ad->id }}">
+                                                                    <div class="heart-icon similar-listing-heart {{ $featured_ad->is_favourite ? 'favorited' : '' }}" style="position: absolute; top: 16px; right: 24px;" data-listing-id="{{ $featured_ad->id }}">
                                                                         <i class="fa {{ $featured_ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking" style="color: {{ $featured_ad->is_favourite ? '#ff3131' : '#fff' }}; font-size: 20px;"></i>
                                                                     </div>
 

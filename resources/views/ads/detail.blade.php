@@ -475,7 +475,7 @@ button.active .indicator-img {
     .similar-listing-heart {
         position: absolute;
         top: 10px;
-        right: 10px;
+        right: 24px;
         z-index: 3;
     }
 
