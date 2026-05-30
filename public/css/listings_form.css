@@ -81,7 +81,7 @@
 .btn-nexts a.btn.is-posted:hover,
 .btn-next a.btn.is-live:hover,
 .btn-nexts a.btn.is-live:hover {
-    background: #29B87E !important;
+    background: #29b87e !important;
     border-color: #24a370 !important;
     color: #fff !important;
 }
@@ -89,6 +89,12 @@
 .place-ad-form-submit.is-submitting,
 .place-ad-form-submit.disabled {
     pointer-events: none;
+}
+
+.place-ad-form .form-focus select.form-control.floating,
+.place-ad-form .form-focus select.form-controlz.floating {
+    padding: 20px 42px 6px 12px !important;
+    line-height: 1.2 !important;
 }
 
 /* Premium Show/Hide Toggle */
