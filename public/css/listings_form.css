@@ -91,40 +91,6 @@
     pointer-events: none;
 }
 
-.place-ad-form .form-focus {
-    min-height: 74px;
-}
-
-.place-ad-form .form-focus .form-control.floating,
-.place-ad-form .form-focus .form-controlz.floating {
-    height: 58px !important;
-    min-height: 58px !important;
-    padding: 25px 42px 7px 12px !important;
-    font-size: 18px !important;
-    line-height: 1.25 !important;
-}
-
-.place-ad-form .form-focus select.form-control.floating,
-.place-ad-form .form-focus select.form-controlz.floating {
-    appearance: auto;
-    padding-top: 24px !important;
-    padding-bottom: 6px !important;
-}
-
-.place-ad-form .form-focus .focus-label {
-    top: -13px !important;
-    font-size: 13px !important;
-    line-height: 1.1 !important;
-    transform: translate3d(0, 22px, 0) scale(1) !important;
-}
-
-.place-ad-form .form-focus.focused .focus-label,
-.place-ad-form .form-focus .form-control:focus ~ .focus-label,
-.place-ad-form .form-focus .form-control:-webkit-autofill ~ .focus-label {
-    top: -13px !important;
-    font-size: 13px !important;
-}
-
 /* Premium Show/Hide Toggle */
 .premium-toggle-container {
     display: flex;
