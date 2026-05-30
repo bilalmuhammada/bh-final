@@ -47,7 +47,7 @@
 
     .form-focus .form-control {
         height: 51px;
-        padding: 21px 12px 6px;
+        padding: 21px 12px 6px !important;
         border: 1px solid #2d11e7;
         /* box-shadow: 1px 1px 1px 1px #eee; */
     }
@@ -445,7 +445,7 @@
         <div class="col-md-6 mx-auto">
             <div class="form-group form-focus">
 
-                <textarea name="products_and_services_offered" class="form-control floating" maxlength="1000" placeholder=""
+                <textarea name="products_and_services_offered" class="form-control floating" placeholder=""
                     style="height: 150px;" required></textarea>
                 <label class="focus-label">Products & Services Offered</label>
             </div>
