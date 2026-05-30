@@ -38,6 +38,10 @@
         .form-check-input{
             margin-top: 0.1rem !important;
         }
+        #reportUserModal textarea[name="description"],
+        #reportUserModal textarea[name="description"]:focus {
+            color: #000 !important;
+        }
         </style>
     <div class="modal-dialog modal-sm" style="border:0px solid red;width:232px;margin-top:9%;">
         <div class="modal-content">
