@@ -102,7 +102,7 @@
             </div>
         </div>
         <div class="col-md-4 mx-auto" style="margin-top: 20px;">
-            <input type="text" class="form-controlz" name="price" placeholder="Price" style="padding:22px;" required>
+            <input type="text" class="form-controlz number-format" inputmode="numeric" name="price" placeholder="Price" style="padding:22px;" required>
             <div class="invalid-feedback">
                 Please provide a valid price.
             </div>
@@ -312,6 +312,10 @@
                 // If the form is valid, remove the 'was-validated' class and proceed with form submission
                 form.classList.remove('was-validated');
 
+                $(form).find('.number-format').each(function () {
+                    $(this).val($(this).val().replace(/,/g, ''));
+                });
+
                 var formData = new FormData(form);
                 $.ajax({
                     url: api_url + 'listing/save-ad',
@@ -352,6 +356,16 @@
                         showAlert("error", "Server Error");
                     }
                 });
+            }
+        });
+
+        $(document).on('input', '.number-format', function () {
+            var value = $(this).val().replace(/,/g, '');
+
+            if (!isNaN(value) && value !== '') {
+                $(this).val(parseFloat(value).toLocaleString('en-US'));
+            } else {
+                $(this).val(value.replace(/[^0-9.]/g, ''));
             }
         });
 

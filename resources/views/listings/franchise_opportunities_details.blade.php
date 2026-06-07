@@ -259,7 +259,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="no_of_branches"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" inputmode="numeric" name="no_of_branches"
                             placeholder="" title="" required>
                         <label class="focus-label">Branches </label>
                     </div>
@@ -274,7 +274,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="no_of_employees"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" inputmode="numeric" name="no_of_employees"
                             placeholder="" title="" required>
                         <label class="focus-label">Employees</label>
                     </div>
@@ -295,7 +295,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="squrft"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" inputmode="numeric" name="squrft"
                             placeholder="" {{-- pattern="\d{10}" --}} title="Please enter a valid 10-digit  number"
                             required>
                         <label class="focus-label">Premise Size Sq.Ft</label>

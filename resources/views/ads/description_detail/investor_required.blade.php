@@ -8,7 +8,7 @@
         </div>
         <div class="col-lg-7 col-md-7 col-7" >
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Sales Revenue:</b>
-                <span >{!! $ad->details->sales_revenue ?? 'No' !!}</span></p>
+                <span >{{ $formatted_number($ad->details->sales_revenue ?? null) }}</span></p>
         </div>
     </div>
 
@@ -26,11 +26,11 @@
     <div class="row">
         <div class="col-lg-5 col-md-5 col-5">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Branches:</b>
-                <span >{!! $ad->details->branches ?? 'No' !!}</span></p>
+                <span >{{ $formatted_number($ad->details->branches ?? null) }}</span></p>
         </div>
         <div class="col-lg-7 col-md-7 col-7">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Employees:</b>
-                <span >{!! $ad->details->employees ?? 'No' !!}</span></p>
+                <span >{{ $formatted_number($ad->details->employees ?? null) }}</span></p>
         </div>
     </div>
 
@@ -41,29 +41,29 @@
         </div>
         <div class="col-lg-7 col-md-7 col-7">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Premise Size Sq.Ft:</b>
-                <span >{!! $ad->details->size_sqm ?? 'No' !!}</span></p>
+                <span >{{ $formatted_number($ad->details->size_sqm ?? null) }}</span></p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-5 col-md-5 col-5">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Lease Term:</b>
-                <span >{!! $ad->details->lease_term ?? 'No' !!}</span></p>
+                <span >{{ $formatted_number($ad->details->lease_term ?? null) }}</span></p>
         </div>
         <div class="col-lg-7 col-md-7 col-7">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Lease Amount:</b>
-                <span >{!! $ad->details->least_amt ?? 'No' !!}</span></p>
+                <span >{{ $formatted_number($ad->details->least_amt ?? null) }}</span></p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-5 col-md-5 col-5">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Contract Period:</b>
-                <span >{!! $ad->details->contract_period ?? 'No' !!}</span></p>
+                <span >{{ $formatted_number($ad->details->contract_period ?? null) }}</span></p>
         </div>
         <div class="col-lg-7 col-md-7 col-7">
             <p style="font-size: 14px; margin-bottom: 5px;"><b>Expected ROI %:</b>
-                <span >{!! $ad->details->expected_roi ?? 'No' !!}</span></p>
+                <span >{{ $formatted_number($ad->details->expected_roi ?? null) }}</span></p>
         </div>
     </div>
     <div class="row">
@@ -104,4 +104,3 @@
 </div>
 </div>
 <!---------->
-

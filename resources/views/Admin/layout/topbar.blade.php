@@ -11,8 +11,15 @@
         background-color: transparent !important;
     }
 
-    .dropdown-menu .dropdown-item:hover a {
+    .profile-menu-link {
         color: blue !important;
+        transition: color 0.2s ease;
+    }
+
+    .dropdown-menu .dropdown-item:hover .profile-menu-link,
+    .profile-menu-link:hover,
+    .profile-menu-link:focus {
+        color: #f6d365 !important;
     }
 
     .p-12{
@@ -55,14 +62,14 @@
                    
                     <ul class="list-unstyled p-12 ">
                         <li class="dropdown-item" style="margin-top: 6px;">
-                            <a href="{{ env('BASE_URL') }}admins/edit-profile" class="text-body  text-bold ms-0" >
+                            <a href="{{ env('BASE_URL') }}admins/edit-profile" class="text-body text-bold ms-0 profile-menu-link" >
                                 {{-- <i class="me-2 icon-md" data-feather="edit"></i> --}}
                                 <span style="font-weight:700;" >Edit Profile</span>
                             </a>
                         </li>
                         
                         <li class="dropdown-item " style="margin-bottom: 3px;">
-                            <a href="javascript:;" class="text-body  text-bold ms-0 logout-btn">
+                            <a href="javascript:;" class="text-body text-bold ms-0 logout-btn profile-menu-link">
                                 {{-- <i class="me-2 icon-md" data-feather="log-out"></i> --}}
                                 <span style="font-weight:700;">Log Out</span>
                             </a>

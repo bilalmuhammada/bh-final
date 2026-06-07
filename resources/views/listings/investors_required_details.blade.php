@@ -214,7 +214,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" name="sale_revenue" onwheel="this.blur()"
+                        <input type="text" class="form-control floating number-format" inputmode="numeric" name="sale_revenue" onwheel="this.blur()"
                             placeholder="" title="" required>
                         <label class="focus-label">Sales Revenue/EBITDA - USD </label>
                     </div>
@@ -278,7 +278,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" name="branches" onwheel="this.blur()"
+                        <input type="text" class="form-control floating number-format" inputmode="numeric" name="branches" onwheel="this.blur()"
                             placeholder="" title="" required>
                         <label class="focus-label">Branches </label>
                     </div>
@@ -288,7 +288,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" name="employee" onwheel="this.blur()"
+                        <input type="text" class="form-control floating number-format" inputmode="numeric" name="employee" onwheel="this.blur()"
                             placeholder="" title="" required>
                         <label class="focus-label">Employees </label>
                     </div>
@@ -313,7 +313,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" name="size_sqm" onwheel="this.blur()"
+                        <input type="text" class="form-control floating number-format" inputmode="numeric" name="size_sqm" onwheel="this.blur()"
                             placeholder="" title="" required>
                         <label class="focus-label">Premise Size Sq.Ft</label>
                     </div>
@@ -336,7 +336,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" name="least_amt" onwheel="this.blur()"
+                        <input type="text" class="form-control floating number-format" inputmode="numeric" name="least_amt" onwheel="this.blur()"
                             placeholder="" {{-- pattern="\d{10}" --}} title="Please enter a valid 10-digit  number"
                             required>
                         <label class="focus-label">Lease Amount - USD</label>

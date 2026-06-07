@@ -27,6 +27,17 @@
 
         return $path ? '@' . basename($path) : $external_link_label($url, 'Instagram');
     };
+    $formatted_number = function ($value) {
+        if ($value === null || $value === '') {
+            return 'No';
+        }
+
+        $numeric_value = str_replace(',', '', $value);
+
+        return is_numeric($numeric_value)
+            ? number_format((float) $numeric_value, str_contains($numeric_value, '.') ? strlen(rtrim(substr(strrchr($numeric_value, '.'), 1), '0')) : 0)
+            : $value;
+    };
 @endphp
 @section('content')
 <style>
@@ -109,12 +120,12 @@
 
     /* Brand link styles */
     .brand-link {
-        color: #0088eb !important; /* Light Gold */
+        color: #80bdff !important; /* Light Blue */
         transition: all 0.3s ease;
         text-decoration: none !important;
     }
     .brand-link:hover {
-        color: gold !important; /* Logo Gold */
+        color: #f6d365 !important; /* Light Gold */
     }
 
     .ad-detail-heading {

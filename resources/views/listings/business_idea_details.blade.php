@@ -256,7 +256,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="size_sqm"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" inputmode="numeric" name="size_sqm"
                             placeholder="" title="" required>
                         <label class="focus-label">Premise Size Sq.Ft</label>
                     </div>
@@ -277,7 +277,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="branches"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" inputmode="numeric" name="branches"
                             placeholder="" title="" required>
                         <label class="focus-label">Branches </label>
                     </div>
@@ -287,7 +287,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="no_of_employees"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" inputmode="numeric" name="no_of_employees"
                             placeholder="" title="" required>
                         <label class="focus-label">Employees </label>
                     </div>
@@ -309,7 +309,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" name="expect_sale" onwheel="this.blur()"
+                        <input type="text" class="form-control floating number-format" inputmode="numeric" name="expect_sale" onwheel="this.blur()"
                             placeholder="" title="" required>
                         <label class="focus-label">Expected Sales Revenue/EBITDA - USD</label>
                     </div>

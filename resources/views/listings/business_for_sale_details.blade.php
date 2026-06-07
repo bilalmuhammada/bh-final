@@ -195,7 +195,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="price" placeholder=""
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" inputmode="numeric" name="price" placeholder=""
                             required>
                         <label class="focus-label">Price - USD</label>
                     </div>
@@ -205,7 +205,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="sale_revenue"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" inputmode="numeric" name="sale_revenue"
                             placeholder="" title="" required>
                         <label class="focus-label">Sales Revenue/EBITDA - USD </label>
                     </div>
@@ -261,7 +261,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="branches"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" inputmode="numeric" name="branches"
                             placeholder="" title="" required>
                         <label class="focus-label">Branches</label>
                     </div>
@@ -276,7 +276,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="no_of_employees"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" inputmode="numeric" name="no_of_employees"
                             placeholder="" title="" required>
                         <label class="focus-label">Employees</label>
                     </div>
@@ -315,7 +315,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="squrft"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" inputmode="numeric" name="squrft"
                             placeholder="" {{-- pattern="\d{10}" --}} title="Please enter a valid 10-digit  number"
                             required>
                         <label class="focus-label">Premise Size Sq.Ft</label>
@@ -329,7 +329,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="least_amt"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" inputmode="numeric" name="least_amt"
                             placeholder="" {{-- pattern="\d{10}" --}} title="Please enter a valid 10-digit  number"
                             required>
                         <label class="focus-label">Lease Amount - USD</label>
@@ -340,7 +340,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="invt_value"
+                        <input type="text" class="form-control floating number-format" onwheel="this.blur()" inputmode="numeric" name="invt_value"
                             placeholder="" {{-- pattern="\d{10}" --}} title="Please enter a valid 10-digit  number"
                             required>
                         <label class="focus-label">Inventory Value - USD</label>

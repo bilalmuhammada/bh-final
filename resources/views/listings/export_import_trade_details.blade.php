@@ -193,7 +193,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="text" class="form-control floating number-format" name="price" placeholder="" required>
+                        <input type="text" class="form-control floating number-format" inputmode="numeric" name="price" placeholder="" required>
 
                         <label class="focus-label">Price</label>
                     </div>
