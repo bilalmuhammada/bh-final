@@ -80,7 +80,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 25px;
+        gap: 0;
         opacity: 0;
         transition: opacity 0.3s ease;
     }
@@ -90,11 +90,14 @@
     }
 
     .document-action-btn {
-       
-        width: 9px;
+        background: transparent;
+        border: 0;
+        color: #fff;
+        cursor: pointer;
+        padding: 0;
+        width: 32px;
         height: 32px;
         border-radius: 50%;
-       
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -108,14 +111,76 @@
     }
 
     .document-action-btn .document-eye-icon {
+        font-size: 24px;
         line-height: 1;
     }
 
     .document-action-btn .document-download-icon {
-        width: 27px;
-        height: 42px;
+        width: 24px;
+        height: 24px;
         object-fit: contain;
         display: block;
+    }
+
+    .document-preview-modal {
+        align-items: center;
+        background: rgba(0, 0, 0, 0.78);
+        display: none;
+        inset: 0;
+        justify-content: center;
+        padding: 20px;
+        position: fixed;
+        z-index: 2000;
+    }
+
+    .document-preview-modal.is-open {
+        display: flex;
+    }
+
+    .document-preview-dialog {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        height: min(88vh, 900px);
+        max-width: 1100px;
+        overflow: hidden;
+        position: relative;
+        width: 92vw;
+    }
+
+    .document-preview-close {
+        align-items: center;
+        background: rgba(0, 0, 0, 0.7);
+        border: 0;
+        border-radius: 50%;
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        font-size: 24px;
+        height: 36px;
+        justify-content: center;
+        line-height: 1;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: 36px;
+        z-index: 2;
+    }
+
+    .document-preview-content,
+    .document-preview-content img,
+    .document-preview-content iframe {
+        height: 100%;
+        width: 100%;
+    }
+
+    .document-preview-content img {
+        background: #111;
+        object-fit: contain;
+    }
+
+    .document-preview-content iframe {
+        border: 0;
     }
 
     /* Brand link styles */
@@ -895,9 +960,12 @@ button.active .indicator-img {
                                         @endif
 
                                         <div class="document-overlay">
-                                            <a href="{{ $docUrl }}" target="_blank" class="document-action-btn" title="View">
-                                                <span class="document-eye-icon">👁️</span>
-                                            </a>
+                                            <button type="button" class="document-action-btn document-preview-btn"
+                                                data-preview-url="{{ $docUrl }}"
+                                                data-preview-type="{{ in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif']) ? 'image' : 'document' }}"
+                                                title="View">
+                                                <span class="document-eye-icon" aria-hidden="true">👁️</span>
+                                            </button>
                                             <a href="{{ $docUrl }}" download="{{ $downloadName }}" class="document-action-btn" title="Download">
                                                 <img src="{{ asset('images/dwnld.png') }}" alt="Download" class="document-download-icon">
                                             </a>
@@ -906,6 +974,13 @@ button.active .indicator-img {
                                 @empty
                                     <p style="font-size: 14px; color: #888;">No Files</p>
                                 @endforelse
+                            </div>
+                        </div>
+
+                        <div class="document-preview-modal" id="documentPreviewModal" aria-hidden="true">
+                            <div class="document-preview-dialog" role="dialog" aria-modal="true" aria-label="File preview">
+                                <button type="button" class="document-preview-close" aria-label="Close file preview">&times;</button>
+                                <div class="document-preview-content"></div>
                             </div>
                         </div>
                       
@@ -1322,6 +1397,38 @@ return ;
         $(document).on('click', '.download-document', function (e) {
             e.preventDefault();
             downloadAll();
+        });
+
+        $(document).on('click', '.document-preview-btn', function () {
+            var previewUrl = $(this).data('preview-url');
+            var previewType = $(this).data('preview-type');
+            var previewMarkup = previewType === 'image'
+                ? $('<img>', { src: previewUrl, alt: 'File preview' })
+                : $('<iframe>', { src: previewUrl, title: 'File preview' });
+
+            $('.document-preview-content').empty().append(previewMarkup);
+            $('#documentPreviewModal').addClass('is-open').attr('aria-hidden', 'false');
+            $('body').css('overflow', 'hidden');
+        });
+
+        function closeDocumentPreview() {
+            $('#documentPreviewModal').removeClass('is-open').attr('aria-hidden', 'true');
+            $('.document-preview-content').empty();
+            $('body').css('overflow', '');
+        }
+
+        $(document).on('click', '.document-preview-close', closeDocumentPreview);
+
+        $(document).on('click', '#documentPreviewModal', function (e) {
+            if (e.target === this) {
+                closeDocumentPreview();
+            }
+        });
+
+        $(document).on('keydown', function (e) {
+            if (e.key === 'Escape' && $('#documentPreviewModal').hasClass('is-open')) {
+                closeDocumentPreview();
+            }
         });
 
         function downloadAll() {
