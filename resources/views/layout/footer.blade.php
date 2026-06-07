@@ -10,6 +10,29 @@
     .m-10{
         margin: 30px 0px 0px 0px !important;
     }
+    .app-store-coming-soon {
+        align-items: center;
+        background: transparent;
+        border: 0;
+        display: inline-flex;
+        padding: 0;
+        position: relative;
+    }
+    .app-store-coming-soon-label {
+        bottom: calc(100% + 2px);
+        color: #80bdff;
+        font-size: 11px;
+        left: 50%;
+        line-height: 14px;
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
+    .app-store-coming-soon.active .app-store-coming-soon-label {
+        opacity: 1;
+    }
 </style>
 <footer>
 {{--<div class="marquee" style="background-color: #0000FF;color: white;padding-top: 10px;margin-bottom: 10px;height: 25px;">
@@ -27,13 +50,22 @@
                     <img src="{{ asset('images/iphone.png')}}" alt=" " height="80px" width="100px">
                 </div>
                 <div class="col-lg-2 col-md-6 col-6">
-                    <img src="{{ asset('images/google-play-store.png')}}" alt=" " class="shaking" height="45px">
+                    <button type="button" class="app-store-coming-soon">
+                        <span class="app-store-coming-soon-label">Coming Soon</span>
+                        <img src="{{ asset('images/google-play-store.png')}}" alt="Google Play" class="shaking" height="45px">
+                    </button>
                 </div>
                 <div class="col-lg-2 col-md-6 col-6">
-                    <img src="{{ asset('images/apple-store.png')}}" alt=" " class="shaking" height="45px">
+                    <button type="button" class="app-store-coming-soon">
+                        <span class="app-store-coming-soon-label">Coming Soon</span>
+                        <img src="{{ asset('images/apple-store.png')}}" alt="App Store" class="shaking" height="45px">
+                    </button>
                 </div>
                 <div class="col-lg-2 col-md-6 col-6">
-                    <img src="{{ asset('images/huawei-app-gallery.png')}}" alt=" "  class="shaking" height="45px">
+                    <button type="button" class="app-store-coming-soon">
+                        <span class="app-store-coming-soon-label">Coming Soon</span>
+                        <img src="{{ asset('images/huawei-app-gallery.png')}}" alt="AppGallery" class="shaking" height="45px">
+                    </button>
                 </div>
             </div>
         </div>
@@ -182,3 +214,12 @@
         <!-- footer copyright area finish -->
     </div>
 </footer>
+<script>
+    document.addEventListener('click', function (event) {
+        const selectedStore = event.target.closest('.app-store-coming-soon');
+
+        if (selectedStore) {
+            selectedStore.classList.toggle('active');
+        }
+    });
+</script>

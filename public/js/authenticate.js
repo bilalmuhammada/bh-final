@@ -309,29 +309,32 @@ $(document).on('click', '.report-ad-btn', function () {
 });
 
 //report ad submit
-$(document).on('click', '.report-ad-submit-btn', function () {
+$(document).on('click', '.report-ad-submit-btn', function (e) {
+    e.preventDefault();
 
+    var button = $(this);
+    var modal = button.closest('.modal');
+    var form = modal.find('.report-ad-form');
 
+    button.prop('disabled', true);
 
-
-     
     $.ajax({
-        url: api_url + 'listing/report-ad',
+        url: base_url + 'listing/report-ad',
         type: 'post',
-        data: $('.report-ad-form').serialize(),
+        data: form.serialize(),
         dataType: "JSON",
         success: function (response) {
             if (response.status) {
-                var isUserReport = $('.report-ad-form:visible input[name="formtype"]').val() === 'reportuser';
-                var reportedAdId = $('.report-ad-form:visible .ad-id').val();
+                var isUserReport = form.find('input[name="formtype"]').val() === 'reportuser';
+                var reportedAdId = form.find('.ad-id').val();
 
                 if (isUserReport) {
-                    $('#reportUserModal').modal('hide');
+                    hideReportModal(modal);
                     $('.report-user-btn[data-ad-id="' + reportedAdId + '"]')
                         .addClass('user-reported')
                         .text('User Reported');
                 } else {
-                    $('#reportModal').modal('hide');
+                    hideReportModal(modal);
                 }
 
                 var reportAdBtn = $('.report-ad-btn');
@@ -343,31 +346,47 @@ $(document).on('click', '.report-ad-submit-btn', function () {
                 }
 
                 showAlert('success', "Ad Reported Successfully!");
+                form[0].reset();
 
             } else {
               
-                $('.alert-text').text(response.message);
-                $('.alert-div').show();
+                modal.find('.alert-text').text(response.message);
+                modal.find('.alert-div').show();
 
                 setTimeout(function () {
-                    $('.alert-text').text('');
-                    $('.alert-div').hide();
+                    modal.find('.alert-text').text('');
+                    modal.find('.alert-div').hide();
                 }, 7000)
                 // showAlert('error', "Ad could not be reported");
             }
         },
         error: function (response) {
-            $('#reportModal').modal('hide');
-            $('.alert-text').text("Login");
-            $('.alert-div').show();
-
-            // $('#loginModal').modal('show');
+            modal.find('.alert-text').text(response.responseJSON?.message || "Unable to submit report.");
+            modal.find('.alert-div').show();
 
             setTimeout(function () {
-                $('.alert-text').text('');
-                $('.alert-div').hide();
+                modal.find('.alert-text').text('');
+                modal.find('.alert-div').hide();
             }, 7000);
+        },
+        complete: function () {
+            button.prop('disabled', false);
         }
     });
 
+});
+
+function hideReportModal(modal) {
+    var modalElement = modal[0];
+
+    if (window.bootstrap && bootstrap.Modal) {
+        bootstrap.Modal.getOrCreateInstance(modalElement).hide();
+    } else {
+        modal.modal('hide');
+    }
+}
+
+$(document).on('click', '.report-modal-close', function (e) {
+    e.preventDefault();
+    hideReportModal($(this).closest('.modal'));
 });

@@ -217,6 +217,40 @@
             color: red !important;
         }
 
+        .ad-detail-actions {
+            align-items: center;
+            display: inline-flex;
+            gap: 1px;
+            position: relative;
+        }
+
+        .ad-detail-actions .share-btn {
+            margin-left: -1px;
+        }
+
+        .ad-detail-actions .ad-share-notification {
+            background: transparent;
+            bottom: calc(120% + 3px);
+            color: #80bdff;
+            display: block;
+            font-size: 12px;
+            left: 50%;
+            opacity: 0;
+            padding: 0;
+            pointer-events: none;
+            position: absolute;
+            right: auto;
+            transform: translateX(-50%);
+            transition: opacity 0.2s ease;
+            white-space: nowrap;
+            z-index: 20;
+        }
+
+        .ad-detail-actions .ad-share-notification.visible {
+            animation: none;
+            opacity: 1;
+        }
+
         .notification {
     position: fixed;
     bottom: 20px;
@@ -706,14 +740,14 @@ button.active .indicator-img {
 
                                 <div class="carousel slide" id="carouselDemo" data-bs-wrap="true" data-bs-ride="carousel" style="position: relative;">
                                     <div style="position: absolute; top: 10px; right: 10px; z-index: 10;">
-                                        <span style="font-size: 13px; cursor:pointer;">
+                                        <span class="ad-detail-actions" style="font-size: 13px; cursor:pointer;">
+                                            <span id="notification" class="notification ad-share-notification">Copied to Clipboard</span>
                                             <i class="fa favourite-btn detail-favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking"
                                                is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
-                                               style="padding:6px 6px;font-size:19px; text-shadow: 0 0 3px rgba(0,0,0,0.5);"> </i>&nbsp;
+                                               style="padding:6px 6px;font-size:19px; text-shadow: 0 0 3px rgba(0,0,0,0.5);"> </i>
                         
                         
                                             <i class="fa fa-share-alt share-btn shaking" ad-id="{{ $ad->id }}" title="Copy Ad link"></i>
-                                               <div id="notification" class="notification hidden">Ad link copied to clipboard!</div>
                                          </span>
                                      </div>
                                      @if($ad->status == 'active')
@@ -1102,11 +1136,6 @@ button.active .indicator-img {
 
 
 function showPopup() {
-    if (!checkIfUserLoggedIn()) {
-
-$('#loginModal').modal('show');
-return ;
-}
         document.getElementById('callPopup').style.display = 'block';
         document.getElementById('popupOverlay').style.display = 'block';
     }
@@ -1136,13 +1165,8 @@ return ;
         window.location.href = mailtoLink;
     }
 function redirectToWhatsApp() {
-
-    if (!checkIfUserLoggedIn()) {
-
-$('#loginModal').modal('show');
-return ;
-}
-    const whatsappLink = `https://wa.me/${phoneNumber}`;
+    const whatsappNumber = String(phoneNumber || '').replace(/\D/g, '');
+    const whatsappLink = `https://wa.me/${whatsappNumber}`;
     window.open(whatsappLink, '_blank');
 }
 $(document).ready(function () {
@@ -1159,7 +1183,7 @@ $(document).ready(function () {
                 // alert('Ad link copied to clipboard: ' + adLink);
 
                 const notification = $('#notification');
-        notification.text('Ad link copied to clipboard!');
+        notification.text('Copied to Clipboard');
         notification.addClass('visible');
 
         setTimeout(() => {

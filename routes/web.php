@@ -69,6 +69,7 @@ Route::middleware('check_user_auth')->group(function () {
         Route::get('{category_id}/listing-title/{subcategory_id}/{listing_id?}', [ListingController::class, 'showPlaceAd']);
         Route::get('/plane-ad/{listing_id}', [ListingController::class, 'showPlaneAd']);
         Route::get('terms-and-conditions/{listing_id}', [ListingController::class, 'showTermsAndConditions']);
+        Route::post('/report-ad', [ListingController::class, 'reportAd'])->name('listing.report-ad');
     });
 
 
@@ -102,6 +103,7 @@ Route::prefix('/chats')->group(function () {
     Route::post('/accept-or-reject', [\App\Http\Controllers\ChatController::class, 'acceptOrRejectChat']);
     Route::post('/send-chat-request', [\App\Http\Controllers\ChatController::class, 'initiateChat']);
     Route::post('/send-message', [\App\Http\Controllers\ChatController::class, 'sendMessage']);
+    Route::get('/{chat_id}/messages', [\App\Http\Controllers\ChatController::class, 'getMessages']);
     Route::get('/get-new-messages', [\App\Http\Controllers\ChatController::class, 'getNewMessages']);
     Route::post('/mark-as-read', [\App\Http\Controllers\ChatController::class, 'markMessagesAsRead']);
     Route::post('/mark-as-read-all', [\App\Http\Controllers\ChatController::class, 'markMessagesAsReadAll']);

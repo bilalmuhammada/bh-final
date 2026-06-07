@@ -3,7 +3,7 @@
 
 <div class="modal fade" id="reportUserModal">
     <style>
-.modal-content{
+#reportUserModal .modal-content{
     border: 0px solid;
 }
 
@@ -12,30 +12,30 @@
 }
 
 
-.report-ad-form {
+#reportUserModal .report-ad-form {
             width: 60rem;
             margin-left: 1px;
             margin-top: 11px;
         }
-        .modal-header {
+        #reportUserModal .modal-header {
             padding: 0.5rem 1rem 0.2rem 1rem;
         }
-        .modal-title{
+        #reportUserModal .modal-title{
             color: blue;
             font-size: 15px;
         }
        
-        .form-control {
+        #reportUserModal .form-control {
             margin-top: 7px;
             margin-left: 1px;
             width: 21.5%;
         }
-        .modal-footer {
+        #reportUserModal .modal-footer {
             margin-right:22px;
             margin-top: -2.5rem;
             border-top: 0px solid transparent;
         }
-        .form-check-input{
+        #reportUserModal .form-check-input{
             margin-top: 0.1rem !important;
         }
         #reportUserModal textarea[name="description"],

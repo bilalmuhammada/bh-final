@@ -2,47 +2,89 @@
 
 <div class="modal fade" id="reportModal">
     <style>
-.modal-content{
-    border: 0px solid;
-}
-#report-ad-form .form-check{
-padding: -1px !important;
-}
-
-.report-ad-form {
-            width: 60rem;
-            margin-left: 1px;
-            margin-top: 11px;
+        #reportModal .modal-content {
+            border: 0;
         }
-        .modal-header {
+
+        #reportModal .modal-dialog {
+            margin-top: 9%;
+            width: 270px;
+        }
+
+        #reportModal .modal-header {
             padding: 0.5rem 1rem 0.2rem 1rem;
         }
-        .modal-title{
+
+        #reportModal .modal-title {
             color: blue;
             font-size: 20px;
         }
-        .form-control {
-            margin-top: 7px;
-    margin-left: 1px;
-    width: 21.5%;
+
+        #reportModal .modal-body {
+            padding-top: 8px;
         }
-        .modal-footer {
-            margin-right:22px;
-            margin-top: -2.5rem;
-            border-top: 0px solid transparent;
+
+        #reportModal .report-ad-form {
+            margin: 0;
+            width: 100%;
         }
-        </style>
-    <div class="modal-dialog modal-sm" i style="border:0px solid red;width:232px;margin-top:9%;">
+
+        #reportModal .form-check {
+            align-items: center;
+            display: flex;
+            min-height: 24px;
+            padding-left: 0;
+        }
+
+        #reportModal .form-check-input {
+            flex: 0 0 auto;
+            margin: 0 8px 0 0;
+            position: static;
+        }
+
+        #reportModal .form-check-label {
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        #reportModal textarea.form-control {
+            border: 1px solid #A17A4E !important;
+            box-sizing: border-box;
+            color: #000;
+            margin: 12px 0 0;
+            min-height: 74px;
+            resize: vertical;
+            width: 100%;
+        }
+
+        #reportModal textarea.form-control:focus {
+            border-color: #80bdff !important;
+            box-shadow: 0 0 0 0.1rem rgba(128, 189, 255, 0.25);
+        }
+
+        #reportModal .modal-footer {
+            border-top: 0;
+            gap: 12px;
+            justify-content: center;
+            margin: 0 !important;
+            padding: 12px 1rem 1rem;
+        }
+
+        #reportModal .modal-footer > * {
+            margin: 0;
+        }
+    </style>
+    <div class="modal-dialog modal-sm">
         <div class="modal-content">
 
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title">Report this Ad</h4>
-                <button type="button" class="close" data-dismiss="modal" style="margin-top: -12px;">×</button>
+                <button type="button" class="close report-modal-close" data-dismiss="modal" data-bs-dismiss="modal" style="margin-top: -12px;">×</button>
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body" style="position:relative;top:-20px;">
+            <div class="modal-body">
                 <form class="report-ad-form" id="report-ad-form">
                     <div class="alert-div" style="display: none;width:13rem; white-space: nowrap;"> 
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -55,61 +97,54 @@ padding: -1px !important;
                     <input type="hidden" name="ad_id" class="ad-id" id="ad-id" >
                     <!-- Default radio -->
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="report_reason" id="reason1" value="Spam"/>
-                        <label class="form-check-label" for="reason1"> Spam </label>
+                        <input class="form-check-input" type="radio" name="report_reason" id="ad-reason-1" value="Spam"/>
+                        <label class="form-check-label" for="ad-reason-1">Spam</label>
                     </div>
 
                     <!-- Defaul radio -->
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="report_reason" id="reason2" value="Fraud"/>
-                        <label class="form-check-label" for="reason2"> Fraud </label>
+                        <input class="form-check-input" type="radio" name="report_reason" id="ad-reason-2" value="Fraud"/>
+                        <label class="form-check-label" for="ad-reason-2">Fraud</label>
                     </div>
 
                     <!-- Defaul radio -->
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="report_reason" id="reason3" value="Not Available"/>
-                        <label class="form-check-label" for="reason3"> Not Available </label>
+                        <input class="form-check-input" type="radio" name="report_reason" id="ad-reason-3" value="Not Available"/>
+                        <label class="form-check-label" for="ad-reason-3">Not Available</label>
                     </div>
 
                     <!-- Defaul radio -->
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="report_reason" id="reason4" value="Miscategorized"/>
-                        <label class="form-check-label" for="reason4"> Miscategorized </label>
+                        <input class="form-check-input" type="radio" name="report_reason" id="ad-reason-4" value="Miscategorized"/>
+                        <label class="form-check-label" for="ad-reason-4">Miscategorized</label>
                     </div>
 
                     <!-- Defaul radio -->
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="report_reason" id="reason5" value="Incorrect Pricing"/>
-                        <label class="form-check-label" for="reason5">Incorrect Pricing </label>
+                        <input class="form-check-input" type="radio" name="report_reason" id="ad-reason-5" value="Incorrect Pricing"/>
+                        <label class="form-check-label" for="ad-reason-5">Incorrect Pricing</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="report_reason" id="reason5" value="Repetitive Listing"/>
-                        <label class="form-check-label" for="reason5">Repetitive Listing </label>
+                        <input class="form-check-input" type="radio" name="report_reason" id="ad-reason-6" value="Repetitive Listing"/>
+                        <label class="form-check-label" for="ad-reason-6">Repetitive Listing</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="report_reason" id="reason5" value="Copyright Infringment"/>
-                        <label class="form-check-label" for="reason5">Copyright Infringment </label>
+                        <input class="form-check-input" type="radio" name="report_reason" id="ad-reason-7" value="Copyright Infringment"/>
+                        <label class="form-check-label" for="ad-reason-7">Copyright Infringment</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="report_reason" id="reason5" value="other"/>
-                        <label class="form-check-label" for="reason5">Other </label>
+                        <input class="form-check-input" type="radio" name="report_reason" id="ad-reason-8" value="other"/>
+                        <label class="form-check-label" for="ad-reason-8">Other</label>
                     </div>
                     <!-- textarea -->
-                    <div class="col-md-12">
-                        <div class="row">
-                            <label for=""></label>
-                            <textarea name="description"  class="form-control" placeholder="Reason..."
-                                      style="border:2px solid #eee;font-size: 14px;border: 1px solid #eee;color:#000" cols="12" rows="2" maxlength="80"
-                                      ></textarea>
-                        </div>
-                    </div>
+                    <textarea name="description" class="form-control" placeholder="Reason..." rows="2" maxlength="80"></textarea>
                 </form>
             </div>
 
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary report-ad-submit-btn" style="margin-left: 16px;">Report</button>
+                <button type="button" class="btn btn-danger report-modal-close" data-dismiss="modal" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary report-ad-submit-btn">Report</button>
             </div>
 
         </div>

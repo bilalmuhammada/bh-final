@@ -205,12 +205,28 @@
             line-height: 1.5 !important;
         }
 
+        select.form-control:hover,
+        select.form-controlz:hover,
+        .form-focus select.form-control:hover,
+        .form-focus select.form-controlz:hover {
+            border-color: #0000FF !important;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230000FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+        }
+
         .form-focus .select2-container .select2-selection--single,
         .form-focus .select2-container--default .select2-selection--single {
             height: 51px !important;
             border: 1px solid #A17A4E !important;
             border-radius: 4px !important;
             background-color: #fff !important;
+        }
+
+        .form-focus .select2-container:hover .select2-selection--single {
+            border-color: #0000FF !important;
+        }
+
+        .form-focus .select2-container:hover .select2-selection__arrow b {
+            border-color: #0000FF transparent transparent transparent !important;
         }
 
         .form-focus .select2-container .select2-selection--single .select2-selection__rendered,
@@ -226,6 +242,7 @@
 
         .form-focus textarea.floating ~ .focus-label {
             background-color: #fff;
+            left: 7px;
             padding: 0 5px;
             z-index: 2;
         }

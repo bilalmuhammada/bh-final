@@ -705,8 +705,7 @@ class ListingController extends Controller
 
     public function reportAd(Request $request)
     {
-
-        //  dd($request->all());
+        $userId = SiteHelper::getLoginUserId();
         $Validator = Validator::make($request->all(), [
             'ad_id' => 'required',
             'report_reason' => 'required',
@@ -724,7 +723,7 @@ class ListingController extends Controller
 
         $AdsReported = AdsReported::where([
             'listing_id' => $request->ad_id,
-            'reported_by' => Auth::id() ?? Session::get('user')->id,
+            'reported_by' => $userId,
         ])->first();
 
         if (!empty($AdsReported)) {
@@ -740,7 +739,7 @@ class ListingController extends Controller
             'listing_id' => $request->ad_id,
             'reason' => $request->report_reason,
             'description' => $request->description,
-            'reported_by' => Auth::id() ?? Session::get('user')->id,
+            'reported_by' => $userId,
             'reported_at' => Carbon::now(),
         ]);
 

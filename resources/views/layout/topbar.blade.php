@@ -738,7 +738,7 @@
             style="min-height: auto !important; margin-bottom: 10px !important;">
             <div class="collapse navbar-collapse" id="navbarSupportedContentx">
                 <ul class="navbar-nav"
-                    style="font-size: 13px; display: flex; flex-wrap: nowrap; gap: 39px; font-weight: 600; white-space: nowrap; margin-bottom: 0px !important;">
+                    style="font-size: 13px; display: flex; flex-wrap: nowrap; gap: 40px; font-weight: 600; white-space: nowrap; margin-bottom: 0px !important;">
                     @php $categories = $categories ?? \App\Helpers\RecordHelper::getCategories(); @endphp
                     @foreach($categories as $category)
                         <li class="nav-item dropdown">

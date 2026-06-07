@@ -95,12 +95,21 @@ class ChatController extends Controller
 
     public function toggleBlock(Request $request)
     {
+        $userId = SiteHelper::getLoginUserId();
+        $chat = Chat::where('id', $request->chat_id)
+            ->where(function ($query) use ($userId) {
+                $query->where('first_user_id', $userId)
+                    ->orWhere('second_user_id', $userId);
+            })
+            ->firstOrFail();
 
-      
-        $chat = Chat::findOrFail($request->chat_id);
         $chat->is_blocked = !$chat->is_blocked;
         $chat->save();
-        return response()->json(['is_blocked' => $chat->is_blocked]);
+
+        return response()->json([
+            'status' => true,
+            'is_blocked' => (bool) $chat->is_blocked
+        ]);
     }
     public function getAcceptedUserForChat(Request $request)
     {
@@ -150,19 +159,31 @@ class ChatController extends Controller
 
     public function sendMessage(Request $request)
     {
-        $chat_id = $request->chat_id;
-        $receiver_id = $request->user_id;
-        $sender_id = SiteHelper::getLoginUserId();
+        $request->validate([
+            'chat_id' => 'required|integer',
+            'message' => 'required|string'
+        ]);
 
-        // Fallback: If receiver_id is missing, try to find the other user from the chat record
-        if (empty($receiver_id)) {
-            $chat = Chat::find($chat_id);
-            if ($chat) {
-                $receiver_id = ($chat->first_user_id == $sender_id) ? $chat->second_user_id : $chat->first_user_id;
-            }
+        $chat_id = $request->chat_id;
+        $sender_id = SiteHelper::getLoginUserId();
+        $chat = Chat::where('id', $chat_id)
+            ->where(function ($query) use ($sender_id) {
+                $query->where('first_user_id', $sender_id)
+                    ->orWhere('second_user_id', $sender_id);
+            })
+            ->firstOrFail();
+
+        if ($chat->is_blocked) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Unblock this chat before sending a message.'
+            ], 422);
         }
 
-        // Final check: If we still don't have a receiver_id, we can't send the message
+        $receiver_id = ($chat->first_user_id == $sender_id)
+            ? $chat->second_user_id
+            : $chat->first_user_id;
+
         if (empty($receiver_id)) {
             return response()->json([
                 'status' => false,
@@ -202,18 +223,63 @@ class ChatController extends Controller
 
     }
 
-    public function getNewMessages(Request $request)
+    public function getMessages($chat_id)
     {
-        $chats = Chat::with(['messages' => function ($message) {
-            $message->where('is_delivered', 0)->where('sender_id', '!=', SiteHelper::getLoginUserId());
-        }])
-            ->where('first_user_id', SiteHelper::getLoginUserId())
-            ->orWhere('second_user_id', SiteHelper::getLoginUserId())
+        $userId = SiteHelper::getLoginUserId();
+        $chat = Chat::with(['firstUser', 'secondUser'])
+            ->where('id', $chat_id)
+            ->where(function ($query) use ($userId) {
+                $query->where('first_user_id', $userId)
+                    ->orWhere('second_user_id', $userId);
+            })
+            ->firstOrFail();
+
+        $messages = $chat->messages()
+            ->orderBy('sended_at', 'asc')
             ->get();
 
+        Message::where('chat_id', $chat->id)
+            ->where('receiver_id', $userId)
+            ->update([
+                'is_delivered' => true,
+                'is_readed' => true,
+                'readed_at' => Carbon::now()
+            ]);
 
-             
+        $chat->append('other_user');
+
+        return response()->json([
+            'status' => true,
+            'chat' => $chat,
+            'messages' => $messages
+        ]);
+    }
+
+    public function getNewMessages(Request $request)
+    {
+        $userId = SiteHelper::getLoginUserId();
+        $chats = Chat::with([
+            'firstUser',
+            'secondUser',
+            'latestMessage',
+            'messages' => function ($message) use ($userId) {
+                $message->where('is_delivered', 0)->where('sender_id', '!=', $userId);
+            }
+        ])
+            ->where(function ($query) use ($userId) {
+                $query->where('first_user_id', $userId)
+                    ->orWhere('second_user_id', $userId);
+            })
+            ->get();
+
         foreach ($chats as $chat) {
+            $chat->append([
+                'other_user',
+                'latest_message',
+                'latest_message_sender_id',
+                'unread_count'
+            ]);
+
             if ($chat->messages) {
                 foreach ($chat->messages as $message) {
                     $message->update(['is_delivered' => true]);
@@ -225,7 +291,7 @@ class ChatController extends Controller
         return response()->json([
             'status' => true,
             'data' => $chats,
-            'login_user_id' => SiteHelper::getLoginUserId()
+            'login_user_id' => $userId
         ]);
     }
 

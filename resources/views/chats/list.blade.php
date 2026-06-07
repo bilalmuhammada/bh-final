@@ -268,6 +268,7 @@ color: goldenrod !important;
     .chat-scroll {
         height: calc(75vh - 150px) !important;
         max-height: calc(75vh - 150px) !important;
+        overflow-x: hidden;
     }
     .chat-body-div {
        
@@ -277,6 +278,33 @@ color: goldenrod !important;
     .message-body {
         flex-grow: 1;
         overflow-y: auto;
+        overflow-x: hidden;
+        width: 100%;
+    }
+    .chat-cont-right .chat-body .media {
+        max-width: 100%;
+    }
+    .chat-cont-right .chat-body .media .media-body {
+        min-width: 0;
+    }
+    .chat-cont-right .chat-body .media .media-body .msg-box {
+        max-width: 75%;
+    }
+    .chat-cont-right .chat-body .media .media-body .msg-box > div {
+        max-width: 100%;
+    }
+    .chat-cont-right .chat-body .media .media-body .msg-box p {
+        overflow-wrap: anywhere;
+    }
+    .chat-cont-right .chat-body .media > .avatar,
+    .chat-cont-right .chat-body .media > .avatar .avatar-img {
+        height: 30px !important;
+        width: 30px !important;
+    }
+    .chat-cont-right .chat-body .media > .avatar .avatar-img,
+    .chat-cont-right .chat-header .avatar-img {
+        background-color: #fff;
+        object-fit: contain;
     }
     /* Professional Dropdown Styling */
 
@@ -535,8 +563,10 @@ a:hover {
 }
 
 .chat-product-meta .meta-separator {
-    color: red;
-    margin: 0 7px !important;
+    color: #A17A4E;
+    font-size: 16px;
+    line-height: 1;
+    margin: 0 3px 0 7px !important;
 }
 
 .report-user-btn.user-reported,
@@ -683,9 +713,10 @@ a:hover {
                                         <div class="media d-flex">
                                             <div class="media-img-wrap gallerys flex-shrink-0">
                                                 <div class="avatar">
-                                                    <a href="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') }}">
-                                                    <img src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') }}"
+                                                    <a href="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') ?: asset('images/default/profile.jpg') }}">
+                                                    <img src="{{ \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') ?: asset('images/default/profile.jpg') }}"
                                                          width="50px" height="50px"
+                                                         onerror="this.onerror=null;this.src='{{ asset('images/default/profile.jpg') }}';"
                                                          class="avatar-img rounded-circle">
                                                     </a>
                                                 </div>
@@ -757,14 +788,15 @@ a:hover {
                                                             <li class="media {{ $message->message_position == 'right' ? 'sent' : 'received' }} d-flex">
                                                                 <div class="avatar flex-shrink-0">
                                                                     <img
-                                                                        src="{{ $message->message_position == 'right' ? session()->get('user')['image_url'] : \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url') }}"
+                                                                        src="{{ ($message->message_position == 'right' ? session()->get('user')['image_url'] : \App\Helpers\RecordHelper::getSafeValueFromObject($chat->other_user, 'image_url')) ?: asset('images/default/profile.jpg') }}"
                                                                         alt="User Image" width="30px" height="30px"
+                                                                        onerror="this.onerror=null;this.src='{{ asset('images/default/profile.jpg') }}';"
                                                                         class="avatar-img rounded-circle">
                                                                 </div>
                                                                 <div class="media-body flex-grow-1">
                                                                     <div class="msg-box" >
                                                                         <div style="display: flex;">
-                                                                            <p>{{ $message->message }}</p>
+                                                                            <p>{{ $message->message ?? '' }}</p>
                                                                             <ul class="chat-msg-info">
                                                                                 <li>
                                                                                     <div class="chat-time">
@@ -845,31 +877,33 @@ a:hover {
         e.stopPropagation();  // Prevent the click from triggering the anchor link
     });
 
-    const btn = document.getElementById('userOptionsMenu');
+const btn = document.getElementById('userOptionsMenu');
 const menu = document.getElementById('optionsMenu');
 
-btn.addEventListener('click', function(e) {
-  e.stopPropagation();
-  menu.classList.toggle('show');
-});
+if (btn && menu) {
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menu.classList.toggle('show');
+    });
 
-// Close dropdown if clicked outside
-document.addEventListener('click', function() {
-  menu.classList.remove('show');
-});
+    // Close dropdown if clicked outside
+    document.addEventListener('click', function() {
+        menu.classList.remove('show');
+    });
+}
 
     function checkInput() {
-        var inputMessage = $('.emojionearea-editor').text().trim();
-       var hasImg = $('.emojionearea-editor').find('img').length > 0;
-    // var hasImg = emojioneAreaInstance.editor.find('img').length > 0;
-    
-  
-    if (inputMessage === '' && !hasImg) {
-        $('.msg-send-btn').prop('disabled', true);
-    } else {
-        $('.msg-send-btn').prop('disabled', false);
+        $('.chat-body-div:visible .chat-footer').each(function () {
+            var footer = $(this);
+            var input = footer.find('.input-msg-send');
+            var editor = footer.find('.emojionearea-editor');
+            var inputMessage = editor.length ? editor.text().trim() : input.val().trim();
+            var hasImg = editor.find('img').length > 0;
+            var isBlocked = String(input.attr('data-chat-block')) === '1';
+
+            footer.find('.msg-send-btn').prop('disabled', isBlocked || (inputMessage === '' && !hasImg));
+        });
     }
-}
 $(document).on("click", "#userOptionsMenu", function() {
 
 
@@ -891,12 +925,7 @@ $(document).ready(function () {
        });
    
 
-    $('.msg-send-btn').prop('disabled', true);
-    $(document).on('click', '.msg-send-btn', function(e) {
-
-       
-        $('.msg-send-btn').prop('disabled', true);
-     });
+    checkInput();
     
      
 
@@ -980,57 +1009,46 @@ $(document).ready(function () {
             });
     });
       // Toggle block
-    $('.block-chat').on('click', function() {
+    $(document).on('click', '.block-chat', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
 
-    var button = $(this);
-    var chatId = button.data('chat-id');
+        var chatId = $(this).data('chat-id');
+        var chatBody = $('.chat-body-div[chat-id="' + chatId + '"]');
 
+        $.ajax({
+            url: "{{ route('chat.block') }}",
+            method: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                chat_id: chatId
+            },
+            success: function(response) {
+                var isBlocked = Boolean(response.is_blocked);
+                var chatListItem = $('.chat-title[chat-id="' + chatId + '"]');
+                var controls = $('.block-chat[data-chat-id="' + chatId + '"]');
+                var input = chatBody.find('.input-msg-send');
+                var editor = chatBody.find('.emojionearea-editor');
+                var emojioneArea = chatBody.find('.emojionearea.emojionearea-inline');
 
-
-$.ajax({
-    url: "{{ route('chat.block') }}",
-    method: "POST",
-    data: {
-        _token: "{{ csrf_token() }}",
-        chat_id: chatId
-    },
-    success: function(response) {
-        var emojioneArea = $('.emojionearea.emojionearea-inline');
-        var emojioneEditor = $('.emojionearea-editor');
-
-        var report_user = $('.block_user');
-        if (response.is_blocked) {
-            // show_error_message('User Blocked')
-            button.find('i').css('color', 'goldenrod');
-            report_user.text('Unblock User ');
-            if (emojioneArea.length > 0) {
-                    emojioneArea.css({
-                        'background': '#fdeaea',
-                        'cursor': 'not-allowed',
-                        'pointer-events': 'none'
-                    });
-                    emojioneEditor.attr('contenteditable', 'false');
-            }
-        } else {
-            // show_success_message('User Unblocked');
-            button.find('i').css('color', 'grey');
-            report_user.text('Block User ');
-            if (emojioneArea.length > 0) {
+                chatListItem.toggleClass('blocked', isBlocked);
+                controls.find('i').css('color', isBlocked ? 'goldenrod' : 'grey');
+                controls.filter('.block_user').text(isBlocked ? 'Unblock User' : 'Block User');
+                input.attr('data-chat-block', isBlocked ? '1' : '0');
+                editor.attr('contenteditable', isBlocked ? 'false' : 'true');
                 emojioneArea.css({
-                    'background': '',
-                    'cursor': '',
-                    'pointer-events': ''
+                    'background': isBlocked ? '#fdeaea' : '',
+                    'cursor': isBlocked ? 'not-allowed' : '',
+                    'pointer-events': isBlocked ? 'none' : ''
                 });
 
-                
-                emojioneEditor.attr('contenteditable', 'true');
+                checkInput();
+            },
+            error: function(xhr) {
+                alert(xhr.responseJSON?.message || 'Unable to update block status.');
             }
-           
-           
-        }
-    }
-});
-});
+        });
+    });
 
 
 
@@ -1087,7 +1105,7 @@ $.ajax({
 
         function accept_or_reject(status, chat_id) {
             $.ajax({
-                url: api_url + 'app/chats/accept-or-reject',
+                url: "{{ url('/chats/accept-or-reject') }}",
                 method: 'POST',
                 data: {
                     chat_id: chat_id,
@@ -1109,7 +1127,7 @@ $.ajax({
             
         
             $.ajax({
-                url: api_url + 'app/chats/mark-as-read',
+                url: "{{ url('/chats/mark-as-read') }}",
                 method: 'POST',
                 data: {
                     id: id
@@ -1131,16 +1149,55 @@ $.ajax({
             $(this).addClass('active');
 
             var targetId = $(this).attr('id');
+            var chatId = $(this).attr('chat-id');
+            var chatBody = $('.chat-body-div[chat-id="' + chatId + '"]');
             
             // Hide all chat bodies and show the relevant one
             $('.chat-body-div').hide();
-            $('#' + targetId + '-chat-body-div').show();
+            chatBody.show();
+            loadChatMessages(chatId, chatBody);
             
             // Update URL without reloading
             var idParts = targetId.split('-');
             var otherUserId = idParts[idParts.length - 1];
             history.pushState(null, '', '?i=' + otherUserId);
+            checkInput();
         });
+
+        function loadChatMessages(chatId, chatBody) {
+            var messageBody = chatBody.find('.message-body');
+
+            if (!messageBody.length) {
+                return;
+            }
+
+            messageBody.html('<li class="text-center text-muted small">Loading messages...</li>');
+
+            $.ajax({
+                url: "{{ url('/chats') }}/" + chatId + "/messages",
+                method: 'GET',
+                success: function(response) {
+                    messageBody.empty();
+
+                    if (!response.messages.length) {
+                        messageBody.html('<li class="text-center text-muted small">No messages yet.</li>');
+                        return;
+                    }
+
+                    $(response.messages).each(function(i, message) {
+                        send_msg_body(message, '', false, chatBody, response.chat);
+                    });
+
+                    chatBody.find('.chat-scroll').scrollTop(chatBody.find('.chat-scroll')[0].scrollHeight);
+                    $('.chat-title[chat-id="' + chatId + '"]').find('.unread-count').hide();
+                },
+                error: function(xhr) {
+                    messageBody.html('<li class="text-center text-danger small">' +
+                        (xhr.responseJSON?.message || 'Unable to load messages.') +
+                    '</li>');
+                }
+            });
+        }
        
 
         $(document).on('click', '.msg-send-btn', function () {
@@ -1156,25 +1213,39 @@ $.ajax({
        
 
         function send_new_message(message, thisElem) {
-            // alert($(message).val());
+            var input = $(message);
+            var emojioneArea = input.data('emojioneArea');
+            var messageText = emojioneArea ? emojioneArea.getText().trim() : input.val().trim();
+
+            if (!messageText || String(input.attr('data-chat-block')) === '1') {
+                checkInput();
+                return;
+            }
+
+            $(thisElem).prop('disabled', true);
+
             $.ajax({
-                url: api_url + 'app/chats/send-message',
+                url: "{{ url('/chats/send-message') }}",
                 method: 'POST',
                 data: {
                     user_id: $(thisElem).attr('data-user-id'),
                     chat_id: $(thisElem).attr('data-chat-id'),
-                    message: $(message).val()
+                    message: messageText
                 },
                 success: function (response) {
                     if (response.status) {
                         send_msg_body(response.data, thisElem);
 
-                        $(message).val('');
-                        $('.emojionearea-editor').html('');
+                        input.val('');
+                        if (emojioneArea) {
+                            emojioneArea.setText('');
+                        }
+                        checkInput();
                     }
                 },
-                error: function (response) {
-                    console.log('error');
+                error: function (xhr) {
+                    checkInput();
+                    alert(xhr.responseJSON?.message || 'Unable to send message.');
                 }
             });
         }
@@ -1183,24 +1254,26 @@ $.ajax({
 
              
             $.ajax({
-                url: api_url + 'app/chats/get-new-messages',
+                url: "{{ url('/chats/get-new-messages') }}",
                 method: 'GET',
                 success: function (response) {
                     if (response.status) {
                         $(response.data).each(function (i, chat) {
                     
                             if (chat.messages.length > 0) {
+                                var chatBody = $('.chat-body-div[chat-id="' + chat.id + '"]');
+                                var chatListItem = $('.chat-title[chat-id="' + chat.id + '"]');
+
                                 $(chat.messages).each(function (i, msg) {
-                                    send_msg_body(msg, '', false, $('#' + chat.other_user.name + '-' + chat.other_user.id + '-chat-body-div'), chat);
+                                    send_msg_body(msg, '', false, chatBody, chat);
                                 });
 
-                                $('#' + chat.other_user.name + '-' + chat.other_user.id).find('.user-last-chat').html(chat.latest_message);
+                                chatListItem.find('.product-message').text(chat.latest_message || '');
 
                                 if (response.login_user_id !== chat.latest_message_sender_id && chat.unread_count > 0) {
-                                    $('#' + chat.other_user.name + '-' + chat.other_user.id).find('.unread-count').show();
-                                    $('#' + chat.other_user.name + '-' + chat.other_user.id).find('.unread-count').html(chat.unread_count);
+                                    chatListItem.find('.unread-count').show().html(chat.unread_count);
                                 } else {
-                                    $('#' + chat.other_user.name + '-' + chat.other_user.id).find('.unread-count').hide();
+                                    chatListItem.find('.unread-count').hide();
                                 }
                             }
                         })
@@ -1218,14 +1291,16 @@ $.ajax({
             var li = `<li class="media ${message.message_position === 'right' ? 'sent' : 'received'} d-flex">
                     <div class="avatar flex-shrink-0">
                         <img
-                            src="${message.message_position === 'right' ? "{{session()->get('user')}}" : chat.other_user.image_url}"
+                            src="${message.message_position === 'right' ? (@json(session()->get('user')['image_url']) || @json(asset('images/default/profile.jpg'))) : (chat.other_user.image_url || @json(asset('images/default/profile.jpg')))}"
                             alt="User Image"
+                            width="30" height="30"
+                            onerror="this.onerror=null;this.src='{{ asset('images/default/profile.jpg') }}';"
                             class="avatar-img rounded-circle">
                     </div>
                     <div class="media-body flex-grow-1">
                         <div class="msg-box">
                             <div>
-                                <p>${message.message}</p>
+                                <p>${message.message ?? ''}</p>
                                 <ul class="chat-msg-info">
                                     <li>
                                         <div class="chat-time">
