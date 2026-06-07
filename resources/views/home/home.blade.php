@@ -168,6 +168,8 @@
         .searbox-input {
             height: 55px !important;
             flex: 1 1 auto !important;
+            margin: 0 !important;
+            min-width: 0 !important;
             padding: 12px 20px !important;
             font-size: 18px !important;
             border-top-left-radius: 4px !important;
@@ -181,7 +183,9 @@
             justify-content: center !important;
             flex: 0 0 130px !important;
             height: 55px !important;
-            margin-top: 0 !important;
+            margin: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
             border-radius: 0 4px 4px 0 !important;
             font-weight: 600 !important;
             letter-spacing: 0.5px !important;
@@ -204,6 +208,8 @@
             display: flex !important;
             align-items: stretch !important;
             flex-wrap: nowrap !important;
+            flex-direction: row !important;
+            gap: 0 !important;
             width: 96% !important;
         }
 
@@ -252,7 +258,7 @@
         .similar-listing-heart {
             position: absolute;
             top: 10px;
-            right: 24px !important;
+            right: 16px !important;
             color: #fff;
             font-size: 18px;
             z-index: 10;
@@ -442,7 +448,7 @@
         <div class="container home-full-width">
             <div class="row">
                 <div class="col-md-12">
-                    <h6 style="margin-top: 45px;">
+                    <h6 style="margin-top: 50px;">
                         <b style="margin-left: 0rem;">Popular Categories</b>
                     </h6>
                     <div class="row" style="margin-bottom: -10px;">
@@ -557,7 +563,7 @@
                                                             <div class="listing p-1">
 
                                                                                           <img src="{{ $featured_ad->main_image_url }}" alt="{{ $featured_ad->name }}" title="{{ $featured_ad->name }}" width="216" height="152">
-                                                                    <div class="heart-icon similar-listing-heart {{ $featured_ad->is_favourite ? 'favorited' : '' }}" style="position: absolute; top: 16px; right: 24px;" data-listing-id="{{ $featured_ad->id }}">
+                                                                    <div class="heart-icon similar-listing-heart {{ $featured_ad->is_favourite ? 'favorited' : '' }}" style="position: absolute; top: 16px; right: 16px;" data-listing-id="{{ $featured_ad->id }}">
                                                                         <i class="fa {{ $featured_ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking" style="color: {{ $featured_ad->is_favourite ? '#ff3131' : '#fff' }}; font-size: 20px;"></i>
                                                                     </div>
 
