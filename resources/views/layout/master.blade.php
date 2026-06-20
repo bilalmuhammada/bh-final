@@ -405,6 +405,7 @@
 
 
     </script>
+    <script src="{{ asset('js/favourites.js') }}"></script>
     @yield('page_scripts')
 </body>
 

@@ -80,7 +80,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 0;
+        gap: 0px;
         opacity: 0;
         transition: opacity 0.3s ease;
     }
@@ -95,13 +95,13 @@
         color: #fff;
         cursor: pointer;
         padding: 0;
-        width: 32px;
-        height: 32px;
+        width: 38px;
+        height: 38px;
         border-radius: 50%;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        font-size: 24px;
+        font-size: 29px;
         transition: all 0.3s ease;
         text-decoration: none !important;
     }
@@ -111,13 +111,13 @@
     }
 
     .document-action-btn .document-eye-icon {
-        font-size: 24px;
+        font-size: 29px;
         line-height: 1;
     }
 
     .document-action-btn .document-download-icon {
-        width: 24px;
-        height: 24px;
+        width: 29px;
+        height: 29px;
         object-fit: contain;
         display: block;
     }
@@ -184,13 +184,22 @@
     }
 
     /* Brand link styles */
-    .brand-link {
+    .website-link {
         color: #80bdff !important; /* Light Blue */
         transition: all 0.3s ease;
         text-decoration: none !important;
     }
-    .brand-link:hover {
+    .website-link:hover {
         color: #f6d365 !important; /* Light Gold */
+    }
+
+    .instagram-link {
+        color: #f6d365 !important; /* Light Gold */
+        transition: all 0.3s ease;
+        text-decoration: none !important;
+    }
+    .instagram-link:hover {
+        color: #80bdff !important; /* Light Blue */
     }
 
     .ad-detail-heading {
@@ -282,11 +291,11 @@
 
         .share-btn:hover,
         .favourite-btn:hover {
-            color: goldenrod !important;
+            color: #0000FF !important;
         }
         
         .share-btn:hover {
-            border-color: goldenrod;
+            border-color: #0000FF;
         }
 
         .favourite-btn.fa-heart {
@@ -515,7 +524,7 @@ button.active .indicator-img {
 }
 
 .colbtn a:hover{
-    color: goldenrod !important;
+    color: #0000FF !important;
 
 }
 
@@ -598,7 +607,7 @@ button.active .indicator-img {
     }
 
     .similar-listing-heart i:hover {
-        color: goldenrod;
+        color: #0000FF;
     }
 
     .similar-listing-heart.favorited i {
@@ -1063,9 +1072,11 @@ button.active .indicator-img {
                                         <img src="{{ asset('images/socialicon/whatsapp.png')}}" alt="WhatsApp" style="height: 38px;">
                                     </button>
 
-                                    <button class="btn action-btn-shake p-0 d-flex align-items-center justify-content-center" onclick="redirectToEmail()" style="border: 1px solid #fab005; width: 45px; height: 36px; border-radius: 0.3rem; margin: 0 6px;" type="button">
+                                    <a class="btn action-btn-shake p-0 d-flex align-items-center justify-content-center"
+                                       href="mailto:{{ $ad->created_by_user->email }}?subject={{ rawurlencode('Subject here') }}&body={{ rawurlencode('Body content here') }}"
+                                       style="border: 1px solid #fab005; width: 45px; height: 36px; border-radius: 0.3rem; margin: 0 6px;">
                                         <img src="{{ asset('images/socialicon/email.png')}}" title="Email" alt="Email" style="height: 20px;">
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -1237,19 +1248,6 @@ function showPopup() {
 
 
 
-    function redirectToEmail() {
-        if (!checkIfUserLoggedIn()) {
-
-$('#loginModal').modal('show');
-return ;
-}
-        const emailAddress = {!! json_encode($ad->created_by_user->email) !!}; // Replace with your dynamic email variable if applicable
-        const subject = "Subject here"; // Customize or make dynamic
-        const body = "Body content here"; // Customize or make dynamic
-
-        const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.location.href = mailtoLink;
-    }
 function redirectToWhatsApp() {
     const whatsappNumber = String(phoneNumber || '').replace(/\D/g, '');
     const whatsappLink = `https://wa.me/${whatsappNumber}`;

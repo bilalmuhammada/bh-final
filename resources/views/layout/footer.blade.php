@@ -20,7 +20,7 @@
     }
     .app-store-coming-soon-label {
         bottom: calc(100% + 2px);
-        color: #80bdff;
+        color: #0000FF !important;
         font-size: 11px;
         left: 50%;
         line-height: 14px;
@@ -28,6 +28,7 @@
         pointer-events: none;
         position: absolute;
         transform: translateX(-50%);
+        transition: opacity 0.2s ease;
         white-space: nowrap;
     }
     .app-store-coming-soon.active .app-store-coming-soon-label {
@@ -219,7 +220,12 @@
         const selectedStore = event.target.closest('.app-store-coming-soon');
 
         if (selectedStore) {
-            selectedStore.classList.toggle('active');
+            selectedStore.classList.add('active');
+
+            clearTimeout(selectedStore.appStoreLabelTimer);
+            selectedStore.appStoreLabelTimer = setTimeout(function () {
+                selectedStore.classList.remove('active');
+            }, 2000);
         }
     });
 </script>

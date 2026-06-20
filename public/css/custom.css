@@ -165,11 +165,11 @@ zoom: 1;
 }
 
 .select2-container--default:hover .select2-selection--single .select2-selection__rendered {
-    color: goldenrod !important;
+    color: #0000FF !important;
 }
 
 .select2-container--default:hover .select2-selection--single .select2-selection__arrow b {
-    border-color: goldenrod transparent transparent transparent !important;
+    border-color: #0000FF transparent transparent transparent !important;
 }
 
 /* Remove hover effect when open */

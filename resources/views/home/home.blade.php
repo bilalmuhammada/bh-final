@@ -448,7 +448,7 @@
         <div class="container home-full-width">
             <div class="row">
                 <div class="col-md-12">
-                    <h6 style="margin-top: 50px;">
+                    <h6 style="margin-top: 60px;">
                         <b style="margin-left: 0rem;">Popular Categories</b>
                     </h6>
                     <div class="row" style="margin-bottom: -10px;">

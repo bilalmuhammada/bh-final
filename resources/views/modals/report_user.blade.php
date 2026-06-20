@@ -42,6 +42,20 @@
         #reportUserModal textarea[name="description"]:focus {
             color: #000 !important;
         }
+        #reportUserModal .closebtn.btn,
+        #reportUserModal .report-ad-submit-btn {
+            background-color: #A17A4E !important;
+            border-color: #A17A4E !important;
+            color: #fff !important;
+            box-shadow: none !important;
+        }
+        #reportUserModal .closebtn.btn:hover,
+        #reportUserModal .closebtn.btn:focus,
+        #reportUserModal .report-ad-submit-btn:hover,
+        #reportUserModal .report-ad-submit-btn:focus {
+            background-color: #0000FF !important;
+            border-color: #0000FF !important;
+        }
         </style>
     <div class="modal-dialog modal-sm" style="border:0px solid red;width:232px;margin-top:9%;">
         <div class="modal-content">

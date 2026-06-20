@@ -207,6 +207,34 @@ color: goldenrod !important;
     color: blue !important;
     font-weight: 400 !important;
 }
+.chat-type-filter .select2-container {
+    display: inline-block !important;
+    min-width: 120px !important;
+}
+.chat-type-filter .select2-selection--single {
+    align-items: center;
+    border: none !important;
+    box-shadow: none !important;
+    display: flex !important;
+    height: 30px !important;
+}
+.chat-type-filter .select2-container--default:hover .select2-selection--single,
+.chat-type-filter .select2-container--default.select2-container--focus .select2-selection--single,
+.chat-type-filter .select2-container--default.select2-container--open .select2-selection--single,
+.chat-type-filter .select2-selection--single:focus {
+    border: none !important;
+    box-shadow: none !important;
+}
+#select2-filter-dropdown-results .select2-results__option {
+    line-height: 1.2 !important;
+    min-height: 23px !important;
+    padding: 2px 8px !important;
+}
+#select2-filter-dropdown-results .select2-results__option--highlighted[aria-selected],
+#select2-filter-dropdown-results .select2-results__option:hover {
+    background: #fff !important;
+    color: #f6d365 !important;
+}
 .select2-container--default .select2-selection--single {
     border: none !important;
     background: transparent !important;
@@ -373,9 +401,29 @@ input.form-control-search:focus {
     display: flex;
     gap: 8px;
     margin: 0;
-    padding: 6px 12px;
+    padding: 15px 12px;
     transform: translateY(-10px);
     width: 100%;
+}
+.chat-blocked-notice {
+    bottom: calc(100% + 2px);
+    color: #ff5a5a;
+    font-size: 11px;
+    font-weight: 600;
+    left: 0;
+    line-height: 1;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+.chat-footer {
+    position: relative;
+}
+.chat-footer.is-blocked .emojionearea,
+.chat-footer.is-blocked .input-msg-send {
+    background: #fdeaea !important;
+    cursor: not-allowed !important;
 }
 .chat-input-wrap {
     flex: 1 1 auto;
@@ -433,7 +481,7 @@ a:hover {
 
 }
 .chat-title:hover .product-left-description {
-    color: #A17A4E !important;
+    color: #f6d365 !important;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -494,7 +542,7 @@ a:hover {
 
 .custom-dropdown-menu a:hover {
     background: #ffff;
-    color: #000fff !important;
+    color: #f6d365 !important;
 }
 
 /* Button styling */
@@ -563,10 +611,10 @@ a:hover {
 }
 
 .chat-product-meta .meta-separator {
-    color: #A17A4E;
-    font-size: 16px;
+    color: red;
+    font-size: 12px;
     line-height: 1;
-    margin: 0 3px 0 7px !important;
+    margin: 0 2px 0 3px !important;
 }
 
 .report-user-btn.user-reported,
@@ -594,7 +642,7 @@ a:hover {
                                     <input type="checkbox" class="hiddencheck mb-0" id="check-all">
                                     <span style="font-size: 11px; font-weight: 500;" class="hiddencheck">Select All</span>
                                 </div>
-                                <div class="flex-grow-1 text-center">
+                                <div class="flex-grow-1 text-center chat-type-filter">
                                     <select class="form-select chat" id="filter-dropdown" style="width: auto; min-width: 120px;">
                                         <option value="all">All Chats</option>
                                         <option value="favorites">Favourites</option>
@@ -660,12 +708,6 @@ a:hover {
                                                             <i class="fa fa-heart" style="color: {{ $chat->is_favorite ? 'red' : 'grey' }} !important; font-size: 14px;"></i>
                                                         </button>
 
-                                                        <button class="btn btn-link block-chat" 
-                                                                title="{{ $chat->is_blocked ? 'Unblock' : 'Block' }}" 
-                                                                style="padding: 0;" 
-                                                                data-chat-id="{{ $chat->id }}">
-                                                            <i class="fa fa-ban" style="color: {{ $chat->is_blocked ? 'goldenrod' : 'grey' }} !important; font-size: 14px;"></i>
-                                                        </button>
                                                     </div>
                                                    
                                                     <div style="display: flex; align-items: center; gap: 8px; font-size: 11px; color: #666; margin-bottom: 2px; white-space: nowrap;">
@@ -742,7 +784,7 @@ a:hover {
 
                                             
                                             <div class="custom-dropdown-menu" id="optionsMenu"  >
-                                                <a href="#" class="block-chat   block_user" data-chat-id="{{ $chat->id }}">Block User</a>
+                                                <a href="#" class="block-chat block_user" data-chat-id="{{ $chat->id }}">Block User</a>
                                                 <a href="#" class="report-user-btn @if($existingReport) user-reported @endif" data-ad-id="{{ $chat->ad->id }}" data-bs-toggle="modal" data-bs-target="#reportUserModal">  
                                                 @if($existingReport)
                                                         User Reported
@@ -813,7 +855,8 @@ a:hover {
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="chat-footer">
+                                        <div class="chat-footer {{ $chat->is_blocked ? 'is-blocked' : '' }}">
+                                            <div class="chat-blocked-notice {{ $chat->is_blocked ? '' : 'd-none' }}">Chat Blocked by User</div>
                                             <div class="chat-message-form" >
                                                 {{-- <div class="avatar" style="padding:4px;">
                                                     <img
@@ -1030,12 +1073,16 @@ $(document).ready(function () {
                 var input = chatBody.find('.input-msg-send');
                 var editor = chatBody.find('.emojionearea-editor');
                 var emojioneArea = chatBody.find('.emojionearea.emojionearea-inline');
+                var footer = chatBody.find('.chat-footer');
 
                 chatListItem.toggleClass('blocked', isBlocked);
                 controls.find('i').css('color', isBlocked ? 'goldenrod' : 'grey');
                 controls.filter('.block_user').text(isBlocked ? 'Unblock User' : 'Block User');
                 input.attr('data-chat-block', isBlocked ? '1' : '0');
+                input.prop('disabled', isBlocked);
                 editor.attr('contenteditable', isBlocked ? 'false' : 'true');
+                footer.toggleClass('is-blocked', isBlocked);
+                footer.find('.chat-blocked-notice').toggleClass('d-none', !isBlocked);
                 emojioneArea.css({
                     'background': isBlocked ? '#fdeaea' : '',
                     'cursor': isBlocked ? 'not-allowed' : '',

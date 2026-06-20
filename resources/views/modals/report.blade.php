@@ -57,9 +57,14 @@
             width: 100%;
         }
 
+        #reportModal textarea.form-control:hover {
+            border-color: #80bdff !important;
+        }
+
         #reportModal textarea.form-control:focus {
             border-color: #80bdff !important;
-            box-shadow: 0 0 0 0.1rem rgba(128, 189, 255, 0.25);
+            box-shadow: none !important;
+            outline: none !important;
         }
 
         #reportModal .modal-footer {
@@ -72,6 +77,28 @@
 
         #reportModal .modal-footer > * {
             margin: 0;
+        }
+
+        #reportModal .report-modal-close.btn {
+            background-color: #A17A4E !important;
+            border-color: #A17A4E !important;
+            color: #fff !important;
+            box-shadow: none !important;
+        }
+
+        #reportModal .report-ad-submit-btn {
+            background-color: #A17A4E !important;
+            border-color: #A17A4E !important;
+            color: #fff !important;
+            box-shadow: none !important;
+        }
+
+        #reportModal .report-modal-close.btn:hover,
+        #reportModal .report-modal-close.btn:focus,
+        #reportModal .report-ad-submit-btn:hover,
+        #reportModal .report-ad-submit-btn:focus {
+            background-color: #0000FF !important;
+            border-color: #0000FF !important;
         }
     </style>
     <div class="modal-dialog modal-sm">

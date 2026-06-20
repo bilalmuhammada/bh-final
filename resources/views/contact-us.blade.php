@@ -27,7 +27,7 @@ form{
     border: none !important;
 }
 .contact-us:hover{
-    background-color:  blue !important;  
+    background-color:  #0000FF !important;
     color: white;
     border: none !important;
 }
@@ -38,6 +38,9 @@ form{
 .form-control {
     width: -webkit-fill-available !important;
     font-size: 14px !important;
+}
+.contact-message {
+    padding-left: 5px !important;
 }
 select {
     -webkit-appearance: none; /* For Chrome, Safari, Edge */
@@ -231,7 +234,7 @@ select {
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group form-focus">
-                                        <textarea class="form-control  form-padding floating" style="height:180px;" name="message"></textarea>
+                                        <textarea class="form-control form-padding floating contact-message" style="height:180px;" name="message"></textarea>
                                         <label class="focus-label">Message</label>
                                     </div>
                                 </div>
@@ -262,4 +265,3 @@ select {
 }
         </script>   
 @endsection
-

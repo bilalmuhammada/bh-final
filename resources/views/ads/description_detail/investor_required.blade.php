@@ -82,9 +82,9 @@
             <p style="font-size: 14px; margin-bottom: 0px;"><b>Website:</b>
                 <span >
                     @if(!empty($ad->details->website))
-                        <a href="{{ $external_link_url($ad->details->website) }}" target="_blank" class="brand-link">{{ $external_link_label($ad->details->website, 'Website') }}</a>
+                        <a href="{{ $external_link_url($ad->details->website) }}" target="_blank" class="website-link">{{ $external_link_label($ad->details->website, 'Website') }}</a>
                     @else
-                        No
+                        NA
                     @endif
                 </span>
             </p>
@@ -93,9 +93,9 @@
             <p style="font-size: 14px; margin-bottom: 0px;"><b>Instagram:</b>
                 <span >
                     @if(!empty($ad->details->instagram))
-                        <a href="{{ $external_link_url($ad->details->instagram) }}" target="_blank" class="brand-link">{{ $instagram_link_label($ad->details->instagram) }}</a>
+                        <a href="{{ $external_link_url($ad->details->instagram) }}" target="_blank" class="instagram-link">{{ $instagram_link_label($ad->details->instagram) }}</a>
                     @else
-                        No
+                        NA
                     @endif
                 </span>
             </p>

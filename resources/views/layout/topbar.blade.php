@@ -53,8 +53,23 @@
         height: 37px;
     }
 
+    .desktop-category-nav {
+        position: relative;
+    }
+
+    .desktop-category-nav::before {
+        background: #f0f0f0;
+        content: '';
+        height: 1px;
+        left: 50%;
+        position: absolute;
+        top: 0;
+        transform: translateX(-50%);
+        width: 100vw;
+    }
+
     .profile-menu-link {
-        color: blue !important;
+        color: #1a1a1a !important;
         transition: color 0.2s ease;
     }
 
@@ -116,18 +131,24 @@
     }
 
     .topbar-dropdown-trigger:hover {
-        color: goldenrod !important;
+        color: #f6d365 !important;
+    }
+
+    .dropdown.show > .topbar-dropdown-trigger,
+    .topbar-dropdown-trigger[aria-expanded="true"] {
+        color: #f6d365 !important;
     }
 
     /* Badge positioning */
     .trigger-with-badge {
         position: relative;
+        margin-right: 8px;
     }
 
     .badge-premium-green {
         position: absolute;
         top: -7px;
-        right: -11px;
+        right: -10px;
         background-color: #dcfce7 !important;
         color: #166534 !important;
         font-size: 8px !important;
@@ -176,11 +197,11 @@
     }
 
     .color-logo {
-        color: red !important;
+        color: #1a1a1a !important;
     }
 
     .color-logo:hover {
-        color: blue !important;
+        color: #f6d365 !important;
     }
 
     /* Selection items (Select2-like styling for custom selects) */
@@ -242,12 +263,20 @@
     }
 
     .ad-item-title {
-        color: #000 !important;
+        color: #1a1a1a !important;
         transition: color 0.2s ease;
     }
 
     .list-group-item-action:hover .ad-item-title {
-        color: #A17A4E !important;
+        color: #f6d365 !important;
+    }
+
+    .topbar-dropdown-row {
+        background-color: #f0f8ff !important;
+    }
+
+    .topbar-dropdown-row:hover {
+        background-color: #f0f8ff !important;
     }
 
     .price-text {
@@ -510,8 +539,7 @@
                                 </div>
                                 <div class="list-group list-group-flush">
                                     @foreach($notifications as $notification)
-                                        <div class=" list-group-item-action border-bottom pl-2 pr-2"
-                                            style="background-color: aliceblue;">
+                                        <div class=" list-group-item-action border-bottom pl-2 pr-2 topbar-dropdown-row">
                                             <div class="d-flex align-items-center position-relative">
                                                 <div
                                                     style="flex-shrink: 0; width: 50px; height: 46px; border-radius: 4px; overflow: hidden; background: #fff;">
@@ -571,8 +599,7 @@
                                 <div class="list-group list-group-flush">
                                     @foreach($favourite_ads as $favourite_ad)
                                         <a href="{{ env('BASE_URL') . 'ads/detail/' . $favourite_ad->id . '?country=' . request()->country . '&city=' . request()->city }}"
-                                            class=" list-group-item-action border-bottom d-flex align-items-center pl-2 pr-2"
-                                            style="background-color: aliceblue;">
+                                            class=" list-group-item-action border-bottom d-flex align-items-center pl-2 pr-2 topbar-dropdown-row">
                                             <div
                                                 style="flex-shrink: 0; width: 45px; height: 38px; border-radius: 4px; overflow: hidden; background: #fff;">
                                                 <img src="{{ $favourite_ad->main_image_url ?? 'https://placehold.co/80x80?text=Ad' }}"
@@ -623,8 +650,8 @@
                                 <div class="list-group list-group-flush">
                                     @foreach($chats->take(3) as $message)
                                         <a href="{{ route('chats') . '/detail/' . $message->id . '?country=' . request()->country . '&city=' . request()->city }}"
-                                            class=" list-group-item-action d-flex align-items-center pl-2 pr-2 "
-                                            style="background-color: aliceblue; margin-bottom: .15rem; margin-top: .15rem;">
+                                            class=" list-group-item-action d-flex align-items-center pl-2 pr-2 topbar-dropdown-row"
+                                            style="margin-bottom: .15rem; margin-top: .15rem;">
                                             <img src="{{ $message->chat->other_user->image_url ?? 'https://i.pinimg.com/originals/fe/d9/97/fed9971d943669c993db0be515a18a61.jpg' }}"
                                                 class="rounded-circle" width="60" height="60" style="object-fit: cover;">
                                             <div class="ms-3 flex-grow-1 px-2 overflow-hidden">
@@ -738,8 +765,8 @@
     </div>
 
     <!-- navigation finish -->
-    <div class="desktop-view"
-        style="max-width: 1200px !important; margin: 0 auto !important; border-top: 1px solid #f0f0f0; padding: 10px 13px; margin-bottom: 0px !important; padding-bottom: 0px !important;">
+    <div class="desktop-view desktop-category-nav"
+        style="max-width: 1200px !important; margin: 0 auto !important; padding: 10px 13px; margin-bottom: 0px !important; padding-bottom: 0px !important;">
         <nav class="navbar navbar-expand-lg navbar-light p-0"
             style="min-height: auto !important; margin-bottom: 10px !important;">
             <div class="collapse navbar-collapse" id="navbarSupportedContentx">

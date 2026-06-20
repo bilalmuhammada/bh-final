@@ -106,6 +106,24 @@
         max-height: 160px !important; /* show ~5 items */
         overflow-y: auto !important;
     }
+
+    #registerModal .form-control:hover,
+    #registerModal .form-control:focus,
+    #registerModal .form-border-container:hover,
+    #registerModal .form-border-container:focus-within {
+        border-color: #0000FF !important;
+        box-shadow: 0 0 0 1px rgba(0, 0, 255, 0.18) !important;
+    }
+
+    #registerModal .form-border-container:hover .select2-container--default .select2-selection--single .select2-selection__rendered,
+    #registerModal .form-border-container:focus-within .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #0000FF !important;
+    }
+
+    #registerModal .form-border-container:hover .select2-container--default .select2-selection--single .select2-selection__arrow b,
+    #registerModal .form-border-container:focus-within .select2-container--default .select2-selection--single .select2-selection__arrow b {
+        border-color: #0000FF transparent transparent transparent !important;
+    }
 </style>
 
 

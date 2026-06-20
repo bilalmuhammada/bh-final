@@ -158,4 +158,10 @@ $(document).ready(function() {
     color:blue !important;
     /* font-weight:bold; */
 }
+
+.select2-container--default:hover .select2-selection--single .select2-selection__rendered,
+.select2-container--default.select2-container--focus .select2-selection--single .select2-selection__rendered,
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__rendered {
+    color: #0000FF !important;
+}
 </style>

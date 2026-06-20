@@ -243,7 +243,6 @@
         .form-focus textarea.floating ~ .focus-label {
             background-color: #fff;
             left: 7px;
-            padding: 0 5px;
             z-index: 2;
         }
 
