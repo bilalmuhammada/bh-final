@@ -80,7 +80,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 0px;
+        gap: 16px;
         opacity: 0;
         transition: opacity 0.3s ease;
     }
@@ -111,7 +111,7 @@
     }
 
     .document-action-btn .document-eye-icon {
-        font-size: 29px;
+        font-size: 36px;
         line-height: 1;
     }
 
@@ -185,12 +185,12 @@
 
     /* Brand link styles */
     .website-link {
-        color: #80bdff !important; /* Light Blue */
+        color: #0000FF !important; /* Logo Blue */
         transition: all 0.3s ease;
         text-decoration: none !important;
     }
     .website-link:hover {
-        color: #f6d365 !important; /* Light Gold */
+        color: #A17A4E !important; /* Logo Gold */
     }
 
     .instagram-link {
@@ -291,7 +291,7 @@
 
         .share-btn:hover,
         .favourite-btn:hover {
-            color: #0000FF !important;
+            color: #A17A4E !important;
         }
         
         .share-btn:hover {
@@ -299,7 +299,11 @@
         }
 
         .favourite-btn.fa-heart {
-            color: red !important;
+            color: #ff3131 !important;
+        }
+
+        .favourite-btn:hover {
+            color: #ff3131 !important;
         }
 
         .ad-detail-actions {
@@ -313,27 +317,31 @@
             margin-left: -1px;
         }
 
-        .ad-detail-actions .ad-share-notification {
+        #carouselDemo .ad-share-notification {
             background: transparent;
-            bottom: calc(120% + 3px);
-            color: #80bdff;
+            border: 0;
+            box-shadow: none;
+            color: #0000FF;
             display: block;
             font-size: 12px;
-            left: 50%;
+            font-weight: normal;
             opacity: 0;
             padding: 0;
             pointer-events: none;
             position: absolute;
-            right: auto;
-            transform: translateX(-50%);
+            left: auto;
+          
+            top: -25px;
+            transform: translateY(-10px);
             transition: opacity 0.2s ease;
             white-space: nowrap;
-            z-index: 20;
+            z-index: 1100;
         }
 
-        .ad-detail-actions .ad-share-notification.visible {
+        #carouselDemo .ad-share-notification.visible {
             animation: none;
             opacity: 1;
+            transform: translateY(0);
         }
 
         .notification {
@@ -821,12 +829,12 @@ button.active .indicator-img {
                 <div class="col-lg-9 col-md-9 col-12">
                     <div class="row">
                         <div class="col-12">
-                               
+                                
 
                                 <div class="carousel slide" id="carouselDemo" data-bs-wrap="true" data-bs-ride="carousel" style="position: relative;">
+                                    <span id="notification" class="notification ad-share-notification">Saved to Clipboard</span>
                                     <div style="position: absolute; top: 10px; right: 10px; z-index: 10;">
                                         <span class="ad-detail-actions" style="font-size: 13px; cursor:pointer;">
-                                            <span id="notification" class="notification ad-share-notification">Copied to Clipboard</span>
                                             <i class="fa favourite-btn detail-favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking"
                                                is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
                                                style="padding:6px 6px;font-size:19px; text-shadow: 0 0 3px rgba(0,0,0,0.5);"> </i>
@@ -1267,7 +1275,7 @@ $(document).ready(function () {
                 // alert('Ad link copied to clipboard: ' + adLink);
 
                 const notification = $('#notification');
-        notification.text('Copied to Clipboard');
+        notification.text('Saved to Clipboard');
         notification.addClass('visible');
 
         setTimeout(() => {

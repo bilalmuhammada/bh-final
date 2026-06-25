@@ -203,7 +203,7 @@
                 </div> --}}
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" name="required_investment" onwheel="this.blur()"
+                        <input type="text" class="form-control floating number-format" inputmode="numeric" name="required_investment" onwheel="this.blur()"
                             placeholder="" required>
 
                         <label class="focus-label">Investment Required - USD</label>

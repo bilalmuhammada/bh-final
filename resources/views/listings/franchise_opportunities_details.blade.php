@@ -194,7 +194,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="franchise_fee"
+                        <input type="text" class="form-control floating number-format" inputmode="numeric" onwheel="this.blur()" name="franchise_fee"
                             placeholder="" required>
                         <label class="focus-label">Franchise Fee - USD</label>
                     </div>

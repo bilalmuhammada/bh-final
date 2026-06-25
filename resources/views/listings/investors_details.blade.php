@@ -197,7 +197,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="investment_amount"
+                        <input type="text" class="form-control floating number-format" inputmode="numeric" onwheel="this.blur()" name="investment_amount"
                             placeholder="" required>
                         <label class="focus-label">Investment Amount - USD</label>
                     </div>
@@ -319,7 +319,7 @@
 
         <div class="col-md-6 mx-auto">
             <div class="form-group form-focus">
-                <textarea name="interested_business_types" class="form-control floating" maxlength="1000" placeholder=""
+                <textarea name="interested_business_types" class="form-control floating" placeholder=""
                     style="height: 150px;" required></textarea>
                 <label class="focus-label">Interested Business Types</label>
             </div>

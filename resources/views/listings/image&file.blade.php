@@ -2,7 +2,8 @@
     <div class="input--file">
         <i class="fa fa-camera fa-1x"></i>
         <input type="file" multiple class="form-controlz form-control floating form-control-file images" name="images[]"
-            placeholder="Upload Images" accept="image/*">
+            placeholder="Upload Images" accept="image/*" data-max-images="40"
+            data-existing-image-count="{{ isset($Listing) ? $Listing->images->count() : 0 }}">
         <div class="invalid-feedback image-error">
             Please upload at least one image.
         </div>
@@ -62,6 +63,28 @@
 <script src="https://cdn.jsdelivr.net/npm/toastedjs/dist/toasted.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        var imageInput = document.querySelector('.images');
+        if (imageInput) {
+            imageInput.addEventListener('change', function () {
+                var maxImages = Number(this.dataset.maxImages || 40);
+                var existingImages = Number(this.dataset.existingImageCount || 0);
+                var selectedImages = this.files.length;
+
+                if (existingImages + selectedImages > maxImages) {
+                    var availableImages = Math.max(maxImages - existingImages, 0);
+                    var message = 'You can upload up to ' + maxImages + ' images per listing. '
+                        + (availableImages ? 'You can add ' + availableImages + ' more.' : 'Remove an existing image before adding another.');
+
+                    var errorMessage = this.parentElement.querySelector('.invalid-feedback.image-error');
+                    if (errorMessage) {
+                        errorMessage.style.display = 'block';
+                        errorMessage.textContent = message;
+                    }
+                    this.value = '';
+                }
+            });
+        }
+
         var fileInput = document.getElementById('fileInput');
         if (fileInput) {
             fileInput.addEventListener('change', function () {

@@ -23,6 +23,11 @@
 @endphp
 <style>
     /* Premium Topbar Styling */
+    :root {
+        --topbar-currency-gold: #d4a72c;
+        --topbar-light-gold: goldenrod;
+    }
+
     .topbar-wrapper {
         display: flex;
         align-items: center;
@@ -75,7 +80,7 @@
 
     .profile-menu-link:hover,
     .profile-menu-link:focus {
-        color: #f6d365 !important;
+        color: var(--topbar-light-gold) !important;
     }
 
     .topbar-items-group {
@@ -131,12 +136,12 @@
     }
 
     .topbar-dropdown-trigger:hover {
-        color: #f6d365 !important;
+        color: var(--topbar-currency-gold) !important;
     }
 
     .dropdown.show > .topbar-dropdown-trigger,
     .topbar-dropdown-trigger[aria-expanded="true"] {
-        color: #f6d365 !important;
+        color: var(--topbar-currency-gold) !important;
     }
 
     /* Badge positioning */
@@ -197,11 +202,11 @@
     }
 
     .color-logo {
-        color: #1a1a1a !important;
+        color: red !important;
     }
 
     .color-logo:hover {
-        color: #f6d365 !important;
+        color: blue !important;
     }
 
     /* Selection items (Select2-like styling for custom selects) */
@@ -268,7 +273,19 @@
     }
 
     .list-group-item-action:hover .ad-item-title {
-        color: #f6d365 !important;
+        color: var(--topbar-currency-gold) !important;
+    }
+
+    #notificationsDropdown:hover,
+    #notificationsDropdown[aria-expanded="true"],
+    .dropdown.show > #notificationsDropdown,
+    #favoritesDropdown:hover,
+    #favoritesDropdown[aria-expanded="true"],
+    .dropdown.show > #favoritesDropdown,
+    #chatsDropdown:hover,
+    #chatsDropdown[aria-expanded="true"],
+    .dropdown.show > #chatsDropdown {
+        color: blue !important;
     }
 
     .topbar-dropdown-row {
@@ -412,6 +429,12 @@
 
     .topbar-wrapper .select2-container--default .select2-selection--single:hover .select2-selection__arrow b {
         border-color: goldenrod transparent transparent transparent !important;
+    }
+
+    .desktop-category-nav .nav-link:hover,
+    .desktop-category-nav .dropdown-item:hover,
+    .dropdown-menu-custom a:hover {
+        color: var(--topbar-currency-gold) !important;
     }
 
     /* Profile Image Styling */

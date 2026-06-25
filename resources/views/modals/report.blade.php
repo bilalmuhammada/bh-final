@@ -8,7 +8,8 @@
 
         #reportModal .modal-dialog {
             margin-top: 9%;
-            width: 270px;
+            max-width: 232px !important;
+            width: 232px !important;
         }
 
         #reportModal .modal-header {
@@ -58,11 +59,11 @@
         }
 
         #reportModal textarea.form-control:hover {
-            border-color: #80bdff !important;
+            border-color: #0000FF !important;
         }
 
         #reportModal textarea.form-control:focus {
-            border-color: #80bdff !important;
+            border-color: #0000FF !important;
             box-shadow: none !important;
             outline: none !important;
         }

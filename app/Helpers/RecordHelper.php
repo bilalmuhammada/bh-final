@@ -228,6 +228,14 @@ class RecordHelper
         return $Messages;
     }
 
+    public static function getUnreadMessages()
+    {
+        return \App\Models\Message::with('receiver')
+            ->where('receiver_id', \App\Helpers\SiteHelper::getLoginUserId())
+            ->where('is_readed', 0)
+            ->get();
+    }
+
     public static function getDownloadRequests($type)
     {
         return ListingUserApproval::with('listing')->whereHas('listing', function ($Listing) {

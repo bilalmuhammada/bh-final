@@ -173,6 +173,10 @@ class ListingController extends Controller
     {
 
         // dd('jjjj');
+        $existingListing = $request->listing_id ? Listing::find($request->listing_id) : null;
+        $existingImageCount = $existingListing ? $existingListing->images()->count() : 0;
+        $imageArrayRule = $existingImageCount > 0 ? 'nullable|array|max:40' : 'required|array|max:40';
+
         $Validator = Validator::make($request->all(), [
            
             'title' => 'required',
@@ -185,7 +189,7 @@ class ListingController extends Controller
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
             // 'location_name' => 'required',
-            'images' => 'required|array',
+            'images' => $imageArrayRule,
             'images.*' => 'image|max:5120',
         ]);
 
@@ -195,6 +199,16 @@ class ListingController extends Controller
                 'status' => FALSE,
                 'message' => $Validator->errors()->first(),
                 'errors' => $Validator->errors(),
+            ]);
+        }
+
+        $newImageCount = count($request->file('images', []));
+
+        if ($existingImageCount + $newImageCount > 40) {
+            return response()->json([
+                'status' => false,
+                'message' => 'A listing can contain a maximum of 40 images.',
+                'errors' => ['images' => ['A listing can contain a maximum of 40 images.']],
             ]);
         }
 

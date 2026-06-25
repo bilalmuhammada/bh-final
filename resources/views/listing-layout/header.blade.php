@@ -77,8 +77,10 @@
     }
     .btn-next a.btn.is-live,
     .btn-nexts a.btn.is-live,
+    .place-ad-form-submit.is-posted,
     .btn-next a.btn.is-live:hover,
-    .btn-nexts a.btn.is-live:hover {
+    .btn-nexts a.btn.is-live:hover,
+    .place-ad-form-submit.is-posted:hover {
         background: #29B87E !important;
         border-color: #24a370 !important;
         color: #fff !important;

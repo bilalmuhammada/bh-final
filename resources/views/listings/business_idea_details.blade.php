@@ -207,7 +207,7 @@
 
 
                     <div class="form-group form-focus">
-                        <input type="number" class="form-control floating" onwheel="this.blur()" name="investment_amount">
+                        <input type="text" class="form-control floating number-format" inputmode="numeric" onwheel="this.blur()" name="investment_amount">
                         <label class="focus-label">Investment Required - USD</label>
                     </div>
                     {{-- <input type="text" class="form-controlz" name="investment_amount" placeholder="Investment Required"

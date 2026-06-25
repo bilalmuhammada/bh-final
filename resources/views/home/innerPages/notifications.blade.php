@@ -24,12 +24,10 @@
         /* Custom dropdown menu */
         .dropdown-menu-custom {
             position: absolute;
-            top: 40px; /* Adjust distance from the icon */
-            left: 10px;
+            top: 35px; /* Adjust distance from the icon */
+            left: 0;
             background-color: white;
-            border: 1px solid #ccc;
-            border-radius: 0.3rem;
-            width: 150px;
+            width: 99px;
             display: none; /* Initially hidden */
             z-index: 1000;
         }
@@ -43,13 +41,13 @@
         /* Dropdown items */
         .dropdown-menu-custom a {
             display: block;
-            padding: 10px;
+            padding: 0px;
             color: #333;
             text-decoration: none;
         }
 
         .dropdown-menu-custom a:hover {
-            background-color: #f0f0f0;
+            background-color: transparent;
         }
     </style>
 </head>
@@ -95,8 +93,8 @@
             </div>
 
             <!-- Custom dropdown menu -->
-            <div class="dropdown-menu-custom" style="position: absolute; background-color: white; border: 1px solid #ccc; border-radius: 5px; width: 170px; top: 35px; left: -50px; display: none;">
-                <a href="#" onclick="markAsRead(this)" style="display: block; padding: 10px; text-decoration: none; color: #333;">Mark as Read</a>
+            <div class="dropdown-menu-custom" style="position: absolute; background-color: white; width: 99px; top: 35px; left: 0px; display: none;">
+                <a href="#" onclick="markAsRead(this)" style="display: block; padding: 0px; text-decoration: none; color: #333;">Mark as Read</a>
                <!--   // <a href="#" onclick="removeNotification(this)" style="display: block; padding: 10px; text-decoration: none; color: #333;">Remove Notification</a>-->
             </div>
         </div>
@@ -135,4 +133,3 @@
     }
 </script>
 @endsection
-

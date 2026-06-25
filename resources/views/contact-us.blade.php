@@ -1,11 +1,13 @@
 @extends('layout.master')
 
 <style>
-         .floating:focus {
+.floating:focus {
     border: 1px solid blue !important;
+    box-shadow: none !important;
 }
 .floating {
     border: 1px solid #997045 !important;
+    box-shadow: none !important;
 }
 select {
     word-wrap: normal;

@@ -246,8 +246,9 @@
             z-index: 2;
         }
 
-        .form-focus textarea.form-control {
-            padding-top: 24px !important;
+        /* Long-text fields begin beneath their floating labels on every listing form. */
+        .form-focus textarea.floating.form-control {
+            padding: 28px 7px 10px !important;
             line-height: 1.35;
         }
 

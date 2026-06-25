@@ -275,6 +275,10 @@ $(document).on('change', '.images', function (e) {
     $('.images').siblings('.invalid-feedback.image-error').hide();
 
     const files = e.target.files;
+    if (!files.length) {
+        return;
+    }
+
     for (let i = 0; i < files.length; i++) {
         const file = files[i];
         const reader = new FileReader();

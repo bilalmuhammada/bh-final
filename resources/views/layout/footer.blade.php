@@ -19,9 +19,10 @@
         position: relative;
     }
     .app-store-coming-soon-label {
-        bottom: calc(100% + 2px);
+        bottom: calc(100% - 2px);
         color: #0000FF !important;
         font-size: 11px;
+        font-weight: 700;
         left: 50%;
         line-height: 14px;
         opacity: 0;

@@ -226,6 +226,7 @@ color: goldenrod !important;
     box-shadow: none !important;
 }
 #select2-filter-dropdown-results .select2-results__option {
+    color: blue !important;
     line-height: 1.2 !important;
     min-height: 23px !important;
     padding: 2px 8px !important;
@@ -233,7 +234,7 @@ color: goldenrod !important;
 #select2-filter-dropdown-results .select2-results__option--highlighted[aria-selected],
 #select2-filter-dropdown-results .select2-results__option:hover {
     background: #fff !important;
-    color: #f6d365 !important;
+    color: blue !important;
 }
 .select2-container--default .select2-selection--single {
     border: none !important;
@@ -288,10 +289,10 @@ color: goldenrod !important;
         height: 75vh !important;
         min-height: 570px !important;
         background-color: #ffffff !important;
-        border: 1px solid #e5e5e5 !important;
+        border: none !important;
         border-radius: 4px !important;
         overflow: hidden;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+        box-shadow: none !important;
     }
     .chat-scroll {
         height: calc(75vh - 150px) !important;
@@ -361,11 +362,14 @@ select::-ms-expand {
 
 }
 input.form-control-search:focus {
-  border-color: #000fff !important;
+  border-color: #A17A4E !important;
+  box-shadow: none !important;
+  outline: none !important;
 
 } 
 .form-control-search{
     border:1px solid #A17A4E !important;
+    box-shadow: none !important;
     padding-left: 12px;
     font-size: 13px !important;
     height: 40px;
@@ -527,7 +531,7 @@ a:hover {
 
 /* Show menu */
 .custom-dropdown-menu.show {
-  display: block;
+  display: block !important;
 }
 
 /* Dropdown items */
@@ -542,7 +546,7 @@ a:hover {
 
 .custom-dropdown-menu a:hover {
     background: #ffff;
-    color: #f6d365 !important;
+    color: #d4a72c !important;
 }
 
 /* Button styling */
@@ -612,9 +616,9 @@ a:hover {
 
 .chat-product-meta .meta-separator {
     color: red;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 1;
-    margin: 0 2px 0 3px !important;
+    margin: 0 0 0 3px !important;
 }
 
 .report-user-btn.user-reported,
@@ -784,7 +788,7 @@ a:hover {
 
                                             
                                             <div class="custom-dropdown-menu" id="optionsMenu"  >
-                                                <a href="#" class="block-chat block_user" data-chat-id="{{ $chat->id }}">Block User</a>
+                                                <a href="#" class="block-chat block_user" data-chat-id="{{ $chat->id }}">{{ $chat->is_blocked ? 'Unblock User' : 'Block User' }}</a>
                                                 <a href="#" class="report-user-btn @if($existingReport) user-reported @endif" data-ad-id="{{ $chat->ad->id }}" data-bs-toggle="modal" data-bs-target="#reportUserModal">  
                                                 @if($existingReport)
                                                         User Reported
@@ -920,20 +924,22 @@ a:hover {
         e.stopPropagation();  // Prevent the click from triggering the anchor link
     });
 
-const btn = document.getElementById('userOptionsMenu');
-const menu = document.getElementById('optionsMenu');
-
-if (btn && menu) {
-    btn.addEventListener('click', function(e) {
+    $(document).on('click', '#userOptionsMenu', function(e) {
+        e.preventDefault();
         e.stopPropagation();
-        menu.classList.toggle('show');
+
+        var menu = $(this).closest('.custom-dropdown').find('.custom-dropdown-menu');
+        $('.custom-dropdown-menu').not(menu).removeClass('show').css('display', '');
+        menu.toggleClass('show').css('display', '');
     });
 
-    // Close dropdown if clicked outside
-    document.addEventListener('click', function() {
-        menu.classList.remove('show');
+    $(document).on('click', function() {
+        $('.custom-dropdown-menu').removeClass('show').css('display', '');
     });
-}
+
+    $(document).on('click', '.custom-dropdown-menu', function(e) {
+        e.stopPropagation();
+    });
 
     function checkInput() {
         $('.chat-body-div:visible .chat-footer').each(function () {
@@ -947,12 +953,6 @@ if (btn && menu) {
             footer.find('.msg-send-btn').prop('disabled', isBlocked || (inputMessage === '' && !hasImg));
         });
     }
-$(document).on("click", "#userOptionsMenu", function() {
-
-
-$(".custom-dropdown-menu").addClass("show");
-$(".custom-dropdown-menu").css("display", "block");
-});
 $(document).ready(function () {
         const productDescription = $('#productDescription');
         if (productDescription.text().length > 40) {
@@ -1055,6 +1055,7 @@ $(document).ready(function () {
     $(document).on('click', '.block-chat', function(e) {
         e.preventDefault();
         e.stopPropagation();
+        $('.custom-dropdown-menu').removeClass('show').css('display', '');
 
         var chatId = $(this).data('chat-id');
         var chatBody = $('.chat-body-div[chat-id="' + chatId + '"]');
@@ -1376,6 +1377,7 @@ $(document).ready(function () {
         });
 
         $(document).on('click', '.report-user-btn', function() {
+            $('.custom-dropdown-menu').removeClass('show').css('display', '');
             $('#reportUserModal').find('.ad-id').val($(this).data('ad-id'));
             $('#reportUserModal').modal('show');// Show the popup
 });
