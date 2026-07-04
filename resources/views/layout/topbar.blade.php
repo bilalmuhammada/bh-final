@@ -285,7 +285,7 @@
     #chatsDropdown:hover,
     #chatsDropdown[aria-expanded="true"],
     .dropdown.show > #chatsDropdown {
-        color: blue !important;
+        color: var(--topbar-currency-gold) !important;
     }
 
     .topbar-dropdown-row {
@@ -432,9 +432,15 @@
     }
 
     .desktop-category-nav .nav-link:hover,
-    .desktop-category-nav .dropdown-item:hover,
     .dropdown-menu-custom a:hover {
         color: var(--topbar-currency-gold) !important;
+    }
+
+    .desktop-category-nav .dropdown-item:hover,
+    .desktop-category-nav .dropdown-item:focus,
+    .desktop-category-nav .dropdown-item.active {
+        color: blue !important;
+        background-color: #fff !important;
     }
 
     /* Profile Image Styling */
@@ -544,8 +550,8 @@
                 @if (session()->has('user'))
                     <!-- Notifications -->
                     <div class="dropdown" style="margin-left: auto;">
-                        <a class="topbar-dropdown-trigger trigger-with-badge" id="notificationsDropdown"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a href="{{ env('BASE_URL') . 'notifications' }}"
+                            class="topbar-dropdown-trigger trigger-with-badge" id="notificationsDropdown">
                             Notifications
                             @if(count($notifications) > 0)
                                 <span
@@ -604,8 +610,8 @@
 
                     <!-- Favorites -->
                     <div class="dropdown">
-                        <a class="topbar-dropdown-trigger trigger-with-badge" id="favoritesDropdown" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                        <a href="{{ env('BASE_URL') . 'my-favourites' }}"
+                            class="topbar-dropdown-trigger trigger-with-badge" id="favoritesDropdown">
                             Favorites
                             @if($favourite_ads_count > 0)
                                 <span
@@ -654,9 +660,8 @@
 
                     <!-- Chats -->
                     <div class="dropdown">
-                        <a href="{{ count($chats) > 0 ? '#' : route('chats') . '?country=' . request()->country . '&city=' . request()->city }}"
-                            class="topbar-dropdown-trigger trigger-with-badge" id="chatsDropdown" @if(count($chats) > 0)
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @endif>
+                        <a href="{{ route('chats') . '?country=' . request()->country . '&city=' . request()->city }}"
+                            class="topbar-dropdown-trigger trigger-with-badge" id="chatsDropdown">
                             Chats
                             @if(count($chats) > 0)
                                 <span class="badge-premium-green">{{ count($chats) > 99 ? '99' : count($chats) }}</span>
@@ -737,7 +742,7 @@
                     </div>
                 @else
 
-                    <div class="auth-buttons d-flex" style="gap: 12px; margin-left: auto; margin-bottom: 6px;">
+                    <div class="auth-buttons d-flex" style="gap: 12px; margin-left: auto;">
                         <a class="topbar-dropdown-trigger login-btn fw-bold">Login</a>
                         <a class="topbar-dropdown-trigger register-btn fw-bold">Register</a>
                     </div>

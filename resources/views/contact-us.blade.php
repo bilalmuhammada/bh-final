@@ -23,6 +23,9 @@ select {
 form{
     width: auto !important;
 }
+#contact-us-form .form-focus {
+    height: 66px;
+}
 .contact-us{
     background-color:  #997045 !important;
     color: white;

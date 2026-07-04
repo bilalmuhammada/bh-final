@@ -212,6 +212,7 @@ class RecordHelper
 
         // Get the latest message from each chat the user is part of efficiently
         $Messages = \App\Models\Message::with('receiver', 'sender', 'chat.ad')
+            ->whereHas('chat.ad')
             ->whereIn('id', function($query) use ($userId) {
                 $query->select(DB::raw('max(messages.id)'))
                     ->from('messages')

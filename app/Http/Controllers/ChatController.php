@@ -32,6 +32,7 @@ class ChatController extends Controller
             ->withCount(['unreadMessages' => function ($query) use ($userId) {
                 $query->where('sender_id', '!=', $userId);
             }])
+            ->whereHas('ad')
             ->where(function ($query) use ($userId) {
                 $query->where('first_user_id', $userId)
                     ->orWhere('second_user_id', $userId);
@@ -95,6 +96,10 @@ class ChatController extends Controller
 
     public function toggleBlock(Request $request)
     {
+        $request->validate([
+            'chat_id' => 'required|integer',
+        ]);
+
         $userId = SiteHelper::getLoginUserId();
         $chat = Chat::where('id', $request->chat_id)
             ->where(function ($query) use ($userId) {
@@ -103,12 +108,28 @@ class ChatController extends Controller
             })
             ->firstOrFail();
 
-        $chat->is_blocked = !$chat->is_blocked;
+        if ($chat->is_blocked) {
+            if ($chat->blocked_by_user_id && (int) $chat->blocked_by_user_id !== (int) $userId) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Only the user who blocked this chat can unblock it.',
+                ], 403);
+            }
+
+            $chat->is_blocked = false;
+            $chat->blocked_by_user_id = null;
+        } else {
+            $chat->is_blocked = true;
+            $chat->blocked_by_user_id = $userId;
+        }
+
         $chat->save();
 
         return response()->json([
             'status' => true,
-            'is_blocked' => (bool) $chat->is_blocked
+            'is_blocked' => (bool) $chat->is_blocked,
+            'blocked_by_me' => $chat->is_blocked
+                && (int) $chat->blocked_by_user_id === (int) $userId,
         ]);
     }
     public function getAcceptedUserForChat(Request $request)

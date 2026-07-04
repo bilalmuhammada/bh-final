@@ -332,7 +332,7 @@ $(document).on('click', '.report-ad-submit-btn', function (e) {
                     hideReportModal(modal);
                     $('.report-user-btn[data-ad-id="' + reportedAdId + '"]')
                         .addClass('user-reported')
-                        .text('User Reported');
+                        .text('Reported User');
                 } else {
                     hideReportModal(modal);
                 }

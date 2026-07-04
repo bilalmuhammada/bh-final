@@ -59,6 +59,9 @@
         #first_name,#last_name, #phone,#Email,#password_confirmation,#password_main{
             padding: 12px 20px 12px 10px;
         }
+        #password_main.password-rule {
+            word-spacing: -1px;
+        }
 /*         
         #register-form .select2-container--open{
             left: -22px !important;
@@ -262,8 +265,9 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
-                                        <input type="password" name="password" id="password_main" class="form-control login-user floating"
-                                               placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                                        <input type="password" name="password" id="password_main" class="form-control login-user floating password-rule"
+                                               placeholder="8 Characters - 1 Capital, 1 Number, 1 Special"
+                                               aria-label="Password" aria-describedby="basic-addon1">
                                         <div class="input-group-append">
                                             <span class="toggle-password" onclick="togglePassword('password_main')" style="cursor: pointer;">👁️</span>
                                         </div>

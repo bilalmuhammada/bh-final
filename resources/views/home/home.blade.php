@@ -31,7 +31,7 @@
         }
         
         .listing:hover .detail span:first-child {
-            color: #A17A4E !important;
+            color: goldenrod !important;
         }
 
         .listing img {
@@ -297,7 +297,7 @@
             transition: color 0.3s ease;
         }
         .similar-listing-card:hover .similar-listing-title {
-            color: #A17A4E !important;
+            color: goldenrod !important;
         }
         .similar-listing-category {
             font-size: 11px;

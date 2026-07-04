@@ -204,7 +204,7 @@ color:#0686ee !important;
 color: goldenrod !important;
 }
 #select2-filter-dropdown-container {
-    color: blue !important;
+    color: #000 !important;
     font-weight: 400 !important;
 }
 .chat-type-filter .select2-container {
@@ -226,7 +226,7 @@ color: goldenrod !important;
     box-shadow: none !important;
 }
 #select2-filter-dropdown-results .select2-results__option {
-    color: blue !important;
+    color: #000 !important;
     line-height: 1.2 !important;
     min-height: 23px !important;
     padding: 2px 8px !important;
@@ -370,9 +370,13 @@ input.form-control-search:focus {
 .form-control-search{
     border:1px solid #A17A4E !important;
     box-shadow: none !important;
+    box-sizing: border-box;
+    display: block;
+    max-width: none !important;
     padding-left: 12px;
     font-size: 13px !important;
     height: 40px;
+    width: 100% !important;
 }
 .position-relative {
     position: relative;
@@ -485,7 +489,7 @@ a:hover {
 
 }
 .chat-title:hover .product-left-description {
-    color: #f6d365 !important;
+    color: #d4a72c !important;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -623,7 +627,21 @@ a:hover {
 
 .report-user-btn.user-reported,
 .report-user-btn.user-reported:hover {
-    color: red !important;
+    color: #ff0000 !important;
+}
+
+.chat-list-toolbar {
+    flex-wrap: nowrap;
+}
+
+.chat-list-toolbar .chat-toolbar-actions {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.blocked-by-user {
+    color: #666;
+    cursor: default;
 }
 
     </style>
@@ -641,7 +659,7 @@ a:hover {
                     <div class="chat-window">
 
                         <div class="chat-cont-left">
-                            <div class="d-flex justify-content-between align-items-center py-2 pl-1 pr-3 border-bottom">
+                            <div class="chat-list-toolbar d-flex align-items-center py-2 pl-1 pr-3 border-bottom">
                                 <div class="d-flex align-items-center gap-2">
                                     <input type="checkbox" class="hiddencheck mb-0" id="check-all">
                                     <span style="font-size: 11px; font-weight: 500;" class="hiddencheck">Select All</span>
@@ -654,7 +672,7 @@ a:hover {
                                         <option value="blocked">Blocked</option>
                                     </select>
                                 </div>
-                                <div class="d-flex align-items-center gap-3">
+                                <div class="chat-toolbar-actions d-flex align-items-center gap-3">
                                     <div class="hiddentrash">
                                         <i class="fa fa-trash cursor-pointer" style="color: blue; font-size: 15px;"></i>
                                     </div>
@@ -727,7 +745,7 @@ a:hover {
                                                    
                                               
                                             </div>
-                                           
+
                                           
                                         </a>
                                       
@@ -777,8 +795,10 @@ a:hover {
                                                     ->where('listing_id', $chat->ad->id)
                                                     ->first();
 
-
-                                                   
+                                                $blockedByMe = $chat->is_blocked
+                                                    && (!$chat->blocked_by_user_id
+                                                        || (int) $chat->blocked_by_user_id === (int) $login_user_id);
+                                                $blockedByOther = $chat->is_blocked && !$blockedByMe;
                                              @endphp
 
                                         <div class="custom-dropdown">
@@ -786,12 +806,15 @@ a:hover {
                                                 <i class="fa fa-ellipsis-v"></i>
                                             </button>
 
-                                            
                                             <div class="custom-dropdown-menu" id="optionsMenu"  >
-                                                <a href="#" class="block-chat block_user" data-chat-id="{{ $chat->id }}">{{ $chat->is_blocked ? 'Unblock User' : 'Block User' }}</a>
+                                                @if($blockedByOther)
+                                                    <span class="dropdown-item blocked-by-user">Blocked by User</span>
+                                                @else
+                                                    <a href="#" class="block-chat block_user" data-chat-id="{{ $chat->id }}">{{ $blockedByMe ? 'Unblock User' : 'Block User' }}</a>
+                                                @endif
                                                 <a href="#" class="report-user-btn @if($existingReport) user-reported @endif" data-ad-id="{{ $chat->ad->id }}" data-bs-toggle="modal" data-bs-target="#reportUserModal">  
                                                 @if($existingReport)
-                                                        User Reported
+                                                        Reported User
                                                     @else
                                                         Report User
                                                     @endif
@@ -860,7 +883,7 @@ a:hover {
                                             </div>
                                         </div>
                                         <div class="chat-footer {{ $chat->is_blocked ? 'is-blocked' : '' }}">
-                                            <div class="chat-blocked-notice {{ $chat->is_blocked ? '' : 'd-none' }}">Chat Blocked by User</div>
+                                            <div class="chat-blocked-notice {{ $chat->is_blocked ? '' : 'd-none' }}">{{ $blockedByMe ? 'You blocked this user' : 'Chat Blocked by User' }}</div>
                                             <div class="chat-message-form" >
                                                 {{-- <div class="avatar" style="padding:4px;">
                                                     <img
@@ -1084,6 +1107,7 @@ $(document).ready(function () {
                 editor.attr('contenteditable', isBlocked ? 'false' : 'true');
                 footer.toggleClass('is-blocked', isBlocked);
                 footer.find('.chat-blocked-notice').toggleClass('d-none', !isBlocked);
+                footer.find('.chat-blocked-notice').text(isBlocked ? 'You blocked this user' : '');
                 emojioneArea.css({
                     'background': isBlocked ? '#fdeaea' : '',
                     'cursor': isBlocked ? 'not-allowed' : '',

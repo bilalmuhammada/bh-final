@@ -281,11 +281,13 @@
 
         .share-btn,
         .favourite-btn {
+            background: transparent !important;
+            box-shadow: none !important;
             font-size: 19px;
             border-radius: 2px;
             color: #fff !important;
             padding: 6px 6px;
-            text-shadow: 0 0 3px rgba(0,0,0,0.5);
+            text-shadow: none !important;
             transition: color 0.3s ease;
         }
 
@@ -837,7 +839,7 @@ button.active .indicator-img {
                                         <span class="ad-detail-actions" style="font-size: 13px; cursor:pointer;">
                                             <i class="fa favourite-btn detail-favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking"
                                                is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
-                                               style="padding:6px 6px;font-size:19px; text-shadow: 0 0 3px rgba(0,0,0,0.5);"> </i>
+                                               style="padding:6px 6px;font-size:19px;"> </i>
                         
                         
                                             <i class="fa fa-share-alt share-btn shaking" ad-id="{{ $ad->id }}" title="Copy Ad link"></i>
@@ -1280,7 +1282,7 @@ $(document).ready(function () {
 
         setTimeout(() => {
             notification.removeClass('visible');
-        }, 2000);
+        }, 3000);
             }).catch(err => {
                 console.error('Failed to copy text: ', err);
                 alert('Failed to copy the ad link. Please try again.');

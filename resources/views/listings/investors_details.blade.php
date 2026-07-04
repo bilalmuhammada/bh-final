@@ -29,6 +29,10 @@
         margin-bottom: 0;
     }
 
+    .form-focus .textarea-focus-label {
+        transform: translate3d(0, 18px, 0) scale(1);
+    }
+
     .remove-img:hover {
         color: blue !important;
     }
@@ -321,7 +325,7 @@
             <div class="form-group form-focus">
                 <textarea name="interested_business_types" class="form-control floating" placeholder=""
                     style="height: 150px;" required></textarea>
-                <label class="focus-label">Interested Business Types</label>
+                <label class="focus-label textarea-focus-label">Interested Business Types</label>
             </div>
 
             <div class="invalid-feedback">
@@ -332,7 +336,7 @@
             <div class="form-group form-focus">
                 <textarea name="description" class="form-control floating" placeholder="" style="height: 200px;"
                     required></textarea>
-                <label class="focus-label">Description</label>
+                <label class="focus-label textarea-focus-label">Description</label>
             </div>
             <div class="invalid-feedback">
                 Please provide a description.
