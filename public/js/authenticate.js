@@ -278,19 +278,50 @@ $(document).on('click', '.favourite-btn', function (e) {
     }
 });
 
+function copyTextToClipboard(text) {
+    function fallbackCopy() {
+        return new Promise(function (resolve, reject) {
+            var textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.setAttribute('readonly', '');
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
+            document.body.appendChild(textArea);
+            textArea.select();
+
+            try {
+                if (document.execCommand('copy')) {
+                    resolve();
+                } else {
+                    reject(new Error('Copy command was unsuccessful'));
+                }
+            } catch (error) {
+                reject(error);
+            } finally {
+                document.body.removeChild(textArea);
+            }
+        });
+    }
+
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+        return navigator.clipboard.writeText(text).catch(fallbackCopy);
+    }
+
+    return fallbackCopy();
+}
+
 //share
 $(document).on('click', '.share-btn', function () {
     var thisElem = $(this);
     var link = base_url + "ads/detail/" + thisElem.attr('ad-id');
 
-    // Copy the text inside the text field
-    navigator.clipboard.writeText(link);
-
-    thisElem.removeClass('fa-copy');
-    thisElem.addClass('fa-check');
-
-
-    $(this).attr('title', "Link copied");
+    copyTextToClipboard(link).then(function () {
+        thisElem.removeClass('fa-copy');
+        thisElem.addClass('fa-check');
+        thisElem.attr('title', "Link copied");
+    }).catch(function () {
+        thisElem.attr('title', "Unable to copy link");
+    });
 });
 
 //report ad
