@@ -1263,31 +1263,57 @@ function redirectToWhatsApp() {
     const whatsappLink = `https://wa.me/${whatsappNumber}`;
     window.open(whatsappLink, '_blank');
 }
+
+function copyAdLinkToClipboard(text) {
+    const fallbackCopy = () => {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.setAttribute('readonly', '');
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.select();
+
+        try {
+            if (!document.execCommand('copy')) {
+                throw new Error('Copy command was unsuccessful');
+            }
+
+            return Promise.resolve();
+        } catch (error) {
+            return Promise.reject(error);
+        } finally {
+            document.body.removeChild(textArea);
+        }
+    };
+
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+        return navigator.clipboard.writeText(text).catch(fallbackCopy);
+    }
+
+    return fallbackCopy();
+}
+
 $(document).ready(function () {
  
-    $('.share-btn').on('click', function () {
-            // Get the ad ID
-            const adId = $(this).attr('ad-id');
+    $('.share-btn').on('click', function (event) {
+        event.stopPropagation();
 
-            // Construct the ad link (replace with your actual link logic)
-            const adLink = `${window.location.origin}/ad/${adId}`;
+        const adLink = {!! json_encode(url('/ads/detail/' . $ad->id)) !!};
 
-            // Copy the ad link to the clipboard
-            navigator.clipboard.writeText(adLink).then(() => {
-                // alert('Ad link copied to clipboard: ' + adLink);
-
-                const notification = $('#notification');
+        copyAdLinkToClipboard(adLink).then(() => {
+            const notification = $('#notification');
         notification.text('Saved to Clipboard');
         notification.addClass('visible');
 
         setTimeout(() => {
             notification.removeClass('visible');
         }, 3000);
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
-                alert('Failed to copy the ad link. Please try again.');
-            });
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+            alert('Failed to copy the ad link. Please try again.');
         });
+    });
 
 
     const $carousel = $('#carouselDemo');
