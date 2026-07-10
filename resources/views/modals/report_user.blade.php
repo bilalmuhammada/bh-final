@@ -41,6 +41,8 @@
         #reportUserModal textarea[name="description"],
         #reportUserModal textarea[name="description"]:focus {
             color: #000 !important;
+            border: 1px solid #A17A4E !important;
+            box-shadow: none !important;
         }
         #reportUserModal .closebtn.btn,
         #reportUserModal .report-ad-submit-btn {
@@ -122,7 +124,7 @@
                         <div class="row">
                             <label for=""></label>
                             <textarea name="description"  class="form-control colorchange" placeholder="Reason..."
-                                      style="border:2px solid #eee;font-size: 14px;border: 1px solid goldenrod; color:#000" cols="12" rows="2" maxlength="80"
+                                      style="font-size: 14px; color:#000" cols="12" rows="2" maxlength="80"
                                       ></textarea>
                         </div>
                     </div>
