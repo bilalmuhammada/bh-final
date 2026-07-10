@@ -572,7 +572,7 @@ button.active .indicator-img {
     }
 
     .similar-listing-card:hover .similar-listing-title {
-        color: #A17A4E !important;
+        color: goldenrod !important;
     }
 
     .similar-listing-image {
