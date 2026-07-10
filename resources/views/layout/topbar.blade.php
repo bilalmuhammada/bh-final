@@ -715,28 +715,29 @@
                     </a>
 
                     <!-- Profile -->
-                    <div class="dropdown">
-                        <a class="topbar-dropdown-trigger" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false" style="display: flex; align-items: center;">
-                            <span
-                                style="white-space: nowrap; padding: 0px 14px;">{{session()->get('user')->first_name}}</span>
+                    <div style="display: flex; align-items: center;">
+                        <span style="white-space: nowrap; padding: 0px 14px;">{{session()->get('user')->first_name}}</span>
+                        <div class="dropdown">
+                            <a class="topbar-dropdown-trigger" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" style="display: flex; align-items: center; padding: 0;">
                             <img src="{{session()->get('user')->image_url}}" class="topbar-profile-img">
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right p-0"
-                            style="min-width:70px; border: 1px solid #eee !important; margin-top: 2px !important;">
-                            <div class="list-group list-group-flush">
-                                <a class="list-group-item list-group-item-action profile-menu-link"
-                                    style=" font-size: 13px; padding:0px 4px 0px 4px; color: black; border: none; display: flex; align-items: center;"
-                                    href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right p-0"
+                                style="min-width:70px; border: 1px solid #eee !important; margin-top: 2px !important;">
+                                <div class="list-group list-group-flush">
+                                    <a class="list-group-item list-group-item-action profile-menu-link"
+                                        style=" font-size: 13px; padding:0px 4px 0px 4px; color: black; border: none; display: flex; align-items: center;"
+                                        href="{{ env('BASE_URL') . 'user/profile?country=' . request()->country . '&city=' . request()->city}}">
 
-                                    <span>My Profile</span>
-                                </a>
+                                        <span>My Profile</span>
+                                    </a>
 
-                                <a class="list-group-item list-group-item-action profile-menu-link logout-btn"
-                                    style=" font-size: 13px; padding:0px 4px 0px 4px; color: black; border: none; display: flex; align-items: center;">
+                                    <a class="list-group-item list-group-item-action profile-menu-link logout-btn"
+                                        style=" font-size: 13px; padding:0px 4px 0px 4px; color: black; border: none; display: flex; align-items: center;">
 
-                                    <span>Sign Out</span>
-                                </a>
+                                        <span>Sign Out</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
