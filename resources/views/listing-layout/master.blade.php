@@ -242,13 +242,13 @@
 
         .form-focus textarea.floating ~ .focus-label {
             background-color: #fff;
-            left: 7px;
+            left: 12px;
             z-index: 2;
         }
 
         /* Long-text fields begin beneath their floating labels on every listing form. */
         .form-focus textarea.floating.form-control {
-            padding: 28px 7px 10px !important;
+            padding: 28px 12px 10px !important;
             line-height: 1.35;
         }
 
