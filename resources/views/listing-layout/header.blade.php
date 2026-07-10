@@ -119,6 +119,15 @@
     textarea:focus {
             outline: none !important;
     }
+    .form-focus textarea.floating.form-control {
+        padding: 28px 12px 10px !important;
+        line-height: 1.35;
+    }
+    .form-focus textarea.floating ~ .focus-label {
+        background-color: #fff;
+        left: 12px;
+        z-index: 2;
+    }
     select{
         height :calc(1.9em + 0.75rem + 2px) !important;
     }
