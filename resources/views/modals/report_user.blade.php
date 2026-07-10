@@ -44,6 +44,9 @@
             border: 1px solid #A17A4E !important;
             box-shadow: none !important;
         }
+        #reportUserModal textarea[name="description"]:hover {
+            border-color: #0000FF !important;
+        }
         #reportUserModal .closebtn.btn,
         #reportUserModal .report-ad-submit-btn {
             background-color: #A17A4E !important;
