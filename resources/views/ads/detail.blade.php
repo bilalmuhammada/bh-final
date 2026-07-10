@@ -950,12 +950,12 @@ button.active .indicator-img {
 
                         <hr style="border-color: #eee; width: 100%; margin: 0px 13px 0;">
                         <!---------->
-                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px; margin-top: 4px;">
+                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px; margin-top: 4px; padding-left: 10px;">
                             <h6 style="margin-bottom: 2px;"><b>Products & Services Offered</b></h6>
                             <p style="font-size: 14px; margin-bottom: 2px;">{{ $ad->details->products_and_services_offered ?? '....' }} this is one line</p>
                         </div>
                         <hr style="border-color: #eee; width: 100%; margin: 0px 13px 0;">
-                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px; margin-top: 4px;">
+                        <div class="col-lg-12 col-md-12 col-12" style="margin-bottom:0px; margin-top: 4px; padding-left: 10px;">
                             <h6 style="margin-bottom: 2px;"><b>Description</b></h6>
                             <p style="font-size: 14px;margin-bottom: 2px;">{{ $ad->description }} this is description</p>
                         
