@@ -157,6 +157,14 @@
     .menucolor:hover {
         color: #000fff;
     }
+
+    .textarea-align-left .focus-label {
+        left: 7px;
+    }
+
+    .textarea-align-left .form-control {
+        padding-left: 7px !important;
+    }
 </style>
 @section('content')
 
@@ -425,7 +433,7 @@
             </div>
         </div>
         <div class="col-md-6 mx-auto">
-            <div class="form-group form-focus">
+            <div class="form-group form-focus textarea-align-left">
                 <textarea name="products_and_services_offered" class="form-control floating" placeholder=""
                     style="height: 150px;" required></textarea>
                 <label class="focus-label">Products & Services Offered</label>
@@ -435,7 +443,7 @@
             </div>
         </div>
         <div class="col-md-6 mx-auto" style="margin-top: 120px;">
-            <div class="form-group form-focus">
+            <div class="form-group form-focus textarea-align-left">
                 <textarea name="description" class="form-control floating" placeholder="" style="height: 200px;"
                     required></textarea>
                 <label class="focus-label">Description</label>
