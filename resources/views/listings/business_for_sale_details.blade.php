@@ -158,12 +158,15 @@
         color: #000fff;
     }
 
-    .textarea-align-left .focus-label {
-        left: 7px;
+    .form-focus textarea.floating.form-control {
+        padding: 28px 12px 10px !important;
+        line-height: 1.35;
     }
 
-    .textarea-align-left .form-control {
-        padding-left: 7px !important;
+    .form-focus textarea.floating ~ .focus-label {
+        background-color: #fff;
+        left: 12px;
+        z-index: 2;
     }
 </style>
 @section('content')
@@ -433,7 +436,7 @@
             </div>
         </div>
         <div class="col-md-6 mx-auto">
-            <div class="form-group form-focus textarea-align-left">
+            <div class="form-group form-focus">
                 <textarea name="products_and_services_offered" class="form-control floating" placeholder=""
                     style="height: 150px;" required></textarea>
                 <label class="focus-label">Products & Services Offered</label>
@@ -443,7 +446,7 @@
             </div>
         </div>
         <div class="col-md-6 mx-auto" style="margin-top: 120px;">
-            <div class="form-group form-focus textarea-align-left">
+            <div class="form-group form-focus">
                 <textarea name="description" class="form-control floating" placeholder="" style="height: 200px;"
                     required></textarea>
                 <label class="focus-label">Description</label>
