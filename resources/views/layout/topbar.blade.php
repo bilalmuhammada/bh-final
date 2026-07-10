@@ -463,6 +463,10 @@
         transform: translate3d(-16px, 0px, 0px) !important;
     }
 
+    .dropdown.show > .profile-dropdown-menu {
+        transform: translate3d(-15px, 32px, 0px) !important;
+    }
+
     /* end */
 </style>
 <header>
