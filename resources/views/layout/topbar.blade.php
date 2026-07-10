@@ -455,6 +455,14 @@
         /* Move up by 1px */
     }
 
+    .dropdown:hover > .profile-dropdown-menu {
+        min-width: 70px;
+        border: 1px solid #eee !important;
+        margin-top: 2px !important;
+        right: auto !important;
+        transform: translate3d(-16px, 0px, 0px) !important;
+    }
+
     /* end */
 </style>
 <header>
@@ -722,8 +730,8 @@
                                 aria-expanded="false" style="display: flex; align-items: center; padding: 0;">
                             <img src="{{session()->get('user')->image_url}}" class="topbar-profile-img">
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right p-0"
-                                style="min-width:70px; border: 1px solid #eee !important; margin-top: 2px !important; left: 20px !important; right: auto !important; transform: translate3d(-15px, 32px, 0px) !important;">
+                            <div class="dropdown-menu dropdown-menu-right profile-dropdown-menu p-0"
+                                style="min-width:70px; border: 1px solid #eee !important; margin-top: 2px !important;">
                                 <div class="list-group list-group-flush">
                                     <a class="list-group-item list-group-item-action profile-menu-link"
                                         style=" font-size: 13px; padding:0px 4px 0px 4px; color: black; border: none; display: flex; align-items: center;"
