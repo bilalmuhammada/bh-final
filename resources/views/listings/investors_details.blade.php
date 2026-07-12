@@ -33,6 +33,13 @@
         transform: translate3d(0, 18px, 0) scale(1);
     }
 
+    /* Keep both textarea labels inside their frames, including while focused. */
+    .form-focus.focused textarea.form-control ~ .textarea-focus-label,
+    .form-focus textarea.form-control:focus ~ .textarea-focus-label {
+        top: -6px;
+        transform: translate3d(0, 18px, 0) scale(1);
+    }
+
     .remove-img:hover {
         color: blue !important;
     }
