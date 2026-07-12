@@ -331,7 +331,7 @@
             padding: 0;
             pointer-events: none;
             position: absolute;
-            left: 100px !important;
+            left: 250px !important;
             text-align: right;
 
             top: -25px;
