@@ -331,7 +331,7 @@
             padding: 0;
             pointer-events: none;
             position: absolute;
-            left: auto;
+            left: 10px;
           
             top: -25px;
             transform: translateY(-10px);
