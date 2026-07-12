@@ -622,7 +622,7 @@
 
                     <!-- Favorites -->
                     <div class="dropdown">
-                        <a href="{{ env('BASE_URL') . 'my-favourites' }}"
+                        <a href="{{ env('BASE_URL') . 'ads?type=favourite' }}"
                             class="topbar-dropdown-trigger trigger-with-badge" id="favoritesDropdown">
                             Favorites
                             @if($favourite_ads_count > 0)

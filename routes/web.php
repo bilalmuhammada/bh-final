@@ -144,7 +144,7 @@ Route::get('/my-searches', function () {
     return view('home.innerPages.search');
 });
 
-Route::get('/my-favourites', [HomeController::class, 'favourite']);
+Route::redirect('/my-favourites', '/ads?type=favourite');
 
 Route::get('/my-ads', function () {
     return view('home.innerPages.ads');
