@@ -289,8 +289,8 @@ color: goldenrod !important;
         height: 75vh !important;
         min-height: 570px !important;
         background-color: #ffffff !important;
-        border: none !important;
-        border-radius: 4px !important;
+        border: 1px solid #ddd !important;
+        border-radius: 10px !important;
         overflow: hidden;
         box-shadow: none !important;
     }
