@@ -837,7 +837,7 @@ button.active .indicator-img {
 
                                 <div class="carousel slide" id="carouselDemo" data-bs-wrap="true" data-bs-ride="carousel" style="position: relative;">
                                     <span id="notification" class="notification ad-share-notification">Saved to Clipboard</span>
-                                    <div style="position: absolute; top: 10px; right: 10px; z-index: 10;">
+                                    <div style="position: absolute; top: 10px; right: 15px; z-index: 10;">
                                         <span class="ad-detail-actions" style="font-size: 13px; cursor:pointer;">
                                             <i class="fa favourite-btn detail-favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking"
                                                is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
