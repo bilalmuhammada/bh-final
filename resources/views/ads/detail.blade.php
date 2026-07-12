@@ -332,7 +332,7 @@
             pointer-events: none;
             position: absolute;
             left: 0 !important;
-            right: auto !important;
+            left: auto !important;
             text-align: right;
           
             top: -25px;
