@@ -363,6 +363,8 @@ $(document).on('click', '.report-ad-submit-btn', function (e) {
                     hideReportModal(modal);
                     $('.report-user-btn[data-ad-id="' + reportedAdId + '"]')
                         .addClass('user-reported')
+                        .removeAttr('href data-ad-id data-bs-toggle data-bs-target')
+                        .attr('aria-disabled', 'true')
                         .text('Reported User');
                 } else {
                     hideReportModal(modal);

@@ -539,7 +539,8 @@ a:hover {
 }
 
 /* Dropdown items */
-.custom-dropdown-menu a {
+.custom-dropdown-menu a,
+.custom-dropdown-menu span {
 
     white-space: nowrap;
   display: block;
@@ -628,6 +629,7 @@ a:hover {
 .report-user-btn.user-reported,
 .report-user-btn.user-reported:hover {
     color: #ff0000 !important;
+    cursor: default;
 }
 
 .chat-list-toolbar {
@@ -812,13 +814,11 @@ a:hover {
                                                 @else
                                                     <a href="#" class="block-chat block_user" data-chat-id="{{ $chat->id }}">{{ $blockedByMe ? 'Unblock User' : 'Block User' }}</a>
                                                 @endif
-                                                <a href="#" class="report-user-btn @if($existingReport) user-reported @endif" data-ad-id="{{ $chat->ad->id }}" data-bs-toggle="modal" data-bs-target="#reportUserModal">  
                                                 @if($existingReport)
-                                                        Reported User
-                                                    @else
-                                                        Report User
-                                                    @endif
-                                                </a>
+                                                    <span class="report-user-btn user-reported" aria-disabled="true">Reported User</span>
+                                                @else
+                                                    <a href="#" class="report-user-btn" data-ad-id="{{ $chat->ad->id }}">Report User</a>
+                                                @endif
                                             </div>
                                             </div>
 
@@ -1400,7 +1400,8 @@ $(document).ready(function () {
             markMessageAsReaded(chat_id, $('#' + user));
         });
 
-        $(document).on('click', '.report-user-btn', function() {
+        $(document).on('click', '.report-user-btn:not(.user-reported)', function(e) {
+            e.preventDefault();
             $('.custom-dropdown-menu').removeClass('show').css('display', '');
             $('#reportUserModal').find('.ad-id').val($(this).data('ad-id'));
             $('#reportUserModal').modal('show');// Show the popup
