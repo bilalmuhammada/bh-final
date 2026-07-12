@@ -455,12 +455,17 @@
         /* Move up by 1px */
     }
 
-    .dropdown:hover > .profile-dropdown-menu {
+    .dropdown > .profile-dropdown-menu {
         min-width: 70px;
         border: 1px solid #eee !important;
         margin-top: 2px !important;
         right: auto !important;
         transform: translate3d(-16px, 0px, 0px) !important;
+    }
+
+    /* The profile menu opens by clicking the avatar, not by hovering beside it. */
+    .dropdown:not(.show):hover > .profile-dropdown-menu {
+        display: none !important;
     }
 
     .dropdown.show > .profile-dropdown-menu {
@@ -812,7 +817,7 @@
             style="min-height: auto !important; margin-bottom: 10px !important;">
             <div class="collapse navbar-collapse" id="navbarSupportedContentx">
                 <ul class="navbar-nav"
-                    style="font-size: 13px; display: flex; flex-wrap: nowrap; gap: 40px; font-weight: 600; white-space: nowrap; margin-bottom: 0px !important;">
+                    style="font-size: 13px; display: flex; flex-wrap: nowrap; gap: 39px; font-weight: 600; white-space: nowrap; margin-bottom: 0px !important;">
                     @php $categories = $categories ?? \App\Helpers\RecordHelper::getCategories(); @endphp
                     @foreach($categories as $category)
                         <li class="nav-item dropdown">
