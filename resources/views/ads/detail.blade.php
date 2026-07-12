@@ -333,7 +333,7 @@
             position: absolute;
             left: 0 !important;
             right: auto !important;
-            text-align: left;
+            text-align: right;
           
             top: -25px;
             transform: translateY(-10px);
