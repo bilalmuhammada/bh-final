@@ -883,7 +883,7 @@ a:hover {
                                             </div>
                                         </div>
                                         <div class="chat-footer {{ $chat->is_blocked ? 'is-blocked' : '' }}">
-                                            <div class="chat-blocked-notice {{ $chat->is_blocked ? '' : 'd-none' }}">{{ $blockedByMe ? 'You blocked this user' : 'Chat Blocked by User' }}</div>
+                                            <div class="chat-blocked-notice {{ $chat->is_blocked ? '' : 'd-none' }}">{{ $blockedByMe ? 'Chat blocked by You' : 'Chat Blocked by User' }}</div>
                                             <div class="chat-message-form" >
                                                 {{-- <div class="avatar" style="padding:4px;">
                                                     <img
@@ -1107,7 +1107,7 @@ $(document).ready(function () {
                 editor.attr('contenteditable', isBlocked ? 'false' : 'true');
                 footer.toggleClass('is-blocked', isBlocked);
                 footer.find('.chat-blocked-notice').toggleClass('d-none', !isBlocked);
-                footer.find('.chat-blocked-notice').text(isBlocked ? 'You blocked this user' : '');
+                footer.find('.chat-blocked-notice').text(isBlocked ? 'Chat blocked by You' : '');
                 emojioneArea.css({
                     'background': isBlocked ? '#fdeaea' : '',
                     'cursor': isBlocked ? 'not-allowed' : '',
