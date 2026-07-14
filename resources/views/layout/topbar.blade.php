@@ -171,7 +171,7 @@
     .badge-new-green {
         background-color: #dcfce7 !important;
         color: #166534 !important;
-        font-size: 8px !important;
+        font-size: 10px !important;
         white-space: nowrap !important;
         padding: 2px 8px !important;
         display: inline-flex !important;
@@ -180,6 +180,19 @@
         font-weight: 700 !important;
         border-radius: 20px !important;
         box-shadow: 0 1px 3px rgba(22, 101, 52, 0.1);
+    }
+
+    .chat-new-badge {
+        min-width: 48px;
+        height: 18px;
+        padding: 0 8px !important;
+        line-height: 1 !important;
+        text-align: center;
+    }
+
+    .chat-new-badge > span {
+        display: block;
+        transform: translateY(1px);
     }
 
     /* Dropdown Menus */
@@ -472,6 +485,22 @@
         transform: translate3d(-15px, 32px, 0px) !important;
     }
 
+    /* Hide Google Translate's injected top banner without disabling translation. */
+    iframe.goog-te-banner-frame,
+    .goog-te-banner-frame.skiptranslate,
+    iframe.VIpgJd-ZVi9od-ORHb-OEVmcd,
+    .VIpgJd-ZVi9od-ORHb-OEVmcd {
+        display: none !important;
+        height: 0 !important;
+        visibility: hidden !important;
+    }
+
+    html,
+    body {
+        margin-top: 0 !important;
+        top: 0 !important;
+    }
+
     /* end */
 </style>
 <header>
@@ -487,9 +516,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <script type="text/javascript">
-        function translateLanguage() {
-            var dropdown = document.getElementById("language_dropdown");
-            var selectedLanguage = dropdown.options[dropdown.selectedIndex].value;
+        function translateLanguage(dropdown) {
+            dropdown = dropdown || document.querySelector('.language_dropdown');
+
+            if (!dropdown) {
+                return;
+            }
+
+            var selectedLanguage = dropdown.value;
 
             if (selectedLanguage) {
                 var googleTranslateCombo = document.querySelector('.goog-te-combo');
@@ -539,8 +573,8 @@
                 </div>
 
                 <div class="selection-item">
-                    <select class="form-control language_dropdown" name="language_dropdown" style="width:120px;"
-                        onchange="translateLanguage()">
+                    <select class="form-control language_dropdown" id="language_dropdown" name="language_dropdown" style="width:120px;"
+                        onchange="translateLanguage(this)">
                         @foreach($language as $language1)
                             <option {{ $language1->id == request()->language ? 'selected' : '' }}
                                 data-flag-url="{{ $language1->flag_image_url }}" value="{{ $language1->prefix }}" {{ $language1->prefix == 'en' ? 'selected' : '' }}>
@@ -689,8 +723,8 @@
                                 <div
                                     class="pl-2 pr-2 pb-2 pt-2 border-bottom d-flex justify-content-between align-items-center">
                                     <h6 class="mb-0 fw-bold" style="font-size: 14px;">Chats</h6>
-                                    <span class="badge badge-new-green">{{ count($chats) > 99 ? '99' : count($chats) }}
-                                        New</span>
+                                    <span class="badge badge-new-green chat-new-badge"><span>{{ count($chats) > 99 ? '99' : count($chats) }}
+                                        New</span></span>
                                 </div>
                                 <div class="list-group list-group-flush">
                                     @foreach($chats->take(3) as $message)

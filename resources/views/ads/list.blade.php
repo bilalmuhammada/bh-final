@@ -336,6 +336,10 @@
         color: #A17A4E !important;
     }
 
+    .favourite-btn.fa-heart-o:hover {
+        color: #ff3131 !important;
+    }
+
     .favourite-btn.fa-heart {
         color: red !important;
     }
@@ -610,7 +614,7 @@ request()->city)->first()->name : 'All';
 
                                 <p style="margin-top: 5.2rem; font-size: 13px; white-space: nowrap;">
                                     <i class="fa fa-map-marker" style="color: red;"></i> {{ $ad->location_name }}
-                                    <span style="font-size: 16px; margin-left: 6px; margin-right: 8px; color: #A17A4E;">&#9679;</span>
+                                    <span style="font-size: 16px; margin-left: 2px; margin-right: 3px; color: #A17A4E;">&#9679;</span>
                                     <span>{{ \Carbon\Carbon::parse($ad->created_at)->format('d M Y') }}</span>
                                 </p>
 

@@ -618,8 +618,8 @@ button.active .indicator-img {
         transition: color 0.3s ease;
     }
 
-    .similar-listing-heart i:hover {
-        color: #0000FF;
+    .similar-listing-heart i.fa-heart-o:hover {
+        color: #ff3131;
     }
 
     .similar-listing-heart.favorited i {

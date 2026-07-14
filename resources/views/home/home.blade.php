@@ -264,8 +264,8 @@
             z-index: 10;
             cursor: pointer;
         }
-        .similar-listing-heart:hover {
-            color: #A17A4E;
+        .similar-listing-heart i.fa-heart-o:hover {
+            color: #ff3131 !important;
         }
         .similar-listing-heart.favorited i {
             color: #ff3131 !important;
