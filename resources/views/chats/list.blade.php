@@ -194,7 +194,7 @@ select {
     }
     .emojionearea.emojionearea-inline {
 
-    border-radius: 25px !important;
+    border-radius: 4px !important;
 }
 .mgn-send-color{
 color:#0686ee !important;
