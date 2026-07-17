@@ -327,15 +327,13 @@
             display: block;
             font-size: 12px;
             font-weight: normal;
-            opacity: 0;
+            opacity: 0; 
             padding: 0;
             pointer-events: none;
             position: absolute;
-            left: 250px !important;
             text-align: right;
 
-            top: -25px;
-            transform: translateY(-15px);
+            top: -18px;
             transition: opacity 0.2s ease;
             white-space: nowrap;
             z-index: 1100;
@@ -345,13 +343,13 @@
             animation: none;
             opacity: 1;
             transform: translateY(0);
-            transform: translateX(20px);
+            
         }
 
         .notification {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    right: 5px;
     background-color: #333;
     color: #fff;
     padding: 10px 15px;
@@ -836,12 +834,12 @@ button.active .indicator-img {
                                 
 
                                 <div class="carousel slide" id="carouselDemo" data-bs-wrap="true" data-bs-ride="carousel" style="position: relative;">
-                                    <span id="notification" class="notification ad-share-notification" style="left: 250px !important;">Saved to Clipboard</span>
+                                    <span id="notification" class="notification ad-share-notification" ">Saved to Clipboard</span>
                                     <div style="position: absolute; top: 10px; right: 10px; z-index: 10;">
                                         <span class="ad-detail-actions" style="font-size: 13px; cursor:pointer;">
                                             <i class="fa favourite-btn detail-favourite-btn {{ $ad->is_favourite ? 'fa-heart' : 'fa-heart-o' }} shaking"
                                                is-favourite="{{ $ad->is_favourite ? '1' : '0' }}" ad-id="{{ $ad->id }}"
-                                               style="padding:6px 6px;font-size:19px;"> </i>
+                                               style ="padding:6px 6px;font-size:19px;"> </i>
                         
                         
                                             <i class="fa fa-share-alt share-btn shaking" ad-id="{{ $ad->id }}" title="Copy Ad link"></i>

@@ -287,7 +287,7 @@ color: goldenrod !important;
     }
     .chat-window {
         height: 75vh !important;
-        min-height: 570px !important;
+        min-height: 589px !important;
         background-color: #ffffff !important;
         border: 1px solid #ddd !important;
         border-radius: 10px !important;
@@ -334,6 +334,37 @@ color: goldenrod !important;
     .chat-cont-right .chat-header .avatar-img {
         background-color: #fff;
         object-fit: contain;
+    }
+
+    /* Keep the message composer inside the fixed chat panel at every zoom level. */
+    .chat-cont-right {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+    }
+
+    .chat-body-div {
+        flex: 1 1 auto;
+        height: 100%;
+        min-height: 0;
+    }
+
+    .chat-body-div > .chat-header,
+    .chat-body-div > .chat-footer {
+        flex: 0 0 auto;
+    }
+
+    .chat-body-div > .chat-body {
+        display: flex;
+        flex: 1 1 auto;
+        min-height: 0;
+    }
+
+    .chat-body-div .chat-scroll {
+        flex: 1 1 auto;
+        height: auto !important;
+        max-height: none !important;
+        min-height: 0 !important;
     }
     /* Professional Dropdown Styling */
 
@@ -406,11 +437,12 @@ input.form-control-search:focus {
 }
 .chat-message-form {
     align-items: center;
+    box-sizing: border-box;
     display: flex;
     gap: 8px;
     margin: 0;
-    padding: 15px 12px;
-    transform: translateY(-10px);
+    padding: 8px 12px;
+    transform: none;
     width: 100%;
 }
 .chat-blocked-notice {
@@ -426,6 +458,7 @@ input.form-control-search:focus {
     width: 100%;
 }
 .chat-footer {
+    flex-shrink: 0;
     position: relative;
 }
 .chat-footer.is-blocked .emojionearea,
@@ -1002,7 +1035,7 @@ $(document).ready(function () {
             @if(request()->i)
             $('.chat-body-div').css('display', 'none');
             $('.chat-with-user-{{ request()->i }}').addClass('active');
-            $('#' + $('.chat-with-user-{{ request()->i }}').attr('id') + '-chat-body-div').show();
+            $('#' + $('.chat-with-user-{{ request()->i }}').attr('id') + '-chat-body-div').css('display', 'flex');
             @endif
             ajax_setup();
 
@@ -1226,7 +1259,7 @@ $(document).ready(function () {
             
             // Hide all chat bodies and show the relevant one
             $('.chat-body-div').hide();
-            chatBody.show();
+            chatBody.css('display', 'flex');
             loadChatMessages(chatId, chatBody);
             
             // Update URL without reloading

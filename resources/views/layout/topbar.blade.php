@@ -403,6 +403,8 @@
         height: 28px !important;
         display: flex !important;
         align-items: center !important;
+        background: transparent !important;
+        box-shadow: none !important;
     }
 
     .topbar-wrapper .select2-container--default .select2-selection--single .select2-selection__rendered {
@@ -468,21 +470,27 @@
         /* Move up by 1px */
     }
 
-    .dropdown > .profile-dropdown-menu {
-        min-width: 70px;
+    .profile-dropdown > .profile-dropdown-menu {
+        min-width: 72px;
         border: 1px solid #eee !important;
-        margin-top: 2px !important;
-        right: auto !important;
-        transform: translate3d(-16px, 0px, 0px) !important;
+        margin: 2px 0 0 !important;
+        top: 100% !important;
+        right: -20px !important;
+        bottom: auto !important;
+        left: auto !important;
+        transform: none !important;
+        white-space: nowrap;
+        z-index: 1055;
     }
 
-    /* The profile menu opens by clicking the avatar, not by hovering beside it. */
-    .dropdown:not(.show):hover > .profile-dropdown-menu {
-        display: none !important;
+    /* Use the same fixed position whether the menu is opened by hover or click. */
+    .profile-dropdown:hover > .profile-dropdown-menu {
+        display: block;
     }
 
-    .dropdown.show > .profile-dropdown-menu {
-        transform: translate3d(-15px, 32px, 0px) !important;
+    .profile-dropdown > .profile-dropdown-menu .profile-menu-link {
+        padding: 2px 4px !important;
+        line-height: 1.35;
     }
 
     /* Hide Google Translate's injected top banner without disabling translation. */
@@ -739,8 +747,8 @@
                                                 <p class="mb-1 text-muted small text-truncate" style="color: #666;">
                                                     {{ Str::limit($message->message ?? 'Click to view', 40) }}</p>
                                                 <div class="d-flex justify-content-between align-items-center">
-                                                    <small class="text-primary fw-bold"
-                                                        style="font-size: 12px;font-weight: 600;">{{ $message->chat->other_user->first_name ?? 'User' }}</small>
+                                                    <small class="text-black fw-bold"
+                                                        style="font-size: 12px;font-weight: 400;">{{ $message->chat->other_user->first_name ?? 'User' }}</small>
                                                     <small class="text-muted"
                                                         style="font-size: 11px;">{{ $message->message_recieved_time_diff }}</small>
                                                 </div>
@@ -767,14 +775,14 @@
 
                     <!-- Profile -->
                     <div style="display: flex; align-items: center;">
-                        <span style="white-space: nowrap; padding: 0px 14px;">{{session()->get('user')->first_name}}</span>
-                        <div class="dropdown">
+                        <span class="topbar-dropdown-trigger" style="white-space: nowrap; padding: 0px 14px;">{{session()->get('user')->first_name}}</span>
+                        <div class="dropdown profile-dropdown">
                             <a class="topbar-dropdown-trigger" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false" style="display: flex; align-items: center; padding: 0;">
-                            <img src="{{session()->get('user')->image_url}}" class="topbar-profile-img">
+                                aria-expanded="false" style="display: flex; align-items: center; padding: 0;" aria-label="Open profile menu">
+                            <img src="{{session()->get('user')->image_url}}" class="topbar-profile-img" alt="Profile">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown-menu p-0"
-                                style="min-width:70px; border: 1px solid #eee !important; margin-top: 2px !important;">
+                                aria-labelledby="profileDropdown">
                                 <div class="list-group list-group-flush">
                                     <a class="list-group-item list-group-item-action profile-menu-link"
                                         style=" font-size: 13px; padding:0px 4px 0px 4px; color: black; border: none; display: flex; align-items: center;"

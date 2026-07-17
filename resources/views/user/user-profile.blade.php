@@ -113,7 +113,7 @@
     }
 
     .position-550 {
-        left: 600px !important;
+        left: 546px !important;
     }
 
     select::-ms-expand {
@@ -141,7 +141,8 @@
     }
 
     #ui-datepicker-div {
-        width: 225px !important;
+        box-sizing: border-box;
+        left: 544px !important;
     }
 
     #select2-register_cities-container {
@@ -593,6 +594,19 @@
             }
         }
         $(document).ready(function () {
+
+            $('#datepicker1').datepicker('option', 'beforeShow', function (input) {
+                var $input = $(input);
+                var $datepicker = $('#ui-datepicker-div');
+
+                // Match the Date of Birth field exactly on both horizontal edges.
+                setTimeout(function () {
+                    $datepicker.css({
+                        width: $input.outerWidth(),
+                        left: $input.offset().left
+                    });
+                }, 0);
+            });
 
 
             $(".country_dropdown_user").select2({
