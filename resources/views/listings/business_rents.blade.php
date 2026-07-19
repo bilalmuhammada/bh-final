@@ -1,7 +1,8 @@
 @extends('listing-layout.master')
 <style>
     .form-focus {
-        height: 58px;
+        min-height: 58px;
+        height: auto;
         position: relative;
     }
 
@@ -415,7 +416,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="text" class="form-control floating" name="website" placeholder="URL" {{--
+                        <input type="text" class="form-control floating" name="website" placeholder="" {{--
                             pattern="\d{10}" --}} title="" required>
                         <label class="focus-label">Website</label>
                     </div>
@@ -423,7 +424,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-focus">
-                        <input type="text" class="form-control floating" name="reason_sale" placeholder="URL" {{--
+                        <input type="text" class="form-control floating" name="reason_sale" placeholder="" {{--
                             pattern="\d{10}" --}} title="" required>
                         <label class="focus-label">Instagram</label>
                     </div>

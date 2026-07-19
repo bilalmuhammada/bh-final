@@ -1,7 +1,8 @@
 @extends('listing-layout.master')
 <style>
     .form-focus {
-        height: 58px;
+        min-height: 58px;
+        height: auto;
         position: relative;
     }
 
@@ -216,31 +217,37 @@
         <div class="col-md-6 mx-auto">
             <div class="row">
                 <div class="col-md-6">
-                    <select class="form-controlz" name="condition" required>
-                        <option selected disabled>Condition</option>
-                        <option value="Perfect inside and out">Perfect inside and out</option>
-                        <option value="Almost no noticeable problems or flaws">Almost no noticeable problems or flaws
-                        </option>
-                        <option value="A bit of wear and tear, but in good working condition">A bit of wear and tear, but in
-                            good working condition</option>
-                        <option value="Normal wear and tear for the age of the item, a few problems here and there">Normal
-                            wear and tear for the age of the item, a few problems here and there</option>
-                        <option value="Above average wear and tear. The item may need a bit of repair to work properly">
-                            Above average wear and tear. The item may need a bit of repair to work properly</option>
-                    </select>
+                    <div class="form-group form-focus">
+                        <select class="form-controlz form-control floating" name="condition" required>
+                            <option disabled selected hidden></option>
+                            <option value="Perfect inside and out">Perfect inside and out</option>
+                            <option value="Almost no noticeable problems or flaws">Almost no noticeable problems or flaws
+                            </option>
+                            <option value="A bit of wear and tear, but in good working condition">A bit of wear and tear, but in
+                                good working condition</option>
+                            <option value="Normal wear and tear for the age of the item, a few problems here and there">Normal
+                                wear and tear for the age of the item, a few problems here and there</option>
+                            <option value="Above average wear and tear. The item may need a bit of repair to work properly">
+                                Above average wear and tear. The item may need a bit of repair to work properly</option>
+                        </select>
+                        <label class="focus-label">Condition</label>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <select class="form-controlz" name="usage" required>
-                        <option selected disabled>Usage</option>
-                        <option value="Still in Original packing">Still in Original packing</option>
-                        <option value="Out of original packaging, but only used once">Out of original packaging, but only
-                            used once</option>
-                        <option value="Used only a few times">Used only a few times</option>
-                        <option value="Used an average amount, as frequently as would be expected">Used an average amount,
-                            as frequently as would be expected</option>
-                        <option value="Used an above average amount since purchased">Used an above average amount since
-                            purchased</option>
-                    </select>
+                    <div class="form-group form-focus">
+                        <select class="form-controlz form-control floating" name="usage" required>
+                            <option disabled selected hidden></option>
+                            <option value="Still in Original packing">Still in Original packing</option>
+                            <option value="Out of original packaging, but only used once">Out of original packaging, but only
+                                used once</option>
+                            <option value="Used only a few times">Used only a few times</option>
+                            <option value="Used an average amount, as frequently as would be expected">Used an average amount,
+                                as frequently as would be expected</option>
+                            <option value="Used an above average amount since purchased">Used an above average amount since
+                                purchased</option>
+                        </select>
+                        <label class="focus-label">Usage</label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -267,32 +274,41 @@
                     </select> --}}
                 </div>
                 <div class="col-md-6">
-                    <select class="form-controlz" name="stock_unit" required>
-                        <option selected disabled>Stock Unit</option>
-                        <option value="pcs">Pcs</option>
-                        <option value="kg">Kg</option>
-                        <option value="ton">Tons</option>
-                        <option value="ltr">Ltr</option>
-                    </select>
+                    <div class="form-group form-focus">
+                        <select class="form-controlz form-control floating" name="stock_unit" required>
+                            <option disabled selected hidden></option>
+                            <option value="pcs">Pcs</option>
+                            <option value="kg">Kg</option>
+                            <option value="ton">Tons</option>
+                            <option value="ltr">Ltr</option>
+                        </select>
+                        <label class="focus-label">Stock Unit</label>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-md-6 mx-auto">
             <div class="row">
                 <div class="col-md-6">
-                    <select class="form-controlz" name="source" required>
-                        <option selected disabled>Source</option>
-                        <option value="Manufacturer">Manufacturer</option>
-                        <option value="Distributor">Distributor</option>
-                    </select>
+                    <div class="form-group form-focus">
+                        <select class="form-controlz form-control floating" name="source" required>
+                            <option disabled selected hidden></option>
+                            <option value="Manufacturer">Manufacturer</option>
+                            <option value="Distributor">Distributor</option>
+                        </select>
+                        <label class="focus-label">Source</label>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <select class="form-controlz" name="trade" required>
-                        <option selected disabled>Trade</option>
-                        <option value="Worlwide">Worlwide</option>
-                        <option value="Inside Country">Inside Country</option>
-                        <option value="Within Region">Within Region</option>
-                    </select>
+                    <div class="form-group form-focus">
+                        <select class="form-controlz form-control floating" name="trade" required>
+                            <option disabled selected hidden></option>
+                            <option value="Worlwide">Worlwide</option>
+                            <option value="Inside Country">Inside Country</option>
+                            <option value="Within Region">Within Region</option>
+                        </select>
+                        <label class="focus-label">Trade</label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -323,27 +339,27 @@
         <div class="col-md-6 mx-auto">
             <div class="row">
                 <div class="col-md-6">
-                    <select class="form-controlz country" name="country" style=" font-size: 0.9rem;color:#000;" required>
-                        <Option selected>Country</Option>
-                        @foreach($countries as $country)
-                            <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
-                        @endforeach
-                    </select>
-                    <div class="invalid-feedback">
-                        Please select a country.
+                    <div class="form-group form-focus">
+                        <select class="form-controlz form-control floating country" name="country" required>
+                            <option disabled selected hidden></option>
+                            @foreach($countries as $country)
+                                <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
+                            @endforeach
+                        </select>
+                        <label class="focus-label">Country</label>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <select class="form-controlz city" name="city" style=" font-size: 0.9rem;color:#000;" required>
-                        <option selected>City</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        Please select a city.
+                    <div class="form-group form-focus">
+                        <select class="form-controlz form-control floating city" name="city" required>
+                            <option disabled selected hidden></option>
+                        </select>
+                        <label class="focus-label">City</label>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
+        <div class="col-md-6 mx-auto" style="margin-top: 0px;">
             <div class="form-group form-focus">
                 <input type="text" class="form-control floating location_name" name="location_name"
                     placeholder="Location Type" required>

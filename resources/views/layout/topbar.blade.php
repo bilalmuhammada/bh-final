@@ -493,6 +493,13 @@
         line-height: 1.35;
     }
 
+    /* Keep profile-menu links visually unchanged on hover or keyboard focus. */
+    .profile-dropdown > .profile-dropdown-menu .profile-menu-link:hover,
+    .profile-dropdown > .profile-dropdown-menu .profile-menu-link:focus {
+        background-color: transparent !important;
+        box-shadow: none !important;
+    }
+
     /* Hide Google Translate's injected top banner without disabling translation. */
     iframe.goog-te-banner-frame,
     .goog-te-banner-frame.skiptranslate,

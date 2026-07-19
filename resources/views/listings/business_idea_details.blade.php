@@ -1,7 +1,8 @@
 @extends('listing-layout.master')
 <style>
     .form-focus {
-        height: 58px;
+        min-height: 58px;
+        height: auto;
         position: relative;
     }
 
@@ -370,7 +371,7 @@
                 Please provide a Products & Services Offered.
             </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 120px;">
+        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
             <div class="form-group form-focus">
                 <textarea name="description" class="form-control floating" placeholder="" style="height: 200px;"
                     required></textarea>

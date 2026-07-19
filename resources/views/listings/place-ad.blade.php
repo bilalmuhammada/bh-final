@@ -115,35 +115,42 @@
             </div>
         </div>
         <div class="col-md-4 mx-auto" style="margin-top: 20px;">
-            <div class="input--file">
-                <i class="fa fa-camera fa-1x"></i>
-                <input type="file" multiple class="form-control form-control-file images" name="images[]"
-                       placeholder="Upload Images">
-                <div class="invalid-feedback image-error">
-                    Please upload at least one image.
+            <div class="form-group form-focus">
+                <div class="input--file">
+                    <i class="fa fa-camera fa-1x"></i>
+                    <input type="file" multiple class="form-control form-control-file images" name="images[]"
+                           placeholder="Upload Images">
+                    <div class="invalid-feedback image-error">
+                        Please upload at least one image.
+                    </div>
+                    <span><b>Add Pictures</b></span>
                 </div>
-                <span><b>Add Pictures</b></span>
             </div>
         </div>
         <div class="col-md-4 mx-auto" style="margin-top: 20px;">
             <div id="image-display-div" class="row"></div>
         </div>
         <div class="col-md-4 mx-auto" style="margin-top: 20px;">
-            <select class="form-control country" name="country" required>
-                <option selected disabled hidden></option>
-                @foreach($countries as $country)
-                    <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
-                @endforeach
-            </select>
+            <div class="form-group form-focus">
+                <select class="form-controlz form-control floating country" name="country" required>
+                    <option selected disabled hidden></option>
+                    @foreach($countries as $country)
+                        <option value="{{ $country->id }}">{{ $country->nice_name }}</option>
+                    @endforeach
+                </select>
+                <label class="focus-label">Country</label>
+            </div>
             <div class="invalid-feedback">
                 Please select a country.
             </div>
         </div>
         <div class="col-md-4 mx-auto" style="margin-top: 20px;">
-            <select class="form-control city" name="city"  required>
-                <option selected disabled hidden></option>
-            </select>
-           
+            <div class="form-group form-focus">
+                <select class="form-controlz form-control floating city" name="city" required>
+                    <option selected disabled hidden></option>
+                </select>
+                <label class="focus-label">City</label>
+            </div>
         </div>
         <div class="col-md-4 mx-auto" style="margin-top: 20px;">
             <input type="text" class="form-control location_name" name="location_name" placeholder="Location Type"

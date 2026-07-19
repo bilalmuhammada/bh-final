@@ -58,7 +58,7 @@
 $(document).ready(function() {
    
     $('.emoji-trigger').emojioneArea({
-                pickerPosition: "bottom",
+                pickerPosition: "top",
                 events: {
             keyup: function (editor, event) {
                 checkInput();

@@ -103,7 +103,8 @@ select {
 
     }
     .emojionearea.focused {
-    border-color: blue !important;
+    border-color: #0000ff !important;
+    border-radius: 4px !important;
     outline: 0;
   
     box-shadow: none  !important;
@@ -111,9 +112,18 @@ select {
 
     .emojionearea {
     border-color: #A17A4E !important;
+    border-radius: 4px !important;
     outline: 0;
   
     box-shadow: none  !important;
+}
+
+    .emojionearea:hover,
+    .chat-input-wrap .emojionearea:hover,
+    .chat-input-wrap .emojionearea.focused {
+    border-color: #0000ff !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
 }
 
     .emojionearea.emojionearea-inline>.emojionearea-editor{
@@ -193,7 +203,6 @@ select {
         font-size: 14px;
     }
     .emojionearea.emojionearea-inline {
-
     border-radius: 4px !important;
 }
 .mgn-send-color{
@@ -276,11 +285,18 @@ color: goldenrod !important;
         width: 100% !important;
         height: 42px !important;
         border: 1px solid #A17A4E !important;
-        border-radius: 30px !important;
+        border-radius: 4px !important;
         padding: 0 54px 0 18px !important;
         color: #111 !important;
         background-color: #fff !important;
         outline: none !important;
+    }
+
+    .input-msg-send:hover,
+    .input-msg-send:focus {
+        border-color: #0000ff !important;
+        border-radius: 4px !important;
+        box-shadow: none !important;
     }
     .emojionearea-editor{
         left: 19px !important;
@@ -290,7 +306,7 @@ color: goldenrod !important;
         min-height: 589px !important;
         background-color: #ffffff !important;
         border: 1px solid #ddd !important;
-        border-radius: 10px !important;
+        border-radius: 4px !important;
         overflow: hidden;
         box-shadow: none !important;
     }

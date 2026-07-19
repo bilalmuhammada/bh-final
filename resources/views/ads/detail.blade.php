@@ -111,7 +111,7 @@
     }
 
     .document-action-btn .document-eye-icon {
-        font-size: 36px;
+        font-size: 35px;
         line-height: 1;
     }
 
@@ -349,7 +349,7 @@
         .notification {
     position: fixed;
     bottom: 20px;
-    right: 5px;
+    right: 0px;
     background-color: #333;
     color: #fff;
     padding: 10px 15px;

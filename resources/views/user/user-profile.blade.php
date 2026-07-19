@@ -40,6 +40,10 @@
         cursor: pointer;
     }
 
+    #profile-form .password-field-wrapper {
+        position: relative;
+    }
+
     .lobibox-notify-msg {
         margin-top: 12px;
     }
@@ -112,10 +116,6 @@
 
     }
 
-    .position-550 {
-        left: 546px !important;
-    }
-
     select::-ms-expand {
         /* display: none; Remove the dropdown icon on IE10+ */
     }
@@ -142,7 +142,6 @@
 
     #ui-datepicker-div {
         box-sizing: border-box;
-        left: 544px !important;
     }
 
     #select2-register_cities-container {
@@ -343,14 +342,14 @@
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Change Password:</b></div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-8 password-field-wrapper">
                                         <input name="password" id="password" type="password"
                                             class="form-control form-control1" {{--
                                             placeholder="8 Characters - 1 Capital, 1 Number, 1 Special" --}}
                                             style="border: 1px solid #999;">
                                         <div class="input-group-append">
                                             <span class="toggle-password" onclick="togglePassword('password')"
-                                                style="cursor: pointer;top: 50% !important;">👁️</span>
+                                                style="cursor: pointer;top: 38% !important;">👁️</span>
                                         </div>
                                     </div>
                                 </div>
@@ -358,13 +357,13 @@
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="row">
                                     <div class="col-md-4" style="margin-top: 10px;"><b>Confirm Password:</b></div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-8 password-field-wrapper">
                                         <input name="password" id="confirmpassword" type="password"
                                             class="form-control form-control1" placeholder=""
                                             style="border: 1px solid #999;">
                                         <div class="input-group-append">
                                             <span class="toggle-password" onclick="togglePassword('confirmpassword')"
-                                                style="cursor: pointer;top: 50% !important;">👁️</span>
+                                                style="cursor: pointer;top: 38% !important;">👁️</span>
                                         </div>
                                     </div>
                                 </div>
@@ -595,15 +594,28 @@
         }
         $(document).ready(function () {
 
-            $('#datepicker1').datepicker('option', 'beforeShow', function (input) {
-                var $input = $(input);
-                var $datepicker = $('#ui-datepicker-div');
+            $('#datepicker1').on('show', function () {
+                var input = this;
 
-                // Match the Date of Birth field exactly on both horizontal edges.
                 setTimeout(function () {
+                    var $input = $(input);
+                    var $datepicker = $('.datepicker-dropdown:visible').last();
+
+                    if (!$datepicker.length) {
+                        return;
+                    }
+
+                    var inputOffset = $input.offset();
+                    var inputWidth = $input.outerWidth();
+                    var datepickerWidth = $datepicker.outerWidth();
+                    var viewportLeft = $(window).scrollLeft();
+                    var viewportRight = viewportLeft + $(window).width();
+                    var left = inputOffset.left + ((inputWidth - datepickerWidth) / 2);
+
+                    left = Math.max(viewportLeft + 8, Math.min(left, viewportRight - datepickerWidth - 8));
+
                     $datepicker.css({
-                        width: $input.outerWidth(),
-                        left: $input.offset().left
+                        left: left + 'px'
                     });
                 }, 0);
             });
@@ -729,6 +741,8 @@
                             $('#profile-image').attr('src', imageUrl);
                             $('.topbar-profile-img').attr('src', imageUrl);
                         }
+
+                        window.location.reload();
                     } else {
                         var errors = response.errors;
                         console.log(errors);

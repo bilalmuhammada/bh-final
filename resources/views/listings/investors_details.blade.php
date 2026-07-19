@@ -1,7 +1,8 @@
 @extends('listing-layout.master')
 <style>
     .form-focus {
-        height: 58px;
+        min-height: 58px;
+        height: auto;
         position: relative;
     }
 
@@ -339,7 +340,7 @@
                 Please provide a Interested Business Types.
             </div>
         </div>
-        <div class="col-md-6 mx-auto" style="margin-top: 120px;">
+        <div class="col-md-6 mx-auto" style="margin-top: 20px;">
             <div class="form-group form-focus">
                 <textarea name="description" class="form-control floating" placeholder="" style="height: 200px;"
                     required></textarea>
@@ -354,25 +355,26 @@
 
         @include('listings.image&file')
 
-        <div class="col-md-6 mx-auto" style="margin-bottom: 22px;">
+        <div class="col-md-6 mx-auto" style="margin-bottom: 0px;">
             <div class="row">
                 <div class="col-md-6">
-                    <select class="form-controlz country  form-control floating" name="country"
-                        style=" font-size: 0.9rem;color:#000;" required>
-                        <Option selected>Country</Option>
-                        @foreach($countries as $country)
-                            <option value="{{ $country->id }}">{{ $country->name }}</option>
-                        @endforeach
-                    </select>
-
+                    <div class="form-group form-focus">
+                        <select class="form-controlz form-control floating country" name="country" required>
+                            <option disabled selected hidden></option>
+                            @foreach($countries as $country)
+                                <option value="{{ $country->id }}">{{ $country->name }}</option>
+                            @endforeach
+                        </select>
+                        <label class="focus-label">Country</label>
+                    </div>
                 </div>
                 <div class="col-md-6">
-
-                    <select class="form-controlz city form-control floating" name="city"
-                        style=" font-size: 0.9rem;color:#000;" required>
-                        <option selected>City</option>
-                    </select>
-
+                    <div class="form-group form-focus">
+                        <select class="form-controlz form-control floating city" name="city" required>
+                            <option disabled selected hidden></option>
+                        </select>
+                        <label class="focus-label">City</label>
+                    </div>
                 </div>
             </div>
         </div>

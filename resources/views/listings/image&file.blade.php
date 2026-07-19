@@ -1,4 +1,4 @@
-<div class="col-md-6 mx-auto" style="margin-top:166px;">
+<div class="col-md-6 mx-auto" style="margin-top: 20px;">
     <div class="input--file">
         <i class="fa fa-camera fa-1x"></i>
         <input type="file" multiple class="form-controlz form-control floating form-control-file images" name="images[]"
@@ -9,11 +9,9 @@
         </div>
         <span><b>Add Photos</b></span>
     </div>
-
-
 </div>
 
-<div class="col-md-6 mx-auto" style="margin-top:13px;">
+<div class="col-md-6 mx-auto" style="margin-top: 14px;">
     <div id="image-display-div" style="margin-bottom: 11px;" class="row">
         @if(isset($Listing))
             @foreach($Listing->images as $image)
@@ -30,7 +28,7 @@
     </div>
 </div>
 
-<div class="col-md-6 mx-auto" style="margin-top:0px;margin-bottom: 18px;">
+<div class="col-md-6 mx-auto" >
     <div class="input--file">
         <i class="fa fa-camera fa-1x"></i>
         <input type="file" multiple class="form-controlz form-control-file  documents" id="fileInput" name="documents[]"
@@ -42,7 +40,7 @@
     </div>
 </div>
 
-<div class="col-md-6 mx-auto" style="margin-bottom: 11px;">
+<div class="col-md-6 mx-auto" style="margin-bottom: 20px;">
     <div id="document-display-div" class="row">
         @if(isset($Listing))
             @foreach($Listing->documents as $doc)

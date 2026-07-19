@@ -251,17 +251,41 @@
 
 
 
+            function alignDatepickerToInput(input) {
+                var $input = $(input);
+                var $datepicker = $('.datepicker-dropdown:visible').last();
+
+                if (!$datepicker.length) {
+                    $datepicker = $('.datepicker:visible').last();
+                }
+
+                if (!$input.length || !$datepicker.length) {
+                    return;
+                }
+
+                var inputOffset = $input.offset();
+                var inputWidth = $input.outerWidth();
+                var datepickerWidth = $datepicker.outerWidth();
+                var viewportLeft = $(window).scrollLeft();
+                var viewportRight = viewportLeft + $(window).width();
+                var left = inputOffset.left + ((inputWidth - datepickerWidth) / 2);
+
+                left = Math.max(viewportLeft + 8, Math.min(left, viewportRight - datepickerWidth - 8));
+
+                $datepicker.css({
+                    left: left + 'px'
+                });
+            }
+
             $('#datepicker1').datepicker({
                 format: 'dd.mm.yyyy',
                 autoclose: true,
-                todayHighlight: true,
-                beforeShow: function (input, inst) {
-                    setTimeout(function () {
-                        $('.datepicker').css('left', '550px');
-                    }, 0); // Set timeout to ensure it applies after datepicker positioning
-                }
+                todayHighlight: true
             }).on('show', function (e) {
-                $('.datepicker').addClass('position-550');
+                var input = this;
+                setTimeout(function () {
+                    alignDatepickerToInput(input);
+                }, 0);
             });
 
             $(".country_dropdown").select2({
